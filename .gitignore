@@ -1,3 +1,4 @@
 # ignore remote plugins
 pack/remote/ever
 pack/remote/opt
+_.vim
