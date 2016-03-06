@@ -1,0 +1,24 @@
+[core]
+  quotepath = false
+  editor = vim
+  excludesfile = ~/.gitignore_global
+  preloadindex = true
+  fscashe = true
+[include]
+  path = ~/.gitconfig.local
+[color]
+  ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+[alias]
+  nffmerge = merge --no-ff
+  nfmerge = merge --no-ff
+  mergenff = merge --no-ff
+  ch = checkout
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  ffeature = flow feature
+  fstart = flow feature start
+  ffinish = flow feature finish
+[diff]
+  tool = vimdiff

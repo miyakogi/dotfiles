@@ -1,0 +1,45 @@
+--langdef=latex
+--langmap=latex:.tex
+--regex-latex=/\\label\{([^}]*)\}/\1/l,label/
+--regex-latex=/\\section\{([^}]*)\}/\1/s,section/
+--regex-latex=/\\subsection\{([^}]*)\}/\1/t,subsection/
+--regex-latex=/\\subsubsection\{([^}]*)\}/\1/u,subsubsection/
+--regex-latex=/\\section\*\{([^}]*)\}/\1/s,section/
+--regex-latex=/\\subsection\*\{([^}]*)\}/\1/t,subsection/
+--regex-latex=/\\subsubsection\*\{([^}]*)\}/\1/u,subsubsection/
+
+--langdef=bib
+--langmap=bib:.bib
+--regex-bib=/^@[A-Za-z]+\{([^,]*)/\1/b,bib/
+
+--langdef=markdown
+--langmap=markdown:.mkd
+--regex-markdown=/^#[ \t]+(.*)/§ \1/h,Headline1/
+--regex-markdown=/^##[ \t]+(.*)/§- \1/h,Headline1/
+--regex-markdown=/^###[ \t]+(.*)/§-- \1/h,Headline1/
+--regex-markdown=/^####[ \t]+(.*)/§--- \1/h,Headline1/
+
+--langdef=scala
+--langmap=scala:.scala
+--regex-scala=/^[ \t]*class[ \t]+([a-zA-Z0-9_]+)/\1/c,classes/
+--regex-scala=/^[ \t]*trait[ \t]+([a-zA-Z0-9_]+)/\1/t,traits/
+--regex-scala=/^[ \t]*type[ \t]+([a-zA-Z0-9_]+)/\1/T,types/
+--regex-scala=/^[ \t]*def[ \t]+([a-zA-Z0-9_]+)/\1/m,methods/
+--regex-scala=/^[ \t]*val[ \t]+([a-zA-Z0-9_]+)/\1/C,constants/
+--regex-scala=/^[ \t]*var[ \t]+([a-zA-Z0-9_]+)/\1/l,local variables/
+--regex-scala=/^[ \t]*package[ \t]+([a-zA-Z0-9_.]+)/\1/p,packages/
+--regex-scala=/^[ \t]*case class[ \t]+([a-zA-Z0-9_]+)/\1/c,case classes/
+--regex-scala=/^[ \t]*object[ \t]+([a-zA-Z0-9_]+)/\1/o,objects/
+
+--langdef=nim
+--langmap=nim:.nim
+--regex-nim=/(\w+)\*?\s*=\s*object/\1/t,class/
+--regex-nim=/(\w+)\*?\s*=\s*enum/\1/t,enum/
+--regex-nim=/(\w+)\*?\s*=\s*tuple/\1/t,tuple/
+--regex-nim=/(\w+)\*?\s*=\s*range/\1/t,subrange/
+--regex-nim=/(\w+)\*?\s*=\s*proc/\1/t,proctype/
+--regex-nim=/proc\s+(\w+)/\1/f,procedure/
+--regex-nim=/method\s+(\w+)/\1/f,method/
+--regex-nim=/proc\s+`([^`]+)`/\1/o,operator/
+--regex-nim=/template\s+(\w+)/\1/t,template/
+--regex-nim=/macro\s+(\w+)/\1/m,macro/

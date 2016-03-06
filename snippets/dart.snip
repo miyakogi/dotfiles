@@ -1,0 +1,106 @@
+snippet function
+abbr    void funtionName('args, ...') {...}
+options word
+  ${1:void} ${2:functionName}(${3:#:args}) {
+    ${0}
+  }
+
+snippet func
+abbr    funtionName('args, ...') {...}
+options word
+  ${1:functionName}(${2:#:args}) {
+    ${0}
+  }
+
+snippet fun
+abbr    functionName('args, ...') => {...}
+options word
+  ${1:functionName}(${2:#:args}) => ${0}
+
+snippet f
+abbr    ('args, ...') => {...}
+options word
+  (${1:#:args}) => ${0}
+
+snippet main
+abbr    void main() {...}
+options head
+  void main() {
+    ${0}
+  }
+
+snippet if
+abbr    if (condition) {...}
+options word
+  if (${1:condition}) {
+    ${0:TARGET}
+  }
+
+snippet ifelse
+abbr    if (condition) {...} else {...}
+options head
+  if (${1:#:condition}) {
+    ${0:TARGET}
+  } else {
+  }
+
+snippet for
+options head
+abbr    for (int i=1; i < max; i ++) {...}
+  for (int ${1:i}=0; $1 < ${2:#:Things}; $1 ++) {
+    ${0:TARGET}
+  }
+
+snippet forin
+options head
+abbr    for (var item in items) {...}
+  for (${1:var} ${2:#:item} in ${3:#:items}) {
+    ${0:TARGET}
+  }
+
+snippet while
+abbr    while (condition) {...}
+options head
+  while (${1:condition}) {
+    ${0:TARGET}
+  }
+
+snippet cl
+abbr    class ClassName {...}
+options head
+  class ${1:#:ClassName} {
+    ${0:TARGET}
+  }
+
+snippet class
+abbr    class ClassName { ClassName(){...} }
+options head
+  class ${1:#:ClassName} {
+    $1(${2:#:args}) {
+      ${0:TARGET}
+    }
+  }
+
+snippet class-extends
+abbr    class ClassName extends ParentClass {...}
+alias   cle
+options head
+  class ${1:#:ClassName} extends ${2:#:ParentClass} {
+    ${0:TARGET}
+  }
+
+snippet class-implements
+abbr    class ClassName implements AbstractClass {...}
+alias   cli
+options head
+  class ${1:#:ClassName} implements ${2:#:AbstractClass} {
+    ${0:TARGET}
+  }
+
+snippet abstract-class
+abbr    abstract class ClassName {...}
+alias   abc abstract class-abstract
+options head
+  abstract class ${1:#:ClassName} {
+    ${0:TARGET}
+  }

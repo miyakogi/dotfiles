@@ -1,0 +1,66 @@
+"set transparency=256set
+
+" GUI option config
+" set guioptions+=p
+" Disable toolbar
+" set guioptions-=T
+" Delete horizontal scrollbar
+" set guioptions-=L
+" set guioptions-=l
+" set guioptions-=r
+" set guioptions-=m
+" set guioptions-=a
+" set guioptions+=i
+" set guioptions-=g
+" set guioptions-=t
+set guioptions=pi
+
+" Font configuration
+" 日本語
+let s:default_gfw = "MotoyaLMaru 13.5"
+let &guifontwide = s:default_gfw
+" 英語
+let s:default_gfn = "MotoyaLMaru 13.5"
+let &guifont = s:default_gfn
+
+" set antialias
+set visualbell t_vb=
+
+" Window size configuration
+set columns=106
+" set columns=200
+" set lines=39
+set lines=52 " linespace=2
+set linespace=1
+set guiheadroom=0
+
+" Configure gui-cursor shape, color, and blinking.
+function! s:guicursor_set()
+  if &background == 'dark'
+    highlight iCursor guifg=white guibg=grey75
+    highlight rCursor guifg=white guibg=#dd2222
+    highlight oCursor guifg=white guibg=#dd2222
+  else
+    highlight iCursor guifg=black guibg=grey25
+    highlight rCursor guifg=black guibg=#dd2222
+    highlight oCursor guifg=black guibg=#dd2222
+  endif
+
+  set guicursor=
+        \n-v-c:block-Cursor/lCursor-blinkwait750-blinkon700-blinkoff400,
+        \ve:ver35-oCursor-blinkwait250-blinkon400-blinkoff250,
+        \o:hor50-oCursor-blinkwait250-blinkon400-blinkoff250,
+        \i-ci:ver12-iCursor/lCursor-blinkwait50-blinkon850-blinkoff550,
+        \r-cr:hor10-rCursor/lCursor-blinkwait0-blinkon0-blinkoff0,
+        \sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+      " \n-v-c:hor4-Cursor/lCursor-blinkwait750-blinkon850-blinkoff550,
+endfunction
+
+augroup guicursor
+  autocmd!
+  autocmd Syntax,ColorScheme * call s:guicursor_set()
+augroup END
+
+syntax on
+let s:cs = get(g:, 'MyColorScheme', 'slateblue')
+execute "colorscheme " . s:cs

@@ -1,0 +1,56 @@
+set encoding=utf8
+scriptencoding utf-8
+set fileencoding=utf8
+set transparency=3
+
+" GUI option config
+set guioptions+=p
+" Disable toolbar
+set guioptions-=T
+" Delete horizontal scrollbar
+set guioptions-=L
+set guioptions-=m
+set guioptions-=l
+set guioptions-=r
+" set guioptions-=a
+"set transparency=256set
+"
+" Font configuration
+" set gfn=Source\ Code\ Pro:h13
+" set gfn=Inconsolata\ for\ Powerline:h13
+set gfn=Ubuntu\ Mono\ derivative\ Powerline:h15
+set guifontwide=Osaka−等幅:h14
+set antialias
+
+" set ambiwidth=double
+set ambiwidth=single
+set cmdheight=1
+set visualbell t_vb=
+
+" Window size configuration
+set columns=91
+set lines=49
+set linespace=2
+if exists('g:MyColorScheme')
+  execute 'colorscheme ' . g:MyColorScheme
+else
+  colorscheme slateblue
+endif
+
+" insert mode を抜けた時に自動でIMEオフ
+inoremap <silent> <ESC> <Esc>:set iminsert=0<CR>
+
+" Configure gui-cursor shape, color, and blinking.
+highlight iCursor guifg=white guibg=grey75
+highlight rCursor guifg=white guibg=#dd2222
+highlight oCursor guifg=white guibg=#dd2222
+set guicursor=
+			\n-v-c:block-Cursor/lCursor-blinkwait750-blinkon700-blinkoff400,
+			\ve:ver35-oCursor-blinkwait250-blinkon400-blinkoff250,
+			\o:hor50-oCursor-blinkwait250-blinkon400-blinkoff250,
+			\i-ci:ver18-iCursor/lCursor-blinkwait50-blinkon850-blinkoff550,
+			\r-cr:hor10-rCursor/lCursor-blinkwait0-blinkon0-blinkoff0,
+			\sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+			" \n-v-c:hor4-Cursor/lCursor-blinkwait750-blinkon850-blinkoff550,
+
+set formatoptions-=ro
