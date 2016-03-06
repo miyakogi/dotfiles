@@ -16,7 +16,6 @@ import subprocess
 from typing import Union
 
 PROTO = 'https'
-BASEDIR = Path(__file__).resolve().parent.resolve()
 logger = logging.getLogger('VimPack')
 
 
@@ -85,8 +84,8 @@ def ensure_dir(path:Path):
 
 
 class Installer:
-    def __init__(self, dirpath:Path, config_file:Path):
-        self.dir = dirpath
+    def __init__(self, config_file:Path):
+        self.dir = config_file.parent
         self.config = self.load_config_file(config_file)
 
 
@@ -185,8 +184,8 @@ def main():
     args = parser.parse_args()
     conf_path = Path(args.config_file)
     if not conf_path.is_absolute():
-        conf_path = BASEDIR / conf_path
-    installer = Installer(BASEDIR, conf_path)
+        conf_path = Path.cwd() / conf_path
+    installer = Installer(conf_path)
     if args.command == 'install':
         installer.install()
     elif args.command == 'update':
