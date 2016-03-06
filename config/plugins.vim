@@ -745,12 +745,14 @@ endif
 " ============================================
 
 function! s:load_lazy_insert() abort
-  packadd abolish
-  packadd delimitMate
-  packadd neocomplete.vim
-  packadd neosnippet
-  packadd neosnippet-snippets
-  packadd vim-smartchr
+  if exists(':packadd')
+    packadd abolish
+    packadd delimitMate
+    packadd neocomplete.vim
+    packadd neosnippet
+    packadd neosnippet-snippets
+    packadd vim-smartchr
+  endif
 
   call s:init_abolish()
   call s:init_delimitMate()
