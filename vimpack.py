@@ -196,7 +196,8 @@ class Packager:
                         target.symlink_to(doc)
 
     def helptags(self):
-        cmd = ['vim', '-c', 'helptags {} | qa'.format(self.vimhome / 'doc')]
+        vim_cmd = 'helptags {} | quitall'.format(self.vimhome / 'doc')
+        cmd = ['vim', '-u', 'NONE', '-N', '--cmd', vim_cmd]
         proc = subprocess.run(cmd)
         if proc.returncode == 0:
             logger.info('helptags done')
@@ -211,10 +212,8 @@ def check_commands():
 
 def find_config_file(filename:Path):
     conf_files = []
-    vimhome = find_vimhome()
-    packpath = vimhome / 'pack'
-    for pack in packpath.iterdir():
-        if pack.is_dir() and (pack / filename).exists():
+    for pack in (find_vimhome() / 'pack').iterdir():
+        if (pack / filename).exists():
             conf_files.append(pack / filename)
     return conf_files
 
@@ -225,10 +224,16 @@ def main():
     parser = make_parser()
     args = parser.parse_args()
     conf = Path(args.config_file)
+
     if conf.is_absolute():
         conf_files = [conf]
     else:
         conf_files = find_config_file(conf)
+    if not conf_files:
+        logger.error('{} not found in directories under {}'.format(
+            conf, find_vimhome()/'pack'))
+        return
+
     for conf_file in conf_files:
         packager = Packager(conf_file)
         getattr(packager, args.command)()
