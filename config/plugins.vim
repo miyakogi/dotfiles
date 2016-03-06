@@ -745,11 +745,12 @@ endif
 " ============================================
 
 function! s:load_lazy_insert() abort
-  loadplugin delimitMate
-  loadplugin neocomplete.vim
-  loadplugin neosnippet
-  loadplugin neosnippet-snippets
-  loadplugin vim-smartchr
+  packadd abolish
+  packadd delimitMate
+  packadd neocomplete.vim
+  packadd neosnippet
+  packadd neosnippet-snippets
+  packadd vim-smartchr
 
   call s:init_abolish()
   call s:init_delimitMate()
