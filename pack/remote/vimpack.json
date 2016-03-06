@@ -1,0 +1,56 @@
+{
+  "ever": {
+    "github.com": [
+      "ujihisa/unite-locate",
+      "tpope/vim-fugitive",
+      "mhinz/vim-signify",
+      "osyo-manga/vim-anzu",
+      "osyo-manga/vim-over",
+      "thinca/vim-visualstar",
+      "majutsushi/tagbar",
+      "mattn/sonictemplate-vim",
+      "tomtom/tcomment_vim",
+      "tpope/vim-surround",
+      "kana/vim-repeat",
+      "kana/vim-textobj-user",
+      "rhysd/textobj-wiw",
+      "sgur/vim-textobj-parameter",
+      "kien/rainbow_parentheses.vim",
+      "nathanaelkane/vim-indent-guides",
+      "thinca/vim-quickrun",
+      "osyo-manga/vim-watchdogs",
+      "cohama/vim-hier",
+      "KazuakiM/vim-qfstatusline",
+      "osyo-manga/unite-quickfix",
+      "thinca/vim-ref",
+      "altercation/vim-colors-solarized",
+      "itchyny/lightline.vim",
+      "itchyny/vim-cursorword",
+      "miyakogi/vim-flake8",
+      "miyakogi/vim-virtualenv",
+      "hynek/vim-python-pep8-indent",
+      "miyakogi/jedi-vim",
+      "mitsuhiko/vim-jinja",
+      "miyakogi/nimrod.vim",
+      "jelera/vim-javascript-syntax",
+      "jason0x43/vim-js-indent",
+      "mattn/jscomplete-vim",
+      "leafgarland/typescript-vim",
+      "miyakogi/conoline.vim",
+      "miyakogi/slateblue.vim",
+      "miyakogi/sidepanel.vim",
+      "miyakogi/seiya.vim"
+    ]
+  },
+  "opt": {
+    "github.com": [
+      "Shougo/neocomplete.vim",
+      "Shougo/neosnippet",
+      "Shougo/neosnippet-snippets",
+      "Raimondi/delimitMate",
+      "kana/vim-smartchr",
+      "tpope/vim-abolish"
+    ]
+  }
+}
+
