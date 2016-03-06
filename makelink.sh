@@ -29,6 +29,7 @@ git_clone () {
 makedir_if_not_exists $HOME/.vim
 makedir_if_not_exists $HOME/.vim/bundle
 makedir_if_not_exists $HOME/.vim/backup
+makedir_if_not_exists $HOME/.vim/pack
 makedir_if_not_exists $HOME/.config
 makedir_if_not_exists $HOME/.config/nvim
 makedir_if_not_exists $HOME/.config/nvim/bundle
@@ -60,37 +61,27 @@ esac
 
 # ======== Directories ==============
 # Directories for Vim
-ln -sf $BASEDIR/after $HOME/.vim/after
-# ln -sf $BASEDIR/autoload $HOME/.vim/autoload
-ln -sf $BASEDIR/colors $HOME/.vim/colors
-ln -sf $BASEDIR/config $HOME/.vim/config
-ln -sf $BASEDIR/ftdetect $HOME/.vim/ftdetect
-ln -sf $BASEDIR/ftplugin $HOME/.vim/ftplugin
-ln -sf $BASEDIR/pack $HOME/.vim/pack
-ln -sf $BASEDIR/plugin $HOME/.vim/plugin
-ln -sf $BASEDIR/snippets $HOME/.vim/snippets
-ln -sf $BASEDIR/syntax $HOME/.vim/syntax
+ln -sf $BASEDIR/after $HOME/.vim
+# ln -sf $BASEDIR/autoload $HOME/.vim
+ln -sf $BASEDIR/colors $HOME/.vim
+ln -sf $BASEDIR/config $HOME/.vim
+ln -sf $BASEDIR/ftdetect $HOME/.vim
+ln -sf $BASEDIR/ftplugin $HOME/.vim
+ln -sf $BASEDIR/pack/remote $HOME/.vim/pack
+ln -sf $BASEDIR/plugin $HOME/.vim
+ln -sf $BASEDIR/snippets $HOME/.vim
+ln -sf $BASEDIR/syntax $HOME/.vim
 
 # Directories for NeoVim
 NVIMCONFIG=$HOME/.config/nvim
-ln -sf $BASEDIR/after $NVIMCONFIG/after
-ln -sf $BASEDIR/colors $NVIMCONFIG/colors
-ln -sf $BASEDIR/config $NVIMCONFIG/config
-ln -sf $BASEDIR/ftdetect $NVIMCONFIG/ftdetect
-ln -sf $BASEDIR/ftplugin $NVIMCONFIG/ftplugin
-ln -sf $BASEDIR/plugin $NVIMCONFIG/plugin
-ln -sf $BASEDIR/snippets $NVIMCONFIG/snippets
-ln -sf $BASEDIR/syntax $NVIMCONFIG/syntax
-
-# Delete links if duplicated
-delete_if_exists $NVIMCONFIG/after/after
-delete_if_exists $NVIMCONFIG/colors/colors
-delete_if_exists $NVIMCONFIG/config/config
-delete_if_exists $NVIMCONFIG/ftdetect/ftdetect
-delete_if_exists $NVIMCONFIG/ftplugin/ftplugin
-delete_if_exists $NVIMCONFIG/plugin/plugin
-delete_if_exists $NVIMCONFIG/snippets/snippets
-delete_if_exists $NVIMCONFIG/syntax/syntax
+ln -sf $BASEDIR/after $NVIMCONFIG
+ln -sf $BASEDIR/colors $NVIMCONFIG
+ln -sf $BASEDIR/config $NVIMCONFIG
+ln -sf $BASEDIR/ftdetect $NVIMCONFIG
+ln -sf $BASEDIR/ftplugin $NVIMCONFIG
+ln -sf $BASEDIR/plugin $NVIMCONFIG
+ln -sf $BASEDIR/snippets $NVIMCONFIG
+ln -sf $BASEDIR/syntax $NVIMCONFIG
 
 # Install neobundle.vim for neovim
 # git_clone https://github.com/Shougo/neobundle.vim  $HOME/.config/nvim/bundle/neobundle.vim
