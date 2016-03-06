@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Install Vim Plugins
+Install/Update/Check Vim Plugins
 '''
 
 import os
@@ -10,6 +10,7 @@ import json
 import curses
 import logging
 import shutil
+import argparse
 from pathlib import Path
 import subprocess
 from typing import Union
@@ -62,14 +63,19 @@ def setup_logger(logger):
     logger.propagate = False
 
 
-def load_config_file(file:Union[Path, str]):
-    if isinstance(file, Path):
-        with file.open() as f:
-            config = json.load(f)
-    else:
-        with open(file) as f:
-            config = json.load(f)
-    return config
+def make_parser():
+    desc = 'Vim Package Helper'
+    parser = argparse.ArgumentParser(description=desc, prog='VimPack')
+    subparsers = parser.add_subparsers(dest='command')
+    install_parser = subparsers.add_parser('install')
+    update_parser = subparsers.add_parser('update')
+    check_parser = subparsers.add_parser('check')
+
+    _conf = 'pack.json'
+    install_parser.add_argument('config_file', default=_conf, nargs='?')
+    update_parser.add_argument('config_file', default=_conf, nargs='?')
+    check_parser.add_argument('config_file', default=_conf, nargs='?')
+    return parser
 
 
 def ensure_dir(path:Path):
@@ -79,9 +85,19 @@ def ensure_dir(path:Path):
 
 
 class Installer:
-    def __init__(self, dirpath:Path, config:dict):
+    def __init__(self, dirpath:Path, config_file:Path):
         self.dir = dirpath
-        self.config = config
+        self.config = self.load_config_file(config_file)
+
+
+    def load_config_file(self, file:Union[Path, str]):
+        if isinstance(file, Path):
+            with file.open() as f:
+                config = json.load(f)
+        else:
+            with open(file) as f:
+                config = json.load(f)
+        return config
 
     def install(self):
         for d in self.config:
@@ -118,6 +134,7 @@ class Installer:
             base = self.dir / d
             for plugin_dir in base.iterdir():
                 self.pull(plugin_dir)
+        logger.info('Update completed')
 
     def pull(self, path:Path):
         if (path / '.git').exists():
@@ -135,11 +152,12 @@ class Installer:
     def init_submodule(self, path):
         subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'])
 
-    def check_plugins(self):
+    def check(self):
         for d in self.config:
             base = self.dir / d
             for plugin in base.iterdir():
                 self.check_plugin_dir(plugin)
+        logger.info('Check done')
 
     def check_plugin_dir(self, path:Path):
         plugin_dir = path / 'plugin'
@@ -155,12 +173,6 @@ class Installer:
             dummy_file.touch()
 
 
-class Updater(object):
-    def __init__(self, basedir, config):
-        self.dir = basedir
-        self.config = config
-
-
 def check_commands():
     if not shutil.which('git'):
         raise OSError('git command not found')
@@ -169,8 +181,18 @@ def check_commands():
 def main():
     check_commands()
     setup_logger(logger)
-    config = load_config_file(BASEDIR / 'vimpack.json')
-    installer = Installer(BASEDIR, config)
+    parser = make_parser()
+    args = parser.parse_args()
+    conf_path = Path(args.config_file)
+    if not conf_path.is_absolute():
+        conf_path = BASEDIR / conf_path
+    installer = Installer(BASEDIR, conf_path)
+    if args.command == 'install':
+        installer.install()
+    elif args.command == 'update':
+        installer.update()
+    elif args.command == 'check':
+        installer.check()
 
 
 if __name__ == '__main__':
