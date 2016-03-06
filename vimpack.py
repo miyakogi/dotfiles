@@ -86,8 +86,8 @@ def ensure_dir(path:Path):
 class Installer:
     def __init__(self, config_file:Path):
         self.dir = config_file.parent
+        self.vimhome = self.find_vimhome()
         self.config = self.load_config_file(config_file)
-
 
     def load_config_file(self, file:Union[Path, str]):
         if isinstance(file, Path):
@@ -97,6 +97,14 @@ class Installer:
             with open(file) as f:
                 config = json.load(f)
         return config
+
+    def find_vimhome(self):
+        unix_style_vimhome = Path.home() / '.vim'
+        win_style_vimhome = Path.home() / '_vim'
+        if unix_style_vimhome.exists():
+            return unix_style_vimhome
+        if win_style_vimhome.exists():
+            return win_style_vimhome
 
     def install(self):
         for d in self.config:
@@ -110,7 +118,7 @@ class Installer:
                     else:
                         repo = Path(repo)
                     if (base / repo.name).exists():
-                        logger.info('{} already exists, skip'.format(repo))
+                        logger.info('Skip existing {}'.format(repo))
                         continue
                     self.clone(host, repo, base / repo.name)
         logger.info('Install completed')
@@ -121,7 +129,8 @@ class Installer:
     def clone(self, host, repo, target='.'):
         url = self._make_url(host / repo)
         logger.info('start clone {}'.format(repo))
-        proc = subprocess.run(['git', 'clone', '--recursive', url, str(target)])
+        proc = subprocess.run([
+            'git', 'clone', '--recursive', url, str(target)])
         if proc.returncode == 0:
             self.check_plugin_dir(target)
         else:
@@ -132,7 +141,8 @@ class Installer:
             ensure_dir(self.dir / d)
             base = self.dir / d
             for plugin_dir in base.iterdir():
-                self.pull(plugin_dir)
+                if plugin_dir.is_dir():
+                    self.pull(plugin_dir)
         logger.info('Update completed')
 
     def pull(self, path:Path):
@@ -144,7 +154,7 @@ class Installer:
                 self.init_submodule(path)
                 self.check_plugin_dir(path)
             else:
-                logger.error('error on `git pull` on {}'.format(path.name))
+                logger.error('error on `git pull` on {}'.format(path))
         else:
             logger.info('Skip non-git directory {}'.format(path))
 
@@ -152,10 +162,14 @@ class Installer:
         subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'])
 
     def check(self):
+        ensure_dir(self.vimhome / 'doc')
         for d in self.config:
             base = self.dir / d
             for plugin in base.iterdir():
-                self.check_plugin_dir(plugin)
+                if plugin.is_dir():
+                    self.check_plugin_dir(plugin)
+                    self.link_doc(plugin)
+        self.helptags()
         logger.info('Check done')
 
     def check_plugin_dir(self, path:Path):
@@ -170,6 +184,23 @@ class Installer:
             logger.info('make dummy _.vim file on {}'.format(path.name))
             dummy_file = plugin_dir / '_.vim'
             dummy_file.touch()
+
+    def link_doc(self, path:Path):
+        doc_dir = path / 'doc'
+        if doc_dir.is_dir():
+            for doc in doc_dir.iterdir():
+                if doc.match('*.txt') or doc.match('*.*x'):
+                    target = self.vimhome / 'doc' / doc.name
+                    if not target.exists():
+                        target.symlink_to(doc)
+
+    def helptags(self):
+        cmd = ['vim', '-c', 'helptags {} | qa'.format(self.vimhome / 'doc')]
+        proc = subprocess.run(cmd)
+        if proc.returncode == 0:
+            logger.info('helptags done')
+        else:
+            logger.error('Failed to make helptags')
 
 
 def check_commands():
