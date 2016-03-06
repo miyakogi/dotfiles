@@ -83,10 +83,19 @@ def ensure_dir(path:Path):
         logger.info('{} created'.format(path))
 
 
-class Installer:
+def find_vimhome():
+    unix_style_vimhome = Path.home() / '.vim'
+    win_style_vimhome = Path.home() / '_vim'
+    if unix_style_vimhome.exists():
+        return unix_style_vimhome
+    if win_style_vimhome.exists():
+        return win_style_vimhome
+
+
+class Packager:
     def __init__(self, config_file:Path):
         self.dir = config_file.parent
-        self.vimhome = self.find_vimhome()
+        self.vimhome = find_vimhome()
         self.config = self.load_config_file(config_file)
 
     def load_config_file(self, file:Union[Path, str]):
@@ -97,14 +106,6 @@ class Installer:
             with open(file) as f:
                 config = json.load(f)
         return config
-
-    def find_vimhome(self):
-        unix_style_vimhome = Path.home() / '.vim'
-        win_style_vimhome = Path.home() / '_vim'
-        if unix_style_vimhome.exists():
-            return unix_style_vimhome
-        if win_style_vimhome.exists():
-            return win_style_vimhome
 
     def install(self):
         for d in self.config:
@@ -208,21 +209,29 @@ def check_commands():
         raise OSError('git command not found')
 
 
+def find_config_file(filename:Path):
+    conf_files = []
+    vimhome = find_vimhome()
+    packpath = vimhome / 'pack'
+    for pack in packpath.iterdir():
+        if pack.is_dir() and (pack / filename).exists():
+            conf_files.append(pack / filename)
+    return conf_files
+
+
 def main():
     check_commands()
     setup_logger(logger)
     parser = make_parser()
     args = parser.parse_args()
-    conf_path = Path(args.config_file)
-    if not conf_path.is_absolute():
-        conf_path = Path.cwd() / conf_path
-    installer = Installer(conf_path)
-    if args.command == 'install':
-        installer.install()
-    elif args.command == 'update':
-        installer.update()
-    elif args.command == 'check':
-        installer.check()
+    conf = Path(args.config_file)
+    if conf.is_absolute():
+        conf_files = [conf]
+    else:
+        conf_files = find_config_file(conf)
+    for conf_file in conf_files:
+        packager = Packager(conf_file)
+        getattr(packager, args.command)()
 
 
 if __name__ == '__main__':
