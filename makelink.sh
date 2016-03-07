@@ -62,7 +62,7 @@ esac
 # ======== Directories ==============
 # Directories for Vim
 ln -sf $BASEDIR/after $HOME/.vim
-# ln -sf $BASEDIR/autoload $HOME/.vim
+ln -sf $BASEDIR/autoload $HOME/.vim
 ln -sf $BASEDIR/colors $HOME/.vim
 ln -sf $BASEDIR/config $HOME/.vim
 ln -sf $BASEDIR/ftdetect $HOME/.vim
@@ -75,6 +75,7 @@ ln -sf $BASEDIR/syntax $HOME/.vim
 # Directories for NeoVim
 NVIMCONFIG=$HOME/.config/nvim
 ln -sf $BASEDIR/after $NVIMCONFIG
+ln -sf $BASEDIR/autoload $NVIMCONFIG
 ln -sf $BASEDIR/colors $NVIMCONFIG
 ln -sf $BASEDIR/config $NVIMCONFIG
 ln -sf $BASEDIR/ftdetect $NVIMCONFIG
