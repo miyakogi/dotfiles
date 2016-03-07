@@ -192,6 +192,9 @@ class Packager:
             for doc in doc_dir.iterdir():
                 if doc.match('*.txt') or doc.match('*.*x'):
                     target = self.vimhome / 'doc' / doc.name
+                    if target.is_symlink() and not target.exists():
+                        logger.info('Delete broken symlink {}'.format(target))
+                        target.unlink()
                     if not target.exists():
                         target.symlink_to(doc)
 
