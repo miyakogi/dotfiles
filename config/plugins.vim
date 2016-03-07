@@ -236,40 +236,30 @@ function! s:init_smartchr()
   if IsInstalled('vim-smartchr')
     inoremap <expr> , smartchr#loop(', ', ',')
 
-    function! g:GetPrevChar() abort
-      let l:col = getcurpos()[2]
-      let l:line = getline('.')
-      if len(l:line) < 2
-        return ''
-      endif
-      return l:line[l:col - 2]
+    " ======== python ========
+    function! s:init_smartchr_py() abort
+      inoremap <buffer><expr> = smartchr#loop(' = ', '=', ' == ', '==')
+      inoremap <buffer><expr> * smartchr#loop(' * ', '*', ' ** ', '**')
+      inoremap <buffer><expr> <C-L> smartchr#loop(' -> ', '->')
     endfunction
 
-    function! g:IsAfterSpace() abort
-      let l:prv_chr = g:GetPrevChar()
-      if l:prv_chr ==# ' '
-        return 1
-      else
-        return 0
-      endif
+    " ======== javascript ========
+    function! s:init_smartchr_js() abort
+      inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
+      inoremap <buffer> <expr> : smartchr#loop(': ', ':')
+      inoremap <buffer><expr> <C-L> smartchr#loop(' => ', '=>')
     endfunction
 
     augroup myvimrc
-      " ======== python ========
-      autocmd FileType python,pytest inoremap <buffer><expr> = smartchr#loop(' = ', '=', ' == ', '==')
-      autocmd FileType python,pytest inoremap <buffer><expr> + smartchr#loop(' + ', '+', ' += ')
-      autocmd FileType python,pytest inoremap <buffer><expr> - smartchr#loop(' - ', '-', ' -= ')
-      autocmd FileType python,pytest inoremap <buffer><expr> * smartchr#loop(' * ', '*', ' ** ', '**')
-      autocmd FileType python,pytest inoremap <buffer><expr> <C-L> smartchr#loop(' -> ', '->')
-
-      " ======== javascript ========
-      autocmd FileType javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
-      autocmd FileType javascript inoremap <buffer> <expr> + smartchr#loop(' + ', '+')
-      autocmd FileType javascript inoremap <buffer> <expr> - smartchr#loop(' - ', '-', '--')
-      autocmd FileType javascript inoremap <buffer> <expr> * smartchr#loop(' * ', '*')
-      autocmd FileType javascript inoremap <buffer> <expr> , smartchr#loop(', ', ',')
-      autocmd FileType javascript inoremap <buffer> <expr> : smartchr#loop(': ', ':')
+      autocmd FileType python,pytest call s:init_smartchr_py()
+      autocmd FileType javascript call s:init_smartchr_js()
     augroup END
+
+    if match(&filetype, '^pyt') == 0
+      call s:init_smartchr_py()
+    elseif index(['javascript', 'jsx', 'js', 'json'], &filetype) >= 0
+      call s:init_smartchr_js()
+    endif
   endif
 endfunction
 "}}}
