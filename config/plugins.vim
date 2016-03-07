@@ -112,7 +112,7 @@ endif
 
 " ======== NeoComplete ======== {{{
 function! s:init_neocomplete() abort
-  if get(g:, 'loaded_neocomplete', 0)
+  if get(g:, 'loaded_neocomplete')
     " ======== Key mappings ========
     " inoremap <expr><C-g> neocomplete#undo_completion()
     inoremap <expr> <C-x><C-f> g:neocomplete#start_manual_complete('file')
@@ -150,7 +150,7 @@ endfunction
 
 " ======== NeoSnippets ======== {{{
 function! s:init_neosnippets() abort
-  if get(g:, 'loaded_neosnippet', 0)
+  if get(g:, 'loaded_neosnippet')
     imap <C-Space> <Plug>(neosnippet_expand_or_jump)
     smap <C-Space> <Plug>(neosnippet_expand_or_jump)
     " For snippet_complete marker.
@@ -735,21 +735,21 @@ endif
 " ============================================
 
 function! s:load_lazy_insert() abort
-  if exists(':packadd')
-    packadd abolish
-    packadd delimitMate
-    packadd neocomplete.vim
-    packadd neosnippet
-    packadd neosnippet-snippets
-    packadd vim-smartchr
-  endif
+  autocmd! lazy_load_i
+  if !exists(':packadd') | return | endif
+
+  packadd abolish
+  packadd delimitMate
+  packadd neocomplete.vim
+  packadd neosnippet
+  packadd neosnippet-snippets
+  packadd vim-smartchr
 
   call s:init_abolish()
   call s:init_delimitMate()
   call s:init_neocomplete()
   call s:init_neosnippets()
   call s:init_smartchr()
-  autocmd! lazy_load_i
 endfunction
 
 augroup lazy_load_i
