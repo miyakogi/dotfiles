@@ -64,16 +64,9 @@ def setup_logger(logger):
 
 def make_parser():
     desc = 'Vim Package Helper'
-    parser = argparse.ArgumentParser(description=desc, prog='VimPack')
-    subparsers = parser.add_subparsers(dest='command')
-    install_parser = subparsers.add_parser('install')
-    update_parser = subparsers.add_parser('update')
-    check_parser = subparsers.add_parser('check')
-
-    _conf = 'pack.json'
-    install_parser.add_argument('config_file', default=_conf, nargs='?')
-    update_parser.add_argument('config_file', default=_conf, nargs='?')
-    check_parser.add_argument('config_file', default=_conf, nargs='?')
+    parser = argparse.ArgumentParser(description=desc)
+    parser.add_argument('command', choices=['install', 'update', 'check'])
+    parser.add_argument('config_file', default='pack.json', nargs='?')
     return parser
 
 
@@ -233,7 +226,7 @@ def main():
     else:
         conf_files = find_config_file(conf)
     if not conf_files:
-        logger.error('{} not found in directories under {}'.format(
+        logger.error('{} not found in any directories under {}'.format(
             conf, find_vimhome()/'pack'))
         return
 
