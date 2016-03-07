@@ -85,6 +85,12 @@ def find_vimhome():
         return win_style_vimhome
 
 
+def remove_if_broken(path:Path):
+    if path.is_symlink() and not path.exists():
+        logger.info('Delete broken symlink {}'.format(path))
+        path.unlink()
+
+
 class Packager:
     def __init__(self, config_file:Path):
         self.dir = config_file.parent
@@ -185,13 +191,18 @@ class Packager:
             for doc in doc_dir.iterdir():
                 if doc.match('*.txt') or doc.match('*.*x'):
                     target = self.vimhome / 'doc' / doc.name
-                    if target.is_symlink() and not target.exists():
-                        logger.info('Delete broken symlink {}'.format(target))
-                        target.unlink()
+                    remove_if_broken(target)
                     if not target.exists():
                         target.symlink_to(doc)
 
+    def clean_doc(self):
+        doc_dir = self.vimhome / 'doc'
+        if doc_dir.is_dir():
+            for doc in doc_dir.iterdir():
+                remove_if_broken(doc)
+
     def helptags(self):
+        self.clean_doc()
         vim_cmd = 'helptags {} | quitall'.format(self.vimhome / 'doc')
         cmd = ['vim', '-u', 'NONE', '-N', '--cmd', vim_cmd]
         proc = subprocess.run(cmd)
