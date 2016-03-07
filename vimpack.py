@@ -85,6 +85,15 @@ def find_vimhome():
     if win_style_vimhome.exists():
         return win_style_vimhome
 
+def load_config_file(file:Union[Path, str]):
+    if isinstance(file, Path):
+        with file.open() as f:
+            config = json.load(f)
+    else:
+        with open(file) as f:
+            config = json.load(f)
+    return config
+
 
 def remove_if_broken(path:Path):
     if path.is_symlink() and not path.exists():
@@ -92,20 +101,68 @@ def remove_if_broken(path:Path):
         path.unlink()
 
 
+def check_plugin_dir(path:Path):
+    plugin_dir = path / 'plugin'
+    if not plugin_dir.is_dir():
+        logger.info('make plugin dir on {}'.format(path))
+        plugin_dir.mkdir()
+    empty = True
+    for _ in plugin_dir.glob('*.vim'):
+        empty = False
+    if empty:
+        logger.info('make dummy _.vim file on {}'.format(path.name))
+        dummy_file = plugin_dir / '_.vim'
+        dummy_file.touch()
+
+
+class Git:
+    @classmethod
+    def clone(self, repo:Path, base:Path):
+        if Path.cwd() != base:
+            os.chdir(str(base))
+        target = base / repo.name
+        if target.exists():
+            logger.info('Skip existing {}'.format(target))
+            return
+
+        url = '{0}://{1}'.format(PROTO, repo)
+        logger.info('start clone {}'.format(repo))
+        proc = subprocess.run([
+            'git', 'clone', '--recursive', url])
+        if proc.returncode == 0:
+            if target.is_dir():
+                check_plugin_dir(target)
+            else:
+                logger.warn('Cloned repository not found. Skip post-process.')
+        else:
+            logger.error('Failed to clone {}'.format(url))
+
+    @classmethod
+    def pull(cls, path:Path):
+        if (path / '.git').exists():
+            logger.info('Update {}/{}'.format(path.parent.name, path.name))
+            os.chdir(str(path))
+            proc = subprocess.run(['git', 'pull'])
+            if proc.returncode == 0:
+                cls.init_submodule(path)
+                check_plugin_dir(path)
+            else:
+                logger.error('error on `git pull` on {}'.format(path))
+        else:
+            logger.info('Skip non-git directory {}'.format(path))
+
+    @classmethod
+    def init_submodule(cls, path:Path):
+        if Path.cwd() != path:
+            os.chdir(str(path))
+        subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'])
+
+
 class Packager:
     def __init__(self, config_file:Path):
         self.dir = config_file.parent
         self.vimhome = find_vimhome()
-        self.config = self.load_config_file(config_file)
-
-    def load_config_file(self, file:Union[Path, str]):
-        if isinstance(file, Path):
-            with file.open() as f:
-                config = json.load(f)
-        else:
-            with open(file) as f:
-                config = json.load(f)
-        return config
+        self.config = load_config_file(config_file)
 
     def install(self):
         for d in self.config:
@@ -114,28 +171,8 @@ class Packager:
             for domain in self.config[d]:
                 host = Path(domain)
                 for repo in self.config[d][domain]:
-                    if repo.endswith('/'):
-                        repo = Path(repo[:-1])
-                    else:
-                        repo = Path(repo)
-                    if (base / repo.name).exists():
-                        logger.info('Skip existing {}'.format(repo))
-                        continue
-                    self.clone(host, repo, base / repo.name)
+                    Git.clone(host / repo, base)
         logger.info('Install completed')
-
-    def _make_url(self, url:Path):
-        return '{0}://{1}'.format(PROTO, url)
-
-    def clone(self, host, repo, target='.'):
-        url = self._make_url(host / repo)
-        logger.info('start clone {}'.format(repo))
-        proc = subprocess.run([
-            'git', 'clone', '--recursive', url, str(target)])
-        if proc.returncode == 0:
-            self.check_plugin_dir(target)
-        else:
-            logger.error('Failed to clone {}'.format(url))
 
     def update(self):
         for d in self.config:
@@ -143,24 +180,8 @@ class Packager:
             base = self.dir / d
             for plugin_dir in base.iterdir():
                 if plugin_dir.is_dir():
-                    self.pull(plugin_dir)
+                    Git.pull(plugin_dir)
         logger.info('Update completed')
-
-    def pull(self, path:Path):
-        if (path / '.git').exists():
-            logger.info('Update {}/{}'.format(path.parent.name, path.name))
-            os.chdir(str(path))
-            proc = subprocess.run(['git', 'pull'])
-            if proc.returncode == 0:
-                self.init_submodule(path)
-                self.check_plugin_dir(path)
-            else:
-                logger.error('error on `git pull` on {}'.format(path))
-        else:
-            logger.info('Skip non-git directory {}'.format(path))
-
-    def init_submodule(self, path):
-        subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'])
 
     def check(self):
         ensure_dir(self.vimhome / 'doc')
@@ -168,23 +189,10 @@ class Packager:
             base = self.dir / d
             for plugin in base.iterdir():
                 if plugin.is_dir():
-                    self.check_plugin_dir(plugin)
+                    check_plugin_dir(plugin)
                     self.link_doc(plugin)
         self.helptags()
         logger.info('Check done')
-
-    def check_plugin_dir(self, path:Path):
-        plugin_dir = path / 'plugin'
-        if not plugin_dir.is_dir():
-            logger.info('make plugin dir on {}'.format(path))
-            plugin_dir.mkdir()
-        empty = True
-        for _ in plugin_dir.glob('*.vim'):
-            empty = False
-        if empty:
-            logger.info('make dummy _.vim file on {}'.format(path.name))
-            dummy_file = plugin_dir / '_.vim'
-            dummy_file.touch()
 
     def link_doc(self, path:Path):
         doc_dir = path / 'doc'
