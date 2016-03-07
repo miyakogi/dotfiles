@@ -12,6 +12,7 @@ import logging
 import shutil
 import argparse
 from pathlib import Path
+from itertools import chain
 import subprocess
 from typing import Union
 
@@ -187,13 +188,12 @@ class Packager:
 
     def link_doc(self, path:Path):
         doc_dir = path / 'doc'
-        if doc_dir.is_dir():
-            for doc in doc_dir.iterdir():
-                if doc.match('*.txt') or doc.match('*.*x'):
-                    target = self.vimhome / 'doc' / doc.name
-                    remove_if_broken(target)
-                    if not target.exists():
-                        target.symlink_to(doc)
+        vimdoc = self.vimhome / 'doc'
+        for doc in chain(doc_dir.glob('**/*.txt'), doc_dir.glob('**/*.*x')):
+            target =  vimdoc / doc.name
+            remove_if_broken(target)
+            if not target.exists():
+                target.symlink_to(doc)
 
     def clean_doc(self):
         doc_dir = self.vimhome / 'doc'
