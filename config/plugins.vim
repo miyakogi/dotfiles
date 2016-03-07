@@ -521,7 +521,7 @@ if exists(':RainbowParenthesesActivate')
 
   function! g:RainbowParenthesesStart()
     if !exists(':RainbowParenthesesToggleAll') ||
-          \ count(g:rainbow_parentheses_disable_filetypes, &filetype)
+          \ count(get(g:, 'rainbow_parentheses_disable_filetypes', []), &filetype)
       return
     endif
     RainbowParenthesesLoadRound
@@ -602,29 +602,15 @@ endif
 
 " Enable config
 if get(g:, 'loaded_watchdogs', 0)
-  call watchdogs#setup(g:quickrun_config)
-  " augroup myvimrc
-  "   autocmd BufRead,BufNewFile *.py,*.js,*.coffee execute 'WatchdogsRun'
-  "         \ | xnoremap <buffer><silent> x x:WatchdogsRun<CR><left>
-  "         \ | xnoremap <buffer><silent> d d:WatchdogsRun<CR><left>
-  "         \ | xnoremap <buffer><silent> D D:WatchdogsRun<CR><left>
-  "         \ | nnoremap <buffer><silent> D D:WatchdogsRun<CR><left>
-  "         \ | nnoremap <buffer><silent> dd dd:WatchdogsRun<CR><left>
-  "         \ | nnoremap <buffer><silent> dw dw:WatchdogsRun<CR><left>
-  "         \ | nnoremap <buffer><silent> u u:WatchdogsRun<CR><left>
-  "         \ | nnoremap <buffer><silent> <C-R> <C-R>:WatchdogsRun<CR><left>
-  "         \ | inoremap <buffer><silent> <Esc> <Esc>:WatchdogsRun<CR>
-  " augroup END
+  if exists('g:quickrun_config')
+    call watchdogs#setup(g:quickrun_config)
+  endif
 endif
 "}}}
 
 " ======== LightLine ======== {{{
-if get(g:, 'loaded_lightline', 0)
-  let g:lightline_conf = $HOME . '/.vim/config/lightline_conf.vim'
-  if filereadable(g:lightline_conf)
-    execute 'source ' . g:lightline_conf
-  endif
-endif
+" if get(g:, 'loaded_lightline')
+" endif
 "}}}
 
 " ======== cursorword ========"{{{

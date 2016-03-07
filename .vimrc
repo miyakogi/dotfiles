@@ -933,6 +933,10 @@ set laststatus=2
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+let g:lightline_conf = $HOME . '/.vim/config/lightline_conf.vim'
+if filereadable(g:lightline_conf)
+  execute 'source ' . g:lightline_conf
+endif
 "}}}
 
 " ======== Jedi-vim ======== {{{
