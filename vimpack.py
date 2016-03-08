@@ -68,7 +68,7 @@ setup_logger(logger)
 parser = argparse.ArgumentParser(description='Vim Package Helper')
 parser.add_argument('command', choices=['install', 'update', 'check'])
 parser.add_argument('config_file', default='pack.json', nargs='?')
-
+parser.add_argument('--no-dummy', default=False, action='store_true')
 options = parser.parse_args()
 
 
@@ -113,6 +113,8 @@ def remove_if_broken(path:Path):
 
 
 def check_plugin_dir(path:Path):
+    if options.no_dummy:
+        return
     plugin_dir = path / 'plugin'
     if not plugin_dir.is_dir():
         logger.info('make plugin dir on {}'.format(path))
