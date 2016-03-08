@@ -19,6 +19,23 @@ from typing import Union
 PROTO = 'https'
 
 
+# Make option parser
+parser = argparse.ArgumentParser(description='Vim Package Helper')
+parser.add_argument('command', choices=['install', 'update', 'check'])
+parser.add_argument('config_file', default='pack.json', nargs='?')
+parser.add_argument('--no-dummy', default=False, action='store_true',
+        help='prevent making dummy files (plugin/_.vim)')
+parser.add_argument('--no-doc', default=False, action='store_true',
+        help='prevent making symlinks of help (doc/*.{txt,*x} to ~/.vim/doc)')
+upper = lambda s: s.upper()
+parser.add_argument('--loglevel', default='info',
+        help='Available levels are {} (case insensitive)'.format(
+            list(logging._nameToLevel.keys())))
+
+# Parse command-line options
+options = parser.parse_args()
+
+
 class Formatter(logging.Formatter):
     _colors_int = {'red': 1, 'green': 2, 'orange': 3, 'blue': 4}
     def __init__(self, *args, **kwargs):
@@ -54,24 +71,13 @@ class Formatter(logging.Formatter):
 
 # Make logger
 logger = logging.getLogger('VimPack')
-logger.setLevel(logging.DEBUG)
+level = getattr(logging, options.loglevel.upper())
+logger.setLevel(level)
 handler = logging.StreamHandler()
-handler.setLevel(logging.DEBUG)
+handler.setLevel(level)
 handler.setFormatter(Formatter())
 logger.addHandler(handler)
 logger.propagate = False
-
-# Make option parser
-parser = argparse.ArgumentParser(description='Vim Package Helper')
-parser.add_argument('command', choices=['install', 'update', 'check'])
-parser.add_argument('config_file', default='pack.json', nargs='?')
-parser.add_argument('--no-dummy', default=False, action='store_true',
-        help='prevent making dummy files (plugin/_.vim)')
-parser.add_argument('--no-doc', default=False, action='store_true',
-        help='prevent making symlinks of help (doc/*.{txt,*x} to ~/.vim/doc)')
-
-# Parse command-line options
-options = parser.parse_args()
 
 
 def check_commands():
@@ -119,13 +125,13 @@ def check_plugin_dir(path:Path):
         return
     plugin_dir = path / 'plugin'
     if not plugin_dir.is_dir():
-        logger.info('make plugin dir on {}'.format(path))
+        logger.debug('make plugin dir on {}'.format(path))
         plugin_dir.mkdir()
     empty = True
     for _ in plugin_dir.glob('*.vim'):
         empty = False
     if empty:
-        logger.info('make dummy _.vim file on {}'.format(path.name))
+        logger.debug('make dummy _.vim file on {}'.format(path.name))
         dummy_file = plugin_dir / '_.vim'
         dummy_file.touch()
 
@@ -139,6 +145,7 @@ def link_doc(path:Path):
         target =  vimdoc / doc.name
         remove_if_broken(target)
         if not target.exists():
+            logger.debug('make symlink {} -> {}'.format(target, doc))
             target.symlink_to(doc)
 
 
@@ -173,7 +180,7 @@ class Git:
             os.chdir(str(base))
         target = base / repo.name
         if target.exists():
-            logger.info('Skip existing {}'.format(target))
+            logger.debug('Skip existing {}'.format(target))
             return
 
         url = '{0}://{1}'.format(PROTO, repo)
@@ -200,7 +207,7 @@ class Git:
             else:
                 logger.error('error on `git pull` on {}'.format(path))
         else:
-            logger.info('Skip non-git directory {}'.format(path))
+            logger.debug('Skip non-git directory {}'.format(path))
 
     @classmethod
     def init_submodule(cls, path:Path):
