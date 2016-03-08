@@ -15,9 +15,13 @@
       "thinca/vim-visualstar",
       "majutsushi/tagbar",
       "mattn/sonictemplate-vim",
+      "Shougo/neocomplete.vim",
+      "Shougo/neosnippet",
+      "Shougo/neosnippet-snippets",
       "tomtom/tcomment_vim",
       "tpope/vim-surround",
       "kana/vim-repeat",
+      "kana/vim-smartchr",
       "kana/vim-textobj-user",
       "rhysd/textobj-wiw",
       "sgur/vim-textobj-parameter",
@@ -51,11 +55,7 @@
   },
   "opt": {
     "github.com": [
-      "Shougo/neocomplete.vim",
-      "Shougo/neosnippet",
-      "Shougo/neosnippet-snippets",
       "Raimondi/delimitMate",
-      "kana/vim-smartchr",
       "tpope/vim-abolish"
     ]
   }

@@ -14,7 +14,7 @@ function! IsInstalled(name) abort
 endfunction
 
 " ======== Unite ======== {{{
-if get(g:, 'loaded_unite', 0)
+if get(g:, 'loaded_unite')
   " unite prefix key
   nnoremap [unite] <Nop>
   nmap <Leader>f [unite]
@@ -33,7 +33,7 @@ endif
 "}}}
 
 " ======== VimFiler ========"{{{
-if get(g:, 'loaded_vimfiler', 0)
+if get(g:, 'loaded_vimfiler')
   function! s:vimfiler_init()
     nmap <silent><buffer> q <Plug>(vimfiler_hide)
     nmap <silent><buffer> I <Plug>(vimfiler_toggle_visible_ignore_files)
@@ -68,7 +68,7 @@ endif
 "}}}
 
 " ======== Signify ======== {{{
-if get(g:, 'loaded_signify', 0)
+if get(g:, 'loaded_signify')
   autocmd myvimrc ColorScheme,Syntax * highlight link SignifySignAdd LineNr
                             \ | highlight link SignifySignChange PreProc
                             \ | highlight SignifySignDelete guifg=#EE3333 ctermfg=red
@@ -76,7 +76,7 @@ endif
 "}}}
 
 " ======== anzu ======== {{{
-if get(g:, 'loaded_anzu', 0)
+if get(g:, 'loaded_anzu')
   nmap n <Plug>(anzu-n)
   nmap N <Plug>(anzu-N)
   " nnoremap <expr> n anzu#mode#mapexpr("n", "", "zzzv")
@@ -99,42 +99,38 @@ endif
 "}}}
 
 " ======== NeoComplete ======== {{{
-function! s:init_neocomplete() abort
-  if get(g:, 'loaded_neocomplete')
-    " ======== Key mappings ========
-    " inoremap <expr><C-g> neocomplete#undo_completion()
-    inoremap <expr> <C-x><C-f> g:neocomplete#start_manual_complete('file')
-    inoremap <expr> <Tab> pumvisible() ? neocomplete#complete_common_string() : "\<TAB>"
+if get(g:, 'loaded_neocomplete')
+  " ======== Key mappings ========
+  " inoremap <expr><C-g> neocomplete#undo_completion()
+  inoremap <expr> <C-x><C-f> g:neocomplete#start_manual_complete('file')
+  inoremap <expr> <Tab> pumvisible() ? neocomplete#complete_common_string() : "\<TAB>"
 
-    " ==== Recommended key-mappings ====
-    " Close popup and save indent by <CR>
-    inoremap <silent><expr> <CR> MyNeocomCR()
-    function! MyNeocomCR()
-      let l:delimitMateCR = delimitMate#ExpandReturn()
-      return neocomplete#close_popup() . l:delimitMateCR
-    endfunction
+  " ==== Recommended key-mappings ====
+  " Close popup and save indent by <CR>
+  inoremap <silent><expr> <CR> MyNeocomCR()
+  function! MyNeocomCR()
+    let l:delimitMateCR = delimitMate#ExpandReturn()
+    return neocomplete#close_popup() . l:delimitMateCR
+  endfunction
 
-    if exists('*NimComplete')
-      if &filetype ==# 'nim'
-        setlocal omnifunc=NimComplete
-      endif
-      autocmd FileType nim setlocal omnifunc=NimComplete
+  if exists('*NimComplete')
+    if &filetype ==# 'nim'
+      setlocal omnifunc=NimComplete
     endif
+    autocmd FileType nim setlocal omnifunc=NimComplete
   endif
-endfunction
+endif
 "}}}
 
 " ======== NeoSnippets ======== {{{
-function! s:init_neosnippets() abort
-  if get(g:, 'loaded_neosnippet')
-    imap <C-Space> <Plug>(neosnippet_expand_or_jump)
-    smap <C-Space> <Plug>(neosnippet_expand_or_jump)
-    " For snippet_complete marker.
-    " if has('conceal')
-    "   set conceallevel=2 concealcursor=i
-    " endif
-  endif
-endfunction
+if get(g:, 'loaded_neosnippet')
+  imap <C-Space> <Plug>(neosnippet_expand_or_jump)
+  smap <C-Space> <Plug>(neosnippet_expand_or_jump)
+  " For snippet_complete marker.
+  " if has('conceal')
+  "   set conceallevel=2 concealcursor=i
+  " endif
+endif
 "}}}
 
 " ======== Abolish ========"{{{
@@ -159,7 +155,7 @@ endfunction
 "}}}
 
 " ======== Tcomment ======== {{{
-if get(g:, 'loaded_tcomment', 0)
+if get(g:, 'loaded_tcomment')
   nnoremap gcl      :TCommentRight<CR>
   nnoremap gcp      vip:TCommentBlock<CR>
   xnoremap gb       :TCommentBlock<CR>
@@ -170,15 +166,9 @@ endif
 "}}}
 
 " ======== surround.vim ======== {{{
-if get(g:, 'loaded_surround', 0)
+if get(g:, 'loaded_surround')
   " Original mapping
-  autocmd myvimrc BufNew,BufReadPost,BufNewFile * call DSurroundMap()
-  function! DSurroundMap()
-    if &buftype !=# ''
-      nmap ds  <Plug>Dsurround
-    endif
-  endfunction
-  " nmap ds  <Plug>Dsurround
+  nmap ds  <Plug>Dsurround
   nmap cs  <Plug>Csurround
   nmap ys  <Plug>Ysurround
   nmap yS  <Plug>YSurround
@@ -401,16 +391,43 @@ if exists(':RainbowParenthesesActivate')
     call s:rainbow_parenthesis_badwolf()
   endfunction
 
-  autocmd myvimrc ColorScheme,FileType,Syntax * nested call g:RainbowParenthesesStart()
-  autocmd MyVimEnter BufEnter * nested call g:RainbowParenthesesStart()
+  autocmd myvimrc ColorScheme,Syntax * nested call g:RainbowParenthesesStart()
   nnoremap [Space]r :<C-u>RainbowParenthesesToggleAll<CR>
+  " call g:RainbowParenthesesStart()
 endif
 
 "}}}
 
 " ======== Indent-guides ======== {{{
-if get(g:, 'loaded_indent_guides', 0)
+if get(g:, 'loaded_indent_guides')
   nmap <silent> [Space]ig <Plug>IndentGuidesToggle
+
+  if get(g:, 'indent_guides_enable_on_vim_startup')
+    IndentGuidesEnable
+  endif
+
+  function! IndentGuidesColorAuto()
+    let g:indent_guides_auto_colors = 1
+    let g:indent_guides_color = 'auto'
+    call indent_guides#toggle()
+    call indent_guides#toggle()
+  endfunction
+  function! IndentGuidesColorLight()
+    let g:indent_guides_auto_colors = 0
+    let g:indent_guides_color = 'light'
+    hi IndentGuidesOdd  guibg=grey98 ctermbg=232
+    hi IndentGuidesEven guibg=grey91 ctermbg=234
+  endfunction
+  function! IndentGuidesColorDark()
+    let g:indent_guides_auto_colors = 0
+    let g:indent_guides_color = 'dark'
+    hi IndentGuidesOdd   guibg=grey8  ctermbg=234
+    hi IndentGuidesEven  guibg=grey11 ctermbg=235
+  endfunction
+
+  command! IndentGuidesColorAuto call IndentGuidesColorAuto()
+  command! IndentGuidesColorLight call IndentGuidesColorLight()
+  command! IndentGuidesColorDark call IndentGuidesColorDark()
 
   function! g:IndentGuidesExpandTab()
     if g:indent_guides_autocmds_enabled
@@ -436,33 +453,6 @@ if get(g:, 'loaded_indent_guides', 0)
     endif
   endfunction
   autocmd myvimrc ColorScheme,Syntax * nested call g:IndentGuidesUpdateColorcheme()
-
-  function! IndentGuidesColorAuto()
-    let g:indent_guides_auto_colors = 1
-    let g:indent_guides_color = 'auto'
-    call indent_guides#toggle()
-    call indent_guides#toggle()
-  endfunction
-  function! IndentGuidesColorLight()
-    let g:indent_guides_auto_colors = 0
-    let g:indent_guides_color = 'light'
-    hi IndentGuidesOdd  guibg=grey98 ctermbg=232
-    hi IndentGuidesEven guibg=grey91 ctermbg=234
-  endfunction
-  function! IndentGuidesColorDark()
-    let g:indent_guides_auto_colors = 0
-    let g:indent_guides_color = 'dark'
-    hi IndentGuidesOdd   guibg=grey8  ctermbg=234
-    hi IndentGuidesEven  guibg=grey11 ctermbg=235
-  endfunction
-
-  command! IndentGuidesColorAuto call IndentGuidesColorAuto()
-  command! IndentGuidesColorLight call IndentGuidesColorLight()
-  command! IndentGuidesColorDark call IndentGuidesColorDark()
-
-  if get(g:, 'indent_guides_enable_on_vim_startup')
-    IndentGuidesEnable
-  endif
 endif
 "}}}
 
@@ -487,7 +477,7 @@ endif
 "}}}
 
 " ======== cursorword ========"{{{
-if get(g:, 'loaded_cursorword', 0)
+if get(g:, 'loaded_cursorword')
   highlight CursorWord0 term=underline cterm=underline gui=underline
 endif
 "}}}
@@ -552,9 +542,6 @@ function! s:init_python_plugin() abort
 
 endfunction
 
-if &filetype ==# 'python'
-  call s:init_python_plugin()
-endif
 autocmd myvimrc FileType python call s:init_python_plugin()
 "}}}
 
@@ -572,9 +559,6 @@ function! s:init_js_plugin() abort
 
 endfunction
 
-if count(['js', 'javascript', 'json', 'jsx'], &filetype)
-  call s:init_js_plugin()
-endif
 autocmd myvimrc FileType javascript,json,jsx,js call s:init_js_plugin()
 "}}}
 
@@ -583,7 +567,7 @@ autocmd myvimrc FileType javascript,json,jsx,js call s:init_js_plugin()
 " ============================================
 
 " ======== conoline.vim ======== {{{
-if get(g:, 'loaded_conoline', 0)
+if get(g:, 'loaded_conoline')
   nnoremap [Space]sc :<C-u>ConoLineToggle<CR>
         \ :<C-u>echo conoline#status() ?
         \ 'ConoLine Enable' : 'ConoLine Disable'<CR>
@@ -591,7 +575,7 @@ endif
 "}}}
 
 " ======== SidePanel.vim ======== {{{
-if get(g:, 'loaded_sidepanel', 0)
+if get(g:, 'loaded_sidepanel')
   nnoremap <silent> [Space]e :<C-u>SidePanel vimfiler<CR>
   nnoremap <silent> [Space]t :<C-u>SidePanel tagbar<CR>
   " nnoremap <silent> [Space]g :<C-u>SidePanel gundo<CR>
@@ -605,9 +589,8 @@ endif
 
 "}}}
 
-
 " ============================================
-"  Lazy Load Packages
+"  Lazy Load Packages"{{{
 " ============================================
 
 function! s:load_lazy_insert() abort
@@ -616,18 +599,19 @@ function! s:load_lazy_insert() abort
 
   packadd abolish
   packadd delimitMate
-  packadd neocomplete.vim
-  packadd neosnippet
-  packadd neosnippet-snippets
-  packadd vim-smartchr
-
   call s:init_abolish()
   call s:init_delimitMate()
-  call s:init_neocomplete()
-  call s:init_neosnippets()
-  call s:init_smartchr()
 endfunction
 
 augroup lazy_load_i
   autocmd! InsertEnter * call s:load_lazy_insert()
 augroup END
+"}}}
+
+" ============================================
+"  Post Process"{{{
+" ============================================
+" ======== execute auto commands ========
+doautocmd myvimrc Syntax
+execute 'doautocmd myvimrc FileType ' . &filetype
+"}}}

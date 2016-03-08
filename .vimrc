@@ -16,9 +16,6 @@ set shellslash  " Necessary for windows
 " ======== Startup ======== {{{
 augroup myvimrc
   autocmd!
-augroup MyVimEnter
-  autocmd!
-  autocmd VimEnter * autocmd! MyVimEnter
 augroup END
 
 " https://gist.github.com/1518874
@@ -93,6 +90,7 @@ endif
 " ============================================
 
 filetype plugin indent on
+syntax on
 "}}}
 
 " ============================================
@@ -581,15 +579,10 @@ if !has('gui_running')
     xmap <Nul> <C-Space>
     smap <Nul> <C-Space>
     map! <Nul> <C-Space>
-    syntax on
-    execute 'colorscheme ' . g:MyColorScheme
-    " if exists('g:loaded_lightline')
-    "   call lightline#colorscheme()
-    " endif
     if exists(':ConoLineColorDark')
       ConoLineColorDark
     endif
-    autocmd! MyTermInit
+    execute 'colorscheme ' . g:MyColorScheme
   endfunction
 
   " change the cursor shape depending on mode
@@ -602,10 +595,7 @@ if !has('gui_running')
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
   endif
 
-  augroup MyTermInit
-    autocmd VimEnter * call MyTermInit()
-  augroup END
-  " autocmd myvimrc VimEnter * call MyTermInit()
+  autocmd myvimrc VimEnter * call MyTermInit()
 endif
 "}}}
 

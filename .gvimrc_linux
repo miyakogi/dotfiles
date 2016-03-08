@@ -61,6 +61,5 @@ augroup guicursor
   autocmd Syntax,ColorScheme * call s:guicursor_set()
 augroup END
 
-syntax on
 let s:cs = get(g:, 'MyColorScheme', 'slateblue')
 execute "colorscheme " . s:cs
