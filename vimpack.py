@@ -65,13 +65,11 @@ def setup_logger(logger):
 logger = logging.getLogger('VimPack')
 setup_logger(logger)
 
+parser = argparse.ArgumentParser(description='Vim Package Helper')
+parser.add_argument('command', choices=['install', 'update', 'check'])
+parser.add_argument('config_file', default='pack.json', nargs='?')
 
-def make_parser():
-    desc = 'Vim Package Helper'
-    parser = argparse.ArgumentParser(description=desc)
-    parser.add_argument('command', choices=['install', 'update', 'check'])
-    parser.add_argument('config_file', default='pack.json', nargs='?')
-    return parser
+options = parser.parse_args()
 
 
 def check_commands():
@@ -256,9 +254,7 @@ def find_config_file(filename:Path):
 
 
 def main():
-    parser = make_parser()
-    args = parser.parse_args()
-    conf = Path(args.config_file)
+    conf = Path(options.config_file)
 
     if conf.is_absolute():
         conf_files = [conf]
@@ -271,7 +267,7 @@ def main():
 
     for conf_file in conf_files:
         packager = Packager(conf_file)
-        getattr(packager, args.command)()
+        getattr(packager, options.command)()
 
 
 if __name__ == '__main__':
