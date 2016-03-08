@@ -589,7 +589,7 @@ function! s:load_lazy_insert() abort
   autocmd! lazy_load_i
   if !exists(':packadd') | return | endif
 
-  packadd abolish
+  packadd vim-abolish
   packadd delimitMate
   call s:init_abolish()
   call s:init_delimitMate()
