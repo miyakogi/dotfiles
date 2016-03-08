@@ -198,36 +198,28 @@ endfunction
 "}}}
 
 " ======== smartchr ========"{{{
-function! s:init_smartchr()
-  if IsInstalled('vim-smartchr')
-    inoremap <expr> , smartchr#loop(', ', ',')
+if IsInstalled('vim-smartchr')
+  inoremap <expr> , smartchr#loop(', ', ',')
 
-    " ======== python ========
-    function! s:init_smartchr_py() abort
-      inoremap <buffer><expr> = smartchr#loop(' = ', '=', ' == ', '==')
-      inoremap <buffer><expr> * smartchr#loop(' * ', '*', ' ** ', '**')
-      inoremap <buffer><expr> <C-L> smartchr#loop(' -> ', '->')
-    endfunction
+  " ======== python ========
+  function! s:init_smartchr_py() abort
+    inoremap <buffer><expr> = smartchr#loop(' = ', '=', ' == ', '==')
+    inoremap <buffer><expr> * smartchr#loop(' * ', '*', ' ** ', '**')
+    inoremap <buffer><expr> <C-L> smartchr#loop(' -> ', '->')
+  endfunction
 
-    " ======== javascript ========
-    function! s:init_smartchr_js() abort
-      inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
-      inoremap <buffer> <expr> : smartchr#loop(': ', ':')
-      inoremap <buffer><expr> <C-L> smartchr#loop(' => ', '=>')
-    endfunction
+  " ======== javascript ========
+  function! s:init_smartchr_js() abort
+    inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
+    inoremap <buffer> <expr> : smartchr#loop(': ', ':')
+    inoremap <buffer><expr> <C-L> smartchr#loop(' => ', '=>')
+  endfunction
 
-    augroup myvimrc
-      autocmd FileType python call s:init_smartchr_py()
-      autocmd FileType javascript call s:init_smartchr_js()
-    augroup END
-
-    if match(&filetype, '^pyt') == 0
-      call s:init_smartchr_py()
-    elseif count(['javascript', 'jsx', 'js', 'json'], &filetype)
-      call s:init_smartchr_js()
-    endif
-  endif
-endfunction
+  augroup myvimrc
+    autocmd FileType python call s:init_smartchr_py()
+    autocmd FileType javascript call s:init_smartchr_js()
+  augroup END
+endif
 "}}}
 
 " ======== TextObj-User ======== {{{
