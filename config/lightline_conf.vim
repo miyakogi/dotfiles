@@ -68,10 +68,9 @@ endfunction
 
 function! MyFilename()
   let fname = expand('%:t')
-  return fname =~ '__Gundo\|NERD_tree\|Tagbar' ? '' :
+  return fname =~ 'Tagbar' ? '' :
         \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
         \ &ft == 'unite' ? unite#get_status_string() :
-        \ &ft == 'vimshell' ? vimshell#get_status_string() :
         \ &ft == 'qf' ? 'quickfix(' . len(getqflist()) . ')' :
         \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
         \ ('' != MyModified() ? ' ' . MyModified() : '') .
@@ -93,12 +92,8 @@ endfunction
 function! MyMode()
   let fname = expand('%:t')
   return fname == '__Tagbar__' ? 'Tagbar' :
-        \ fname == '__Gundo__' ? 'Gundo' :
-        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-        \ fname =~ 'NERD_tree' ? 'NERDTree' :
         \ &ft == 'unite' ? 'Unite' :
         \ &ft == 'vimfiler' ? 'VimFiler' :
-        \ &ft == 'vimshell' ? 'VimShell' :
         \ lightline#mode()[0]
 endfunction
 
@@ -147,8 +142,6 @@ function! MyVCS()
     let type=b:sy.type
     if type == 'git'
       let vcs = vcs . s:fugitive()
-    elseif type == 'hg'
-      let vcs = vcs . s:lawrencium()
     else
       let vcs = vcs . type
     endif
@@ -194,16 +187,6 @@ function! s:fugitive()
   endif
   if strlen(l:head) > 0
     let head = "Git:" . head
-  endif
-  return head
-endfunction
-
-function! s:lawrencium()
-  if exists('*lawrencium#statusline')
-    let head = lawrencium#statusline()
-  endif
-  if strlen(l:head) > 0
-    let head = "HG:" . head
   endif
   return head
 endfunction
