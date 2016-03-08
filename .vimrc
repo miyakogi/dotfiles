@@ -719,6 +719,16 @@ if !exists('g:neocomplete#keyword_patterns')
   let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
+" let g:neocomplete#sources#omni#input_patterns.nim = '[^. *\t]\.\w*'
 "}}}
 
 " ======== NeoSnippets ======== {{{
@@ -816,6 +826,21 @@ let g:quickrun_config['_'] = {
       \ 'outputter/buffer/split': ':botright 8sp',
       \ 'runner/vimproc/updatetime': '10',
       \}
+
+" ======== python ========
+let g:quickrun_config['python'] = {
+      \ 'runner': 'vimproc',
+      \}
+let g:quickrun_config['pytest'] = {
+      \ 'command': 'py.test',
+      \ 'runner': 'vimproc',
+      \ 'cmdopt': '-s -v',
+      \ 'exec': '%c %o %s',
+      \ 'runmode': 'async:remote:vimproc',
+      \ 'outputter/buffer/filetype': 'pytest_result',
+      \ 'outputter/buffer/split': ':botright 12sp',
+      \ 'hook/shebang/enable': 0,
+      \ }
 let g:quickrun_config['coffee'] = {
       \ 'outputter/buffer/split': ':botright 12sp',
       \ }
@@ -829,13 +854,12 @@ let g:quickrun_config['coffee_compile'] = {
 let g:watchdogs_check_BufWritePost_enable = 0
 let g:watchdogs_check_BufWritePost_enables = {
       \ 'python' : 1,
-      \ 'python.pytest' : 1,
-      \ 'python.nose' : 1,
       \ 'javascript' : 1,
       \ 'coffee' : 1,
       \ 'typescript' : 1,
       \ 'nim' : 1,
       \ }
+
 let g:watchdogs_check_CursorHold_enable = 0
 let g:watchdogs_check_CursorHold_enables = {
       \ 'python' : 0,
@@ -948,8 +972,6 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.python =
 \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-let g:neocomplete#force_omni_input_patterns['python.pytest'] =
-\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 " Jedi automatically starts the completion, if you type a dot, e.g. str., if you don't want this:
 let g:jedi#popup_on_dot=1
 " Jedi selects the first line of the completion menu.
@@ -983,6 +1005,10 @@ endif
 " ======== vim-go ========"{{{
 let g:go_disable_autoinstall = 1
 let g:go_bin_path = expand('$GOPATH/bin')
+"}}}
+
+" ======== jscomplete ========"{{{
+let g:jscomplete_use = ['dom']
 "}}}
 
 " ======== vim-json ========"{{{

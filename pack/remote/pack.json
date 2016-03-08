@@ -24,6 +24,7 @@
       "kien/rainbow_parentheses.vim",
       "nathanaelkane/vim-indent-guides",
       "thinca/vim-quickrun",
+      "osyo-manga/shabadou.vim",
       "osyo-manga/vim-watchdogs",
       "cohama/vim-hier",
       "KazuakiM/vim-qfstatusline",

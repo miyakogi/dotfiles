@@ -28,18 +28,6 @@ if get(g:, 'loaded_unite', 0)
   nnoremap <silent> [unite]u :<C-u>Unite
   nnoremap <silent> [unite]e :<C-u>Unite -start-insert locate<CR>
   nnoremap <silent> [unite]c :<C-u>Unite change<CR>
-
-  function! MyUniteQfix()
-    let qbuf = unite#helper#get_unite_bufnr('quickfix')
-    let cmd = 'Unite quickfix location_list -no-quit -winheight=10 -buffer-name=quickfix -no-empty'
-    if qbuf == -1
-      execute cmd
-    else
-      execute 'UniteClose quickfix'
-      execute cmd
-    endif
-  endfunction
-  nnoremap <silent> [unite]q :<C-u>call MyUniteQfix()<CR>
 endif
 
 "}}}
@@ -102,7 +90,7 @@ endif
 "}}}
 
 " ======== visualstar ======== {{{
-if get(g:, 'loaded_anzu', 0)
+if get(g:, 'loaded_visualstar')
   xmap * <Plug>(visualstar-*)
   xmap g* <Plug>(visualstar-g*)
   xmap # <Plug>(visualstar-#)
@@ -126,24 +114,12 @@ function! s:init_neocomplete() abort
       return neocomplete#close_popup() . l:delimitMateCR
     endfunction
 
-    " Enable omni completion.
-    augroup myvimrc
-      autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-      autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-      autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-      " autocmd FileType nim setlocal omnifunc=NimComplete
-      autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    augroup END
-
-    " Enable heavy omni completion.
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-      let g:neocomplete#sources#omni#input_patterns = {}
+    if exists('*NimComplete')
+      if &filetype ==# 'nim'
+        setlocal omnifunc=NimComplete
+      endif
+      autocmd FileType nim setlocal omnifunc=NimComplete
     endif
-    let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-    let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-    let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-    let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
-    " let g:neocomplete#sources#omni#input_patterns.nim = '[^. *\t]\.\w*'
   endif
 endfunction
 "}}}
@@ -251,13 +227,13 @@ function! s:init_smartchr()
     endfunction
 
     augroup myvimrc
-      autocmd FileType python,pytest call s:init_smartchr_py()
+      autocmd FileType python call s:init_smartchr_py()
       autocmd FileType javascript call s:init_smartchr_js()
     augroup END
 
     if match(&filetype, '^pyt') == 0
       call s:init_smartchr_py()
-    elseif index(['javascript', 'jsx', 'js', 'json'], &filetype) >= 0
+    elseif count(['javascript', 'jsx', 'js', 'json'], &filetype)
       call s:init_smartchr_js()
     endif
   endif
@@ -335,8 +311,8 @@ if IsInstalled('vim-textobj-user')
   endfunction
 
   augroup myvimrc
-    autocmd FileType python,python.pytest let b:heredoc_start_pattern = '\v(''''''|""")'
-    autocmd FileType python,python.pytest let b:heredoc_end_pattern = '\v(''''''|""")'
+    autocmd FileType python let b:heredoc_start_pattern = '\v(''''''|""")'
+    autocmd FileType python let b:heredoc_end_pattern = '\v(''''''|""")'
     autocmd FileType go let b:heredoc_start_pattern = '\v`'
     autocmd FileType go let b:heredoc_end_pattern = '\v`'
   augroup END
@@ -349,51 +325,6 @@ if IsInstalled('vim-textobj-user')
           \     'select-i': "ih",
           \  },
           \ })
-endif
-"}}}
-
-" ======== Syntastic ======== {{{
-if get(g:, 'loaded_syntastic', 0)
-  let g:syntastic_enable_signs=1
-  let g:syntastic_enable_balloons=0
-  let g:syntastic_enable_highlighting=0
-  let g:syntastic_auto_loc_list=0
-  let g:syntastic_always_populate_loc_list=1
-  let g:syntastic_loc_close_cmd = 'UniteClose quickfix'
-
-  let g:syntastic_filetype_map = {
-        \ 'python.nose': 'python',
-        \ 'python.nose3': 'python',
-        \ 'python.pytest': 'python',
-        \ 'latex': 'tex',
-        \ 'plaintex': 'tex'
-        \ }
-  let g:syntastic_mode_map = {'mode': 'passive',
-        \ 'active_filetypes': [
-        \   'sh', 'php', 'perl', 'ruby', 'c', 'cpp', 'javascript', 'coffee',
-        \ ],
-        \ 'passive_filetypes': [
-        \   'python', 'latex', 'tex', 'vim', 'dart',
-        \ ]
-        \}
-  if executable('gjslint')
-    let g:syntastic_javascript_checkers = ['gjslint']
-  endif
-  if executable('coffeelint')
-    let g:syntastic_coffee_checkers = ['coffeelint']
-  endif
-  if executable('pyflakes3')
-    let g:syntastic_python_checkers = ['pyflakes3']
-  elseif executable('pyflakes')
-    let g:syntastic_python_checkers = ['pyflakes']
-  else
-    let g:syntastic_python_checkers = ['pylint']
-  endif
-  if executable('mypy')
-    let g:syntastic_python_checkers += ['mypy']
-  endif
-
-  autocmd myvimrc ColorScheme,Syntax * hi SyntasticErrorSign ctermfg=red ctermbg=234 guifg=#f03300 guibg=grey8 gui=bold
 endif
 "}}}
 
@@ -594,23 +525,23 @@ endif
 "}}}
 
 " ======== vimquickrun ======== {{{
-if get(g:, 'loaded_quickrun', 0)
-  " NeoBundleLazy fails with mappings:<leader>r
+if get(g:, 'loaded_quickrun')
   map <Leader>r <Plug>(quickrun)
   nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 endif
+"}}}
 
+" ======== watchdogs ======== {{{
 " Enable config
-if get(g:, 'loaded_watchdogs', 0)
+if get(g:, 'loaded_watchdogs')
   if exists('g:quickrun_config')
     call watchdogs#setup(g:quickrun_config)
   endif
+  nnoremap <silent> <Leader><Leader> :<C-u>WatchdogsRun<CR>
 endif
 "}}}
 
 " ======== LightLine ======== {{{
-" if get(g:, 'loaded_lightline')
-" endif
 "}}}
 
 " ======== cursorword ========"{{{
@@ -619,71 +550,91 @@ if get(g:, 'loaded_cursorword', 0)
 endif
 "}}}
 
-" ======== Jedi-vim ======== {{{
-if exists(':JediDebugInfo')
-  command! JediRename call jedi#rename()
-  nnoremap <buffer> gl :<C-u>call <SID>jedi_usages()<CR>
-  setlocal omnifunc=jedi#completions
+" ======== Python ========
+function! s:init_python_plugin() abort
+  if get(b:, 'loaded_init_python_plugin')
+    return
+  endif
+  let b:loaded_init_python_plugin = 1
 
-  if has('python') && !get(g:, 'loaded_myjedi')
-    let g:loaded_myjedi = 1
+  if match(expand('%:t'), 'test_') == 0
+    if exists(':QuickRun')
+      noremap <buffer> <Leader>r :QuickRun pytest<CR>
+    endif
+    nnoremap <buffer> <Leader>p :!py.test -s -v %<CR>
+  else
+    nnoremap <buffer> <Leader>p :!python %<CR>
+  endif
+
+  " ======== Jedi-vim ========
+  if IsInstalled('jedi-vim')
+    command! JediRename call jedi#rename()
+    nnoremap <buffer> gl :<C-u>call <SID>jedi_usages()<CR>
+    setlocal omnifunc=jedi#completions
+
     function! s:jedi_usages()
-      " call jedi#usages()
-      let nodefs = 0
-      if exists(':Python')
-        " From jedi_vim.goto()
-        python <<EOF
-import jedi_vim
-import vim
-
-definitions = jedi_vim.goto(is_related_name=True, no_output=True)
-if definitions:
-    lst = []
-    for d in definitions:
-        if d.in_builtin_module():
-            lst.append(dict(text=jedi_vim.PythonToVimStr('Builtin ' + d.description)))
-        else:
-            lst.append(dict(filename=jedi_vim.PythonToVimStr(d.module_path),
-                            lnum=d.line, col=d.column + 1,
-                            text=jedi_vim.PythonToVimStr(d.description)))
-    jedi_vim.vim_eval('setqflist(%s)' % repr(lst))
-else:
-    vim.command('let l:nodefs = 1')
-EOF
-        if l:nodefs
-          execute 'UniteClose quickfix'
-        else
-          call MyUniteQfix()
-        endif
+      call jedi#usages()
+      if len(getqflist()) < 10 && &filetype ==# 'qf'
+        resize 10
       endif
     endfunction
   endif
-endif
 
-" ======== CoveragePy ========
-if exists(':Coveragepy')
-  nnoremap <buffer> <leader>cr :<C-u>Coveragepy refresh<CR>
-  nnoremap <buffer> <leader>cc :<C-u>Coveragepy show<CR>
-  nnoremap <buffer> <leader>cs :<C-u>Coveragepy session<CR>
-  nnoremap <buffer> <leader>cp :<C-u>CoveragepyPragmaToggle<CR>
-endif
+  " ========= vim-flake8 ========
+  if exists(':Unite')
+    let g:flake8_loc_open_cmd = 'Unite location_list -no-quit' .
+          \ ' -winheight=10 -buffer-name=pep8'
+    let g:flake8_loc_close_cmd = 'UniteClose pep8'
+  endif
+  if exists(':Flake8')
+    nnoremap <buffer> <F7> :<C-u>Flake8<CR>
+  endif
 
-" ======== mccabepy ========
-if exists(':MccabePy')
-  nnoremap <buffer> <leader>mc :<C-u>MccabePy<CR>
-endif
+  " ======== watchdogs ========
+  if exists(':WatchdogsRun')
+    autocmd myvimrc InsertLeave <buffer> WatchdogsRun
+  endif
 
+  " ======== CoveragePy ========
+  if exists(':Coveragepy')
+    nnoremap <buffer> <leader>cr :<C-u>Coveragepy refresh<CR>
+    nnoremap <buffer> <leader>cc :<C-u>Coveragepy show<CR>
+    nnoremap <buffer> <leader>cs :<C-u>Coveragepy session<CR>
+    nnoremap <buffer> <leader>cp :<C-u>CoveragepyPragmaToggle<CR>
+  endif
+
+  " ======== mccabepy ========
+  if exists(':MccabePy')
+    nnoremap <buffer> <leader>mc :<C-u>MccabePy<CR>
+  endif
+
+endfunction
+
+if &filetype ==# 'python'
+  call s:init_python_plugin()
+endif
+autocmd myvimrc FileType python call s:init_python_plugin()
 "}}}
 
-" ========= vim-flake8 ======== {{{
-if exists(':Unite')
-  let g:flake8_loc_open_cmd = 'Unite location_list -no-quit' .
-        \ ' -winheight=10 -buffer-name=pep8'
-  let g:flake8_loc_close_cmd = 'UniteClose pep8'
+
+" ======== JavaScript ========"{{{
+function! s:init_js_plugin() abort
+  if get(b:, 'loaded_init_js_plugin')
+    return
+  endif
+  let b:loaded_init_js_plugin = 1
+
+  " ======== jscomplete ========
+  if IsInstalled('jscomplete-vim')
+    autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
+  endif
+
+endfunction
+
+if count(['js', 'javascript', 'json', 'jsx'], &filetype)
+  call s:init_js_plugin()
 endif
-if exists(':Flake8')
-  nnoremap <F7> :<C-u>Flake8<CR>
-endif
+autocmd myvimrc FileType javascript,json,jsx,js call s:init_js_plugin()
 "}}}
 
 " }}}

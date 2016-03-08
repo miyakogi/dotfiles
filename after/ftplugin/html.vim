@@ -7,6 +7,7 @@ if &filetype != 'markdown'
   setlocal expandtab
   syntax sync fromstart
 endif
+setlocal omnifunc=htmlcomplete#CompleteTags
 
 function! HTMLOpenBrowser()
   let filepath = expand('%:p')
