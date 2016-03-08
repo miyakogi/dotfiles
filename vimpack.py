@@ -71,6 +71,11 @@ def make_parser():
     return parser
 
 
+def check_commands():
+    if not shutil.which('git'):
+        raise OSError('git command not found')
+
+
 def ensure_dir(path:Path):
     if not path.exists():
         path.mkdir()
@@ -203,6 +208,7 @@ class Packager:
         self.config = load_config_file(config_file)
 
     def install(self):
+        check_commands()
         for d in self.config:
             ensure_dir(self.dir / d)
             base = self.dir / d
@@ -214,6 +220,7 @@ class Packager:
         self.helptags()
 
     def update(self):
+        check_commands()
         for d in self.config:
             ensure_dir(self.dir / d)
             base = self.dir / d
@@ -237,11 +244,6 @@ class Packager:
         helptags()
 
 
-def check_commands():
-    if not shutil.which('git'):
-        raise OSError('git command not found')
-
-
 def find_config_file(filename:Path):
     conf_files = []
     for pack in (VIMHOME / 'pack').iterdir():
@@ -251,7 +253,6 @@ def find_config_file(filename:Path):
 
 
 def main():
-    check_commands()
     setup_logger(logger)
     parser = make_parser()
     args = parser.parse_args()
