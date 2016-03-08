@@ -85,6 +85,10 @@ def find_vimhome():
     if win_style_vimhome.exists():
         return win_style_vimhome
 
+
+VIMHOME = find_vimhome()
+
+
 def load_config_file(file:Union[Path, str]):
     if isinstance(file, Path):
         with file.open() as f:
@@ -161,7 +165,6 @@ class Git:
 class Packager:
     def __init__(self, config_file:Path):
         self.dir = config_file.parent
-        self.vimhome = find_vimhome()
         self.config = load_config_file(config_file)
 
     def install(self):
@@ -184,7 +187,7 @@ class Packager:
         logger.info('Update completed')
 
     def check(self):
-        ensure_dir(self.vimhome / 'doc')
+        ensure_dir(VIMHOME / 'doc')
         for d in self.config:
             base = self.dir / d
             for plugin in base.iterdir():
@@ -196,7 +199,7 @@ class Packager:
 
     def link_doc(self, path:Path):
         doc_dir = path / 'doc'
-        vimdoc = self.vimhome / 'doc'
+        vimdoc = VIMHOME / 'doc'
         for doc in chain(doc_dir.glob('**/*.txt'), doc_dir.glob('**/*.*x')):
             target =  vimdoc / doc.name
             remove_if_broken(target)
@@ -204,14 +207,14 @@ class Packager:
                 target.symlink_to(doc)
 
     def clean_doc(self):
-        doc_dir = self.vimhome / 'doc'
+        doc_dir = VIMHOME / 'doc'
         if doc_dir.is_dir():
             for doc in doc_dir.iterdir():
                 remove_if_broken(doc)
 
     def helptags(self):
         self.clean_doc()
-        vim_cmd = 'helptags {} | quitall'.format(self.vimhome / 'doc')
+        vim_cmd = 'helptags {} | quitall'.format(VIMHOME / 'doc')
         cmd = ['vim', '-u', 'NONE', '-N', '--cmd', vim_cmd]
         proc = subprocess.run(cmd)
         if proc.returncode == 0:
@@ -227,7 +230,7 @@ def check_commands():
 
 def find_config_file(filename:Path):
     conf_files = []
-    for pack in (find_vimhome() / 'pack').iterdir():
+    for pack in (VIMHOME / 'pack').iterdir():
         if (pack / filename).exists():
             conf_files.append(pack / filename)
     return conf_files
@@ -246,7 +249,7 @@ def main():
         conf_files = find_config_file(conf)
     if not conf_files:
         logger.error('{} not found in any directories under {}'.format(
-            conf, find_vimhome()/'pack'))
+            conf, VIMHOME / 'pack'))
         return
 
     for conf_file in conf_files:
