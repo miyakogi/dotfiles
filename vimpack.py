@@ -68,7 +68,8 @@ setup_logger(logger)
 parser = argparse.ArgumentParser(description='Vim Package Helper')
 parser.add_argument('command', choices=['install', 'update', 'check'])
 parser.add_argument('config_file', default='pack.json', nargs='?')
-parser.add_argument('--no-dummy', default=False, action='store_true')
+parser.add_argument('--no-dummy', default=False, action='store_true',
+        help='prevent making dummy files (plugin/_.vim)')
 options = parser.parse_args()
 
 
