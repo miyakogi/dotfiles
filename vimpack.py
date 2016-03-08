@@ -54,7 +54,7 @@ class Formatter(logging.Formatter):
 
     def format(self, rec):
         fmt = '{color}[{level}:{name}]{normal} {msg}'
-        config = {'level': rec.levelname, 'name': rec.name, 'msg': rec.msg}
+        config = {'level': rec.levelname[0], 'name': rec.name, 'msg': rec.msg}
         if rec.levelno >= logging.ERROR:
             config['color'] = self.colors['red']
         elif rec.levelno >= logging.WARN:
@@ -70,7 +70,7 @@ class Formatter(logging.Formatter):
 
 
 # Make logger
-logger = logging.getLogger('VimPack')
+logger = logging.getLogger('vimpack')
 level = getattr(logging, options.loglevel.upper())
 logger.setLevel(level)
 handler = logging.StreamHandler()
@@ -248,9 +248,24 @@ class Packager:
         ensure_dir(VIMHOME / 'doc')
         for d in self.config:
             base = self.dir / d
+            managed_plugins = []
+            unmanaged_plugins = []
+            for host in self.config[d]:
+                managed_plugins.extend(
+                        Path(repo).name for repo in self.config[d][host])
             for plugin in base.iterdir():
                 if plugin.is_dir():
+                    if plugin.name in managed_plugins:
+                        managed_plugins.remove(plugin.name)
+                    else:
+                        unmanaged_plugins.append(plugin.name)
                     post_process(plugin)
+            if unmanaged_plugins:
+                logger.warn('({}/{}) plugins not in config file: {}'.format(
+                    base.parts[-2], base.parts[-1], unmanaged_plugins))
+            if managed_plugins:
+                logger.warn('({}/{}) not installed plugins: {}'.format(
+                    base.parts[-2], base.parts[-1], managed_plugins))
         logger.info('Check done')
         self.helptags()
 
