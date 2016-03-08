@@ -34,6 +34,7 @@ makedir_if_not_exists $HOME/.config
 makedir_if_not_exists $HOME/.config/nvim
 makedir_if_not_exists $HOME/.config/nvim/bundle
 makedir_if_not_exists $HOME/.zsh
+makedir_if_not_exists $HOME/bin
 
 # --- Make Symbolic link ---
 # Files
@@ -45,6 +46,7 @@ ln -sf $BASEDIR/.zsh/.zshrc $HOME/.zsh/.zshrc
 ln -sf $BASEDIR/rgb.txt $HOME/.vim/rgb.txt
 ln -sf $BASEDIR/.tmux.conf $HOME/.tmux.conf
 ln -sf $BASEDIR/.gitignore_global $HOME/.gitignore_global
+ln -sf $BASEDIR/vimpack.py $HOME/bin/vimpack
 
 case "${OSTYPE}" in
 # Mac(Unix)
