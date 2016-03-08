@@ -52,24 +52,23 @@ class Formatter(logging.Formatter):
         return fmt.format(**config)
 
 
-def setup_logger(logger):
-    level = logging.DEBUG
-    logger.setLevel(level)
-    handler = logging.StreamHandler()
-    handler.setLevel(level)
-    handler.setFormatter(Formatter())
-    logger.addHandler(handler)
-    logger.propagate = False
-
-
+# Make logger
 logger = logging.getLogger('VimPack')
-setup_logger(logger)
+logger.setLevel(logging.DEBUG)
+handler = logging.StreamHandler()
+handler.setLevel(logging.DEBUG)
+handler.setFormatter(Formatter())
+logger.addHandler(handler)
+logger.propagate = False
 
+# Make option parser
 parser = argparse.ArgumentParser(description='Vim Package Helper')
 parser.add_argument('command', choices=['install', 'update', 'check'])
 parser.add_argument('config_file', default='pack.json', nargs='?')
 parser.add_argument('--no-dummy', default=False, action='store_true',
         help='prevent making dummy files (plugin/_.vim)')
+
+# Parse command-line options
 options = parser.parse_args()
 
 
