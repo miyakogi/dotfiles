@@ -29,12 +29,6 @@ if exists("b:did_ftplugin_go_import") && !exists(":Import")
   endif
 endif
 
-" ======== quickrun ========
-if exists('g:quickrun_config')
-  let g:quickrun_config['go'] = {
-        \ 'command': 'go',
-        \ 'runner': 'vimproc',
-        \ 'cmdopt': 'run',
-        \ 'exec': '%c %o %s',
-        \}
-endif
+" ======== textobj-heredoc ========
+let b:heredoc_start_pattern = '\v`'
+let b:heredoc_end_pattern = '\v`'

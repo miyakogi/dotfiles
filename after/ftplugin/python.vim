@@ -24,3 +24,7 @@ setlocal concealcursor=i " for jedi
 " ======== Abbreviations ========
 iabbrev <buffer> se self
 iabbrev <buffer> sel self
+
+" ======== textobj-heredoc ========
+let b:heredoc_start_pattern = '\v(''''''|""")'
+let b:heredoc_end_pattern = '\v(''''''|""")'

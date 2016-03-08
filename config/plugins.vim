@@ -255,73 +255,11 @@ if IsInstalled('vim-textobj-user')
     omap iu <Plug>(textobj-wiw-i)
   endif
 
-  " ======== snigel/double quote in multi-line ========
-  function! SelectHereDoc(start, end, inner)
-    let current_pos = getpos('.')
-    let found_start = search(a:start, a:inner ? 'bce' : 'bc')
-
-    " quote not found. go back cursol.
-    if found_start == 0
-      call setpos('.', current_pos)
-      return 0
-    endif
-
-    if a:inner
-      " execute "normal! \<Right>"
-      call search('\S')
-      let start_pos = getpos('.')
-    else
-      let start_pos = getpos('.')
-      call search(a:start, 'ce')
-      execute "normal! \<Right>"
-    endif
-
-    let found_end = search(a:end, a:inner ? 'c' : 'ce')
-    if found_end == 0
-      call setpos('.', current_pos)
-      return 0
-    endif
-
-    if a:inner
-      call search('\S', 'b')
-    endif
-    let end_pos = getpos('.')
-
-    return ['v', start_pos, end_pos]
-  endfunction
-
-  function! SelectHereDocA()
-    let start_pattern = get(b:, 'heredoc_start_pattern', 0)
-    let end_pattern = get(b:, 'heredoc_end_pattern', 0)
-    if (start_pattern ==# '' || end_pattern ==# '')
-      return 0
-    else
-      return SelectHereDoc(start_pattern, end_pattern, 0)
-    endif
-  endfunction
-
-  function! SelectHereDocI()
-    let start_pattern = get(b:, 'heredoc_start_pattern', '')
-    let end_pattern = get(b:, 'heredoc_end_pattern', '')
-    if (start_pattern ==# '' || end_pattern ==# '')
-      return 0
-    else
-      return SelectHereDoc(start_pattern, end_pattern, 1)
-    endif
-  endfunction
-
-  augroup myvimrc
-    autocmd FileType python let b:heredoc_start_pattern = '\v(''''''|""")'
-    autocmd FileType python let b:heredoc_end_pattern = '\v(''''''|""")'
-    autocmd FileType go let b:heredoc_start_pattern = '\v`'
-    autocmd FileType go let b:heredoc_end_pattern = '\v`'
-  augroup END
-
   call textobj#user#plugin('heredoc', {
           \ 'doc': {
-          \   'select-a-function': 'SelectHereDocA',
+          \   'select-a-function': 'textobj#heredoc#select_a',
           \     'select-a': "ah",
-          \   'select-i-function': 'SelectHereDocI',
+          \   'select-i-function': 'textobj#heredoc#select_i',
           \     'select-i': "ih",
           \  },
           \ })
@@ -550,7 +488,7 @@ if get(g:, 'loaded_cursorword', 0)
 endif
 "}}}
 
-" ======== Python ========
+" ======== Python ========{{{
 function! s:init_python_plugin() abort
   if get(b:, 'loaded_init_python_plugin')
     return
@@ -616,7 +554,6 @@ endif
 autocmd myvimrc FileType python call s:init_python_plugin()
 "}}}
 
-
 " ======== JavaScript ========"{{{
 function! s:init_js_plugin() abort
   if get(b:, 'loaded_init_js_plugin')
@@ -636,8 +573,6 @@ if count(['js', 'javascript', 'json', 'jsx'], &filetype)
 endif
 autocmd myvimrc FileType javascript,json,jsx,js call s:init_js_plugin()
 "}}}
-
-" }}}
 
 " ============================================
 "  My Plugin Settings  {{{
