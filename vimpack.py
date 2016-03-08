@@ -79,12 +79,6 @@ def check_commands():
         raise OSError('git command not found')
 
 
-def ensure_dir(path:Path):
-    if not path.exists():
-        path.mkdir()
-        logger.info('{} created'.format(path))
-
-
 def find_vimhome():
     unix_style_vimhome = Path.home() / '.vim'
     win_style_vimhome = Path.home() / '_vim'
@@ -106,6 +100,12 @@ def load_config_file(file:Union[Path, str]):
         with open(file) as f:
             config = json.load(f)
     return config
+
+
+def ensure_dir(path:Path):
+    if not path.exists():
+        path.mkdir()
+        logger.info('{} created'.format(path))
 
 
 def remove_if_broken(path:Path):
