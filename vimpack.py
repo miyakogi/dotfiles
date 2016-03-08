@@ -67,6 +67,8 @@ parser.add_argument('command', choices=['install', 'update', 'check'])
 parser.add_argument('config_file', default='pack.json', nargs='?')
 parser.add_argument('--no-dummy', default=False, action='store_true',
         help='prevent making dummy files (plugin/_.vim)')
+parser.add_argument('--no-doc', default=False, action='store_true',
+        help='prevent making symlinks of help (doc/*.{txt,*x} to ~/.vim/doc)')
 
 # Parse command-line options
 options = parser.parse_args()
@@ -129,6 +131,8 @@ def check_plugin_dir(path:Path):
 
 
 def link_doc(path:Path):
+    if options.no_doc:
+        return
     doc_dir = path / 'doc'
     vimdoc = VIMHOME / 'doc'
     for doc in chain(doc_dir.glob('*.txt'), doc_dir.glob('*.*x')):
