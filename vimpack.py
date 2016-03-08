@@ -17,7 +17,6 @@ import subprocess
 from typing import Union
 
 PROTO = 'https'
-logger = logging.getLogger('VimPack')
 
 
 class Formatter(logging.Formatter):
@@ -61,6 +60,10 @@ def setup_logger(logger):
     handler.setFormatter(Formatter())
     logger.addHandler(handler)
     logger.propagate = False
+
+
+logger = logging.getLogger('VimPack')
+setup_logger(logger)
 
 
 def make_parser():
@@ -253,7 +256,6 @@ def find_config_file(filename:Path):
 
 
 def main():
-    setup_logger(logger)
     parser = make_parser()
     args = parser.parse_args()
     conf = Path(args.config_file)
