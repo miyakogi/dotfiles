@@ -40,6 +40,7 @@
       "miyakogi/vim-flake8",
       "miyakogi/vim-virtualenv",
       "hynek/vim-python-pep8-indent",
+      "hdima/python-syntax",
       "davidhalter/jedi-vim",
       "mitsuhiko/vim-jinja",
       "miyakogi/nimrod.vim",

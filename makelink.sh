@@ -30,6 +30,7 @@ makedir_if_not_exists $HOME/.vim
 makedir_if_not_exists $HOME/.vim/bundle
 makedir_if_not_exists $HOME/.vim/backup
 makedir_if_not_exists $HOME/.vim/pack
+makedir_if_not_exists $HOME/.vim/pack/remote
 makedir_if_not_exists $HOME/.config
 makedir_if_not_exists $HOME/.config/nvim
 makedir_if_not_exists $HOME/.config/nvim/bundle
@@ -40,6 +41,7 @@ makedir_if_not_exists $HOME/bin
 # Files
 ln -sf $BASEDIR/.profile $HOME/.profile
 ln -sf $BASEDIR/.vimrc $HOME/.vimrc
+ln -sf $BASEDIR/pack.json $HOME/.vim/pack/remote/pack.json
 ln -sf $BASEDIR/.zshenv $HOME/.zshenv
 ln -sf $BASEDIR/.zsh/.zprofile $HOME/.zsh/.zprofile
 ln -sf $BASEDIR/.zsh/.zshrc $HOME/.zsh/.zshrc
@@ -69,7 +71,6 @@ ln -sf $BASEDIR/colors $HOME/.vim
 ln -sf $BASEDIR/config $HOME/.vim
 ln -sf $BASEDIR/ftdetect $HOME/.vim
 ln -sf $BASEDIR/ftplugin $HOME/.vim
-ln -sf $BASEDIR/pack/remote $HOME/.vim/pack
 ln -sf $BASEDIR/plugin $HOME/.vim
 ln -sf $BASEDIR/snippets $HOME/.vim
 ln -sf $BASEDIR/syntax $HOME/.vim
