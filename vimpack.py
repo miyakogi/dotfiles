@@ -84,6 +84,7 @@ def find_vimhome():
         return unix_style_vimhome
     if win_style_vimhome.exists():
         return win_style_vimhome
+    raise FileNotFoundError('~/.vim or ~/_vim not found.')
 
 
 VIMHOME = find_vimhome()
@@ -119,6 +120,40 @@ def check_plugin_dir(path:Path):
         dummy_file.touch()
 
 
+def link_doc(path:Path):
+    doc_dir = path / 'doc'
+    vimdoc = VIMHOME / 'doc'
+    for doc in chain(doc_dir.glob('*.txt'), doc_dir.glob('*.*x')):
+        target =  vimdoc / doc.name
+        remove_if_broken(target)
+        if not target.exists():
+            target.symlink_to(doc)
+
+
+def post_process(path:Path):
+    if path.is_dir() and path.is_absolute():
+        check_plugin_dir(path)
+        link_doc(path)
+
+
+def clean_doc():
+    doc_dir = VIMHOME / 'doc'
+    if doc_dir.is_dir():
+        for doc in doc_dir.iterdir():
+            remove_if_broken(doc)
+
+
+def helptags():
+    clean_doc()
+    vim_cmd = 'helptags {} | quitall'.format(VIMHOME / 'doc')
+    cmd = ['vim', '-u', 'NONE', '-N', '--cmd', vim_cmd]
+    proc = subprocess.run(cmd)
+    if proc.returncode == 0:
+        logger.info('helptags done')
+    else:
+        logger.error('Failed to make helptags')
+
+
 class Git:
     @classmethod
     def clone(self, repo:Path, base:Path):
@@ -135,7 +170,7 @@ class Git:
             'git', 'clone', '--recursive', url])
         if proc.returncode == 0:
             if target.is_dir():
-                check_plugin_dir(target)
+                post_process(target)
             else:
                 logger.warn('Cloned repository not found. Skip post-process.')
         else:
@@ -149,7 +184,7 @@ class Git:
             proc = subprocess.run(['git', 'pull'])
             if proc.returncode == 0:
                 cls.init_submodule(path)
-                check_plugin_dir(path)
+                post_process(path)
             else:
                 logger.error('error on `git pull` on {}'.format(path))
         else:
@@ -176,6 +211,7 @@ class Packager:
                 for repo in self.config[d][domain]:
                     Git.clone(host / repo, base)
         logger.info('Install completed')
+        self.helptags()
 
     def update(self):
         for d in self.config:
@@ -185,6 +221,7 @@ class Packager:
                 if plugin_dir.is_dir():
                     Git.pull(plugin_dir)
         logger.info('Update completed')
+        self.helptags()
 
     def check(self):
         ensure_dir(VIMHOME / 'doc')
@@ -192,35 +229,12 @@ class Packager:
             base = self.dir / d
             for plugin in base.iterdir():
                 if plugin.is_dir():
-                    check_plugin_dir(plugin)
-                    self.link_doc(plugin)
-        self.helptags()
+                    post_process(plugin)
         logger.info('Check done')
-
-    def link_doc(self, path:Path):
-        doc_dir = path / 'doc'
-        vimdoc = VIMHOME / 'doc'
-        for doc in chain(doc_dir.glob('**/*.txt'), doc_dir.glob('**/*.*x')):
-            target =  vimdoc / doc.name
-            remove_if_broken(target)
-            if not target.exists():
-                target.symlink_to(doc)
-
-    def clean_doc(self):
-        doc_dir = VIMHOME / 'doc'
-        if doc_dir.is_dir():
-            for doc in doc_dir.iterdir():
-                remove_if_broken(doc)
+        self.helptags()
 
     def helptags(self):
-        self.clean_doc()
-        vim_cmd = 'helptags {} | quitall'.format(VIMHOME / 'doc')
-        cmd = ['vim', '-u', 'NONE', '-N', '--cmd', vim_cmd]
-        proc = subprocess.run(cmd)
-        if proc.returncode == 0:
-            logger.info('helptags done')
-        else:
-            logger.error('Failed to make helptags')
+        helptags()
 
 
 def check_commands():
