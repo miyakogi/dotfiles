@@ -184,18 +184,6 @@ set splitbelow " Create new window below the current window.
 set splitright " Create new window below the current window.
 set noequalalways " When on, all windows are automatically made the same size after split/close
 
-function! MyFirstInsert()
-  if exists('g:colors_name')
-    execute 'colorscheme ' . g:colors_name
-  endif
-  autocmd! first_insert
-endfunction
-
-augroup first_insert
-  autocmd!
-  autocmd InsertEnter * nested call MyFirstInsert()
-augroup END
-
 " ======== Folding setting ========
 set foldmethod=marker
 set foldtext=MyFoldText()
@@ -506,7 +494,7 @@ nnoremap [Space]d :<C-u>vertical diffsplit<Space>
 
 " ======== CmdWin ========
 " Close command line window with q
-autocmd myvimrc CmdWinEnter * nnoremap <buffer> <nowait> q <C-w>c
+autocmd myvimrc CmdwinEnter * nnoremap <buffer> <nowait> q <C-w>c
 autocmd myvimrc CmdwinEnter * startinsert
 autocmd myvimrc CmdwinEnter * setlocal nonumber
 
@@ -815,7 +803,7 @@ let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level = 1
 let g:indent_guides_color_change_percent = 4
 " let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'rabbit-ui']
+let g:indent_guides_exclude_filetypes = ['help', 'rabbit-ui']
 let g:indent_guides_color = 'dark'
 "}}}
 

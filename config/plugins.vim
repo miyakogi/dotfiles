@@ -428,7 +428,7 @@ if get(g:, 'loaded_indent_guides', 0)
     if g:indent_guides_autocmds_enabled
       if g:indent_guides_color ==# 'auto'
         call g:IndentGuidesColorAuto()
-      elseif g:indent_guides_color ==# 'light'
+      elseif &background ==# 'light'
         call g:IndentGuidesColorLight()
       else
         call g:IndentGuidesColorDark()
@@ -459,6 +459,10 @@ if get(g:, 'loaded_indent_guides', 0)
   command! IndentGuidesColorAuto call IndentGuidesColorAuto()
   command! IndentGuidesColorLight call IndentGuidesColorLight()
   command! IndentGuidesColorDark call IndentGuidesColorDark()
+
+  if get(g:, 'indent_guides_enable_on_vim_startup')
+    IndentGuidesEnable
+  endif
 endif
 "}}}
 
