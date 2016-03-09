@@ -17,10 +17,10 @@ set guioptions=pi
 
 " Font configuration
 " 日本語
-let s:default_gfw = "MotoyaLMaru 13.5"
+let s:default_gfw = "Noto Sans Mono CJK JP 14"
 let &guifontwide = s:default_gfw
 " 英語
-let s:default_gfn = "MotoyaLMaru 13.5"
+let s:default_gfn = "Noto Sans Mono CJK JP 14"
 let &guifont = s:default_gfn
 
 " set antialias
@@ -31,7 +31,7 @@ set columns=106
 " set columns=200
 " set lines=39
 set lines=52 " linespace=2
-set linespace=1
+set linespace=2
 set guiheadroom=0
 
 " Configure gui-cursor shape, color, and blinking.
