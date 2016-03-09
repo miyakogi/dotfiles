@@ -13,6 +13,11 @@ function! IsInstalled(name) abort
   return 0
 endfunction
 
+" ======== ColorScheme ========
+if exists('g:MyColorScheme')
+  execute 'colorscheme ' . g:MyColorScheme
+endif
+
 " ======== Unite ======== {{{
 if get(g:, 'loaded_unite')
   " unite prefix key
@@ -70,8 +75,8 @@ endif
 " ======== Signify ======== {{{
 if get(g:, 'loaded_signify')
   autocmd myvimrc ColorScheme,Syntax * highlight link SignifySignAdd LineNr
-                            \ | highlight link SignifySignChange PreProc
-                            \ | highlight SignifySignDelete guifg=#EE3333 ctermfg=red
+        \ | highlight link SignifySignChange PreProc
+        \ | highlight SignifySignDelete guifg=#EE3333 ctermfg=red
 endif
 "}}}
 
@@ -383,9 +388,8 @@ if exists(':RainbowParenthesesActivate')
     call s:rainbow_parenthesis_badwolf()
   endfunction
 
-  autocmd myvimrc ColorScheme,Syntax * nested call g:RainbowParenthesesStart()
+  autocmd myvimrc ColorScheme,Syntax * call g:RainbowParenthesesStart()
   nnoremap [Space]r :<C-u>RainbowParenthesesToggleAll<CR>
-  " call g:RainbowParenthesesStart()
 endif
 
 "}}}
@@ -437,6 +441,9 @@ if get(g:, 'loaded_indent_guides')
     if g:indent_guides_autocmds_enabled
       if g:indent_guides_color ==# 'auto'
         call g:IndentGuidesColorAuto()
+      elseif get(g:, 'colors_name') ==# 'caffe'
+        hi IndentGuidesOdd ctermbg=233
+        hi IndentGuidesEven ctermbg=234
       elseif &background ==# 'light'
         call g:IndentGuidesColorLight()
       else
@@ -604,6 +611,6 @@ augroup END
 "  Post Process"{{{
 " ============================================
 " ======== execute auto commands ========
-doautocmd myvimrc Syntax
+doautocmd Syntax
 execute 'doautocmd myvimrc FileType ' . &filetype
 "}}}

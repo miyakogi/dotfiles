@@ -579,10 +579,9 @@ if !has('gui_running')
     xmap <Nul> <C-Space>
     smap <Nul> <C-Space>
     map! <Nul> <C-Space>
-    if exists(':ConoLineColorDark')
-      ConoLineColorDark
-    endif
-    execute 'colorscheme ' . g:MyColorScheme
+    " if exists(':ConoLineColorDark')
+    "   ConoLineColorDark
+    " endif
   endfunction
 
   " change the cursor shape depending on mode

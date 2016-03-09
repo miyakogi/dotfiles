@@ -49,9 +49,10 @@
       "mattn/jscomplete-vim",
       "leafgarland/typescript-vim",
       "miyakogi/conoline.vim",
-      "miyakogi/slateblue.vim",
       "miyakogi/sidepanel.vim",
-      "miyakogi/seiya.vim"
+      "miyakogi/seiya.vim",
+      "miyakogi/slateblue.vim",
+      "miyakogi/badwolf"
     ]
   },
   "opt": {
