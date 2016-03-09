@@ -50,7 +50,7 @@ let g:loaded_zipPlugin = 1
 if filereadable(expand('~/.vim/config/plugins.vim'))
   autocmd myvimrc VimEnter * source ~/.vim/config/plugins.vim
 endif
-let g:MyColorScheme = 'badwolf'
+let g:MyColorScheme = 'caffe'
 
 " ======== detect filetypes ========
 if filereadable(expand('~/.vim/config/filetype.vim'))
@@ -601,6 +601,7 @@ endif
 " ============================================
 "    Filetype Dependent Settings"{{{
 " ============================================
+let python_no_builtin_highlight = 1
 "}}}
 
 " ============================================
