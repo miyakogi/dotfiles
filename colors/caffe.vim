@@ -86,8 +86,8 @@ call termcolor#hl('TabLineSel', 'back', 'blue', 'none')
 
 call termcolor#hl('MatchParen', 'yellow1', 'gray30', 'bold')
 
-call termcolor#hl('NonText',    'gray30', 'bg')
-call termcolor#hl('SpecialKey', 'gray30', 'bg')
+call termcolor#hl('NonText',    'gray50', 'bg')
+call termcolor#hl('SpecialKey', 'gray50', 'bg')
 
 call termcolor#hl('Visual',    '',  'gray30')
 call termcolor#hl('VisualNOS', '',  'gray30')
@@ -213,9 +213,9 @@ call termcolor#hl('DiffText',   'front', 'gray40', 'bold')
 
 if has("spell")
     call termcolor#hl('SpellCap', 'yellow', 'bg', 'undercurl,bold', 'yellow')
-    call termcolor#hl('SpellBad', 'fg', 'bg', 'undercurl', 'yellow')
-    call termcolor#hl('SpellLocal', 'fg', 'bg', 'undercurl', 'yellow')
-    call termcolor#hl('SpellRare', 'fg', 'bg', 'undercurl', 'yellow')
+    call termcolor#hl('SpellBad', '', 'bg', 'undercurl', 'red')
+    call termcolor#hl('SpellLocal', '', 'bg', 'undercurl', 'lime')
+    call termcolor#hl('SpellRare', '', 'bg', 'undercurl', 'blue')
 endif
 
 " }}}
@@ -292,6 +292,7 @@ call termcolor#hl('pythonExceptions',  'red', '', 'none')
 call termcolor#hl('pythonDecorator',   'red', '', 'none')
 call termcolor#hl('pythonRun',         'gray70', '', 'bold')
 call termcolor#hl('pythonCoding',      'gray70', '', 'bold')
+call termcolor#hl('pythonInclude',     'deeppurple', '', 'bold')
 
 " }}}
 
