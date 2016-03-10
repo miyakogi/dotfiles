@@ -1,4 +1,4 @@
-# Vim
+# ======== Python ========
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 *.un~
@@ -24,3 +24,29 @@ cscope.out
 cscope.in.out
 cscope.po.out
 
+# ======== Python ========
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+# C extensions
+*.so
+# Distribution / packaging
+.Python
+develop-eggs/
+dist/
+eggs/
+.eggs/
+sdist/
+*.egg-info/
+.installed.cfg
+*.egg
+# Unit test / coverage reports
+.coverage
+.coverage.*
+.cache
+coverage.xml
+# Sphinx documentation
+docs/_build/
+*.mo
+*.pot
