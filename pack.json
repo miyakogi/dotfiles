@@ -1,5 +1,5 @@
 {
-  "ever": {
+  "start": {
     "github.com": [
       "Shougo/vimproc",
       "vim-jp/vital.vim",
