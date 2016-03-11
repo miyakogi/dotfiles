@@ -118,11 +118,15 @@ if get(g:, 'loaded_neocomplete')
     return neocomplete#close_popup() . l:delimitMateCR
   endfunction
 
+  " disable on python
+  autocmd myvimrc FileType python setlocal completeopt=menu,menuone,noinsert,noselect
+  autocmd myvimrc FileType python NeoCompleteLock
+
   if exists('*NimComplete')
     if &filetype ==# 'nim'
       setlocal omnifunc=NimComplete
     endif
-    autocmd FileType nim setlocal omnifunc=NimComplete
+    autocmd myvimrc FileType nim setlocal omnifunc=NimComplete
   endif
 endif
 "}}}
