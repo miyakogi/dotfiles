@@ -198,8 +198,6 @@ def helptags():
 class Git:
     @classmethod
     def clone(self, repo:Path, base:Path):
-        if Path.cwd() != base:
-            os.chdir(str(base))
         target = base / repo.name
         if target.exists():
             logger.debug('Skip existing {}'.format(target))
@@ -207,8 +205,8 @@ class Git:
 
         url = '{0}://{1}'.format(PROTO, repo)
         logger.info('start clone {}'.format(repo))
-        proc = subprocess.run([
-            'git', 'clone', '--recursive', url])
+        proc = subprocess.run(['git', 'clone', '--recursive', url],
+                              cwd=str(base))
         if proc.returncode == 0:
             if target.is_dir():
                 post_process(target)
@@ -221,8 +219,7 @@ class Git:
     def pull(cls, path:Path):
         if (path / '.git').exists():
             logger.info('Update {}/{}'.format(path.parent.name, path.name))
-            os.chdir(str(path))
-            proc = subprocess.run(['git', 'pull'])
+            proc = subprocess.run(['git', 'pull'], cwd=str(path))
             if proc.returncode == 0:
                 cls.init_submodule(path)
                 post_process(path)
@@ -233,9 +230,8 @@ class Git:
 
     @classmethod
     def init_submodule(cls, path:Path):
-        if Path.cwd() != path:
-            os.chdir(str(path))
-        subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'])
+        subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'],
+                       cwd=str(path))
 
 
 class Packager:
