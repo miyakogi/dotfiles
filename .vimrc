@@ -831,7 +831,6 @@ let g:quickrun_config['coffee_compile'] = {
 " ======== watchdogs ========
 let g:watchdogs_check_BufWritePost_enable = 0
 let g:watchdogs_check_BufWritePost_enables = {
-      \ 'python' : 1,
       \ 'javascript' : 1,
       \ 'coffee' : 1,
       \ 'typescript' : 1,
@@ -840,7 +839,6 @@ let g:watchdogs_check_BufWritePost_enables = {
 
 let g:watchdogs_check_CursorHold_enable = 0
 let g:watchdogs_check_CursorHold_enables = {
-      \ 'python' : 0,
       \ 'javascript' : 1,
       \ 'coffee' : 1,
       \ 'typescript' : 1,

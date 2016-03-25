@@ -472,7 +472,6 @@ if get(g:, 'loaded_watchdogs')
   if exists('g:quickrun_config')
     call watchdogs#setup(g:quickrun_config)
   endif
-  nnoremap <silent> <Leader><Leader> :<C-u>WatchdogsRun<CR>
 endif
 "}}}
 
@@ -515,6 +514,12 @@ function! s:init_python_plugin() abort
     endfunction
   endif
 
+  " ======== asyncjedi ========
+  if IsInstalled('asyncjedi')
+    setlocal completeopt+=menu,menuone,noselect,noinsert
+  endif
+
+
   " ========= vim-flake8 ========
   if exists(':Unite')
     let g:flake8_loc_open_cmd = 'Unite location_list -no-quit' .
@@ -526,9 +531,9 @@ function! s:init_python_plugin() abort
   endif
 
   " ======== watchdogs ========
-  if exists(':WatchdogsRun')
-    autocmd myvimrc InsertLeave <buffer> WatchdogsRun
-  endif
+  " if exists(':WatchdogsRun')
+  "   autocmd myvimrc InsertLeave <buffer> WatchdogsRun
+  " endif
 
   " ======== CoveragePy ========
   if exists(':Coveragepy')
@@ -590,6 +595,12 @@ if get(g:, 'loaded_sidepanel')
 endif
 "}}}
 
+" ======== AsynCheck ========"{{{
+if exists(':AsynCheck')
+  autocmd myvimrc InsertLeave,BufWritePre *.py,*.js AsynCheck
+  nnoremap <silent> <Leader><Leader> :<C-u>AsynCheck<CR>
+endif
+"}}}
 "}}}
 
 " ============================================
