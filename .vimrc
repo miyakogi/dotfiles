@@ -47,50 +47,17 @@ let g:loaded_rrhelper = 1
 let g:loaded_tarPlugin = 1
 let g:loaded_vimballPlugin = 1
 let g:loaded_zipPlugin = 1
-if filereadable(expand('~/.vim/config/plugins.vim'))
-  autocmd myvimrc VimEnter * source ~/.vim/config/plugins.vim
-endif
 let g:MyColorScheme = 'caffe'
-
-" ======== detect filetypes ========
-if filereadable(expand('~/.vim/config/filetype.vim'))
-  source ~/.vim/config/filetype.vim
-endif
-"}}}
-
-" ============================================
-"  Plugin List  {{{
-" ============================================
-
-" ======== NeoBundle =======
-if 0
-if has('vim_starting')
-  set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-endif
-call dein#begin(expand('~/.vim/dein'))
-
-" NeoBundleFetch 'Shougo/neobundle.vim'
-" let g:neobundle#log_filename = expand('~/.vim/bundle/.neobundle/neobundle.log')
-let g:dein#install_max_processes = 4
-let g:dein#install_process_timeout = 180
-" let g:dein#types#git#enable_submodule = 1
-let g:dein#types#git#clone_depth = 1
-
-if dein#load_cache([expand('~/dotfiles/dein.toml')])
-  call dein#load_toml(expand('~/dotfiles/dein.toml'))
-  call dein#save_cache()
-endif
-
-call dein#end()
-endif
 "}}}
 
 " ============================================
 "  Set Filetypes{{{
 " ============================================
-
+" ======== detect filetypes ========
+if filereadable(expand('~/.vim/config/filetype.vim'))
+  source ~/.vim/config/filetype.vim
+endif
 filetype plugin indent on
-syntax on
 "}}}
 
 " ============================================
@@ -1037,7 +1004,6 @@ let g:quick_closer_filetypes = [
 " ======== livemark.vim ======== {{{
 let g:livemark_css_files = [expand('~/dotfiles/static/css/bootstrap.ja.min.css')]
 let g:livemark_no_default_css = 1
-
 "}}}
 "}}}
 
@@ -1052,22 +1018,20 @@ if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
 
-if v:version >= 704
-  set re=2
+" ======== Load plugin settings on start up ========
+if filereadable(expand('~/.vim/config/plugins.vim'))
+  autocmd myvimrc VimEnter * source ~/.vim/config/plugins.vim
 endif
 
-let g:tex_fold_enabled=1
-" set foldmethod=syntax
-let g:tex_comment_nospell=1
-
+" ======== Record and show startup time ========
 if has('vim_starting') && has('reltime')
   augroup myvimrc
-    autocmd VimEnter * let g:startuptime = reltime(g:startuptime) | redraw
-    \ | echomsg 'startuptime: ' . reltimestr(g:startuptime)
+    autocmd VimEnter * echomsg 'startuptime: ' . reltimestr(reltime(g:startuptime))
   augroup END
 endif
 
 "}}}
 
 packadd matchit
+packadd vim-textobj-user
 " vim set\ fdm=marker\ ts=2\ sts=2\ sw=2\ tw=0\ et

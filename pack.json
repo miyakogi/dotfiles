@@ -22,7 +22,6 @@
       "tpope/vim-surround",
       "kana/vim-repeat",
       "kana/vim-smartchr",
-      "kana/vim-textobj-user",
       "rhysd/textobj-wiw",
       "sgur/vim-textobj-parameter",
       "kien/rainbow_parentheses.vim",
@@ -56,6 +55,7 @@
   },
   "opt": {
     "github.com": [
+      "kana/vim-textobj-user",
       "Raimondi/delimitMate",
       "tpope/vim-abolish"
     ]

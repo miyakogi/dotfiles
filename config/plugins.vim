@@ -15,8 +15,15 @@ endfunction
 
 " ======== ColorScheme ========
 if exists('g:MyColorScheme')
-  execute 'colorscheme ' . g:MyColorScheme
+  try
+    execute 'colorscheme ' . g:MyColorScheme
+  catch /^Vim\%((\a\+)\)\=:E185/
+    echomsg 'Failed to load colorscheme "' . g:MyColorScheme
+          \ . '". Use desert instead.'
+    colorscheme desert
+  endtry
 endif
+syntax on
 
 " ======== Unite ======== {{{
 if get(g:, 'loaded_unite')
@@ -626,6 +633,7 @@ augroup END
 "  Post Process"{{{
 " ============================================
 " ======== execute auto commands ========
-doautocmd Syntax
 execute 'doautocmd myvimrc FileType ' . &filetype
+" filetype detect
+doautocmd Syntax
 "}}}
