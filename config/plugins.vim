@@ -14,6 +14,7 @@ function! IsInstalled(name) abort
 endfunction
 
 " ======== ColorScheme ========
+syntax enable
 if exists('g:MyColorScheme')
   try
     execute 'colorscheme ' . g:MyColorScheme
@@ -23,7 +24,6 @@ if exists('g:MyColorScheme')
     colorscheme desert
   endtry
 endif
-syntax on
 
 " ======== Unite ======== {{{
 if get(g:, 'loaded_unite')
@@ -240,7 +240,6 @@ endif
 
 " ======== TextObj-User ======== {{{
 if IsInstalled('vim-textobj-user')
-  runtime! plugin/textobj/*.vim
   if IsInstalled('textobj-wiw')
     " wiw (snake_case)
     xmap a_ <Plug>(textobj-wiw-a)
@@ -634,6 +633,5 @@ augroup END
 " ============================================
 " ======== execute auto commands ========
 execute 'doautocmd myvimrc FileType ' . &filetype
-" filetype detect
 doautocmd Syntax
 "}}}

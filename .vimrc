@@ -1033,5 +1033,4 @@ endif
 "}}}
 
 packadd matchit
-packadd vim-textobj-user
 " vim set\ fdm=marker\ ts=2\ sts=2\ sw=2\ tw=0\ et
