@@ -17,7 +17,7 @@ let s:plt = {}
 " The most basic of all our colors is a slightly tweaked version of the Molokai
 " Normal text.
 let s:plt.front = 255
-let s:plt.back = 232
+let s:plt.back = 234
 
 " All of the gray70 colors are based on a brown from Clouds Midnight.
 let s:plt.gray90 = 252
