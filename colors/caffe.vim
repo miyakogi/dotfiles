@@ -89,8 +89,8 @@ call termcolor#hl('MatchParen', 'yellow1', 'gray30', 'bold')
 call termcolor#hl('NonText',    'gray50', 'bg')
 call termcolor#hl('SpecialKey', 'gray50', 'bg')
 
-call termcolor#hl('Visual',    '',  'gray30')
-call termcolor#hl('VisualNOS', '',  'gray30')
+call termcolor#hl('Visual',    '',  'gray40')
+call termcolor#hl('VisualNOS', '',  'gray40')
 
 call termcolor#hl('Search',    'back', 'yellow', 'bold')
 call termcolor#hl('IncSearch', 'back', 'blue',    'bold')
