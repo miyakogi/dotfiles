@@ -220,15 +220,12 @@ if IsInstalled('vim-smartchr')
   " ======== python ========
   function! s:init_smartchr_py() abort
     inoremap <buffer><expr> = smartchr#loop(' = ', '=', ' == ', '==')
-    inoremap <buffer><expr> * smartchr#loop(' * ', '*', ' ** ', '**')
-    inoremap <buffer><expr> <C-L> smartchr#loop(' -> ', '->')
   endfunction
 
   " ======== javascript ========
   function! s:init_smartchr_js() abort
     inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
     inoremap <buffer> <expr> : smartchr#loop(': ', ':')
-    inoremap <buffer><expr> <C-L> smartchr#loop(' => ', '=>')
   endfunction
 
   augroup myvimrc

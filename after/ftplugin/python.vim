@@ -28,3 +28,6 @@ iabbrev <buffer> sel self
 " ======== textobj-heredoc ========
 let b:heredoc_start_pattern = '\v(''''''|""")'
 let b:heredoc_end_pattern = '\v(''''''|""")'
+
+" ======== mappings ========
+inoremap <buffer> <C-l> <C-g>u<Space>-><Space>

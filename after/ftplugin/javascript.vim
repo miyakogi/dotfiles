@@ -8,7 +8,6 @@ setlocal expandtab
 highlight link javaScriptEndColons NONE
 
 " ======== quickrun ========
-
 if exists('g:quickrun_config')
   let g:quickrun_config['javascript'] = {
         \ 'command': 'node',
@@ -16,3 +15,6 @@ if exists('g:quickrun_config')
         \ }
 
 endif
+
+" ======== mappings ========
+inoremap <buffer> <C-l> <C-g>u<Space>=><Space>
