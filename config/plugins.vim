@@ -176,8 +176,8 @@ if get(g:, 'loaded_tcomment')
   nnoremap gcp      vip:TCommentBlock<CR>
   xnoremap gb       :TCommentBlock<CR>
   xnoremap gi       :TCommentInline<CR>
-  imap     <C-g>c   <C-o>:TComment<CR>
-  imap     <C-g>l   <C-o>:TCommentRight<CR>
+  inoremap <C-g>c   <C-o>:TComment<CR>
+  inoremap <C-g>l   <C-o>:TCommentRight<CR>
 endif
 "}}}
 
@@ -242,10 +242,6 @@ endif
 if IsInstalled('vim-textobj-user')
   if IsInstalled('textobj-wiw')
     " wiw (snake_case)
-    xmap a_ <Plug>(textobj-wiw-a)
-    omap a_ <Plug>(textobj-wiw-a)
-    xmap i_ <Plug>(textobj-wiw-i)
-    omap i_ <Plug>(textobj-wiw-i)
     xmap au <Plug>(textobj-wiw-a)
     omap au <Plug>(textobj-wiw-a)
     xmap iu <Plug>(textobj-wiw-i)
@@ -525,7 +521,6 @@ function! s:init_python_plugin() abort
     setlocal completeopt+=menu,menuone,noselect,noinsert
   endif
 
-
   " ========= vim-flake8 ========
   if exists(':Unite')
     let g:flake8_loc_open_cmd = 'Unite location_list -no-quit' .
@@ -547,11 +542,6 @@ function! s:init_python_plugin() abort
     nnoremap <buffer> <leader>cc :<C-u>Coveragepy show<CR>
     nnoremap <buffer> <leader>cs :<C-u>Coveragepy session<CR>
     nnoremap <buffer> <leader>cp :<C-u>CoveragepyPragmaToggle<CR>
-  endif
-
-  " ======== mccabepy ========
-  if exists(':MccabePy')
-    nnoremap <buffer> <leader>mc :<C-u>MccabePy<CR>
   endif
 
 endfunction
