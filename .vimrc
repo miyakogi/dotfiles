@@ -1005,6 +1005,11 @@ let g:quick_closer_filetypes = [
 let g:livemark_css_files = [expand('~/dotfiles/static/css/bootstrap.ja.min.css')]
 let g:livemark_no_default_css = 1
 "}}}
+
+" ======== AsyncJedi ========"{{{
+let g:asyncjedi_no_detail = 1
+"}}}
+
 "}}}
 
 
