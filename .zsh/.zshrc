@@ -171,7 +171,7 @@ add-zsh-hook precmd _update_vcs_info_msg
 
 function simple_prompt() {
   PROMPT=">>> "
-  RPROMPT=
+  _update_vcs_info_msg() { RPROMPT="" }
 }
 
 if [ $VIM ]; then
