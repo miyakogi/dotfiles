@@ -105,6 +105,7 @@ set notimeout
 set ttimeout
 set ttimeoutlen=50
 
+set completeopt+=menu,menuone,noselect,noinsert
 set completeopt-=preview " Disable previewwindow in completion
 set completeopt-=longest " Disable vim's longest match
 set previewheight=10 " Maximum height of the preview window.
@@ -1011,7 +1012,6 @@ let g:asyncjedi_no_detail = 1
 "}}}
 
 "}}}
-
 
 " ============================================
 "  Post process {{{

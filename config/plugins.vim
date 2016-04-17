@@ -126,7 +126,6 @@ if get(g:, 'loaded_neocomplete')
   endfunction
 
   " disable on python
-  autocmd myvimrc FileType python setlocal completeopt=menu,menuone,noinsert,noselect
   autocmd myvimrc FileType python NeoCompleteLock
 
   if exists('*NimComplete')
@@ -513,11 +512,6 @@ function! s:init_python_plugin() abort
     endfunction
   endif
 
-  " ======== asyncjedi ========
-  if IsInstalled('asyncjedi')
-    setlocal completeopt+=menu,menuone,noselect,noinsert
-  endif
-
   " ========= vim-flake8 ========
   if exists(':Unite')
     let g:flake8_loc_open_cmd = 'Unite location_list -no-quit' .
@@ -590,7 +584,7 @@ endif
 
 " ======== AsynCheck ========"{{{
 if exists(':AsynCheck')
-  autocmd myvimrc InsertLeave,BufWritePre *.py,*.js AsynCheck
+  autocmd myvimrc InsertLeave,BufWritePost *.py,*.js AsynCheck
   nnoremap <silent> <Leader><Leader> :<C-u>AsynCheck<CR>
 endif
 "}}}
