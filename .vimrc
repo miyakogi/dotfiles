@@ -908,30 +908,9 @@ endif
 "}}}
 
 " ======== Jedi-vim ======== {{{
-let g:jedi#auto_vim_configuration=0
+let g:jedi#auto_initialization = 0
+let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enabled = 0
-" let g:jedi#auto_initialization=1
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns={}
-endif
-let g:neocomplete#force_omni_input_patterns.python =
-\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-" Jedi automatically starts the completion, if you type a dot, e.g. str., if you don't want this:
-let g:jedi#popup_on_dot=1
-" Jedi selects the first line of the completion menu.
-" (for a better typing-flow and usually saves one keypress)
-let g:jedi#popup_select_first=0
-let g:jedi#auto_close_doc=0
-let g:jedi#use_tabs_not_buffers=0
-
-let g:jedi#completions_command='<C-j>'
-let g:jedi#goto_assignments_command='gd'
-let g:jedi#goto_definitions_command='gD'
-let g:jedi#usages_command=''
-let g:jedi#rename_command='<A-r>'
-let g:jedi#documentation_command='K'
-let g:jedi#show_call_signatures=1
-let g:jedi#force_py_version=3
 "}}}
 
 " ======== pyflakes-vim ======== {{{
@@ -1037,5 +1016,5 @@ endif
 
 "}}}
 
-packadd matchit
+" packadd matchit
 " vim set\ fdm=marker\ ts=2\ sts=2\ sw=2\ tw=0\ et

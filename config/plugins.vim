@@ -499,18 +499,38 @@ function! s:init_python_plugin() abort
   endif
 
   " ======== Jedi-vim ========
-  if IsInstalled('jedi-vim')
-    command! JediRename call jedi#rename()
-    nnoremap <buffer> gl :<C-u>call <SID>jedi_usages()<CR>
-    setlocal omnifunc=jedi#completions
+  if !get(g:, 'loaded_myjedi')
+    let s:loaded_myjedi = 0
+    function! s:init_jedi() abort
+      packadd jedi-vim
+      let s:loaded_myjedi = 1
+    endfunction
 
-    function! s:jedi_usages()
+    function! JediRename() abort
+      if !s:loaded_myjedi | call s:init_jedi() | endif
+      call jedi#rename()
+    endfunction
+    function! JediUsages()
+      if !s:loaded_myjedi | call s:init_jedi() | endif
       call jedi#usages()
       if len(getqflist()) < 10 && &filetype ==# 'qf'
         resize 10
       endif
     endfunction
+    function! JediGotoA()
+      if !s:loaded_myjedi | call s:init_jedi() | endif
+      call jedi#goto_assignments()
+    endfunction
+    function! JediGotoD()
+      if !s:loaded_myjedi | call s:init_jedi() | endif
+      call jedi#goto_definitions()
+    endfunction
+    command! JediRename call JediRename()
+    let g:loaded_myjedi = 1
   endif
+  nnoremap <buffer> gl :<C-u>call JediUsages()<CR>
+  nnoremap <buffer> gd :<C-u>call JediGotoA()<CR>
+  nnoremap <buffer> gD :<C-u>call JediGotoD()<CR>
 
   " ========= vim-flake8 ========
   if exists(':Unite')
