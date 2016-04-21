@@ -499,38 +499,43 @@ function! s:init_python_plugin() abort
   endif
 
   " ======== Jedi-vim ========
-  if !get(g:, 'loaded_myjedi')
-    let s:loaded_myjedi = 0
-    function! s:init_jedi() abort
+  if !get(s:, 'init_jedi_done')
+    let s:loaded_jedi = 0
+    function! s:load_jedi() abort
       packadd jedi-vim
-      let s:loaded_myjedi = 1
+      let s:loaded_jedi = 1
     endfunction
 
-    function! JediRename() abort
-      if !s:loaded_myjedi | call s:init_jedi() | endif
+    function! s:jedi_rename() abort
+      if !s:loaded_jedi | call s:load_jedi() | endif
       call jedi#rename()
     endfunction
-    function! JediUsages()
-      if !s:loaded_myjedi | call s:init_jedi() | endif
+    function! s:jedi_usages()
+      if !s:loaded_jedi | call s:load_jedi() | endif
       call jedi#usages()
       if len(getqflist()) < 10 && &filetype ==# 'qf'
         resize 10
       endif
     endfunction
-    function! JediGotoA()
-      if !s:loaded_myjedi | call s:init_jedi() | endif
+    function! s:jedi_goto_a()
+      if !s:loaded_jedi | call s:load_jedi() | endif
       call jedi#goto_assignments()
     endfunction
-    function! JediGotoD()
-      if !s:loaded_myjedi | call s:init_jedi() | endif
+    function! s:jedi_doto_d()
+      if !s:loaded_jedi | call s:load_jedi() | endif
       call jedi#goto_definitions()
     endfunction
-    command! JediRename call JediRename()
-    let g:loaded_myjedi = 1
+    function! s:jedi_doc()
+      if !s:loaded_jedi | call s:load_jedi() | endif
+      call jedi#show_documentation()
+    endfunction
+    command! JediRename call <SID>jedi_rename()
+    let s:init_jedi_done = 1
   endif
-  nnoremap <buffer> gl :<C-u>call JediUsages()<CR>
-  nnoremap <buffer> gd :<C-u>call JediGotoA()<CR>
-  nnoremap <buffer> gD :<C-u>call JediGotoD()<CR>
+  nnoremap <buffer><silent> gl :<C-u>call <SID>jedi_usages()<CR>
+  nnoremap <buffer><silent> gd :<C-u>call <SID>jedi_goto_a()<CR>
+  nnoremap <buffer><silent> gD :<C-u>call <SID>jedi_doto_d()<CR>
+  nnoremap <buffer><silent> K :<C-u>call <SID>jedi_doc()<CR>
 
   " ========= vim-flake8 ========
   if exists(':Unite')
