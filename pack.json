@@ -33,7 +33,6 @@
       "cohama/vim-hier",
       "KazuakiM/vim-qfstatusline",
       "osyo-manga/unite-quickfix",
-      "thinca/vim-ref",
       "altercation/vim-colors-solarized",
       "itchyny/lightline.vim",
       "itchyny/vim-cursorword",
