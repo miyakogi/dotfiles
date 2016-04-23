@@ -12,5 +12,5 @@ nnoremap <buffer> <C-h> :<C-u>help <C-r><C-w><CR>
 
 " ======== vint ========
 if executable('vint')
-  nnoremap <Leader>p :<C-u>vint %<CR>
+  nnoremap <Leader>p :<C-u>so %<CR>
 endif
