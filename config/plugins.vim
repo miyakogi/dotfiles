@@ -509,7 +509,7 @@ endif
 
 " ======== AsynCheck ========"{{{
 if exists(':AsynCheck')
-  autocmd myvimrc InsertLeave,BufWritePost *.py,*.js AsynCheck
+  autocmd myvimrc InsertLeave,BufWritePost *.py,*.js,*.vim AsynCheck
   nnoremap <silent> <Leader><Leader> :<C-u>AsynCheck<CR>
 endif
 "}}}
