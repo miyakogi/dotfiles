@@ -28,9 +28,9 @@ function! colors#initialize() abort
       \ 'gray19': ['#bcbcbc', 250],
       \ 'gray20': ['#c6c6c6', 251],
       \ 'gray21': ['#d0d0d0', 252],
-      \ 'gray23': ['#dadada', 253],
-      \ 'gray24': ['#e4e4e4', 254],
-      \ 'gray25': ['#eeeeee', 255],
+      \ 'gray22': ['#dadada', 253],
+      \ 'gray23': ['#e4e4e4', 254],
+      \ 'gray24': ['#eeeeee', 255],
       \ }
   let s:user_palette = {}
   let s:is_term = !has('gui_running')
@@ -50,7 +50,7 @@ function! s:get_color(name) abort
   if index(s:spcolor_names, a:name) >= 0
     return a:name
   else
-    return get(s:user_palette, a:name, get(s:base_palette, a:name, ['000000', 0]))[!s:truecolor]
+    return get(s:user_palette, a:name, get(s:base_palette, a:name, ['#000000', 0]))[!s:truecolor]
   endif
 endfunction
 
