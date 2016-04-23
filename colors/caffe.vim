@@ -11,15 +11,9 @@ endif
 let colors_name = "caffe"
 
 " Palette {{{
-
 let s:plt = {}
-
-" The most basic of all our colors is a slightly tweaked version of the Molokai
-" Normal text.
 let s:plt.front = 255
 let s:plt.back = 234
-
-" All of the gray70 colors are based on a brown from Clouds Midnight.
 let s:plt.gray90 = 252
 let s:plt.gray80 = 245
 let s:plt.gray70 = 243
@@ -29,42 +23,17 @@ let s:plt.gray40 = 236
 let s:plt.gray30 = 235
 let s:plt.gray20 = 234
 let s:plt.gray10 = 233
-
-" A color sampled from a highlight in a photo of a glass of Dale's Pale Ale on
-" my desk.
 let s:plt.yellow = 220
 let s:plt.yellow1 = 221
-
 let s:plt.flesh = 223
-
-" Delicious, chewy red from Made of Code for the poppiest highlights.
 let s:plt.red = 196
-
-" The star of the show comes straight from Made of Code.
-"
-" You should almost never use this.  It should be used for things that denote
-" 'where the user is', which basically consists of:
-"
-" * The cursor
-" * A REPL prompt
 let s:plt.blue = 39
-
-" This one's from Mustang, not Florida!
 let s:plt.orange = 214
-
-" A limier green from Getafe.
 let s:plt.lime = 154
-
-" Rose's pink in The Idiot's Lantern.
 let s:plt.pink = 211
-
-" Another play on the brown from Clouds Midnight.  I love that color.
 let s:plt.lightbrown = 137
-
-" Also based on that Clouds Midnight brown.
 let s:plt.coffee    = 173
 let s:plt.darkbrown = 95
-
 let s:plt.purple = 198
 let s:plt.deeppurple = 161
 
