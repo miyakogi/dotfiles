@@ -249,10 +249,25 @@ noremap ( t(
 " QuickFix windowを開く（エラーがあれば）
 nnoremap [Space]c :<C-u>cwindow<CR>
 " qflistの前後移動
-nnoremap ]q :<C-u>cnext<CR>
-nnoremap [q :<C-u>cprevious<CR>
-nnoremap ]e :<C-u>lnext<CR>
-nnoremap [e :<C-u>lprevious<CR>
+function! JumpList(qflist, forward) abort
+  if a:qflist
+    let l = getqflist()
+    if len(l) == 0 | return
+    elseif len(l) == 1 | cc
+    elseif forward | cnext | else | cprevious
+    endif
+  else
+    let l = getloclist(0)
+    if len(l) == 0 | return
+    elseif len(l) == 1 | ll
+    elseif forward | lnext | else | lprevious
+    endif
+  endif
+endfunction
+nnoremap <silent> ]q :<C-u>call JumpList(1, 1)<CR>
+nnoremap <silent> [q :<C-u>call JumpList(1, 0)<CR>
+nnoremap <silent> ]e :<C-u>call JumpList(0, 1)<CR>
+nnoremap <silent> [e :<C-u>call JumpList(0, 0)<CR>
 " diffモードでの前後移動
 nnoremap ]d ]c
 nnoremap [d [c
