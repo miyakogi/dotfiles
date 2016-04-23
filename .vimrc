@@ -370,7 +370,7 @@ set guioptions=
 " 実践Vim（らしい
 xnoremap . :normal .<CR>
 " Q でExモードに入らずコマンドモードに入る
-nnoremap Q q:i
+nnoremap Q q:
 
 " 最後の置換を同じフラグで繰り返す。フラグを変えたい時は :& [flags]
 nnoremap & :&&<CR>
