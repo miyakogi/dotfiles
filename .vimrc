@@ -47,7 +47,8 @@ let g:loaded_rrhelper = 1
 let g:loaded_tarPlugin = 1
 let g:loaded_vimballPlugin = 1
 let g:loaded_zipPlugin = 1
-let g:MyColorScheme = 'caffe'
+let g:MyColorScheme = 'trueCaffe'
+" let g:MyColorScheme = 'caffe'
 "}}}
 
 " ============================================
@@ -250,6 +251,8 @@ nnoremap [Space]c :<C-u>cwindow<CR>
 " qflistの前後移動
 nnoremap ]q :<C-u>cnext<CR>
 nnoremap [q :<C-u>cprevious<CR>
+nnoremap ]e :<C-u>lnext<CR>
+nnoremap [e :<C-u>lprevious<CR>
 " diffモードでの前後移動
 nnoremap ]d ]c
 nnoremap [d [c
@@ -503,7 +506,7 @@ endfunction
 command! RemoveTrailingSpases call RemoveTrailingSpases()
 function! RemoveTrailingSpases()
   let l:p = getpos('.')
-  silent! %s/\s\+$//e
+  %global/\m\s\+$/substitute/\m\s\+$//e
   call setpos('.', l:p)
 endfunction
 
@@ -560,6 +563,12 @@ if !has('gui_running')
   else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+  " True color support!!!
+  if has('termtruecolor')
+    " set t_8f=[38;2;%lu;%lu;%lum
+    " set t_8b=[48;2;%lu;%lu;%lum
+    set guicolors
   endif
 
   autocmd myvimrc VimEnter * call MyTermInit()
