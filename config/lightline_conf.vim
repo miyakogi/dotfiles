@@ -203,7 +203,7 @@ let s:qfstatusline_exclude_ft = [
 function! MySyntaxUpdate() abort
   let err_cnt = 0
   let warn_cnt = 0
-  if exists('g:loaded_qfstatusline') && !count(s:qfstatusline_exclude_ft, &filetype)
+  if exists('g:loaded_qfstatusline') && count(s:qfstatusline_exclude_ft, &filetype) < 0
     let status = ""
     let qflist = getqflist()
     if len(qflist) == 0
@@ -237,6 +237,7 @@ function! MySyntaxUpdate() abort
   return ''
 endfunction
 let g:Qfstatusline#UpdateCmd = function('lightline#update')
+autocmd QuickFixCmdPost * call lightline#update()
 
 function! CurrentWorkingDir() abort
   let ret = getcwd()
