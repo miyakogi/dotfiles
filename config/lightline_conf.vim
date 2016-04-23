@@ -50,7 +50,7 @@ let g:lightline = {
     " \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3"  }
 
 " ======== Lightline functions ========
-function! MyVirtualEnv()
+function! MyVirtualEnv() abort
   if &ft[:5] == 'python' && exists('g:virtualenv_name') && g:virtualenv_name != ''
     return ' (' . virtualenv#statusline() . ')'
   else
@@ -58,15 +58,15 @@ function! MyVirtualEnv()
   endif
 endfunction
 
-function! MyModified()
+function! MyModified() abort
   return &buftype != '' ? '' : &modified ? '✚ ' : &modifiable ? '' : '-'
 endfunction
 
-function! MyReadonly()
+function! MyReadonly() abort
   return &buftype == '' && &readonly ? has('gui_running') ? "\ue0a2" : 'x' : ''
 endfunction
 
-function! MyFilename()
+function! MyFilename() abort
   let fname = expand('%:t')
   return fname =~ 'Tagbar' ? '' :
         \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
@@ -77,19 +77,19 @@ function! MyFilename()
         \ ('' != fname ? fname : '[No Name]')
 endfunction
 
-function! MyFileformat()
+function! MyFileformat() abort
   return winwidth(0) > 90 ? &fileformat : ''
 endfunction
 
-function! MyFiletype()
+function! MyFiletype() abort
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . MyVirtualEnv() : 'no ft') : ''
 endfunction
 
-function! MyFileencoding()
+function! MyFileencoding() abort
   return winwidth(0) > 90 ? (strlen(&fenc) ? &fenc : &enc) : ''
 endfunction
 
-function! MyMode()
+function! MyMode() abort
   let fname = expand('%:t')
   return fname == '__Tagbar__' ? 'Tagbar' :
         \ &ft == 'unite' ? 'Unite' :
@@ -97,11 +97,11 @@ function! MyMode()
         \ lightline#mode()[0]
 endfunction
 
-function! MyPercent()
+function! MyPercent() abort
   return winwidth(0) > 70 ? string(float2nr(100.0 * line('.') / line('$'))) . "%" : ""
 endfunction
 
-function! MyLineinfo()
+function! MyLineinfo() abort
   if winwidth(0) < 80
     return ""
   endif
@@ -110,12 +110,12 @@ function! MyLineinfo()
   return string(lnum) . ":" . string(col)
 endfunction
 
-function! InactiveFilename()
+function! InactiveFilename() abort
   let temp_mode = MyMode()
   return temp_mode != 'N' ? temp_mode : MyFilename()
 endfunction
 
-function! MyAnzu()
+function! MyAnzu() abort
   let l:_ = anzu#search_status()
   if winwidth(0) > 80 + l:_
     if strlen(l:_) > 0
@@ -126,7 +126,7 @@ function! MyAnzu()
   return ""
 endfunction
 
-function! MyVCS()
+function! MyVCS() abort
   if !exists('g:loaded_signify') || &buftype != ''
     return ''
   endif
@@ -155,7 +155,7 @@ function! MyVCS()
   return vcs
 endfunction
 
-function! s:stats()
+function! s:stats() abort
   let stats_list = copy(b:sy.stats)
   if stats_list == [-1, -1, -1]
     return ''
@@ -181,7 +181,7 @@ function! s:stats()
   return stats
 endfunction
 
-function! s:fugitive()
+function! s:fugitive() abort
   if exists('*fugitive#head')
     let head = fugitive#head()
   endif
@@ -200,7 +200,7 @@ endfunction
 let s:qfstatusline_exclude_ft = [
       \ 'dart',
       \ ]
-function! MySyntaxUpdate()
+function! MySyntaxUpdate() abort
   let err_cnt = 0
   let warn_cnt = 0
   if exists('g:loaded_qfstatusline') && !count(s:qfstatusline_exclude_ft, &filetype)
@@ -238,7 +238,7 @@ function! MySyntaxUpdate()
 endfunction
 let g:Qfstatusline#UpdateCmd = function('lightline#update')
 
-function! CurrentWorkingDir()
+function! CurrentWorkingDir() abort
   let ret = getcwd()
   if len(ret) > 25
     return '...' . ret[-23:]
