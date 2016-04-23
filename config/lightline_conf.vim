@@ -44,14 +44,13 @@ let g:lightline = {
     \ 'component_type': {
     \   'syntaxcheck': 'error',
     \ },
-    \ 'separator': { 'left': "", 'right': "" },
-    \ 'subseparator': { 'left': "|", 'right': "|"  }
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '|', 'right': '|'  }
     \ }
-    " \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3"  }
 
 " ======== Lightline functions ========
 function! MyVirtualEnv() abort
-  if &ft[:5] == 'python' && exists('g:virtualenv_name') && g:virtualenv_name != ''
+  if &ft[:5] ==? 'python' && exists('g:virtualenv_name') && g:virtualenv_name !=# ''
     return ' (' . virtualenv#statusline() . ')'
   else
     return ''
@@ -59,22 +58,22 @@ function! MyVirtualEnv() abort
 endfunction
 
 function! MyModified() abort
-  return &buftype != '' ? '' : &modified ? '✚ ' : &modifiable ? '' : '-'
+  return &buftype !=# '' ? '' : &modified ? '✚ ' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly() abort
-  return &buftype == '' && &readonly ? has('gui_running') ? "\ue0a2" : 'x' : ''
+  return &buftype ==# '' && &readonly ? has('gui_running') ? '\ue0a2' : 'x' : ''
 endfunction
 
 function! MyFilename() abort
   let fname = expand('%:t')
-  return fname =~ 'Tagbar' ? '' :
-        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \ &ft == 'unite' ? unite#get_status_string() :
-        \ &ft == 'qf' ? 'quickfix(' . len(getqflist()) . ')' :
-        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '') .
-        \ ('' != fname ? fname : '[No Name]')
+  return fname =~? 'Tagbar' ? '' :
+        \ &ft ==? 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft ==? 'unite' ? unite#get_status_string() :
+        \ &ft ==? 'qf' ? 'quickfix(' . len(getqflist()) . ')' :
+        \ ('' !=? MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ ('' !=? MyModified() ? ' ' . MyModified() : '') .
+        \ ('' !=? fname ? fname : '[No Name]')
 endfunction
 
 function! MyFileformat() abort
@@ -91,28 +90,28 @@ endfunction
 
 function! MyMode() abort
   let fname = expand('%:t')
-  return fname == '__Tagbar__' ? 'Tagbar' :
-        \ &ft == 'unite' ? 'Unite' :
-        \ &ft == 'vimfiler' ? 'VimFiler' :
+  return fname ==? '__Tagbar__' ? 'Tagbar' :
+        \ &ft ==? 'unite' ? 'Unite' :
+        \ &ft ==? 'vimfiler' ? 'VimFiler' :
         \ lightline#mode()[0]
 endfunction
 
 function! MyPercent() abort
-  return winwidth(0) > 70 ? string(float2nr(100.0 * line('.') / line('$'))) . "%" : ""
+  return winwidth(0) > 70 ? string(float2nr(100.0 * line('.') / line('$'))) . '%' : ''
 endfunction
 
 function! MyLineinfo() abort
   if winwidth(0) < 80
-    return ""
+    return ''
   endif
 
   let [_, lnum, col, off] = getpos('.')
-  return string(lnum) . ":" . string(col)
+  return string(lnum) . ':' . string(col)
 endfunction
 
 function! InactiveFilename() abort
   let temp_mode = MyMode()
-  return temp_mode != 'N' ? temp_mode : MyFilename()
+  return temp_mode !=? 'N' ? temp_mode : MyFilename()
 endfunction
 
 function! MyAnzu() abort
@@ -123,24 +122,24 @@ function! MyAnzu() abort
     endif
     return l:_
   endif
-  return ""
+  return ''
 endfunction
 
 function! MyVCS() abort
-  if !exists('g:loaded_signify') || &buftype != ''
+  if !exists('g:loaded_signify') || &buftype !=# ''
     return ''
   endif
 
-  if !exists('b:sy') || b:sy.active != 1 || b:sy.type == 'Unknown'
+  if !exists('b:sy') || b:sy.active != 1 || b:sy.type ==? 'Unknown'
     return ''
   endif
 
-  let vcs = ""
+  let vcs = ''
 
   if winwidth(0) > 70
-    let vcs = "\ue0a0 "
+    let vcs = '\ue0a0 '
     let type=b:sy.type
-    if type == 'git'
+    if type ==? 'git'
       let vcs = vcs . s:fugitive()
     else
       let vcs = vcs . type
@@ -186,7 +185,7 @@ function! s:fugitive() abort
     let head = fugitive#head()
   endif
   if strlen(l:head) > 0
-    let head = "Git:" . head
+    let head = 'Git:' . head
   endif
   return head
 endfunction
@@ -204,10 +203,10 @@ function! MySyntaxUpdate() abort
   let err_cnt = 0
   let warn_cnt = 0
   if exists('g:loaded_qfstatusline') && count(s:qfstatusline_exclude_ft, &filetype) < 0
-    let status = ""
+    let status = ''
     let qflist = getqflist()
     if len(qflist) == 0
-      return ""
+      return ''
     endif
 
     let l:bufnr = bufnr('%')
@@ -220,7 +219,7 @@ function! MySyntaxUpdate() abort
         endif
       endif
     endfor
-    return err_cnt ? "Error: L" . lnum . "(" . err_cnt . ")" : ""
+    return err_cnt ? 'Error: L' . lnum . '(' . err_cnt . ')' : ''
   else
     if exists('b:did_pyflakes_plugin') && exists('*PyflakesGetStatusLine')
       let err_cnt = PyflakesGetErrorCount()
@@ -230,14 +229,14 @@ function! MySyntaxUpdate() abort
     else
       let err_cnt = len(getqflist())
     endif
-    let status = err_cnt ?  "Error: " . err_cnt . ' ' : ''
-    let status .= warn_cnt ? "Warn: " . warn_cnt : ''
+    let status = err_cnt ?  'Error: ' . err_cnt . ' ' : ''
+    let status .= warn_cnt ? 'Warn: ' . warn_cnt : ''
     return status
   endif
   return ''
 endfunction
 let g:Qfstatusline#UpdateCmd = function('lightline#update')
-autocmd QuickFixCmdPost * call lightline#update()
+autocmd myvimrc QuickFixCmdPost * call lightline#update()
 
 function! CurrentWorkingDir() abort
   let ret = getcwd()
