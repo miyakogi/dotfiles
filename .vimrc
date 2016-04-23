@@ -137,9 +137,20 @@ set list " Display invisible chars
 set listchars=tab:\|\ ,trail:_
 set shiftround
 set nolinebreak
-let &showbreak = '↪ '
+" '\xe2\x86\xaa' ↪                            |
+" '\xe2\x9e\x9f' ➟                            |
+" '\xe2\x9e\xa0' ➠                            |
+" '\xe2\x9e\xa5' ➥                            |
+" '\xe2\xa4\xb7' ⤷                            |
+" '\xe2\x9f\xbf' ⟿                            |
+" '\xe2\xae\xa9' ⮩                            |
+" '\xe2\xae\x93' ⮓                            |
+" '\xe2\x87\x89' ⇉                            |
+" '\xe2\x87\xb6' ⇶                            |
+" '\xef\xa1\x87'                             |
+" '\xee\x8d\xa6'                             |
+let &showbreak = "\xe2\x86\xaa  "
 if v:version >= 704 && has('patch338')
-  " let &showbreak = '↪  '
   set breakindent
   " set breakindentopt=shift:1
 endif
@@ -158,7 +169,7 @@ set foldtext=MyFoldText()
 function! MyFoldText()
   let line = getline(v:foldstart)
   let marker_removed = substitute(line, '{{{\d*', '', 'g') " }}}
-  let marker_removed = substitute(marker_removed, '^"', "\u21c9 ", 'g')
+  let marker_removed = substitute(marker_removed, '^"', " \xe2\x87\x89 ", 'g')
   let line_count = v:foldend - v:foldstart
   let lines = line_count > 1 ? ' lines' : ' line'
   let count_in_brace = substitute(marker_removed, '\s*$', ' ('.line_count.lines.') ', '')
@@ -490,6 +501,10 @@ endfunction
 "  Terminal settings "{{{
 " ============================================
 if !has('gui_running')
+  " True color support!!!
+  if has('termtruecolor')
+    set guicolors
+  endif
   set t_Co=256
   " <Esc>のマッピングが持ってかれてアウト
   " imap OD <Left>
@@ -537,12 +552,6 @@ if !has('gui_running')
   else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  endif
-  " True color support!!!
-  if has('termtruecolor')
-    " set t_8f=[38;2;%lu;%lu;%lum
-    " set t_8b=[48;2;%lu;%lu;%lum
-    set guicolors
   endif
 
   autocmd myvimrc VimEnter * call MyTermInit()
