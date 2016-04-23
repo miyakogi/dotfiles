@@ -263,6 +263,8 @@ function! JumpList(qflist, forward) abort
     elseif forward | lnext | else | lprevious
     endif
   endif
+  " Open foldings
+  if foldlevel(line('.')) | normal zO | endif
 endfunction
 nnoremap <silent> ]q :<C-u>call JumpList(1, 1)<CR>
 nnoremap <silent> [q :<C-u>call JumpList(1, 0)<CR>
