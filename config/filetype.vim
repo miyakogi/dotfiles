@@ -809,7 +809,7 @@ au BufNewFile,BufRead */etc/protocols		setf protocols
 au BufNewFile,BufRead *.pyx,*.pxd		setf pyrex
 
 " Python
-au BufNewFile,BufRead *.py,*.pyw		setf python
+au BufNewFile,BufRead *.py,*.pyw,*pyi		setf python
 
 " Ratpoison config/command files
 au BufNewFile,BufRead .ratpoisonrc,ratpoisonrc	setf ratpoison
