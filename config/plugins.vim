@@ -257,123 +257,23 @@ endif
 
 " ======== Rainbow parentheses ======== {{{
 if exists(':RainbowParenthesesActivate')
-  " From badwolf.vim colorscheme {{{
-  "
-  " Copyright (C) 2012 Steve Losh and Contributors
-  "
-  " Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-  "
-  " The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-  "
-  " THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-  " Pallet {{{
-  let s:bwc = {}
-
-  " The most basic of all our colors is a slightly tweaked version of the Molokai
-  " Normal text.
-  let s:bwc.plain = ['f8f6f2', 15]
-
-  " Pure and simple.
-  let s:bwc.snow = ['ffffff', 15]
-  let s:bwc.coal = ['000000', 16]
-
-  " All of the Gravel colors are based on a brown from Clouds Midnight.
-  let s:bwc.brightgravel   = ['d9cec3', 252]
-  let s:bwc.lightgravel    = ['998f84', 245]
-  let s:bwc.gravel         = ['857f78', 243]
-  let s:bwc.mediumgravel   = ['666462', 241]
-  let s:bwc.deepgravel     = ['45413b', 238]
-  let s:bwc.deepergravel   = ['35322d', 236]
-  let s:bwc.darkgravel     = ['242321', 235]
-  let s:bwc.blackgravel    = ['1c1b1a', 233]
-  let s:bwc.blackestgravel = ['141413', 232]
-
-  " A color sampled from a highlight in a photo of a glass of Dale's Pale Ale on
-  " my desk.
-  let s:bwc.dalespale = ['fade3e', 221]
-
-  " A beautiful tan from Tomorrow Night.
-  let s:bwc.dirtyblonde = ['f4cf86', 222]
-
-  " Delicious, chewy red from Made of Code for the poppiest highlights.
-  let s:bwc.taffy = ['ff2c4b', 196]
-
-  " Another chewy accent, but use sparingly!
-  let s:bwc.saltwatertaffy = ['8cffba', 121]
-
-  " The star of the show comes straight from Made of Code.
-  let s:bwc.tardis = ['0a9dff', 39]
-
-  " This one's from Mustang, not Florida!
-  let s:bwc.orange = ['ffa724', 214]
-
-  " A limier green from Getafe.
-  let s:bwc.lime = ['aeee00', 154]
-
-  " Rose's dress in The Idiot's Lantern.
-  let s:bwc.dress = ['ff9eb8', 211]
-
-  " Another play on the brown from Clouds Midnight.  I love that color.
-  let s:bwc.toffee = ['b88853', 137]
-
-  " Also based on that Clouds Midnight brown.
-  let s:bwc.coffee    = ['c7915b', 173]
-  let s:bwc.darkroast = ['88633f', 95]
-  "}}}
-
-  function! s:HL(group, fg, ...)
-    " Arguments: group, guifg, guibg, gui, guisp
-
-    let histring = 'hi ' . a:group . ' '
-
-    if strlen(a:fg)
-      if a:fg ==# 'fg'
-        let histring .= 'guifg=fg ctermfg=fg '
-      else
-        let c = get(s:bwc, a:fg)
-        let histring .= 'guifg=#' . c[0] . ' ctermfg=' . c[1] . ' '
-      endif
-    endif
-
-    if a:0 >= 1 && strlen(a:1)
-      if a:1 ==# 'bg'
-        let histring .= 'guibg=bg ctermbg=bg '
-      else
-        let c = get(s:bwc, a:1)
-        let histring .= 'guibg=#' . c[0] . ' ctermbg=' . c[1] . ' '
-      endif
-    endif
-
-    if a:0 >= 2 && strlen(a:2)
-      let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
-    endif
-
-    if a:0 >= 3 && strlen(a:3)
-      let c = get(s:bwc, a:3)
-      let histring .= 'guisp=#' . c[0] . ' '
-    endif
-
-    execute histring
-  endfunction
-
-  function! s:rainbow_parenthesis_badwolf() abort
-    call s:HL('level16c', 'mediumgravel',   '', 'bold')
-    call s:HL('level15c', 'dalespale',      '', '')
-    call s:HL('level14c', 'dress',          '', '')
-    call s:HL('level13c', 'orange',         '', '')
-    call s:HL('level12c', 'tardis',         '', '')
-    call s:HL('level11c', 'lime',           '', '')
-    call s:HL('level10c', 'toffee',         '', '')
-    call s:HL('level9c',  'saltwatertaffy', '', '')
-    call s:HL('level8c',  'coffee',         '', '')
-    call s:HL('level7c',  'dalespale',      '', '')
-    call s:HL('level6c',  'dress',          '', '')
-    call s:HL('level5c',  'orange',         '', '')
-    call s:HL('level4c',  'tardis',         '', '')
-    call s:HL('level3c',  'lime',           '', '')
-    call s:HL('level2c',  'toffee',         '', '')
-    call s:HL('level1c',  'saltwatertaffy', '', '')
+  function! s:rainbow_parenthesis_colors() abort
+    highlight level16c guifg=#aaaaaa cterm=bold gui=bold
+    highlight level15c guifg=#ffd700
+    highlight level14c guifg=#ff97bf
+    highlight level13c guifg=#ffb000
+    highlight level12c guifg=#00afff
+    highlight level11c guifg=#afff00
+    highlight level10c guifg=#d7875f
+    highlight level9c  guifg=#ff0000
+    highlight level8c  guifg=#aaaaaa
+    highlight level7c  guifg=#ffd700
+    highlight level6c  guifg=#ff97bf
+    highlight level5c  guifg=#ffb000
+    highlight level4c  guifg=#00afff
+    highlight level3c  guifg=#afff00
+    highlight level2c  guifg=#d7875f
+    highlight level1c  guifg=#ff0000
   endfunction
   "}}}
 
@@ -382,12 +282,12 @@ if exists(':RainbowParenthesesActivate')
           \ count(get(g:, 'rainbow_parentheses_disable_filetypes', []), &filetype)
       return
     endif
+    call s:rainbow_parenthesis_colors()
     RainbowParenthesesLoadRound
     RainbowParenthesesLoadSquare
     RainbowParenthesesLoadBraces
     " exec 'RainbowParenthesesLoadChevrons'
     call rainbow_parentheses#activate()
-    call s:rainbow_parenthesis_badwolf()
   endfunction
 
   autocmd myvimrc ColorScheme,Syntax * call g:RainbowParenthesesStart()
