@@ -13,18 +13,6 @@ function! IsInstalled(name) abort
   return 0
 endfunction
 
-" ======== ColorScheme ========
-syntax enable
-if exists('g:MyColorScheme')
-  try
-    execute 'colorscheme ' . g:MyColorScheme
-  catch /^Vim\%((\a\+)\)\=:E185/
-    echomsg 'Failed to load colorscheme "' . g:MyColorScheme
-          \ . '". Use desert instead.'
-    colorscheme desert
-  endtry
-endif
-
 " ======== Unite ======== {{{
 if get(g:, 'loaded_unite')
   " unite prefix key

@@ -1006,6 +1006,19 @@ if has('vim_starting') && has('reltime')
   augroup END
 endif
 
+" ======== ColorScheme ========
+" Enable colorscheme
+syntax enable
+if exists('g:MyColorScheme')
+  try
+    execute 'colorscheme ' . g:MyColorScheme
+  catch /^Vim\%((\a\+)\)\=:E185/
+    echomsg 'Failed to load colorscheme "' . g:MyColorScheme
+          \ . '". Use desert instead.'
+    colorscheme desert
+  endtry
+endif
+
 "}}}
 
 " packadd matchit

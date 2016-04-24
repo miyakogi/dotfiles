@@ -1,12 +1,9 @@
 if !has('termtruecolor') && !has('gui_running')
     finish
 endif
-
-if exists('syntax_on')
-    syntax reset
-endif
 set background=dark
 let colors_name = 'trueCaffe'
+highlight clear
 
 let s:palette = {
     \ 'front':      ['#fdfafa', 255],
@@ -29,7 +26,7 @@ call colors#set_palette(s:palette)
 
 call colors#hl('Normal', 'front', 'back')
 
-call colors#hl('Folded', 'gray13', 'back', 'none')
+call colors#hl('Folded', 'gray16', 'back', 'none')
 call colors#hl('VertSplit', 'gray1', 'gray1', 'none')
 
 call colors#hl('CursorLine', '', 'gray1', 'none')
