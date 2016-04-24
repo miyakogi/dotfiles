@@ -1013,7 +1013,7 @@ function! SetColorScheme(colorscheme) abort
     execute 'colorscheme '. a:colorscheme
   catch /^Vim\%((\a\+)\)\=:E185/
     if has('vim_starting')
-      " colorscheme may not be loaded yet. try again.
+      " colorscheme may be a package and not loaded yet. try again.
       execute 'autocmd myvimrc VimEnter * call SetColorScheme("' . a:colorscheme . '")'
     else
       echomsg 'Failed to load colorscheme "' . a:colorscheme . '".'
@@ -1025,8 +1025,23 @@ function! SetColorScheme(colorscheme) abort
   endtry
 endfunction
 
-syntax enable
-if exists('g:MyColorScheme') | call SetColorScheme(g:MyColorScheme) | endif
+function! MyColorInit(...) abort
+  syntax enable
+  call SetColorScheme(g:MyColorScheme)
+  colorscheme trueCaffe
+  " echomsg reltimestr(reltime(g:startuptime))
+  augroup MyColor
+    autocmd!
+  augroup END
+endfunction
+
+augroup MyColor
+  autocmd!
+  " autocmd FileType * echomsg reltimestr(reltime(g:startuptime))
+  " Enable syntax and colorscheme after filetype is set
+  " not do on startup, since some packages may not be loaded yet
+  autocmd FileType * call timer_start(10, 'MyColorInit')
+augroup END
 
 "}}}
 

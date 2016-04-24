@@ -263,7 +263,6 @@ if exists(':RainbowParenthesesActivate')
     highlight level2c  guifg=#d7875f
     highlight level1c  guifg=#ff0000
   endfunction
-  "}}}
 
   function! g:RainbowParenthesesStart()
     if !exists(':RainbowParenthesesToggleAll') ||
@@ -526,6 +525,7 @@ augroup END
 "  Post Process"{{{
 " ============================================
 " ======== execute auto commands ========
-execute 'doautocmd myvimrc FileType ' . &filetype
-doautocmd Syntax
+if len(&filetype) > 0
+  execute 'doautocmd myvimrc FileType ' . &filetype
+endif
 "}}}
