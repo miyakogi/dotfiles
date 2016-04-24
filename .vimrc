@@ -1008,16 +1008,25 @@ endif
 
 " ======== ColorScheme ========
 " Enable colorscheme
-syntax enable
-if exists('g:MyColorScheme')
+function! SetColorScheme(colorscheme) abort
   try
-    execute 'colorscheme ' . g:MyColorScheme
+    execute 'colorscheme '. a:colorscheme
   catch /^Vim\%((\a\+)\)\=:E185/
-    echomsg 'Failed to load colorscheme "' . g:MyColorScheme
-          \ . '". Use desert instead.'
-    colorscheme desert
+    if has('vim_starting')
+      " colorscheme may not be loaded yet. try again.
+      execute 'autocmd myvimrc VimEnter * call SetColorScheme("' . a:colorscheme . '")'
+    else
+      echomsg 'Failed to load colorscheme "' . a:colorscheme . '".'
+      " colorscheme desert256
+      " if exists('*lightline#colorscheme')
+      "   call lightline#colorscheme()
+      " endif
+    endif
   endtry
-endif
+endfunction
+
+syntax enable
+if exists('g:MyColorScheme') | call SetColorScheme(g:MyColorScheme) | endif
 
 "}}}
 
