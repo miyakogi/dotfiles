@@ -7,9 +7,17 @@ let g:colors_name = 'trueCaffe'
 if exists('syntax_on') | syntax reset | endif
 
 let s:palette = {
-    \ 'front':      ['#fdfafa', 255],
-    \ 'back':       ['#1e1c1c', 234],
-    \ 'lightblue':  ['#00afff', 39],
+    \ 'front':      ['#f8f6f2', 255],
+    \ 'back':       ['#1c1b1a', 234],
+    \ 'base03':     ['#1c1b1a', 232],
+    \ 'base02':     ['#242321', 235],
+    \ 'base01':     ['#45413b', 238],
+    \ 'base00':     ['#666462', 241],
+    \ 'base0':      ['#857f78', 243],
+    \ 'base1':      ['#998f84', 245],
+    \ 'base2':      ['#d9cec3', 252],
+    \ 'base3':      ['#f8f6f2',  15],
+    \ 'lightblue':  ['#00afff',  39],
     \ 'yellow':     ['#ffd700', 220],
     \ 'yellow1':    ['#ffd75f', 221],
     \ 'orange':     ['#ffb000', 214],
@@ -18,7 +26,7 @@ let s:palette = {
     \ 'flesh':      ['#fae3b2', 223],
     \ 'lightbrown': ['#af875f', 137],
     \ 'coffee':     ['#d7875f', 173],
-    \ 'darkbrown':  ['#875f5f', 95],
+    \ 'darkbrown':  ['#875f5f',  95],
     \ 'purple':     ['#ff20a7', 198],
     \ 'deeppurple': ['#da008a', 161],
     \ }
@@ -34,11 +42,11 @@ call colors#hl('CursorLine', '', 'gray1', 'none')
 call colors#hl('CursorColumn', '', 'gray1')
 call colors#hl('ColorColumn', '', 'gray1')
 
-call colors#hl('TabLine', 'front', 'gray16', 'none')
-call colors#hl('TabLineFill', 'front', 'gray16', 'none')
-call colors#hl('TabLineSel', 'back', 'lightblue', 'none')
+call colors#hl('TabLineSel',  'front', 'base02', 'none')  " active tab, bolded by default
+call colors#hl('TabLine',     'front', 'base00', 'none')  " non-active tab, underlined by default 
+call colors#hl('TabLineFill', 'base1', 'base1')  " tab-background
 
-call colors#hl('MatchParen', 'yellow1', 'gray6', 'bold')
+call colors#hl('MatchParen', 'yellow1', 'back', 'bold')
 
 call colors#hl('NonText',    'gray10', 'back')
 call colors#hl('SpecialKey', 'gray10', 'back')
@@ -51,8 +59,8 @@ call colors#hl('IncSearch', 'back', 'lightblue',    'bold')
 
 call colors#hl('Underlined', 'front', '', 'underline')
 
-call colors#hl('StatusLine',   'back', 'lightblue', 'bold')
-call colors#hl('StatusLineNC', 'front', 'gray5', 'bold')
+call colors#hl('StatusLine',   'front', 'base01', 'none')  " status line, bold/reverse by default
+call colors#hl('StatusLineNC', 'base0', 'base02', 'none')  " status line for no-current windows
 
 call colors#hl('Directory', 'flesh', '', 'bold')
 
