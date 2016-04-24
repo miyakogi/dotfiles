@@ -100,7 +100,7 @@ if !has('win32') && !has('mac')
   language en_US.UTF-8
 endif
 set keywordprg=:help
-set helplang& helplang=en,ja
+set helplang& helplang=ja,en
 
 set notimeout
 set ttimeout
