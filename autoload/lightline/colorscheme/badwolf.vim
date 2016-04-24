@@ -70,7 +70,7 @@ let s:b.inactive.middle = [ [ s:base00, s:base02 ] ]
 let s:b.tabline.left    = [ [ s:base3, s:base00 ] ]
 let s:b.tabline.tabsel  = [ [ s:base3, s:base02 ] ]
 let s:b.tabline.middle  = [ [ s:base01, s:base1 ] ]
-let s:b.tabline.right   = copy(s:b.normal.right)
+let s:b.tabline.right   = [ [ s:base02, s:base1 ] ]
 let s:b.normal.error    = [ [ s:red, s:base02 ] ]
 let s:b.normal.warning  = [ [ s:yellow, s:base01 ] ]
 
