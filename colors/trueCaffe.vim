@@ -2,7 +2,7 @@ if !has('termtruecolor') && !has('gui_running')
     finish
 endif
 
-set background=dark
+" set background=dark
 let g:colors_name = 'trueCaffe'
 if exists('syntax_on') | syntax reset | endif
 
@@ -140,12 +140,11 @@ call colors#hl('DiffAdd',    '', 'gray8')
 call colors#hl('DiffChange', '', 'gray20')
 call colors#hl('DiffText',   'front', 'gray8', 'bold')
 
-" Spelling {{{
+" Spelling
 call colors#hl('SpellCap', 'yellow', 'back', 'undercurl,bold', 'yellow')
 call colors#hl('SpellBad', '', '', 'undercurl', 'red')
 call colors#hl('SpellLocal', '', '', 'undercurl', 'lime')
 call colors#hl('SpellRare', '', '', 'undercurl', 'lightblue')
-" }}}
 
 " ============================================
 "  Filetype-specific {{{
@@ -182,7 +181,7 @@ call colors#hl('javaScriptFuncExp', 'orange', '', 'none')
 call colors#hl('javaScriptAjaxMethods', '', '', 'none')
 call colors#hl('javaScriptBuiltin', 'yellow', '', 'none')
 "}}}
-" ======== Markdown ======== {{{
+" ======== Markdown ======== "{{{
 call colors#hl('markdownHeadingRule', 'gray16', '', 'bold')
 call colors#hl('markdownHeadingDelimiter', 'gray16', '', 'bold')
 call colors#hl('markdownOrderedListMarker', 'gray16', '', 'bold')
@@ -205,9 +204,8 @@ call colors#hl('markdownLinkTextDelimiter', 'gray16', '', 'bold')
 call colors#hl('markdownCodeDelimiter', 'flesh', '', 'bold')
 call colors#hl('markdownCode', 'flesh', '', 'none')
 call colors#hl('markdownCodeBlock', 'flesh', '', 'none')
-
-
-" ======== Python ========
+"}}}
+" ======== Python ======== "{{{
 call colors#hl('pythonBuiltin',     'yellow', '', 'none')
 call colors#hl('pythonBuiltinObj',  'yellow1', '', 'none')
 call colors#hl('pythonBuiltinFunc', 'pink')
@@ -218,3 +216,5 @@ call colors#hl('pythonDecorator',   'red', '', 'none')
 call colors#hl('pythonRun',         'gray16', '', 'bold')
 call colors#hl('pythonCoding',      'gray16', '', 'bold')
 call colors#hl('pythonInclude',     'deeppurple', '', 'bold')
+"}}}
+"}}}
