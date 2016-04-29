@@ -135,6 +135,7 @@ set nospell " Disable spell check
 set spelllang+=cjk " Disable spell check on multibyte characters
 set list " Display invisible chars
 set listchars=tab:\|\ ,trail:_
+set fillchars+=vert:┃
 set shiftround
 set nolinebreak
 " '\xe2\x86\xaa' ↪                            |
@@ -148,7 +149,6 @@ set nolinebreak
 " '\xe2\x87\x89' ⇉                            |
 " '\xe2\x87\xb6' ⇶                            |
 " '\xef\xa1\x87'                             |
-" '\xee\x8d\xa6'                             |
 let &showbreak = "\xe2\x86\xaa  "
 if v:version >= 704 && has('patch338')
   set breakindent
