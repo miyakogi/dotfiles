@@ -502,8 +502,8 @@ endfunction
 " ============================================
 if !has('gui_running')
   " True color support!!!
-  if has('termtruecolor')
-    set guicolors
+  if has('termguicolors')
+    set termguicolors
   endif
   set t_Co=256
   " <Esc>のマッピングが持ってかれてアウト

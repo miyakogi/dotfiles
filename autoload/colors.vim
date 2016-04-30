@@ -34,7 +34,7 @@ function! colors#initialize() abort
       \ }
   let s:user_palette = {}
   let s:is_term = !has('gui_running')
-  let s:truecolor = has('gui_running') || &guicolors
+  let s:truecolor = has('gui_running') || &termguicolors
   let s:fg = s:truecolor ? 'guifg=' : 'ctermfg='
   let s:bg = s:truecolor ? 'guibg=' : 'ctermbg='
   let s:attr = has('gui_running') ? 'gui=' : 'cterm='

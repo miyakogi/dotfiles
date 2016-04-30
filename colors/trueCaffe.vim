@@ -1,10 +1,12 @@
-if !has('termtruecolor') && !has('gui_running')
+if !has('termguicolors') && !has('gui_running')
     finish
 endif
 
 " set background=dark
 let g:colors_name = 'trueCaffe'
-if exists('syntax_on') | syntax reset | endif
+if exists('syntax_on')
+  syntax reset
+endif
 
 let s:palette = {
     \ 'front':      ['#f8f6f2', 255],
