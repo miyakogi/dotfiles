@@ -737,7 +737,7 @@ let g:rbpt_colorpairs = [
   \ ['214', '#ffb000'],
   \ ['211', '#ff97bf'],
   \ ['220', '#ffd700'],
-  \ ['248', '#aaaaaa'],  " First parentheses
+  \ ['248', '#aaaaaa'],
   \ ]
 "}}}
 
