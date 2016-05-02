@@ -730,22 +730,14 @@ let g:textobj_wiw_no_default_key_mappings=1
 " ======== Rainbow parentheses ======== {{{
 let g:rainbow_parentheses_disable_filetypes=['html', 'htmljinja', 'xml', 'css']
 let g:rbpt_colorpairs = [
-  \ ['16',          'black'],
-  \ ['209',         'salmon'],
-  \ ['69',          'CornflowerBlue'],
-  \ ['202',         'orangered'],
-  \ ['220',         'gold'],
-  \ ['white',       'white'],
-  \ ['21',          'blue'],
-  \ ['48',          'springgreen'],
-  \ ['63',          'slateblue'],
-  \ ['red',         'darkred'],
-  \ ['178',         'goldenrod'],
-  \ ['lightgray',   'lightgray'],
-  \ ['117',         'RoyalBlue2'],
-  \ ['46',          'SeaGreen2'],
-  \ ['93',          'DarkOrchid2'],
-  \ ['196',         'firebrick2'],
+  \ ['196', '#ff0000'],
+  \ ['168', '#d7875f'],
+  \ ['154', '#afff00'],
+  \ ['39',  '#00afff'],
+  \ ['214', '#ffb000'],
+  \ ['211', '#ff97bf'],
+  \ ['220', '#ffd700'],
+  \ ['248', '#aaaaaa'],  " First parentheses
   \ ]
 "}}}
 

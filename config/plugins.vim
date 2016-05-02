@@ -245,31 +245,11 @@ endif
 
 " ======== Rainbow parentheses ======== {{{
 if exists(':RainbowParenthesesActivate')
-  function! s:rainbow_parenthesis_colors() abort
-    highlight level16c guifg=#aaaaaa cterm=bold gui=bold
-    highlight level15c guifg=#ffd700
-    highlight level14c guifg=#ff97bf
-    highlight level13c guifg=#ffb000
-    highlight level12c guifg=#00afff
-    highlight level11c guifg=#afff00
-    highlight level10c guifg=#d7875f
-    highlight level9c  guifg=#ff0000
-    highlight level8c  guifg=#aaaaaa
-    highlight level7c  guifg=#ffd700
-    highlight level6c  guifg=#ff97bf
-    highlight level5c  guifg=#ffb000
-    highlight level4c  guifg=#00afff
-    highlight level3c  guifg=#afff00
-    highlight level2c  guifg=#d7875f
-    highlight level1c  guifg=#ff0000
-  endfunction
-
   function! g:RainbowParenthesesStart()
     if !exists(':RainbowParenthesesToggleAll') ||
           \ count(get(g:, 'rainbow_parentheses_disable_filetypes', []), &filetype)
       return
     endif
-    call s:rainbow_parenthesis_colors()
     RainbowParenthesesLoadRound
     RainbowParenthesesLoadSquare
     RainbowParenthesesLoadBraces
@@ -277,7 +257,7 @@ if exists(':RainbowParenthesesActivate')
     call rainbow_parentheses#activate()
   endfunction
 
-  autocmd myvimrc ColorScheme,Syntax * call g:RainbowParenthesesStart()
+  autocmd myvimrc ColorScheme,Syntax,BufRead * call g:RainbowParenthesesStart()
   nnoremap [Space]r :<C-u>RainbowParenthesesToggleAll<CR>
 endif
 
