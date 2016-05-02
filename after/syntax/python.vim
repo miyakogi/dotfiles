@@ -55,7 +55,7 @@ endfor
 hi link pythonBuiltinFunc pythonBuiltin
 hi link pythonBuiltinObj pythonBuiltin
 syn clear pythonStatement
-syn keyword pythonStatement	as assert break continue del exec global
+syn keyword pythonStatement	as assert break continue del global
 syn keyword pythonStatement	lambda nonlocal pass return with yield
 syn keyword pythonStatement	class def nextgroup=pythonFunction skipwhite
 syn match pythonStatement /\.\.\./
