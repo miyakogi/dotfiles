@@ -214,15 +214,31 @@ load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
 
 # http://yagays.github.io/blog/2013/05/20/zaw-zsh/
 # Save cd history
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':chpwd:*' recent-dirs-max 5000
-zstyle ':chpwd:*' recent-dirs-default yes
-zstyle ':completion:*' recent-dirs-insert both
+# autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+# add-zsh-hook chpwd chpwd_recent_dirs
+# zstyle ':chpwd:*' recent-dirs-max 5000
+# zstyle ':chpwd:*' recent-dirs-default yes
+# zstyle ':completion:*' recent-dirs-insert both
+recent_dirs_file=$HOME/.histdir
+recent_dirs_max=5000
+function cdhist() {
+  python << EOS
+from os import path
+from itertools import chain
+curdir = path.abspath('.') + '\n'
+if path.isfile('${recent_dirs_file}'):
+    with open('${recent_dirs_file}', 'r') as f:
+        lines = f.readlines()
+    if len(lines) > ${recent_dirs_max}:
+        lines = lines[:${recent_dirs_max}]
+    with open('${recent_dirs_file}', 'w') as f:
+        f.write(''.join(chain([curdir], (line for line in lines if line != curdir))))
+EOS
+}
+add-zsh-hook chpwd cdhist
 
 ### percol
 if which percol > /dev/null; then
-  local histfile=$ZDOTDIR/.chpwd-recent-dirs
   local percol_cmd='percol --query "$LBUFFER"'
 
   function percol-select-history() {
@@ -233,24 +249,9 @@ if which percol > /dev/null; then
   zle -N percol-select-history
   bindkey '^R' percol-select-history
 
-  function percol-choose-dir() {
-    if [ -e $histfile ]
-    # need `cat` to buffer stdin
-    then python << EOS | cat | eval ${percol_cmd}
-with open('${histfile}') as f:
-    dirs=[line[2:-2] for line in f]
-print('\n'.join(dirs))
-EOS
-    else cdr -l | eval ${percol_cmd}
-    fi
-  }
-
   function myjump() {
-    local destination=$(percol-choose-dir)
-    if [ -n "$destination" ]; then
-      cd $destination && _update_prompt
-    fi
-    # fix prompt
+    local destination=$([[ -e $recent_dirs_file ]] && cat $recent_dirs_file | eval ${percol_cmd})
+    [[ -n "$destination" ]] && cd $destination && _update_prompt
     zle reset-prompt
   }
 else
