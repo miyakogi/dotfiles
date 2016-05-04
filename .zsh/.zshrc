@@ -33,22 +33,33 @@ setopt correct
 setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
+autoload -Uz add-zsh-hook
+autoload -Uz colors && colors
+# autoload -U colors && colors
+autoload -Uz is-at-least
 # autoload predict-on
 # predict-on
 
+# 色設定
+export LSCOLORS=Exfxcxdxbxegedabagacad
+export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export ZLS_COLORS=$LS_COLORS
+export CLICOLOR=true
+
 ########## COMPLETION ##########
 # http://d.hatena.ne.jp/oovu70/20120405/p1
-autoload -Uz compinit; compinit -C
+autoload -Uz compinit && compinit -C
 setopt list_packed
 setopt list_types
 
 bindkey "^[[Z" reverse-menu-complete
-
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
+# 補完候補に色をつける
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 ########## EDIT ##########
 # Set keyword
@@ -58,12 +69,32 @@ select-word-style default
 zstyle ':zle:*' word-chars " -/=;@:{},|"
 zstyle ':zle:*' word-style unspecified
 
-## VCS information at RPROMPT
+########## ALIAS ##########
+alias vi="/usr/bin/vim --noplugin"
+alias :q="exit"
+alias tmux="tmux -2"
+
+case "${OSTYPE}" in
+# Mac(Unix)
+darwin*)
+  export LS_OPTIONS='-xFG' ;;
+# Linux
+linux*)
+  export LS_OPTIONS='--color=auto -xF' ;;
+esac
+if [ -f ~/.dircolors ]; then
+  eval "`dircolors ~/.dircolors`"
+fi
+alias ls="ls $LS_OPTIONS"
+
+# . ~/.vim/bundle/powerline/powerline/bindings/zsh/powerline.zsh
+# ZSH_THEME="powerline"
+alias gstatus="git status -s -b"
+# http://qiita.com/syui/items/ed2d36698a5cc314557d
+
+######### VCS information ###########
 # http://qiita.com/mollifier/items/8d5a627d773758dd8078
 autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
-autoload -Uz is-at-least
-autoload -Uz colors
 zstyle ':vcs_info:*' max-exports 3
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' formats '%c%u %s:%b│%r'
@@ -71,36 +102,31 @@ zstyle ':vcs_info:*' actionformats '%c%u %s:%b %m <!%a>'
 zstyle ':vcs_info:*' unstagedstr '?'
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:git:*' check-for-changes true
-# zstyle ':vcs_info:hg:*' check-for-changes true
+zstyle ':vcs_info:hg:*' check-for-changes true
 
 function _get_vcs_info() {
-  if [[ -z ${vcs_info_msg_0_} ]]; then
-    # vcs_info で何も取得していない場合はプロンプトを表示しない
-    return ""
-  else
-    # vcs_info で情報を取得した場合
-    # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
-    # それぞれ緑、黄色、赤で表示する
-    local -a messages
-    [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{cyan}${vcs_info_msg_0_}%f" )
-    [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
-    [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
+  # vcs_info で何も取得していない場合はプロンプトを表示しない
+  [[ -z ${vcs_info_msg_0_} ]] && return 0
 
-    # 間にスペースを入れて連結する
-    echo -n "${messages[*]}"
-  fi
+  # vcs_info で情報を取得した場合
+  # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
+  # それぞれ緑、黄色、赤で表示する
+  local -a messages
+  [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{cyan}${vcs_info_msg_0_}%f" )
+  [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
+  [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
+  # 間にスペースを入れて連結して標準出録へ
+  echo -n "${messages[*]}"
 }
 
 function _get_env() {
   local -a res
+  [[ -n "$DIRENV_DIR" ]] && res+=("direnv")
   [[ -n "$VIRTUAL_ENV" ]] && res+=("pyvenv")
-  if [ $#res -gt 0 ]
-  then echo -n "(${res[*]})"
-  fi
+  [[ $#res -gt 0 ]] && echo -n "(${res[*]})"
 }
 
 ########## PROMPT ##########
-autoload -U colors && colors
 ### Normal PROMPT
 SIMPLE_PROMPT_MODE=0
 function _update_lprompt() {
@@ -126,10 +152,10 @@ function _update_lprompt() {
   local p_mark="%B%(?,$p_mark_ok,$p_mark_ng)%(!,#,)%b"
   local p_mark_ssh="%B%(?,$p_mark_ok_ssh,$p_mark_ng_ssh)%(!,#,)%b"
 
-  # PROMPT="$p_mark "
-  PROMPT="$p_br$p_cdir$p_br$p_mark "
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-    PROMPT="$p_br$p_cdir_ssh$p_br$p_mark_ssh "
+  if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]
+  then PROMPT="$p_br$p_cdir_ssh$p_br$p_mark_ssh "
+  else PROMPT="$p_br$p_cdir$p_br$p_mark "
+  fi
 }
 
 ### RPROMPT
@@ -154,42 +180,8 @@ function simple_prompt() {
   SIMPLE_PROMPT_MODE=1
   _update_prompt
   _update_vcs_info_msg
-  # _update_vcs_info_msg() { RPROMPT="" }
 }
-
-if [ $VIM ]; then
-  simple_prompt
-fi
-
-########## ALIAS ##########
-alias vi="/usr/bin/vim --noplugin"
-alias :q="exit"
-alias tmux="tmux -2"
-
-case "${OSTYPE}" in
-# Mac(Unix)
-darwin*)
-  export LS_OPTIONS='-xFG' ;;
-# Linux
-linux*)
-  export LSCOLORS=Exfxcxdxbxegedabagacad
-  export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-  export ZLS_COLORS=$LS_COLORS
-  export CLICOLOR=true
-  export LS_OPTIONS='--color=auto -xF' ;;
-esac
-if [ -f ~/.dircolors ]; then
-  eval "`dircolors ~/.dircolors`"
-fi
-alias ls="ls $LS_OPTIONS"
-
-# 補完候補に色をつける
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-# . ~/.vim/bundle/powerline/powerline/bindings/zsh/powerline.zsh
-# ZSH_THEME="powerline"
-alias gstatus="git status -s -b"
-# http://qiita.com/syui/items/ed2d36698a5cc314557d
+[[ $VIM ]] && simple_prompt
 
 ########## SYSTEM VARIABLES ##########
 # For vim
@@ -212,6 +204,7 @@ load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
 ### zsh-autoenv
 load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
 
+# とても遅い。。。
 # http://yagays.github.io/blog/2013/05/20/zaw-zsh/
 # Save cd history
 # autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
