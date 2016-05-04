@@ -24,27 +24,6 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "" history-beginning-search-backward-end
 bindkey "" history-beginning-search-forward-end
 
-### zaw
-# http://yagays.github.io/blog/2013/05/20/zaw-zsh/
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':chpwd:*' recent-dirs-max 5000
-zstyle ':chpwd:*' recent-dirs-default yes
-zstyle ':completion:*' recent-dirs-insert both
-
-load_if_exists $ZDOTDIR/zaw/zaw.zsh
-zstyle ':filter-select' case-insensitive yes # 絞り込みをcase-insensitiveに
-# For Dolphin
-if [ $DOLPHIN ]; then
-  bindkey '^L' zaw-cdr # zaw-cdrをbindkey
-elif [ $VIM ]; then
-  bindkey '^L' zaw-cdr # zaw-cdrをbindkey
-else
-  bindkey '^J' zaw-cdr # zaw-cdrをbindkey
-fi
-
-bindkey '^R' zaw-history # zaw-historyをbindkey
-
 ### zsh-completions
 # http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
 fpath=($HOME/.zsh/zsh-completions/src(N-/) $fpath)
@@ -80,18 +59,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
-
-# # pip zsh completion start
-# function _pip_completion {
-#   local words cword
-#   read -Ac words
-#   read -cn cword
-#   reply=( $( COMP_WORDS="$words[*]" \
-#              COMP_CWORD=$(( cword-1 )) \
-#              PIP_AUTO_COMPLETE=1 $words[1] ) )
-# }
-# compctl -K _pip_completion pip
-# # pip zsh completion end
 
 ########## EDIT ##########
 # Set keyword
@@ -181,8 +148,6 @@ function _update_lprompt() {
 ### RPROMPT
 # Delete RPROMPT after commands
 setopt transient_rprompt
-
-
 function _update_rprompt() {
   if [ $SIMPLE_PROMPT_MODE = 1 ]; then
     RPROMPT=""
@@ -209,13 +174,6 @@ function simple_prompt() {
 if [ $VIM ]; then
   simple_prompt
 fi
-
-########## TAB ##########
-# Show Current directory on Tab
-# precmd () {
-#   echo -ne "\e]2;${PWD}\a"
-#   echo -ne "\e]1;${PWD:t}\a"
-# }
 
 ########## ALIAS ##########
 alias vi="/usr/bin/vim --noplugin"
@@ -246,7 +204,6 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # ZSH_THEME="powerline"
 alias gstatus="git status -s -b"
 # http://qiita.com/syui/items/ed2d36698a5cc314557d
-load_if_exists ~/.zsh/git-flow-completion/git-flow-completion.zsh
 
 ########## SYSTEM VARIABLES ##########
 # For vim
@@ -260,5 +217,73 @@ eval "$(direnv hook zsh)"
 
 ########## MACHINE LOCAL SETTING ##########
 load_if_exists "$ZDOTDIR/.zshrc.local"
+
+########## Plugin Settings ##########
+load_if_exists ~/.zsh/git-flow-completion/git-flow-completion.zsh
+### zsh-autoenv
+load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
+
+### zaw
+# http://yagays.github.io/blog/2013/05/20/zaw-zsh/
+# Save cd history
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
+
+if which percol > /dev/null; then
+  local histfile=$ZDOTDIR/.chpwd-recent-dirs
+  if which tac > /dev/null
+  then local tac="tac"
+  else local tac="tail -r"
+  fi
+
+  function percol_select_history() {
+    if which percol > /dev/null; then
+      BUFFER=$(history -n 1 | eval $tac | percol --query "$LBUFFER")
+      CURSOR=$#BUFFER
+      zle -R -c
+    fi
+  }
+  zle -N percol_select_history
+  bindkey '^R' percol_select_history
+
+  function percol-choose-dir() {
+    local cmd=" $tac | percol --query \"$LBUFFER\""
+    if [ -e $histfile ]
+    then python << EOS | eval $cmd
+with open('${histfile}') as f:
+    dirs=[line[2:-2] for line in f]
+dirs.reverse()
+print('\n'.join(dirs))
+EOS
+    else cdr -l | eval $cmd
+    fi
+  }
+
+  function myjump() {
+    local destination="$(percol-choose-dir)"
+    if [ -n "$destination" ]
+    then cd $destination && _update_prompt
+    fi
+    # fix prompt
+    zle reset-prompt
+  }
+else
+  # percol is not available, use zaw
+  load_if_exists $ZDOTDIR/zaw/zaw.zsh
+  zstyle ':filter-select' case-insensitive yes # 絞り込みをcase-insensitiveに
+  bindkey '^R' zaw-history # zaw-historyをbindkey
+  function myjump() { zaw-cdr }
+fi
+
+zle -N myjump
+if [ $DOLPHIN ]
+then bindkey '^L' myjump
+elif [ $VIM ]
+then bindkey '^L' myjump
+else bindkey '^J' myjump
+fi
 
 # vim: set et ts=2 sw=2:
