@@ -101,36 +101,6 @@ select-word-style default
 zstyle ':zle:*' word-chars " -/=;@:{},|"
 zstyle ':zle:*' word-style unspecified
 
-########## PROMPT ##########
-autoload -U colors && colors
-### Normal PROMPT
-local p_base_ok_ssh="%F{blue}%n@${HOST}%f"
-local p_base_ng_ssh="%F{magenta}%n@${HOST}%f"
-# local p_base_ng_ssh="%{[38;5;222m%}%n@${HOST}%{[m%}"
-
-local p_cdir="%{[38;5;246m%}[%/]%{[m%}"
-local p_cdir_ssh="%(?,$p_base_ok_ssh ,$p_base_ng_ssh )%(!,#,)%{[38;5;252m%}[%/]%{[m%}"
-local p_err_mark="%{[38;5;124m%}✘ %{[m%}"
-local p_cdir="$p_cdir%(?,,$p_err_mark)%(!,#,)"
-local p_cdir_ssh="$p_cdir_ssh%(?,,$p_err_mark)%(!,#,)"
-
-local p_br=$'\n'
-local p_mark_ok="%F{green}>>>%f"
-local p_mark_ok_ssh="%F{blue}>>>%f"
-local p_mark_ng="%F{yellow}>>>%f"
-local p_mark_ng_ssh="%F{magenta}>>>%f"
-local p_mark="%B%(?,$p_mark_ok,$p_mark_ng)%(!,#,)%b"
-local p_mark_ssh="%B%(?,$p_mark_ok_ssh,$p_mark_ng_ssh)%(!,#,)%b"
-
-# PROMPT="$p_mark "
-PROMPT="$p_br$p_cdir$p_br$p_mark "
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-  PROMPT="$p_br$p_cdir_ssh$p_br$p_mark_ssh "
-
-### RPROMPT
-# Delete RPROMPT after commands
-setopt transient_rprompt
-
 ## VCS information at RPROMPT
 # http://qiita.com/mollifier/items/8d5a627d773758dd8078
 autoload -Uz vcs_info
@@ -146,32 +116,94 @@ zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:git:*' check-for-changes true
 # zstyle ':vcs_info:hg:*' check-for-changes true
 
-function _update_vcs_info_msg() {
-  local -a messages
-  local p_vcs
-  LANG=en_US.UTF-8 vcs_info
-
+function _get_vcs_info() {
   if [[ -z ${vcs_info_msg_0_} ]]; then
     # vcs_info で何も取得していない場合はプロンプトを表示しない
-    p_vcs=""
+    return ""
   else
     # vcs_info で情報を取得した場合
     # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
     # それぞれ緑、黄色、赤で表示する
+    unset messages
     [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{cyan}${vcs_info_msg_0_}%f" )
     [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
     [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
 
     # 間にスペースを入れて連結する
-    p_vcs="${(j: :)messages}"
+    echo -n "${messages[*]}"
+    unset messages
   fi
-  RPROMPT=$p_vcs
 }
-add-zsh-hook precmd _update_vcs_info_msg
+
+function _get_env() {
+  unset res
+  [[ -n "$DIRENV_DIR" ]] && res+=("direnv")
+  [[ -n "$VIRTUAL_ENV" ]] && res+=("pyvenv")
+  if [ $#res -gt 0 ]
+  then echo -n "(${res[*]})"
+  fi
+  unset res
+}
+
+########## PROMPT ##########
+autoload -U colors && colors
+### Normal PROMPT
+SIMPLE_PROMPT_MODE=0
+function _update_lprompt() {
+  if [ $SIMPLE_PROMPT_MODE = 1 ]; then
+    PROMPT=">>> "
+    return 0
+  fi
+  local p_base_ok_ssh="%F{blue}%n@${HOST}%f"
+  local p_base_ng_ssh="%F{magenta}%n@${HOST}%f"
+  # local p_base_ng_ssh="%{[38;5;222m%}%n@${HOST}%{[m%}"
+
+  local p_cdir="%{[38;5;246m%}[%/] `_get_env`%{[m%}"
+  local p_cdir_ssh="%(?,$p_base_ok_ssh ,$p_base_ng_ssh )%(!,#,)%{[38;5;252m%}[%/]%{[m%}"
+  local p_err_mark="%{[38;5;124m%}✘ %{[m%}"
+  local p_cdir="$p_cdir%(?,,$p_err_mark)%(!,#,)"
+  local p_cdir_ssh="$p_cdir_ssh%(?,,$p_err_mark)%(!,#,)"
+
+  local p_br=$'\n'
+  local p_mark_ok="%F{green}>>>%f"
+  local p_mark_ok_ssh="%F{blue}>>>%f"
+  local p_mark_ng="%F{yellow}>>>%f"
+  local p_mark_ng_ssh="%F{magenta}>>>%f"
+  local p_mark="%B%(?,$p_mark_ok,$p_mark_ng)%(!,#,)%b"
+  local p_mark_ssh="%B%(?,$p_mark_ok_ssh,$p_mark_ng_ssh)%(!,#,)%b"
+
+  # PROMPT="$p_mark "
+  PROMPT="$p_br$p_cdir$p_br$p_mark "
+  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
+    PROMPT="$p_br$p_cdir_ssh$p_br$p_mark_ssh "
+}
+
+### RPROMPT
+# Delete RPROMPT after commands
+setopt transient_rprompt
+
+
+function _update_rprompt() {
+  if [ $SIMPLE_PROMPT_MODE = 1 ]; then
+    RPROMPT=""
+    return
+  fi
+  local -a messages
+  LANG=en_US.UTF-8 vcs_info
+  RPROMPT=`_get_vcs_info`
+}
+
+function _update_prompt() {
+  _update_lprompt
+  _update_rprompt
+}
+add-zsh-hook precmd _update_prompt
 
 function simple_prompt() {
-  PROMPT=">>> "
-  _update_vcs_info_msg() { RPROMPT="" }
+  SIMPLE_PROMPT_MODE=1
+  _update_prompt
+  _update_vcs_info_msg
+  # _update_vcs_info_msg() { RPROMPT="" }
 }
 
 if [ $VIM ]; then
@@ -221,9 +253,9 @@ load_if_exists ~/.zsh/git-flow-completion/git-flow-completion.zsh
 # export COLORFGBG="15;0"
 
 ########## PythonZ ##########
-[[ -s $HOME/.pythonz/etc/bashrc  ]] && source $HOME/.pythonz/etc/bashrc
+[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
-########## DirEnv ##########
+########## direnv ##########
 eval "$(direnv hook zsh)"
 
 ########## MACHINE LOCAL SETTING ##########
