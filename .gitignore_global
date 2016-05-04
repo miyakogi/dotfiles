@@ -1,15 +1,14 @@
-# ======== Python ========
+###### Vim ######
+# swap
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
+# ?
 *.un~
+# session
 Session.vim
+# temporary
 .netrwhist
 *~
-
-# KDE
-.directory
-.fuse*
-
 # Ignore tags created by etags, ctags, gtags (GNU global) and cscope
 TAGS
 !TAGS/
@@ -24,7 +23,11 @@ cscope.out
 cscope.in.out
 cscope.po.out
 
-# ======== Python ========
+###### KDE ######
+.directory
+.fuse*
+
+###### Python #######
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
