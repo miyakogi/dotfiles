@@ -220,6 +220,10 @@ load_if_exists ~/.zsh/git-flow-completion/git-flow-completion.zsh
 # For vim
 # export COLORFGBG="15;0"
 
+########## PythonZ ##########
+[[ -s $HOME/.pythonz/etc/bashrc  ]] && source $HOME/.pythonz/etc/bashrc
+
+
 ########## MACHINE LOCAL SETTING ##########
 load_if_exists "$ZDOTDIR/.zshrc.local"
 
