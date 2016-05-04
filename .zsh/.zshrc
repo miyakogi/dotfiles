@@ -81,24 +81,22 @@ function _get_vcs_info() {
     # vcs_info で情報を取得した場合
     # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
     # それぞれ緑、黄色、赤で表示する
-    unset messages
+    local -a messages
     [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{cyan}${vcs_info_msg_0_}%f" )
     [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
     [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
 
     # 間にスペースを入れて連結する
     echo -n "${messages[*]}"
-    unset messages
   fi
 }
 
 function _get_env() {
-  unset res
+  local -a res
   [[ -n "$VIRTUAL_ENV" ]] && res+=("pyvenv")
   if [ $#res -gt 0 ]
   then echo -n "(${res[*]})"
   fi
-  unset res
 }
 
 ########## PROMPT ##########
@@ -142,7 +140,6 @@ function _update_rprompt() {
     RPROMPT=""
     return
   fi
-  local -a messages
   LANG=en_US.UTF-8 vcs_info
   RPROMPT=`_get_vcs_info`
 }
@@ -249,10 +246,8 @@ EOS
   }
 
   function myjump() {
-    echo 0
     local destination=$(percol-choose-dir)
     if [ -n "$destination" ]; then
-      echo 1
       cd $destination && _update_prompt
     fi
     # fix prompt
