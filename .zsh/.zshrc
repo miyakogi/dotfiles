@@ -104,7 +104,6 @@ function _get_vcs_info() {
 
 function _get_env() {
   unset res
-  [[ -n "$DIRENV_DIR" ]] && res+=("direnv")
   [[ -n "$VIRTUAL_ENV" ]] && res+=("pyvenv")
   if [ $#res -gt 0 ]
   then echo -n "(${res[*]})"
@@ -209,14 +208,16 @@ alias gstatus="git status -s -b"
 # For vim
 # export COLORFGBG="15;0"
 
+########## MACHINE LOCAL SETTING ##########
+load_if_exists "$ZDOTDIR/.zshrc.local"
+
 ########## PythonZ ##########
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
 ########## direnv ##########
-eval "$(direnv hook zsh)"
-
-########## MACHINE LOCAL SETTING ##########
-load_if_exists "$ZDOTDIR/.zshrc.local"
+if which direnv > /dev/null
+then eval "$(direnv hook zsh)"
+fi
 
 ########## Plugin Settings ##########
 load_if_exists ~/.zsh/git-flow-completion/git-flow-completion.zsh
