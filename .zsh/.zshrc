@@ -1,13 +1,3 @@
-########## FUNCTIONS ##########
-function executable { which $1 &> /dev/null }
-
-# Load file if exists
-load_if_exists () {
-  if [ -f $1 ]; then
-    source $1
-  fi
-}
-
 ########## HISTORY ##########
 HISTFILE=~/.histfile
 DIRSTACKSIZE=1000
@@ -208,23 +198,23 @@ alias gstatus="git status -s -b"
 # For vim
 # export COLORFGBG="15;0"
 
+# Load file if exists
+function load_if_exists() { [[ -f $1 ]] && source $1 }
+
 ########## MACHINE LOCAL SETTING ##########
 load_if_exists "$ZDOTDIR/.zshrc.local"
 
 ########## PythonZ ##########
-[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+load_if_exists $HOME/.pythonz/etc/bashrc
 
 ########## direnv ##########
-if which direnv > /dev/null
-then eval "$(direnv hook zsh)"
-fi
+which direnv > /dev/null && eval "$(direnv hook zsh)"
 
 ########## Plugin Settings ##########
-load_if_exists ~/.zsh/git-flow-completion/git-flow-completion.zsh
+load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
 ### zsh-autoenv
 load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
 
-### zaw
 # http://yagays.github.io/blog/2013/05/20/zaw-zsh/
 # Save cd history
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -233,40 +223,37 @@ zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
 
+### percol
 if which percol > /dev/null; then
   local histfile=$ZDOTDIR/.chpwd-recent-dirs
-  if which tac > /dev/null
-  then local tac="tac"
-  else local tac="tail -r"
-  fi
+  local percol_cmd='percol --query "$LBUFFER"'
 
-  function percol_select_history() {
-    if which percol > /dev/null; then
-      BUFFER=$(history -n 1 | eval $tac | percol --query "$LBUFFER")
-      CURSOR=$#BUFFER
-      zle -R -c
-    fi
+  function percol-select-history() {
+    BUFFER=$(history -rn 1 | eval ${percol_cmd})
+    CURSOR=$#BUFFER
+    zle -R -c
   }
-  zle -N percol_select_history
-  bindkey '^R' percol_select_history
+  zle -N percol-select-history
+  bindkey '^R' percol-select-history
 
   function percol-choose-dir() {
-    local cmd=" $tac | percol --query \"$LBUFFER\""
     if [ -e $histfile ]
-    then python << EOS | eval $cmd
+    # need `cat` to buffer stdin
+    then python << EOS | cat | eval ${percol_cmd}
 with open('${histfile}') as f:
     dirs=[line[2:-2] for line in f]
-dirs.reverse()
 print('\n'.join(dirs))
 EOS
-    else cdr -l | eval $cmd
+    else cdr -l | eval ${percol_cmd}
     fi
   }
 
   function myjump() {
-    local destination="$(percol-choose-dir)"
-    if [ -n "$destination" ]
-    then cd $destination && _update_prompt
+    echo 0
+    local destination=$(percol-choose-dir)
+    if [ -n "$destination" ]; then
+      echo 1
+      cd $destination && _update_prompt
     fi
     # fix prompt
     zle reset-prompt
