@@ -36,6 +36,7 @@ makedir_if_not_exists $HOME/.config/nvim
 makedir_if_not_exists $HOME/.config/nvim/bundle
 makedir_if_not_exists $HOME/.zsh
 makedir_if_not_exists $HOME/bin
+makedir_if_not_exists $HOME/.percol.d
 
 # --- Make Symbolic link ---
 # Files
@@ -49,6 +50,7 @@ ln -sf $BASEDIR/rgb.txt $HOME/.vim/rgb.txt
 ln -sf $BASEDIR/.tmux.conf $HOME/.tmux.conf
 ln -sf $BASEDIR/.gitignore_global $HOME/.gitignore_global
 ln -sf $BASEDIR/vimpack.py $HOME/bin/vimpack
+ln -sf $BASEDIR/percolrc $HOME/.percol.d/rc.py
 
 case "${OSTYPE}" in
 # Mac(Unix)
@@ -92,6 +94,8 @@ ln -sf $BASEDIR/syntax $NVIMCONFIG
 
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
+# Install zsh-autoenv
+git_clone https://github.com/Tarrasch/zsh-autoenv  $HOME/.zsh/zsh-autoenv
 # Install compoletions
 git_clone https://github.com/zsh-users/zsh-completions.git  $HOME/.zsh/zsh-completions
 git_clone https://github.com/bobthecow/git-flow-completion  $HOME/.zsh/git-flow-completion
