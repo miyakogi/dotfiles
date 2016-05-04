@@ -224,8 +224,10 @@ if path.isfile('${recent_dirs_file}'):
         lines = f.readlines()
     if len(lines) > ${recent_dirs_max}:
         lines = lines[:${recent_dirs_max}]
+    if curdir in lines:
+        lines.remove(curdir)
     with open('${recent_dirs_file}', 'w') as f:
-        f.write(''.join(chain([curdir], (line for line in lines if line != curdir))))
+        f.write(''.join(chain([curdir], lines)))
 EOS
 }
 add-zsh-hook chpwd cdhist
@@ -244,7 +246,7 @@ if which percol > /dev/null; then
 
   function myjump() {
     local destination=$([[ -e $recent_dirs_file ]] && cat $recent_dirs_file | eval ${percol_cmd})
-    [[ -n "$destination" ]] && cd $destination && _update_prompt
+    [[ -n "$destination" ]] && zle -U "cd $destination"
     zle reset-prompt
   }
 else
