@@ -53,3 +53,7 @@ coverage.xml
 docs/_build/
 *.mo
 *.pot
+
+###### direnv ######
+.direnv
+.envrc
