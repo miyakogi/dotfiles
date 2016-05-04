@@ -223,6 +223,8 @@ load_if_exists ~/.zsh/git-flow-completion/git-flow-completion.zsh
 ########## PythonZ ##########
 [[ -s $HOME/.pythonz/etc/bashrc  ]] && source $HOME/.pythonz/etc/bashrc
 
+########## DirEnv ##########
+eval "$(direnv hook zsh)"
 
 ########## MACHINE LOCAL SETTING ##########
 load_if_exists "$ZDOTDIR/.zshrc.local"
