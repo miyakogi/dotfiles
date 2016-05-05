@@ -224,7 +224,7 @@ if path.isfile('${recent_dirs_file}'):
         lines = f.readlines()
     if len(lines) > ${recent_dirs_max}:
         lines = lines[-${recent_dirs_max}:]
-    if curdir in lines:
+    while curdir in lines:
         lines.remove(curdir)
     lines.append(curdir)
     with open('${recent_dirs_file}', 'w') as f:
