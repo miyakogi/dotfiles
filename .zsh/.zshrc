@@ -119,13 +119,6 @@ function _get_vcs_info() {
   echo -n "${messages[*]}"
 }
 
-function _get_env() {
-  local -a res
-  [[ -n "$DIRENV_DIR" ]] && res+=("direnv")
-  [[ -n "$VIRTUAL_ENV" ]] && res+=("pyvenv")
-  [[ $#res -gt 0 ]] && echo -n "(${res[*]})"
-}
-
 ########## PROMPT ##########
 ### Normal PROMPT
 SIMPLE_PROMPT_MODE=0
@@ -138,7 +131,7 @@ function _update_lprompt() {
   local p_base_ng_ssh="%F{magenta}%n@${HOST}%f"
   # local p_base_ng_ssh="%{[38;5;222m%}%n@${HOST}%{[m%}"
 
-  local p_cdir="%{[38;5;246m%}[%/] `_get_env`%{[m%}"
+  local p_cdir="%{[38;5;246m%}[%/]%{[m%}"
   local p_cdir_ssh="%(?,$p_base_ok_ssh ,$p_base_ng_ssh )%(!,#,)%{[38;5;252m%}[%/]%{[m%}"
   local p_err_mark="%{[38;5;124m%}✘ %{[m%}"
   local p_cdir="$p_cdir%(?,,$p_err_mark)%(!,#,)"
@@ -174,7 +167,8 @@ function _update_prompt() {
   _update_lprompt
   _update_rprompt
 }
-add-zsh-hook precmd _update_prompt
+add-zsh-hook precmd _update_rprompt
+_update_prompt
 
 function simple_prompt() {
   SIMPLE_PROMPT_MODE=1
