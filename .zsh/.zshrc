@@ -197,6 +197,8 @@ which direnv > /dev/null && eval "$(direnv hook zsh)"
 load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
 ### zsh-autoenv
 load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
+### syntax highlight
+# load_if_exists $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # とても遅い。。。
 # http://yagays.github.io/blog/2013/05/20/zaw-zsh/
