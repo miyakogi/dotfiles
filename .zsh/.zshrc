@@ -266,4 +266,52 @@ then bindkey '^L' myjump
 else bindkey '^J' myjump
 fi
 
+PROJECT_HOME=$HOME/Projects
+PYVENV_DIR=$HOME/.pyvenv
+function mkpj() {
+  ! which pyvenv > /dev/null 2>&1 && echo "pyvenv is not installed." && return 1
+  local pjdir=$PROJECT_HOME/$1
+  local vdir=$PYVENV_DIR/$1
+  [[ -e $pjdir ]] && echo "Target project ${pjdir} already exists." && return 1
+  [[ -e $vdir ]] && echo "Target venv ${vdir} already exists." && return 1
+  mkdir $pjdir
+  cd $pjdir
+  ! which autoenv_source_parent > /dev/null 2>&1 && return 1
+
+  # make new venv
+  echo "Preparing new venv (${vdir}) ......... "
+  pyvenv "$vdir"
+  [[ ! -e $vdir ]] && echo "Failed to make new venv" && return 1
+  local activate_file=$vdir/bin/activate
+  [[ ! -e $activate_file ]] && echo "Activation script $activate_file not exists" && return 1
+  [[ -e $vdir/bin/pip ]] && $vdir/bin/pip install -U pip setuptools
+  echo "done."
+
+  # prepare scripts for zsh-autoenv
+  cat << EOS > $pjdir/.autoenv.zsh
+autostash PYVENV_NAME=${1}
+[[ -e ${activate_file} ]] && echo "Activate Venv (\${PYVENV_NAME})" && source ${activate_file}
+EOS
+  cat << EOS > $pjdir/.autoenv_leave.zsh
+[[ -n \${VIRTUAL_ENV} ]] && echo "Deactivate Venv (\${PYVENV_NAME})" && deactivate
+EOS
+
+  # authorize new script
+  if which _autoenv_authorize > /dev/null 2>&1
+  then _autoenv_authorize $pjdir/.autoenv.zsh && _autoenv_authorize $pjdir/.autoenv_leave.zsh
+  else echo "Failed to automatically authorize autoenv script." && return 1
+  fi
+
+  # activate new env, hook autoenv chpwd handler
+  which _autoenv_chpwd_handler > /dev/null 2>&1 && _autoenv_chpwd_handler
+}
+
+function rmvenv() {
+  local vdir=$PYVENV_DIR/$1
+  [[ ! -e $vdir ]] && echo "No such venv: $1 ($vdir)" && return 1
+  echo -n "    Removing $vdir ......... "
+  rm -r $vdir
+  echo "done."
+}
+
 # vim: set et ts=2 sw=2:
