@@ -223,21 +223,22 @@ if path.isfile('${recent_dirs_file}'):
     with open('${recent_dirs_file}', 'r') as f:
         lines = f.readlines()
     if len(lines) > ${recent_dirs_max}:
-        lines = lines[:${recent_dirs_max}]
+        lines = lines[-${recent_dirs_max}:]
     if curdir in lines:
         lines.remove(curdir)
+    lines.append(curdir)
     with open('${recent_dirs_file}', 'w') as f:
-        f.write(''.join(chain([curdir], lines)))
+        f.write(''.join(lines))
 EOS
 }
 add-zsh-hook chpwd cdhist
 
 ### percol
 if which percol > /dev/null; then
-  local percol_cmd='percol --query "$LBUFFER"'
+  local percol_cmd='percol --reverse --query "$LBUFFER"'
 
   function percol-select-history() {
-    BUFFER=$(history -rn 1 | eval ${percol_cmd})
+    BUFFER=$(history -n 1 | eval ${percol_cmd})
     CURSOR=$#BUFFER
     zle -R -c
   }
