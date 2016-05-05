@@ -314,4 +314,15 @@ function rmvenv() {
   echo "done."
 }
 
+function _rmvenv() {
+  local -a envs
+  local f
+  for f in ${PYVENV_DIR}/*
+  do
+    envs+=( $(basename $f ) )
+  done
+  _values 'virtual envs' ${envs[*]}
+}
+compdef _rmvenv rmvenv
+
 # vim: set et ts=2 sw=2:
