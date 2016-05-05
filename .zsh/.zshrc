@@ -290,10 +290,10 @@ function mkpj() {
   # prepare scripts for zsh-autoenv
   cat << EOS > $pjdir/.autoenv.zsh
 autostash PYVENV_NAME=${1}
-[[ -e ${activate_file} ]] && echo "Activate Venv (\${PYVENV_NAME})" && source ${activate_file}
+[[ -e ${activate_file} ]] && echo "Activate python venv (\${PYVENV_NAME})" && source ${activate_file}
 EOS
   cat << EOS > $pjdir/.autoenv_leave.zsh
-[[ -n \${VIRTUAL_ENV} ]] && echo "Deactivate Venv (\${PYVENV_NAME})" && deactivate
+[[ -n \${VIRTUAL_ENV} ]] && echo "Deactivate python venv (\${PYVENV_NAME})" && deactivate
 EOS
 
   # authorize new script
@@ -307,6 +307,7 @@ EOS
 }
 
 function rmvenv() {
+  [[ ! -n "$1" ]] && echo "arguments required." && return 1
   local vdir=$PYVENV_DIR/$1
   [[ ! -e $vdir ]] && echo "No such venv: $1 ($vdir)" && return 1
   echo -n "    Removing $vdir ......... "
