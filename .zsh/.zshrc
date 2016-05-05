@@ -11,8 +11,8 @@ setopt hist_verify
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "" history-beginning-search-backward-end
-bindkey "" history-beginning-search-forward-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
 setopt noflowcontrol
 
 ######### Shell options ##########
@@ -222,13 +222,13 @@ add-zsh-hook chpwd cdhist
 if which percol > /dev/null; then
   local percol_cmd='percol --reverse --query "$LBUFFER"'
 
-  function percol-select-history() {
+  function percol-search-history() {
     BUFFER=$(history -n 1 | eval ${percol_cmd})
     CURSOR=$#BUFFER
     zle -R -c
   }
-  zle -N percol-select-history
-  bindkey '^R' percol-select-history
+  zle -N percol-search-history
+  bindkey '^R' percol-search-history
 
   function myjump() {
     local destination=$([[ -e $recent_dirs_file ]] && cat $recent_dirs_file | eval ${percol_cmd})
