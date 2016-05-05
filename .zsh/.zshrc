@@ -254,7 +254,6 @@ fi
 PROJECT_HOME=$HOME/Projects
 PYVENV_DIR=$HOME/.pyvenv
 function mkpj() {
-  ! which pyvenv > /dev/null 2>&1 && echo "pyvenv is not installed." && return 1
   local pjdir=$PROJECT_HOME/$1
   local vdir=$PYVENV_DIR/$1
   [[ -e $pjdir ]] && echo "Target project ${pjdir} already exists." && return 1
@@ -264,11 +263,14 @@ function mkpj() {
   ! which autoenv_source_parent > /dev/null 2>&1 && return 1
 
   # make new venv
-  echo "Preparing new venv (${vdir}) ......... "
-  pyvenv "$vdir"
+  cat << EOF
+Preparing new venv (${1}) with `python -c "import sys;print(sys.executable)"`.
+EOF
+  python -m venv "$vdir"
   [[ ! -e $vdir ]] && echo "Failed to make new venv" && return 1
   local activate_file=$vdir/bin/activate
   [[ ! -e $activate_file ]] && echo "Activation script $activate_file not exists" && return 1
+  echo "Successfully Generated new venv. Updating pip and setuptools...."
   [[ -e $vdir/bin/pip ]] && $vdir/bin/pip install -U pip setuptools
   echo "done."
 
