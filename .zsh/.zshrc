@@ -13,26 +13,13 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "" history-beginning-search-backward-end
 bindkey "" history-beginning-search-forward-end
-
-### zsh-completions
-# http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
-fpath=($HOME/.zsh/zsh-completions/src(N-/) $fpath)
-
-### Buffer stack
-show_buffer_stack() {
-  POSTDISPLAY="
-stack: $LBUFFER"
-  zle push-line
-}
-zle -N show_buffer_stack
 setopt noflowcontrol
-# bindkey '' show_buffer_stack
 
 ######### Shell options ##########
 setopt correct
 setopt auto_cd
-setopt auto_pushd
-setopt pushd_ignore_dups
+# setopt auto_pushd
+# setopt pushd_ignore_dups
 autoload -Uz add-zsh-hook
 autoload -Uz colors && colors
 # autoload -U colors && colors
@@ -82,9 +69,7 @@ darwin*)
 linux*)
   export LS_OPTIONS='--color=auto -xF' ;;
 esac
-if [ -f ~/.dircolors ]; then
-  eval "`dircolors ~/.dircolors`"
-fi
+[[ -f ~/.dircolors ]] && eval "`dircolors ~/.dircolors`"
 alias ls="ls $LS_OPTIONS"
 
 # . ~/.vim/bundle/powerline/powerline/bindings/zsh/powerline.zsh
@@ -182,7 +167,9 @@ function simple_prompt() {
 # export COLORFGBG="15;0"
 
 # Load file if exists
-function load_if_exists() { [[ -f $1 ]] && source $1 }
+function load_if_exists() {
+  [[ -f $1 ]] && source $1
+}
 
 ########## MACHINE LOCAL SETTING ##########
 load_if_exists "$ZDOTDIR/.zshrc.local"
@@ -194,6 +181,9 @@ load_if_exists $HOME/.pythonz/etc/bashrc
 which direnv > /dev/null && eval "$(direnv hook zsh)"
 
 ########## Plugin Settings ##########
+### zsh-completions
+# http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
+fpath=($HOME/.zsh/zsh-completions/src(N-/) $fpath)
 load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
 ### zsh-autoenv
 load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
@@ -213,7 +203,6 @@ recent_dirs_max=5000
 function cdhist() {
   python << EOS
 from os import path
-from itertools import chain
 curdir = path.abspath('.') + '\n'
 if path.isfile('${recent_dirs_file}'):
     with open('${recent_dirs_file}', 'r') as f:
