@@ -198,24 +198,35 @@ load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
 # zstyle ':chpwd:*' recent-dirs-max 5000
 # zstyle ':chpwd:*' recent-dirs-default yes
 # zstyle ':completion:*' recent-dirs-insert both
-recent_dirs_file=$HOME/.histdir
-recent_dirs_max=5000
-function cdhist() {
-  python << EOS
+export HIST_DIRS_FILE=$HOME/.histdir
+export HIST_DIRS_MAX=5000
+
+if which rireki > /dev/null 2>&1 && rireki status > /dev/null 2>&1
+then
+  # echo "use rireki server"
+  function cdhist() {
+    pwd >> $HIST_DIRS_FILE
+  }
+else
+  # echo "rireki server is not running"
+  function cdhist() {
+    python << EOS
 from os import path
 curdir = path.abspath('.') + '\n'
-if path.isfile('${recent_dirs_file}'):
-    with open('${recent_dirs_file}', 'r') as f:
+if path.isfile('${HIST_DIRS_FILE}'):
+    with open('${HIST_DIRS_FILE}', 'r') as f:
         lines = f.readlines()
-    if len(lines) > ${recent_dirs_max}:
-        lines = lines[-${recent_dirs_max}:]
+    if len(lines) > ${HIST_DIRS_MAX}:
+        lines = lines[-${HIST_DIRS_MAX}:]
     while curdir in lines:
         lines.remove(curdir)
     lines.append(curdir)
-    with open('${recent_dirs_file}', 'w') as f:
+    with open('${HIST_DIRS_FILE}', 'w') as f:
         f.write(''.join(lines))
 EOS
 }
+fi
+
 add-zsh-hook chpwd cdhist
 
 ### percol
@@ -231,7 +242,7 @@ if which percol > /dev/null; then
   bindkey '^R' percol-search-history
 
   function myjump() {
-    local destination=$([[ -e $recent_dirs_file ]] && cat $recent_dirs_file | eval ${percol_cmd})
+    local destination=$([[ -e $HIST_DIRS_FILE ]] && cat $HIST_DIRS_FILE | eval ${percol_cmd})
     [[ -n "$destination" ]] && zle -U "cd $destination"
     zle reset-prompt
   }
