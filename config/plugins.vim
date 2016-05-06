@@ -356,14 +356,36 @@ function! s:init_python_plugin() abort
   endif
   let b:loaded_init_python_plugin = 1
 
-  if match(expand('%:t'), 'test_') == 0
-    if exists(':QuickRun')
-      noremap <buffer> <Leader>r :QuickRun pytest<CR>
-    endif
-    nnoremap <buffer> <Leader>p :!py.test -s -v %<CR>
-  else
-    nnoremap <buffer> <Leader>p :!python %<CR>
+  if !get(s:, 'loaded_python')
+    function! s:pytest() abort
+      return executable('py.test') && ( expand('%:t') =~# 'test_.*\.py' || getline(1) =~? 'py\.test' )
+    endfunction
+
+    function! <SID>quickrun_py() abort
+      if exists(':QuickRun')
+        execute 'QuickRun ' . ( s:pytest() ? 'pytest' : '' )
+      else
+        call <SID>python_shell()
+      endif
+    endfunction
+
+    function! <SID>python_shell() abort
+      let first_line = getline(1)
+      if s:pytest()
+        let cmd = 'py.test'
+      elseif first_line =~# '^#!' && executable(first_line[2:])
+        let cmd =  first_line[2:]
+      else
+        let cmd = executable('python3') ? 'python3' : 'python'
+      endif
+      execute '!' . cmd ' %'
+      return ''
+    endfunction
+    let s:loaded_python = 1
   endif
+
+  nnoremap <buffer> <Leader>r :<C-u>call <SID>quickrun_py()<CR>
+  nnoremap <expr><buffer> <Leader>p <SID>python_shell()
 
   " ======== Jedi-vim ========
   if !get(s:, 'init_jedi_done')

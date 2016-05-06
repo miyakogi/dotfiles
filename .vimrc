@@ -755,31 +755,21 @@ let g:indent_guides_color = 'dark'
 " Default config
 let g:quickrun_config = {}
 let g:quickrun_config['_'] = {
-      \ 'outputter/buffer/split': ':botright 8sp',
+      \ 'runner': 'vimproc',
+      \ 'outputter/buffer/split': ':botright 12sp',
       \ 'runner/vimproc/updatetime': '10',
       \}
 
 " ======== python ========
-let g:quickrun_config['python'] = {
-      \ 'runner': 'vimproc',
-      \}
 let g:quickrun_config['pytest'] = {
       \ 'command': 'py.test',
-      \ 'runner': 'vimproc',
-      \ 'cmdopt': '-s -v',
-      \ 'exec': '%c %o %s',
       \ 'runmode': 'async:remote:vimproc',
       \ 'outputter/buffer/filetype': 'pytest_result',
-      \ 'outputter/buffer/split': ':botright 12sp',
       \ 'hook/shebang/enable': 0,
-      \ }
-let g:quickrun_config['coffee'] = {
-      \ 'outputter/buffer/split': ':botright 12sp',
       \ }
 let g:quickrun_config['coffee_compile'] = {
       \ 'command': 'coffee',
       \ 'cmdopt': '-cbp',
-      \ 'outputter/buffer/split': ':botright 12sp',
       \ }
 
 " ======== watchdogs ========
