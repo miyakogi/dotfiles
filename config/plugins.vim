@@ -498,7 +498,19 @@ endif
 
 " ======== AsynCheck ========"{{{
 if exists(':AsynCheck')
-  autocmd myvimrc InsertLeave,BufWritePost *.py,*.js,*.vim AsynCheck
+  function! s:enable_asyncheck() abort
+    augroup autoasyncheck
+      autocmd InsertLeave,BufWritePost <buffer> AsynCheck
+    augroup END
+  endfunction
+  function! s:disable_asyncheck() abort
+    augroup autoasyncheck
+      autocmd!
+    augroup END
+  endfunction
+  command! AsynCheckEnable call s:enable_asyncheck()
+  command! AsynCheckDisable call s:disable_asyncheck()
+  autocmd myvimrc FileType python,javascript,vim AsynCheckEnable
   nnoremap <silent> <Leader><Leader> :<C-u>AsynCheck<CR>
 endif
 "}}}
