@@ -289,6 +289,7 @@ EOF
   cat << EOS > $pjdir/.autoenv.zsh
 autostash PYVENV_NAME=${1}
 [[ -e ${activate_file} ]] && echo "Activate python venv (\${PYVENV_NAME})" && source ${activate_file}
+autostash PYTHONHOME=$pjdir${PYTHONHOME:+:}${PYTHONHOME}
 EOS
   cat << EOS > $pjdir/.autoenv_leave.zsh
 [[ -n \${VIRTUAL_ENV} ]] && echo "Deactivate python venv (\${PYVENV_NAME})" && deactivate
