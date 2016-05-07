@@ -55,12 +55,10 @@ ln -sf $BASEDIR/percolrc $HOME/.percol.d/rc.py
 case "${OSTYPE}" in
 # Mac(Unix)
 darwin*)
-    # ここに設定
     ln -sf $BASEDIR/.gvimrc_mac $HOME/.gvimrc
     ;;
 # Linux
 linux*)
-    # ここに設定
     ln -sf $BASEDIR/.gvimrc_linux $HOME/.gvimrc
     ;;
 esac

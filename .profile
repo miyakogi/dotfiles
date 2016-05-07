@@ -31,11 +31,8 @@ export PATH=$PATH:$GOPATH/bin
 
 export ECLIPSE_HOME=/usr/lib/eclipse
 export SCALA_HOME=/usr/share/java
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=setting'
-export CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar
 
-export EDITOR=`which vim`
+export EDITOR=vim
 
 if [ -f $HOME/.profile.local ]; then
   source $HOME/.profile.local
