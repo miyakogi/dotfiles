@@ -38,20 +38,21 @@ makedir_if_not_exists $HOME/.zsh
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
 
-# --- Make Symbolic link ---
-# Files
+# ======== Make Symbolic Link ==============
+# ------ Shell ------
 ln -sf $BASEDIR/.profile $HOME/.profile
-ln -sf $BASEDIR/.vimrc $HOME/.vimrc
-ln -sf $BASEDIR/pack.json $HOME/.vim/pack/remote/pack.json
 ln -sf $BASEDIR/.zshenv $HOME/.zshenv
 ln -sf $BASEDIR/.zsh/.zprofile $HOME/.zsh/.zprofile
 ln -sf $BASEDIR/.zsh/.zshrc $HOME/.zsh/.zshrc
-ln -sf $BASEDIR/rgb.txt $HOME/.vim/rgb.txt
-ln -sf $BASEDIR/.tmux.conf $HOME/.tmux.conf
-ln -sf $BASEDIR/.gitignore_global $HOME/.gitignore_global
-ln -sf $BASEDIR/vimpack.py $HOME/bin/vimpack
-ln -sf $BASEDIR/percolrc $HOME/.percol.d/rc.py
 
+# ------ Git ------
+ln -sf $BASEDIR/.gitignore_global $HOME/.gitignore_global
+
+# ------ tmux ------
+ln -sf $BASEDIR/.tmux.conf $HOME/.tmux.conf
+
+# ------ Vim ------
+ln -sf $BASEDIR/.vimrc $HOME/.vimrc
 case "${OSTYPE}" in
 # Mac(Unix)
 darwin*)
@@ -63,7 +64,10 @@ linux*)
     ;;
 esac
 
-# ======== Directories ==============
+ln -sf $BASEDIR/pack.json $HOME/.vim/pack/remote/pack.json
+ln -sf $BASEDIR/rgb.txt $HOME/.vim/rgb.txt
+ln -sf $BASEDIR/vimpack.py $HOME/bin/vimpack
+
 # Directories for Vim
 ln -sf $BASEDIR/after $HOME/.vim
 ln -sf $BASEDIR/autoload $HOME/.vim
@@ -86,6 +90,9 @@ ln -sf $BASEDIR/ftplugin $NVIMCONFIG
 ln -sf $BASEDIR/plugin $NVIMCONFIG
 ln -sf $BASEDIR/snippets $NVIMCONFIG
 ln -sf $BASEDIR/syntax $NVIMCONFIG
+
+# Percol
+ln -sf $BASEDIR/percolrc $HOME/.percol.d/rc.py
 
 # Install neobundle.vim for neovim
 # git_clone https://github.com/Shougo/neobundle.vim  $HOME/.config/nvim/bundle/neobundle.vim
