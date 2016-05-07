@@ -27,7 +27,6 @@ git_clone () {
 
 # --- Make Directories ---
 makedir_if_not_exists $HOME/.vim
-makedir_if_not_exists $HOME/.vim/bundle
 makedir_if_not_exists $HOME/.vim/backup
 makedir_if_not_exists $HOME/.vim/pack
 makedir_if_not_exists $HOME/.vim/pack/remote
@@ -40,59 +39,62 @@ makedir_if_not_exists $HOME/.percol.d
 
 # ======== Make Symbolic Link ==============
 # ------ Shell ------
-ln -sf $BASEDIR/.profile $HOME/.profile
-ln -sf $BASEDIR/.zshenv $HOME/.zshenv
-ln -sf $BASEDIR/.zsh/.zprofile $HOME/.zsh/.zprofile
-ln -sf $BASEDIR/.zsh/.zshrc $HOME/.zsh/.zshrc
+ln -sf $BASEDIR/profile $HOME/.profile
+ZSHBASE=$BASEDIR/zsh
+# ZDOTDIR is set in zshenv 
+ln -sf $ZSHBASE/zshenv $HOME/.zshenv
+ln -sf $ZSHBASE/zprofile $HOME/.zsh/.zprofile
+ln -sf $ZSHBASE/zshrc $HOME/.zsh/.zshrc
 
 # ------ Git ------
-ln -sf $BASEDIR/.gitignore_global $HOME/.gitignore_global
+ln -sf $BASEDIR/git/gitignore_global $HOME/.gitignore_global
 
 # ------ tmux ------
-ln -sf $BASEDIR/.tmux.conf $HOME/.tmux.conf
+ln -sf $BASEDIR/tmux/tmux.conf $HOME/.tmux.conf
 
 # ------ Vim ------
-ln -sf $BASEDIR/.vimrc $HOME/.vimrc
+VIMBASE=$BASEDIR/vim
+ln -sf $VIMBASE/vimrc $HOME/.vimrc
 case "${OSTYPE}" in
 # Mac(Unix)
 darwin*)
-    ln -sf $BASEDIR/.gvimrc_mac $HOME/.gvimrc
+    ln -sf $VIMBASE/gvimrc_mac $HOME/.gvimrc
     ;;
 # Linux
 linux*)
-    ln -sf $BASEDIR/.gvimrc_linux $HOME/.gvimrc
+    ln -sf $VIMBASE/gvimrc_linux $HOME/.gvimrc
     ;;
 esac
 
-ln -sf $BASEDIR/pack.json $HOME/.vim/pack/remote/pack.json
-ln -sf $BASEDIR/rgb.txt $HOME/.vim/rgb.txt
-ln -sf $BASEDIR/vimpack.py $HOME/bin/vimpack
+ln -sf $VIMBASE/pack.json $HOME/.vim/pack/remote/pack.json
+ln -sf $VIMBASE/rgb.txt $HOME/.vim/rgb.txt
+ln -sf $VIMBASE/vimpack.py $HOME/bin/vimpack
 
 # Directories for Vim
-ln -sf $BASEDIR/after $HOME/.vim
-ln -sf $BASEDIR/autoload $HOME/.vim
-ln -sf $BASEDIR/colors $HOME/.vim
-ln -sf $BASEDIR/config $HOME/.vim
-ln -sf $BASEDIR/ftdetect $HOME/.vim
-ln -sf $BASEDIR/ftplugin $HOME/.vim
-ln -sf $BASEDIR/plugin $HOME/.vim
-ln -sf $BASEDIR/snippets $HOME/.vim
-ln -sf $BASEDIR/syntax $HOME/.vim
+ln -sf $VIMBASE/after $HOME/.vim
+ln -sf $VIMBASE/autoload $HOME/.vim
+ln -sf $VIMBASE/colors $HOME/.vim
+ln -sf $VIMBASE/config $HOME/.vim
+ln -sf $VIMBASE/ftdetect $HOME/.vim
+ln -sf $VIMBASE/ftplugin $HOME/.vim
+ln -sf $VIMBASE/plugin $HOME/.vim
+ln -sf $VIMBASE/snippets $HOME/.vim
+ln -sf $VIMBASE/syntax $HOME/.vim
 
 # Directories for NeoVim
 NVIMCONFIG=$HOME/.config/nvim
-ln -sf $BASEDIR/after $NVIMCONFIG
-ln -sf $BASEDIR/autoload $NVIMCONFIG
-ln -sf $BASEDIR/colors $NVIMCONFIG
-ln -sf $BASEDIR/config $NVIMCONFIG
-ln -sf $BASEDIR/ftdetect $NVIMCONFIG
-ln -sf $BASEDIR/ftplugin $NVIMCONFIG
-ln -sf $BASEDIR/plugin $NVIMCONFIG
-ln -sf $BASEDIR/snippets $NVIMCONFIG
-ln -sf $BASEDIR/syntax $NVIMCONFIG
+ln -sf $VIMBASE/after $NVIMCONFIG
+ln -sf $VIMBASE/autoload $NVIMCONFIG
+ln -sf $VIMBASE/colors $NVIMCONFIG
+ln -sf $VIMBASE/config $NVIMCONFIG
+ln -sf $VIMBASE/ftdetect $NVIMCONFIG
+ln -sf $VIMBASE/ftplugin $NVIMCONFIG
+ln -sf $VIMBASE/plugin $NVIMCONFIG
+ln -sf $VIMBASE/snippets $NVIMCONFIG
+ln -sf $VIMBASE/syntax $NVIMCONFIG
 
 # Percol
-ln -sf $BASEDIR/percolrc $HOME/.percol.d/rc.py
+ln -sf $BASEDIR/percolrc.py $HOME/.percol.d/rc.py
 
 # Install neobundle.vim for neovim
 # git_clone https://github.com/Shougo/neobundle.vim  $HOME/.config/nvim/bundle/neobundle.vim
