@@ -15,4 +15,8 @@ export PATH=$HOME/.cargo/bin:$PATH
 # load machine local profile
 [[ -f $ZDOTDIR/.zshenv.local ]] && source $ZDOTDIR/.zshenv.local
 
+# Project setting
+export PROJECT_HOME=$HOME/Projects
+export PYVENV_DIR=$HOME/.pyvenv
+
 # vim: sw=2 et
