@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/zsh
+
 BASEDIR=$(cd $(dirname $0);pwd)
 echo $BASEDIR
 
@@ -41,13 +42,14 @@ makedir_if_not_exists $HOME/.percol.d
 # ------ Shell ------
 ln -sf $BASEDIR/profile $HOME/.profile
 ZSHBASE=$BASEDIR/zsh
-# ZDOTDIR is set in zshenv 
-ln -sf $ZSHBASE/zshenv $HOME/.zshenv
+# zsh load files this order
+ln -sf $ZSHBASE/zshenv $HOME/.zsh/.zshenv
 ln -sf $ZSHBASE/zprofile $HOME/.zsh/.zprofile
 ln -sf $ZSHBASE/zshrc $HOME/.zsh/.zshrc
 
 # ------ Git ------
 ln -sf $BASEDIR/git/gitignore_global $HOME/.gitignore_global
+ln -sf $BASEDIR/git/gitconfig $HOME/.gitconfig
 
 # ------ tmux ------
 ln -sf $BASEDIR/tmux/tmux.conf $HOME/.tmux.conf
