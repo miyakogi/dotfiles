@@ -12,6 +12,14 @@ function! IsInstalled(name) abort
   endif
   return 0
 endfunction
+" ======== ColorScheme ========
+" Enable colorscheme
+function! s:enable_colorscheme(...) abort
+  if has_key(g:, 'MyColorScheme')
+    execute 'colorscheme ' . g:MyColorScheme
+  endif
+endfunction
+syntax enable
 
 " ======== Unite ======== {{{
 if get(g:, 'loaded_unite')
@@ -245,7 +253,7 @@ endif
 
 " ======== Rainbow parentheses ======== {{{
 if exists(':RainbowParenthesesActivate')
-  function! g:RainbowParenthesesStart()
+  function! g:RainbowParenthesesStart(...)
     if !exists(':RainbowParenthesesToggleAll') ||
           \ count(get(g:, 'rainbow_parentheses_disable_filetypes', []), &filetype)
       return
@@ -304,7 +312,7 @@ if get(g:, 'loaded_indent_guides')
       endif
     endif
   endfunction
-  autocmd myvimrc FileType * nested call g:IndentGuidesExpandTab()
+  autocmd myvimrc FileType * call g:IndentGuidesExpandTab()
 
   function! g:IndentGuidesUpdateColorcheme()
     if g:indent_guides_autocmds_enabled
@@ -320,7 +328,7 @@ if get(g:, 'loaded_indent_guides')
       endif
     endif
   endfunction
-  autocmd myvimrc ColorScheme,Syntax * nested call g:IndentGuidesUpdateColorcheme()
+  autocmd myvimrc ColorScheme,Syntax * call g:IndentGuidesUpdateColorcheme()
 endif
 "}}}
 
@@ -539,7 +547,9 @@ augroup END
 "  Post Process"{{{
 " ============================================
 " ======== execute auto commands ========
-if len(&filetype) > 0
-  execute 'doautocmd myvimrc FileType ' . &filetype
-endif
+" if len(&filetype) > 0
+"   execute 'doautocmd myvimrc FileType ' . &filetype
+" endif
+call timer_start(0, function('<SID>enable_colorscheme'))
+call timer_start(1, 'RainbowParenthesesStart')
 "}}}
