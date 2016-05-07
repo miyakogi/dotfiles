@@ -1,1 +1,18 @@
-export ZDOTDIR=$HOME/.zsh
+#!/usr/bin/zsh
+# ============================================
+#  Zsh Environment Variables
+# ============================================
+
+# go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
+# nim
+export PATH=$HOME/.nimble/bin:$PATH
+# rust
+export PATH=$HOME/.cargo/bin:$PATH
+# load machine local profile
+[[ -f $ZDOTDIR/.zshenv.local ]] && source $ZDOTDIR/.zshenv.local
+
+# vim: sw=2 et

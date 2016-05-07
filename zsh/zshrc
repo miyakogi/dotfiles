@@ -1,3 +1,8 @@
+#!/usr/bin/zsh
+# ============================================
+#  Main Config File for ZSH
+# ============================================
+
 ########## HISTORY ##########
 HISTFILE=~/.histfile
 DIRSTACKSIZE=1000
@@ -171,9 +176,6 @@ function load_if_exists() {
   [[ -f $1 ]] && source $1
 }
 
-########## MACHINE LOCAL SETTING ##########
-load_if_exists "$ZDOTDIR/.zshrc.local"
-
 ########## PythonZ ##########
 load_if_exists $HOME/.pythonz/etc/bashrc
 
@@ -324,5 +326,8 @@ function _rmvenv() {
   _values 'virtual envs' ${envs[*]}
 }
 compdef _rmvenv rmvenv
+
+# load machine local file
+[[ -f $ZDOTDIR/.zshrc.local ]] && source $ZDOTDIR/.zshrc.local
 
 # vim: set et ts=2 sw=2:

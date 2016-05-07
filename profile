@@ -24,16 +24,11 @@ export PATH=$PATH:/sbin
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/usr/bin:$PATH
 
-export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
-
-export ECLIPSE_HOME=/usr/lib/eclipse
-export SCALA_HOME=/usr/share/java
-
 export EDITOR=vim
+export ZDOTDIR=$HOME/.zsh
 
 if [ -f $HOME/.profile.local ]; then
   source $HOME/.profile.local
 fi
+
+# vim: sw=2 et ft=zsh
