@@ -260,26 +260,30 @@ noremap ( t(
 " QuickFix windowを開く（エラーがあれば）
 nnoremap [Space]c :<C-u>cwindow<CR>
 " qflistの前後移動
-function! JumpList(qflist, forward) abort
-  let cmd = a:qflist ? 'c' : 'l'
-  let error_list = a:qflist ? getqflist() : getloclist(0)
-  " if a:qflist
-  if len(error_list) == 0
-    return
-  elseif len(error_list) == 1
-    execute cmd . cmd
+function! s:to_nearest_error(list, backward) abort
+  let curpos = getpos('.')[1:2]
+  call filter(a:list, '(a:backward ? -1 : 1) * ( v:val.lnum - curpos[0] ) > 0')
+  if empty(a:list)
+    echohl WarningMsg | echo 'No more ' . (a:backward ? 'previous': 'next') . ' item.' | echohl None
   else
-    execute cmd . ( a:forward ? 'next' : 'previous' )
-  endif
-  " Open foldings
-  if foldlevel(line('.')) > 0
-    normal! zO
+    let target = get(sort(a:list), -a:backward)
+    call cursor(target.lnum, target.col)
+    execute foldlevel(line('.')) > 0 ? 'normal! zO' : ''
   endif
 endfunction
-nnoremap <silent> ]q :<C-u>call JumpList(1, 1)<CR>
-nnoremap <silent> [q :<C-u>call JumpList(1, 0)<CR>
-nnoremap <silent> ]e :<C-u>call JumpList(0, 1)<CR>
-nnoremap <silent> [e :<C-u>call JumpList(0, 0)<CR>
+
+function! JumpList(qflist, backward) abort
+  let error_list = a:qflist ? getqflist() : getloclist(0)
+  " if a:qflist
+  if len(error_list) == 0 | return
+  elseif len(error_list) == 1 | execute a:qflist ? 'cc' : 'll'
+  else | call s:to_nearest_error(error_list, a:backward)
+  endif
+endfunction
+nnoremap <silent> ]q :<C-u>call JumpList(1, 0)<CR>
+nnoremap <silent> [q :<C-u>call JumpList(1, 1)<CR>
+nnoremap <silent> ]e :<C-u>call JumpList(0, 0)<CR>
+nnoremap <silent> [e :<C-u>call JumpList(0, 1)<CR>
 " diffモードでの前後移動
 nnoremap ]d ]c
 nnoremap [d [c
