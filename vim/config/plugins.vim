@@ -547,9 +547,9 @@ augroup END
 "  Post Process"{{{
 " ============================================
 " ======== execute auto commands ========
-" if len(&filetype) > 0
-"   execute 'doautocmd myvimrc FileType ' . &filetype
-" endif
+if len(&filetype) > 0
+  execute 'doautocmd myvimrc FileType ' . &filetype
+endif
 call timer_start(0, function('<SID>enable_colorscheme'))
 call timer_start(1, 'RainbowParenthesesStart')
 "}}}
