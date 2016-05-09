@@ -48,7 +48,7 @@ ln -sf $ZSHBASE/zprofile $HOME/.zsh/.zprofile
 ln -sf $ZSHBASE/zshrc $HOME/.zsh/.zshrc
 
 # ------ Git ------
-ln -sf $BASEDIR/git/gitignore_global $HOME/.gitignore_global
+ln -sf $BASEDIR/git/gitignore $HOME/.gitignore_global
 ln -sf $BASEDIR/git/gitconfig $HOME/.gitconfig
 
 # ------ tmux ------
