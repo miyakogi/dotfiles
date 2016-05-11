@@ -66,6 +66,9 @@ alias vi="/usr/bin/vim --noplugin"
 alias :q="exit"
 alias tmux="tmux -2"
 
+# python test
+alias pytest="py.test"
+
 case "${OSTYPE}" in
 # Mac(Unix)
 darwin*)

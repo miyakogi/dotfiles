@@ -21,7 +21,7 @@ syntax match GreenMissMatch  /\v^\?\s+.*$/
 syntax match GreenResultOK    /\v^OK\ze \(/
 syntax match GreenResultFail  /\v^FAILED\ze \(/
 
-highlight GreenOK    guifg=#30d060 ctermfg=48
+highlight GreenOK    guifg=#aeee00 ctermfg=154
 highlight link GreenError ErrorMsg
 highlight GreenSkip  guifg=#87afff ctermfg=111
 highlight GreenXPass guifg=#ffd700 ctermfg=220
