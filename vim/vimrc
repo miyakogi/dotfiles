@@ -768,6 +768,19 @@ let g:quickrun_config['pytest'] = {
       \ 'outputter/buffer/filetype': 'pytest_result',
       \ 'hook/shebang/enable': 0,
       \ }
+let g:quickrun_config['py.test'] = g:quickrun_config['pytest']  " not copy, just an alias
+let g:quickrun_config['python_unittest'] = {
+      \ 'command': 'python',
+      \ 'cmdopt': '-m unittest',
+      \ 'exec': '%c %o %s:t',
+      \ 'outputter/buffer/filetype': 'test_result',
+      \ 'hook/shebang/enable': 0,
+      \ }
+let g:quickrun_config.green = copy(g:quickrun_config['python_unittest'])
+let g:quickrun_config.green.command = 'green'
+let g:quickrun_config.green.cmdopt = '-v'
+let g:quickrun_config.green2 = copy(g:quickrun_config.green)
+let g:quickrun_config.green2.cmdopt = '-vv'
 let g:quickrun_config['coffee_compile'] = {
       \ 'command': 'coffee',
       \ 'cmdopt': '-cbp',

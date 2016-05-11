@@ -365,13 +365,19 @@ function! s:init_python_plugin() abort
   let b:loaded_init_python_plugin = 1
 
   if !get(s:, 'loaded_python')
-    function! s:pytest() abort
-      return executable('py.test') && ( expand('%:t') =~# 'test_.*\.py' || getline(1) =~? 'py\.test' )
+    function! s:phthon_cmd() abort
+      if getline(1) =~? 'py\.test'
+        return executable('py.test') ? 'py.test' : 'python'
+      elseif expand('%:t') =~? 'test_'
+        return executable('green') ? 'green' : 'python_unittest'
+      else
+        return 'python'
+      endif
     endfunction
 
     function! <SID>quickrun_py() abort
       if exists(':QuickRun')
-        execute 'QuickRun ' . ( s:pytest() ? 'pytest' : '' )
+        execute 'QuickRun ' . s:phthon_cmd()
       else
         call <SID>python_shell()
       endif
@@ -379,7 +385,7 @@ function! s:init_python_plugin() abort
 
     function! <SID>python_shell() abort
       let first_line = getline(1)
-      if s:pytest()
+      if s:phthon_cmd()
         let cmd = 'py.test'
       elseif first_line =~# '^#!' && executable(first_line[2:])
         let cmd =  first_line[2:]
