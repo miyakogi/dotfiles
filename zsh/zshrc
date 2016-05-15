@@ -298,7 +298,7 @@ EOF
 autostash PYVENV_NAME=${1}
 autostash PROJECT_ROOT=${pjdir}
 [[ -e ${activate_file} ]] && echo "Activate python venv (\${PYVENV_NAME})" && source ${activate_file}
-autostash PYTHONPATH=\$PROJECT_ROOT${PYTHONPATH:+:}${PYTHONPATH}
+autostash PYTHONPATH=\$PROJECT_ROOT\${PYTHONPATH:+:}\${PYTHONPATH}
 EOS
   cat << EOS > $pjdir/.autoenv_leave.zsh
 [[ -n \${VIRTUAL_ENV} ]] && echo "Deactivate python venv (\${PYVENV_NAME})" && deactivate
