@@ -35,4 +35,4 @@ endfunction
 if !s:initialized | call s:init() | endif
 "}}}
 
-nnoremap <buffer> <Leader>r :<C-u>call <SID>quickrun_cargo()<CR>
+nnoremap <buffer><silent> <Leader>r :<C-u>call <SID>quickrun_cargo()<CR>

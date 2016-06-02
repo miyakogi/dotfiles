@@ -109,7 +109,7 @@ if !s:initialized | call s:init() | endif
 "}}}
 
 " ======== run script ========
-nnoremap <buffer> <Leader>r :<C-u>call <SID>quickrun_py()<CR>
+nnoremap <buffer><silent> <Leader>r :<C-u>call <SID>quickrun_py()<CR>
 nnoremap <expr><buffer> <Leader>p <SID>python_shell()
 
 " ======== Jedi-vim ========
