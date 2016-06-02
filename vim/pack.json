@@ -45,6 +45,8 @@
       "jason0x43/vim-js-indent",
       "mattn/jscomplete-vim",
       "leafgarland/typescript-vim",
+      "rust-lang/rust.vim",
+      "racer-rust/vim-racer",
       "miyakogi/conoline.vim",
       "miyakogi/sidepanel.vim",
       "miyakogi/seiya.vim",

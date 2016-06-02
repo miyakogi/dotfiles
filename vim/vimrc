@@ -781,6 +781,15 @@ let g:quickrun_config.green.command = 'green'
 let g:quickrun_config.green.cmdopt = '-v'
 let g:quickrun_config.green2 = copy(g:quickrun_config.green)
 let g:quickrun_config.green2.cmdopt = '-vv'
+
+" ======== rust ========
+let g:quickrun_config['cargo'] = {
+      \ 'command': 'cargo',
+      \ 'exec': '%c %o %a',
+      \ }
+let g:quickrun_config['cargo/test'] = copy(g:quickrun_config.cargo)
+let g:quickrun_config['cargo/test'].cmdopt = 'test -q --color auto'
+
 let g:quickrun_config['coffee_compile'] = {
       \ 'command': 'coffee',
       \ 'cmdopt': '-cbp',
@@ -927,6 +936,9 @@ let g:jscomplete_use = ['dom']
 " ======== vim-json ========"{{{
 let g:vim_json_syntax_conceal = 0
 "}}}
+
+" ======== racer ========
+let $RUST_SRC_PATH = '$HOME/Source/rust/src'
 
 " }}}
 

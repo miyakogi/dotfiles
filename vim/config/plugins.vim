@@ -485,6 +485,33 @@ endfunction
 autocmd myvimrc FileType javascript,json,jsx,js call s:init_js_plugin()
 "}}}
 
+" ======== Rust ========"{{{
+function! <SID>quickrun_cargo() abort
+  if !executable('cargo') || expand('%:t') ==? 'main.rs'
+    let cmd = 'QuickRun rust'
+  else
+    if finddir('tests', './;$HOME') !=# ''
+      let args = ' --test ' . expand('%:t:r')
+    else
+      let args = ' --lib ' . expand('%:t:r')
+    endif
+    let cmd = 'QuickRun cargo/test -args "' . l:args . '"'
+  endif
+  execute cmd
+endfunction
+
+function! s:init_rust_plugin() abort
+  if get(b:, 'loaded_init_rust_plugin')
+    return
+  endif
+  let b:loaded_init_rust_plugin = 1
+
+  nnoremap <buffer> <Leader>r :<C-u>call <SID>quickrun_cargo()<CR>
+endfunction
+
+autocmd myvimrc FileType rust call s:init_rust_plugin()
+"}}}
+
 " ============================================
 "  My Plugin Settings  {{{
 " ============================================
