@@ -1011,9 +1011,7 @@ endif
 
 " ======== Record and show startup time ========
 if has('vim_starting') && has('reltime')
-  augroup myvimrc
-    autocmd VimEnter * echomsg 'startuptime: ' . reltimestr(reltime(g:startuptime))
-  augroup END
+  autocmd myvimrc VimEnter * echomsg 'startuptime: ' . reltimestr(reltime(g:startuptime))
 endif
 "}}}
 

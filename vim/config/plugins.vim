@@ -12,6 +12,7 @@ function! IsInstalled(name) abort
   endif
   return 0
 endfunction
+
 " ======== ColorScheme ========
 " Enable colorscheme
 function! s:enable_colorscheme(...) abort
@@ -356,174 +357,11 @@ if get(g:, 'loaded_cursorword')
   highlight CursorWord0 term=underline cterm=underline gui=underline
 endif
 "}}}
-
-" ======== Python ========{{{
-" These functions should move to filtype specific settings later
-let s:python_initialized = 0
-
-function! s:init_python() abort
-  function! s:phthon_cmd() abort
-    if getline(1) =~? 'py\.test'
-      return executable('py.test') ? 'py.test' : 'python'
-    elseif expand('%:t') =~? 'test_'
-      return executable('green') ? 'green' : 'python_unittest'
-    else
-      return 'python'
-    endif
-  endfunction
-
-  function! s:python_shell() abort
-    let first_line = getline(1)
-    if s:phthon_cmd()
-      let cmd = 'py.test'
-    elseif first_line =~# '^#!' && executable(first_line[2:])
-      let cmd =  first_line[2:]
-    else
-      let cmd = executable('python3') ? 'python3' : 'python'
-    endif
-    execute '!' . cmd ' %'
-    return ''
-  endfunction
-
-  function! s:quickrun_py() abort
-    if exists(':QuickRun')
-      execute 'QuickRun ' . s:phthon_cmd()
-    else
-      call s:python_shell()
-    endif
-  endfunction
-
-  " ======== jedi ========
-  function! s:jedi_rename() abort
-    packadd jedi-vim
-    call jedi#rename()
-  endfunction
-
-  function! s:jedi_usages()
-    packadd jedi-vim
-    call jedi#usages()
-    if len(getqflist()) < 10 && &filetype ==# 'qf'
-      resize 10
-    endif
-  endfunction
-
-  function! s:jedi_goto_a()
-    packadd jedi-vim
-    call jedi#goto_assignments()
-  endfunction
-
-  function! s:jedi_doto_d()
-    packadd jedi-vim
-    call jedi#goto_definitions()
-  endfunction
-
-  function! s:jedi_doc()
-    packadd jedi-vim
-    call jedi#show_documentation()
-    if winheight(0) < 10
-      resize 10
-    endif
-  endfunction
-
-  let s:python_initialized = 1
-endfunction
-
-function! s:init_python_plugin() abort
-  if !s:python_initialized
-    call s:init_python()
-  endif
-
-  if get(b:, 'loaded_init_python_plugin')
-    return
-  endif
-  let b:loaded_init_python_plugin = 1
-
-  nnoremap <buffer> <Leader>r :<C-u>call <SID>quickrun_py()<CR>
-  nnoremap <expr><buffer> <Leader>p <SID>python_shell()
-
-  " ======== Jedi-vim ========
-  command! -buffer JediRename call <SID>jedi_rename()
-  nnoremap <buffer><silent> gl :<C-u>call <SID>jedi_usages()<CR>
-  nnoremap <buffer><silent> gd :<C-u>call <SID>jedi_goto_a()<CR>
-  nnoremap <buffer><silent> gD :<C-u>call <SID>jedi_doto_d()<CR>
-  nnoremap <buffer><silent> K :<C-u>call <SID>jedi_doc()<CR>
-
-  " ========= vim-flake8 ========
-  if exists(':Unite')
-    let g:flake8_loc_open_cmd = 'Unite location_list -no-quit' .
-          \ ' -winheight=10 -buffer-name=pep8'
-    let g:flake8_loc_close_cmd = 'UniteClose pep8'
-  endif
-  if exists(':Flake8')
-    nnoremap <buffer> <F7> :<C-u>Flake8<CR>
-  endif
-
-  " ======== watchdogs ========
-  " if exists(':WatchdogsRun')
-  "   autocmd myvimrc InsertLeave <buffer> WatchdogsRun
-  " endif
-
-  " ======== CoveragePy ========
-  if exists(':Coveragepy')
-    nnoremap <buffer> <leader>cr :<C-u>Coveragepy refresh<CR>
-    nnoremap <buffer> <leader>cc :<C-u>Coveragepy show<CR>
-    nnoremap <buffer> <leader>cs :<C-u>Coveragepy session<CR>
-    nnoremap <buffer> <leader>cp :<C-u>CoveragepyPragmaToggle<CR>
-  endif
-
-endfunction
-
-autocmd myvimrc FileType python call s:init_python_plugin()
-"}}}
-
-" ======== JavaScript ========"{{{
-function! s:init_js_plugin() abort
-  if get(b:, 'loaded_init_js_plugin')
-    return
-  endif
-  let b:loaded_init_js_plugin = 1
-
-  " ======== jscomplete ========
-  if IsInstalled('jscomplete-vim')
-    autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
-  endif
-
-endfunction
-
-autocmd myvimrc FileType javascript,json,jsx,js call s:init_js_plugin()
-"}}}
-
-" ======== Rust ========"{{{
-function! <SID>quickrun_cargo() abort
-  if !executable('cargo') || expand('%:t') ==? 'main.rs'
-    let cmd = 'QuickRun rust'
-  else
-    if finddir('tests', './;$HOME') !=# ''
-      let args = ' --test ' . expand('%:t:r')
-    else
-      let args = ' --lib ' . expand('%:t:r')
-    endif
-    let cmd = 'QuickRun cargo/test -args "' . l:args . '"'
-  endif
-  execute cmd
-endfunction
-
-function! s:init_rust_plugin() abort
-  if get(b:, 'loaded_init_rust_plugin')
-    return
-  endif
-  let b:loaded_init_rust_plugin = 1
-
-  nnoremap <buffer> <Leader>r :<C-u>call <SID>quickrun_cargo()<CR>
-endfunction
-
-autocmd myvimrc FileType rust call s:init_rust_plugin()
 "}}}
 
 " ============================================
 "  My Plugin Settings  {{{
 " ============================================
-
 " ======== conoline.vim ======== {{{
 if get(g:, 'loaded_conoline')
   nnoremap [Space]sc :<C-u>ConoLineToggle<CR>
@@ -587,10 +425,5 @@ augroup END
 " ============================================
 "  Post Process"{{{
 " ============================================
-" ======== execute auto commands ========
-if len(&filetype) > 0
-  execute 'doautocmd myvimrc FileType ' . &filetype
-endif
-call timer_start(0, function('<SID>enable_colorscheme'))
-call timer_start(1, 'RainbowParenthesesStart')
+call s:enable_colorscheme()
 "}}}

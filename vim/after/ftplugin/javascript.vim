@@ -18,3 +18,8 @@ endif
 
 " ======== mappings ========
 inoremap <buffer> <C-l> <C-g>u<Space>=><Space>
+
+" ======== jscomplete ========
+if IsInstalled('jscomplete-vim')
+  autocmd myvimrc FileType javascript setlocal omnifunc=jscomplete#CompleteJS
+endif
