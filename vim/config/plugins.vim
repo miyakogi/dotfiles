@@ -16,11 +16,11 @@ endfunction
 " ======== ColorScheme ========
 " Enable colorscheme
 function! s:enable_colorscheme(...) abort
+  syntax enable
   if has_key(g:, 'MyColorScheme')
     execute 'colorscheme ' . g:MyColorScheme
   endif
 endfunction
-syntax enable
 
 " ======== Unite ======== {{{
 if get(g:, 'loaded_unite')
@@ -426,4 +426,5 @@ augroup END
 "  Post Process"{{{
 " ============================================
 call s:enable_colorscheme()
+call g:RainbowParenthesesStart()
 "}}}
