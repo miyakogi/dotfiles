@@ -358,83 +358,91 @@ endif
 "}}}
 
 " ======== Python ========{{{
+" These functions should move to filtype specific settings later
+let s:python_initialized = 0
+
+function! s:init_python() abort
+  function! s:phthon_cmd() abort
+    if getline(1) =~? 'py\.test'
+      return executable('py.test') ? 'py.test' : 'python'
+    elseif expand('%:t') =~? 'test_'
+      return executable('green') ? 'green' : 'python_unittest'
+    else
+      return 'python'
+    endif
+  endfunction
+
+  function! s:python_shell() abort
+    let first_line = getline(1)
+    if s:phthon_cmd()
+      let cmd = 'py.test'
+    elseif first_line =~# '^#!' && executable(first_line[2:])
+      let cmd =  first_line[2:]
+    else
+      let cmd = executable('python3') ? 'python3' : 'python'
+    endif
+    execute '!' . cmd ' %'
+    return ''
+  endfunction
+
+  function! s:quickrun_py() abort
+    if exists(':QuickRun')
+      execute 'QuickRun ' . s:phthon_cmd()
+    else
+      call s:python_shell()
+    endif
+  endfunction
+
+  " ======== jedi ========
+  function! s:jedi_rename() abort
+    packadd jedi-vim
+    call jedi#rename()
+  endfunction
+
+  function! s:jedi_usages()
+    packadd jedi-vim
+    call jedi#usages()
+    if len(getqflist()) < 10 && &filetype ==# 'qf'
+      resize 10
+    endif
+  endfunction
+
+  function! s:jedi_goto_a()
+    packadd jedi-vim
+    call jedi#goto_assignments()
+  endfunction
+
+  function! s:jedi_doto_d()
+    packadd jedi-vim
+    call jedi#goto_definitions()
+  endfunction
+
+  function! s:jedi_doc()
+    packadd jedi-vim
+    call jedi#show_documentation()
+    if winheight(0) < 10
+      resize 10
+    endif
+  endfunction
+
+  let s:python_initialized = 1
+endfunction
+
 function! s:init_python_plugin() abort
+  if !s:python_initialized
+    call s:init_python()
+  endif
+
   if get(b:, 'loaded_init_python_plugin')
     return
   endif
   let b:loaded_init_python_plugin = 1
 
-  if !get(s:, 'loaded_python')
-    function! s:phthon_cmd() abort
-      if getline(1) =~? 'py\.test'
-        return executable('py.test') ? 'py.test' : 'python'
-      elseif expand('%:t') =~? 'test_'
-        return executable('green') ? 'green' : 'python_unittest'
-      else
-        return 'python'
-      endif
-    endfunction
-
-    function! <SID>quickrun_py() abort
-      if exists(':QuickRun')
-        execute 'QuickRun ' . s:phthon_cmd()
-      else
-        call <SID>python_shell()
-      endif
-    endfunction
-
-    function! <SID>python_shell() abort
-      let first_line = getline(1)
-      if s:phthon_cmd()
-        let cmd = 'py.test'
-      elseif first_line =~# '^#!' && executable(first_line[2:])
-        let cmd =  first_line[2:]
-      else
-        let cmd = executable('python3') ? 'python3' : 'python'
-      endif
-      execute '!' . cmd ' %'
-      return ''
-    endfunction
-    let s:loaded_python = 1
-  endif
-
   nnoremap <buffer> <Leader>r :<C-u>call <SID>quickrun_py()<CR>
   nnoremap <expr><buffer> <Leader>p <SID>python_shell()
 
   " ======== Jedi-vim ========
-  if !get(s:, 'init_jedi_done')
-    let s:loaded_jedi = 0
-    function! s:load_jedi() abort
-      packadd jedi-vim
-      let s:loaded_jedi = 1
-    endfunction
-
-    function! s:jedi_rename() abort
-      if !s:loaded_jedi | call s:load_jedi() | endif
-      call jedi#rename()
-    endfunction
-    function! s:jedi_usages()
-      if !s:loaded_jedi | call s:load_jedi() | endif
-      call jedi#usages()
-      if len(getqflist()) < 10 && &filetype ==# 'qf'
-        resize 10
-      endif
-    endfunction
-    function! s:jedi_goto_a()
-      if !s:loaded_jedi | call s:load_jedi() | endif
-      call jedi#goto_assignments()
-    endfunction
-    function! s:jedi_doto_d()
-      if !s:loaded_jedi | call s:load_jedi() | endif
-      call jedi#goto_definitions()
-    endfunction
-    function! s:jedi_doc()
-      if !s:loaded_jedi | call s:load_jedi() | endif
-      call jedi#show_documentation()
-    endfunction
-    command! JediRename call <SID>jedi_rename()
-    let s:init_jedi_done = 1
-  endif
+  command! -buffer JediRename call <SID>jedi_rename()
   nnoremap <buffer><silent> gl :<C-u>call <SID>jedi_usages()<CR>
   nnoremap <buffer><silent> gd :<C-u>call <SID>jedi_goto_a()<CR>
   nnoremap <buffer><silent> gD :<C-u>call <SID>jedi_doto_d()<CR>
