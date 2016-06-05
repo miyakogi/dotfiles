@@ -1,17 +1,6 @@
 " ============================================
-"  Plugin settings
+"  Settings using plugin
 " ============================================
-
-function! IsInstalled(name) abort
-  if match(&runtimepath, 'dein') >= 0
-    return !dein#check_install([a:name])
-  else
-    if match(&runtimepath, a:name) >= 0
-      return 1
-    endif
-  endif
-  return 0
-endfunction
 
 " ======== ColorScheme ========
 " Enable colorscheme
@@ -21,6 +10,10 @@ function! s:enable_colorscheme(...) abort
     execute 'colorscheme ' . g:MyColorScheme
   endif
 endfunction
+
+" ============================================
+"  Plugin settings {{{
+" ============================================
 
 " ======== Unite ======== {{{
 if get(g:, 'loaded_unite')
@@ -212,22 +205,6 @@ endfunction
 " ======== smartchr ========"{{{
 if IsInstalled('vim-smartchr')
   inoremap <expr> , smartchr#loop(', ', ',')
-
-  " ======== python ========
-  function! s:init_smartchr_py() abort
-    inoremap <buffer><expr> = smartchr#loop(' = ', '=', ' == ', '==')
-  endfunction
-
-  " ======== javascript ========
-  function! s:init_smartchr_js() abort
-    inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
-    inoremap <buffer> <expr> : smartchr#loop(': ', ':')
-  endfunction
-
-  augroup myvimrc
-    autocmd FileType python call s:init_smartchr_py()
-    autocmd FileType javascript call s:init_smartchr_js()
-  augroup END
 endif
 "}}}
 
