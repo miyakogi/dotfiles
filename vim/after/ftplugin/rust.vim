@@ -19,10 +19,10 @@ function! s:init() abort
     if !executable('cargo') || expand('%:t') ==? 'main.rs'
       let cmd = 'QuickRun rust'
     else
-      if finddir('tests', './;$HOME') !=# ''
+      if index(split(expand('%:p')), 'tests') > 0
         let args = ' --test ' . expand('%:t:r') . ' -- --nocapture'
       else
-        let args = ' --lib ' . expand('%:t:r') . ' -- --nocapture'
+        let args = ' --lib -- ' . expand('%:t:r') . ' --nocapture'
       endif
       let cmd = 'QuickRun cargo/test -args "' . l:args . '"'
     endif
