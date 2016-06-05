@@ -23,3 +23,9 @@ inoremap <buffer> <C-l> <C-g>u<Space>=><Space>
 if IsInstalled('jscomplete-vim')
   autocmd myvimrc FileType javascript setlocal omnifunc=jscomplete#CompleteJS
 endif
+
+" ======== smartchr ========
+if IsInstalled('vim-smartchr')
+  inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
+  inoremap <buffer> <expr> : smartchr#loop(': ', ':')
+endif
