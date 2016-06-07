@@ -21,6 +21,8 @@ function! s:init() abort
     else
       if index(split(expand('%:p')), 'tests') > 0
         let args = ' --test ' . expand('%:t:r') . ' -- --nocapture'
+      elseif expand('%:t') ==? 'lib.rs'
+        let args = ' --lib -- tests --nocapture'
       else
         let args = ' --lib -- ' . expand('%:t:r') . ' --nocapture'
       endif
