@@ -65,6 +65,9 @@ zstyle ':zle:*' word-style unspecified
 alias vi="/usr/bin/vim --noplugin"
 alias :q="exit"
 alias tmux="tmux -2"
+alias mkdir="mkdir -p"
+alias ln="ln -v"  # verbose
+alias path='echo $PATH | tr -s ":" "\n"'  # pretty print path
 
 # python test
 alias pytest="py.test"

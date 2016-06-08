@@ -16,7 +16,6 @@
   nfmerge = merge --no-ff
   mergenff = merge --no-ff
   clone-shallow = clone --depth=1
-  ch = checkout
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   ffeature = flow feature
   fstart = flow feature start
