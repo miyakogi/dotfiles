@@ -9,9 +9,6 @@ let b:loaded_rust_ftplugin_after = 1
 iabbrev <buffer> se self
 iabbrev <buffer> sel self
 
-" ======== mappings ========
-inoremap <buffer> <C-l> <C-g>u<Space>-><Space>
-
 " ======== Initialization ========"{{{
 let s:initialized = 0
 function! s:init() abort
@@ -21,10 +18,12 @@ function! s:init() abort
     else
       if index(split(expand('%:p')), 'tests') > 0
         let args = ' --test ' . expand('%:t:r') . ' -- --nocapture'
-      elseif expand('%:t') ==? 'lib.rs'
-        let args = ' --lib -- tests --nocapture'
-      else
-        let args = ' --lib -- ' . expand('%:t:r') . ' --nocapture'
+      elseif expand('%:t') ==? 'lib.rs'  " main module
+        let args = ' --lib -- --nocapture tests'
+      elseif expand('%:t') ==? 'mod.rs'  " in module top
+        let args = ' --lib -- --nocapture ' . expand('%:p:h:t')
+      else                               " in normal module
+        let args = ' --lib -- --nocapture ' . expand('%:t:r')
       endif
       let cmd = 'QuickRun cargo/test -args "' . l:args . '"'
     endif
@@ -37,4 +36,7 @@ endfunction
 if !s:initialized | call s:init() | endif
 "}}}
 
+" ======== mappings ========
 nnoremap <buffer><silent> <Leader>r :<C-u>call <SID>quickrun_cargo()<CR>
+imap <buffer><expr> <C-l> IsInstalled('smartchr') ? smartchr#loop(' -> ', ' => ') : ' -> '
+inoremap <buffer><expr> ; get(g:, 'loaded_delimitMate') ? ';' . delimitMate#ExpandReturn() : ";\<CR>"
