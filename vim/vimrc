@@ -289,7 +289,7 @@ nnoremap ]d ]c
 nnoremap [d [c
 
 " ======== Cursor move (Insert/Command mode) ========
-inoremap <C-h> <BS>
+imap <C-h> <BS>
 
 " Don't move cursor at leaving insert mode
 " inoremap <silent> <Esc>  <Esc>`^
@@ -728,7 +728,8 @@ augroup myvimrc
   autocmd FileType htmljinja let b:delimitMate_expand_inside_quotes = 1
   autocmd FileType htmljinja let b:delimitMate_expand_cr = 1
   autocmd FileType python let b:delimitMate_expand_cr = 1
-  " autocmd FileType javascript,dart let b:delimitMate_eol_marker = ";"
+  autocmd FileType rust let b:delimitMate_quotes = '" ` |'
+  autocmd FileType rust let b:delimitMate_expand_inside_quotes = 1
 augroup END
 "}}}
 

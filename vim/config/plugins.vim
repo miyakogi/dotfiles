@@ -198,7 +198,6 @@ endif
 function! s:init_delimitMate() abort
   imap <C-j> <PLug>delimitMateS-Tab
   smap <C-j> <PLug>delimitMateS-Tab
-  imap <C-h> <BS>
 endfunction
 "}}}
 
