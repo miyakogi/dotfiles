@@ -51,7 +51,8 @@
       "miyakogi/sidepanel.vim",
       "miyakogi/seiya.vim",
       "miyakogi/slateblue.vim",
-      "miyakogi/badwolf"
+      "miyakogi/badwolf",
+      "miyakogi/vim-quickrun-job"
     ]
   },
   "opt": {
