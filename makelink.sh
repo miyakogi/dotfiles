@@ -37,6 +37,7 @@ makedir_if_not_exists $HOME/.config/nvim/bundle
 makedir_if_not_exists $HOME/.zsh
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
+makedir_if_not_exists $HOME/.cargo
 
 # ======== Make Symbolic Link ==============
 # ------ Shell ------
@@ -97,6 +98,9 @@ ln -sf $VIMBASE/syntax $NVIMCONFIG
 
 # Percol
 ln -sf $BASEDIR/percolrc.py $HOME/.percol.d/rc.py
+
+# Rust (Cargo)
+ln -sf $BASEDIR/cargo.toml $HOME/.cargo/config
 
 # Install neobundle.vim for neovim
 # git_clone https://github.com/Shougo/neobundle.vim  $HOME/.config/nvim/bundle/neobundle.vim
