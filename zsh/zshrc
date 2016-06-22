@@ -83,9 +83,10 @@ esac
 [[ -f ~/.dircolors ]] && eval "`dircolors ~/.dircolors`"
 alias ls="ls $LS_OPTIONS"
 
-# . ~/.vim/bundle/powerline/powerline/bindings/zsh/powerline.zsh
-# ZSH_THEME="powerline"
+# Git
 alias gstatus="git status -s -b"
+alias pull="git pull"
+alias push="git push origin"
 # http://qiita.com/syui/items/ed2d36698a5cc314557d
 
 ######### VCS information ###########

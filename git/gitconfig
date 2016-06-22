@@ -22,3 +22,5 @@
   ffinish = flow feature finish
 [diff]
   tool = vimdiff
+[push]
+  default = simple
