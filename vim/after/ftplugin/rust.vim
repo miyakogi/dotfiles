@@ -10,8 +10,7 @@ iabbrev <buffer> se self
 iabbrev <buffer> sel self
 
 " ======== Initialization ========"{{{
-let s:initialized = 0
-function! s:init() abort
+if !get(s:, 'initialized')
   function! <SID>quickrun_cargo() abort
     if !executable('cargo') || expand('%:t') ==? 'main.rs'
       let cmd = 'QuickRun rust'
@@ -30,13 +29,16 @@ function! s:init() abort
     execute cmd
   endfunction
 
+  let s:rust_string_syntax = ['rustCharacter', 'rustString', 'rustCommentBlock', 'rustCommentLine']
+  function! s:is_string() abort
+    return index(s:rust_string_syntax, synIDattr(synID(line('.'), col('.'), 0), 'name')) >= 0
+  endfunction
   let s:initialized = 1
-endfunction
-
-if !s:initialized | call s:init() | endif
+endif
 "}}}
 
 " ======== mappings ========
 nnoremap <buffer><silent> <Leader>r :<C-u>call <SID>quickrun_cargo()<CR>
 imap <buffer><expr> <C-l> IsInstalled('smartchr') ? smartchr#loop(' -> ', ' => ') : ' -> '
-inoremap <buffer><expr> ; get(g:, 'loaded_delimitMate') ? ';' . delimitMate#ExpandReturn() : ";\<CR>"
+inoremap <buffer><expr> ; <SID>is_string() ? ';' :
+      \ get(g:, 'loaded_delimitMate') ? ';' . delimitMate#ExpandReturn() : ";\<CR>"
