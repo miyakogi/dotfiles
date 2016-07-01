@@ -16,13 +16,13 @@ if !get(s:, 'initialized')
       let cmd = 'QuickRun rust'
     else
       if index(split(expand('%:p')), 'tests') > 0
-        let args = ' --test ' . expand('%:t:r') . ' -- --nocapture'
+        let args = '--test ' . expand('%:t:r') . ' -- --nocapture'
       elseif expand('%:t') ==? 'lib.rs'  " main module
-        let args = ' --lib -- --nocapture tests'
+        let args = '--lib -- --nocapture'
       elseif expand('%:t') ==? 'mod.rs'  " in module top
-        let args = ' --lib -- --nocapture ' . expand('%:p:h:t')
+        let args = '--lib -- --nocapture ' . expand('%:p:h:t')
       else                               " in normal module
-        let args = ' --lib -- --nocapture ' . expand('%:t:r')
+        let args = '--lib -- --nocapture ' . expand('%:t:r')
       endif
       let cmd = 'QuickRun cargo/test -args "' . l:args . '"'
     endif

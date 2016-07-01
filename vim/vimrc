@@ -816,6 +816,8 @@ let g:watchdogs_check_BufWritePost_enables = {
       \ 'coffee' : 1,
       \ 'typescript' : 1,
       \ 'nim' : 1,
+      \ 'vim' : 1,
+      \ 'rust' : 1,
       \ }
 
 let g:watchdogs_check_CursorHold_enable = 0
@@ -850,6 +852,7 @@ let g:quickrun_config['watchdogs_checker/nim'] = {
 let g:quickrun_config['vim/watchdogs_checker'] = {
       \ 'type' : 'watchdogs_checker/vint',
       \ }
+
 let g:quickrun_config['typescript/watchdogs_checker'] = {
       \ 'type' : 'watchdogs_checker/tslint',
       \ }
