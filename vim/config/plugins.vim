@@ -374,7 +374,7 @@ if exists(':AsynCheck')
   command! AsynCheckEnable call s:enable_asyncheck()
   command! AsynCheckDisable call s:disable_asyncheck()
   autocmd myvimrc FileType python,javascript,vim AsynCheckEnable
-  nnoremap <silent> <Leader><Leader> :<C-u>AsynCheck<CR>
+  nnoremap <Leader><Leader> :<C-u>AsynCheck<CR>
 endif
 "}}}
 "}}}

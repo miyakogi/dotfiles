@@ -42,3 +42,4 @@ nnoremap <buffer><silent> <Leader>r :<C-u>call <SID>quickrun_cargo()<CR>
 imap <buffer><expr> <C-l> IsInstalled('smartchr') ? smartchr#loop(' -> ', ' => ') : ' -> '
 inoremap <buffer><expr> ; <SID>is_string() ? ';' :
       \ get(g:, 'loaded_delimitMate') ? ';' . delimitMate#ExpandReturn() : ";\<CR>"
+nnoremap <buffer> <Leader><Leader> :<C-u>WatchdogsRun<CR>
