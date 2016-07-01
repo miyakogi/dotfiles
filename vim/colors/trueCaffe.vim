@@ -37,32 +37,41 @@ call colors#set_palette(s:palette)
 
 call colors#hl('Normal', 'front', 'back')
 
-call colors#hl('Folded', 'gray16', 'back', 'none')
-call colors#hl('VertSplit', 'gray1', 'gray1', 'none')
+" Informations (StatusLine & TabLine) {{{
+call colors#hl('StatusLine',   'front', 'base01', 'none')  " status line, bold/reverse by default
+call colors#hl('StatusLineNC', 'base0', 'base02', 'none')  " status line for no-current windows
+call colors#hl('TabLineSel',  '', 'base02', 'none')  " active tab, bolded by default
+call colors#hl('TabLine',     '', 'base00', 'none')  " non-active tab, underlined by default 
+call colors#hl('TabLineFill', 'base1', 'base1')  " tab-background
+"}}}
+
+" Vertical lines are same color as background status line
+call colors#hl('VertSplit', 'base01', 'back', 'none')
+highlight! link ColorColumn TabLineSel
+
+" Elements on vertical separator
+" Order: VertSplit | FoldColumn | SignColumn | LineNr
+call colors#hl('LineNr', 'base00', 'gray2')
+highlight! link SignColumn LineNr
+highlight! link FoldColumn LineNr
 
 call colors#hl('CursorLine', '', 'gray1', 'none')
 call colors#hl('CursorColumn', '', 'gray1')
-call colors#hl('ColorColumn', '', 'gray1')
 
-call colors#hl('TabLineSel',  'front', 'base02', 'none')  " active tab, bolded by default
-call colors#hl('TabLine',     'front', 'base00', 'none')  " non-active tab, underlined by default 
-call colors#hl('TabLineFill', 'base1', 'base1')  " tab-background
+" NonText, Folds, and Comments are gray
+call colors#hl('NonText', 'base00', 'back', 'none')
+highlight! link SpecialKey NonText
+highlight! link Folded NonText
+call colors#hl('Comment', 'gray16')  " comments are brighter
 
-call colors#hl('MatchParen', 'yellow1', 'back', 'bold')
-
-call colors#hl('NonText',    'gray10', 'back')
-call colors#hl('SpecialKey', 'gray10', 'back')
-
-call colors#hl('Visual', '', 'gray6')
-call colors#hl('VisualNOS', '', 'gray6')
+call colors#hl('Visual', '', 'base02')
+highlight! link VisualNOS Visual
 
 call colors#hl('Search',    'back', 'yellow', 'bold')
 call colors#hl('IncSearch', 'back', 'lightblue',    'bold')
+call colors#hl('MatchParen', 'yellow1', 'back', 'bold')
 
-call colors#hl('Underlined', 'front', '', 'underline')
-
-call colors#hl('StatusLine',   'front', 'base01', 'none')  " status line, bold/reverse by default
-call colors#hl('StatusLineNC', 'base0', 'base02', 'none')  " status line for no-current windows
+call colors#hl('Underlined', '', '', 'underline')  " same as default
 
 call colors#hl('Directory', 'flesh', '', 'bold')
 
@@ -77,50 +86,47 @@ call colors#hl('WarningMsg', 'pink',  '', 'bold')
 call colors#hl('IndentGuides', '', 'gray8')
 call colors#hl('WildMenu', 'lightblue', 'gray1')
 
-" Gutter
-call colors#hl('LineNr', 'gray13', 'gray2')
-call colors#hl('SignColumn', '', 'gray2')
-call colors#hl('FoldColumn', 'gray13', 'gray2')
-
 " Cursor
 call colors#hl('Cursor',  'back', 'lightblue', 'bold')
-call colors#hl('vCursor', 'back', 'lightblue', 'bold')
+" call colors#hl('vCursor', 'back', 'lightblue', 'bold')
+highlight! link vCursor Cursor
 call colors#hl('iCursor', 'back', 'lightblue', 'none')
 
 " Start with a simple base.
 call colors#hl('Special', 'front')
 
 " Comments are slightly brighter than folds, to make 'headers' easier to see.
-call colors#hl('Comment',        'gray16')
 call colors#hl('Todo',           'front', 'back', 'bold')
 call colors#hl('SpecialComment', 'front', 'back', 'bold')
 
 " Strings are a nice, pale straw color.  Nothing too fancy.
 call colors#hl('String', 'flesh')
+highlight! link Number String
+highlight! link Float String
+" call colors#hl('Number', 'flesh', '', 'none')
+" call colors#hl('Float',  'flesh', '', 'none')
+
+call colors#hl('Identifier', 'orange', '', 'none')
+" call colors#hl('Function',   'orange', '', 'none')
 
 " Control flow stuff is red.
 call colors#hl('Statement',   'deeppurple', '', 'bold')
-call colors#hl('Keyword',     'deeppurple', '', 'bold')
-call colors#hl('Conditional', 'deeppurple', '', 'bold')
+" highlight! link Keyword Statement  " linked to Statement by default
+" highlight! link Conditional Statement
 call colors#hl('Operator',    'purple', '', 'none')
-call colors#hl('Label',       'purple', '', 'none')
-call colors#hl('Repeat',      'purple', '', 'none')
+highlight! link Label Operator
+highlight! link Repeat Operator
+" call colors#hl('Label',       'purple', '', 'none')
+" call colors#hl('Repeat',      'purple', '', 'none')
 
-call colors#hl('Identifier', 'orange', '', 'none')
-call colors#hl('Function',   'orange', '', 'none')
 call colors#hl('PreProc',   'yellow',  '', 'none')
-call colors#hl('Macro',     'yellow',  '', 'none')
-call colors#hl('Define',    'yellow',  '', 'none')
+" call colors#hl('Macro',     'yellow',  '', 'none')
+" call colors#hl('Define',    'yellow',  '', 'none')
 call colors#hl('PreCondit', 'yellow',  '', 'bold')
 
-" Constants of all kinds are colored together.
-" I'm not really happy with the color yet...
 call colors#hl('Constant',  'lightbrown', '', 'none')
 call colors#hl('Character', 'lightbrown', '', 'bold')
 call colors#hl('Boolean',   'lightbrown', '', 'bold')
-
-call colors#hl('Number', 'flesh', '', 'none')
-call colors#hl('Float',  'flesh', '', 'none')
 
 " Not sure what 'special character in a constant' means, but let's make it pop.
 call colors#hl('SpecialChar', 'pink', '', 'bold')
@@ -139,22 +145,22 @@ call colors#hl('Debug', 'front', '', 'bold')
 call colors#hl('Ignore', 'gray16')
 
 " Completion Menu
-call colors#hl('Pmenu', 'front', 'gray8')
+call colors#hl('Pmenu', 'front', 'base01')
 call colors#hl('PmenuSel', 'back', 'lightblue', 'bold')
-call colors#hl('PmenuSbar', '', 'gray8')
-call colors#hl('PmenuThumb', 'gray22')
+call colors#hl('PmenuSbar', '', 'base00')
+call colors#hl('PmenuThumb', 'gray16')
 
 " Diffs
 call colors#hl('DiffDelete', 'back', 'back')
-call colors#hl('DiffAdd',    '', 'gray8')
-call colors#hl('DiffChange', '', 'gray20')
-call colors#hl('DiffText',   'front', 'gray8', 'bold')
+call colors#hl('DiffAdd',    '', 'base01')
+call colors#hl('DiffChange', '', 'black')
+call colors#hl('DiffText',   '', 'base01', 'underline')
 
 " Spelling
-call colors#hl('SpellCap', 'yellow', 'back', 'undercurl,bold', 'yellow')
-call colors#hl('SpellBad', '', '', 'undercurl', 'red')
-call colors#hl('SpellLocal', '', '', 'undercurl', 'lime')
-call colors#hl('SpellRare', '', '', 'undercurl', 'lightblue')
+call colors#hl('SpellCap', '', 'base01', 'undercurl', 'lime')
+call colors#hl('SpellBad', '', 'base01', 'undercurl', 'red')
+call colors#hl('SpellLocal', '', 'base01', 'undercurl', 'yellow')
+call colors#hl('SpellRare', '', 'base01', 'undercurl', 'lightblue')
 
 " ============================================
 "  Filetype-specific {{{
