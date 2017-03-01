@@ -130,7 +130,8 @@ function! MyVCS() abort
     return ''
   endif
 
-  if !exists('b:sy') || b:sy.active != 1 || b:sy.type ==? 'Unknown'
+  " 'b:sy' is set by signify
+  if !exists('b:sy') || b:sy.active != 1 || b:sy.vcs ==? 'Unknown'
     return ''
   endif
 
@@ -138,7 +139,7 @@ function! MyVCS() abort
 
   if winwidth(0) > 70
     let vcs = '\ue0a0 '
-    let type=b:sy.type
+    let type=b:sy.vcs
     if type ==? 'git'
       let vcs = vcs . s:fugitive()
     else
