@@ -27,7 +27,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 '''
 
-import os
 import json
 import curses
 import logging
@@ -46,13 +45,13 @@ parser = argparse.ArgumentParser(description='Vim Package Helper')
 parser.add_argument('command', choices=['install', 'update', 'check'])
 parser.add_argument('config_file', default='pack.json', nargs='?')
 parser.add_argument('--no-dummy', default=False, action='store_true',
-        help='prevent making dummy files (plugin/_.vim)')
+                    help='prevent making dummy files (plugin/_.vim)')
 parser.add_argument('--no-doc', default=False, action='store_true',
-        help='prevent making symlinks of help (doc/*.{txt,*x} to ~/.vim/doc)')
-upper = lambda s: s.upper()
+                    help='prevent making symlinks of help '
+                    '(doc/*.{txt,*x} to ~/.vim/doc)')
 parser.add_argument('--loglevel', default='info',
-        help='Available levels are {} (case insensitive)'.format(
-            list(logging._nameToLevel.keys())))
+                    help='Available levels are {} (case insensitive)'.format(
+                        list(logging._nameToLevel.keys())))
 
 # Parse command-line options
 options = parser.parse_args()
@@ -60,6 +59,7 @@ options = parser.parse_args()
 
 class Formatter(logging.Formatter):
     _colors_int = {'red': 1, 'green': 2, 'orange': 3, 'blue': 4}
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.colors = {}
@@ -120,7 +120,7 @@ def find_vimhome():
 VIMHOME = find_vimhome()
 
 
-def load_config_file(file:Union[Path, str]):
+def load_config_file(file: Union[Path, str]):
     if isinstance(file, Path):
         with file.open() as f:
             config = json.load(f)
@@ -130,19 +130,19 @@ def load_config_file(file:Union[Path, str]):
     return config
 
 
-def ensure_dir(path:Path):
+def ensure_dir(path: Path):
     if not path.exists():
         path.mkdir()
         logger.info('{} created'.format(path))
 
 
-def remove_if_broken(path:Path):
+def remove_if_broken(path: Path):
     if path.is_symlink() and not path.exists():
         logger.info('Delete broken symlink {}'.format(path))
         path.unlink()
 
 
-def check_plugin_dir(path:Path):
+def check_plugin_dir(path: Path):
     if options.no_dummy:
         return
     plugin_dir = path / 'plugin'
@@ -158,20 +158,20 @@ def check_plugin_dir(path:Path):
         dummy_file.touch()
 
 
-def link_doc(path:Path):
+def link_doc(path: Path):
     if options.no_doc:
         return
     doc_dir = path / 'doc'
     vimdoc = VIMHOME / 'doc'
     for doc in chain(doc_dir.glob('*.txt'), doc_dir.glob('*.*x')):
-        target =  vimdoc / doc.name
+        target = vimdoc / doc.name
         remove_if_broken(target)
         if not target.exists():
             logger.debug('make symlink {} -> {}'.format(target, doc))
             target.symlink_to(doc)
 
 
-def post_process(path:Path):
+def post_process(path: Path):
     if path.is_dir() and path.is_absolute():
         check_plugin_dir(path)
         link_doc(path)
@@ -197,7 +197,7 @@ def helptags():
 
 class Git:
     @classmethod
-    def clone(self, repo:Path, base:Path):
+    def clone(self, repo: Path, base: Path):
         target = base / repo.name
         if target.exists():
             logger.debug('Skip existing {}'.format(target))
@@ -216,7 +216,7 @@ class Git:
             logger.error('Failed to clone {}'.format(url))
 
     @classmethod
-    def pull(cls, path:Path):
+    def pull(cls, path: Path):
         if (path / '.git').exists():
             logger.info('Update {}/{}'.format(path.parent.name, path.name))
             proc = subprocess.run(['git', 'pull'], cwd=str(path))
@@ -229,13 +229,13 @@ class Git:
             logger.debug('Skip non-git directory {}'.format(path))
 
     @classmethod
-    def init_submodule(cls, path:Path):
+    def init_submodule(cls, path: Path):
         subprocess.run(['git', 'submodule', 'update', '--init', '--recursive'],
                        cwd=str(path))
 
 
 class Packager:
-    def __init__(self, config_file:Path):
+    def __init__(self, config_file: Path):
         self.dir = config_file.parent
         self.config = load_config_file(config_file)
 
@@ -291,7 +291,7 @@ class Packager:
         helptags()
 
 
-def find_config_file(filename:Path):
+def find_config_file(filename: Path):
     conf_files = []
     for pack in (VIMHOME / 'pack').iterdir():
         if (pack / filename).exists():
