@@ -923,6 +923,12 @@ if filereadable(g:lightline_conf)
 endif
 "}}}
 
+" ======== ale ======== {{{
+let g:ale_linters = {
+      \ 'python': ['flake8'],
+      \ }
+"}}}
+
 " ======== Jedi-vim ======== {{{
 let g:jedi#auto_initialization = 0
 let g:jedi#auto_vim_configuration = 0

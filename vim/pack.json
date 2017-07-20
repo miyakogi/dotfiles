@@ -52,7 +52,8 @@
       "miyakogi/seiya.vim",
       "miyakogi/slateblue.vim",
       "miyakogi/badwolf",
-      "miyakogi/vim-quickrun-job"
+      "miyakogi/vim-quickrun-job",
+      "w0rp/ale"
     ]
   },
   "opt": {
