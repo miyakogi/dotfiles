@@ -50,7 +50,7 @@ let g:lightline = {
 
 " ======== Lightline functions ========
 function! MyVirtualEnv() abort
-  if &ft[:5] ==? 'python' && exists('g:virtualenv_name') && g:virtualenv_name !=# ''
+  if &filetype[:5] ==? 'python' && exists('g:virtualenv_name') && g:virtualenv_name !=# ''
     return ' (' . virtualenv#statusline() . ')'
   else
     return ''
@@ -68,9 +68,9 @@ endfunction
 function! MyFilename() abort
   let fname = expand('%:t')
   return fname =~? 'Tagbar' ? '' :
-        \ &ft ==? 'vimfiler' ? vimfiler#get_status_string() :
-        \ &ft ==? 'unite' ? unite#get_status_string() :
-        \ &ft ==? 'qf' ? 'quickfix(' . len(getqflist()) . ')' :
+        \ &filetype ==? 'vimfiler' ? vimfiler#get_status_string() :
+        \ &filetype ==? 'unite' ? unite#get_status_string() :
+        \ &filetype ==? 'qf' ? 'quickfix(' . len(getqflist()) . ')' :
         \ ('' !=? MyReadonly() ? MyReadonly() . ' ' : '') .
         \ ('' !=? MyModified() ? ' ' . MyModified() : '') .
         \ ('' !=? fname ? fname : '[No Name]')
@@ -85,14 +85,14 @@ function! MyFiletype() abort
 endfunction
 
 function! MyFileencoding() abort
-  return winwidth(0) > 90 ? (strlen(&fenc) ? &fenc : &enc) : ''
+  return winwidth(0) > 90 ? (strlen(&fileencoding) ? &fileencoding : &fileencoding) : ''
 endfunction
 
 function! MyMode() abort
   let fname = expand('%:t')
   return fname ==? '__Tagbar__' ? 'Tagbar' :
-        \ &ft ==? 'unite' ? 'Unite' :
-        \ &ft ==? 'vimfiler' ? 'VimFiler' :
+        \ &filetype ==? 'unite' ? 'Unite' :
+        \ &filetype ==? 'vimfiler' ? 'VimFiler' :
         \ lightline#mode()[0]
 endfunction
 
@@ -131,15 +131,15 @@ function! MyVCS() abort
   endif
 
   " 'b:sy' is set by signify
-  if !exists('b:sy') || b:sy.active != 1 || b:sy.vcs ==? 'Unknown'
+  if !exists('b:sy') || b:sy.active != 1 || len(b:sy.vcs) < 1
     return ''
   endif
 
   let vcs = ''
 
   if winwidth(0) > 70
-    let vcs = '\ue0a0 '
-    let type=b:sy.vcs
+    let vcs = "\ue0a0 "
+    let type=b:sy.vcs[0]
     if type ==? 'git'
       let vcs = vcs . s:fugitive()
     else
