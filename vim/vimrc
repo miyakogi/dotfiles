@@ -937,7 +937,7 @@ let g:pyflakes_use_quickfix=0
 if has('mac')
   let g:flake8_cmd='/usr/local/share/python/' . g:flake8_cmd
 else
-  let g:flake8_cmd = 'pep8'
+  let g:flake8_cmd = 'pycodestyle'
 endif
 "}}}
 
