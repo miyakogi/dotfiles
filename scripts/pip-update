@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import re
+import logging
+import curses
+import subprocess
+
+remove_ver_re = re.compile(r'\s*\([.\d]+\)\s*$')
+
+
+class Formatter(logging.Formatter):
+    _colors_int = {'red': 1, 'green': 2, 'orange': 3, 'blue': 4}
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.colors = {}
+        curses.setupterm()
+        try:
+            self.colors['normal'] = curses.tigetstr('sgr0').decode('utf-8')
+            for color, val in self._colors_int.items():
+                self.colors[color] = curses.tparm(
+                    curses.tigetstr('setaf'), val).decode('utf-8')
+        except Exception:
+            self.colors['normal'] = ''
+            for color in self._colors_int:
+                self.colors[color] = ''
+
+    def format(self, rec):
+        fmt = '{color}[{level}:pip]{normal} {msg}'
+        config = {'level': rec.levelname[0], 'name': rec.name, 'msg': rec.msg}
+        if rec.levelno >= logging.ERROR:
+            config['color'] = self.colors['red']
+        elif rec.levelno >= logging.WARN:
+            config['color'] = self.colors['orange']
+        elif rec.levelno >= logging.INFO:
+            config['color'] = self.colors['green']
+        elif rec.levelno >= logging.DEBUG:
+            config['color'] = self.colors['blue']
+        else:
+            config['color'] = ''
+        config['normal'] = self.colors['normal']
+        return fmt.format(**config)
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = logging.StreamHandler()
+handler.setLevel(logging.INFO)
+handler.setFormatter(Formatter())
+logger.addHandler(handler)
+
+
+def get_packages():
+    proc = subprocess.run(['pip', 'list', '--format=legacy'], stdout=subprocess.PIPE, universal_newlines=True)
+    if proc.returncode != 0:
+        raise subprocess.SubprocessError
+
+    return [remove_ver_re.sub('', p) for p in proc.stdout.split('\n')]
+
+
+def main():
+    packages = get_packages()
+    uptodate = []
+    updated = []
+    failed = []
+    for lib in packages:
+        if lib:
+            proc = subprocess.run(
+                ['pip', 'install', '-U', lib], universal_newlines=True,
+                stdout=subprocess.PIPE, stderr=subprocess.STDOUT
+            )
+            if proc.returncode != 0:
+                failed.append(lib)
+                logger.error(proc.stdout)
+                logger.error('Failed to update {}'.format(lib))
+            elif proc.stdout.startswith('Requirement already'):
+                uptodate.append(lib)
+                logger.info('{} is already up-to-date.'.format(lib))
+            else:
+                updated.append(lib)
+                logger.debug(proc.stdout)
+                logger.info('Updated {}'.format(lib))
+
+    header = ' Pip Update Completed '.center(79, '=')
+    stat = 'Failed {0} packages, updated {1} packages, and {2} packages are already up-to-date'.format(
+        len(failed), len(updated), len(uptodate)
+    )
+    msg = ['', header, stat]
+    if updated:
+        msg.append('  Updated packages: {}'.format(', '.join(updated)))
+    if failed:
+        msg.append('  Failed packages:  {}'.format(', '.join(failed)))
+    logger.info('\n'.join(msg))
+
+if __name__ == '__main__':
+    main()

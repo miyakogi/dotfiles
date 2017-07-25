@@ -100,6 +100,9 @@ ln -sf $VIMBASE/syntax $NVIMCONFIG
 # Percol
 ln -sf $BASEDIR/percolrc.py $HOME/.percol.d/rc.py
 
+# pip
+ln -sf $BASEDIR/scripts/pip-update $HOME/bin/pip-update
+
 # Rust (Cargo)
 ln -sf $BASEDIR/cargo.toml $HOME/.cargo/config
 
@@ -113,3 +116,5 @@ git_clone https://github.com/Tarrasch/zsh-autoenv  $HOME/.zsh/zsh-autoenv
 # Install compoletions
 git_clone https://github.com/zsh-users/zsh-completions.git  $HOME/.zsh/zsh-completions
 git_clone https://github.com/bobthecow/git-flow-completion  $HOME/.zsh/git-flow-completion
+
+echo Make Link Completed
