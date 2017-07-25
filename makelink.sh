@@ -51,6 +51,7 @@ ln -sf $ZSHBASE/zshrc $HOME/.zsh/.zshrc
 # ------ Git ------
 ln -sf $BASEDIR/git/gitignore $HOME/.gitignore_global
 ln -sf $BASEDIR/git/gitconfig $HOME/.gitconfig
+ln -sf $BASEDIR/git/bin/git-workflow $HOME/bin/
 
 # ------ tmux ------
 ln -sf $BASEDIR/tmux/tmux.conf $HOME/.tmux.conf

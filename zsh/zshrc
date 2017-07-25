@@ -199,6 +199,13 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
+### git workflow completion
+function _git_workflow_compl {
+  echo $1
+  echo $2
+}
+compdef _git_workflow_compl "git workflow"
+
 ### PythonZ
 load_if_exists $HOME/.pythonz/etc/bashrc
 
