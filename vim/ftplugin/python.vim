@@ -23,15 +23,15 @@ nnoremap <silent> <buffer> [f :call <SID>Python_jump('?^\s*\(class\\|def\\|async
 
 if !exists('*<SID>Python_jump')
   fun! <SID>Python_jump(motion) range
-    let cnt = v:count1
-    let save = @/    " save last search pattern
+    let l:cnt = v:count1
+    let l:save = @/    " save last search pattern
     mark '
-    while cnt > 0
+    while l:cnt > 0
       silent! exe a:motion
-      let cnt = cnt - 1
+      let l:cnt = l:cnt - 1
     endwhile
     call histdel('/', -1)
-    let @/ = save    " restore last search pattern
+    let @/ = l:save    " restore last search pattern
   endfun
 endif
 
