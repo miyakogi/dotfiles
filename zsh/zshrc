@@ -290,6 +290,7 @@ function gg() {
 }
 
 function mkpj() {
+  [[ ! $1 ]] && echo "Need project name" && return 1
   local pjdir=${PROJECT_HOME:-$HOME/Project}/$1
   local vdir=${PYVENV_DIR:-$HOME/.pyvenv}/$1
   [[ -e $pjdir ]] && echo "Target project ${pjdir} already exists." && return 1
