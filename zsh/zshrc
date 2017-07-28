@@ -140,9 +140,10 @@ function _update_lprompt() {
   local p_mark="%B%(?,$p_mark_ok,$p_mark_ng)%(!,#,)%b"
   local p_mark_ssh="%B%(?,$p_mark_ok_ssh,$p_mark_ng_ssh)%(!,#,)%b"
 
-  if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]
-  then PROMPT="$p_br$p_cdir_ssh$p_br$p_mark_ssh "
-  else PROMPT="$p_br$p_cdir$p_br$p_mark "
+  if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
+    PROMPT="$p_br$p_cdir_ssh$p_br$p_mark_ssh "
+  else
+    PROMPT="$p_br$p_cdir$p_br$p_mark "
   fi
 }
 
@@ -223,8 +224,7 @@ which direnv > /dev/null && eval "$(direnv hook zsh)"
 export HIST_DIRS_FILE=$HOME/.histdir
 export HIST_DIRS_MAX=5000
 
-if which rireki > /dev/null 2>&1 && rireki status > /dev/null 2>&1
-then
+if which rireki > /dev/null 2>&1 && rireki status > /dev/null 2>&1; then
   # echo "use rireki server"
   function cdhist() {
     pwd >> $HIST_DIRS_FILE
@@ -277,11 +277,12 @@ else
 fi
 
 zle -N myjump
-if [ $DOLPHIN ]
-then bindkey '^L' myjump
-elif [ $VIM ]
-then bindkey '^L' myjump
-else bindkey '^J' myjump
+if [ $DOLPHIN ]; then
+  bindkey '^L' myjump
+elif [ $VIM ]; then
+  bindkey '^L' myjump
+else
+  bindkey '^J' myjump
 fi
 
 function gg() {
@@ -323,9 +324,10 @@ EOS
 EOS
 
   # authorize new script
-  if which _autoenv_authorize > /dev/null 2>&1
-  then _autoenv_authorize $pjdir/.autoenv.zsh && _autoenv_authorize $pjdir/.autoenv_leave.zsh
-  else echo "Failed to automatically authorize autoenv script." && return 1
+  if which _autoenv_authorize > /dev/null 2>&1; then
+    _autoenv_authorize $pjdir/.autoenv.zsh && _autoenv_authorize $pjdir/.autoenv_leave.zsh
+  else
+    echo "Failed to automatically authorize autoenv script." && return 1
   fi
 
   # activate new env, hook autoenv chpwd handler
