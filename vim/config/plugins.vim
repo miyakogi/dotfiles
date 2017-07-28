@@ -249,7 +249,8 @@ endif
 "}}}
 
 " ======== Indent-guides ======== {{{
-if get(g:, 'loaded_indent_guides')
+" temprorary disable on mac
+if get(g:, 'loaded_indent_guides') && !has('mac')
   nmap <silent> [Space]ig <Plug>IndentGuidesToggle
 
   if get(g:, 'indent_guides_enable_on_vim_startup')
