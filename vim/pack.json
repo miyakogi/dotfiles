@@ -35,7 +35,6 @@
       "osyo-manga/unite-quickfix",
       "altercation/vim-colors-solarized",
       "itchyny/lightline.vim",
-      "itchyny/vim-cursorword",
       "miyakogi/vim-flake8",
       "miyakogi/vim-virtualenv",
       "hynek/vim-python-pep8-indent",
