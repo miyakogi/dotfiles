@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 # ===============================================
 # zsh loads this file only if it is a login-shell
 # ===============================================

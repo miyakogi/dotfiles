@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 # ============================================
 #  Main Config File for ZSH
 # ============================================
@@ -307,7 +307,7 @@ EOF
   local activate_file=$vdir/bin/activate
   [[ ! -e $activate_file ]] && echo "Activation script $activate_file not exists" && return 1
   echo "Successfully Generated new venv. Updating pip and setuptools...."
-  [[ -e $vdir/bin/pip ]] && $vdir/bin/pip install -U pip setuptools pyflakes
+  [[ -e $vdir/bin/pip ]] && $vdir/bin/pip install -U pip setuptools flake8 jedi green mypy pydocstyle
   echo "done."
 
   # prepare scripts for zsh-autoenv
