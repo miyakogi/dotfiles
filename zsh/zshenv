@@ -3,6 +3,10 @@
 #  Zsh Environment Variables
 # ============================================
 
+# zsh default directory
+export ZDOTDIR=$HOME/.zsh
+export EDITOR=vim
+
 # go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
@@ -12,6 +16,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/.nimble/bin:$PATH
 # rust
 export PATH=$HOME/.cargo/bin:$PATH
+
 # load machine local profile
 [[ -f .zshenv.local ]] && source .zshenv.local
 

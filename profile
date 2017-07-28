@@ -24,9 +24,6 @@ export PATH=$PATH:/sbin
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/usr/bin:$PATH
 
-export EDITOR=vim
-export ZDOTDIR=$HOME/.zsh
-
 if [ -f $HOME/.profile.local ]; then
   source $HOME/.profile.local
 fi
