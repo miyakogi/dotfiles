@@ -81,10 +81,10 @@ syn region markdownBold start="\S\@<=\*\*\|\*\*\S\@=" end="\S\@<=\*\*\|\*\*\S\@=
 " syn region markdownBold start="\S\@<=__\|__\S\@=" end="\S\@<=__\|__\S\@=" keepend contains=markdownLineStart,markdownItalic
 syn region markdownBoldItalic start="\S\@<=\*\*\*\|\*\*\*\S\@=" end="\S\@<=\*\*\*\|\*\*\*\S\@=" keepend contains=markdownLineStart
 " syn region markdownBoldItalic start="\S\@<=___\|___\S\@=" end="\S\@<=___\|___\S\@=" keepend contains=markdownLineStart
-" syn region markdownCode matchgroup=markdownCodeDelimiter start="`" end="`" keepend contains=markdownLineStart
-" syn region markdownCode matchgroup=markdownCodeDelimiter start="\(`\+\)" end="\1\ze" keepend contains=markdownLineStart
 syn match markdownCode "\(`\+\)\_.\{-}\1" contains=markdownLineStart
-syn region markdownCode matchgroup=markdownCodeDelimiter start="^\s*\(`\{3,}\|\~\{3,}\).*$" end="^\s*\1`*\ze\s*$" keepend
+syn region markdownCode matchgroup=markdownCodeDelimiter start="`" end="`" keepend contains=markdownLineStart
+syn region markdownCode matchgroup=markdownCodeDelimiter start="\z(`\+\)" end="\z1\ze" keepend contains=markdownLineStart
+syn region markdownCode matchgroup=markdownCodeDelimiter start="^\s*\z(`\{3,}\|\~\{3,}\).*$" end="^\s*\z1\ze\s*$" keepend
 
 if main_syntax ==# 'markdown'
   for s:type in g:markdown_fenced_languages
