@@ -66,6 +66,9 @@ if get(g:, 'loaded_vimfiler')
       \ 'safe': 0,
       \ 'explorer': 1
       \ })
+  if &filetype ==? 'vimfiler'
+    call s:vimfiler_init()
+  endif
 endif
 "}}}
 
