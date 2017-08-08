@@ -54,3 +54,5 @@ coverage.xml
 docs/_build/
 *.mo
 *.pot
+# doit
+.doit.db
