@@ -292,13 +292,11 @@ function gg() {
 
 function mkpj() {
   [[ ! $1 ]] && echo "Need project name" && return 1
-  local pjdir=${PROJECT_HOME:-$HOME/Project}/$1
+  local pjdir_root=${PROJECT_HOME:-$HOME/Project}
+  local pjdir=${pjdir_root}/$1
   local vdir=${PYVENV_DIR:-$HOME/.pyvenv}/$1
   [[ -e $pjdir ]] && echo "Target project ${pjdir} already exists." && return 1
   [[ -e $vdir ]] && echo "Target venv ${vdir} already exists." && return 1
-  mkdir $pjdir
-  cd $pjdir
-  ! which autoenv_source_parent > /dev/null 2>&1 && return 1
 
   # make new venv
   cat << EOF
@@ -307,21 +305,21 @@ EOF
   python -m venv "$vdir"
   [[ ! -e $vdir ]] && echo "Failed to make new venv" && return 1
   local activate_file=$vdir/bin/activate
+
   [[ ! -e $activate_file ]] && echo "Activation script $activate_file not exists" && return 1
   echo "Successfully Generated new venv. Updating pip and setuptools...."
-  [[ -e $vdir/bin/pip ]] && $vdir/bin/pip install -U pip setuptools flake8 jedi green mypy pydocstyle ptpython pygments-style-railscasts
+  [[ -e $vdir/bin/python ]] && \
+    $vdir/bin/python -m pip install -U \
+    pip setuptools jedi green doit flake8 mypy pydocstyle ptpython pygments_style_railscasts
   echo "done."
 
-  # prepare scripts for zsh-autoenv
-  cat << EOS > $pjdir/.autoenv.zsh
-autostash PYVENV_NAME=${1}
-autostash PROJECT_ROOT=${pjdir}
-[[ -e ${activate_file} ]] && echo "Activate python venv (\${PYVENV_NAME})" && source ${activate_file}
-autostash PYTHONPATH=\$PROJECT_ROOT\${PYTHONPATH:+:}\${PYTHONPATH}
-EOS
-  cat << EOS > $pjdir/.autoenv_leave.zsh
-[[ -n \${VIRTUAL_ENV} ]] && echo "Deactivate python venv (\${PYVENV_NAME})" && deactivate
-EOS
+  # make new project by cookiecutter
+  local cookierc=${HOME}/.cookiecutterrc
+  cookiecutter --config-file ${cookierc} --no-input -f -o ${pjdir_root} \
+    https://github.com/miyakogi/cookiecutter-python \
+    project_name=${1} project_slug=${1} \
+    project_short_description="short description for this project" \
+    version="0.0.1" license="MIT license"
 
   # authorize new script
   if which _autoenv_authorize > /dev/null 2>&1; then
@@ -331,7 +329,11 @@ EOS
   fi
 
   # activate new env, hook autoenv chpwd handler
+  cd $pjdir
   which _autoenv_chpwd_handler > /dev/null 2>&1 && _autoenv_chpwd_handler
+
+  # initialize git repo
+  git init
 }
 
 function rmvenv() {
