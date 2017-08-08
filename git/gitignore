@@ -49,15 +49,8 @@ sdist/
 .coverage.*
 .cache
 coverage.xml
+.mypy_cache
 # Sphinx documentation
 docs/_build/
 *.mo
 *.pot
-
-###### direnv ######
-.direnv
-.envrc
-
-###### zsh-autoenv ######
-.autoenv.zsh
-.autoenv_leave.zsh
