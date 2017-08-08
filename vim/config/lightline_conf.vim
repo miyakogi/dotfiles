@@ -197,47 +197,21 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
   return lightline#statusline(0)
 endfunction
 
-let s:qfstatusline_exclude_ft = [
-      \ 'dart',
-      \ ]
 function! MySyntaxUpdate() abort
-  let err_cnt = 0
-  let warn_cnt = 0
-  if exists('g:loaded_qfstatusline') && count(s:qfstatusline_exclude_ft, &filetype) < 0
-    let status = ''
-    let qflist = getqflist()
-    if len(qflist) == 0
-      return ''
-    endif
-
-    let l:bufnr = bufnr('%')
-    let lnum = line('$')
-    for qfitem in qflist
-      if qfitem.bufnr == l:bufnr
-        if qfitem.lnum > 0
-          let err_cnt += 1
-          let lnum = min([qfitem.lnum, lnum])
-        endif
-      endif
-    endfor
-    return err_cnt ? 'Error: L' . lnum . '(' . err_cnt . ')' : ''
-  else
-    if exists('b:did_pyflakes_plugin') && exists('*PyflakesGetStatusLine')
-      let err_cnt = PyflakesGetErrorCount()
-    elseif exists('b:loaded_dartanalyzer')
-      let err_cnt = dartanalyzer#count_errors()
-      let warn_cnt = dartanalyzer#count_warnings()
-    else
-      let err_cnt = len(getqflist())
-    endif
-    let status = err_cnt ?  'Error: ' . err_cnt . ' ' : ''
-    let status .= warn_cnt ? 'Warn: ' . warn_cnt : ''
-    return status
+  let qflist = getqflist()
+  let err_cnt = len(getloclist(0))
+  if len(qflist) + err_cnt == 0
+    return ''
   endif
-  return ''
+
+  let l:bufnr = bufnr('%')
+  for qfitem in qflist
+    if qfitem.bufnr == l:bufnr
+      let err_cnt += 1
+    endif
+  endfor
+  return err_cnt ? 'Error: ' . err_cnt : ''
 endfunction
-let g:Qfstatusline#UpdateCmd = function('lightline#update')
-autocmd myvimrc QuickFixCmdPost * call lightline#update()
 
 function! CurrentWorkingDir() abort
   let ret = getcwd()
