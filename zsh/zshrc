@@ -75,10 +75,10 @@ alias pytest="py.test"
 case "${OSTYPE}" in
 # Mac(Unix)
 darwin*)
-  export LS_OPTIONS='-xFG' ;;
+  export LS_OPTIONS='-FG' ;;
 # Linux
 linux*)
-  export LS_OPTIONS='--color=auto -xF' ;;
+  export LS_OPTIONS='--color=auto -F' ;;
 esac
 [[ -f ~/.dircolors ]] && eval "`dircolors ~/.dircolors`"
 alias ls="ls $LS_OPTIONS"
