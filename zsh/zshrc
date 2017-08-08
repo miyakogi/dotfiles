@@ -290,12 +290,20 @@ function gg() {
   cd ${PROJECT_ROOT:-$HOME}
 }
 
-function mkpj() {
-  [[ ! $1 ]] && echo "Need project name" && return 1
-  local pjdir_root=${PROJECT_HOME:-$HOME/Project}
-  local pjdir=${pjdir_root}/$1
+### Python Virtualenv Control ###
+
+function workon() {
+  [[ ! $1 ]] && echo "Need venv name." && return 1
   local vdir=${PYVENV_DIR:-$HOME/.pyvenv}/$1
-  [[ -e $pjdir ]] && echo "Target project ${pjdir} already exists." && return 1
+  [[ ! -e $vdir ]] && echo "Venv ($1) not exists." && return 1
+  local activate_file=$vdir/bin/activate
+  [[ ! -e $activate_file ]] && echo "Activation script $activate_file not exists" && return 1
+  source ${activate_file}
+}
+
+function mkvenv() {
+  [[ ! $1 ]] && echo "Need venv name." && return 1
+  local vdir=${PYVENV_DIR:-$HOME/.pyvenv}/$1
   [[ -e $vdir ]] && echo "Target venv ${vdir} already exists." && return 1
 
   # make new venv
@@ -303,15 +311,30 @@ function mkpj() {
 Preparing new venv (${1}) with `python -c "import sys;print(sys.executable)"`.
 EOF
   python -m venv "$vdir"
-  [[ ! -e $vdir ]] && echo "Failed to make new venv" && return 1
-  local activate_file=$vdir/bin/activate
 
-  [[ ! -e $activate_file ]] && echo "Activation script $activate_file not exists" && return 1
+  # check result
+  [[ ! -e $vdir ]] && echo "Failed to make new venv." && return 1
+  local activate_file=$vdir/bin/activate
+  [[ ! -e $activate_file ]] && echo "Activation script $activate_file not exists." && return 1
+
+  # install libraries
   echo "Successfully Generated new venv. Updating pip and setuptools...."
   [[ -e $vdir/bin/python ]] && \
     $vdir/bin/python -m pip install -U \
     pip setuptools jedi green doit flake8 mypy pydocstyle ptpython pygments_style_railscasts
   echo "done."
+}
+
+function mkpj() {
+  [[ ! $1 ]] && echo "Need project name." && return 1
+  local pjdir_root=${PROJECT_HOME:-$HOME/Project}
+  local pjdir=${pjdir_root}/$1
+  local vdir=${PYVENV_DIR:-$HOME/.pyvenv}/$1
+  [[ -e $pjdir ]] && echo "Target project ${pjdir} already exists." && return 1
+  [[ -e $vdir ]] && echo "Target venv ${vdir} already exists." && return 1
+
+  # make new venv
+  mkvenv $1
 
   # make new project by cookiecutter
   local cookierc=${HOME}/.cookiecutterrc
