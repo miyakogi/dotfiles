@@ -16,10 +16,10 @@ setlocal commentstring=#\ %s
 
 set wildignore+=*.pyc,__pycache__
 
-nnoremap <silent> <buffer> ]] :call <SID>Python_jump('/^\(class\\|def\\|async def\)')<cr>
-nnoremap <silent> <buffer> [[ :call <SID>Python_jump('?^\(class\\|def\\|async def\)')<cr>
-nnoremap <silent> <buffer> ]f :call <SID>Python_jump('/^\s*\(class\\|def\\|async def\)')<cr>
-nnoremap <silent> <buffer> [f :call <SID>Python_jump('?^\s*\(class\\|def\\|async def\)')<cr>
+nnoremap <silent> <buffer> ]] :call <SID>Python_jump('/^\(class\\|def\\|async\s\+def\)')<cr>
+nnoremap <silent> <buffer> [[ :call <SID>Python_jump('?^\(class\\|def\\|async\s\+def\)')<cr>
+nnoremap <silent> <buffer> ]f :call <SID>Python_jump('/^\s*\(class\\|def\\|async\s\+def\)')<cr>
+nnoremap <silent> <buffer> [f :call <SID>Python_jump('?^\s*\(class\\|def\\|async\s\+def\)')<cr>
 
 if !exists('*<SID>Python_jump')
   fun! <SID>Python_jump(motion) range
