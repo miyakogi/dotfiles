@@ -382,4 +382,9 @@ compdef _rmvenv rmvenv
 # load machine local file
 [[ -f $ZDOTDIR/.zshrc.local ]] && source $ZDOTDIR/.zshrc.local
 
+# profiling
+if (which zprof > /dev/null) ; then
+  zprof
+fi
+
 # vim: set et ts=2 sw=2:

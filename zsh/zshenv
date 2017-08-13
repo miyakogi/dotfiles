@@ -3,6 +3,9 @@
 #  Zsh Environment Variables
 # ============================================
 
+# profiling
+# zmodload zsh/zprof && zprof
+
 # zsh default directory
 export ZDOTDIR=$HOME/.zsh
 export EDITOR=vim
