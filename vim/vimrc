@@ -976,7 +976,7 @@ let g:vim_json_syntax_conceal = 0
 "}}}
 
 " ======== racer ======== "{{{
-let $RUST_SRC_PATH = $HOME . '/Source/rust/src'
+let g:racer_cmd = $HOME . '/.cargo/bin/racer'
 "}}}
 
 " }}}
