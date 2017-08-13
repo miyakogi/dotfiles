@@ -764,6 +764,11 @@ let g:indent_guides_exclude_filetypes = ['help', 'rabbit-ui']
 let g:indent_guides_color = 'dark'
 "}}}
 
+" ======== indentLine ========{{{
+" let g:indentLine_char = '│'
+let g:indentLine_char = '⎸'
+"}}}
+
 " ======== vimquickrun ======== {{{
 " Default config
 let g:quickrun_config = {}

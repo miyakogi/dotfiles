@@ -26,10 +26,8 @@
       "rhysd/textobj-wiw",
       "sgur/vim-textobj-parameter",
       "kien/rainbow_parentheses.vim",
-      "nathanaelkane/vim-indent-guides",
+      "Yggdroot/indentLine",
       "thinca/vim-quickrun",
-      "osyo-manga/shabadou.vim",
-      "osyo-manga/vim-watchdogs",
       "cohama/vim-hier",
       "KazuakiM/vim-qfstatusline",
       "osyo-manga/unite-quickfix",
@@ -51,7 +49,8 @@
       "miyakogi/seiya.vim",
       "miyakogi/slateblue.vim",
       "miyakogi/badwolf",
-      "w0rp/ale"
+      "w0rp/ale",
+      "morhetz/gruvbox"
     ]
   },
   "opt": {
