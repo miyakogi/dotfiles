@@ -43,7 +43,7 @@ function! s:init() abort
     if getline(1) =~? 'py\.test'
       return executable('py.test') ? 'py.test' : 'python'
     elseif expand('%:t') =~? 'test_'
-      return executable('green') ? 'green' : 'python_unittest'
+      return 'python_unittest'
     else
       return 'python'
     endif
