@@ -789,7 +789,7 @@ let g:quickrun_config['pytest'] = {
 let g:quickrun_config['py.test'] = g:quickrun_config['pytest']  " not copy, just an alias
 let g:quickrun_config['python_unittest'] = {
       \ 'command': 'python',
-      \ 'cmdopt': '-m unittest',
+      \ 'cmdopt': '-W ignore:*:ResourceWarning -m unittest',
       \ 'exec': '%c %o %s:t',
       \ 'outputter/buffer/filetype': 'test_result',
       \ 'hook/shebang/enable': 0,
