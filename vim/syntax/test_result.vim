@@ -8,6 +8,9 @@ syntax match GreenSkip       /\v^[sx]\s+.*$/
 syntax match GreenXPass      /\v^u\s+.*$/
 syntax match GreenErrorLine  /\v^\u.*Error:\ze /
 
+syntax match UnittestErrorLine /\v^ERROR\ze: .+\)$/
+syntax match UnittestFailLine /\v^FAIL\ze: .+\)$/
+
 syntax match GreenDotOK      /\v%1l\./
 syntax match GreenDotError   /\v%1l[EF]/
 syntax match GreenDotSkip    /\v%1l[sx]/
@@ -18,8 +21,11 @@ syntax match GreenActual     /\v^-\s+.*$/
 syntax match GreenExpected   /\v^\+\s+.*$/
 syntax match GreenMissMatch  /\v^\?\s+.*$/
 
-syntax match GreenResultOK    /\v^OK\ze \(/
-syntax match GreenResultFail  /\v^FAILED\ze \(/
+syntax match TestSeparator   /\v^\=+$/
+syntax match TestSeparatorBold   /\v^\-+$/
+
+syntax match GreenResultOK    /\v^OK/
+syntax match GreenResultFail  /\v^FAILED/
 
 highlight GreenOK    guifg=#aeee00 ctermfg=154
 highlight link GreenError ErrorMsg
@@ -27,10 +33,16 @@ highlight GreenSkip  guifg=#87afff ctermfg=111
 highlight GreenXPass guifg=#ffd700 ctermfg=220
 highlight link GreenErrorLine WarningMsg
 
+highlight link UnittestErrorLine ErrorMsg
+highlight link UnittestFailLine ErrorMsg
+
 highlight link GreenDotOK     GreenOK
 highlight link GreenDotError  GreenError
 highlight link GreenDotSkip   GreenSkip
 highlight link GreenDotXPass  GreenXPass
+
+highlight link TestSeparator ErrorMsg
+highlight TestSeparatorBold guifg=#777777
 
 highlight link GreenResultOK   GreenOK
 highlight link GreenResultFail GreenError
