@@ -939,6 +939,7 @@ let g:ale_pattern_options = {
 let g:ale_linters = {
       \ 'python': ['flake8', 'mypy'],
       \ }
+let g:ale_python_mypy_options = '-i'
 " update lightline after ale run
 autocmd myvimrc User ALELint if get(g:, 'loaded_lightline') | call lightline#update() | endif
 nmap <silent> ]e <Plug>(ale_next)
@@ -1023,8 +1024,7 @@ let g:quick_closer_filetypes = [
 "}}}
 
 " ======== livemark.vim ======== {{{
-let g:livemark_no_default_css = 1
-let g:livemark_css_files = [expand('~/dotfiles/static/css/bootstrap.ja.min.css')]
+let g:livemark_python = $HOME . '/bin/python3'
 "}}}
 
 " ======== AsyncJedi ========"{{{
