@@ -380,7 +380,7 @@ function rmvenv() {
   echo "done."
 }
 
-function _rmvenv() {
+function _venv() {
   local -a envs
   local f
   for f in ${PYVENV_DIR}/*
@@ -389,7 +389,8 @@ function _rmvenv() {
   done
   _values 'virtual envs' ${envs[*]}
 }
-compdef _rmvenv rmvenv
+compdef _venv workon
+compdef _venv rmvenv
 
 # load machine local file
 [[ -f $ZDOTDIR/.zshrc.local ]] && source $ZDOTDIR/.zshrc.local
