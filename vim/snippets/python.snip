@@ -45,6 +45,11 @@ options     head
 	class ${1:#:name}(${2:object}):
 		${0:pass}
 
+snippet     adef
+abbr        async def function():
+options     head
+	async def ${1:#:name}(${2})${3:None}:
+		${0:pass}
 
 snippet     de
 abbr        def function():
@@ -52,11 +57,18 @@ options     head
 	def ${1:#:name}(${2}) -> ${3:None}:
 		${0:pass}
 
-snippet     defi
-abbr        def __init__(self, ...):
-alias       di
+snippet     ade
+abbr        async def function():
+alias       ad
 options     head
-	def __init__(self, ${1:#:arg}) -> ${2:None}:
+	async def ${1:#:name}(${2}) -> ${3:None}:
+		${0:pass}
+
+snippet     init
+abbr        def __init__(self, ...):
+alias       ini
+options     head
+	def __init__(self, ${1:#:arg}) -> None:
 		${0:pass}
 
 snippet     dm
