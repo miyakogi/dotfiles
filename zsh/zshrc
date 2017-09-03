@@ -121,28 +121,23 @@ function _get_vcs_info() {
 SIMPLE_PROMPT_MODE=0
 function _update_lprompt() {
   [[ $SIMPLE_PROMPT_MODE = 1 ]] && PROMPT="$ " && return
-
-  local p_base_ok_ssh="%F{blue}%n@${HOST}%f"
-  local p_base_ng_ssh="%F{magenta}%n@${HOST}%f"
-  # local p_base_ng_ssh="%{[38;5;222m%}%n@${HOST}%{[m%}"
-
-  local p_cdir="%{[38;5;246m%}[%/]%{[m%}"
-  local p_cdir_ssh="%(?,$p_base_ok_ssh ,$p_base_ng_ssh )%(!,#,)%{[38;5;252m%}[%/]%{[m%}"
-  local p_err_mark="%{[38;5;124m%}✘ %{[m%}"
-  local p_cdir="$p_cdir%(?,,$p_err_mark)%(!,#,)"
-  local p_cdir_ssh="$p_cdir_ssh%(?,,$p_err_mark)%(!,#,)"
-
   local p_br=$'\n'
-  local p_mark_ok="%F{green}>>>%f"
-  local p_mark_ok_ssh="%F{blue}>>>%f"
-  local p_mark_ng="%F{yellow}>>>%f"
-  local p_mark_ng_ssh="%F{magenta}>>>%f"
-  local p_mark="%B%(?,$p_mark_ok,$p_mark_ng)%(!,#,)%b"
-  local p_mark_ssh="%B%(?,$p_mark_ok_ssh,$p_mark_ng_ssh)%(!,#,)%b"
-
   if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
+    local p_base_ok_ssh="%F{blue}%n@${HOST}%f"
+    local p_base_ng_ssh="%F{magenta}%n@${HOST}%f"
+    local p_cdir_ssh="%(?,$p_base_ok_ssh ,$p_base_ng_ssh )%(!,#,)%{[38;5;252m%}[%/]%{[m%}"
+    local p_cdir_ssh="$p_cdir_ssh%(?,,$p_err_mark)%(!,#,)"
+    local p_mark_ok_ssh="%F{blue}>>>%f"
+    local p_mark_ng_ssh="%F{magenta}>>>%f"
+    local p_mark_ssh="%B%(?,$p_mark_ok_ssh,$p_mark_ng_ssh)%(!,#,)%b"
     PROMPT="$p_br$p_cdir_ssh$p_br$p_mark_ssh "
   else
+    local p_cdir="%{[38;5;246m%}[%/]%{[m%}"
+    local p_err_mark="%{[38;5;124m%}✘ %{[m%}"
+    local p_cdir="$p_cdir%(?,,$p_err_mark)%(!,#,)"
+    local p_mark_ok="%F{green}>>>%f"
+    local p_mark_ng="%F{yellow}>>>%f"
+    local p_mark="%B%(?,$p_mark_ok,$p_mark_ng)%(!,#,)%b"
     PROMPT="$p_br$p_cdir$p_br$p_mark "
   fi
 }
