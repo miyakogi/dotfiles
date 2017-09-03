@@ -44,6 +44,7 @@ sdist/
 *.egg-info/
 .installed.cfg
 *.egg
+pip-selfcheck.json
 # Unit test / coverage reports
 .coverage
 .coverage.*
