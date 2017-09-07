@@ -68,9 +68,7 @@ alias tmux="tmux -2"
 alias mkdir="mkdir -p"
 alias ln="ln -v"  # verbose
 alias path='echo $PATH | tr -s ":" "\n"'  # pretty print path
-
-# python test
-alias pytest="py.test"
+alias gg='cd `echo ${PROJECT_ROOT:-$HOME}`'
 
 case "${OSTYPE}" in
 # Mac(Unix)
@@ -119,27 +117,50 @@ function _get_vcs_info() {
 ########## PROMPT ##########
 ### Normal PROMPT
 SIMPLE_PROMPT_MODE=0
+BR=$'\n'
+function _current_dir() {
+  python <<EOS
+import os
+from os import path
+cwd = os.path.abspath(os.path.curdir)
+home = os.getenv('HOME')
+if cwd.startswith(home):
+    print('~' + cwd[len(home):])
+else:
+    print(cwd)
+EOS
+}
+
 function _update_lprompt() {
   [[ $SIMPLE_PROMPT_MODE = 1 ]] && PROMPT="$ " && return
-  local p_br=$'\n'
-  if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
-    local p_base_ok_ssh="%F{blue}%n@${HOST}%f"
-    local p_base_ng_ssh="%F{magenta}%n@${HOST}%f"
-    local p_cdir_ssh="%(?,$p_base_ok_ssh ,$p_base_ng_ssh )%(!,#,)%{[38;5;252m%}[%/]%{[m%}"
-    local p_cdir_ssh="$p_cdir_ssh%(?,,$p_err_mark)%(!,#,)"
-    local p_mark_ok_ssh="%F{blue}>>>%f"
-    local p_mark_ng_ssh="%F{magenta}>>>%f"
-    local p_mark_ssh="%B%(?,$p_mark_ok_ssh,$p_mark_ng_ssh)%(!,#,)%b"
-    PROMPT="$p_br$p_cdir_ssh$p_br$p_mark_ssh "
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    local icon="🐍"
   else
-    local p_cdir="%{[38;5;246m%}[%/]%{[m%}"
-    local p_err_mark="%{[38;5;124m%}✘ %{[m%}"
-    local p_cdir="$p_cdir%(?,,$p_err_mark)%(!,#,)"
-    local p_mark_ok="%F{green}>>>%f"
-    local p_mark_ng="%F{yellow}>>>%f"
-    local p_mark="%B%(?,$p_mark_ok,$p_mark_ng)%(!,#,)%b"
-    PROMPT="$p_br$p_cdir$p_br$p_mark "
+    local icon="🐧"
   fi
+  local mark_base="└─➤ "
+  # local cdir="%{[38;5;246m%}[%/]%{[m%}"
+  local cdir="$(_current_dir)"
+  local err_mark="%{[38;5;124m%}✘ %{[m%}"
+  if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
+    local base_ok="%F{blue}%n@${HOST}%f"
+    local base_ng="%F{magenta}%n@${HOST}%f"
+    local cdir="%(?,$base_ok ,$base_ng )%(!,#,)$cdir"
+    local cdir="$cdir%(?,,$err_mark)%(!,#,)"
+    local mark_ok="%F{blue}$mark_base%f"
+    local mark_ng="%F{magenta}$mark_base%f"
+  else
+    local cdir="$cdir%(?,,$err_mark)%(!,#,)"
+    local mark_ok="%F{green}$mark_base%f"
+    local mark_ng="%F{yellow}$mark_base%f"
+  fi
+  # local mark="%B%(?,$mark_ok,$mark_ng)%(!,#,)%b"
+  local mark="%(?,$mark_ok,$mark_ng)%(!,#,)"
+  # local icon_color="%(?,%{[38;5;0m%}%{[48;5;2m%},%{[38;5;0m%}%{[43;2;2m%})"
+  local icon_color="%(?,%F{black}%K{green},%F{black}%K{yellow})"
+  # PS1="$BR$icon_color $icon %{[38;5;7m%}%{[48;5;8m%} $(_current_dir) %{[0m%}$BR$mark"
+  PS1="$BR$icon_color $icon %F{white}%{[48;5;008m%} $(_current_dir) %{[0m%}$BR$mark"
+  # PROMPT="$BR$cdir$BR$mark"
 }
 
 ### RPROMPT
@@ -162,8 +183,10 @@ function simple_prompt() {
 }
 
 ### Enable prompt
-add-zsh-hook precmd _update_rprompt
-_update_prompt
+add-zsh-hook precmd _update_prompt
+
+# powerline (python)
+# source $HOME/opt/python-3.6.2/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 ########## SYSTEM VARIABLES ##########
 # For vim
@@ -207,7 +230,7 @@ compdef _git_workflow_compl "git workflow"
 load_if_exists $HOME/.pythonz/etc/bashrc
 
 ### direnv
-which direnv > /dev/null && eval "$(direnv hook zsh)"
+# which direnv > /dev/null && eval "$(direnv hook zsh)"
 
 # とても遅い。。。
 # http://yagays.github.io/blog/2013/05/20/zaw-zsh/
@@ -281,13 +304,9 @@ else
   bindkey '^J' myjump
 fi
 
-function gg() {
-  # go to project root or home
-  cd ${PROJECT_ROOT:-$HOME}
-}
-
 ### Python Virtualenv Control ###
 
+export WORKON_HOME=$HOME/.virtualenvs
 function workon() {
   [[ ! $1 ]] && echo "Need venv name." && return 1
   local vdir=${PYVENV_DIR:-$HOME/.pyvenv}/$1
