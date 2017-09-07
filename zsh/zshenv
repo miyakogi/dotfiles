@@ -9,6 +9,7 @@
 # zsh default directory
 export ZDOTDIR=$HOME/.zsh
 export EDITOR=vim
+export TERM="xterm-256color"
 
 # go
 export GOROOT=/usr/local/go
@@ -20,11 +21,11 @@ export PATH=$HOME/.nimble/bin:$PATH
 # rust
 export PATH=$HOME/.cargo/bin:$PATH
 
-# load machine local profile
-[[ -f .zshenv.local ]] && source .zshenv.local
-
 # Project setting
 export PROJECT_HOME=$HOME/Projects
 export PYVENV_DIR=$HOME/.pyvenv
+
+# load machine local profile
+[[ -f .zshenv.local ]] && source .zshenv.local
 
 # vim: sw=2 et
