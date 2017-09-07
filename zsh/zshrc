@@ -91,13 +91,13 @@ alias push="git push origin"
 # http://qiita.com/mollifier/items/8d5a627d773758dd8078
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' max-exports 3
-zstyle ':vcs_info:*' enable git hg
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats '%c%u %s:%b│%r'
 zstyle ':vcs_info:*' actionformats '%c%u %s:%b %m <!%a>'
 zstyle ':vcs_info:*' unstagedstr '?'
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:hg:*' check-for-changes true
+# zstyle ':vcs_info:hg:*' check-for-changes true
 
 function _get_vcs_info() {
   # vcs_info で何も取得していない場合はプロンプトを表示しない
@@ -118,18 +118,6 @@ function _get_vcs_info() {
 ### Normal PROMPT
 SIMPLE_PROMPT_MODE=0
 BR=$'\n'
-function _current_dir() {
-  python <<EOS
-import os
-from os import path
-cwd = os.path.abspath(os.path.curdir)
-home = os.getenv('HOME')
-if cwd.startswith(home):
-    print('~' + cwd[len(home):])
-else:
-    print(cwd)
-EOS
-}
 
 function _update_lprompt() {
   [[ $SIMPLE_PROMPT_MODE = 1 ]] && PROMPT="$ " && return
@@ -139,8 +127,6 @@ function _update_lprompt() {
     local icon="🐧"
   fi
   local mark_base="└─➤ "
-  # local cdir="%{[38;5;246m%}[%/]%{[m%}"
-  local cdir="$(_current_dir)"
   local err_mark="%{[38;5;124m%}✘ %{[m%}"
   if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
     local base_ok="%F{blue}%n@${HOST}%f"
@@ -154,20 +140,19 @@ function _update_lprompt() {
     local mark_ok="%F{green}$mark_base%f"
     local mark_ng="%F{yellow}$mark_base%f"
   fi
-  # local mark="%B%(?,$mark_ok,$mark_ng)%(!,#,)%b"
   local mark="%(?,$mark_ok,$mark_ng)%(!,#,)"
-  # local icon_color="%(?,%{[38;5;0m%}%{[48;5;2m%},%{[38;5;0m%}%{[43;2;2m%})"
   local icon_color="%(?,%F{black}%K{green},%F{black}%K{yellow})"
-  # PS1="$BR$icon_color $icon %{[38;5;7m%}%{[48;5;8m%} $(_current_dir) %{[0m%}$BR$mark"
-  PS1="$BR$icon_color $icon %F{white}%{[48;5;008m%} $(_current_dir) %{[0m%}$BR$mark"
-  # PROMPT="$BR$cdir$BR$mark"
+  PROMPT="$BR$icon_color $icon %F{white}%{[48;5;008m%} %~ %{[0m%}%f%k$BR$mark"
 }
 
 ### RPROMPT
 # Delete RPROMPT after commands
 setopt transient_rprompt
+
 function _update_rprompt() {
   [[ $SIMPLE_PROMPT_MODE = 1 ]] && RPROMPT="" && return
+  local _git=`git name-rev 2>/dev/null`
+  [[ ! -n _git ]] && RPROMPT="" && return
   LANG=en_US.UTF-8 vcs_info
   RPROMPT=`_get_vcs_info`
 }
@@ -179,7 +164,10 @@ function _update_prompt() {
 
 function simple_prompt() {
   SIMPLE_PROMPT_MODE=1
-  _update_prompt
+}
+
+function fancy_prompt() {
+  SIMPLE_PROMPT_MODE=0
 }
 
 ### Enable prompt
