@@ -126,6 +126,9 @@ function _update_lprompt() {
   else
     local icon="🐧"
   fi
+  if [[ $OSTYPE = darwin* ]]; then
+    icon="${icon} "
+  fi
   local mark_base="└─➤ "
   local err_mark="%{[38;5;124m%}✘ %{[m%}"
   if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
