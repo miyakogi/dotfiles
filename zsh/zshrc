@@ -92,7 +92,7 @@ alias push="git push origin"
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' max-exports 3
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' formats '%c%u %s:%b│%r'
+zstyle ':vcs_info:*' formats '%c%u %s:%b │%r'
 zstyle ':vcs_info:*' actionformats '%c%u %s:%b %m <!%a>'
 zstyle ':vcs_info:*' unstagedstr '?'
 zstyle ':vcs_info:*' stagedstr '+'
@@ -121,31 +121,33 @@ BR=$'\n'
 
 function _update_lprompt() {
   [[ $SIMPLE_PROMPT_MODE = 1 ]] && PROMPT="$ " && return
+
   if [[ -n "$VIRTUAL_ENV" ]]; then
+    local icon=$'\ue235 '
     local icon="🐍"
+    if [[ $OSTYPE = darwin* ]]; then
+      local icon="${icon} "
+    fi
+    local icon="$icon"$'\ue621'"$(basename $VIRTUAL_ENV) "
   else
     local icon="🐧"
+    local icon=$'\uf17c '
   fi
-  if [[ $OSTYPE = darwin* ]]; then
-    icon="${icon} "
-  fi
-  local mark_base="└─➤ "
-  local err_mark="%{[38;5;124m%}✘ %{[m%}"
   if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
-    local base_ok="%F{blue}%n@${HOST}%f"
-    local base_ng="%F{magenta}%n@${HOST}%f"
-    local cdir="%(?,$base_ok ,$base_ng )%(!,#,)$cdir"
-    local cdir="$cdir%(?,,$err_mark)%(!,#,)"
-    local mark_ok="%F{blue}$mark_base%f"
-    local mark_ng="%F{magenta}$mark_base%f"
-  else
-    local cdir="$cdir%(?,,$err_mark)%(!,#,)"
-    local mark_ok="%F{green}$mark_base%f"
-    local mark_ng="%F{yellow}$mark_base%f"
+    local icon=$'\uf023 '"$icon "
   fi
+
+  local mark_base="└─➤ "
+  local mark_ok="%F{green}$mark_base%f"
+  local mark_ng="%F{yellow}$mark_base%f"
+  local err_mark="%{[38;5;124m%}✘ %{[m%}"
+
   local mark="%(?,$mark_ok,$mark_ng)%(!,#,)"
-  local icon_color="%(?,%F{black}%K{green},%F{black}%K{yellow})"
-  PROMPT="$BR$icon_color $icon %F{white}%{[48;5;008m%} %~ %{[0m%}%f%k$BR$mark"
+  local icon_color="%{[38;5;016m%}%(?,%K{green},%K{yellow})"
+  local icon_dash="%{[48;5;016m%}%(?,%F{green},%F{yellow})"$'\ue0b8  '
+  local endmark="%{[38;5;016m%}"$'\ue0c8  '"%{[0m%}"
+  local endmark=""
+  PROMPT="$BR$icon_color $icon$icon_dash%F{white}%~ %f%k$endmark$BR$mark"
 }
 
 ### RPROMPT
