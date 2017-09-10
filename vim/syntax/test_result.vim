@@ -27,21 +27,23 @@ syntax match TestSeparatorBold   /\v^\-+$/
 syntax match GreenResultOK    /\v^OK/
 syntax match GreenResultFail  /\v^FAILED/
 
+highlight TestFailure guifg=#ff0000 ctermfg=15 gui=bold cterm=bold
+
 highlight GreenOK    guifg=#aeee00 ctermfg=154
-highlight link GreenError ErrorMsg
+highlight link GreenError TestFailure
 highlight GreenSkip  guifg=#87afff ctermfg=111
 highlight GreenXPass guifg=#ffd700 ctermfg=220
 highlight link GreenErrorLine WarningMsg
 
-highlight link UnittestErrorLine ErrorMsg
-highlight link UnittestFailLine ErrorMsg
+highlight link UnittestErrorLine TestFailure
+highlight link UnittestFailLine TestFailure
 
 highlight link GreenDotOK     GreenOK
 highlight link GreenDotError  GreenError
 highlight link GreenDotSkip   GreenSkip
 highlight link GreenDotXPass  GreenXPass
 
-highlight link TestSeparator ErrorMsg
+highlight link TestSeparator TestFailure
 highlight TestSeparatorBold guifg=#777777
 
 highlight link GreenResultOK   GreenOK

@@ -47,7 +47,6 @@ let g:loaded_rrhelper = 1
 let g:loaded_tarPlugin = 1
 let g:loaded_vimballPlugin = 1
 let g:loaded_zipPlugin = 1
-" let g:MyColorScheme = 'caffe'
 let g:MyColorScheme = 'trueCaffe'
 "}}}
 
@@ -506,6 +505,8 @@ endfunction
 if !has('gui_running')
   " True color support!!!
   if has('termguicolors')
+    set t_8f=[38;2;%lu;%lu;%lum
+    set t_8b=[48;2;%lu;%lu;%lum
     set termguicolors
   endif
   set t_Co=256
@@ -782,15 +783,21 @@ let g:quickrun_config['_'] = {
 " ======== python ========
 let g:quickrun_config['pytest'] = {
       \ 'command': 'py.test',
-      \ 'runmode': 'async:remote:vimproc',
-      \ 'outputter/buffer/filetype': 'pytest_result',
+      \ 'cmdopt': '-q',
+      \ 'outputter/buffer/filetype': 'test_result',
       \ 'hook/shebang/enable': 0,
       \ }
 let g:quickrun_config['py.test'] = g:quickrun_config['pytest']  " not copy, just an alias
+let g:quickrun_config['nose'] = {
+      \ 'command': 'nosetests',
+      \ 'cmdopt': '--nologcapture',
+      \ 'outputter/buffer/filetype': 'test_result',
+      \ 'hook/shebang/enable': 0,
+      \ }
 let g:quickrun_config['python_unittest'] = {
       \ 'command': 'python',
-      \ 'cmdopt': '-W ignore:*:ResourceWarning -m unittest',
-      \ 'exec': '%c %o %s:t',
+      \ 'cmdopt': '-W ignore:*:ResourceWarning -m unittest discover -t \${PROJECT_ROOT:-.}',
+      \ 'exec': '%c %o -p %s:t',
       \ 'outputter/buffer/filetype': 'test_result',
       \ 'hook/shebang/enable': 0,
       \ }
