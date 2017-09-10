@@ -19,10 +19,10 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 " Drop fold if it set but vim doesn't support it.
-syn clear javaScriptLabel
-syn clear javaScriptBranch
-syn clear javaScriptExceptions
-syn clear javaScriptIdentifier
+" syn clear javaScriptLabel
+" syn clear javaScriptBranch
+" syn clear javaScriptExceptions
+" syn clear javaScriptIdentifier
 syn keyword javaScriptConditional	if else switch case default
 syn keyword javaScriptType		Array Boolean Date Function Number Object String RegExp
 syn keyword javaScriptStatement		return with break continue var try catch finally
