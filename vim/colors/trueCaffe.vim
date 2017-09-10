@@ -24,8 +24,8 @@ let s:palette = {
     \ 'yellow1':    ['#ffd75f', 221],
     \ 'orange':     ['#ffb000', 214],
     \ 'lime':       ['#afff00', 154],
-    \ 'pink':       ['#ff97bf', 211],
-    \ 'flesh':      ['#fae3b2', 223],
+    \ 'pink':       ['#ff69b4', 211],
+    \ 'flesh':      ['#fae3b2',  11],
     \ 'lightbrown': ['#af875f', 137],
     \ 'coffee':     ['#d7875f', 173],
     \ 'darkbrown':  ['#875f5f',  95],
@@ -35,7 +35,8 @@ let s:palette = {
 
 call colors#set_palette(s:palette)
 
-call colors#hl('Normal', 'front', 'back')
+let s:back = has('gui_running') ? 'back' : 'NONE'
+call colors#hl('Normal', 'front', s:back)
 
 " Informations (StatusLine & TabLine) {{{
 call colors#hl('StatusLine',   'front', 'base01', 'none')  " status line, bold/reverse by default
@@ -46,12 +47,13 @@ call colors#hl('TabLineFill', 'base1', 'base1')  " tab-background
 "}}}
 
 " Vertical lines are same color as background status line
-call colors#hl('VertSplit', 'base01', 'back', 'none')
+call colors#hl('VertSplit', 'base01', s:back, 'none')
 highlight! link ColorColumn TabLineSel
 
 " Elements on vertical separator
 " Order: VertSplit | FoldColumn | SignColumn | LineNr
-call colors#hl('LineNr', 'base00', 'gray2')
+let s:line_back = has('gui_running') ? 'gray2' : 'NONE'
+call colors#hl('LineNr', 'base00', s:line_back)
 highlight! link SignColumn LineNr
 highlight! link FoldColumn LineNr
 
@@ -59,7 +61,7 @@ call colors#hl('CursorLine', '', 'gray1', 'none')
 call colors#hl('CursorColumn', '', 'gray1')
 
 " NonText, Folds, and Comments are gray
-call colors#hl('NonText', 'base00', 'back', 'none')
+call colors#hl('NonText', 'base00', s:back, 'none')
 highlight! link SpecialKey NonText
 highlight! link Folded NonText
 call colors#hl('Comment', 'gray16')  " comments are brighter
@@ -124,7 +126,7 @@ call colors#hl('PreProc',   'yellow',  '', 'none')
 " call colors#hl('Define',    'yellow',  '', 'none')
 call colors#hl('PreCondit', 'yellow',  '', 'bold')
 
-call colors#hl('Constant',  'lightbrown', '', 'none')
+call colors#hl('Constant',  'pink', '', 'none')
 call colors#hl('Character', 'lightbrown', '', 'bold')
 call colors#hl('Boolean',   'lightbrown', '', 'bold')
 
@@ -132,7 +134,7 @@ call colors#hl('Boolean',   'lightbrown', '', 'bold')
 call colors#hl('SpecialChar', 'pink', '', 'bold')
 
 call colors#hl('Type', 'pink', '', 'none')
-call colors#hl('StorageClass', 'coffee', '', 'none')
+call colors#hl('StorageClass', 'purple', '', 'none')
 call colors#hl('Structure', 'coffee', '', 'none')
 call colors#hl('Typedef', 'coffee', '', 'bold')
 
