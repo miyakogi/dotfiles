@@ -5,6 +5,9 @@
 " ======== ColorScheme ========
 " Enable colorscheme
 function! s:enable_colorscheme(...) abort
+  if !&termguicolors && exists(':SeiyaEnable')
+    SeiyaEnable
+  endif
   syntax enable
   if has_key(g:, 'MyColorScheme')
     execute 'colorscheme ' . g:MyColorScheme
@@ -319,6 +322,14 @@ if exists(':AsynCheck')
   nnoremap <Leader><Leader> :<C-u>AsynCheck<CR>
 endif
 "}}}
+
+" ======== LiveMark ========
+if exists(':LiveMarkBrowserMode')
+  autocmd myvimrc FileType markdown nnoremap <buffer><nowait> <C-g> :LiveMarkBrowserMode<CR>
+  if &filetype ==? 'markdown'
+    nnoremap <buffer><nowait> <C-g> :LiveMarkBrowserMode<CR>
+  endif
+endif
 "}}}
 
 " ============================================
