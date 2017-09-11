@@ -39,7 +39,7 @@ inoremap <buffer> <C-l> <C-g>u<Space>-><Space>
 " These functions should move to filtype specific settings later
 let s:initialized = 0
 function! s:init() abort
-  function! s:phthon_cmd() abort
+  function! s:python_cmd() abort
     if getline(1) =~? 'py\.test'
       return executable('py.test') ? 'py.test' : 'python'
     elseif expand('%:t') =~? 'test_'
@@ -51,9 +51,7 @@ function! s:init() abort
 
   function! s:python_shell() abort
     let first_line = getline(1)
-    if s:phthon_cmd()
-      let cmd = 'py.test'
-    elseif first_line =~# '^#!' && executable(first_line[2:])
+    if first_line =~# '^#!' && executable(first_line[2:])
       let cmd =  first_line[2:]
     else
       let cmd = executable('python3') ? 'python3' : 'python'
@@ -64,7 +62,7 @@ function! s:init() abort
 
   function! s:quickrun_py() abort
     if exists(':QuickRun')
-      execute 'QuickRun ' . s:phthon_cmd()
+      execute 'QuickRun ' . s:python_cmd()
     else
       call s:python_shell()
     endif
