@@ -40,7 +40,8 @@ export CLICOLOR=true
 
 ########## COMPLETION ##########
 # http://d.hatena.ne.jp/oovu70/20120405/p1
-autoload -Uz compinit && compinit -C
+# may not need when use zsh-completions plugin
+# autoload -Uz compinit && compinit -C
 setopt list_packed
 setopt list_types
 
@@ -212,13 +213,6 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
-### git workflow completion
-function _git_workflow_compl {
-  echo $1
-  echo $2
-}
-compdef _git_workflow_compl "git workflow"
-
 ### PythonZ
 load_if_exists $HOME/.pythonz/etc/bashrc
 
@@ -235,16 +229,8 @@ load_if_exists $HOME/.pythonz/etc/bashrc
 # zstyle ':completion:*' recent-dirs-insert both
 export HIST_DIRS_FILE=$HOME/.histdir
 export HIST_DIRS_MAX=5000
-
-if which rireki > /dev/null 2>&1 && rireki status > /dev/null 2>&1; then
-  # echo "use rireki server"
-  function cdhist() {
-    pwd >> $HIST_DIRS_FILE
-  }
-else
-  # echo "rireki server is not running"
-  function cdhist() {
-    python << EOS
+function cdhist() {
+  python << EOS
 from os import path
 curdir = path.abspath('.') + '\n'
 if path.isfile('${HIST_DIRS_FILE}'):
@@ -259,8 +245,6 @@ if path.isfile('${HIST_DIRS_FILE}'):
         f.write(''.join(lines))
 EOS
 }
-fi
-
 add-zsh-hook chpwd cdhist
 
 ### percol
