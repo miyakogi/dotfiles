@@ -108,11 +108,11 @@ function _get_vcs_info() {
   # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
   # それぞれ緑、黄色、赤で表示する
   local -a messages
-  [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{cyan}${vcs_info_msg_0_}%f" )
+  [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%{[38;5;250m%}${vcs_info_msg_0_}%f" )
   [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
   [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
-  # 間にスペースを入れて連結して標準出録へ
-  echo -n "${messages[*]}"
+  # 間にスペースを入れて連結して標準出力へ
+  echo -n "%{[38;5;016m%}"$'\ue0ba '"%{[48;5;016m%} ${messages[*]} %{[0m%}"
 }
 
 ########## PROMPT ##########
@@ -148,7 +148,7 @@ function _update_lprompt() {
   local icon_dash="%{[48;5;016m%}%(?,%F{green},%F{yellow})"$'\ue0b8  '
   local endmark="%{[38;5;016m%}"$'\ue0c8  '"%{[0m%}"
   local endmark=""
-  PROMPT="$BR$icon_color $icon$icon_dash%F{white}%~ %f%k$endmark$BR$mark"
+  PROMPT="$BR$icon_color $icon$icon_dash%{[38;5;250m%}%~ %k$endmark$BR$mark"
 }
 
 ### RPROMPT
