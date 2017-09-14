@@ -44,6 +44,7 @@
       "leafgarland/typescript-vim",
       "rust-lang/rust.vim",
       "racer-rust/vim-racer",
+      "udalov/kotlin-vim",
       "miyakogi/conoline.vim",
       "miyakogi/sidepanel.vim",
       "miyakogi/seiya.vim",
