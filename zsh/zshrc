@@ -325,41 +325,13 @@ function mkpjpy() {
   # make new project by cookiecutter
   echo "### Create project directory by cookiecutter ###"
   local cookierc=${HOME}/.cookiecutterrc
-  cookiecutter -v --config-file ${cookierc} --no-input -o ${pjdir_root} \
-    https://github.com/miyakogi/cookiecutter-python \
+  cookiecutter --config-file ${cookierc} --no-input -o ${pjdir_root} cookiecutter-python \
     project_name=${1} project_slug=${1} \
     project_short_description="short description for this project" \
     version="0.0.1" license="MIT license"
+
   [[ ! -e $pjdir ]] && echo "Failed to make new project." && return 1
-
-  # make new venv
-  cat << EOF
-
-### Preparing new venv (${1}) with `python -c "import sys;print(sys.executable)"` ###
-EOF
-  python -m venv ${pjdir}
-  [[ ! -e ${pjdir}/bin/activate ]] && echo "Activation script not exists." && return 1
-
-  # authorize new script
-  if which _autoenv_authorize > /dev/null 2>&1; then
-    _autoenv_authorize $pjdir/.autoenv.zsh && _autoenv_authorize $pjdir/.autoenv_leave.zsh
-  else
-    echo "Failed to automatically authorize autoenv script." && return 1
-  fi
-
-  # activate new env, hook autoenv chpwd handler
   cd $pjdir
-  which _autoenv_chpwd_handler > /dev/null 2>&1 && _autoenv_chpwd_handler
-  echo "\n### Update pip and setuptools on venv ###"
-  $pjdir/bin/python -m pip install -U pip setuptools
-  echo "\n### Install jedi and ptpython on venv ###"
-  $pjdir/bin/python -m pip install -U jedi ptpython pygments_style_railscasts
-  echo "\n### Install dev-requirements on venv ###"
-  $pjdir/bin/python -m pip install -r $pjdir/requirements-dev.txt
-
-  # initialize git repo
-  echo "\n### Initialize git repository ###"
-  git init
 }
 
 function rmvenv() {
