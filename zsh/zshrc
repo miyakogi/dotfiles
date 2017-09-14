@@ -86,34 +86,6 @@ alias ls="ls $LS_OPTIONS"
 alias gstatus="git status -s -b"
 alias pull="git pull"
 alias push="git push origin"
-# http://qiita.com/syui/items/ed2d36698a5cc314557d
-
-######### VCS information ###########
-# http://qiita.com/mollifier/items/8d5a627d773758dd8078
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' max-exports 3
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' formats '%c%u %s:%b │%r'
-zstyle ':vcs_info:*' actionformats '%c%u %s:%b %m <!%a>'
-zstyle ':vcs_info:*' unstagedstr '?'
-zstyle ':vcs_info:*' stagedstr '+'
-zstyle ':vcs_info:git:*' check-for-changes true
-# zstyle ':vcs_info:hg:*' check-for-changes true
-
-function _get_vcs_info() {
-  # vcs_info で何も取得していない場合はプロンプトを表示しない
-  [[ -z ${vcs_info_msg_0_} ]] && return 0
-
-  # vcs_info で情報を取得した場合
-  # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
-  # それぞれ緑、黄色、赤で表示する
-  local -a messages
-  [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%{[38;5;250m%}${vcs_info_msg_0_}%f" )
-  [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
-  [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
-  # 間にスペースを入れて連結して標準出力へ
-  echo -n "%{[38;5;016m%}"$'\ue0ba '"%{[48;5;016m%} ${messages[*]} %{[0m%}"
-}
 
 ########## PROMPT ##########
 ### Normal PROMPT
@@ -141,27 +113,71 @@ function _update_lprompt() {
   local mark_base="└─➤ "
   local mark_ok="%F{green}$mark_base%f"
   local mark_ng="%F{yellow}$mark_base%f"
-  local err_mark="%{[38;5;124m%}✘ %{[m%}"
 
   local mark="%(?,$mark_ok,$mark_ng)%(!,#,)"
-  local icon_color="%{[38;5;016m%}%(?,%K{green},%K{yellow})"
-  local icon_dash="%{[48;5;016m%}%(?,%F{green},%F{yellow})"$'\ue0b8  '
-  local endmark="%{[38;5;016m%}"$'\ue0c8  '"%{[0m%}"
-  local endmark=""
-  PROMPT="$BR$icon_color $icon$icon_dash%{[38;5;250m%}%~ %k$endmark$BR$mark"
+  local icon_color="%F{16}%(?,%K{green},%K{yellow})"
+  local icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8  '
+  PROMPT="$BR$icon_color $icon$icon_dash%F{250}%~ %k$BR$mark"
 }
 
 ### RPROMPT
-# Delete RPROMPT after commands
-setopt transient_rprompt
+# get vcs info
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' max-exports 3
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' formats "%u%c %s:%b │%r"
+zstyle ':vcs_info:*' actionformats "%u%c %s:%b%F{198} %m <!%a>"
+zstyle ':vcs_info:*' unstagedstr "%F{214}?"
+zstyle ':vcs_info:*' stagedstr "%F{087}+"
+zstyle ':vcs_info:git:*' check-for-changes true
+# zstyle ':vcs_info:hg:*' check-for-changes true
+
+function _get_vcs_info() {
+  # vcs_info で何も取得していない場合はプロンプトを表示しない
+  [[ -z ${vcs_info_msg_0_} ]] && return 0
+
+  # vcs_info で情報を取得した場合
+  # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
+  # それぞれ表示する
+  local -a messages
+  [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{white}${vcs_info_msg_0_}" )
+  [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}" )
+  [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}" )
+  # 間にスペースを入れて連結して標準出力へ
+  echo -n ${messages[*]}
+}
+
+function _get_time() {
+  local time=`date "+%H:%M:%S"$'\ue621'"%Y/%m/%d"`
+  echo "$time"
+}
 
 function _update_rprompt() {
   [[ $SIMPLE_PROMPT_MODE = 1 ]] && RPROMPT="" && return
-  local _git=`git name-rev 2>/dev/null`
-  [[ ! -n _git ]] && RPROMPT="" && return
   LANG=en_US.UTF-8 vcs_info
-  RPROMPT=`_get_vcs_info`
+  local gitinfo=`_get_vcs_info`
+  if [[ -n ${gitinfo} ]]; then
+    local rinfo=${gitinfo}
+  else
+    local rinfo="%F{250}`_get_time`"
+  fi
+  RPROMPT="%F{016}"$'\ue0ba '"%K{016} ${rinfo} %f%k"
 }
+
+# Delete RPROMPT after commands
+# setopt transient_rprompt
+function _reupdate_rprompt() {
+  if [[ $SIMPLE_PROMPT_MODE = 1 ]]; then
+    # cannot early return
+    RPROMPT=""
+  else
+    RPROMPT="%F{234}"$'\ue0ba '"%F{246}%K{234} `_get_time` %f%k"
+  fi
+  zle .accept-line
+  zle .reset-prompt
+}
+# show datetime at old line
+zle -N accept-line _reupdate_rprompt
 
 function _update_prompt() {
   _update_lprompt
@@ -285,7 +301,7 @@ fi
 
 export WORKON_HOME=$HOME/.virtualenvs
 function workon() {
-  [[ ! $1 ]] && echo "Need venv name." && return 1
+  [[ -z $1 ]] && echo "Need venv name." && return 1
   local vdir=${PYVENV_DIR:-$HOME/.pyvenv}/$1
   [[ ! -e $vdir ]] && echo "Venv ($1) not exists." && return 1
   local activate_file=$vdir/bin/activate
@@ -294,7 +310,7 @@ function workon() {
 }
 
 function mkvenv() {
-  [[ ! $1 ]] && echo "Need venv name." && return 1
+  [[ -z $1 ]] && echo "Need venv name." && return 1
   local vdir=${PYVENV_DIR:-$HOME/.pyvenv}/$1
   [[ -e $vdir ]] && echo "Target venv ${vdir} already exists." && return 1
 
@@ -317,7 +333,7 @@ EOF
 }
 
 function mkpjpy() {
-  [[ ! $1 ]] && echo "Need project name." && return 1
+  [[ -z $1 ]] && echo "Need project name." && return 1
   local pjdir_root=${PROJECT_HOME:-$HOME/Project}
   local pjdir=${pjdir_root}/$1
   [[ -e $pjdir ]] && echo "Target project ${pjdir} already exists." && return 1
@@ -335,7 +351,7 @@ function mkpjpy() {
 }
 
 function rmvenv() {
-  [[ ! -n "$1" ]] && echo "arguments required." && return 1
+  [[ -z "$1" ]] && echo "arguments required." && return 1
   local vdir=$PYVENV_DIR/$1
   [[ ! -e $vdir ]] && echo "No such venv: $1 ($vdir)" && return 1
   echo -n "    Removing $vdir ......... "
