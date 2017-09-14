@@ -635,7 +635,7 @@ let g:vimfiler_as_default_explorer = 1
 
 " ======== Signify ======== {{{
 let g:signify_sign_overwrite=1
-let g:signify_vcs_list = ['git', 'hg']
+let g:signify_vcs_list = ['git']
 if has('gui_running')
   " let g:signify_sign_add = '✚'
   " let g:signify_sign_change = '✔'
