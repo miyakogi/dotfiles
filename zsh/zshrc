@@ -116,7 +116,8 @@ function _update_lprompt() {
 
   local mark="%(?,$mark_ok,$mark_ng)%(!,#,)"
   local icon_color="%F{16}%(?,%K{green},%K{yellow})"
-  local icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8  '
+  # local icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8 '
+  local icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
   PROMPT="$BR$icon_color $icon$icon_dash%F{250}%~ %k$BR$mark"
 }
 
@@ -161,7 +162,8 @@ function _update_rprompt() {
   else
     local rinfo="%F{250}`_get_time`"
   fi
-  RPROMPT="%F{016}"$'\ue0ba '"%K{016} ${rinfo} %f%k"
+  # RPROMPT="%F{016}"$'\ue0b2'"%K{016} ${rinfo} %f%k"
+  RPROMPT="%K{016} ${rinfo} %f%k"
 }
 
 # Delete RPROMPT after commands
@@ -171,7 +173,8 @@ function _reupdate_rprompt() {
     # cannot early return
     RPROMPT=""
   else
-    RPROMPT="%F{234}"$'\ue0ba '"%F{246}%K{234} `_get_time` %f%k"
+    # RPROMPT="%F{234}"$'\ue0b2'"%F{246}%K{234} `_get_time` %f%k"
+    RPROMPT="%F{246}%K{234} `_get_time` %f%k"
   fi
   zle .accept-line
   zle .reset-prompt
