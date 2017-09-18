@@ -177,8 +177,8 @@ call colors#hl('gitcommitSummary', 'orange')
 "}}}
 " ======== HTML ======== {{{
 " Punctuation
-call colors#hl('htmlTag',    'darkbrown', 'back', 'none')
-call colors#hl('htmlEndTag', 'darkbrown', 'back', 'none')
+call colors#hl('htmlTag',    'darkbrown', '', 'none')
+call colors#hl('htmlEndTag', 'darkbrown', '', 'none')
 " Tag names
 call colors#hl('htmlTagName', 'coffee', '', 'bold')
 call colors#hl('htmlSpecialTagName', 'coffee', '', 'bold')
