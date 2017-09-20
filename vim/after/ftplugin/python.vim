@@ -40,12 +40,20 @@ inoremap <buffer> <C-l> <C-g>u<Space>-><Space>
 let s:initialized = 0
 function! s:init() abort
   function! s:python_cmd() abort
-    if getline(1) =~? 'py\.test'
-      return executable('py.test') ? 'py.test' : 'python'
-    elseif expand('%:t') =~? 'test_'
-      return 'nose'
-    else
+    if expand('%:t') !~? 'test_'
       return 'python'
+    endif
+
+    if $VIM_TEST_RUNNER ==# 'unittest'
+      return 'python_unittest'
+    elseif $VIM_TEST_RUNNER ==# 'green'
+      return 'green'
+    elseif $VIM_TEST_RUNNER ==# 'nose'
+      return 'nose'
+    elseif $VIM_TEST_RUNNER ==# 'pytest'
+      return 'pytest'
+    else
+      return 'python_unittest'
     endif
   endfunction
 
