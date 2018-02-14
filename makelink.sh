@@ -29,6 +29,7 @@ git_clone () {
 # --- Make Directories ---
 makedir_if_not_exists $HOME/.vim
 makedir_if_not_exists $HOME/.vim/backup
+makedir_if_not_exists $HOME/.vim/doc
 makedir_if_not_exists $HOME/.vim/pack
 makedir_if_not_exists $HOME/.vim/pack/remote
 makedir_if_not_exists $HOME/.config
