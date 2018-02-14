@@ -41,7 +41,7 @@ export CLICOLOR=true
 ########## COMPLETION ##########
 # http://d.hatena.ne.jp/oovu70/20120405/p1
 # may not need when use zsh-completions plugin
-# autoload -Uz compinit && compinit -C
+autoload -Uz compinit && compinit -C
 setopt list_packed
 setopt list_types
 
