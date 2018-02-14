@@ -41,6 +41,10 @@ if [ -e /etc/lsb-release ]; then
   export PATH=$HOME/opt/node/bin:$PATH
 fi
 
+# npm
+export PATH=$HOME/.node_modules/bin:$PATH
+export npm_config_prefix=~/.node_modules
+
 # load machine local profile
 [[ -f .zshenv.local ]] && source .zshenv.local
 
