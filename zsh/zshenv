@@ -11,19 +11,35 @@ export ZDOTDIR=$HOME/.zsh
 export EDITOR=vim
 export TERM="xterm-256color"
 
-# go
-export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
-# nim
-export PATH=$HOME/.nimble/bin:$PATH
-# rust
-export PATH=$HOME/.cargo/bin:$PATH
-
 # Project setting
 export PROJECT_HOME=$HOME/Projects
 export PYVENV_DIR=$HOME/.pyvenv
+
+if [ -e /etc/lsb-release ]; then
+  # ubuntu specific binaries
+  export PATH=$HOME/bin/ubuntu:$PATH
+
+  # ubuntu local builds
+  export PATH=$HOME/usr/bin:$PATH
+
+  # go
+  export GOROOT=/usr/local/go
+  export PATH=$PATH:$GOROOT/bin
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOPATH/bin
+
+  # nim
+  export PATH=$HOME/.nimble/bin:$PATH
+
+  # rust
+  export PATH=$HOME/.cargo/bin:$PATH
+  if type rustc > /dev/null 2>&1; then
+    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+  fi
+
+  # node
+  export PATH=$HOME/opt/node/bin:$PATH
+fi
 
 # load machine local profile
 [[ -f .zshenv.local ]] && source .zshenv.local

@@ -22,7 +22,6 @@ export LANGUAGE=en_US.UTF-8
 
 export PATH=$PATH:/sbin
 export PATH=$HOME/bin:$PATH
-export PATH=$HOME/usr/bin:$PATH
 
 if [ -f $HOME/.profile.local ]; then
   source $HOME/.profile.local
