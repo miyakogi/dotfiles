@@ -7,7 +7,7 @@ make distclean
 	--with-features=big \
 	--enable-multibyte \
 	--enable-terminal \
-	--enable-gui=gtk2 \
+	--enable-gui=gtk3 \
 	--enable-pythoninterp=dynamic \
 	--with-python-cofig-dir=/home/takagi/Application/python2.7.11/lib/python2.7/config \
 	--enable-python3interp=dynamic \
