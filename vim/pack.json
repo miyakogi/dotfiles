@@ -28,6 +28,7 @@
       "kien/rainbow_parentheses.vim",
       "Yggdroot/indentLine",
       "thinca/vim-quickrun",
+      "w0rp/ale",
       "cohama/vim-hier",
       "KazuakiM/vim-qfstatusline",
       "osyo-manga/unite-quickfix",
@@ -50,9 +51,8 @@
       "miyakogi/seiya.vim",
       "miyakogi/slateblue.vim",
       "miyakogi/badwolf",
-      "w0rp/ale",
-      "morhetz/gruvbox",
-      "mattn/vim-fz"
+      "joshdick/onedark.vim",
+      "morhetz/gruvbox"
     ]
   },
   "opt": {
