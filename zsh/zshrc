@@ -304,7 +304,14 @@ else
 fi
 
 ### Python Virtualenv Control ###
-export WORKON_HOME=$HOME/.virtualenvs
+if [ -e /etc/lsb-release ]; then
+  export VIRTUALWRAPPER_SCRIPT=$HOME/opt/python-3.6.2/bin/virtualenvwrapper.sh
+  load_if_exists $HOME/opt/python-3.6.2/bin/virtualenvwrapper_lazy.sh
+else
+  export VIRTUALWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+  load_if_exists /usr/bin/virtualenvwrapper_lazy.sh
+fi
+
 function mkpjpy() {
   [[ -z $1 ]] && echo "Need project name." && return 1
   local pjdir_root=${PROJECT_HOME:-$HOME/Project}

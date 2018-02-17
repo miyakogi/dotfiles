@@ -13,7 +13,11 @@ export TERM="xterm-256color"
 
 # Project setting
 export PROJECT_HOME=$HOME/Projects
-export PYVENV_DIR=$HOME/.pyvenv
+if [ -e /etc/lsb-release ]; then
+  export WORKON_HOME=$HOME/.virtualenvs/ubuntu
+else
+  export WORKON_HOME=$HOME/.virtualenvs/arch
+fi
 
 if [ -e /etc/lsb-release ]; then
   # ubuntu specific binaries
