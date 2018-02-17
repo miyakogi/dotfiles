@@ -44,13 +44,13 @@ function! s:init() abort
       return 'python'
     endif
 
-    if $VIM_TEST_RUNNER ==# 'unittest'
+    if $VIM_PYTHON_TEST ==# 'unittest'
       return 'python_unittest'
-    elseif $VIM_TEST_RUNNER ==# 'green'
+    elseif $VIM_PYTHON_TEST ==# 'green'
       return 'green'
-    elseif $VIM_TEST_RUNNER ==# 'nose'
+    elseif $VIM_PYTHON_TEST ==# 'nose'
       return 'nose'
-    elseif $VIM_TEST_RUNNER ==# 'pytest'
+    elseif $VIM_PYTHON_TEST ==# 'pytest'
       return 'pytest'
     else
       return 'python_unittest'
