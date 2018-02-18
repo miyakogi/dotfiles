@@ -89,40 +89,57 @@ alias push="git push origin"
 
 ########## PROMPT ##########
 ### Normal PROMPT
-SIMPLE_PROMPT_MODE=0
+if [[ -n $DISPLAY ]]; then
+  PROMPT_SIMPLE_MODE=0
+else
+  PROMPT_SIMPLE_MODE=1
+fi
 BR=$'\n'
 
+### set icon
+# local icon="🐧"  # penguin
+# local icon=$'\uf17c '  # tux 
+if [[ $OSTYPE = darwin* ]]; then
+  _icon=$'\ue711 '  # mac 
+elif [[ -e /etc/lsb-release ]]; then
+  _icon=$'\uf30c '  # ubuntu 
+else
+  _icon=$'\uf300 '  # Arch 
+fi
+
+_icon_sep=$'\ue621'  # separator 
+_mark="└─➤ "
+_icon_color="%F{16}%(?,%K{green},%K{yellow})"
+_icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
+# _icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8 '
+_separator="%F{238}────────────────────────────────────────────────────────────%f"
+
+### configure lprompt
 function _update_lprompt() {
-  [[ $SIMPLE_PROMPT_MODE = 1 ]] && PROMPT="$ " && return
+  [[ $PROMPT_SIMPLE_MODE = 1 ]] && PROMPT="$ " && return
 
   if [[ -n "$VIRTUAL_ENV" ]]; then
-    local icon=$'\ue235 '
-    local icon="🐍"
+    # local icon=$'\ue235 '  # python 
+    local icon="🐍"  # snake
     if [[ $OSTYPE = darwin* ]]; then
       local icon="${icon} "
     fi
-    local icon="$icon"$'\ue621'"$(basename $VIRTUAL_ENV) "
+    local icon="$icon$_icon_sep$(basename $VIRTUAL_ENV) "
   else
-    local icon="🐧"
-    local icon=$'\uf17c '
+    local icon=$_icon
   fi
+
   if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
-    local icon=$'\uf023 '"$icon "
+    local ssh_icon=$'\uf023'  # 
+    local icon="$ssh_icon $_icon_sep $icon "
   fi
 
-  local mark_base="└─➤ "
-  local mark_ok="%F{green}$mark_base%f"
-  local mark_ng="%F{yellow}$mark_base%f"
-
-  local mark="%(?,$mark_ok,$mark_ng)%(!,#,)"
-  local icon_color="%F{16}%(?,%K{green},%K{yellow})"
-  # local icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8 '
-  local icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
-  PROMPT="$BR$icon_color $icon$icon_dash%F{250}%~ %k$BR$mark"
+  local mark="%(?,%F{green}$_mark%f,%F{yellow}$_mark%f)%(!,#,)"
+  PROMPT="$_separator$BR$_icon_color $icon$_icon_dash%F{250}%~ %k$BR$mark"
 }
 
 ### RPROMPT
-# get vcs info
+### get vcs info
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' max-exports 3
 zstyle ':vcs_info:*' enable git
@@ -153,8 +170,9 @@ function _get_time() {
   echo "$time"
 }
 
+### configure rprompt
 function _update_rprompt() {
-  [[ $SIMPLE_PROMPT_MODE = 1 ]] && RPROMPT="" && return
+  [[ $PROMPT_SIMPLE_MODE = 1 ]] && RPROMPT="" && return
   LANG=en_US.UTF-8 vcs_info
   local gitinfo=`_get_vcs_info`
   if [[ -n ${gitinfo} ]]; then
@@ -169,11 +187,10 @@ function _update_rprompt() {
 # Delete RPROMPT after commands
 # setopt transient_rprompt
 function _reupdate_rprompt() {
-  if [[ $SIMPLE_PROMPT_MODE = 1 ]]; then
+  if [[ $PROMPT_SIMPLE_MODE = 1 ]]; then
     # cannot early return
     RPROMPT=""
   else
-    # RPROMPT="%F{234}"$'\ue0b2'"%F{246}%K{234} `_get_time` %f%k"
     RPROMPT="%F{246}%K{234} `_get_time` %f%k"
   fi
   zle .accept-line
@@ -187,12 +204,12 @@ function _update_prompt() {
   _update_rprompt
 }
 
-function simple_prompt() {
-  SIMPLE_PROMPT_MODE=1
+function prompt_simple() {
+  PROMPT_SIMPLE_MODE=1
 }
 
-function fancy_prompt() {
-  SIMPLE_PROMPT_MODE=0
+function prompt_fancy() {
+  PROMPT_SIMPLE_MODE=0
 }
 
 ### Enable prompt
