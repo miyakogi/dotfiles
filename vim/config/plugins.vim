@@ -270,6 +270,12 @@ if get(g:, 'loaded_watchdogs')
 endif
 "}}}
 
+" ======== vim-test ========{{{
+if get(g:, 'loaded_test')
+  noremap <silent> <Leader>t :<C-u>TestNearest<CR>
+endif
+"}}}
+
 " ======== LightLine ======== {{{
 "}}}
 

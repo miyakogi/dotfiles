@@ -877,6 +877,11 @@ let g:quickrun_config['typescript/watchdogs_checker'] = {
       \ }
 "}}}
 
+" ======== vim-test ========{{{
+let g:test#strategy = 'vimproc'
+let g:test#python#runner = "pyunit"
+"}}}
+
 " ======== TagBar ======== {{{
 if has('win32')
   let g:tagbar_ctags_bin = $HOME . '/Documents/Applications/ctagsJ/ctags.exe'
