@@ -17,7 +17,7 @@ endif
 " Load settings for each location.
 augroup pjlocal
   autocmd!
-  autocmd BufWinEnter,WinEnter * call s:win_enter(expand('<afile>:p:h'))
+  autocmd VimEnter,BufWinEnter,WinEnter * call s:win_enter(expand('<afile>:p:h'))
 augroup END
 
 function! s:win_leave(loc)
