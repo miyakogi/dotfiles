@@ -879,7 +879,8 @@ let g:quickrun_config['typescript/watchdogs_checker'] = {
 
 " ======== vim-test ========{{{
 let g:test#strategy = 'vimproc'
-let g:test#python#runner = "pyunit"
+let g:test#runners = {'Python': ['Green']}
+let g:test#python#runner = "nose"
 "}}}
 
 " ======== TagBar ======== {{{
