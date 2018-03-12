@@ -37,7 +37,7 @@
       "itchyny/lightline.vim",
       "miyakogi/vim-flake8",
       "miyakogi/vim-virtualenv",
-      "tell-k/vim-autopep8",
+      "Vimjas/vim-python-pep8-indent",
       "mitsuhiko/vim-jinja",
       "miyakogi/nimrod.vim",
       "cespare/vim-toml",
