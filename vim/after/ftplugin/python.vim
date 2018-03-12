@@ -147,8 +147,3 @@ endif
 if IsInstalled('vim-smartchr')
   inoremap <buffer><expr> = smartchr#loop(' = ', '=', ' == ', '==')
 endif
-
-" ======== autopep8 ========
-if exists(':Autopep8')
-  nnoremap <buffer> <F8> :Autopep8<CR>
-endif
