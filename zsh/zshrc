@@ -71,16 +71,21 @@ alias ln="ln -v"  # verbose
 alias path='echo $PATH | tr -s ":" "\n"'  # pretty print path
 alias gg='cd `echo ${PROJECT_ROOT:-$HOME}`'
 
-case "${OSTYPE}" in
-# Mac(Unix)
-darwin*)
-  export LS_OPTIONS='-FG' ;;
-# Linux
-linux*)
-  export LS_OPTIONS='--color=auto -F' ;;
-esac
-[[ -f ~/.dircolors ]] && eval "`dircolors ~/.dircolors`"
-alias ls="ls $LS_OPTIONS"
+# alias for `ls` command
+if which exa >/dev/null; then
+  alias ls="exa"
+else
+  case "${OSTYPE}" in
+  # Mac(Unix)
+  darwin*)
+    export LS_OPTIONS='-FG' ;;
+  # Linux
+  linux*)
+    export LS_OPTIONS='--color=auto -F' ;;
+  esac
+  [[ -f ~/.dircolors ]] && eval "`dircolors ~/.dircolors`"
+  alias ls="ls $LS_OPTIONS"
+fi
 
 # Git
 alias gstatus="git status -s -b"
@@ -108,7 +113,7 @@ else
 fi
 
 _icon_sep=$'\ue621'  # separator 
-_mark="└─➤ "
+_mark="└─▶ "
 _icon_color="%F{16}%(?,%K{green},%K{yellow})"
 _icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
 # _icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8 '
