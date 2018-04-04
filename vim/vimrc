@@ -883,8 +883,8 @@ let g:quickrun_config['typescript/watchdogs_checker'] = {
 let g:test#strategy = 'vimproc'
 let g:test#runners = {'Python': ['Green']}
 let g:test#python#runner = 'nose'
-let g:test#python#nose#options = '--nocapture'
-let g:test#python#pytest#options = '--capture=no --color=no'
+let g:test#python#nose#options = '--nocapture --nologcapture'
+let g:test#python#pytest#options = '--quiet --capture=no --color=no'
 "}}}
 
 " ======== TagBar ======== {{{
