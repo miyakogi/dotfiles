@@ -45,9 +45,15 @@ if [ -e /etc/lsb-release ]; then
   export PATH=$HOME/opt/node/bin:$PATH
 fi
 
+# pip --user
+export PATH=$HOME/.local/bin:$PATH
+
 # npm
 export PATH=$HOME/.node_modules/bin:$PATH
 export npm_config_prefix=~/.node_modules
+
+# ruby gem
+export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
 
 # load machine local profile
 [[ -f .zshenv.local ]] && source .zshenv.local
