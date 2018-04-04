@@ -783,7 +783,7 @@ let g:quickrun_config['_'] = {
 " ======== python ========
 let g:quickrun_config['pytest'] = {
       \ 'command': 'py.test',
-      \ 'cmdopt': '-q',
+      \ 'cmdopt': '-q -s -n 4',
       \ 'outputter/buffer/filetype': 'test_result',
       \ 'hook/shebang/enable': 0,
       \ }
@@ -880,7 +880,9 @@ let g:quickrun_config['typescript/watchdogs_checker'] = {
 " ======== vim-test ========{{{
 let g:test#strategy = 'vimproc'
 let g:test#runners = {'Python': ['Green']}
-let g:test#python#runner = "pyunit"
+let g:test#python#runner = 'nose'
+let g:test#python#nose#options = '--nocapture'
+let g:test#python#pytest#options = '--capture=no --color=no'
 "}}}
 
 " ======== TagBar ======== {{{
