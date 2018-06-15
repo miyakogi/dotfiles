@@ -36,6 +36,7 @@ from pathlib import Path
 from itertools import chain
 import subprocess
 from typing import Union
+import sys
 
 PROTO = 'https'
 
@@ -168,7 +169,12 @@ def link_doc(path: Path):
         remove_if_broken(target)
         if not target.exists():
             logger.debug('make symlink {} -> {}'.format(target, doc))
-            target.symlink_to(doc)
+            if not sys.platform.startswith('win'):
+                target.symlink_to(doc)
+            else:
+                import ctypes
+                kdll = ctypes.windll.LoadLibrary('kernel32.dll')
+                kdll.CreateSymbolicLinkW(str(doc), str(target), 1)
 
 
 def post_process(path: Path):
