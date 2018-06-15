@@ -94,9 +94,7 @@ alias push="git push origin"
 
 ########## PROMPT ##########
 ### Normal PROMPT
-if [[ -n $DISPLAY ]]; then
-  PROMPT_SIMPLE_MODE=0
-elif [[ $OSNAME == Windows ]]; then
+if [[ -n $DISPLAY || $OSNAME == Windows ]]; then
   PROMPT_SIMPLE_MODE=0
 else
   PROMPT_SIMPLE_MODE=1
