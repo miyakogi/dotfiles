@@ -4,6 +4,7 @@
   excludesfile = ~/.gitignore_global
   preloadindex = true
   fscashe = true
+  autoCRLF = false
 [include]
   path = ~/.gitconfig.local
 [color]
