@@ -19,7 +19,23 @@ else
   export WORKON_HOME=$HOME/.virtualenvs/arch
 fi
 
-if [ -e /etc/lsb-release ]; then
+if [[ "$(uname)" == "Darwin" ]]; then
+  export OS=Mac
+elif [[ "$(expr substr $(uname -s) 1 4)" == "MSYS" ]]; then
+  export OS=Windows
+elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
+  if [ -e /etc/lsb-release ]; then
+    export OS=Ubuntu
+  elif [ -e /etc/arch-release ]; then
+    export OS=Arch
+  else
+    export OS=Linux
+  fi
+else
+  export OS=Unknown
+fi
+
+if [[ $OS == Ubuntu ]]; then
   # ubuntu specific binaries
   export PATH=$HOME/bin/ubuntu:$PATH
 

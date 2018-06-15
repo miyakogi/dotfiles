@@ -96,6 +96,8 @@ alias push="git push origin"
 ### Normal PROMPT
 if [[ -n $DISPLAY ]]; then
   PROMPT_SIMPLE_MODE=0
+elif [[ $OS == Windows ]]; then
+  PROMPT_SIMPLE_MODE=0
 else
   PROMPT_SIMPLE_MODE=1
 fi
@@ -104,12 +106,16 @@ BR=$'\n'
 ### set icon
 # local icon="🐧"  # penguin
 # local icon=$'\uf17c '  # tux 
-if [[ $OSTYPE = darwin* ]]; then
+if [[ $OS == Mac ]]; then
   _icon=$'\ue711 '  # mac 
-elif [[ -e /etc/lsb-release ]]; then
+elif [[ $OS == Windows ]]; then
+  _icon='❖'
+elif [[ $OS == Ubuntu ]]; then
   _icon=$'\uf30c '  # ubuntu 
-else
+elif [[ $OS == Arch ]]; then
   _icon=$'\uf300 '  # Arch 
+else  # other linux
+  _icon=$'\uf17c '  # tux 
 fi
 
 _icon_sep=$'\ue621'  # separator 
@@ -256,7 +262,7 @@ compctl -K _pip_completion pip
 
 ### PythonZ
 # Use only on ubuntu
-if [ -e /etc/lsb-release ]; then
+if [[ $OS == Ubuntu ]]; then
   load_if_exists $HOME/.pythonz/etc/bashrc
 fi
 
@@ -321,12 +327,14 @@ if [ $DOLPHIN ]; then
   bindkey '^L' myjump
 elif [ $VIM ]; then
   bindkey '^L' myjump
+elif [[ $OS == Windows ]]; then
+  bindkey '^L' myjump
 else
   bindkey '^J' myjump
 fi
 
 ### Python Virtualenv Control ###
-if [ -e /etc/lsb-release ]; then
+if [[ $OS == Ubuntu ]]; then
   export VIRTUALWRAPPER_SCRIPT=$HOME/opt/python-3.6.2/bin/virtualenvwrapper.sh
   load_if_exists $HOME/opt/python-3.6.2/bin/virtualenvwrapper_lazy.sh
 else
