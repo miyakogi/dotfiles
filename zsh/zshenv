@@ -21,6 +21,8 @@ fi
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export OSNAME=Mac
+elif [[ $OSTYPE == msys ]]; then
+  export OSNAME=Windows
 elif [[ "$(expr substr $(uname -s) 1 4)" == "MSYS" ]]; then
   export OSNAME=Windows
 elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
