@@ -20,22 +20,22 @@ else
 fi
 
 if [[ "$(uname)" == "Darwin" ]]; then
-  export OS=Mac
+  export OSNAME=Mac
 elif [[ "$(expr substr $(uname -s) 1 4)" == "MSYS" ]]; then
-  export OS=Windows
+  export OSNAME=Windows
 elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
   if [ -e /etc/lsb-release ]; then
-    export OS=Ubuntu
+    export OSNAME=Ubuntu
   elif [ -e /etc/arch-release ]; then
-    export OS=Arch
+    export OSNAME=Arch
   else
-    export OS=Linux
+    export OSNAME=Linux
   fi
 else
-  export OS=Unknown
+  export OSNAME=Unknown
 fi
 
-if [[ $OS == Ubuntu ]]; then
+if [[ $OSNAME == Ubuntu ]]; then
   # ubuntu specific binaries
   export PATH=$HOME/bin/ubuntu:$PATH
 

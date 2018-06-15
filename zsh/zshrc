@@ -96,7 +96,7 @@ alias push="git push origin"
 ### Normal PROMPT
 if [[ -n $DISPLAY ]]; then
   PROMPT_SIMPLE_MODE=0
-elif [[ $OS == Windows ]]; then
+elif [[ $OSNAME == Windows ]]; then
   PROMPT_SIMPLE_MODE=0
 else
   PROMPT_SIMPLE_MODE=1
@@ -106,13 +106,13 @@ BR=$'\n'
 ### set icon
 # local icon="🐧"  # penguin
 # local icon=$'\uf17c '  # tux 
-if [[ $OS == Mac ]]; then
+if [[ $OSNAME == Mac ]]; then
   _icon=$'\ue711 '  # mac 
-elif [[ $OS == Windows ]]; then
+elif [[ $OSNAME == Windows ]]; then
   _icon='❖'
-elif [[ $OS == Ubuntu ]]; then
+elif [[ $OSNAME == Ubuntu ]]; then
   _icon=$'\uf30c '  # ubuntu 
-elif [[ $OS == Arch ]]; then
+elif [[ $OSNAME == Arch ]]; then
   _icon=$'\uf300 '  # Arch 
 else  # other linux
   _icon=$'\uf17c '  # tux 
@@ -262,7 +262,7 @@ compctl -K _pip_completion pip
 
 ### PythonZ
 # Use only on ubuntu
-if [[ $OS == Ubuntu ]]; then
+if [[ $OSNAME == Ubuntu ]]; then
   load_if_exists $HOME/.pythonz/etc/bashrc
 fi
 
@@ -327,14 +327,14 @@ if [ $DOLPHIN ]; then
   bindkey '^L' myjump
 elif [ $VIM ]; then
   bindkey '^L' myjump
-elif [[ $OS == Windows ]]; then
+elif [[ $OSNAME == Windows ]]; then
   bindkey '^L' myjump
 else
   bindkey '^J' myjump
 fi
 
 ### Python Virtualenv Control ###
-if [[ $OS == Ubuntu ]]; then
+if [[ $OSNAME == Ubuntu ]]; then
   export VIRTUALWRAPPER_SCRIPT=$HOME/opt/python-3.6.2/bin/virtualenvwrapper.sh
   load_if_exists $HOME/opt/python-3.6.2/bin/virtualenvwrapper_lazy.sh
 else
