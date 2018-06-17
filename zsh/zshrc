@@ -269,38 +269,29 @@ fi
 ### direnv
 # which direnv > /dev/null && eval "$(direnv hook zsh)"
 
-# とても遅い。。。
-# http://yagays.github.io/blog/2013/05/20/zaw-zsh/
-# Save cd history
-# autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-# add-zsh-hook chpwd chpwd_recent_dirs
-# zstyle ':chpwd:*' recent-dirs-max 5000
-# zstyle ':chpwd:*' recent-dirs-default yes
-# zstyle ':completion:*' recent-dirs-insert both
-export HIST_DIRS_FILE=$HOME/.histdir
-export HIST_DIRS_MAX=5000
-function cdhist() {
-  python << EOS
-from os import path
-curdir = path.abspath('.') + '\n'
-if path.isfile('${HIST_DIRS_FILE}'):
-    with open('${HIST_DIRS_FILE}', 'r') as f:
-        lines = f.readlines()
-    if len(lines) > ${HIST_DIRS_MAX}:
-        lines = lines[-${HIST_DIRS_MAX}:]
-    while curdir in lines:
-        lines.remove(curdir)
-    lines.append(curdir)
-    with open('${HIST_DIRS_FILE}', 'w') as f:
-        f.write(''.join(lines))
-EOS
-}
-add-zsh-hook chpwd cdhist
-
 ### percol
 if which percol > /dev/null; then
-  local percol_cmd='percol --reverse --query "$LBUFFER"'
+  export HIST_DIRS_FILE=$HOME/.histdir
+  export HIST_DIRS_MAX=5000
+  function cdhist() {
+    python << EOS
+  from os import path
+  curdir = path.abspath('.') + '\n'
+  if path.isfile('${HIST_DIRS_FILE}'):
+      with open('${HIST_DIRS_FILE}', 'r') as f:
+          lines = f.readlines()
+      if len(lines) > ${HIST_DIRS_MAX}:
+          lines = lines[-${HIST_DIRS_MAX}:]
+      while curdir in lines:
+          lines.remove(curdir)
+      lines.append(curdir)
+      with open('${HIST_DIRS_FILE}', 'w') as f:
+          f.write(''.join(lines))
+EOS
+  }
+  add-zsh-hook chpwd cdhist
 
+  local percol_cmd='percol --reverse --query "$LBUFFER"'
   function percol-search-history() {
     BUFFER=$(history -n 1 | eval ${percol_cmd})
     CURSOR=$#BUFFER
@@ -315,10 +306,20 @@ if which percol > /dev/null; then
     zle reset-prompt
   }
 else
-  # percol is not available, use zaw
+  # percol is not available, use zaw and cdr
+  # とても遅い。。。
+  # http://yagays.github.io/blog/2013/05/20/zaw-zsh/
+  # Save cd history
+  autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+  add-zsh-hook chpwd chpwd_recent_dirs
+  zstyle ':chpwd:*' recent-dirs-max 5000
+  zstyle ':chpwd:*' recent-dirs-default yes
+  zstyle ':completion:*' recent-dirs-insert both
+
   load_if_exists $ZDOTDIR/zaw/zaw.zsh
   zstyle ':filter-select' case-insensitive yes # 絞り込みをcase-insensitiveに
   bindkey '^R' zaw-history # zaw-historyをbindkey
+
   function myjump() { zaw-cdr }
 fi
 
@@ -326,8 +327,6 @@ zle -N myjump
 if [ $DOLPHIN ]; then
   bindkey '^L' myjump
 elif [ $VIM ]; then
-  bindkey '^L' myjump
-elif [[ $OSNAME == Windows ]]; then
   bindkey '^L' myjump
 else
   bindkey '^J' myjump
