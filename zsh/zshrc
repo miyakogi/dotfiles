@@ -270,7 +270,7 @@ fi
 # which direnv > /dev/null && eval "$(direnv hook zsh)"
 
 ### percol
-if which percol > /dev/null; then
+if which percol > /dev/null && [ $OSNAME != Windows ]; then
   export HIST_DIRS_FILE=$HOME/.histdir
   export HIST_DIRS_MAX=5000
   function cdhist() {
@@ -307,7 +307,7 @@ EOS
   }
 else
   # percol is not available, use zaw and cdr
-  # とても遅い。。。
+  # very slow...
   # http://yagays.github.io/blog/2013/05/20/zaw-zsh/
   # Save cd history
   autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
