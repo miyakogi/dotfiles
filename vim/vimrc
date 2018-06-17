@@ -704,12 +704,11 @@ let g:sonictemplate_vim_template_dir = '$HOME/.vim/template'
 
 " ======== Tcomment ======== {{{
 " let g:tcommentMaps = 0
-let g:tcommentMapLeader1 = ''
-let g:tcommentMapLeader2 = ''
-let g:tcommentMapLeaderOp1 = 'gc'  " gcb[text-obj] のmapが便利かもなので残す
-let g:tcommentTextObjectInlineComment = ''
-let g:tcommentMapLeaderUncommentAnyway = ''
-let g:tcommentTextObjectInlineComment = ''  " Use textobj-user-comment
+let g:tcomment_mapleader1 = ''
+let g:tcomment_mapleader2 = ''
+let g:tcomment_opleader1 = 'gc'  " gcb[text-obj] のmapが便利かもなので残す
+let g:tcomment_textobject_inlinecomment = ''
+let g:tcomment_mapleader_uncomment_anyway = ''
 "}}}
 
 " ======== surround.vim ======== {{{
