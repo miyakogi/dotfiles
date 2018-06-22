@@ -109,7 +109,7 @@ BR=$'\n'
 if [[ $OSNAME == Mac ]]; then
   _icon=$'\ue711 '  # mac 
 elif [[ $OSNAME == Windows ]]; then
-  _icon='❖'
+  _icon='❖ '
 elif [[ $OSNAME == Ubuntu ]]; then
   _icon=$'\uf30c '  # ubuntu 
 elif [[ $OSNAME == Arch ]]; then
@@ -336,6 +336,9 @@ fi
 if [[ $OSNAME == Ubuntu ]]; then
   export VIRTUALWRAPPER_SCRIPT=$HOME/opt/python-3.6.2/bin/virtualenvwrapper.sh
   load_if_exists $HOME/opt/python-3.6.2/bin/virtualenvwrapper_lazy.sh
+elif [[ $OSNAME == Windows ]]; then
+  # On windows fials to load lazy script
+  load_if_exists /usr/bin/virtualenvwrapper.sh
 else
   export VIRTUALWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
   load_if_exists /usr/bin/virtualenvwrapper_lazy.sh
