@@ -40,6 +40,11 @@ else
   export WORKON_HOME=$HOME/.virtualenvs
 fi
 
+# Setting $PATH
+if [[ $OSNAME == Windows ]]; then
+  export MSYS2_PATH_TYPE=inherit
+fi
+
 if [[ $OSNAME == Ubuntu ]]; then
   # ubuntu specific binaries
   export PATH=$HOME/bin/ubuntu:$PATH
