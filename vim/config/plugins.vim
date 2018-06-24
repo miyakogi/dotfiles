@@ -18,23 +18,26 @@ endfunction
 "  Plugin settings {{{
 " ============================================
 
-" ======== Unite ======== {{{
-if get(g:, 'loaded_unite')
-  " unite prefix key
-  nnoremap [unite] <Nop>
-  nmap <Leader>f [unite]
-  autocmd myvimrc FileType unite nmap <buffer><silent><nowait> q <PLUG>(unite_exit)
+" ======== Denite ======== {{{
+if get(g:, 'loaded_denite')
+  " denite prefix key
+  nnoremap [denite] <Nop>
+  nmap <Leader>f [denite]
+  autocmd myvimrc FileType denite nmap <buffer><silent><nowait> q <PLUG>(denite_exit)
 
-  " ======== Unite Key binding ========
-  nnoremap <silent> [unite]f :<C-u>Unite file file_mru buffer<CR>
-  nnoremap <silent> [unite]b :<C-u>Unite buffer neomru/file file<CR>
-  nnoremap <silent> [unite]m :<C-u>Unite neomru/file buffer file locate<CR>
-  nnoremap <silent> [unite]t :<C-u>Unite outline<CR>
-  nnoremap <silent> [unite]u :<C-u>Unite
-  nnoremap <silent> [unite]e :<C-u>Unite -start-insert locate<CR>
-  nnoremap <silent> [unite]c :<C-u>Unite change<CR>
+  " ======== Denite Key binding ========
+  nnoremap <silent> [denite]f :<C-u>Denite file file_mru buffer<CR>
+  nnoremap <silent> [denite]b :<C-u>Denite buffer neomru/file file<CR>
+  nnoremap <silent> [denite]m :<C-u>Denite file_mru buffer file/rec<CR>
+  nnoremap <silent> [denite]t :<C-u>Denite outline<CR>
+  nnoremap <silent> [denite]u :<C-u>Denite
+  nnoremap <silent> [denite]e :<C-u>Denite -start-insert locate<CR>
+  nnoremap <silent> [denite]c :<C-u>Denite change<CR>
+
+  call denite#custom#option('default', {
+        \ 'mode': 'normal',
+        \ })
 endif
-
 "}}}
 
 " ======== VimFiler ========"{{{
