@@ -3,9 +3,9 @@
     "github.com": [
       "Shougo/vimproc",
       "vim-jp/vital.vim",
+      "vim-jp/vimdoc-ja",
       "Shougo/unite.vim",
       "Shougo/denite.nvim",
-      "vim-jp/vimdoc-ja",
       "Shougo/neomru.vim",
       "Shougo/vimfiler.vim",
       "tpope/vim-fugitive",
