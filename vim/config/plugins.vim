@@ -264,15 +264,6 @@ if get(g:, 'loaded_quickrun')
 endif
 "}}}
 
-" ======== watchdogs ======== {{{
-" Enable config
-if get(g:, 'loaded_watchdogs')
-  if exists('g:quickrun_config')
-    call watchdogs#setup(g:quickrun_config)
-  endif
-endif
-"}}}
-
 " ======== vim-test ========{{{
 if get(g:, 'loaded_test')
   noremap <silent> <Leader>t :<C-u>TestNearest<CR>
