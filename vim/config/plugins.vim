@@ -110,29 +110,16 @@ endif
 "}}}
 
 " ======== NeoComplete ======== {{{
-if get(g:, 'loaded_neocomplete')
+if get(g:, 'loaded_deoplete')
   " ======== Key mappings ========
-  " inoremap <expr><C-g> neocomplete#undo_completion()
-  inoremap <expr> <C-x><C-f> g:neocomplete#start_manual_complete('file')
-  inoremap <expr> <Tab> pumvisible() ? neocomplete#complete_common_string() : "\<TAB>"
+  inoremap <expr> <C-x><C-f> g:deoplete#manual_complete('file')
 
-  " ==== Recommended key-mappings ====
   " Close popup and save indent by <CR>
   inoremap <silent><expr> <CR> MyNeocomCR()
   function! MyNeocomCR()
     let l:delimitMateCR = delimitMate#ExpandReturn()
-    return neocomplete#close_popup() . l:delimitMateCR
+    return deoplete#close_popup() . l:delimitMateCR
   endfunction
-
-  " disable on python
-  autocmd myvimrc FileType python NeoCompleteLock
-
-  if exists('*NimComplete')
-    if &filetype ==# 'nim'
-      setlocal omnifunc=NimComplete
-    endif
-    autocmd myvimrc FileType nim setlocal omnifunc=NimComplete
-  endif
 endif
 "}}}
 
