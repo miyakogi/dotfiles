@@ -43,6 +43,7 @@ fi
 # Setting $PATH
 if [[ $OSNAME == Windows ]]; then
   export MSYS2_PATH_TYPE=inherit
+  export PATH=/mingw64/bin:$PATH
 fi
 
 if [[ $OSNAME == Ubuntu ]]; then
