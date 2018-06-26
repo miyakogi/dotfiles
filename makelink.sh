@@ -37,6 +37,8 @@ makedir_if_not_exists $HOME/.config/nvim
 makedir_if_not_exists $HOME/.config/nvim/bundle
 makedir_if_not_exists $HOME/.config/kitty
 makedir_if_not_exists $HOME/.zsh
+makedir_if_not_exists $HOME/.tmux
+makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
@@ -121,5 +123,8 @@ git_clone https://github.com/Tarrasch/zsh-autoenv  $HOME/.zsh/zsh-autoenv
 # Install compoletions
 git_clone https://github.com/zsh-users/zsh-completions.git  $HOME/.zsh/zsh-completions
 git_clone https://github.com/bobthecow/git-flow-completion  $HOME/.zsh/git-flow-completion
+
+# Install tpm
+git_clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 echo Make Link Completed
