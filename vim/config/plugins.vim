@@ -26,12 +26,11 @@ if get(g:, 'loaded_denite')
   autocmd myvimrc FileType denite nmap <buffer><silent><nowait> q <PLUG>(denite_exit)
 
   " ======== Denite Key binding ========
-  nnoremap <silent> [denite]f :<C-u>Denite file file_mru buffer<CR>
-  nnoremap <silent> [denite]b :<C-u>Denite buffer neomru/file file<CR>
-  nnoremap <silent> [denite]m :<C-u>Denite file_mru buffer file/rec<CR>
-  nnoremap <silent> [denite]t :<C-u>Denite outline<CR>
   nnoremap <silent> [denite]u :<C-u>Denite
-  nnoremap <silent> [denite]e :<C-u>Denite -start-insert locate<CR>
+  nnoremap <silent> [denite]f :<C-u>Denite file/rec<CR>
+  nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
+  nnoremap <silent> [denite]m :<C-u>Denite file_mru<CR>
+  nnoremap <silent> [denite]t :<C-u>Denite outline<CR>
   nnoremap <silent> [denite]c :<C-u>Denite change<CR>
 
   call denite#custom#option('default', {
