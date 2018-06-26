@@ -35,6 +35,7 @@ makedir_if_not_exists $HOME/.vim/pack/remote
 makedir_if_not_exists $HOME/.config
 makedir_if_not_exists $HOME/.config/nvim
 makedir_if_not_exists $HOME/.config/nvim/bundle
+makedir_if_not_exists $HOME/.config/kitty
 makedir_if_not_exists $HOME/.zsh
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
@@ -106,6 +107,9 @@ ln -sf $BASEDIR/scripts/pip-update $HOME/bin/pip-update
 
 # Rust (Cargo)
 ln -sf $BASEDIR/cargo.toml $HOME/.cargo/config
+
+# kitty (terminal)
+ln -sf $BASEDIR/kitty.conf $HOME/.config/kitty
 
 # Install neobundle.vim for neovim
 # git_clone https://github.com/Shougo/neobundle.vim  $HOME/.config/nvim/bundle/neobundle.vim
