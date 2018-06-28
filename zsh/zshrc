@@ -27,7 +27,6 @@ setopt auto_cd
 # setopt pushd_ignore_dups
 autoload -Uz add-zsh-hook
 autoload -Uz colors && colors
-# autoload -U colors && colors
 autoload -Uz is-at-least
 # autoload predict-on
 # predict-on
