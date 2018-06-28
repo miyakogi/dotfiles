@@ -129,11 +129,13 @@ fi
 _icon_color="%F{16}%(?,%K{green},%K{yellow})"
 _icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
 # _icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8 '
-_separator="%F{238}────────────────────────────────────────────────────────────%f"
 
 ### configure lprompt
 function _update_lprompt() {
   [[ $PROMPT_SIMPLE_MODE = 1 ]] && PROMPT="$ " && return
+  _cols=`tput cols`
+  _sep=`repeat $_cols printf ─`
+  _separator="%F{238}$_sep%f"
 
   if [[ -n "$VIRTUAL_ENV" ]]; then
     # local icon=$'\ue235 '  # python 
