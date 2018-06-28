@@ -9,7 +9,6 @@
 # zsh default directory
 export ZDOTDIR=$HOME/.zsh
 export EDITOR=vim
-export TERM="xterm-256color"
 
 # OS setting
 if [[ "$(uname)" == "Darwin" ]]; then
