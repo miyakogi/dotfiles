@@ -122,7 +122,11 @@ else  # other linux
 fi
 
 _icon_sep=$'\ue621'  # separator 
-_mark="└─▶ "
+if [[ $OSNAME == Windows ]]; then
+  _mark="$ "
+else
+  _mark="└─▶ "
+fi
 _icon_color="%F{16}%(?,%K{green},%K{yellow})"
 _icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
 # _icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8 '

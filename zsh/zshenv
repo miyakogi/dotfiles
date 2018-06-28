@@ -18,6 +18,8 @@ elif [[ $OSTYPE == msys ]]; then
   export OSNAME=Windows
 elif [[ "$(expr substr $(uname -s) 1 4)" == "MSYS" ]]; then
   export OSNAME=Windows
+elif [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]; then
+  export OSNAME=Windows
 elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
   if [ -e /etc/lsb-release ]; then
     export OSNAME=Ubuntu
