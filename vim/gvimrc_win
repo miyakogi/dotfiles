@@ -1,0 +1,52 @@
+set guioptions=pi
+
+" Font configuration
+" Double width font
+" let s:default_gfw = "Noto Sans Mono CJK JP 12"
+" let &guifontwide = s:default_gfw
+" Single width font
+let s:default_gfn = "GenEiGothicM Nerd Font Regular 12"
+let &guifont = s:default_gfn
+
+" Enable directX
+set rop=type:directx,renmode:3
+
+" Window size configuration
+set columns=106
+set lines=52 " linespace=2
+set linespace=2
+set guiheadroom=0
+
+" Configure gui-cursor shape, color, and blinking.
+function! s:guicursor_set()
+  if &background == 'dark'
+    highlight iCursor guifg=white guibg=grey75
+    highlight rCursor guifg=white guibg=#dd2222
+    highlight oCursor guifg=white guibg=#dd2222
+  else
+    highlight iCursor guifg=black guibg=grey25
+    highlight rCursor guifg=black guibg=#dd2222
+    highlight oCursor guifg=black guibg=#dd2222
+  endif
+
+  if get(g:, 'loaded_conoline')
+    ConoLineColorDark
+  endif
+
+  set guicursor=
+        \n-v-c:block-Cursor/lCursor-blinkwait750-blinkon700-blinkoff400,
+        \ve:ver35-oCursor-blinkwait250-blinkon400-blinkoff250,
+        \o:hor50-oCursor-blinkwait250-blinkon400-blinkoff250,
+        \i-ci:ver12-iCursor/lCursor-blinkwait50-blinkon850-blinkoff550,
+        \r-cr:hor10-rCursor/lCursor-blinkwait0-blinkon0-blinkoff0,
+        \sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+      " \n-v-c:hor4-Cursor/lCursor-blinkwait750-blinkon850-blinkoff550,
+endfunction
+
+augroup guicursor
+  autocmd!
+  autocmd Syntax,ColorScheme * call s:guicursor_set()
+augroup END
+
+let s:cs = get(g:, 'MyColorScheme', 'slateblue')
+execute 'colorscheme ' . s:cs

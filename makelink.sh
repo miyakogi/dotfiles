@@ -72,6 +72,10 @@ darwin*)
 linux*)
     ln -sf $VIMBASE/gvimrc_linux $HOME/.gvimrc
     ;;
+# Windows
+msys*)
+    ln -sf $VIMBASE/gvimrc_win $HOME/.gvimrc
+    ;;
 esac
 
 ln -sf $VIMBASE/pack.json $HOME/.vim/pack/remote/pack.json
