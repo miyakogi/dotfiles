@@ -38,6 +38,10 @@ if [[ $OSNAME == Ubuntu ]]; then
   export WORKON_HOME=$HOME/.virtualenvs/ubuntu
 elif [[ $OSNAME == Arch ]]; then
   export WORKON_HOME=$HOME/.virtualenvs/arch
+elif [[ $OSTYPE == msys ]]; then
+  export WORKON_HOME=$HOME/.virtualenvs/msys
+elif [[ $OSTYPE == cygwin ]]; then
+  export WORKON_HOME=$HOME/.virtualenvs/cygwin
 else
   export WORKON_HOME=$HOME/.virtualenvs
 fi
