@@ -193,6 +193,7 @@ def clean_doc():
 def helptags():
     clean_doc()
     vim_cmd = 'helptags {} | quitall'.format(VIMHOME / 'doc')
+    vim_cmd  =  vim_cmd.replace('\\', '/')
     cmd = ['vim', '-u', 'NONE', '-N', '--cmd', vim_cmd]
     proc = subprocess.run(cmd)
     if proc.returncode == 0:
