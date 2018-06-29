@@ -162,7 +162,6 @@ function! s:stats() abort
   elseif stats_list == [0, 0, 0]
     return 'NotModified'
   else
-
     let add = string(stats_list[0])
     let modify = string(stats_list[1])
     let remove = string(stats_list[2])
@@ -176,15 +175,17 @@ function! s:stats() abort
     let stats = g:signify_sign_add . sep . add . ' '
           \ . g:signify_sign_change . sep . modify . ' '
           \ . g:signify_sign_delete . sep . remove
-
   endif
+
   return stats
 endfunction
 
 function! s:fugitive() abort
-  if exists('*fugitive#head')
-    let head = fugitive#head()
+  if !exists('*fugitive#head')
+    return ''
   endif
+
+  let head = fugitive#head()
   if strlen(l:head) > 0
     let head = 'Git:' . head
   endif
