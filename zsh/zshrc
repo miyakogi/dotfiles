@@ -28,8 +28,7 @@ setopt auto_cd
 autoload -Uz add-zsh-hook
 autoload -Uz colors && colors
 autoload -Uz is-at-least
-# autoload predict-on
-# predict-on
+# autoload predict-on && predict-on
 
 # 色設定
 export LSCOLORS=Exfxcxdxbxegedabagacad
@@ -132,7 +131,7 @@ _icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
 
 ### configure lprompt
 function _update_lprompt() {
-  [[ $PROMPT_SIMPLE_MODE = 1 ]] && PROMPT="$ " && return
+  [[ $PROMPT_SIMPLE_MODE == 1 ]] && PROMPT="[%~]$BR$ " && return
   _cols=`tput cols`
   if [[ $OSNAME == Windows ]] && [[ $TERM != cygwin ]]; then
     _cols=$(($_cols / 2))
@@ -281,7 +280,7 @@ fi
 # which direnv > /dev/null && eval "$(direnv hook zsh)"
 
 ### percol
-if which percol > /dev/null && [ $OSTYPE != msys ]; then
+if which percol > /dev/null && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
   export HIST_DIRS_MAX=5000
   function cdhist() {
