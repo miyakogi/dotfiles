@@ -727,6 +727,7 @@ let g:rbpt_colorpairs = [
 " let g:indentLine_char = '│'
 let g:indentLine_char = '⎸'
 let g:indentLine_concealcursor = ''
+let g:indentLine_faster = 1
 "}}}
 
 " ======== vimquickrun ======== {{{
