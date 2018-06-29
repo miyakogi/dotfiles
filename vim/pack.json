@@ -15,6 +15,7 @@
       "osyo-manga/vim-anzu",
       "osyo-manga/vim-over",
       "thinca/vim-visualstar",
+      "itchyny/vim-cursorword",
       "majutsushi/tagbar",
       "mattn/sonictemplate-vim",
       "Shougo/deoplete.nvim",

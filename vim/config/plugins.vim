@@ -108,7 +108,7 @@ if get(g:, 'loaded_visualstar')
 endif
 "}}}
 
-" ======== NeoComplete ======== {{{
+" ======== Deoplete ======== {{{
 if get(g:, 'loaded_deoplete')
   " ======== Key mappings ========
   inoremap <expr> <C-x><C-f> g:deoplete#manual_complete('file')
@@ -133,7 +133,7 @@ if get(g:, 'loaded_neosnippet')
 endif
 "}}}
 
-" ======== Abolish ========"{{{
+" ======== Abolish ======== {{{
 function! s:init_abolish() abort
   if exists(':Abolish')
     Abolish teh the
@@ -196,7 +196,7 @@ function! s:init_delimitMate() abort
 endfunction
 "}}}
 
-" ======== smartchr ========"{{{
+" ======== smartchr ======== {{{
 if IsInstalled('vim-smartchr')
   inoremap <expr> , smartchr#loop(', ', ',')
 endif
@@ -256,10 +256,7 @@ if get(g:, 'loaded_test')
 endif
 "}}}
 
-" ======== LightLine ======== {{{
-"}}}
-
-" ======== cursorword ========"{{{
+" ======== cursorword ======== {{{
 if get(g:, 'loaded_cursorword')
   highlight CursorWord0 term=underline cterm=underline gui=underline
 endif
@@ -290,7 +287,7 @@ if get(g:, 'loaded_sidepanel')
 endif
 "}}}
 
-" ======== AsynCheck ========"{{{
+" ======== AsynCheck ======== {{{
 if exists(':AsynCheck')
   function! s:enable_asyncheck() abort
     augroup autoasyncheck
@@ -309,7 +306,7 @@ if exists(':AsynCheck')
 endif
 "}}}
 
-" ======== LiveMark ========
+" ======== LiveMark ======== {{{
 if exists(':LiveMarkBrowserMode')
   autocmd myvimrc FileType markdown nnoremap <buffer><nowait> <C-g> :LiveMarkBrowserMode<CR>
   if &filetype ==? 'markdown'
@@ -318,8 +315,10 @@ if exists(':LiveMarkBrowserMode')
 endif
 "}}}
 
+"}}}
+
 " ============================================
-"  Lazy Load Packages"{{{
+"  Lazy Load Packages {{{
 " ============================================
 
 function! s:load_lazy_insert() abort
@@ -338,8 +337,10 @@ augroup END
 "}}}
 
 " ============================================
-"  Post Process"{{{
+"  Post Process {{{
 " ============================================
 call s:enable_colorscheme()
-call g:RainbowParenthesesStart()
+if exists(':RainbowParenthesesActivate')
+  call g:RainbowParenthesesStart()
+endif
 "}}}
