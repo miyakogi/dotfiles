@@ -743,13 +743,13 @@ let g:quickrun_config['_'] = {
 " ======== python ========
 let g:quickrun_config['pytest'] = {
       \ 'command': 'py.test',
-      \ 'cmdopt': '-q -s -n 4',
+      \ 'cmdopt': '-q -s -n 6',
       \ 'outputter/buffer/filetype': 'test_result',
       \ 'hook/shebang/enable': 0,
       \ }
 let g:quickrun_config['py.test'] = g:quickrun_config['pytest']  " not copy, just an alias
 let g:quickrun_config.pytest_verbose = copy(g:quickrun_config.pytest)
-let g:quickrun_config.pytest_verbose.cmdopt = '-v -s -n 4'
+let g:quickrun_config.pytest_verbose.cmdopt = '-v -s -n 6'
 
 let g:quickrun_config['nose'] = {
       \ 'command': 'nosetests',
