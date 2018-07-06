@@ -37,7 +37,7 @@ vcs = "none"
 # timeout = 60000   # Timeout for each HTTP request, in milliseconds
 
 [build]
-jobs = 4                  # number of jobs to run by default (default to # cpus)
+# jobs = 4                  # number of jobs to run by default (default to # cpus)
 # rustc = "rustc"           # the rust compiler tool
 # rustdoc = "rustdoc"       # the doc generator tool
 # target = "triple"         # build for the target triple
