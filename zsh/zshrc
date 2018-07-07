@@ -88,6 +88,11 @@ else
   alias ls="ls $LS_OPTIONS"
 fi
 
+# alias for `cat` command
+if which bat >/dev/null; then
+  alias cat=bat
+fi
+
 # Git
 alias gstatus="git status -s -b"
 alias pull="git pull"
