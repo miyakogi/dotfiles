@@ -316,7 +316,7 @@ EOS
 
   function myjump() {
     local destination=$([[ -e $HIST_DIRS_FILE ]] && cat $HIST_DIRS_FILE | eval ${percol_cmd})
-    [[ -n "$destination" ]] && zle -U "cd $destination"
+    [[ -n "$destination" ]] && zle -U "cd \"$destination\""
     zle reset-prompt
   }
 else
