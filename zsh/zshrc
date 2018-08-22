@@ -275,6 +275,27 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
+function pip-init {
+  # Initialize python virtual environment.
+  # This function installs these additional dependencies:
+  #   - jedi: auto-completion
+  #   - neovim: required by deoplete.nvim
+  #   - nose: required by vim-test
+  #   - ptpython: python-shell
+  echo -e "\e[36m[pip-init] update pip and setuptools\e[m"
+  pip install -U pip setuptools
+  echo -e "\n\e[36m[pip-init] install jeid, neovim, nose, and ptpython\e[m"
+  pip install jedi neovim nose ptpython
+  if [[ -e "setup.py" ]]; then
+    echo -e "\n\e[36m[pip-init] install this package with editable mode\e[m"
+    pip install -e .
+  fi
+  if [[ -e "requirements-dev.txt" ]]; then
+    echo -e "\n\e[36m[pip-init] install dev requirements\e[m"
+    pip install -r "requirements-dev.txt"
+  fi
+}
+
 ### PythonZ
 # Use only on ubuntu
 if [[ $OSNAME == Ubuntu ]]; then
