@@ -35,6 +35,7 @@ if get(g:, 'loaded_denite')
 
   call denite#custom#option('default', {
         \ 'mode': 'normal',
+        \ 'prompt': '>>>',
         \ })
 endif
 "}}}
