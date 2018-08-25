@@ -32,6 +32,7 @@ if get(g:, 'loaded_denite')
   nnoremap <silent> [denite]m :<C-u>Denite file_mru<CR>
   nnoremap <silent> [denite]t :<C-u>Denite outline<CR>
   nnoremap <silent> [denite]c :<C-u>Denite change<CR>
+  nnoremap <silent> [denite]g :<C-u>Denite grep<CR>
 
   call denite#custom#option('default', {
         \ 'mode': 'normal',
@@ -40,15 +41,38 @@ if get(g:, 'loaded_denite')
   call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
   call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
 
+  " For file search
   call denite#custom#source('file/rec', 'matchers', ['matcher/regexp'])
   if executable('fd')
+    " use fd
     call denite#custom#var('file/rec', 'command', ['fd', ''])
   elseif executable('rg')
+    " use ripgrep
     call denite#custom#var('file/rec', 'command',
           \ ['rg', '--files', '--glob', '!.git'])
   elseif executable('ag')
+    " use the_silver_searcher
     call denite#custom#var('file/rec', 'command',
           \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+  endif
+
+  " For grep
+  if executable('rg')
+    " use ripgrep
+    call denite#custom#var('grep', 'command', ['rg'])
+    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+  elseif executable('ag')
+    " use the_silver_searcher
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
   endif
 endif
 "}}}
