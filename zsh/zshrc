@@ -52,6 +52,9 @@ zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 # 補完候補に色をつける
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+# Automatically rehash executables on completion
+zstyle ':completion:*' rehash true
+
 ########## EDIT ##########
 # Set keyword
 autoload -Uz select-word-style
