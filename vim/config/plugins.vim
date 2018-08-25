@@ -37,6 +37,17 @@ if get(g:, 'loaded_denite')
         \ 'mode': 'normal',
         \ 'prompt': '>>>',
         \ })
+
+  call denite#custom#source('file/rec', 'matchers', ['matcher/regexp'])
+  if executable('fd')
+    call denite#custom#var('file/rec', 'command', ['fd', ''])
+  elseif executable('rg')
+    call denite#custom#var('file/rec', 'command',
+          \ ['rg', '--files', '--glob', '!.git'])
+  elseif executable('ag')
+    call denite#custom#var('file/rec', 'command',
+          \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+  endif
 endif
 "}}}
 
