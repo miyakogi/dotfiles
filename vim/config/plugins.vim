@@ -33,6 +33,7 @@ if get(g:, 'loaded_denite')
   nnoremap <silent> [denite]t :<C-u>Denite outline<CR>
   nnoremap <silent> [denite]c :<C-u>Denite change<CR>
   nnoremap <silent> [denite]g :<C-u>Denite grep<CR>
+  nnoremap <silent> [denite]w :<C-u>DeniteCursorWord grep line<CR>
 
   call denite#custom#option('default', {
         \ 'mode': 'normal',
