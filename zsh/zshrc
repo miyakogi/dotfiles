@@ -372,16 +372,10 @@ fi
 
 ### Python Virtualenv Control ###
 if [[ $OSNAME == Ubuntu ]]; then
-  export VIRTUALWRAPPER_SCRIPT=$HOME/opt/python-3.6.2/bin/virtualenvwrapper.sh
+  export VIRTUALENVWRAPPER_SCRIPT=$HOME/opt/python-3.6.2/bin/virtualenvwrapper.sh
   load_if_exists $HOME/opt/python-3.6.2/bin/virtualenvwrapper_lazy.sh
-elif [[ $OSNAME == Windows ]]; then
-  # On windows fials to load lazy script
-  load_if_exists /usr/bin/virtualenvwrapper.sh
-  if [[ $TERM != cygwin ]]; then
-    export VIRTUALENV_PYTHON=/usr/bin/python3
-  fi
 else
-  export VIRTUALWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+  export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
   load_if_exists /usr/bin/virtualenvwrapper_lazy.sh
 fi
 
