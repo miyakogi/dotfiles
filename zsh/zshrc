@@ -63,21 +63,6 @@ select-word-style default
 zstyle ':zle:*' word-chars " -/=;@:{},|"
 zstyle ':zle:*' word-style unspecified
 
-########## Change Directory ##########
-# execute ls after cd
-chpwd() {
-  ls
-}
-
-# move up by Ctrl+y
-function cd-up {
-  zle push-line
-  LBUFFER='cd ../'
-  zle accept-line
-}
-zle -N cd-up
-bindkey "^Y" cd-up
-
 ########## ALIAS ##########
 alias vi="/usr/bin/vim --noplugin"
 alias :q="exit"
@@ -115,6 +100,21 @@ fi
 alias gstatus="git status -s -b"
 alias pull="git pull"
 alias push="git push origin"
+
+########## Change Directory ##########
+# execute ls after cd
+chpwd() {
+  ls
+}
+
+# move up by Ctrl+y
+function cd-up {
+  zle push-line
+  LBUFFER='cd ../'
+  zle accept-line
+}
+zle -N cd-up
+bindkey "^Y" cd-up
 
 ########## PROMPT ##########
 ### Normal PROMPT
