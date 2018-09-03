@@ -370,6 +370,11 @@ else
   bindkey '^J' myjump
 fi
 
+# execute ls after cd
+chpwd() {
+  ls
+}
+
 ### Python Virtualenv Control ###
 if [[ $OSNAME == Ubuntu ]]; then
   export VIRTUALENVWRAPPER_SCRIPT=$HOME/opt/python-3.6.2/bin/virtualenvwrapper.sh
