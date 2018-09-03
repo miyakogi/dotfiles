@@ -63,6 +63,21 @@ select-word-style default
 zstyle ':zle:*' word-chars " -/=;@:{},|"
 zstyle ':zle:*' word-style unspecified
 
+########## Change Directory ##########
+# execute ls after cd
+chpwd() {
+  ls
+}
+
+# move up by Ctrl+y
+function cd-up {
+  zle push-line
+  LBUFFER='cd ../'
+  zle accept-line
+}
+zle -N cd-up
+bindkey "^Y" cd-up
+
 ########## ALIAS ##########
 alias vi="/usr/bin/vim --noplugin"
 alias :q="exit"
@@ -369,11 +384,6 @@ elif [ $VIM ]; then
 else
   bindkey '^J' myjump
 fi
-
-# execute ls after cd
-chpwd() {
-  ls
-}
 
 ### Python Virtualenv Control ###
 if [[ $OSNAME == Ubuntu ]]; then
