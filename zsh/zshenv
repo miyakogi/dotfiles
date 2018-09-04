@@ -81,7 +81,11 @@ if [[ $OSNAME == Ubuntu ]]; then
 fi
 
 # pip --user
-export PATH=$HOME/.local/bin:$PATH
+if [[ $OSNAME == Mac ]]; then
+  export PATH=$HOME/Library/Python/3.7/bin:$PATH
+else
+  export PATH=$HOME/.local/bin:$PATH
+fi
 
 # go
 export GOPATH=$HOME/.go

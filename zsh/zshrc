@@ -389,6 +389,9 @@ fi
 if [[ $OSNAME == Ubuntu ]]; then
   export VIRTUALENVWRAPPER_SCRIPT=$HOME/opt/python-3.6.2/bin/virtualenvwrapper.sh
   load_if_exists $HOME/opt/python-3.6.2/bin/virtualenvwrapper_lazy.sh
+elif [[ $OSNAME == Mac ]]; then
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+  load_if_exists $HOME/Library/Python/3.7/bin/virtualenvwrapper_lazy.sh
 else
   export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
   load_if_exists /usr/bin/virtualenvwrapper_lazy.sh
