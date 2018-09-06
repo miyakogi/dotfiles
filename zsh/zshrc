@@ -30,7 +30,7 @@ autoload -Uz colors && colors
 autoload -Uz is-at-least
 # autoload predict-on && predict-on
 
-# 色設定
+# Color setting
 export LSCOLORS=Exfxcxdxbxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 export ZLS_COLORS=$LS_COLORS
@@ -49,7 +49,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
-# 補完候補に色をつける
+# Colorize completions
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # Automatically rehash executables on completion
@@ -195,17 +195,15 @@ zstyle ':vcs_info:git:*' check-for-changes true
 # zstyle ':vcs_info:hg:*' check-for-changes true
 
 function _get_vcs_info() {
-  # vcs_info で何も取得していない場合はプロンプトを表示しない
+  # not prompt if vcs_info get nothing
   [[ -z ${vcs_info_msg_0_} ]] && return 0
 
-  # vcs_info で情報を取得した場合
-  # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
-  # それぞれ表示する
+  # if get info by vcs_info, show $vcs_info_msg_0_, $vcs_info_msg_1_ and $vcs_info_msg_2_
   local -a messages
   [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{white}${vcs_info_msg_0_}" )
   [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}" )
   [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}" )
-  # 間にスペースを入れて連結して標準出力へ
+  # Return to stdout with spaces on each info
   echo -n ${messages[*]}
 }
 
@@ -320,9 +318,6 @@ if [[ $OSNAME == Ubuntu ]]; then
   load_if_exists $HOME/.pythonz/etc/bashrc
 fi
 
-### direnv
-# which direnv > /dev/null && eval "$(direnv hook zsh)"
-
 ### percol
 if which percol > /dev/null && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
@@ -370,7 +365,7 @@ else
   zstyle ':completion:*' recent-dirs-insert both
 
   load_if_exists $ZDOTDIR/zaw/zaw.zsh
-  zstyle ':filter-select' case-insensitive yes # 絞り込みをcase-insensitiveに
+  zstyle ':filter-select' case-insensitive yes # case-insensitive matching
   bindkey '^R' zaw-history # zaw-historyをbindkey
 
   function myjump() { zaw-cdr }
