@@ -79,17 +79,17 @@ set virtualedit+=block
 
 autocmd myvimrc BufEnter * setlocal formatoptions-=o
 autocmd myvimrc BufEnter * setlocal formatoptions-=r
-" 前後がMulti−byte文字の時の行連結でスペース入れない
+" Don't insert space when connect lines with multi-byte chars
 autocmd myvimrc BufEnter * setlocal formatoptions+=M
-" コメント行の連結をいい感じにやってくれる
+" Improve joining comment lines
 autocmd myvimrc BufEnter * setlocal formatoptions+=j
 
 set nrformats-=octal
 set nojoinspaces " Do not enter two spaces when join lines end with '.'.
-" word区切り条件に # 追加
+" Add # to the word split condition
 " autocmd myvimrc FileType vim setlocal iskeyword-=#
-set textwidth=0 " 自動折り返しなし
-set backspace=indent,eol,start " BSキーや<C-w>でインデント、改行削除
+set textwidth=0 " no word wrapping
+set backspace=indent,eol,start " Delete indent/line-breaks by BS/<C-w>
 set wildignore&  " A file that matches with one of these patterns is ignored
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.bak,*.?~,*.??~,*.???~,*.~      " Backup files
@@ -122,8 +122,8 @@ set mousehide
 set mousemodel=popup
 
 " ======== Display setting ========
-set scrolloff=5 " カーソルの上下の最低行数
-set sidescrolloff=5 " カーソルの左右の最低Column数
+set scrolloff=5 " min lines of up/bottom of cursor
+set sidescrolloff=5 " min cols of left/right of cursor
 set display=lastline " show all line as poossible
 set wrap " wrap long line.
 set nonumber " show line number column
@@ -206,9 +206,9 @@ nmap <Space> [Space]
 nnoremap [Space] <NOP>
 
 " ======== Cursor move ========
-" カーソルキーで行末／行頭の移動可能に設定。
+" Move to wrap end/start of lines by cursor keys
 set whichwrap=b,s,<,>,[,]
-" h,l で行末/行頭の移動可能
+" Move to wrap end/start of lines by h,l
 nnoremap h <Left>
 nnoremap l <Right>
 xnoremap h <Left>
@@ -243,22 +243,22 @@ else
   inoremap <silent> <DOWN> <C-r>=FcitxDown()<CR>
 endif
 
-" 行頭・行末への移動
+" Move to start/end of lines
 noremap H ^
 noremap L $
 
-" l を <right>に置き換えて、折りたたみを l で開くことができるようにする。
+" Open foldings by `l` key
 if has('folding')
   nnoremap <expr><silent> l foldlevel(line('.')) ? "\<Right>zo" : "\<Right>"
 endif
 
-" 前後のカッコへの移動
+" Moving to parentheses
 noremap ) t)
 noremap ( t(
 
-" QuickFix windowを開く（エラーがあれば）
+" Open QuickFix window if error exists
 nnoremap [Space]c :<C-u>cwindow<CR>
-" qflistの前後移動
+" Moving on qflist
 function! s:to_nearest_error(list, backward) abort
   let curpos = getpos('.')[1:2]
   call filter(a:list, '(a:backward ? -1 : 1) * ( v:val.lnum - curpos[0] ) > 0')
@@ -283,7 +283,7 @@ nnoremap <silent> ]q :<C-u>call JumpList(1, 0)<CR>
 nnoremap <silent> [q :<C-u>call JumpList(1, 1)<CR>
 nnoremap <silent> ]e :<C-u>call JumpList(0, 0)<CR>
 nnoremap <silent> [e :<C-u>call JumpList(0, 1)<CR>
-" diffモードでの前後移動
+" Moving next/prev diff on diff-mode
 nnoremap ]d ]c
 nnoremap [d [c
 
@@ -373,28 +373,29 @@ function! g:MoveToNewTab()
   tabnext
 endfunction
 
-" タブページを常に表示
+" Always show tab line
 set showtabline=2
-" gVimでもテキストベースのタブページを使う
+" Use text-based tabs also in gvim
 " set guioptions-=e
 set guioptions=
 
 " ======== Tips ========
-" 実践Vim（らしい
+" from 実践Vim
 xnoremap . :normal .<CR>
-" Q でExモードに入らずコマンドモードに入る
+" Enter command mode by Q instead of exec mode
 nnoremap Q q:
 
-" 最後の置換を同じフラグで繰り返す。フラグを変えたい時は :& [flags]
+" Repeat previous substitution with same flag
+" When want to change flag, use `:& [flags]`
 nnoremap & :&&<CR>
 vnoremap & :&&<CR>
 
-" MacVimでLeader
+" Leader setting of macvim
 if has('mac')
   map _ <Leader>
 endif
 
-"<C-[>での<C-@>誤爆防止
+" <C-@> is too close to <C-[> and danger on jp keyboard
 inoremap <C-@> <C-[>
 xnoremap <C-@> <C-[>
 vnoremap <C-@> <C-[>
@@ -403,20 +404,20 @@ onoremap <C-@> <C-[>
 snoremap <C-@> <C-[>
 lnoremap <C-@> <C-[>
 
-" ZZ, ZQの誤爆防止
+" `ZZ` and `ZQ` is too dangerous
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 
-" No help
+" Disable help
 nnoremap <F1> <NOP>
 
-" Sの誤爆防止
+" Disable `S`
 nnoremap S <NOP>
 
 " Bug fix of Y
 nnoremap Y y$
 
-" 直感的なredo
+" Improve redo
 nnoremap U <C-r>
 
 " Paste/Copy/Cut from clipboard
@@ -467,7 +468,7 @@ autocmd myvimrc CmdwinEnter * setlocal nonumber
 "  User Script Command {{{
 " ============================================
 
-" ファイルを開いた時に前回のカーソル位置に移動
+" Move previous cursor position when open a file
 autocmd myvimrc BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal g`\"" | endif
 
@@ -510,11 +511,6 @@ if !has('gui_running')
     set termguicolors
   endif
   set t_Co=256
-  " <Esc>のマッピングが持ってかれてアウト
-  " imap OD <Left>
-  " imap OC <Right>
-  " imap OA <Up>
-  " imap OB <Down>
 
   " Use vsplit mode
   " http://qiita.com/kefir_/items/c725731d33de4d8fb096
@@ -589,23 +585,7 @@ let python_no_builtin_highlight = 1
 "  Input Method Comntrol {{{
 " ============================================
 
-" ======== IM ========
-" なんでこれ設定したんだっけ？
-" IM onで<Shift>から英字入力するとneocomが動いて強制offだった？
-" function! MyIMCheck()
-"   if !exists(':NeoCompleteLock')
-"     return
-"   endif
-"   let IMStatus = system('fcitx-remote')
-"   if IMStatus < 2
-"     exec 'NeoCompleteUnlock'
-"   else
-"     exec 'NeoCompleteLock'
-"   endif
-" endfunction
-" autocmd myvimrc CursorMovedI * call MyIMCheck()
-
-" insert mode を抜けた時に自動でIMEオフ
+" Automatically disable IM when leaved insert mode
 if executable('fcitx-remote')
   autocmd myvimrc InsertLeave * call system('fcitx-remote -c')
 else
@@ -683,14 +663,14 @@ let g:sonictemplate_vim_template_dir = '$HOME/.vim/template'
 " let g:tcommentMaps = 0
 let g:tcomment_mapleader1 = ''
 let g:tcomment_mapleader2 = ''
-let g:tcomment_opleader1 = 'gc'  " gcb[text-obj] のmapが便利かもなので残す
+let g:tcomment_opleader1 = 'gc'  " gcb[text-obj] map may be useful
 let g:tcomment_textobject_inlinecomment = ''
 let g:tcomment_mapleader_uncomment_anyway = ''
 "}}}
 
 " ======== surround.vim ======== {{{
 let g:surround_no_mappings = 1
-" Original insertmode mapping (delimitMateあればいらないかも)
+" Original insertmode mapping
 let g:surround_no_insert_mappings = 1
 "}}}
 

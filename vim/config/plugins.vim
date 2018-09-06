@@ -132,8 +132,6 @@ if get(g:, 'loaded_anzu')
   " nnoremap <expr> N anzu#mode#mapexpr("N", "", "zzzv")
   nmap * <Plug>(anzu-star)
   nmap # <Plug>(anzu-sharp)
-  " 一定時間キー入力がないとき、ウインドウを移動したとき、タブを移動したときに
-  " 検索ヒット数の表示を消去する
   autocmd myvimrc CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
 endif
 "}}}

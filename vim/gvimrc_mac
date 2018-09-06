@@ -37,7 +37,7 @@ else
   colorscheme slateblue
 endif
 
-" insert mode を抜けた時に自動でIMEオフ
+" Automatically disable IM when leaved insert mode
 inoremap <silent> <ESC> <Esc>:set iminsert=0<CR>
 
 " Configure gui-cursor shape, color, and blinking.
