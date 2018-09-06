@@ -33,8 +33,6 @@ makedir_if_not_exists $HOME/.vim/doc
 makedir_if_not_exists $HOME/.vim/pack
 makedir_if_not_exists $HOME/.vim/pack/remote
 makedir_if_not_exists $HOME/.config
-makedir_if_not_exists $HOME/.config/nvim
-makedir_if_not_exists $HOME/.config/nvim/bundle
 makedir_if_not_exists $HOME/.config/kitty
 makedir_if_not_exists $HOME/.zsh
 makedir_if_not_exists $HOME/.tmux
@@ -93,18 +91,6 @@ ln -sf $VIMBASE/plugin $HOME/.vim
 ln -sf $VIMBASE/snippets $HOME/.vim
 ln -sf $VIMBASE/syntax $HOME/.vim
 
-# Directories for NeoVim
-NVIMCONFIG=$HOME/.config/nvim
-ln -sf $VIMBASE/after $NVIMCONFIG
-ln -sf $VIMBASE/autoload $NVIMCONFIG
-ln -sf $VIMBASE/colors $NVIMCONFIG
-ln -sf $VIMBASE/config $NVIMCONFIG
-ln -sf $VIMBASE/ftdetect $NVIMCONFIG
-ln -sf $VIMBASE/ftplugin $NVIMCONFIG
-ln -sf $VIMBASE/plugin $NVIMCONFIG
-ln -sf $VIMBASE/snippets $NVIMCONFIG
-ln -sf $VIMBASE/syntax $NVIMCONFIG
-
 # Percol
 ln -sf $BASEDIR/percolrc.py $HOME/.percol.d/rc.py
 
@@ -117,9 +103,6 @@ ln -sf $BASEDIR/cargo.toml $HOME/.cargo/config
 # kitty (terminal)
 ln -sf $BASEDIR/kitty.conf $HOME/.config/kitty
 
-# Install neobundle.vim for neovim
-# git_clone https://github.com/Shougo/neobundle.vim  $HOME/.config/nvim/bundle/neobundle.vim
-
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
 # Install zsh-autoenv
@@ -131,4 +114,4 @@ git_clone https://github.com/bobthecow/git-flow-completion  $HOME/.zsh/git-flow-
 # Install tpm
 git_clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
-echo Make Link Completed
+echo "Make Link Completed"
