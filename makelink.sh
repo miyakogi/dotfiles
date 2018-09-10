@@ -57,7 +57,7 @@ ln -sf $BASEDIR/git/gitconfig $HOME/.gitconfig
 ln -sf $BASEDIR/git/bin/git-workflow $HOME/bin/
 
 # ------ tmux ------
-ln -sf $BASEDIR/tmux/tmux.conf $HOME/.tmux.conf
+ln -sf $BASEDIR/tmux.conf $HOME/.tmux.conf
 
 # ------ Vim ------
 VIMBASE=$BASEDIR/vim
