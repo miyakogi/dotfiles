@@ -49,6 +49,7 @@ ZSHBASE=$BASEDIR/zsh
 ln -sf $ZSHBASE/zshenv $HOME/.zshenv
 ln -sf $ZSHBASE/zprofile $HOME/.zsh/.zprofile
 ln -sf $ZSHBASE/zshrc $HOME/.zsh/.zshrc
+ln -sf $ZSHBASE/prompt $HOME/.zsh/prompt
 
 # ------ Git ------
 ln -sf $BASEDIR/git/gitignore $HOME/.gitignore_global
