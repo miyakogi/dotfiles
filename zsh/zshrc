@@ -271,19 +271,12 @@ function prompt_fancy() {
 ### Enable prompt
 add-zsh-hook precmd _update_prompt
 
-# powerline (python)
-# source $HOME/opt/python-3.6.2/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-
-########## SYSTEM VARIABLES ##########
-# For vim
-# export COLORFGBG="15;0"
-
+########## Plugin Settings ##########
 # Load file if exists
 function load_if_exists() {
   [[ -f $1 ]] && source $1
 }
 
-########## Plugin Settings ##########
 ### zsh-completions
 # http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
 fpath=($HOME/.zsh/zsh-completions/src(N-/) $fpath)
