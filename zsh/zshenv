@@ -51,52 +51,56 @@ else
 fi
 
 # Setting $PATH
+function add_path() {
+  path=("$1" $path)
+}
+
 if [[ $OSNAME == Windows ]]; then
   export MSYS2_PATH_TYPE=inherit
-  export PATH=/mingw64/bin:$PATH
+  add_path /mingw64/bin
 fi
 
 if [[ $OSNAME == Ubuntu ]]; then
   # ubuntu specific binaries
-  export PATH=$HOME/bin/ubuntu:$PATH
+  add_path $HOME/bin/ubuntu
 
   # ubuntu local builds
-  export PATH=$HOME/usr/bin:$PATH
+  add_path $HOME/usr/bin
 
   # go
   export GOROOT=/usr/local/go
-  export PATH=$GOROOT/bin:$PATH
+  add_path $GOROOT/bin
 
   # nim
-  export PATH=$HOME/.nimble/bin:$PATH
+  add_path $HOME/.nimble/bin
 
   # rust
-  export PATH=$HOME/.cargo/bin:$PATH
+  add_path $HOME/.cargo/bin
   if type rustc > /dev/null 2>&1; then
     export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
   fi
 
   # node
-  export PATH=$HOME/opt/node/bin:$PATH
+  add_path $HOME/opt/node/bin
 fi
 
 # pip --user
 if [[ $OSNAME == Mac ]]; then
-  export PATH=$HOME/Library/Python/3.7/bin:$PATH
+  add_path $HOME/Library/Python/3.7/bin
 else
-  export PATH=$HOME/.local/bin:$PATH
+  add_path $HOME/.local/bin
 fi
 
 # go
 export GOPATH=$HOME/.go
-export PATH=$GOPATH/bin:$PATH
+add_path $GOPATH/bin
 
 # npm
-export PATH=$HOME/.node_modules/bin:$PATH
+add_path $HOME/.node_modules/bin
 export npm_config_prefix=~/.node_modules
 
 # ruby gem
-export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
+add_path $HOME/.gem/ruby/2.5.0/bin
 
 # load machine local profile
 [[ -f .zshenv.local ]] && source .zshenv.local
