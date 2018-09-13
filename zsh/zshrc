@@ -251,8 +251,13 @@ fi
 
 ### Python Virtualenv Control ###
 if [[ $OSNAME == Ubuntu ]]; then
-  export VIRTUALENVWRAPPER_SCRIPT=$HOME/opt/python-3.6.2/bin/virtualenvwrapper.sh
-  load_if_exists $HOME/opt/python-3.6.2/bin/virtualenvwrapper_lazy.sh
+  # pyenv
+  export PYENV_ROOT="$HOME/.pyenv"
+  add_path $PYENV_ROOT/bin
+  which pyenv >/dev/null && add_path $(pyenv root)/shims
+  # virtualenvwrapper
+  export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
+  load_if_exists /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
 elif [[ $OSNAME == Mac ]]; then
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
   load_if_exists $HOME/Library/Python/3.7/bin/virtualenvwrapper_lazy.sh
