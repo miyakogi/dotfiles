@@ -136,6 +136,26 @@ function load_if_exists() {
   [[ -f $1 ]] && source $1
 }
 
+### Python Virtualenv Control
+if [[ $OSNAME == Ubuntu ]]; then
+  # pyenv
+  export PYENV_ROOT="$HOME/.pyenv"
+  add_path $PYENV_ROOT/bin
+  which pyenv >/dev/null && add_path $(pyenv root)/shims
+  # virtualenvwrapper
+  export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
+  load_if_exists /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+elif [[ $OSNAME == Mac ]]; then
+  # pyenv
+  which pyenv >/dev/null && add_path "$(pyenv root)/shims"
+  # virtualenvwrapper
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+  load_if_exists $HOME/Library/Python/3.7/bin/virtualenvwrapper_lazy.sh
+else
+  export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+  load_if_exists /usr/bin/virtualenvwrapper_lazy.sh
+fi
+
 ### prompt
 load_if_exists $ZDOTDIR/prompt
 
@@ -247,23 +267,6 @@ elif [ $VIM ]; then
   bindkey '^L' myjump
 else
   bindkey '^J' myjump
-fi
-
-### Python Virtualenv Control ###
-if [[ $OSNAME == Ubuntu ]]; then
-  # pyenv
-  export PYENV_ROOT="$HOME/.pyenv"
-  add_path $PYENV_ROOT/bin
-  which pyenv >/dev/null && add_path $(pyenv root)/shims
-  # virtualenvwrapper
-  export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
-  load_if_exists /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
-elif [[ $OSNAME == Mac ]]; then
-  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-  load_if_exists $HOME/Library/Python/3.7/bin/virtualenvwrapper_lazy.sh
-else
-  export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
-  load_if_exists /usr/bin/virtualenvwrapper_lazy.sh
 fi
 
 function mkpjpy() {
