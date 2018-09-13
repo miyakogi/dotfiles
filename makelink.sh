@@ -116,6 +116,8 @@ git_clone https://github.com/bobthecow/git-flow-completion  $HOME/.zsh/git-flow-
 git_clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 # Install pyenv for ubuntu
-git_clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+if [ -e /etc/lsb-release ]; then
+  git_clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+fi
 
 echo "Make Link Completed"
