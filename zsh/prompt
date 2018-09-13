@@ -40,7 +40,15 @@ _icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
 
 ### configure lprompt
 function _update_lprompt() {
-  [[ $PROMPT_SIMPLE_MODE == 1 ]] && PROMPT="[%~]$BR$ " && return
+  if [[ $PROMPT_SIMPLE_MODE == 1 ]]; then
+    local venv
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+      venv="($(basename $VIRTUAL_ENV))"
+    fi
+    PROMPT="${venv}[%~]$BR$ "
+    return
+  fi
+
   _cols=`tput cols`
   if [[ $OSNAME == Windows ]] && [[ $TERM != cygwin ]]; then
     _cols=$(($_cols / 2))
