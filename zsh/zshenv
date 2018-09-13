@@ -60,6 +60,11 @@ if [[ $OSNAME == Windows ]]; then
   add_path /mingw64/bin
 fi
 
+if [[ $OSNAME == Mac ]]; then
+  add_path /usr/local/sbin
+  add_path /usr/local/bin
+fi
+
 if [[ $OSNAME == Ubuntu ]]; then
   # ubuntu specific binaries
   add_path $HOME/bin/ubuntu
@@ -86,10 +91,7 @@ fi
 
 # pip --user
 if [[ $OSNAME == Mac ]]; then
-  add_path /usr/local/sbin
-  add_path /usr/local/bin
   add_path $HOME/Library/Python/3.7/bin
-  which pyenv >/dev/null && add_path "$(pyenv root)/shims"
 else
   add_path $HOME/.local/bin
 fi
