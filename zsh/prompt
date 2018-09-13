@@ -110,7 +110,7 @@ function _get_time() {
 function _update_rprompt() {
   [[ $PROMPT_SIMPLE_MODE = 1 ]] && RPROMPT="" && return
   LANG=en_US.UTF-8 vcs_info
-  local gitinfo=`_get_vcs_info`
+  local gitinfo="`_get_vcs_info`"
   if [[ -n ${gitinfo} ]]; then
     local rinfo=${gitinfo}
   else
