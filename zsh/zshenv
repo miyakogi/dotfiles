@@ -92,6 +92,10 @@ if [[ $OSNAME == Ubuntu ]]; then
 
   # node
   add_path $HOME/opt/node/bin
+
+  # pyenv
+  export PYENV_ROOT="$HOME/.pyenv"
+  add_path $PYENV_ROOT/bin
 fi
 
 # pip --user
@@ -99,6 +103,11 @@ if [[ $OSNAME == Mac ]]; then
   add_path $HOME/Library/Python/3.7/bin
 else
   add_path $HOME/.local/bin
+fi
+
+# pyenv
+if which pyenv >/dev/null; then
+  add_path "$(pyenv root)/shims"
 fi
 
 # go
