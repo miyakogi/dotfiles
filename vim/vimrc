@@ -778,7 +778,7 @@ let g:quickrun_config['cargo/test']['outputter/buffer/filetype'] = 'cargo_test'
 "}}}
 
 " ======== vim-test ========{{{
-let g:test#strategy = 'vimproc'
+" let g:test#strategy = 'vimproc'
 let g:test#runners = {'Python': ['Green']}
 let g:test#python#runner = 'nose'
 let g:test#python#nose#options = '--nocapture --nologcapture'
