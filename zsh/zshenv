@@ -112,6 +112,11 @@ export npm_config_prefix=~/.node_modules
 # ruby gem
 add_path $HOME/.gem/ruby/2.5.0/bin
 
+# Nix
+if [[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]]; then
+  . $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
+
 # load machine local profile
 [[ -f .zshenv.local ]] && source .zshenv.local
 
