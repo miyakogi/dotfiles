@@ -13,31 +13,6 @@ else
 fi
 BR=$'\n'
 
-### set icon
-# local icon="🐧"  # penguin
-# local icon=$'\uf17c '  # tux 
-if [[ $OSNAME == Mac ]]; then
-  _icon=$'\ue711 '  # mac 
-elif [[ $OSNAME == Windows ]]; then
-  _icon='❖ '
-elif [[ $OSNAME == Ubuntu ]]; then
-  _icon=$'\uf30c '  # ubuntu 
-elif [[ $OSNAME == Arch ]]; then
-  _icon=$'\uf300 '  # Arch 
-else  # other linux
-  _icon=$'\uf17c '  # tux 
-fi
-
-_icon_sep=$'\ue621'  # separator 
-if [[ $OSNAME == Windows ]]; then
-  _mark="$ "
-else
-  _mark="└─▶ "
-fi
-_icon_color="%F{16}%(?,%K{green},%K{yellow})"
-_icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
-# _icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8 '
-
 ### configure lprompt
 function _update_lprompt() {
   if [[ $PROMPT_SIMPLE_MODE == 1 ]]; then
@@ -49,12 +24,47 @@ function _update_lprompt() {
     return
   fi
 
-  _cols=`tput cols`
+  ### set icon
+  local _icon
+  if [[ $OSNAME == Mac ]]; then
+    _icon=$'\ue711 '  # mac 
+  elif [[ $OSNAME == Windows ]]; then
+    _icon='❖ '
+  elif [[ $OSNAME == Ubuntu ]]; then
+    _icon=$'\uf30c '  # ubuntu 
+  elif [[ $OSNAME == Arch ]]; then
+    _icon=$'\uf300 '  # Arch 
+  else  # other linux
+    # icon="🐧"  # penguin
+    _icon=$'\uf17c '  # tux 
+  fi
+
+  local _icon_sep=$'\ue621'  # separator 
+  local _mark
+  if [[ $OSNAME == Windows ]]; then
+    _mark="$ "
+  else
+    _mark="└─▶ "
+  fi
+
+  local _success_front _success_back
+  if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
+    _success_front="%F{cyan}"
+    _success_back="%K{cyan}"
+  else
+    _success_front="%F{green}"
+    _success_back="%K{green}"
+  fi
+  local _icon_color="%F{16}%(?,$_success_back,%K{yellow})"
+  local _icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
+  # local _icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8 '
+
+  local _cols=`tput cols`
   if [[ $OSNAME == Windows ]] && [[ $TERM != cygwin ]]; then
     _cols=$(($_cols / 2))
   fi
-  _sep=`repeat $_cols printf ─`
-  _separator="%F{238}$_sep%f"
+  local _sep=`repeat $_cols printf ─`
+  local _separator="%F{238}$_sep%f"
 
   if [[ -n "$VIRTUAL_ENV" ]]; then
     # local icon=$'\ue235 '  # python 
@@ -72,7 +82,7 @@ function _update_lprompt() {
     local icon="$ssh_icon $_icon_sep $icon "
   fi
 
-  local mark="%(?,%F{green}$_mark%f,%F{yellow}$_mark%f)%(!,#,)"
+  local mark="%(?,$_success_front$_mark%f,%F{yellow}$_mark%f)%(!,#,)"
   PROMPT="$_separator$BR$_icon_color $icon$_icon_dash%F{250}%~ %k$BR$mark"
 }
 
