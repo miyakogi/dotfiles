@@ -203,12 +203,6 @@ function pip-init {
   fi
 }
 
-### PythonZ
-# Use only on ubuntu
-if [[ $OSNAME == Ubuntu ]]; then
-  load_if_exists $HOME/.pythonz/etc/bashrc
-fi
-
 ### percol
 if which percol > /dev/null && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
