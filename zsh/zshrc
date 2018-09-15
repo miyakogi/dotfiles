@@ -161,6 +161,17 @@ fi
 ### prompt
 load_if_exists $ZDOTDIR/prompt
 
+### tmux status line
+if [ -n "${TMUX}" ]; then
+  if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
+    # change status line color on ssh connection
+    tmux setw window-status-fg cyan
+    tmux setw window-status-bg black
+    tmux setw window-status-current-fg black
+    tmux setw window-status-current-bg cyan
+  fi
+fi
+
 ### zsh-completions
 # http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
 fpath=($HOME/.zsh/zsh-completions/src(N-/) $fpath)
