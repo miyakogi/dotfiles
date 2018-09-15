@@ -115,6 +115,9 @@ alias gstatus="git status -s -b"
 alias pull="git pull"
 alias push="git push origin"
 
+# python unit test
+alias pyunit='python -m unittest discover'
+
 ########## Change Directory ##########
 # execute ls after cd
 chpwd() {
