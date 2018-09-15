@@ -6,6 +6,8 @@
 if [[ $OSNAME == Windows ]]; then
   # Windows terminal does not have $DISPLAY
   PROMPT_SIMPLE_MODE=0
+elif [[ -n $SSH_CONNECTION ]]; then
+  PROMPT_SIMPLE_MODE=0
 elif [[ -n $DISPLAY ]]; then
   PROMPT_SIMPLE_MODE=0
 else
