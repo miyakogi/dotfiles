@@ -60,6 +60,11 @@ function add_path() {
   path=("$1" $path)
 }
 
+# Nix
+if [[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]]; then
+  . $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
+
 if [[ $OSNAME == Windows ]]; then
   export MSYS2_PATH_TYPE=inherit
   add_path /mingw64/bin
@@ -98,16 +103,16 @@ if [[ $OSNAME == Ubuntu ]]; then
   add_path $PYENV_ROOT/bin
 fi
 
+# pyenv
+if which pyenv >/dev/null; then
+  add_path "$(pyenv root)/shims"
+fi
+
 # pip --user
 if [[ $OSNAME == Mac ]]; then
   add_path $HOME/Library/Python/3.7/bin
 else
   add_path $HOME/.local/bin
-fi
-
-# pyenv
-if which pyenv >/dev/null; then
-  add_path "$(pyenv root)/shims"
 fi
 
 # go
@@ -120,11 +125,6 @@ export npm_config_prefix=~/.node_modules
 
 # ruby gem
 add_path $HOME/.gem/ruby/2.5.0/bin
-
-# Nix
-if [[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]]; then
-  . $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
 
 # load machine local profile
 [[ -f .zshenv.local ]] && source .zshenv.local
