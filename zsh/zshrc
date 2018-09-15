@@ -142,8 +142,13 @@ function load_if_exists() {
 ### Python Virtualenv Control
 if [[ $OSNAME == Ubuntu ]]; then
   # virtualenvwrapper
-  export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
-  load_if_exists /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+  if [[ -f "$HOME/.local/bin/virtualenvwrapper.sh" ]]; then
+    export VIRTUALENVWRAPPER_SCRIPT="$HOME/.local/bin/virtualenvwrapper.sh"
+    load_if_exists "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
+  else
+    export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
+    load_if_exists /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+  fi
 elif [[ $OSNAME == Mac ]]; then
   # virtualenvwrapper
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
