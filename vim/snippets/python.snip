@@ -57,6 +57,12 @@ options     head
 	def ${1:#:name}(${2}) -> ${3:None}:
 		${0:pass}
 
+snippet     dt
+abbr        def test-function():
+options     head
+	def test_${1:#:name}(self):
+		${0:pass}
+
 snippet     ade
 abbr        async def function():
 alias       ad
