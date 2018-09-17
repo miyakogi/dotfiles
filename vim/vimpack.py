@@ -210,9 +210,7 @@ class Git:
             logger.debug('Skip existing {}'.format(target))
             return
 
-        url = '{0}://{1}'.format(PROTO, repo)
-        if '\\' in url:
-            url = url.replace('\\', '/')
+        url = '{0}://{1}'.format(PROTO, repo.as_posix())
         logger.info('start clone {}'.format(repo))
         proc = subprocess.run(['git', 'clone', '--recursive', url],
                               cwd=str(base))
