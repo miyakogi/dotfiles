@@ -7,12 +7,18 @@
 bindkey -e
 
 # Optional key mappings for zsh
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line
-# bindkey "\e[2~" overwrite-mode  # disable insert key
+# bindkey "\e[2~" overwrite-mode
 bindkey "\e[3~" delete-char
 # bindkey "\e[5~" beginning-of-buffer-or-history
 # bindkey "\e[6~" end-of-buffer-or-history
+
+if [[ -n $TMUX ]]; then
+  bindkey "\e[1~" beginning-of-line
+  bindkey "\e[4~" end-of-line
+else
+  bindkey "\e[H" beginning-of-line
+  bindkey "\e[F" end-of-line
+fi
 
 ########## HISTORY ##########
 HISTFILE=~/.histfile
