@@ -3,6 +3,17 @@
 #  Main Config File for ZSH
 # ============================================
 
+########## Key Binding ##########
+bindkey -e
+
+# Optional key mappings for zsh
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
+# bindkey "\e[2~" overwrite-mode  # disable insert key
+bindkey "\e[3~" delete-char
+# bindkey "\e[5~" beginning-of-buffer-or-history
+# bindkey "\e[6~" end-of-buffer-or-history
+
 ########## HISTORY ##########
 HISTFILE=~/.histfile
 DIRSTACKSIZE=1000
@@ -11,7 +22,6 @@ SAVEHIST=1000000
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt share_history
-bindkey -e
 setopt hist_verify
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
