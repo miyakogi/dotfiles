@@ -907,6 +907,7 @@ let g:sidepanel_config = {}
 let g:sidepanel_config['nerdtree'] = {}
 let g:sidepanel_config['tagbar'] = {}
 let g:sidepanel_config['vimfiler'] = {}
+let g:sidepanel_config['defx'] = {}
 let g:sidepanel_use_rabbit_ui = 0
 "}}}
 
