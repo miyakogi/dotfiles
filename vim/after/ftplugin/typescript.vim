@@ -8,7 +8,7 @@ setlocal expandtab
 inoremap <C-l> <Space>=><Space>
 
 " ======== SmartChr ========
-if neobundle#is_installed('vim-smartchr')
+if g:IsInstalled('vim-startchr')
   inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
   inoremap <buffer> <expr> + smartchr#loop(' + ', '+')
   inoremap <buffer> <expr> - smartchr#loop(' - ', '-', '--')
