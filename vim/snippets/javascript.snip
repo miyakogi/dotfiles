@@ -24,3 +24,15 @@ snippet     var
 abbr        var variable = value;
 	var ${1:#:variable} = ${2:#:value};
   ${0}
+
+snippet     it
+abbr        it('test description' () => {  });
+  it('${1:description}', () => {
+    ${0}
+  });
+
+snippet     ita
+abbr        it('test description' async () => {  });
+  it('${1:description}', async () => {
+    ${0}
+  });
