@@ -45,6 +45,7 @@
       "pangloss/vim-javascript",
       "mattn/jscomplete-vim",
       "leafgarland/typescript-vim",
+      "posva/vim-vue",
       "rust-lang/rust.vim",
       "racer-rust/vim-racer",
       "miyakogi/conoline.vim",
