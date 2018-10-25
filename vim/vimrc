@@ -680,8 +680,8 @@ let g:delimitMate_expand_inside_quotes = 0
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_smart_matchpairs = '^\%(\w\|\!\|£\|\$\|_\\s*\S\)'
 augroup myvimrc
-  autocmd FileType html,css,javascript,htmljinja,markdown let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-  autocmd FileType dart let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+  autocmd FileType html,css,htmljinja,markdown let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+  autocmd FileType javascript,dart,vue let b:delimitMate_matchpairs = "(:),[:],{:}"
   autocmd FileType tex,latex,plaintex let b:delimitMate_quotes = "\" ' ` $"
   autocmd FileType htmljinja,markdown let b:delimitMate_quotes = "\" ' ` %"
   autocmd FileType python let b:delimitMate_nesting_quotes = ['"',"'"]
