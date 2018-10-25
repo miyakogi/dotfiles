@@ -13,15 +13,16 @@
   status = auto
   branch = auto
 [alias]
-  nffmerge = merge --no-ff
-  nfmerge = merge --no-ff
-  mergenff = merge --no-ff
   clone-shallow = clone --depth=1
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   ffeature = flow feature
   fstart = flow feature start
   ffinish = flow feature finish
+[merge]
+  ff = false
 [diff]
   tool = vimdiff
 [push]
   default = simple
+[pull]
+  ff = true
