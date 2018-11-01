@@ -69,8 +69,8 @@ function _update_lprompt() {
   local _separator="%F{238}$_sep%f"
 
   if [[ -n "$VIRTUAL_ENV" ]]; then
-    # local icon=$'\ue235 '  # python 
-    local icon="🐍"  # snake
+    local icon=$'\ue235 '  # python 
+    # local icon="🐍"  # snake
     if [[ $OSTYPE = darwin* ]]; then
       local icon="${icon} "
     fi
