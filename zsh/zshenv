@@ -119,6 +119,9 @@ fi
 export GOPATH=$HOME/.go
 add_path $GOPATH/bin
 
+# nvm
+export NVM_DIR=$HOME/.nvm
+
 # npm
 add_path $HOME/.node_modules/bin
 export npm_config_prefix=~/.node_modules

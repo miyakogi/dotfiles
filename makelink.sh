@@ -111,6 +111,8 @@ git_clone https://github.com/Tarrasch/zsh-autoenv  $HOME/.zsh/zsh-autoenv
 # Install compoletions
 git_clone https://github.com/zsh-users/zsh-completions.git  $HOME/.zsh/zsh-completions
 git_clone https://github.com/bobthecow/git-flow-completion  $HOME/.zsh/git-flow-completion
+# Install zsh-nvm
+git_clone https://github.com/lukechilds/zsh-nvm  $HOME/.zsh/zsh-nvm
 
 # Install tpm
 git_clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
