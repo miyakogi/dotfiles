@@ -86,7 +86,16 @@ alias tmux="tmux -2"
 alias mkdir="mkdir -p"
 alias ln="ln -v"  # verbose
 alias path='echo $PATH | tr -s ":" "\n"'  # pretty print path
-alias gg='cd `echo ${PROJECT_ROOT:-$HOME}`'
+
+# go to git root by `gg`
+function git_root() {
+  if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    cd `pwd`/`git rev-parse --show-cdup`
+  else
+    cd ~
+  fi
+}
+alias gg=git_root
 
 # alias for `ls` command
 if which exa >/dev/null; then
