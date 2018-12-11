@@ -80,7 +80,7 @@ class Formatter(logging.Formatter):
         config = {'level': rec.levelname[0], 'name': rec.name, 'msg': rec.msg}
         if rec.levelno >= logging.ERROR:
             config['color'] = self.colors['red']
-        elif rec.levelno >= logging.WARN:
+        elif rec.levelno >= logging.WARNING:
             config['color'] = self.colors['orange']
         elif rec.levelno >= logging.INFO:
             config['color'] = self.colors['green']
@@ -193,7 +193,7 @@ def clean_doc():
 def helptags():
     clean_doc()
     vim_cmd = 'helptags {} | quitall'.format(VIMHOME / 'doc')
-    vim_cmd  =  vim_cmd.replace('\\', '/')
+    vim_cmd = vim_cmd.replace('\\', '/')
     cmd = ['vim', '-u', 'NONE', '-N', '--cmd', vim_cmd]
     proc = subprocess.run(cmd)
     if proc.returncode == 0:
@@ -218,7 +218,8 @@ class Git:
             if target.is_dir():
                 post_process(target)
             else:
-                logger.warn('Cloned repository not found. Skip post-process.')
+                logger.warning(
+                    'Cloned repository not found. Skip post-process.')
         else:
             logger.error('Failed to clone {}'.format(url))
 
@@ -286,10 +287,10 @@ class Packager:
                         unmanaged_plugins.append(plugin.name)
                     post_process(plugin)
             if unmanaged_plugins:
-                logger.warn('({}/{}) plugins not in config file: {}'.format(
+                logger.warning('({}/{}) plugins not in config file: {}'.format(
                     base.parts[-2], base.parts[-1], unmanaged_plugins))
             if managed_plugins:
-                logger.warn('({}/{}) not installed plugins: {}'.format(
+                logger.warning('({}/{}) not installed plugins: {}'.format(
                     base.parts[-2], base.parts[-1], managed_plugins))
         logger.info('Check done')
         self.helptags()
