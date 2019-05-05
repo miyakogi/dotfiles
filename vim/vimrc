@@ -115,6 +115,9 @@ set diffopt=filler,vertical
 set visualbell t_vb=
 set noerrorbells
 
+" pythonx version setting
+set pyxversion=3
+
 " ======== Mouse setting ========
 set mouse=a
 " set mousefocus
