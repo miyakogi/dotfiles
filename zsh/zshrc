@@ -45,6 +45,7 @@ autoload -Uz add-zsh-hook
 autoload -Uz colors && colors
 autoload -Uz is-at-least
 # autoload predict-on && predict-on
+setopt interactivecomments
 
 # Color setting
 export LSCOLORS=Exfxcxdxbxegedabagacad
