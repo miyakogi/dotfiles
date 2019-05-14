@@ -116,7 +116,9 @@ set visualbell t_vb=
 set noerrorbells
 
 " pythonx version setting
-set pyxversion=3
+if !has('nvim')
+  set pyxversion=3
+endif
 
 " ======== Mouse setting ========
 set mouse=a

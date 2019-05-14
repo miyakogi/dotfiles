@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 BASEDIR=$(cd $(dirname $0);pwd)
-echo $BASEDIR
 
 # Make dir if not exists
 makedir_if_not_exists () {
@@ -91,6 +90,10 @@ ln -sf $VIMBASE/ftplugin $HOME/.vim
 ln -sf $VIMBASE/plugin $HOME/.vim
 ln -sf $VIMBASE/snippets $HOME/.vim
 ln -sf $VIMBASE/syntax $HOME/.vim
+
+# ------ NeoVim -------
+ln -sf $HOME/.vim $HOME/.config/nvim
+ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
 
 # Percol
 ln -sf $BASEDIR/percolrc.py $HOME/.percol.d/rc.py
