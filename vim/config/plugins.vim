@@ -145,6 +145,8 @@ if get(g:, 'loaded_defx')
 	  nnoremap <silent><buffer><expr> <C-l> defx#do_action('redraw')
 	  nnoremap <silent><buffer><expr> <C-g> defx#do_action('print')
 	endfunction
+
+  nnoremap [Space]f :<C-u>Defx -split=tab<CR>
 endif
 "}}}
 
