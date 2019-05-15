@@ -26,7 +26,6 @@ if get(g:, 'loaded_denite')
   autocmd myvimrc FileType denite nmap <buffer><silent><nowait> q <PLUG>(denite_exit)
 
   " ======== Denite Key binding ========
-  nnoremap <silent> [denite]u :<C-u>Denite
   nnoremap <silent> [denite]f :<C-u>Denite file/rec<CR>
   nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
   nnoremap <silent> [denite]m :<C-u>Denite file_mru<CR>
