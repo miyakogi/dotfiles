@@ -25,6 +25,6 @@ percol.import_keymap({
 
 # Style
 percol.view.PROMPT = '<bold><blue>[percol]</blue></bold> %q'
-percol.view.CANDIDATES_LINE_BASIC  = ('on_black', 'white')
-percol.view.CANDIDATES_LINE_SELECTED  = ('black', 'on_blue')
-percol.view.CANDIDATES_LINE_QUERY  = ('on_blue', 'white', 'bold')
+percol.view.CANDIDATES_LINE_BASIC = ('on_black', 'white')
+percol.view.CANDIDATES_LINE_SELECTED = ('black', 'on_blue')
+percol.view.CANDIDATES_LINE_QUERY = ('on_blue', 'white', 'bold')
