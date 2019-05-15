@@ -200,6 +200,8 @@ load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
 load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
 ### syntax highlight
 # load_if_exists $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+### auto suggestion
+load_if_exists $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ### pip
 # pip zsh completion start

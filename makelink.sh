@@ -116,6 +116,8 @@ git_clone https://github.com/zsh-users/zsh-completions.git  $HOME/.zsh/zsh-compl
 git_clone https://github.com/bobthecow/git-flow-completion  $HOME/.zsh/git-flow-completion
 # Install zsh-nvm
 git_clone https://github.com/lukechilds/zsh-nvm  $HOME/.zsh/zsh-nvm
+# Install zsh-autosuggestions
+git_clone https://github.com/zsh-users/zsh-autosuggestions  $HOME/.zsh/zsh-autosuggestions
 
 # Install tpm
 git_clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
