@@ -129,6 +129,10 @@ export npm_config_prefix=~/.node_modules
 # ruby gem
 add_path $HOME/.gem/ruby/2.5.0/bin
 
+# user local scripts
+add_path $HOME/bin
+
+
 # load machine local profile
 [[ -f .zshenv.local ]] && source .zshenv.local
 
