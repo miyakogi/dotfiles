@@ -124,8 +124,6 @@ endif
 if get(g:, 'loaded_anzu')
   nmap n <Plug>(anzu-n)
   nmap N <Plug>(anzu-N)
-  " nnoremap <expr> n anzu#mode#mapexpr("n", "", "zzzv")
-  " nnoremap <expr> N anzu#mode#mapexpr("N", "", "zzzv")
   nmap * <Plug>(anzu-star)
   nmap # <Plug>(anzu-sharp)
   autocmd myvimrc CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()

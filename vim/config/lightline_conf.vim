@@ -111,6 +111,10 @@ function! InactiveFilename() abort
 endfunction
 
 function! MyAnzu() abort
+  if !exists('*anzu#search_status')
+    return ''
+  endif
+
   let l:_ = anzu#search_status()
   if winwidth(0) > 80 + l:_
     if strlen(l:_) > 0
