@@ -127,4 +127,4 @@ if [ -e /etc/lsb-release ]; then
   git_clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 fi
 
-echo "Make Link Completed"
+echo "Install Completed"
