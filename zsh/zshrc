@@ -99,7 +99,9 @@ function git_root() {
 alias gg=git_root
 
 # alias for `ls` command
-if which exa >/dev/null; then
+if which lsd >/dev/null; then
+  alias ls="lsd"
+elif which exa >/dev/null; then
   alias ls="exa"
 else
   case "${OSTYPE}" in
