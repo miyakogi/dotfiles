@@ -41,6 +41,11 @@ if get(g:, 'loaded_denite')
   call denite#custom#map('insert', "<C-n>", '<denite:move_to_next_line>')
   call denite#custom#map('insert', "<C-p>", '<denite:move_to_previous_line>')
 
+  " For lightline, disable denite's statusline
+  if get(g:, 'loaded_lightline')
+    call denite#custom#option('default', 'statusline', v:false)
+  endif
+
   " For file search
   call denite#custom#source('file/rec', 'matchers', ['matcher/regexp'])
   if executable('fd')

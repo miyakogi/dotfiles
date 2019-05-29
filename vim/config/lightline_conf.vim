@@ -68,6 +68,8 @@ endfunction
 function! MyFilename() abort
   let fname = expand('%:t')
   return fname =~? 'Tagbar' ? '' :
+        \ match(fname, 'denite') >= 0 ? 'denite' :
+        \ match(fname, 'defx') >= 0 ? 'defx' :
         \ &filetype ==? 'qf' ? 'quickfix(' . len(getqflist()) . ')' :
         \ ('' !=? MyReadonly() ? MyReadonly() . ' ' : '') .
         \ ('' !=? MyModified() ? ' ' . MyModified() : '') .
@@ -88,6 +90,15 @@ endfunction
 
 function! MyMode() abort
   let fname = expand('%:t')
+
+  " for denite support
+  if fname ==? '[denite]'
+    let mode_str = substitute(denite#get_status_mode(), ' ', '', 'g')
+    let mode_str = substitute(mode_str, '-', '', 'g')
+    call lightline#link(tolower(mode_str[0]))
+    return mode_str[0]
+  endif
+
   return fname ==? '__Tagbar__' ? 'Tagbar' :
         \ lightline#mode()[0]
 endfunction
