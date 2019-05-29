@@ -210,19 +210,20 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 endfunction
 
 function! MySyntaxUpdate() abort
-  let qflist = getqflist()
-  let err_cnt = len(getloclist(0))
-  if len(qflist) + err_cnt == 0
+  if !get(g:, 'loaded_ale')
     return ''
   endif
 
-  let l:bufnr = bufnr('%')
-  for qfitem in qflist
-    if qfitem.bufnr == l:bufnr
-      let err_cnt += 1
-    endif
-  endfor
-  return err_cnt ? 'Error: ' . err_cnt : ''
+  let buf = bufnr('%')
+  let counts = ale#statusline#Count(buf)
+
+  if counts.error + counts.style_error > 0
+    return g:ale_sign_error
+  elseif counts.warning + counts.style_warning > 0
+    return g:ale_sign_warning
+  else
+    return ''
+  endif
 endfunction
 
 function! CurrentWorkingDir() abort

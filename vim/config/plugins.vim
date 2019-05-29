@@ -279,6 +279,19 @@ endif
 
 "}}}
 
+" ======== ale ======== {{{
+if get(g:, 'loaded_ale')
+  " update lightline after ale run
+  if get(g:, 'loaded_lightline')
+    autocmd myvimrc User ALELintPost call lightline#update()
+  endif
+
+  " jump to errors
+  nmap <silent> ]e <Plug>(ale_next)
+  nmap <silent> [e <Plug>(ale_previous)
+endif
+"}}}
+
 " ======== vimquickrun ======== {{{
 if get(g:, 'loaded_quickrun')
   map <Leader>r <Plug>(quickrun)
