@@ -31,14 +31,3 @@ nnoremap <buffer><expr> <C-l>d TeXCompile.dviView()
 
 " Open pdf
 nnoremap <buffer><expr> <C-l>v TeXCompile.pdfView()
-
-" ======== Unite ========
-
-if get(g:, "did_ftplugin_tex_user")
-  finish
-endif
-
-if exists('g:loaded_unite')
-  let g:did_ftplugin_tex_user = 1
-  call unite#custom_source('file', 'ignore_pattern', '\~$\|\.\%(dvi\|aux\|pdf\|blg\)$')
-endif

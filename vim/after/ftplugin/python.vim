@@ -126,11 +126,6 @@ nnoremap <buffer><silent> gD :<C-u>call <SID>jedi_doto_d()<CR>
 nnoremap <buffer><silent> K :<C-u>call <SID>jedi_doc()<CR>
 
 " ========= vim-flake8 ========
-if exists(':Unite')
-  let g:flake8_loc_open_cmd = 'Unite location_list -no-quit' .
-        \ ' -winheight=10 -buffer-name=pep8'
-  let g:flake8_loc_close_cmd = 'UniteClose pep8'
-endif
 if exists(':Flake8')
   nnoremap <buffer> <F7> :<C-u>Flake8<CR>
 endif

@@ -77,44 +77,6 @@ if get(g:, 'loaded_denite')
 endif
 "}}}
 
-" ======== VimFiler ======== {{{
-if get(g:, 'loaded_vimfiler')
-  function! s:vimfiler_init()
-    nmap <silent><buffer> q <Plug>(vimfiler_hide)
-    nmap <silent><buffer> I <Plug>(vimfiler_toggle_visible_ignore_files)
-    nmap <silent><buffer> u <Plug>(vimfiler_smart_h)
-    nmap <silent><buffer> <Enter> <Plug>(vimfiler_expand_or_edit)
-    nmap <silent><buffer> a <Plug>(vimfiler_toggle_mark_current_line)
-    vmap <silent><buffer><nowait> a <Plug>(vimfiler_toggle_mark_selected_lines)
-    nmap <silent><buffer> <C-Space> <Plug>(vimfiler_clear_mark_all_lines)
-    nmap <silent><buffer> ma <Plug>(vimfiler_new_file)
-    nmap <silent><buffer> mA <Plug>(vimfiler_make_directory)
-    nmap <silent><buffer> mm <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_rename_file)
-    nmap <silent><buffer> mc <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_copy_file)
-    nmap <silent><buffer> md <Plug>(vimfiler_mark_current_line)<Plug>(vimfiler_delete_file)
-    nmap <silent><buffer> ~ <Plug>(vimfiler_switch_to_home_directory)
-    nmap <silent><buffer><nowait> s <Plug>(vimfiler_split_edit_file)
-    nmap <silent><buffer><nowait><expr> S vimfiler#do_action('split')
-    nmap <silent><buffer> x <Plug>(vimfiler_expand_tree)
-    nmap <silent><buffer><expr> t vimfiler#do_action('tabopen')
-    nmap <silent><buffer> yy <Plug>(vimfiler_yank_full_path)
-    nmap <silent><buffer> <C-l> <Plug>(vimfiler_redraw_screen)
-    nmap <silent><buffer> <C-g> <Plug>(vimfiler_print_filename)
-  endfunction
-
-  augroup myvimrc
-    autocmd FileType vimfiler call s:vimfiler_init()
-  augroup END
-  call vimfiler#custom#profile('default', 'context', {
-      \ 'safe': 0,
-      \ 'explorer': 1
-      \ })
-  if &filetype ==? 'vimfiler'
-    call s:vimfiler_init()
-  endif
-endif
-"}}}
-
 " ======== Defx ======== {{{
 if get(g:, 'loaded_defx')
 	autocmd FileType defx call s:defx_my_settings()
@@ -347,7 +309,6 @@ endif
 
 " ======== SidePanel.vim ======== {{{
 if get(g:, 'loaded_sidepanel')
-  " nnoremap <silent> [Space]e :<C-u>SidePanel vimfiler<CR>
   nnoremap <silent> [Space]e :<C-u>SidePanel defx<CR>
   nnoremap <silent> [Space]t :<C-u>SidePanel tagbar<CR>
   " nnoremap <silent> [Space]g :<C-u>SidePanel gundo<CR>

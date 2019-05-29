@@ -621,12 +621,6 @@ let g:neomru#file_mru_ignore_pattern = (
   \)
 "}}}
 
-" ======== VimFiler ======== {{{
-let g:vimfiler_no_default_key_mappings = 1
-let g:vimfiler_ignore_pattern = ['__pycache__', '.*\.pyc']
-let g:vimfiler_as_default_explorer = 1
-"}}}
-
 " ======== Signify ======== {{{
 let g:signify_sign_overwrite=1
 let g:signify_vcs_list = ['git']
@@ -846,9 +840,6 @@ let g:badwolf_darkgutter = 1
 
 " ======== LightLine ======== {{{
 set laststatus=2
-let g:unite_force_overwrite_statusline = 0
-let g:vimfiler_force_overwrite_statusline = 0
-let g:vimshell_force_overwrite_statusline = 0
 let g:lightline_conf = $HOME . '/.vim/config/lightline_conf.vim'
 if filereadable(g:lightline_conf)
   execute 'source ' . g:lightline_conf
@@ -935,7 +926,6 @@ let g:sidepanel_width = 26
 let g:sidepanel_config = {}
 let g:sidepanel_config['nerdtree'] = {}
 let g:sidepanel_config['tagbar'] = {}
-let g:sidepanel_config['vimfiler'] = {}
 let g:sidepanel_config['defx'] = {}
 let g:sidepanel_use_rabbit_ui = 0
 "}}}

@@ -68,8 +68,6 @@ endfunction
 function! MyFilename() abort
   let fname = expand('%:t')
   return fname =~? 'Tagbar' ? '' :
-        \ &filetype ==? 'vimfiler' ? vimfiler#get_status_string() :
-        \ &filetype ==? 'unite' ? unite#get_status_string() :
         \ &filetype ==? 'qf' ? 'quickfix(' . len(getqflist()) . ')' :
         \ ('' !=? MyReadonly() ? MyReadonly() . ' ' : '') .
         \ ('' !=? MyModified() ? ' ' . MyModified() : '') .
@@ -91,8 +89,6 @@ endfunction
 function! MyMode() abort
   let fname = expand('%:t')
   return fname ==? '__Tagbar__' ? 'Tagbar' :
-        \ &filetype ==? 'unite' ? 'Unite' :
-        \ &filetype ==? 'vimfiler' ? 'VimFiler' :
         \ lightline#mode()[0]
 endfunction
 
