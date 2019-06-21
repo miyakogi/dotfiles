@@ -17,7 +17,7 @@ let g:lightline = {
     \ },
     \ 'tabline': {
     \   'left': [ [ 'tabs' ] ],
-    \   'right': [ [ 'project' ] ]
+    \   'right': [ [ 'cwd' ] ]
     \ },
     \ 'inactive': {
     \   'left': [ [ 'filename_inactive' ] ],
@@ -36,7 +36,7 @@ let g:lightline = {
     \   'anzu': 'MyAnzu',
     \   'filename_inactive': 'InactiveFilename',
     \   'vcs': 'MyVCS',
-    \   'project': 'CurrentWorkingDir',
+    \   'cwd': 'CurrentWorkingDir',
     \ },
     \ 'component_expand': {
     \   'syntaxcheck': 'MySyntaxUpdate',
@@ -227,12 +227,11 @@ function! MySyntaxUpdate() abort
 endfunction
 
 function! CurrentWorkingDir() abort
-  let ret = getcwd()
-  if len(ret) > 25
-    return '...' . ret[-23:]
-  else
-    return ret
+  let cwd = substitute(getcwd(), $HOME, '~', '')
+  if len(cwd) > 25
+    return '...' . cwd[-23:]
   endif
+  return cwd
 endfunction
 
 " }}}
