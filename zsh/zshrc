@@ -219,12 +219,12 @@ function pip-init {
   # Initialize python virtual environment.
   # This function installs these additional dependencies:
   #   - jedi: auto-completion
-  #   - neovim: required by deoplete.nvim
+  #   - pynvim: required by deoplete.nvim
   #   - nose: required by vim-test
   #   - ptpython: python-shell
   echo -e "\e[36m[pip-init] update pip and setuptools\e[m"
   pip install -U pip setuptools
-  echo -e "\n\e[36m[pip-init] install jeid, neovim, nose, and ptpython\e[m"
+  echo -e "\n\e[36m[pip-init] install jeid, pynvim, nose, and ptpython\e[m"
   pip install --no-binary greenlet,msgpack jedi pynvim nose ptpython
   if [[ -e "setup.py" ]]; then
     echo -e "\n\e[36m[pip-init] install this package with editable mode\e[m"
@@ -233,6 +233,9 @@ function pip-init {
   if [[ -e "requirements-dev.txt" ]]; then
     echo -e "\n\e[36m[pip-init] install dev requirements\e[m"
     pip install -r "requirements-dev.txt"
+  elif [[ -e "requirements.txt" ]]; then
+    echo -e "\n\e[36m[pip-init] install project requirements\e[m"
+    pip install -r "requirements.txt"
   fi
 }
 
