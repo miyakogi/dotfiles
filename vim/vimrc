@@ -643,7 +643,9 @@ let g:visualstar_no_default_key_mappings = 1
 "}}}
 
 " ======== Deoplete ======== {{{
-let g:deoplete#enable_at_startup = 1 " Use deoplete
+if !$SSH_CLIENT && $OSNAME !=# 'Ubuntu'
+  let g:deoplete#enable_at_startup = 1 " Use deoplete
+endif
 " }}}
 
 " ======== NeoSnippets ======== {{{
