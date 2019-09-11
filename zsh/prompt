@@ -33,9 +33,9 @@ function _update_lprompt() {
   elif [[ $OSNAME == Windows ]]; then
     _icon='❖ '
   elif [[ $OSNAME == Ubuntu ]]; then
-    _icon=$'\uf30c '  # ubuntu 
+    _icon=$'\uf31b '  # ubuntu 
   elif [[ $OSNAME == Arch ]]; then
-    _icon=$'\uf300 '  # Arch 
+    _icon=$'\uf303 '  # Arch 
   else  # other linux
     # icon="🐧"  # penguin
     _icon=$'\uf17c '  # tux 
