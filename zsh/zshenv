@@ -89,12 +89,6 @@ if [[ $OSNAME == Ubuntu ]]; then
   # nim
   add_path $HOME/.nimble/bin
 
-  # rust
-  add_path $HOME/.cargo/bin
-  if type rustc > /dev/null 2>&1; then
-    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-  fi
-
   # node
   add_path $HOME/opt/node/bin
 
@@ -113,6 +107,12 @@ if [[ $OSNAME == Mac ]]; then
   add_path $HOME/Library/Python/3.7/bin
 else
   add_path $HOME/.local/bin
+fi
+
+# rust
+add_path $HOME/.cargo/bin
+if type rustc > /dev/null 2>&1; then
+  export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
 
 # go
