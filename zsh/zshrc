@@ -99,10 +99,11 @@ function git_root() {
 alias gg=git_root
 
 # alias for `ls` command
-if which lsd >/dev/null; then
+if which exa >/dev/null; then
+  alias ls="exa --icons --git-ignore"
+  alias lsa="exa --icons -a"
+elif which lsd >/dev/null; then
   alias ls="lsd"
-elif which exa >/dev/null; then
-  alias ls="exa"
 else
   case "${OSTYPE}" in
   # Mac(Unix)
