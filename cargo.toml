@@ -27,6 +27,14 @@ vcs = "none"
 # when the `$triple` is being compiled for.
 # linker = ".."
 
+[target.i686-pc-windows-gnu]
+linker = "i686-w64-mingw32-gcc"
+ar = "/usr/i686-w64-mingw32/bin/ar"
+
+[target.x86_64-pc-windows-gnu]
+linker = "x86_64-w64-mingw32-gcc"
+ar = "/usr/x86_64-w64-mingw32/bin/ar"
+
 # Configuration keys related to the registry
 [registry]
 # index = "..."   # URL of the registry index (defaults to the central repository)
