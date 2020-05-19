@@ -37,7 +37,7 @@
       "altercation/vim-colors-solarized",
       "itchyny/lightline.vim",
       "miyakogi/vim-flake8",
-      "miyakogi/vim-virtualenv",
+      "jmcantrell/vim-virtualenv",
       "Vimjas/vim-python-pep8-indent",
       "zchee/deoplete-jedi",
       "mitsuhiko/vim-jinja",
