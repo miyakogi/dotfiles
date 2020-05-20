@@ -23,7 +23,6 @@ if get(g:, 'loaded_denite')
   " denite prefix key
   nnoremap [denite] <Nop>
   nmap <Leader>f [denite]
-  autocmd myvimrc FileType denite nmap <buffer><silent><nowait> q <PLUG>(denite_exit)
 
   " ======== Denite Key binding ========
   nnoremap <silent> [denite]f :<C-u>Denite file/rec<CR>
@@ -33,6 +32,16 @@ if get(g:, 'loaded_denite')
   nnoremap <silent> [denite]c :<C-u>Denite change<CR>
   nnoremap <silent> [denite]g :<C-u>Denite grep<CR>
   nnoremap <silent> [denite]w :<C-u>DeniteCursorWord grep line<CR>
+
+  " Key binding for denite buffer
+  autocmd myvimrc FileType denite call s:denite_my_settings()
+  function! s:denite_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> t denite#do_map('do_action', 'tabswitch')
+    nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+    nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> q denite#do_map('quit')
+  endfunction
 
   call denite#custom#option('default', {
         \ 'mode': 'normal',
