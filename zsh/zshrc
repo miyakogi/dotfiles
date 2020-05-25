@@ -249,9 +249,12 @@ if (which sk > /dev/null || which percol > /dev/null) && [[ $OSTYPE != msys ]]; 
     python << EOS
 import os
 home = os.getenv('HOME')
+username = os.getenv('USER')
 curdir = os.path.abspath('.') + '\n'
 if curdir.startswith(home):
     curdir = curdir.replace(home, '\$HOME')
+if username in curdir:
+    curdir = curdir.replace(username, '\$USER')
 with open('${HIST_DIRS_FILE}', 'r') as f:
     lines = f.readlines()
 if len(lines) > ${HIST_DIRS_MAX}:
