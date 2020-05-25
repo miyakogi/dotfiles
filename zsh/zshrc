@@ -251,7 +251,7 @@ import os
 home = os.getenv('HOME')
 curdir = os.path.abspath('.') + '\n'
 if curdir.startswith(home):
-    curdir = curdir.replace(home, '$HOME')
+    curdir = curdir.replace(home, '\$HOME')
 with open('${HIST_DIRS_FILE}', 'r') as f:
     lines = f.readlines()
 if len(lines) > ${HIST_DIRS_MAX}:
