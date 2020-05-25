@@ -246,8 +246,11 @@ if (which sk > /dev/null || which percol > /dev/null) && [[ $OSTYPE != msys ]]; 
   export HIST_DIRS_MAX=5000
   function cdhist() {
     python << EOS
-from os import path
-curdir = path.abspath('.') + '\n'
+import os
+home = os.getenv('HOME')
+curdir = os.path.abspath('.') + '\n'
+if curdir.startswith(home):
+    curdir = curdir.replace(home, '$HOME')
 with open('${HIST_DIRS_FILE}', 'r') as f:
     lines = f.readlines()
 if len(lines) > ${HIST_DIRS_MAX}:
