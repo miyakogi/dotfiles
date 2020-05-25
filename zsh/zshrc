@@ -241,6 +241,7 @@ function pip-init {
 }
 
 ### skim/percol
+export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
 if (which sk > /dev/null || which percol > /dev/null) && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
   export HIST_DIRS_MAX=5000
