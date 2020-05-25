@@ -240,8 +240,8 @@ function pip-init {
   fi
 }
 
-### percol
-if which percol > /dev/null && [[ $OSTYPE != msys ]]; then
+### skim/percol
+if (which sk > /dev/null || which percol > /dev/null) && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
   export HIST_DIRS_MAX=5000
   function cdhist() {
@@ -261,22 +261,26 @@ EOS
   }
   add-zsh-hook chpwd cdhist
 
-  local percol_cmd='percol --reverse --query "$LBUFFER"'
-  function percol-search-history() {
-    BUFFER=$(history -n 1 | eval ${percol_cmd})
+  if which sk > /dev/null; then
+    local cmd='sk --tac --reverse --ansi -p "skim>" --margin 2% --query "$LBUFFER"'
+  else
+    local cmd='percol --reverse --query "$LBUFFER"'
+  fi
+  function search-history() {
+    BUFFER=$(history -n 1 | eval ${cmd})
     CURSOR=$#BUFFER
     zle -R -c
   }
-  zle -N percol-search-history
-  bindkey '^R' percol-search-history
+  zle -N search-history
+  bindkey '^R' search-history
 
   function myjump() {
-    local destination=$([[ -e $HIST_DIRS_FILE ]] && cat $HIST_DIRS_FILE | eval ${percol_cmd})
+    local destination=$([[ -e $HIST_DIRS_FILE ]] && cat $HIST_DIRS_FILE | eval ${cmd})
     [[ -n "$destination" ]] && zle -U "cd \"$destination\""
     zle reset-prompt
   }
 else
-  # percol is not available, use zaw and cdr
+  # if skim and percol is not available, use zaw and cdr
   # very slow...
   # http://yagays.github.io/blog/2013/05/20/zaw-zsh/
   # Save cd history
