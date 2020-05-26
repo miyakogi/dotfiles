@@ -5,7 +5,7 @@ BASEDIR=$(cd $(dirname $0);pwd)
 # Make dir if not exists
 makedir_if_not_exists () {
     if [ ! -e $1 ]; then
-        mkdir $1
+        mkdir -p $1
     fi
 }
 
@@ -29,12 +29,9 @@ git_clone () {
 makedir_if_not_exists $HOME/.vim
 makedir_if_not_exists $HOME/.vim/backup
 makedir_if_not_exists $HOME/.vim/doc
-makedir_if_not_exists $HOME/.vim/pack
 makedir_if_not_exists $HOME/.vim/pack/remote
-makedir_if_not_exists $HOME/.config
 makedir_if_not_exists $HOME/.config/kitty
 makedir_if_not_exists $HOME/.zsh
-makedir_if_not_exists $HOME/.tmux
 makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
