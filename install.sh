@@ -120,7 +120,7 @@ git_clone https://github.com/zsh-users/zsh-autosuggestions  $HOME/.zsh/zsh-autos
 git_clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 # Install pyenv for ubuntu
-if [ -e /etc/lsb-release ]; then
+if [ ! -e /etc/arch-release ] && [ -e /etc/lsb-release ]; then
   git_clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 fi
 
