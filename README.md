@@ -27,6 +27,7 @@ My dotfiles.
 - conky
 - dunst
 - polybar
+- rofi
 
 ## Install
 

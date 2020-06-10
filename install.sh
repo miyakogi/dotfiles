@@ -42,6 +42,7 @@ makedir_if_not_exists $HOME/.config/picom
 makedir_if_not_exists $HOME/.config/conky
 makedir_if_not_exists $HOME/.config/dunst
 makedir_if_not_exists $HOME/.config/polybar
+makedir_if_not_exists $HOME/.config/rofi
 
 # ======== Make Symbolic Link ==============
 # ------ Shell ------
@@ -134,6 +135,10 @@ ln -sf $BASEDIR/dunst/dunstrc $HOME/.config/dunst
 ln -sf $BASEDIR/polybar/config $HOME/.config/polybar
 ln -sf $BASEDIR/polybar/launch.sh $HOME/.config/polybar
 ln -sf $BASEDIR/polybar/add_ws.py $HOME/.config/polybar
+
+# rofi
+ln -sf $BASEDIR/rofi/config.rasi $HOME/.config/rofi
+ln -sf $BASEDIR/rofi/mytheme.rasi $HOME/.config/rofi
 
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
