@@ -7,6 +7,12 @@
  * Copyright: Tomas Zaluckij
  */
 
+configuration {
+  display-drun:   "Applicatoins";
+  display-run:    "Execute";
+  display-window:   "Windows";
+}
+
 * {
 	base00: #263238;
 	base01: #2E3C43;
