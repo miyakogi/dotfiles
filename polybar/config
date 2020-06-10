@@ -85,7 +85,7 @@ cursor-click = pointer
 [module/menu]
 type = custom/script
 exec = echo ""
-click-left = rofi -modi window,run,drun -show drun
+click-left = rofi -show drun -theme menu-theme
 format-foreground = #00bcd4
 
 [module/title]
