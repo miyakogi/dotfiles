@@ -120,6 +120,9 @@ bindsym $mod+d exec --no-startup-id "rofi -show drun"
 bindsym $mod+z exec --no-startup-id "rofi -show drun"
 bindsym $alt+Tab exec --no-startup-id "rofi -show window"
 
+# disable mosue focus
+focus_follows_mouse no
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
