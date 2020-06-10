@@ -26,6 +26,7 @@ My dotfiles.
 - picom
 - conky
 - dunst
+- polybar
 
 ## Install
 

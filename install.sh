@@ -41,6 +41,7 @@ makedir_if_not_exists $HOME/.config/i3
 makedir_if_not_exists $HOME/.config/picom
 makedir_if_not_exists $HOME/.config/conky
 makedir_if_not_exists $HOME/.config/dunst
+makedir_if_not_exists $HOME/.config/polybar
 
 # ======== Make Symbolic Link ==============
 # ------ Shell ------
@@ -128,6 +129,11 @@ ln -sf $BASEDIR/conky/rings.lua $HOME/.config/conky
 
 # dunst
 ln -sf $BASEDIR/dunst/dunstrc $HOME/.config/dunst
+
+# polybar
+ln -sf $BASEDIR/polybar/config $HOME/.config/polybar
+ln -sf $BASEDIR/polybar/launch.sh $HOME/.config/polybar
+ln -sf $BASEDIR/polybar/add_ws.py $HOME/.config/polybar
 
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw

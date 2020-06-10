@@ -1,0 +1,238 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #000
+background-alt = #333
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #777
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/top]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 24
+;offset-x = 30%
+;offset-y = 1%
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+; font-0 = FiraCode Nerd Font Mono:pixelsize=12;1
+font-0 = Osaka\-UI:pixelsize=12:antialias=true;1
+font-1 = Noto Emoji Nerd Font Mono:pixelsize=14;1
+font-2 = unifont:fontformat=truetype:size=6:antialias=false;0
+font-3 = siji:pixelsize=10;1
+
+modules-left = menu title
+modules-center = date
+modules-right = add_ws i3 cpu-graph memory
+
+; tray-position = right
+tray-padding = 6
+; tray-background = ${colors.background-alt}
+tray-transparent = true
+tray-scale = 1.0
+tray-maxsize = 22
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+; cursor-scroll = ns-resize
+
+[module/menu]
+type = custom/script
+exec = echo ""
+click-left = rofi -modi window,run,drun -show drun
+format-foreground = #00bcd4
+
+[module/title]
+type = internal/xwindow
+format = <label>
+format-background = ${colors.background-alt}
+format-foreground = #fff
+format-underline = #00bcd4
+format-padding = 2
+
+label = %title:0:40:...%
+; label-maxlen = 50
+
+; label-empty = Title
+; label-empty-foreground = ${colors.background-alt}
+
+[module/add_ws]
+type = custom/text
+content = 
+; content = +
+content-padding = 2
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+click-left = exec ~/.config/polybar/add_ws.py
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = true
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+; label-focused = %index%
+label-focused = %icon%  %name%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+;label-separator = |
+
+; [module/cpu]
+; type = internal/cpu
+; interval = 1
+; format-prefix = " "
+; format-prefix-foreground = ${colors.foreground-alt}
+; format-underline = #f90000
+; label = %percentage:2%%
+
+[module/cpu-graph]
+type = internal/cpu
+interval = 0.5
+label = %percentage:2%%
+format = "<label> <ramp-coreload>"
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #3d9cca
+; format-margin = 2
+format-padding = 1
+coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+ramp-coreload-0-foreground = #00bcd4
+ramp-coreload-1-foreground = #009688
+ramp-coreload-2-foreground = #009688
+ramp-coreload-3-foreground = #4db6ac
+ramp-coreload-4-foreground = #4db6ac
+ramp-coreload-5-foreground = #c0bc0e
+ramp-coreload-6-foreground = #c0bc0e
+ramp-coreload-7-foreground = #FF5252
+
+[module/memory]
+type = internal/memory
+interval = 1
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %percentage_used%%
+
+[module/date]
+type = internal/date
+interval = 1
+
+;date = %a. %Y-%m-%d
+date = %a. %d %b. %Y
+time = %H:%M:%S
+
+; format-prefix = 
+; format-prefix-foreground = ${colors.foreground-alt}
+; format-underline = #0a6cf5
+;format-underline = #d95656
+format-underline = #aaaaaa
+format-padding = 2
+
+label =  %date%    %time%
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
