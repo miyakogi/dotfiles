@@ -23,6 +23,7 @@ My dotfiles.
 ### Desktop
 
 - conky
+- dunst
 
 ## Install
 

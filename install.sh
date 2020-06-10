@@ -38,6 +38,7 @@ makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
 makedir_if_not_exists $HOME/.config/conky
+makedir_if_not_exists $HOME/.config/dunst
 
 # ======== Make Symbolic Link ==============
 # ------ Shell ------
@@ -112,6 +113,9 @@ ln -sf $BASEDIR/kitty.conf $HOME/.config/kitty
 # conky
 ln -sf $BASEDIR/conky/conky.conf $HOME/.config/conky
 ln -sf $BASEDIR/conky/rings.lua $HOME/.config/conky
+
+# dunst
+ln -sf $BASEDIR/dunst/dunstrc $HOME/.config/dunst
 
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
