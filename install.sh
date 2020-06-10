@@ -37,6 +37,7 @@ makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
+makedir_if_not_exists $HOME/.config/i3
 makedir_if_not_exists $HOME/.config/conky
 makedir_if_not_exists $HOME/.config/dunst
 
@@ -109,6 +110,13 @@ ln -sf $BASEDIR/alacritty.yml $HOME/.config/alacritty
 
 # kitty (terminal)
 ln -sf $BASEDIR/kitty.conf $HOME/.config/kitty
+
+# i3 window manager
+ln -sf $BASEDIR/i3/config $HOME/.config/i3
+ln -sf $BASEDIR/i3/lock.sh $HOME/.config/i3
+ln -sf $BASEDIR/i3/save_layout.sh $HOME/.config/i3
+ln -sf $BASEDIR/i3/load_layout.sh $HOME/.config/i3
+ln -sf $BASEDIR/i3/transparent.py $HOME/.config/i3
 
 # conky
 ln -sf $BASEDIR/conky/conky.conf $HOME/.config/conky
