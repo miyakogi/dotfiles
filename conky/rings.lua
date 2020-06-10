@@ -1,9 +1,9 @@
 -- https://github.com/deeptoaster/conky-rings
 config = {
   bg_color = '0x2596ce',
-  bg_alpha = 0.2,
+  bg_alpha = 0.3,
   fg_color = '0x2596ce',
-  fg_alpha = 0.6,
+  fg_alpha = 0.9,
 }
 
 elements = {
