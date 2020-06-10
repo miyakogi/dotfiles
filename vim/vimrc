@@ -576,6 +576,10 @@ if !has('gui_running')
     endif
   endif
 
+  if $TERM == 'alacritty'
+    set ttymouse=sgr
+  endif
+
   autocmd myvimrc VimEnter * call MyTermInit()
 endif
 "}}}
