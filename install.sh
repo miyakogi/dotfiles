@@ -38,6 +38,7 @@ makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
 makedir_if_not_exists $HOME/.config/i3
+makedir_if_not_exists $HOME/.config/picom
 makedir_if_not_exists $HOME/.config/conky
 makedir_if_not_exists $HOME/.config/dunst
 
@@ -117,6 +118,9 @@ ln -sf $BASEDIR/i3/lock.sh $HOME/.config/i3
 ln -sf $BASEDIR/i3/save_layout.sh $HOME/.config/i3
 ln -sf $BASEDIR/i3/load_layout.sh $HOME/.config/i3
 ln -sf $BASEDIR/i3/transparent.py $HOME/.config/i3
+
+# picom (compositor)
+ln -sf $BASEDIR/picom/picom.conf $HOME/.config/picom
 
 # conky
 ln -sf $BASEDIR/conky/conky.conf $HOME/.config/conky
