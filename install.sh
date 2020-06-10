@@ -30,6 +30,7 @@ makedir_if_not_exists $HOME/.vim
 makedir_if_not_exists $HOME/.vim/backup
 makedir_if_not_exists $HOME/.vim/doc
 makedir_if_not_exists $HOME/.vim/pack/remote
+makedir_if_not_exists $HOME/.config/alacritty
 makedir_if_not_exists $HOME/.config/kitty
 makedir_if_not_exists $HOME/.zsh
 makedir_if_not_exists $HOME/.tmux/plugins
@@ -100,6 +101,9 @@ ln -sf $BASEDIR/scripts/pip-update $HOME/bin/pip-update
 
 # Rust (Cargo)
 ln -sf $BASEDIR/cargo.toml $HOME/.cargo/config
+
+# alacritty (terminal)
+ln -sf $BASEDIR/alacritty.yml $HOME/.config/alacritty
 
 # kitty (terminal)
 ln -sf $BASEDIR/kitty.conf $HOME/.config/kitty
