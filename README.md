@@ -4,6 +4,8 @@ My dotfiles.
 
 ## Installed apps
 
+### Terminal
+
 - zsh
 - git
 - alacritty
@@ -17,6 +19,10 @@ My dotfiles.
 - exa/lsd (`ls` alternatives)
 - bat (`cat` alternative)
 - cookiecutter
+
+### Desktop
+
+- conky
 
 ## Install
 

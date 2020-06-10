@@ -37,6 +37,7 @@ makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
+makedir_if_not_exists $HOME/.config/conky
 
 # ======== Make Symbolic Link ==============
 # ------ Shell ------
@@ -107,6 +108,10 @@ ln -sf $BASEDIR/alacritty.yml $HOME/.config/alacritty
 
 # kitty (terminal)
 ln -sf $BASEDIR/kitty.conf $HOME/.config/kitty
+
+# conky
+ln -sf $BASEDIR/conky/conky.conf $HOME/.config/conky
+ln -sf $BASEDIR/conky/rings.lua $HOME/.config/conky
 
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
