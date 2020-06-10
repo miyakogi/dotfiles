@@ -190,6 +190,8 @@ bindsym Control+$alt+Up exec --no-startup-id $HOME/.config/polybar/add_ws.py
 # switch to workspace
 bindsym Control+$alt+Left workspace prev
 bindsym Control+$alt+Right workspace next
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
 bindsym $mod+colon workspace next
 bindsym $mod+semicolon workspace prev
 bindsym Control+F8 workspace prev
