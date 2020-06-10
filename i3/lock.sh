@@ -10,7 +10,7 @@ cyan='016392ff'
 red='d23c3dff'
 
 i3lock \
-  -t -i $HOME/Pictures/wallpaper/i3lock.png \
+  -t -i $HOME/.config/i3/lock.png \
   --timepos='x+110:h-70' --datepos='x+60:h-45' \
   --clock --date-align 1 --datestr="Screen Locked" \
   --insidecolor="$transparent" --ringcolor="$ringcolor" --line-uses-inside \
