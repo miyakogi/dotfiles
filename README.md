@@ -8,7 +8,6 @@ My dotfiles.
 - git
 - alacritty
 - kitty
-- konsole
 - vim/neovim
 - tmux
 - ctags
