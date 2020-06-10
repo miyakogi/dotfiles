@@ -57,7 +57,13 @@ mainbox {
 	children: [ listview,mode-switcher,entry ];
 }
 
-button { padding: 5px 2px; }
+mode-switcher {
+  margin: 0 0.8em;
+}
+
+button {
+  padding: 5px 2px;
+}
 
 button selected {
 	background-color: @active-background;
@@ -82,7 +88,10 @@ entry {
 	expand:         false;
 	text-color:     @normal-foreground;
 	vertical-align: 1;
-	padding:        1em;
+  margin:         0.8em;
+  padding:        0.2em;
+  border:         0px 0px 2px 0px;
+  border-color:   @normal-foreground;
 }
 
 element normal.normal {
