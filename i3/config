@@ -96,8 +96,8 @@ default_floating_border normal
 
 # change colors           border  bg      text    indicat child_border
 client.focused            #000000 #000000 #ffffff #3d9cca #1d5c8a
-client.unfocused          #222222 #222222 #ffffff #000000 #222222
-client.focused_inactive   #222222 #222222 #ffffff #000000 #222222
+client.unfocused          #222222 #333333 #cccccc #000000 #222222
+client.focused_inactive   #222222 #333333 #cccccc #000000 #222222
 
 # Restore workspace
 bindsym $mod+Shift+g exec --no-startup-id ~/.config/i3/load_layout.sh
