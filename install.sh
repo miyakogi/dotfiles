@@ -138,7 +138,7 @@ ln -sf $BASEDIR/polybar/add_ws.py $HOME/.config/polybar
 
 # rofi
 ln -sf $BASEDIR/rofi/config.rasi $HOME/.config/rofi
-ln -sf $BASEDIR/rofi/mytheme.rasi $HOME/.config/rofi
+ln -sf $BASEDIR/rofi/main-theme.rasi $HOME/.config/rofi
 
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
