@@ -40,6 +40,7 @@ exec --no-startup-id "xautolock -time 5 -locker '$HOME/.config/i3/lock.sh'"
 exec --no-startup-id picom
 
 # Start redshift
+# Need to set $LATITUDE and $LONGITUDE in ~/.zsh/.zshenv.local
 exec --no-startup-id "redshift -l ${LATITUDE}:${LONGITUDE}"
 
 # Start polybar
