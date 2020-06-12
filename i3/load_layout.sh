@@ -14,7 +14,18 @@ if [[ -f ${ws_dir}/workspace_9.json ]]; then
   i3-msg "workspace 9; append_layout ${ws_dir}/workspace_9.json"
 fi
 
-($HOME/.config/i3/transparent &)
-(google-chrome-stable &)
-(discord &)
-(cantata &)
+function exec_if_possible() {
+  if which $1 >/dev/null; then
+    ($1 &)
+  fi
+}
+
+if which transparent >/dev/null; then
+  (transparent &)
+else
+  ($HOME/.config/i3/transparent.py &)
+fi
+
+exec_if_possible google-chrome-stable
+exec_if_possible discord
+exec_if_possible cantata
