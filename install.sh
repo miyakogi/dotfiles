@@ -141,6 +141,9 @@ ln -sf $BASEDIR/rofi/config.rasi $HOME/.config/rofi
 ln -sf $BASEDIR/rofi/main-theme.rasi $HOME/.config/rofi
 ln -sf $BASEDIR/rofi/menu-theme.rasi $HOME/.config/rofi
 
+# chrome
+ln -sf $BASEDIR/chrome-flags.conf $HOME/.config
+
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
 # Install zsh-autoenv
