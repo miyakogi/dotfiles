@@ -210,8 +210,8 @@ else
   load_if_exists $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[default]='fg=red'
-ZSH_HIGHLIGHT_STYLES[path]='fg=yellow'
+ZSH_HIGHLIGHT_STYLES[default]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[path]='fg=yellow,underline'
 
 ### auto suggestion
 if [[ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then  # Arch
