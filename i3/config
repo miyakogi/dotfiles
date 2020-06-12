@@ -46,6 +46,9 @@ exec --no-startup-id "redshift -l ${LATITUDE}:${LONGITUDE}"
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# Clipboard manager (need to keep screenshot in clipboard taken by spectacle)
+exec --no-startup-id klipper
+
 # Start conky system monitor
 exec --no-startup-id conky
 

@@ -57,6 +57,7 @@ My dotfiles.
 - fcitx
 - easystroke
 - feh
+- klipper
 - perl-anyevent-i3 (save layout)
 - perl-json-xs (save layout)
 
