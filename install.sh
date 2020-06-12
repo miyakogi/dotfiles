@@ -149,7 +149,7 @@ ln -sf $BASEDIR/chrome-flags.conf $CONFIG_HOME
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
 # Install zsh-autoenv
 git_clone https://github.com/Tarrasch/zsh-autoenv  $HOME/.zsh/zsh-autoenv
-# Install compoletions
+# Install zsh-compoletions
 git_clone https://github.com/zsh-users/zsh-completions.git  $HOME/.zsh/zsh-completions
 git_clone https://github.com/bobthecow/git-flow-completion  $HOME/.zsh/git-flow-completion
 # Install zsh-nvm
@@ -158,6 +158,8 @@ git_clone https://github.com/lukechilds/zsh-nvm  $HOME/.zsh/zsh-nvm
 git_clone https://github.com/zsh-users/zsh-autosuggestions  $HOME/.zsh/zsh-autosuggestions
 # Install zsh-syntax-highlightinh
 git_clone https://github.com/zsh-users/zsh-syntax-highlightinh  $HOME/.zsh/zsh-syntax-highlighting
+# Install zsh-autopair
+git_clone https://github.com/hlissner/zsh-autopair $HOME/.zsh/zsh-autopair
 
 # Install tpm
 git_clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
