@@ -206,7 +206,11 @@ else
   load_if_exists $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 ### auto suggestion
-load_if_exists $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then  # Arch
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+  load_if_exists $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 ### syntax highlight
 typeset -A ZSH_HIGHLIGHT_STYLES
