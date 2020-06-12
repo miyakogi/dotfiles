@@ -156,6 +156,8 @@ git_clone https://github.com/bobthecow/git-flow-completion  $HOME/.zsh/git-flow-
 git_clone https://github.com/lukechilds/zsh-nvm  $HOME/.zsh/zsh-nvm
 # Install zsh-autosuggestions
 git_clone https://github.com/zsh-users/zsh-autosuggestions  $HOME/.zsh/zsh-autosuggestions
+# Install zsh-syntax-highlightinh
+git_clone https://github.com/zsh-users/zsh-syntax-highlightinh  $HOME/.zsh/zsh-syntax-highlighting
 
 # Install tpm
 git_clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
