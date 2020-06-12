@@ -195,15 +195,35 @@ ramp-coreload-3-foreground = #4db6ac
 ramp-coreload-4-foreground = #4db6ac
 ramp-coreload-5-foreground = #c0bc0e
 ramp-coreload-6-foreground = #c0bc0e
-ramp-coreload-7-foreground = #FF5252
+ramp-coreload-7-foreground = #ff5252
 
 [module/memory]
 type = internal/memory
 interval = 1
+format = <label> <ramp-used>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
+format-margin = 2
+format-padding = 1
 label = %percentage_used%%
+
+ramp-used-0 = %{T3}▁%{T-}
+ramp-used-1 = %{T3}▂%{T-}
+ramp-used-2 = %{T3}▃%{T-}
+ramp-used-3 = %{T3}▄%{T-}
+ramp-used-4 = %{T3}▅%{T-}
+ramp-used-5 = %{T3}▆%{T-}
+ramp-used-6 = %{T3}▇%{T-}
+ramp-used-7 = %{T3}█%{T-}
+ramp-used-0-foreground = #4bffdc
+ramp-used-1-foreground = #4bffdc
+ramp-used-2-foreground = #4bffdc
+ramp-used-3-foreground = #c0bc0e
+ramp-used-4-foreground = #c0bc0e
+ramp-used-5-foreground = #ff5252
+ramp-used-6-foreground = #ff5252
+ramp-used-7-foreground = #ff5252
 
 [module/date]
 type = internal/date
