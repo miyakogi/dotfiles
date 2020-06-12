@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 BASEDIR=$(cd $(dirname $0);pwd)
+CONFIG_HOME=$HOME/.config
 
 # Make dir if not exists
 makedir_if_not_exists () {
@@ -30,19 +31,19 @@ makedir_if_not_exists $HOME/.vim
 makedir_if_not_exists $HOME/.vim/backup
 makedir_if_not_exists $HOME/.vim/doc
 makedir_if_not_exists $HOME/.vim/pack/remote
-makedir_if_not_exists $HOME/.config/alacritty
-makedir_if_not_exists $HOME/.config/kitty
+makedir_if_not_exists $CONFIG_HOME/alacritty
+makedir_if_not_exists $CONFIG_HOME/kitty
 makedir_if_not_exists $HOME/.zsh
 makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
-makedir_if_not_exists $HOME/.config/i3
-makedir_if_not_exists $HOME/.config/picom
-makedir_if_not_exists $HOME/.config/conky
-makedir_if_not_exists $HOME/.config/dunst
-makedir_if_not_exists $HOME/.config/polybar
-makedir_if_not_exists $HOME/.config/rofi
+makedir_if_not_exists $CONFIG_HOME/i3
+makedir_if_not_exists $CONFIG_HOME/picom
+makedir_if_not_exists $CONFIG_HOME/conky
+makedir_if_not_exists $CONFIG_HOME/dunst
+makedir_if_not_exists $CONFIG_HOME/polybar
+makedir_if_not_exists $CONFIG_HOME/rofi
 
 # ======== Make Symbolic Link ==============
 # ------ Shell ------
@@ -96,8 +97,8 @@ ln -sf $VIMBASE/snippets $HOME/.vim
 ln -sf $VIMBASE/syntax $HOME/.vim
 
 # ------ NeoVim -------
-ln -sf $HOME/.vim $HOME/.config/nvim
-ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
+ln -sf $HOME/.vim $CONFIG_HOME/nvim
+ln -sf $HOME/.vimrc $CONFIG_HOME/nvim/init.vim
 
 # Percol
 ln -sf $BASEDIR/percolrc.py $HOME/.percol.d/rc.py
@@ -109,40 +110,40 @@ ln -sf $BASEDIR/scripts/pip-update $HOME/bin/pip-update
 ln -sf $BASEDIR/cargo.toml $HOME/.cargo/config
 
 # alacritty (terminal)
-ln -sf $BASEDIR/alacritty.yml $HOME/.config/alacritty
+ln -sf $BASEDIR/alacritty.yml $CONFIG_HOME/alacritty
 
 # kitty (terminal)
-ln -sf $BASEDIR/kitty.conf $HOME/.config/kitty
+ln -sf $BASEDIR/kitty.conf $CONFIG_HOME/kitty
 
 # i3 window manager
-ln -sf $BASEDIR/i3/config $HOME/.config/i3
-ln -sf $BASEDIR/i3/lock.sh $HOME/.config/i3
-ln -sf $BASEDIR/i3/save_layout.sh $HOME/.config/i3
-ln -sf $BASEDIR/i3/load_layout.sh $HOME/.config/i3
-ln -sf $BASEDIR/i3/transparent.py $HOME/.config/i3
+ln -sf $BASEDIR/i3/config $CONFIG_HOME/i3
+ln -sf $BASEDIR/i3/lock.sh $CONFIG_HOME/i3
+ln -sf $BASEDIR/i3/save_layout.sh $CONFIG_HOME/i3
+ln -sf $BASEDIR/i3/load_layout.sh $CONFIG_HOME/i3
+ln -sf $BASEDIR/i3/transparent.py $CONFIG_HOME/i3
 
 # picom (compositor)
-ln -sf $BASEDIR/picom/picom.conf $HOME/.config/picom
+ln -sf $BASEDIR/picom/picom.conf $CONFIG_HOME/picom
 
 # conky
-ln -sf $BASEDIR/conky/conky.conf $HOME/.config/conky
-ln -sf $BASEDIR/conky/rings.lua $HOME/.config/conky
+ln -sf $BASEDIR/conky/conky.conf $CONFIG_HOME/conky
+ln -sf $BASEDIR/conky/rings.lua $CONFIG_HOME/conky
 
 # dunst
-ln -sf $BASEDIR/dunst/dunstrc $HOME/.config/dunst
+ln -sf $BASEDIR/dunst/dunstrc $CONFIG_HOME/dunst
 
 # polybar
-ln -sf $BASEDIR/polybar/config $HOME/.config/polybar
-ln -sf $BASEDIR/polybar/launch.sh $HOME/.config/polybar
-ln -sf $BASEDIR/polybar/add_ws.py $HOME/.config/polybar
+ln -sf $BASEDIR/polybar/config $CONFIG_HOME/polybar
+ln -sf $BASEDIR/polybar/launch.sh $CONFIG_HOME/polybar
+ln -sf $BASEDIR/polybar/add_ws.py $CONFIG_HOME/polybar
 
 # rofi
-ln -sf $BASEDIR/rofi/config.rasi $HOME/.config/rofi
-ln -sf $BASEDIR/rofi/main-theme.rasi $HOME/.config/rofi
-ln -sf $BASEDIR/rofi/menu-theme.rasi $HOME/.config/rofi
+ln -sf $BASEDIR/rofi/config.rasi $CONFIG_HOME/rofi
+ln -sf $BASEDIR/rofi/main-theme.rasi $CONFIG_HOME/rofi
+ln -sf $BASEDIR/rofi/menu-theme.rasi $CONFIG_HOME/rofi
 
 # chrome
-ln -sf $BASEDIR/chrome-flags.conf $HOME/.config
+ln -sf $BASEDIR/chrome-flags.conf $CONFIG_HOME
 
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
