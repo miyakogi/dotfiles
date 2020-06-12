@@ -10,8 +10,8 @@ if [[ -f ${ws_dir}/workspace_2.json ]]; then
   i3-msg "workspace 2; append_layout ${ws_dir}/workspace_2.json"
 fi
 
-if [[ -f ${ws_dir}/workspace_9.json ]]; then
-  i3-msg "workspace 9; append_layout ${ws_dir}/workspace_9.json"
+if [[ -f ${ws_dir}/workspace_10.json ]]; then
+  i3-msg "workspace 10; append_layout ${ws_dir}/workspace_10.json"
 fi
 
 function exec_if_possible() {
