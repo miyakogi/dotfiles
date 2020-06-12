@@ -137,12 +137,12 @@ function! MyAnzu() abort
 endfunction
 
 function! MyVCS() abort
-  if !exists('g:loaded_signify') || &buftype !=# ''
+  if !get(g:, 'loaded_signify') || &buftype !=# ''
     return ''
   endif
 
   " 'b:sy' is set by signify
-  if !exists('b:sy') || b:sy.active != 1 || len(b:sy.vcs) < 1
+  if !exists('b:sy') || !has_key(b:sy, 'vcs') || len(b:sy.vcs) < 1
     return ''
   endif
 
@@ -192,7 +192,7 @@ function! s:stats() abort
 endfunction
 
 function! s:fugitive() abort
-  if !exists('*fugitive#head')
+  if !get(g:, 'loaded_fugitive')
     return ''
   endif
 
