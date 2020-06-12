@@ -200,9 +200,18 @@ load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
 ### zsh-autoenv
 load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
 ### syntax highlight
-# load_if_exists $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then  # Arch
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+  load_if_exists $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 ### auto suggestion
 load_if_exists $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+### syntax highlight
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[default]='fg=red'
+ZSH_HIGHLIGHT_STYLES[path]='fg=yellow'
 
 ### pip
 # pip zsh completion start
