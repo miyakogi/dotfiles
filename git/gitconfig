@@ -25,4 +25,5 @@
 [push]
   default = simple
 [pull]
+  rebase = false
   ff = true
