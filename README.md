@@ -26,6 +26,17 @@ My dotfiles.
 
 ## Required Applications (not listed above)
 
+### Fonts
+
+- Source Han Sans JP
+- Fira Code Nerd Font Mono
+- Noto Emoji Nerd Font Mono
+- unifont
+- siji
+- Roboto Mono
+- Raleway
+- Hack
+
 ### Terminal
 
 - (python) virtualenv/virtualenv-wrapper
