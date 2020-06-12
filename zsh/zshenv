@@ -3,9 +3,6 @@
 #  Zsh Environment Variables
 # ============================================
 
-# profiling
-# zmodload zsh/zprof && zprof
-
 # zsh default directory
 export ZDOTDIR=$HOME/.zsh
 export EDITOR=vim
@@ -128,7 +125,6 @@ export npm_config_prefix=~/.node_modules
 
 # user local scripts
 add_path $HOME/bin
-
 
 # load machine local profile
 [[ -f .zshenv.local ]] && source .zshenv.local

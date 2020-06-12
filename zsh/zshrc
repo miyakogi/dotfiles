@@ -3,6 +3,9 @@
 #  Main Config File for ZSH
 # ============================================
 
+# profiling
+# zmodload zsh/zprof && zprof
+
 ########## Key Binding ##########
 bindkey -e
 
