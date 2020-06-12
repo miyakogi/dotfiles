@@ -3,7 +3,7 @@ configuration {
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
-  font: "Hack 14";
+  font: "Source Han Sans JP 14";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -22,7 +22,7 @@ configuration {
 	icon-theme: "neon-icons";
 /*	drun-match-fields: "name,generic,exec,categories";*/
 /*	drun-show-actions: false;*/
-/*	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";*/
+	drun-display-format: "{name} [<span color="#bbbbbb">({generic})</span>]";
 /*	disable-history: false;*/
 /*	ignored-prefixes: "";*/
 /*	sort: false;*/

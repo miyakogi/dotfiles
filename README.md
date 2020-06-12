@@ -33,9 +33,7 @@ My dotfiles.
 - Noto Emoji Nerd Font Mono
 - unifont
 - siji
-- Roboto Mono
 - Raleway
-- Hack
 
 ### Terminal
 
