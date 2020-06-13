@@ -231,33 +231,65 @@ draw_bold_text_with_bright_colors: true
 #   indexed_colors: []
 
 # Colors (From Kitty terminal)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x111111'
+#     foreground: '0xcccccc'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x000000'
+#     red:     '0xcc0403'
+#     green:   '0x19cb00'
+#     yellow:  '0xcecb00'
+#     blue:    '0x0d73cc'
+#     magenta: '0xcb1ed1'
+#     cyan:    '0x0dcdcd'
+#     white:   '0xeaeaea'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0x767676'
+#     red:     '0xf2201f'
+#     green:   '0x23fd00'
+#     yellow:  '0xfffd00'
+#     blue:    '0x1a8fff'
+#     magenta: '0xfd28ff'
+#     cyan:    '0x14ffff'
+#     white:   '0xffffff'
+
+# Colors (Pencil Dark)
 colors:
-  # Default colors
+  # Default Colors
   primary:
-    background: '0x111111'
-    foreground: '0xcccccc'
+    background: '0x212121'
+    foreground: '0xf1f1f1'
+
+  # cursor colors
+  cursor:
+    cursor: '0xf1f1f1'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xcc0403'
-    green:   '0x19cb00'
-    yellow:  '0xcecb00'
-    blue:    '0x0d73cc'
-    magenta: '0xcb1ed1'
-    cyan:    '0x0dcdcd'
-    white:   '0xeaeaea'
-
+    black:   '0x212121'
+    red:     '0xc30771'
+    green:   '0x10a778'
+    yellow:  '0xa89c14'
+    blue:    '0x008ec4'
+    magenta: '0x523c79'
+    cyan:    '0x20a5ba'
+    white:   '0xe0e0e0'
   # Bright colors
   bright:
-    black:   '0x767676'
-    red:     '0xf2201f'
-    green:   '0x23fd00'
-    yellow:  '0xfffd00'
-    blue:    '0x1a8fff'
-    magenta: '0xfd28ff'
-    cyan:    '0x14ffff'
-    white:   '0xffffff'
+    black:   '0x212121'
+    red:     '0xfb007a'
+    green:   '0x5fd7af'
+    yellow:  '0xf3e430'
+    blue:    '0x20bbfc'
+    magenta: '0x6855de'
+    cyan:    '0x4fb8cc'
+    white:   '0xf1f1f1'
 
 # Visual Bell
 #

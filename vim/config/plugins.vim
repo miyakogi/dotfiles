@@ -10,8 +10,10 @@ function! s:enable_colorscheme(...) abort
   endif
   syntax enable
   if has_key(g:, 'MyColorScheme')
+    set background=dark
     execute 'colorscheme ' . g:MyColorScheme
   endif
+  call lightline#enable()
 endfunction
 
 " ============================================

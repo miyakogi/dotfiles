@@ -56,7 +56,8 @@
       "miyakogi/badwolf",
       "joshdick/onedark.vim",
       "morhetz/gruvbox",
-      "srcery-colors/srcery-vim"
+      "srcery-colors/srcery-vim",
+      "reedes/vim-colors-pencil"
     ]
   },
   "opt": {

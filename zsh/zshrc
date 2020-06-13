@@ -232,6 +232,7 @@ else
   load_if_exists $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 bindkey '^f' forward-word
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
 ### pip
 # pip zsh completion start

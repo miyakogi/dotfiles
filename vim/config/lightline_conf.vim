@@ -236,4 +236,4 @@ endfunction
 
 " }}}
 
-let g:lightline.colorscheme = 'badwolf'
+let g:lightline.colorscheme = 'pencil'
