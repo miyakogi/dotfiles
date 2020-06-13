@@ -215,7 +215,6 @@ fi
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_STYLES[default]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[path]='fg=yellow,underline'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan,bold'
 ZSH_HIGHLIGHT_STYLES[command]='fg=cyan,bold'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan,bold'
