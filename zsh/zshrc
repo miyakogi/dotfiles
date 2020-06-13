@@ -192,14 +192,14 @@ fi
 ### Node.js virtual env control
 export NVM_LAZY_LOAD=true
 export NVM_NO_USE=true
-load_if_exists $HOME/.zsh/zsh-nvm/zsh-nvm.plugin.zsh
+load_if_exists $ZDOTDIR/zsh-nvm/zsh-nvm.plugin.zsh
 
 ### prompt
 load_if_exists $ZDOTDIR/prompt
 
 ### zsh-completions
 # http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
-fpath=($HOME/.zsh/zsh-completions/src(N-/) $fpath)
+fpath=($ZDOTDIR/zsh-completions/src(N-/) $fpath)
 load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
 ### zsh-autoenv
 load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
