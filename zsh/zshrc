@@ -195,7 +195,7 @@ export NVM_NO_USE=true
 load_if_exists $ZDOTDIR/zsh-nvm/zsh-nvm.plugin.zsh
 
 ### prompt
-load_if_exists $ZDOTDIR/prompt
+load_if_exists $ZDOTDIR/prompt.zsh
 
 ### zsh-completions
 # http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
