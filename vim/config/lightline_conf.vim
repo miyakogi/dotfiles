@@ -236,4 +236,4 @@ endfunction
 
 " }}}
 
-let g:lightline.colorscheme = 'snazzy'
+let g:lightline.colorscheme = 'pencil'
