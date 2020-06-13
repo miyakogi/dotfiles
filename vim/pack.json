@@ -57,7 +57,8 @@
       "joshdick/onedark.vim",
       "morhetz/gruvbox",
       "srcery-colors/srcery-vim",
-      "reedes/vim-colors-pencil"
+      "reedes/vim-colors-pencil",
+      "connorholyday/vim-snazzy"
     ]
   },
   "opt": {

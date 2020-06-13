@@ -259,37 +259,66 @@ draw_bold_text_with_bright_colors: true
 #     cyan:    '0x14ffff'
 #     white:   '0xffffff'
 
-# Colors (Pencil Dark)
-colors:
-  # Default Colors
-  primary:
-    background: '0x212121'
-    foreground: '0xf1f1f1'
+# # Colors (Pencil Dark)
+# colors:
+#   # Default Colors
+#   primary:
+#     background: '0x212121'
+#     foreground: '0xf1f1f1'
+#
+#   # cursor colors
+#   cursor:
+#     cursor: '0xf1f1f1'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x212121'
+#     red:     '0xc30771'
+#     green:   '0x10a778'
+#     yellow:  '0xa89c14'
+#     blue:    '0x008ec4'
+#     magenta: '0x523c79'
+#     cyan:    '0x20a5ba'
+#     white:   '0xe0e0e0'
+#   # Bright colors
+#   bright:
+#     black:   '0x212121'
+#     red:     '0xfb007a'
+#     green:   '0x5fd7af'
+#     yellow:  '0xf3e430'
+#     blue:    '0x20bbfc'
+#     magenta: '0x6855de'
+#     cyan:    '0x4fb8cc'
+#     white:   '0xf1f1f1'
 
-  # cursor colors
-  cursor:
-    cursor: '0xf1f1f1'
+# Colors (Snazzy)
+colors:
+  # Default colors
+  primary:
+    background: '0x282a36'
+    foreground: '0xeff0eb'
 
   # Normal colors
   normal:
-    black:   '0x212121'
-    red:     '0xc30771'
-    green:   '0x10a778'
-    yellow:  '0xa89c14'
-    blue:    '0x008ec4'
-    magenta: '0x523c79'
-    cyan:    '0x20a5ba'
-    white:   '0xe0e0e0'
+    black:   '0x282a36'
+    red:     '0xff5c57'
+    green:   '0x5af78e'
+    yellow:  '0xf3f99d'
+    blue:    '0x57c7ff'
+    magenta: '0xff6ac1'
+    cyan:    '0x9aedfe'
+    white:   '0xf1f1f0'
+
   # Bright colors
   bright:
-    black:   '0x212121'
-    red:     '0xfb007a'
-    green:   '0x5fd7af'
-    yellow:  '0xf3e430'
-    blue:    '0x20bbfc'
-    magenta: '0x6855de'
-    cyan:    '0x4fb8cc'
-    white:   '0xf1f1f1'
+    black:   '0x686868'
+    red:     '0xff5c57'
+    green:   '0x5af78e'
+    yellow:  '0xf3f99d'
+    blue:    '0x57c7ff'
+    magenta: '0xff6ac1'
+    cyan:    '0x9aedfe'
+    white:   '0xf1f1f0'
 
 # Visual Bell
 #
