@@ -127,6 +127,9 @@ fi
 # alias for `cat` command
 if which bat >/dev/null; then
   alias cat=bat
+  function bl {
+    bat --color=always "$@" | less -R
+  }
 fi
 
 # Colorize man page
