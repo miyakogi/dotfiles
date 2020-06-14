@@ -119,7 +119,6 @@ bindsym $mod+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id "rofi -show drun"
 bindsym $mod+z exec --no-startup-id "rofi -show drun"
 bindsym $alt+Tab exec --no-startup-id "rofi -show window"
 
@@ -171,10 +170,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-#bindsym $mod+a focus parent
+bindsym $mod+y focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
