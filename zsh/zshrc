@@ -139,7 +139,7 @@ fi
 # alias for `cat` command
 if which bat >/dev/null; then
   alias cat=bat
-  function bl {
+  function bl() {
     bat --color=always "$@" | less -R
   }
 fi
@@ -233,6 +233,7 @@ ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan,bold'
 ZSH_HIGHLIGHT_STYLES[function]='fg=cyan,bold'
 ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=white,bold'
 ZSH_HIGHLIGHT_STYLES[redirection]='fg=white,bold'
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#999999'
 typeset -A ZSH_HIGHLIGHT_PATTERNS
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 
@@ -247,7 +248,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
 ### pip
 # pip zsh completion start
-function _pip_completion {
+function _pip_completion() {
   local words cword
   read -Ac words
   read -cn cword
@@ -257,7 +258,7 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
-function pip-init {
+function pip-init() {
   # Initialize python virtual environment.
   # This function installs these additional dependencies:
   #   - jedi: auto-completion
