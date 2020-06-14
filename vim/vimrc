@@ -576,7 +576,7 @@ if !has('gui_running')
     endif
   endif
 
-  if $TERM == 'alacritty'
+  if $TERM == 'alacritty' && !has('nvim')
     set ttymouse=sgr
   endif
 
