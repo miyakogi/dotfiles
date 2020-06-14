@@ -922,6 +922,7 @@ let g:conoline_color_insert_nr_dark = 'guibg=#000000 ctermbg=232'
 
 " ======== seiya ======== {{{
 let g:seiya_auto_enable=0
+let g:seiya_target_groups = ['ctermbg', 'guibg']
 "}}}
 
 " ======== SidePanel.vim ======== {{{

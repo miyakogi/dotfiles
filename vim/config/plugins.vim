@@ -5,9 +5,6 @@
 " ======== ColorScheme ========
 " Enable colorscheme
 function! s:enable_colorscheme(...) abort
-  if !&termguicolors && exists(':SeiyaEnable')
-    SeiyaEnable
-  endif
   syntax enable
   if has_key(g:, 'MyColorScheme')
     set background=dark
@@ -15,6 +12,9 @@ function! s:enable_colorscheme(...) abort
   endif
   if get(g:, 'loaded_lightline')
     call lightline#enable()
+  endif
+  if exists(':SeiyaEnable')
+    SeiyaEnable
   endif
 endfunction
 
