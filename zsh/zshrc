@@ -89,7 +89,10 @@ alias :q="exit"
 alias tmux="tmux -2"
 alias mkdir="mkdir -p"
 alias ln="ln -v"  # verbose
-alias ssh="TERM=xterm-256color ssh"  # alacritty/kitty does not correctly handled
+if [[ $TERM == (alacritty*|kitty*) ]]; then
+  # alacritty/kitty does not correctly handled
+  alias ssh="TERM=xterm-256color ssh"
+fi
 alias path='echo $PATH | tr -s ":" "\n"'  # pretty print path
 
 # go to git root by `gg`
