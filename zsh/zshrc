@@ -77,7 +77,7 @@ zstyle ':completion:*' rehash true
 
 ########## Terminal Tittle ##########
 function title() {
-  print -Pn '\e]2;zsh\a'
+  print -Pn "\e]2;${1:-zsh}\a"
 }
 if [[ $TERM == (alacritty*|kitty*) ]]; then
   add-zsh-hook -Uz precmd title
