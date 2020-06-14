@@ -78,7 +78,7 @@ exec --no-startup-id "feh --bg-scale $HOME/.config/i3/bg.jpg"
 exec --no-startup-id "setxkbmap -layout jp -option 'ctrl:nocaps'"
 
 # Restore workspace
-# exec --no-startup-id $HOME/.config/i3/load_layout.sh
+# exec --no-startup-id $HOME/.config/i3/load_layouts.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -103,7 +103,7 @@ client.unfocused          #222222 #333333 #cccccc #000000 #222222
 client.focused_inactive   #222222 #333333 #cccccc #000000 #222222
 
 # Restore workspace
-bindsym $mod+Shift+g exec --no-startup-id ~/.config/i3/load_layout.sh
+bindsym $mod+Shift+g exec --no-startup-id ~/.config/i3/load_layouts.sh
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal

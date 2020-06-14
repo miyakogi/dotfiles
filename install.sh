@@ -119,7 +119,7 @@ ln -sf $BASEDIR/kitty.conf $CONFIG_HOME/kitty
 ln -sf $BASEDIR/i3/config $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/lock.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/save_layout.sh $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/load_layout.sh $CONFIG_HOME/i3
+ln -sf $BASEDIR/i3/load_layouts.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/transparent.py $CONFIG_HOME/i3
 
 # picom (compositor)
