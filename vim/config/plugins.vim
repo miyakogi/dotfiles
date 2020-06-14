@@ -13,7 +13,9 @@ function! s:enable_colorscheme(...) abort
     set background=dark
     execute 'colorscheme ' . g:MyColorScheme
   endif
-  call lightline#enable()
+  if get(g:, 'loaded_lightline')
+    call lightline#enable()
+  endif
 endfunction
 
 " ============================================
