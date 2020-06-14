@@ -75,6 +75,15 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # Automatically rehash executables on completion
 zstyle ':completion:*' rehash true
 
+########## Terminal Tittle ##########
+function title() {
+  print -Pn '\e]2;zsh\a'
+}
+if [[ $TERM == (alacritty*|kitty*) ]]; then
+  add-zsh-hook -Uz precmd title
+  add-zsh-hook -Uz preexec title
+fi
+
 ########## EDIT ##########
 # Set keyword
 autoload -Uz select-word-style
