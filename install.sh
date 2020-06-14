@@ -39,6 +39,7 @@ makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
 makedir_if_not_exists $CONFIG_HOME/i3
+makedir_if_not_exists $CONFIG_HOME/i3/workspaces
 makedir_if_not_exists $CONFIG_HOME/picom
 makedir_if_not_exists $CONFIG_HOME/conky
 makedir_if_not_exists $CONFIG_HOME/dunst
