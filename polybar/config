@@ -18,14 +18,19 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #000
+background = #212121
 background-alt = #333
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #f1f1f1
 foreground-alt = #777
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+
+red = fb007a
+green = #5fd7af
+yellow = #f3e430
+blue = #20bbfc
+magenta = #6855de
+cyan = #4fb8cc
+orange = #d75f5f
 
 [bar/top]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -85,14 +90,14 @@ cursor-click = pointer
 type = custom/script
 exec = echo ""
 click-left = rofi -show drun -theme menu-theme
-format-foreground = #00bcd4
+format-foreground = ${colors.blue}
 
 [module/title]
 type = internal/xwindow
 format = <label>
 format-background = ${colors.background-alt}
-format-foreground = #fff
-format-underline = #00bcd4
+format-foreground = ${colors.foreground}
+format-underline = ${colors.cyan}
 format-padding = 2
 
 label = %title:0:40:...%
@@ -134,13 +139,13 @@ ws-icon-default = 
 label-mode = %mode%
 label-mode-padding = 2
 label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-background = ${colors.orange}
 
 ; focused = Active workspace on focused monitor
 ; label-focused = %index%
 label-focused = %icon%  %name%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.orange}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -155,7 +160,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.orange}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
@@ -176,7 +181,7 @@ label = %percentage:2%%
 format = "<label> <ramp-coreload>"
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #3d9cca
+format-underline = ${colors.blue}
 ; format-margin = 2
 format-padding = 1
 coreload-spacing = 1
@@ -188,9 +193,9 @@ ramp-coreload-4 = %{T3}▅%{T-}
 ramp-coreload-5 = %{T3}▆%{T-}
 ramp-coreload-6 = %{T3}▇%{T-}
 ramp-coreload-7 = %{T3}█%{T-}
-ramp-coreload-0-foreground = #00bcd4
-ramp-coreload-1-foreground = #009688
-ramp-coreload-2-foreground = #009688
+ramp-coreload-0-foreground = ${colors.blue}
+ramp-coreload-1-foreground = ${colors.blue}
+ramp-coreload-2-foreground = ${colors.blue}
 ramp-coreload-3-foreground = #4db6ac
 ramp-coreload-4-foreground = #4db6ac
 ramp-coreload-5-foreground = #c0bc0e
@@ -203,7 +208,7 @@ interval = 1
 format = <label> <ramp-used>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = ${colors.green}
 format-margin = 2
 format-padding = 1
 label = %percentage_used%%
@@ -216,9 +221,9 @@ ramp-used-4 = %{T3}▅%{T-}
 ramp-used-5 = %{T3}▆%{T-}
 ramp-used-6 = %{T3}▇%{T-}
 ramp-used-7 = %{T3}█%{T-}
-ramp-used-0-foreground = #4bffdc
-ramp-used-1-foreground = #4bffdc
-ramp-used-2-foreground = #4bffdc
+ramp-used-0-foreground = ${colors.green}
+ramp-used-1-foreground = ${colors.green}
+ramp-used-2-foreground = ${colors.green}
 ramp-used-3-foreground = #c0bc0e
 ramp-used-4-foreground = #c0bc0e
 ramp-used-5-foreground = #ff5252
@@ -237,7 +242,7 @@ time = %H:%M:%S
 ; format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #0a6cf5
 ;format-underline = #d95656
-format-underline = #aaaaaa
+format-underline = #999999
 format-padding = 2
 
 label =  %date%    %time%
