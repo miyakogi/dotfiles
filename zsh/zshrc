@@ -237,6 +237,7 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=#999999'
 typeset -A ZSH_HIGHLIGHT_PATTERNS
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 ZSH_HIGHLIGHT_PATTERNS+=('sudo' 'fg=white,bold,bg=red')
+ZSH_HIGHLIGHT_PATTERNS+=('sudoedit' 'fg=white,bold,bg=red')
 
 ### auto suggestion
 if [[ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then  # Arch
