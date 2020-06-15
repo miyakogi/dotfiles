@@ -31,7 +31,7 @@ function _update_lprompt() {
   if [[ $OSNAME == Mac ]]; then
     _icon=$'\ue711 '  # mac 
   elif [[ $OSNAME == Windows ]]; then
-    _icon='❖ '
+    _icon=' '
   elif [[ $OSNAME == Ubuntu ]]; then
     _icon=$'\uf31b '  # ubuntu 
   elif [[ $OSNAME == Arch ]]; then
