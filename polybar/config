@@ -63,7 +63,7 @@ font-3 = siji:pixelsize=10;1
 
 modules-left = menu title
 modules-center = date
-modules-right = add_ws i3 cpu-graph memory
+modules-right = add_ws i3 cpu-graph memory updates
 
 ; tray-position = right
 tray-padding = 6
@@ -229,6 +229,15 @@ ramp-used-4-foreground = #c0bc0e
 ramp-used-5-foreground = #ff5252
 ramp-used-6-foreground = #ff5252
 ramp-used-7-foreground = #ff5252
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/updates.sh
+format-padding = 2
+format-foreground = ${colors.foreground}
+format-background = ${colors.red}
+format-underline = ${colors.red}
+interval = 600
 
 [module/date]
 type = internal/date
