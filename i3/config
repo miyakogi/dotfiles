@@ -238,11 +238,6 @@ workspace $ws1 gaps outer 0
 workspace $ws2 gaps inner 0
 workspace $ws2 gaps outer 0
 
-for_window [window_role="^browser$"] gaps inner 0
-for_window [window_role="^browser$"] gaps outer 0
-for_window [class="^firefox$"] gaps inner 0
-for_window [class="^firefox$"] gaps outer 0
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
