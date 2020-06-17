@@ -30,7 +30,7 @@
       "kien/rainbow_parentheses.vim",
       "Yggdroot/indentLine",
       "thinca/vim-quickrun",
-      "w0rp/ale",
+      "dense-analysis/ale",
       "janko-m/vim-test",
       "cohama/vim-hier",
       "KazuakiM/vim-qfstatusline",
