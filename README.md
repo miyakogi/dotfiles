@@ -32,7 +32,6 @@ My dotfiles.
 - Fira Code Nerd Font Mono
 - Noto Emoji Nerd Font Mono
 - unifont
-- siji
 - Hack
 - Raleway
 
