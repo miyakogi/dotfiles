@@ -13,7 +13,7 @@ function! s:enable_colorscheme(...) abort
   if get(g:, 'loaded_lightline')
     call lightline#enable()
   endif
-  if exists(':SeiyaEnable')
+  if exists(':SeiyaEnable') && !has('gui_running')
     SeiyaEnable
   endif
 endfunction
