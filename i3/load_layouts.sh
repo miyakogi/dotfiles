@@ -14,12 +14,7 @@ function exec_if_possible() {
   fi
 }
 
-if which transparent >/dev/null; then
-  (transparent &)
-else
-  ($HOME/.config/i3/transparent.py &)
-fi
-
 exec_if_possible google-chrome-stable
 exec_if_possible discord
 exec_if_possible cantata
+exec_if_possible glava
