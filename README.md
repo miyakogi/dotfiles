@@ -59,6 +59,7 @@ My dotfiles.
 - klipper
 - perl-anyevent-i3 (save layout)
 - perl-json-xs (save layout)
+- yakuake
 
 ## Install
 
