@@ -16,12 +16,7 @@
 set guioptions=pi
 
 " Font configuration
-" 日本語
-" let s:default_gfw = "Noto Sans Mono CJK JP 12"
-" let &guifontwide = s:default_gfw
-" 英語
-" let s:default_gfn = "Noto Sans Mono CJK JP 12"
-let s:default_gfn = "GenEiGothicM Nerd Font Regular 12"
+let s:default_gfn = "Source Han Mono M 12"
 let &guifont = s:default_gfn
 
 " set antialias
