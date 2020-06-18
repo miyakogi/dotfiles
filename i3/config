@@ -308,3 +308,7 @@ for_window [title="^FINAL"] floating enable
 assign [title="^FINAL"] $ws6
 for_window [title="^ARK"] floating enable
 assign [title="^ARK"] $ws6
+
+# Music Players
+assign [class="Audacious"] $ws10
+assign [class="cantata"] $ws10

@@ -180,7 +180,7 @@ type = internal/mpd
 host = 127.0.0.1
 port = 6600
 
-format-online = <icon-prev> <toggle> <icon-stop> <icon-next>
+format-online = %{T2}%{T-} <icon-prev> <toggle> <icon-stop> <icon-next>
 
 label-song = %title%
 icon-prev =  %{T4}玲%{T-}

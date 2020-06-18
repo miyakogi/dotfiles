@@ -16,5 +16,4 @@ function exec_if_possible() {
 
 exec_if_possible google-chrome-stable
 exec_if_possible discord
-exec_if_possible cantata
 exec_if_possible glava
