@@ -18,16 +18,16 @@
 
 [colors]
 ; Dark bar
-; background = #000000
-; background-alt = #333
-; foreground = #f1f1f1
-; foreground-alt = #777
+background = #bb000000
+background-alt = #cc000000
+foreground = #f1f1f1
+foreground-alt = #999
 
 ; Bright bar
-background = #99f3f3f3
-background-alt = #ccf3f3f3
-foreground = #212121
-foreground-alt = #666
+; background = #99f3f3f3
+; background-alt = #ccf3f3f3
+; foreground = #212121
+; foreground-alt = #666
 
 red = fb007a
 green = #5fd7af
