@@ -59,7 +59,7 @@ module-margin-right = 1
 font-0 = Source Han Sans JP Medium:pixelsize=12:antialias=true;1
 font-1 = Noto Emoji Nerd Font Mono:pixelsize=14;1
 font-2 = unifont:fontformat=truetype:size=6:antialias=false;0
-font-3 = Noto Emoji Nerd Font Mono:pixelsize=9;1
+font-3 = Noto Emoji Nerd Font Mono:pixelsize=8;1
 
 modules-left = menu title
 modules-center = date
@@ -180,7 +180,7 @@ type = internal/mpd
 host = 127.0.0.1
 port = 6600
 
-format-online = %{T2}%{T-} <icon-prev> <toggle> <icon-stop> <icon-next>
+format-online = %{T2}%{T-} <icon-prev> <toggle> <icon-stop> <icon-next> <bar-progress> <icon-repeat> <icon-single> <icon-random>
 
 label-song = %title%
 icon-prev =  %{T4}玲%{T-}
@@ -188,6 +188,17 @@ icon-play =  %{T4}契%{T-}
 icon-pause = %{T4}%{T-}
 icon-stop =  %{T4}栗%{T-}
 icon-next =  %{T4}怜%{T-}
+icon-repeat = %{T4}凌%{T-}
+icon-single = %{T4}綾%{T-}
+icon-random = %{T4}%{T-}
+
+toggle-on-foreground = ${colors.foreground}
+toggle-off-foreground = ${colors.foreground-alt}
+
+bar-progress-width = 25
+bar-progress-indicator = %{T4}╋%{T-}
+bar-progress-fill = %{T4}━%{T-}
+bar-progress-empty = %{T4}―%{T-}
 
 [module/cpu-graph]
 type = internal/cpu
