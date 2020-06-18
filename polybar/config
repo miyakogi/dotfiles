@@ -17,12 +17,17 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #212121
-background-alt = #333
-;foreground = ${xrdb:color7:#222}
-foreground = #f1f1f1
-foreground-alt = #777
+; Dark bar
+; background = #000000
+; background-alt = #333
+; foreground = #f1f1f1
+; foreground-alt = #777
+
+; Bright bar
+background = #99f3f3f3
+background-alt = #ccf3f3f3
+foreground = #212121
+foreground-alt = #666
 
 red = fb007a
 green = #5fd7af
@@ -66,16 +71,15 @@ modules-center = date
 modules-right = add_ws i3 mpd cpu-graph memory updates
 
 ; tray-position = right
-tray-padding = 6
+; tray-padding = 6
 ; tray-background = ${colors.background-alt}
-tray-transparent = true
-tray-scale = 1.0
-tray-maxsize = 22
-
-;wm-restack = bspwm
-;wm-restack = i3
+; tray-transparent = true
+; tray-scale = 1.0
+; tray-maxsize = 22
 
 ;override-redirect = true
+;wm-restack = bspwm
+;wm-restack = i3
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
