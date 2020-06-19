@@ -18,8 +18,8 @@
 
 [colors]
 ; Dark bar
-background = #bb000000
-background-alt = #cc000000
+background = #e3212121
+background-alt = #dd212121
 foreground = #f1f1f1
 foreground-alt = #999
 
