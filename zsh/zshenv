@@ -108,8 +108,11 @@ fi
 
 # rust
 add_path $HOME/.cargo/bin
-if type rustc > /dev/null 2>&1; then
+if which rustc > /dev/null 2>&1; then
   export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
+if which sccache > /dev/null 2>&1; then
+  export RUSTC_WRAPPER=$(which sccache)
 fi
 
 # go
