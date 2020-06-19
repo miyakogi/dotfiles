@@ -50,7 +50,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id klipper
 
 # Start conky system monitor
-exec --no-startup-id conky
+# exec --no-startup-id conky
 
 # Start dunst notifier
 exec --no-startup-id dunst
