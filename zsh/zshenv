@@ -81,9 +81,6 @@ if [[ $OSNAME == Ubuntu ]]; then
   # ubuntu specific binaries
   add_path $HOME/bin/ubuntu
 
-  # ubuntu local builds
-  add_path $HOME/usr/bin
-
   # go
   export GOROOT=/usr/local/go
   add_path $GOROOT/bin
