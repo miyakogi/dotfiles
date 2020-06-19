@@ -57,16 +57,15 @@ function _update_lprompt() {
     _success_front="%F{green}"
     _success_back="%K{green}"
   fi
-  local _icon_color="%F{16}%(?,$_success_back,%K{yellow})"
-  local _icon_dash="%K{16}%(?,%F{green},%F{yellow}) "
-  # local _icon_dash="%K{16}%(?,%F{green},%F{yellow})"$'\ue0b8 '
+  local _icon_color="%F{008}%(?,$_success_back,%K{yellow})"
+  local _icon_dash="%K{008}%(?,%F{green},%F{yellow}) "
 
   local _cols=`tput cols`
   if [[ $OSNAME == Windows ]] && [[ $TERM != cygwin ]]; then
     _cols=$(($_cols / 2))
   fi
   local _sep=`repeat $_cols printf ─`
-  local _separator="%F{238}$_sep%f"
+  local _separator="%F{000}$_sep%f"
 
   if [[ -n "$VIRTUAL_ENV" ]]; then
     local icon=$'\ue235 '  # python 
@@ -85,7 +84,7 @@ function _update_lprompt() {
   fi
 
   local mark="%(?,$_success_front$_mark%f,%F{yellow}$_mark%f)%(!,#,)"
-  PROMPT="$_separator$BR$_icon_color $icon$_icon_dash%F{250}%~ %k$BR$mark"
+  PROMPT="$_separator$BR$_icon_color $icon$_icon_dash%F{007}%~ %k$BR$mark"
 }
 
 ### RPROMPT
@@ -94,9 +93,9 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' max-exports 3
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats "%u%c %s:%b │%r"
-zstyle ':vcs_info:*' actionformats "%u%c %s:%b%F{198} %m <!%a>"
-zstyle ':vcs_info:*' unstagedstr "%F{214}?"
-zstyle ':vcs_info:*' stagedstr "%F{087}+"
+zstyle ':vcs_info:*' actionformats "%u%c %s:%b%F{009} %m <!%a>"
+zstyle ':vcs_info:*' unstagedstr "%F{011}?"
+zstyle ':vcs_info:*' stagedstr "%F{012}+"
 zstyle ':vcs_info:git:*' check-for-changes true
 # zstyle ':vcs_info:hg:*' check-for-changes true
 
@@ -122,14 +121,14 @@ function _get_time() {
 function _update_rprompt() {
   [[ $PROMPT_SIMPLE_MODE = 1 ]] && RPROMPT="" && return
   LANG=en_US.UTF-8 vcs_info
+  local rinfo
   local gitinfo="`_get_vcs_info`"
   if [[ -n ${gitinfo} ]]; then
-    local rinfo=${gitinfo}
+    rinfo=${gitinfo}
   else
-    local rinfo="%F{250}`_get_time`"
+    rinfo="%F{007}`_get_time`"
   fi
-  # RPROMPT="%F{016}"$'\ue0b2'"%K{016} ${rinfo} %f%k"
-  RPROMPT="%K{016} ${rinfo} %f%k"
+  RPROMPT="%K{008} ${rinfo} %f%k"
 }
 
 # Delete RPROMPT after commands
