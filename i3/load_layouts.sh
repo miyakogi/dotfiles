@@ -14,6 +14,7 @@ function exec_if_possible() {
   fi
 }
 
+exec_if_possible firefox
 exec_if_possible google-chrome-stable
 exec_if_possible discord
 exec_if_possible glava
