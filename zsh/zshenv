@@ -54,7 +54,12 @@ fi
 
 # Setting $PATH
 function add_path() {
-  path=("$1" $path)
+  case ":$PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      path=("$1" $path)
+  esac
 }
 
 # Nix
