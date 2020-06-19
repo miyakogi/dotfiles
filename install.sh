@@ -52,6 +52,7 @@ ln -sf $BASEDIR/profile $HOME/.profile
 ZSHBASE=$BASEDIR/zsh
 # zsh load files this order
 ln -sf $ZSHBASE/zshenv $HOME/.zshenv
+ln -sf $ZSHBASE/zshenv $HOME/.zsh/.zshenv
 ln -sf $ZSHBASE/zprofile $HOME/.zsh/.zprofile
 ln -sf $ZSHBASE/zshrc $HOME/.zsh/.zshrc
 ln -sf $ZSHBASE/prompt.zsh $HOME/.zsh/prompt.zsh
