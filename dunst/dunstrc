@@ -292,8 +292,8 @@
 
 [urgency_critical]
     background = "#212121"
-    foreground = "#fb2121"
-    frame_color = "#fb2121"
+    foreground = "#fb6621"
+    frame_color = "#fb6621"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
