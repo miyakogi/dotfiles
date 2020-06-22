@@ -58,6 +58,7 @@ My dotfiles.
 - klipper
 - perl-anyevent-i3 (save layout)
 - perl-json-xs (save layout)
+- python-i3-py (polybar's add workspace function)
 - yakuake
 
 ## Install
