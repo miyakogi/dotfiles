@@ -27,6 +27,9 @@ font pango:Source Han Sans JP, Medium 12
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Numlock on
+exec --no-startup-id "numlockx on"
+
 # Unlock KWallet
 exec --no-startup-id /usr/lib/pam_kwallet_init
 

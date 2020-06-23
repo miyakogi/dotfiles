@@ -50,6 +50,7 @@ My dotfiles.
 
 - kwallet-pam (password management)
 - xorg-xset (display power management)
+- numlockx
 - i3locks-color (screen lock)
 - redshift
 - fcitx
