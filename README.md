@@ -51,6 +51,7 @@ My dotfiles.
 - kwallet-pam (password management)
 - xorg-xset (display power management)
 - numlockx
+- autotiling (for i3 auto-tiling)
 - i3locks-color (screen lock)
 - redshift
 - fcitx

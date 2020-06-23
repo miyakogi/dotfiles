@@ -68,6 +68,9 @@ exec --no-startup-id fcitx
 # Start albert launcher
 # exec --no-startup-id albert
 
+# Enable auto-tiling
+exec_always --no-startup-id autotiling
+
 # Start yakuake dropdown terminal
 exec --no-startup-id yakuake
 
