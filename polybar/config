@@ -58,8 +58,8 @@ border-color = #00000000
 padding-left = 1
 padding-right = 1
 
-module-margin-left = 1
-module-margin-right = 1
+module-margin-left = 0
+module-margin-right = 0
 
 font-0 = Source Han Sans JP Medium:pixelsize=12:antialias=true;0
 font-1 = Noto Emoji Nerd Font Mono:pixelsize=14;2
@@ -95,6 +95,7 @@ type = custom/script
 exec = echo ""
 click-left = rofi -show drun -theme menu-theme
 format-foreground = ${colors.blue}
+format-padding = 1
 
 [module/title]
 type = internal/xwindow
@@ -102,6 +103,7 @@ format = <label>
 format-background = ${colors.background-alt}
 format-foreground = ${colors.foreground}
 format-underline = ${colors.blue}
+format-margin = 1
 format-padding = 2
 
 label = %title:0:40:...%
@@ -122,6 +124,7 @@ click-left = exec ~/.config/polybar/add_ws.py
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
+format-margin = 1
 index-sort = true
 wrapping-scroll = true
 
@@ -185,6 +188,7 @@ host = 127.0.0.1
 port = 6600
 
 format-online = %{T2}%{T-} <icon-prev> <toggle> <icon-stop> <icon-next> <bar-progress> <icon-repeat> <icon-single> <icon-random>
+format-online-margin = 1
 
 label-song = %title%
 icon-prev =  %{T4}玲%{T-}
@@ -212,7 +216,7 @@ format = "<label> <ramp-coreload>"
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.cyan}
-; format-margin = 2
+format-margin = 1
 format-padding = 1
 coreload-spacing = 1
 ramp-coreload-0 = %{T3}▁%{T-}
@@ -239,7 +243,7 @@ format = <label> <ramp-used>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.green}
-format-margin = 2
+format-margin = 1
 format-padding = 1
 label = %percentage_used%%
 
@@ -267,6 +271,7 @@ interval = 1
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
+format-margin = 1
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
