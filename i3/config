@@ -307,6 +307,7 @@ assign [title="Oracle VM VirtualBox$"] $ws7
 # Steam
 assign [title="^Steam$"] $ws5
 for_window [title="Steam - News"] floating enable
+assign [title="Steam - News"] $ws5
 
 # Steam games
 for_window [class="^(h|H)elltaker*"] floating enable, move position center
