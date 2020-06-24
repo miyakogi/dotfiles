@@ -309,14 +309,10 @@ assign [title="^Steam$"] $ws5
 for_window [title="Steam - News"] floating enable
 
 # Steam games
-for_window [title="^Helltaker"] floating enable
-assign [title="^Helltaker"] $ws6
-for_window [title="^NieR:Automata"] floating enable
-assign [title="^NieR:Automata$"] $ws6
-for_window [title="^FINAL"] floating enable
-assign [title="^FINAL"] $ws6
-for_window [title="^ARK"] floating enable
-assign [title="^ARK"] $ws6
+for_window [class="^(h|H)elltaker*"] floating enable, move position center
+assign [class="^(h|H)elltaker*"] $ws6
+for_window [class="^steam_app*"] floating enable, move position center
+assign [class="^steam_app*"] $ws6
 
 # Music Players
 assign [class="Audacious"] $ws10
