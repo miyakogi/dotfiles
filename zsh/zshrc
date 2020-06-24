@@ -116,9 +116,14 @@ alias gg=git_root
 
 # alias for `ls` command
 if which exa >/dev/null; then
-  alias ls="exa --icons --git-ignore"
-  alias lsa="exa --icons -a"
-elif which lsd >/dev/null; then
+  if [[ -n $DISPLAY ]]; then
+    alias ls="exa --icons --git-ignore"
+    alias lsa="exa --icons -a"
+  else
+    alias ls="exa --git-ignore"
+    alias lsa="exa -a"
+  fi
+elif which lsd >/dev/null && [[ -n $DISPLAY ]]; then
   alias ls="lsd"
 else
   case "${OSTYPE}" in
