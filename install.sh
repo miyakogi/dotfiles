@@ -139,6 +139,7 @@ ln -sf $BASEDIR/polybar/config $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/launch.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/add_ws.py $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/updates.sh $CONFIG_HOME/polybar
+ln -sf $BASEDIR/polybar/system-nvidia-smi.sh $CONFIG_HOME/polybar
 
 # rofi
 ln -sf $BASEDIR/rofi/config.rasi $CONFIG_HOME/rofi
