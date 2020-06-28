@@ -65,7 +65,7 @@ function _update_lprompt() {
     _cols=$(($_cols / 2))
   fi
   local _sep=`repeat $_cols printf ─`
-  local _separator="%F{000}$_sep%f"
+  local _separator="%F{238}$_sep%f"
 
   if [[ -n "$VIRTUAL_ENV" ]]; then
     local icon=$'\ue235 '  # python 
