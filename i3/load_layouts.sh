@@ -10,11 +10,10 @@ done
 
 function exec_if_possible() {
   if which $1 >/dev/null; then
-    ($1 &)
+    ($@ &)
   fi
 }
 
-exec_if_possible firefox
-exec_if_possible google-chrome-stable
 exec_if_possible discord
-exec_if_possible glava
+exec_if_possible /usr/lib/firefox/firefox -p game --class="firefox-game"
+exec_if_possible /usr/lib/firefox/firefox -p dev --class="firefox-dev"
