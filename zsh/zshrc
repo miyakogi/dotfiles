@@ -312,7 +312,7 @@ EOS
   add-zsh-hook chpwd cdhist
 
   if which sk > /dev/null; then
-    local cmd='sk --tac --reverse --ansi -p "skim>" --margin 2% --query "$BUFFER"'
+    local cmd='sk --tac --reverse --tiebreak index -p "skim>" --margin 2% --query "$BUFFER"'
   else
     local cmd='percol --reverse --query "$BUFFER"'
   fi
