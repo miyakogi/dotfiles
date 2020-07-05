@@ -41,7 +41,7 @@
       "Vimjas/vim-python-pep8-indent",
       "zchee/deoplete-jedi",
       "dag/vim-fish",
-      "mitsuhiko/vim-jinja",
+      "lepture/vim-jinja",
       "cespare/vim-toml",
       "pangloss/vim-javascript",
       "mattn/jscomplete-vim",
