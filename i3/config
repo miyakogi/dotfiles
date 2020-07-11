@@ -34,7 +34,7 @@ exec --no-startup-id "numlockx on"
 exec --no-startup-id /usr/lib/pam_kwallet_init
 
 # Enable auto display suspend
-exec --no-startup-id "xset dpms 600 600 600"
+exec --no-startup-id "xset dpms 1200 1200 1200"
 
 # Enable screen locker
 exec --no-startup-id "xautolock -time 5 -locker '$HOME/.config/i3/lock.sh'"
