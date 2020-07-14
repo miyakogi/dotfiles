@@ -288,21 +288,14 @@ format-underline = ${colors.red}
 interval = 600
 
 [module/date]
-type = internal/date
+type = custom/script
+exec = date +" %a. %d %b. %Y   %H:%M:%S"
 interval = 1
 
-;date = %a. %Y-%m-%d
-date = %a. %d %b. %Y
-time = %H:%M:%S
-
-; format-prefix = 
-; format-prefix-foreground = ${colors.foreground-alt}
-; format-underline = #0a6cf5
-;format-underline = #d95656
 format-underline = #999999
 format-padding = 2
 
-label =  %date%    %time%
+click-left = ~/.config/polybar/rofi-calendar.sh
 
 [settings]
 screenchange-reload = true
