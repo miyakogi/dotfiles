@@ -14,10 +14,10 @@ configuration {
 }
 
 * {
-	base00: #263238;
+	base00: #212121;
 	base01: #2E3C43;
 	base02: #314549;
-	base03: #546E7A;
+	base03: #292929;
 	base04: #B2CCD6;
 	base05: #EEFFFF;
 	base06: #EEFFFF;
@@ -28,11 +28,12 @@ configuration {
 	base0B: #C3E88D;
 	base0C: #89DDFF;
 	/* base0D: #82AAFF; */
-  base0D: #3a9cca;
+  /* base0D: #3a9cca; */
+  /* base0D: #4F8BCC; */
 	base0E: #C792EA;
 	base0F: #FF5370;
 
-	/*base0D: #00BCD4;*/
+	base0D: #00BCD4;
 
 	spacing: 0;
 	background-color: transparent;
@@ -41,7 +42,7 @@ configuration {
 window {
 	transparency: "real";
 	/*fullscreen: true;*/
-	background-color: #263238CC; /*base00 + CC (80% opacity)*/
+	background-color: #212121DE; /*base00 + CC (80% opacity)*/
 }
 
 mainbox {
@@ -59,14 +60,16 @@ inputbar {
 }
 
 prompt {
-	text-color: @base0D;
+	/* text-color: @base0D; */
+  text-color: @base07;
 }
 
 textbox-prompt-colon {
 	expand: false;
 	str: ":";
 	margin: 0 1ch 0 0;
-	text-color: @base0D;
+	/* text-color: @base0D; */
+	text-color: @base07;
 }
 
 entry {
