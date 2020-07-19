@@ -33,7 +33,8 @@ exec --no-startup-id "numlockx on"
 # Unlock KWallet
 exec --no-startup-id /usr/lib/pam_kwallet_init
 
-# Enable auto display suspend
+# Enable auto display power off and disable screensaver/suspend/standby
+exec --no-startup-id "xset s off"
 exec --no-startup-id "xset dpms 0 0 1200"
 
 # Enable screen locker
