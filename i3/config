@@ -120,6 +120,9 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+w kill
 bindsym $mod+q kill
 
+# kill window when clicked by middle mouse button on title bar
+bindsym --release button2 kill
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
