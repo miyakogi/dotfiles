@@ -1,12 +1,7 @@
 #!/bin/zsh
 
-pulsemixer --list-sinks | while read -r line; do
-  if [[ "$line" == *"Name: Firefox"* ]]; then
-    if [[ ! "$line" == *"Volumes: ['100%', '100%']"* ]]; then
-      echo ""
-      exit
-    fi
-  fi
-done
-
-echo ""
+if [[ -n `pulsemixer --list-sinks | grep "Name: Firefox" | grep -v "100%"` ]]; then
+  echo ""
+else
+  echo ""
+fi

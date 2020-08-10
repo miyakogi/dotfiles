@@ -1,10 +1,6 @@
 #!/bin/zsh
 
-pulsemixer --list-sinks | while read -r line; do
-  if [[ "$line" == *"Name: Firefox"* ]]; then
-    if [[ ! "$line" == *"Volumes: ['100%', '100%']"* ]]; then
-      id=`echo $line | sed -r 's/^.*ID: ([a-zA-Z0-9\-]+).*$/\1/'`
-      pulsemixer --id $id --set-volume 100
-    fi
-  fi
+pulsemixer --list-sinks | grep "Name: Firefox" | grep -v "100%" | while read -r line; do
+  id=`echo $line | sed -r 's/^.*ID: ([a-zA-Z0-9\-]+).*$/\1/'`
+  pulsemixer --id $id --set-volume 100
 done
