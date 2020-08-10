@@ -210,9 +210,9 @@ bar-progress-empty = %{T4}―%{T-}
 
 [module/volume]
 type = custom/script
-exec = python ~/.config/polybar/ff-volume.py check
+exec = ~/.config/polybar/ff-volume-check.sh
 interval = 0.3
-click-left = python ~/.config/polybar/ff-volume.py fix
+click-left = ~/.config/polybar/ff-volume-fix.sh
 
 [module/cpu-graph]
 type = internal/cpu
