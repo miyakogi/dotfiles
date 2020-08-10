@@ -209,13 +209,10 @@ bar-progress-fill = %{T4}━%{T-}
 bar-progress-empty = %{T4}―%{T-}
 
 [module/volume]
-type = custom/text
-content = 
-
-content-padding = 2
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
-click-left = exec ~/.config/polybar/volume-fix.sh
+type = custom/script
+exec = python ~/.config/polybar/ff-volume.py check
+interval = 0.3
+click-left = python ~/.config/polybar/ff-volume.py fix
 
 [module/cpu-graph]
 type = internal/cpu
