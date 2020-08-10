@@ -210,9 +210,9 @@ bar-progress-empty = %{T4}―%{T-}
 
 [module/volume]
 type = custom/script
-exec = ~/.config/polybar/ff-volume-check.sh
+exec = exec ~/.config/polybar/ff-volume-check.sh
 interval = 0.3
-click-left = ~/.config/polybar/ff-volume-fix.sh
+click-left = exec ~/.config/polybar/ff-volume-fix.sh
 
 [module/cpu-graph]
 type = internal/cpu
