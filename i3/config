@@ -41,7 +41,7 @@ exec --no-startup-id "xset dpms 0 0 1200"
 exec --no-startup-id "xautolock -time 5 -locker '$HOME/.config/i3/lock.sh'"
 
 # Start compositor
-exec --no-startup-id picom
+exec --no-startup-id "picom -Cb"
 
 # Start redshift
 # Need to set $LATITUDE and $LONGITUDE in ~/.zsh/.zshenv.local
