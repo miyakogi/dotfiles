@@ -213,6 +213,7 @@ type = custom/script
 exec = exec ~/.config/polybar/ff-volume-check.sh
 interval = 0.3
 click-left = exec ~/.config/polybar/ff-volume-fix.sh
+click-right = pavucontrol-qt &
 
 [module/cpu-graph]
 type = internal/cpu
