@@ -68,7 +68,7 @@ font-3 = Noto Emoji Nerd Font Mono:pixelsize=8;0
 
 modules-left = menu title
 modules-center = date
-modules-right = add_ws i3 mpd cpu-graph memory gpu updates
+modules-right = add_ws i3 mpd volume cpu-graph memory gpu updates
 
 ; tray-position = right
 ; tray-padding = 6
@@ -207,6 +207,15 @@ bar-progress-width = 25
 bar-progress-indicator = %{T4}╋%{T-}
 bar-progress-fill = %{T4}━%{T-}
 bar-progress-empty = %{T4}―%{T-}
+
+[module/volume]
+type = custom/text
+content = 
+
+content-padding = 2
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+click-left = exec ~/.config/polybar/volume-fix.sh
 
 [module/cpu-graph]
 type = internal/cpu
