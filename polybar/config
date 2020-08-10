@@ -68,7 +68,7 @@ font-3 = Noto Emoji Nerd Font Mono:pixelsize=8;0
 
 modules-left = menu title
 modules-center = date
-modules-right = add_ws i3 mpd volume cpu-graph memory gpu updates
+modules-right = addws i3 mpd volume cpu-graph memory gpu updates
 
 ; tray-position = right
 ; tray-padding = 6
@@ -112,14 +112,14 @@ label = %title:0:40:...%
 ; label-empty = Title
 ; label-empty-foreground = ${colors.background-alt}
 
-[module/add_ws]
+[module/addws]
 type = custom/text
 content = 
 ; content = +
 content-padding = 2
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
-click-left = exec ~/.config/polybar/add_ws.py
+click-left = exec ~/.config/polybar/addws.py
 
 [module/i3]
 type = internal/i3
