@@ -61,6 +61,7 @@ My dotfiles.
 - perl-anyevent-i3 (save layout)
 - perl-json-xs (save layout)
 - python-i3-py (polybar's add workspace function)
+- pulsemixer (polybar's volume check/fix)
 - yakuake
 
 ## Install
