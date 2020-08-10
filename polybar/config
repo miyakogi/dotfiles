@@ -119,7 +119,7 @@ content = 
 content-padding = 2
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
-click-left = exec ~/.config/polybar/addws.py
+click-left = exec ~/.config/i3/addws.py
 
 [module/i3]
 type = internal/i3
