@@ -202,9 +202,9 @@ set $ws9 "9"
 set $ws10 "10"
 
 # add workspace
-bindsym Control+$alt+Down exec --no-startup-id $HOME/.config/polybar/add_ws.py
-bindsym Control+$alt+Up exec --no-startup-id $HOME/.config/polybar/add_ws.py
-bindsym $mod+a exec --no-startup-id $HOME/.config/polybar/add_ws.py
+bindsym Control+$alt+Down exec --no-startup-id $HOME/.config/polybar/addws.py
+bindsym Control+$alt+Up exec --no-startup-id $HOME/.config/polybar/addws.py
+bindsym $mod+a exec --no-startup-id $HOME/.config/polybar/addws.py
 
 # switch to workspace
 bindsym Control+$alt+Left workspace prev
