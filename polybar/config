@@ -66,9 +66,9 @@ font-1 = Noto Emoji Nerd Font Mono:pixelsize=14;2
 font-2 = unifont:fontformat=truetype:size=6:antialias=false;1
 font-3 = Noto Emoji Nerd Font Mono:pixelsize=8;0
 
-modules-left = menu title
+modules-left = menu title i3-mode
 modules-center = date
-modules-right = addws i3 mpd volume cpu-graph memory gpu updates
+modules-right = addws i3-ws mpd volume cpu-graph memory gpu updates
 
 ; tray-position = right
 ; tray-padding = 6
@@ -112,6 +112,15 @@ label = %title:0:40:...%
 ; label-empty = Title
 ; label-empty-foreground = ${colors.background-alt}
 
+[module/i3-mode]
+type = internal/i3
+format = <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.yellow}
+
 [module/addws]
 type = custom/text
 content = 
@@ -121,9 +130,9 @@ content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 click-left = exec ~/.config/i3/addws.py
 
-[module/i3]
+[module/i3-ws]
 type = internal/i3
-format = <label-state> <label-mode>
+format = <label-state>
 format-margin = 1
 index-sort = true
 wrapping-scroll = true
@@ -142,11 +151,6 @@ ws-icon-7 = 8;
 ws-icon-8 = 9;
 ws-icon-9 = 10;
 ws-icon-default = 
-
-label-mode = %mode%
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.yellow}
 
 ; focused = Active workspace on focused monitor
 ; label-focused = %index%
@@ -169,17 +173,6 @@ label-visible-padding = ${self.label-focused-padding}
 label-urgent = %icon%
 label-urgent-background = ${colors.orange}
 label-urgent-padding = 2
-
-; Separator in between workspaces
-;label-separator = |
-
-; [module/cpu]
-; type = internal/cpu
-; interval = 1
-; format-prefix = " "
-; format-prefix-foreground = ${colors.foreground-alt}
-; format-underline = #f90000
-; label = %percentage:2%%
 
 [module/mpd]
 type = internal/mpd
