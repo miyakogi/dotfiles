@@ -49,8 +49,10 @@ makedir_if_not_exists $CONFIG_HOME/rofi
 # ======== Make Symbolic Link ==============
 # ------ Shell ------
 ln -sf $BASEDIR/profile $HOME/.profile
-ZSHBASE=$BASEDIR/zsh
+ln -sf $BASEDIR/xinitrc $HOME/.xinitrc
+
 # zsh load files this order
+ZSHBASE=$BASEDIR/zsh
 ln -sf $ZSHBASE/zshenv $HOME/.zshenv
 ln -sf $ZSHBASE/zshenv $HOME/.zsh/.zshenv
 ln -sf $ZSHBASE/zprofile $HOME/.zsh/.zprofile

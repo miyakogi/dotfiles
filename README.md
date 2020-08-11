@@ -48,6 +48,8 @@ My dotfiles.
 
 ### Desktop
 
+- xorg-xinit
+- xlogin
 - kwallet-pam (password management)
 - xorg-xset (display power management)
 - numlockx
