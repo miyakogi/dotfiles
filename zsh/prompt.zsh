@@ -64,8 +64,13 @@ function _update_lprompt() {
   if [[ $OSNAME == Windows ]] && [[ $TERM != cygwin ]]; then
     _cols=$(($_cols / 2))
   fi
-  local _sep=`repeat $_cols printf ─`
-  local _separator="%F{238}$_sep%f"
+  if [[ -z $DROPDOWN ]]; then
+    local _sep=`repeat $_cols printf ─`
+    local _separator="%F{238}$_sep%f"
+  else
+    local _separator=""
+    unset DROPDOWN
+  fi
 
   if [[ -n "$VIRTUAL_ENV" ]]; then
     local icon=$'\ue235 '  # python 
