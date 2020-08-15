@@ -17,7 +17,7 @@ My dotfiles.
 
 ### Desktop
 
-- i3
+- i3-gaps
 - picom
 - conky (conky-cairo)
 - dunst

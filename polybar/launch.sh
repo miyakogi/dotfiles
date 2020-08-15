@@ -7,4 +7,10 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 0.1; done
 
 # Launch Polybar
-polybar top &
+if [[ $POLYBAR_SPLIT -eq 1 ]]; then
+  polybar left &
+  polybar center &
+  polybar right &
+else
+  polybar top &
+fi

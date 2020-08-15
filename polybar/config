@@ -17,6 +17,9 @@
 ;==========================================================
 
 [colors]
+semi-transparent = #99000000
+transparent = #00000000
+
 ; Dark bar
 background = #e3212121
 background-alt = #e3212121
@@ -90,6 +93,51 @@ scroll-down = i3wm-wsprev
 cursor-click = pointer
 ; cursor-scroll = ns-resize
 
+[bar/base]
+inherit = bar/top
+
+height = 28
+offset-y = 4
+background = ${colors.semi-transparent}
+
+override-redirect = true
+wm-restack = i3
+
+; fonts with 2px top margin
+font-0 = Source Han Sans JP Medium:pixelsize=12:antialias=true;2
+font-1 = Noto Emoji Nerd Font Mono:pixelsize=14;4
+font-2 = unifont:fontformat=truetype:size=6:antialias=false;3
+font-3 = Noto Emoji Nerd Font Mono:pixelsize=8;2
+
+; disable modules
+modules-left =
+modules-center =
+modules-right =
+
+[bar/left]
+inherit = bar/base
+offset-x = 1%
+width = 35%
+
+modules-left = menu title i3-mode
+modules-right = i3-ws addws
+
+[bar/center]
+inherit = bar/base
+offset-x = 42.5%
+width = 15%
+
+modules-center = date
+
+[bar/right]
+inherit = bar/base
+offset-x = 64%
+width = 35%
+
+;modules-left = addws i3-ws
+modules-left = mpd volume
+modules-right = cpu-graph memory gpu updates
+
 [module/menu]
 type = custom/script
 exec = echo ""
@@ -100,7 +148,7 @@ format-padding = 1
 [module/title]
 type = internal/xwindow
 format = <label>
-format-background = ${colors.background-alt}
+format-background = ${colors.transparent}
 format-foreground = ${colors.foreground}
 format-underline = ${colors.blue}
 format-margin = 1
@@ -110,7 +158,7 @@ label = %title:0:40:...%
 ; label-maxlen = 50
 
 ; label-empty = Title
-; label-empty-foreground = ${colors.background-alt}
+; label-empty-foreground = ${colors.transparent}
 
 [module/i3-mode]
 type = internal/i3
@@ -126,7 +174,6 @@ type = custom/text
 content = 
 ; content = +
 content-padding = 2
-content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 click-left = exec ~/.config/i3/addws.py
 
@@ -155,7 +202,6 @@ ws-icon-default = 
 ; focused = Active workspace on focused monitor
 ; label-focused = %index%
 label-focused = %icon%  %name%
-label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.orange}
 label-focused-padding = 2
 
@@ -165,7 +211,6 @@ label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
-label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
@@ -274,7 +319,6 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-margin = 1
 
 format-foreground = ${colors.foreground}
-format-background = ${colors.background}
 format-underline = ${colors.yellow}
 format-padding = 2
 

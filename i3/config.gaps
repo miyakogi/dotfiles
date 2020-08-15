@@ -1,0 +1,13 @@
+
+# i3-gaps
+gaps top 28
+gaps inner 8
+# gaps horizontal 0
+# gaps bottom 0
+# smart_gaps on
+# gaps inner 12
+# gaps outer 0
+# workspace $ws1 gaps inner 0
+# workspace $ws1 gaps outer 0
+# workspace $ws2 gaps inner 0
+# workspace $ws2 gaps outer 0

@@ -38,4 +38,10 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+
+if [[ $POLYBAR_SPLIT -eq 1 ]]; then
+  cat $HOME/.config/i3/config.base $HOME/.config/i3/config.gaps > $HOME/.config/i3/config
+else
+  cp -f $HOME/.config/i3/config.base $HOME/.config/i3/config
+fi
 exec i3

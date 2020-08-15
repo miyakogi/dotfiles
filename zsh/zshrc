@@ -183,6 +183,10 @@ function load_if_exists() {
   [[ -f $1 ]] && source $1
 }
 
+### Polybar setting
+# use split polybar
+export POLYBAR_SPLIT=1
+
 ### Python Virtualenv Control
 if [[ $OSNAME == Ubuntu ]]; then
   # virtualenvwrapper
