@@ -72,6 +72,15 @@ exec_always --no-startup-id autotiling
 # Start yakuake dropdown terminal
 exec --no-startup-id yakuake
 
+# Start konsole as dropdown terminal by scratchpad
+exec --no-startup-id "~/.config/i3/scratchterm.sh"
+bindsym $mod+x exec --no-startup-id "~/.config/i3/scratchterm.sh"
+for_window [title="scratchkonsole"] border none
+for_window [title="scratchkonsole"] floating enable sticky enable
+for_window [title="scratchkonsole"] move scratchpad
+for_window [title="scratchkonsole"] move to position 960 24
+for_window [title="scratchkonsole"] resize set 960 1056
+
 # Start easystroke (mouse gesture)
 exec --no-startup-id easystroke
 
@@ -183,7 +192,7 @@ bindsym $mod+y focus parent
 bindsym $mod+d focus child
 
 # fucus the urgent window
-bindsym $mod+x [urgent=latest] focus
+# bindsym $mod+x [urgent=latest] focus
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.

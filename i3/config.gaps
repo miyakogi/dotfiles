@@ -17,3 +17,7 @@ gaps inner 8
 client.focused            #212121cc #00000099 #f1f1f1 #3d9cca #1d5c8a
 client.unfocused          #212121cc #00000099 #999999 #000000 #222222
 client.focused_inactive   #212121cc #00000099 #999999 #000000 #222222
+
+# for scratchpad (dropdown terminal)
+for_window [title="scratchkonsole"] move to position 960 42
+for_window [title="scratchkonsole"] resize set 948 1030
