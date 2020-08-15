@@ -17,16 +17,17 @@
 ;==========================================================
 
 [colors]
-semi-transparent = #99000000
 transparent = #00000000
 
 ; Dark bar
+semi-transparent = #99000000
 background = #e3212121
 background-alt = #e3212121
 foreground = #f1f1f1
 foreground-alt = #999
 
 ; Bright bar
+; semi-transparent = #99ffffff
 ; background = #99f3f3f3
 ; background-alt = #ccf3f3f3
 ; foreground = #212121
