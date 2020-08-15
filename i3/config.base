@@ -70,11 +70,12 @@ exec --no-startup-id fcitx
 exec_always --no-startup-id autotiling
 
 # Start yakuake dropdown terminal
-exec --no-startup-id yakuake
+# exec --no-startup-id yakuake
 
 # Start konsole as dropdown terminal by scratchpad
 exec --no-startup-id "~/.config/i3/scratchterm.sh"
-bindsym $mod+x exec --no-startup-id "~/.config/i3/scratchterm.sh"
+# keycode 68 = F2
+bindcode 68 exec --no-startup-id "~/.config/i3/scratchterm.sh"
 for_window [title="scratchkonsole"] border none
 for_window [title="scratchkonsole"] floating enable sticky enable
 for_window [title="scratchkonsole"] move scratchpad
