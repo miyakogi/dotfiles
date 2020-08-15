@@ -65,7 +65,7 @@ My dotfiles.
 - python-i3-py (polybar's add workspace function)
 - pulsemixer (polybar's volume check/fix)
 - pavucontrol-qt
-- yakuake
+- konsole
 
 ## Install
 
