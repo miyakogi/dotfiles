@@ -116,8 +116,8 @@ modules-right =
 
 [bar/left]
 inherit = bar/base
-offset-x = 1%
-width = 35%
+offset-x = 8
+width = 672
 
 modules-left = menu title i3-mode
 modules-right = i3-ws addws
@@ -131,8 +131,8 @@ modules-center = date
 
 [bar/right]
 inherit = bar/base
-offset-x = 64%
-width = 35%
+offset-x = 1240
+width = 672
 
 ;modules-left = addws i3-ws
 modules-left = mpd volume
