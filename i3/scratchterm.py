@@ -8,11 +8,13 @@ from typing import Optional
 from i3ipc import Connection, Con
 
 i3 = Connection()
+TERM = 'konsole'
+TERM_TITLE = 'scratchkonsole'
 
 
 def is_running() -> bool:
     proc = subprocess.run(
-        ['pgrep', '-c', '-f', 'scratchkonsole'],
+        ['pgrep', '-c', '-f', TERM_TITLE],
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
     )
@@ -22,29 +24,21 @@ def is_running() -> bool:
         return False
 
 
-def is_focused() -> bool:
-    if not is_running():
-        return False
-
-    focused = i3.get_tree().find_focused()
-    return focused.window_class == 'konsole'
-
-
 def get_window() -> Optional[Con]:
     root = i3.get_tree()
     for win in root:
-        if win.window_class == 'konsole':
+        if win.window_class == TERM:
             return win
     return None
 
 
-def main():
+def main() -> None:
     window = None
 
     if not is_running():
         subprocess.Popen([
             'env', 'DROPDOWN=1',
-            'konsole', '--title', 'scratchkonsole', '&',
+            TERM, '--title', TERM_TITLE, '&',
         ])
         for _ in range(100):
             time.sleep(0.01)
@@ -67,13 +61,12 @@ def main():
     if window is None:
         return
 
-    if is_focused():
+    if window.focused:
         # hide scratchpad
         window.command('scratchpad show')
-        return
-
-    # Focus the scratchpad on the workspace
-    window.command('focus')
+    else:
+        # Focus the scratchpad on the workspace
+        window.command('focus')
 
 
 if __name__ == '__main__':
