@@ -126,7 +126,7 @@ ln -sf $BASEDIR/i3/config.gaps $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/lock.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/keyboard.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/update_config.sh $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/scratchterm.sh $CONFIG_HOME/i3
+ln -sf $BASEDIR/i3/scratchterm.py $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/save_layout.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/load_layouts.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/addws.py $CONFIG_HOME/i3

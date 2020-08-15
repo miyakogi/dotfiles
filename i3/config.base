@@ -73,9 +73,9 @@ exec_always --no-startup-id autotiling
 # exec --no-startup-id yakuake
 
 # Start konsole as dropdown terminal by scratchpad
-exec --no-startup-id "~/.config/i3/scratchterm.sh hide"
+exec --no-startup-id "~/.config/i3/scratchterm.py hide"
 # keycode 68 = F2
-bindcode 68 exec --no-startup-id "~/.config/i3/scratchterm.sh"
+bindcode 68 exec --no-startup-id "~/.config/i3/scratchterm.py"
 for_window [title="scratchkonsole"] border none
 for_window [title="scratchkonsole"] floating enable sticky enable
 for_window [title="scratchkonsole"] move scratchpad

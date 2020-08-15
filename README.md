@@ -63,6 +63,7 @@ My dotfiles.
 - perl-anyevent-i3 (save layout)
 - perl-json-xs (save layout)
 - python-i3-py (polybar's add workspace function)
+- python-i3ipc (scratchpad control)
 - pulsemixer (polybar's volume check/fix)
 - pavucontrol-qt
 - konsole
