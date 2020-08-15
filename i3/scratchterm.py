@@ -1,28 +1,25 @@
 #!/usr/bin/env python3
 
-from functools import partial
 import subprocess
 import sys
 import time
+from typing import Optional
 
-from i3ipc import Connection
-
-run = partial(
-    subprocess.run,
-    stdout=subprocess.PIPE,
-    stderr=subprocess.STDOUT,
-)
+from i3ipc import Connection, Con
 
 i3 = Connection()
 
 
 def is_running() -> bool:
-    proc = run(
+    proc = subprocess.run(
         ['pgrep', '-c', '-f', 'scratchkonsole'],
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
     )
-    return int(proc.stdout.decode().strip()) > 0
+    try:
+        return int(proc.stdout.decode().strip()) > 0
+    except ValueError:
+        return False
 
 
 def is_focused() -> bool:
@@ -33,33 +30,50 @@ def is_focused() -> bool:
     return focused.window_class == 'konsole'
 
 
+def get_window() -> Optional[Con]:
+    root = i3.get_tree()
+    for win in root:
+        if win.window_class == 'konsole':
+            return win
+    return None
+
+
 def main():
+    window = None
+
     if not is_running():
         subprocess.Popen([
             'env', 'DROPDOWN=1',
             'konsole', '--title', 'scratchkonsole', '&',
         ])
-        time.sleep(0.3)
-        run([
-            'i3-msg', '-q', '[class="konsole"]', 'scratchpad', 'show',
-        ])
+        for _ in range(100):
+            time.sleep(0.01)
+            window = get_window()
+            if window is not None:
+                break
+
+        if window is None:
+            return
+
+        # add konsole to scratchpad
+        window.command('scratchpad show')
 
         if 'hide' in sys.argv:
-            run([
-                'i3-msg', '-q', '[class="konsole"]', 'scratchpad', 'show',
-            ])
+            # hide scratchpad
+            window.command('scratchpad show')
+        return
+
+    window = get_window()
+    if window is None:
         return
 
     if is_focused():
-        run([
-            'i3-msg', '-q', '[class="konsole"]', 'scratchpad', 'show',
-        ])
+        # hide scratchpad
+        window.command('scratchpad show')
         return
 
     # Focus the scratchpad on the workspace
-    run([
-        'i3-msg', '-q', '[class="konsole"]', 'focus',
-    ])
+    window.command('focus')
 
 
 if __name__ == '__main__':
