@@ -4,7 +4,7 @@ year=$(date '+%Y')
 month=$(date '+%m')
 date=$(date '+%A, %d. %B')
 
-if [[ $POLYBAR_SPLIT -eq 1 ]]; then
+if grep "gaps" ~/.config/i3/config >/dev/null; then
   yoffset=32
 else
   yoffset=24
