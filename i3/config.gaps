@@ -1,7 +1,8 @@
 
 # i3-gaps
-gaps top 32
-gaps inner 8
+gaps top 24
+gaps bottom -8
+gaps inner 16
 # gaps horizontal 0
 # gaps bottom 0
 # smart_gaps on

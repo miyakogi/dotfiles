@@ -121,7 +121,7 @@ modules-right =
 
 [bar/left]
 inherit = bar/base
-offset-x = 8
+offset-x = 16
 width = 672
 
 modules-left = menu title i3-mode
@@ -136,7 +136,7 @@ modules-center = date
 
 [bar/right]
 inherit = bar/base
-offset-x = 1240
+offset-x = 1232
 width = 672
 
 modules-left = volume mpd2
