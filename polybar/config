@@ -135,8 +135,7 @@ inherit = bar/base
 offset-x = 1240
 width = 672
 
-;modules-left = addws i3-ws
-modules-left = mpd volume
+modules-left = volume mpd2
 modules-right = cpu-graph memory gpu updates
 
 [module/menu]
@@ -246,6 +245,10 @@ bar-progress-width = 25
 bar-progress-indicator = %{T4}╋%{T-}
 bar-progress-fill = %{T4}━%{T-}
 bar-progress-empty = %{T4}―%{T-}
+
+[module/mpd2]
+inherit = module/mpd
+format-online = <icon-prev> <toggle> <icon-stop> <icon-next> <bar-progress> <icon-repeat> <icon-single> <icon-random>
 
 [module/volume]
 type = custom/script
