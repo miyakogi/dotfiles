@@ -50,6 +50,7 @@ makedir_if_not_exists $CONFIG_HOME/rofi
 # ------ Shell ------
 ln -sf $BASEDIR/profile $HOME/.profile
 ln -sf $BASEDIR/xinitrc $HOME/.xinitrc
+ln -sf $BASEDIR/Xresources $HOME/.Xresources
 
 # zsh load files this order
 ZSHBASE=$BASEDIR/zsh
