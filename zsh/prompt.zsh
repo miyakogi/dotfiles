@@ -66,7 +66,7 @@ function _update_lprompt() {
   fi
   if [[ -z $DROPDOWN ]]; then
     local _sep=`repeat $_cols printf ─`
-    local _separator="%F{238}$_sep%f"
+    local _separator="%F{238}$_sep%f$BR"
   else
     local _separator=""
     unset DROPDOWN
@@ -89,7 +89,7 @@ function _update_lprompt() {
   fi
 
   local mark="%(?,$_success_front$_mark%f,%F{yellow}$_mark%f)%(!,#,)"
-  PROMPT="$_separator$BR$_icon_color $icon$_icon_dash%F{007}%~ %k$BR$mark"
+  PROMPT="$_separator$_icon_color $icon$_icon_dash%F{007}%~ %k$BR$mark"
 }
 
 ### RPROMPT
