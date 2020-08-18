@@ -112,9 +112,9 @@ title_align center
 default_floating_border normal
 
 # change colors           border  bg      text    indicat child_border
-client.focused            #212121cc #212121e3 #ffffff #3d9cca #1d5c8a
-client.unfocused          #212121cc #212121e3 #888888 #000000 #222222
-client.focused_inactive   #212121cc #212121e3 #888888 #000000 #222222
+client.focused            #212121cc #212121d9 #ffffff #3d9cca #1d5c8a
+client.unfocused          #212121cc #212121d9 #888888 #000000 #222222
+client.focused_inactive   #212121cc #212121d9 #888888 #000000 #222222
 
 # Restore workspace
 bindsym $mod+Shift+g exec --no-startup-id ~/.config/i3/load_layouts.sh
