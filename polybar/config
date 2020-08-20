@@ -158,7 +158,7 @@ format-underline = ${colors.blue}
 format-margin = 1
 format-padding = 2
 
-label = %title:0:40:...%
+label = %title:0:30:...%
 ; label-maxlen = 50
 
 ; label-empty = Title
