@@ -18,6 +18,7 @@ My dotfiles.
 ### Desktop
 
 - i3-gaps
+- bspwm
 - picom
 - conky (conky-cairo)
 - dunst
@@ -50,6 +51,7 @@ My dotfiles.
 
 - xorg-xinit
 - xlogin
+- xdotool
 - wmctrl (check current WM)
 - kwallet-pam (password management)
 - xorg-xset (display power management)

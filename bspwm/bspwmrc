@@ -40,6 +40,15 @@ feh --bg-scale $HOME/.config/i3/bg.jpg &
 # keyboard
 $HOME/.config/i3/keyboard.sh &
 
+# scrachpad konsole
+pgrep -f scratchkonsole > /dev/null || env DROPDOWN=1 konsole --title scratchkonsole &
+if grep "gaps" ~/.config/i3/config > /dev/null; then
+  rectangle=936x1032+968+40
+else
+  rectangle=960x1056+960+24
+fi
+bspc rule -a *:*:scratchkonsole state=floating sticky=on hidden=on rectangle=$rectangle
+
 ### Set workspaces
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
@@ -50,7 +59,7 @@ if grep "gaps" $HOME/.config/i3/config > /dev/null; then
   bspc config top_padding         24
   bspc config bottom_padding      -8
   bspc config window_gap          16
-  bspc config split_ratio       0.52
+  bspc config split_ratio       0.50
 else
   bspc config top_padding         24
   bspc config bottom_padding       0
