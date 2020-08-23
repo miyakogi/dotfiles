@@ -19,6 +19,7 @@ My dotfiles.
 
 - i3-gaps
 - bspwm
+- sxhkd
 - picom
 - conky (conky-cairo)
 - dunst
