@@ -41,6 +41,7 @@ export XMODIFIERS=@im=fcitx
 
 case $1 in
   bspwm)
+    xsetroot -cursor_name left_ptr
     exec bspwm;;
   i3)
     if [[ ! -e ~/.config/i3/config ]]; then
