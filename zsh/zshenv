@@ -5,6 +5,7 @@
 
 # zsh default directory
 export ZDOTDIR=$HOME/.zsh
+export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=vim
 
 # OS setting
