@@ -154,6 +154,7 @@ ln -sf $BASEDIR/dunst/dunstrc $CONFIG_HOME/dunst
 ln -sf $BASEDIR/polybar/config $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/launch.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/rofi-calendar.sh $CONFIG_HOME/polybar
+ln -sf $BASEDIR/polybar/rofi-menu.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/updates.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/system-nvidia-smi.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/ff-volume-check.sh $CONFIG_HOME/polybar
@@ -163,6 +164,7 @@ ln -sf $BASEDIR/polybar/ff-volume-fix.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/rofi/config.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/main-theme.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/menu-theme.rasi $CONFIG_HOME/rofi
+ln -sf $BASEDIR/rofi/menu-theme-gaps.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/calendar-theme.rasi $CONFIG_HOME/rofi
 
 # chrome

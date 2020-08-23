@@ -40,7 +40,6 @@ configuration {
 	hide-scrollbar:              "true";
 	margin:                      0;
 	padding:                     0;
-  y-offset:                    12;
 }
 
 window {

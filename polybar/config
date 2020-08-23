@@ -191,7 +191,7 @@ scroll-down = bspwm-deskprev
 [module/menu]
 type = custom/script
 exec = echo ""
-click-left = rofi -show drun -theme menu-theme
+click-left = ~/.config/polybar/rofi-menu.sh
 format-foreground = ${colors.blue}
 format-padding = 1
 
