@@ -1,5 +1,11 @@
 #!/bin/zsh
 
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 && $OSNAME == "Arch" ]]; then
-  exec startx
+  echo -n "Select WM/DE [bspwm, i3, kde, lxqt (default: i3)]:\n>>> "
+  read wm
+  if [[ -z $wm ]]; then
+    wm="i3"
+  fi
+
+  exec startx ~/.xinitrc $wm
 fi

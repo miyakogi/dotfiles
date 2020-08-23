@@ -71,5 +71,9 @@ My dotfiles.
 ## Install
 
 ```sh
+# Install config files
 ./install.sh
+
+# Change defualt shell to zsh
+chsh /bin/zsh
 ```

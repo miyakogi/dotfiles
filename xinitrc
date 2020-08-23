@@ -39,7 +39,19 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
-if [[ ! -e ~/.config/i3/config ]]; then
-  cp ~/.config/i3/config.base ~/.config/i3/config
-fi
-exec i3
+case $1 in
+  bspwm)
+    exec bspwm;;
+  i3)
+    if [[ ! -e ~/.config/i3/config ]]; then
+      cp ~/.config/i3/config.base ~/.config/i3/config
+    fi
+    exec i3;;
+  kde)
+    exec startplasma-x11;;
+  lxqt)
+    exec startlxqt;;
+  *)
+    echo "Unknown WM/DE name: $1, try exec as command."
+    exec $1;;
+esac
