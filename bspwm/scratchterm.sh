@@ -2,8 +2,9 @@
 
 term=konsole
 term_title=scratchkonsole
+term_class=konsole
 
-wid=$(xdotool search --name $term_title)
+wid=$(xdotool search --class $term_class)
 if [[ -z $wid ]]; then
   env DROPDOWN=1 $term --title $term_title &
   wid=`xdotool search --sync --name $term_title`
@@ -12,9 +13,9 @@ else
   if [[ `xdotool getactivewindow` -eq $wid ]]; then
     bspc node $wid --flag hidden -f
   else
-    if [[ ! `xdotool search --onlyvisible --name $term_title` ]]; then
+    if [[ ! `xdotool search --onlyvisible --class $term_class` ]]; then
       bspc node $wid --flag hidden -f
     fi
-    xdotool search --name $term_title windowactivate
+    xdotool search --class $term_class windowactivate
   fi
 fi
