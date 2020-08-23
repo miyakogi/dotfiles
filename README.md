@@ -60,7 +60,8 @@ My dotfiles.
 - autotiling (for i3 auto-tiling)
 - i3locks-color (screen lock)
 - redshift
-- fcitx
+- ibus
+- ibus-mozc
 - easystroke
 - feh
 - klipper

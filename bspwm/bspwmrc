@@ -29,7 +29,7 @@ pgrep -x klipper > /dev/null || klipper &
 pgrep -x dunst > /dev/null || dunst &
 
 # fcitx input method
-pgrep -x fcitx > /dev/null || fcitx &
+pgrep -x ibus-daemon > /dev/null || ibus-daemon -drx --panel /usr/lib/ibus/ibus-ui-gtk3 &
 
 # easystroke (mouse gesture)
 pgrep -x easystroke > /dev/null || easystroke &

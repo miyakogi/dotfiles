@@ -35,9 +35,10 @@ fi
 # start session
 
 export QT_QPA_PLATFORMTHEME=qt5ct
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=xim
+export QT_IM_MODULE=ibus
+export GLFW_IM_MODULE=ibus
 
 case $1 in
   bspwm)
