@@ -71,7 +71,7 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 super + {p,n}
 	bspc desktop -f {prev,next}.local
-ctrl + alt + {Left,Right}
+super + alt + {Left,Right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
