@@ -176,6 +176,13 @@ width = 672
 modules-left = volume mpd2
 modules-right = cpu-graph memory gpu updates
 
+tray-position = right
+tray-padding = 6
+tray-background = ${colors.background}
+tray-transparent = true
+tray-scale = 1.0
+tray-maxsize = 22
+
 [bar/right-i3]
 inherit = bar/right
 wm-restack = i3
