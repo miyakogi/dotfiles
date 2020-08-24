@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	kitty
+	~/.config/i3/terminal.sh
 
 # program launcher
 super + z
