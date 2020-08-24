@@ -121,7 +121,7 @@ bindsym $mod+Shift+g exec --no-startup-id ~/.config/i3/load_layouts.sh
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Return exec --no-startup-id ~/.config/i3/terminal.sh
 
 # kill focused window
 bindsym $mod+w kill
