@@ -71,7 +71,7 @@ My dotfiles.
 - python-i3ipc (scratchpad control)
 - pulsemixer (polybar's volume check/fix)
 - pavucontrol-qt
-- konsole
+- kitty
 
 ## Install
 
