@@ -176,7 +176,7 @@ width = 672
 modules-left = volume mpd2
 modules-right = cpu-graph memory gpu updates
 
-tray-position = right
+;tray-position = right
 tray-padding = 6
 tray-background = ${colors.background}
 tray-transparent = true
