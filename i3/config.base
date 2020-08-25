@@ -27,6 +27,9 @@ font pango:Source Han Sans JP, Medium 12
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Keyboard
+exec --no-startup-id "$HOME/.config/i3/keyboard.sh"
+
 # Numlock on
 exec --no-startup-id "numlockx on"
 
@@ -45,7 +48,7 @@ exec --no-startup-id "xautolock -time 5 -locker '$HOME/.config/i3/lock.sh'"
 exec --no-startup-id "redshift -l ${LATITUDE}:${LONGITUDE}"
 
 # Start polybar and compositor
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
 
 # Clipboard manager (need to keep screenshot in clipboard taken by spectacle)
 exec --no-startup-id klipper
@@ -87,9 +90,6 @@ exec --no-startup-id easystroke
 
 # Wallpader
 exec --no-startup-id "feh --bg-scale $HOME/.config/i3/bg.jpg"
-
-# Keyboard
-exec --no-startup-id $HOME/.config/i3/keyboard.sh
 
 # Restore workspace
 # exec --no-startup-id $HOME/.config/i3/load_layouts.sh
