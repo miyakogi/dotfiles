@@ -220,6 +220,8 @@ bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 bindsym $mod+colon workspace next
 bindsym $mod+semicolon workspace prev
+bindsym $mod+bracketright workspace next
+bindsym $mod+bracketleft workspace prev
 bindsym Control+F8 workspace prev
 bindsym Control+F10 workspace next
 
