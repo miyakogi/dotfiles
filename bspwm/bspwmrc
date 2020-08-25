@@ -1,14 +1,18 @@
 #! /bin/sh
 
 ### Auto startup
+# keyboard
+$HOME/.config/i3/keyboard.sh
+
+# numlock on
+numlockx on
+
+# start sxhkd
 if pgrep -x sxhkd > /dev/null; then
   pkill -USR1 -x sxhkd
 else
   sxhkd -c ~/.config/bspwm/sxhkdrc &
 fi
-
-# numlock on
-numlockx on &
 
 # unlock kwallet
 /usr/lib/pam_kwallet_init &
@@ -32,7 +36,7 @@ pgrep -x klipper > /dev/null || klipper &
 # dunst notifier
 pgrep -x dunst > /dev/null || dunst &
 
-# fcitx input method
+# ibus input method
 pgrep -x ibus-daemon > /dev/null || ibus-daemon -drx --panel /usr/lib/ibus/ibus-ui-gtk3 &
 
 # easystroke (mouse gesture)
@@ -41,10 +45,7 @@ pgrep -x easystroke > /dev/null || easystroke &
 # set wallpaper
 feh --bg-scale $HOME/.config/i3/bg.jpg &
 
-# keyboard
-$HOME/.config/i3/keyboard.sh &
-
-# scrachpad konsole
+# scrachpad terminal
 if grep "gaps" ~/.config/i3/config > /dev/null; then
   rectangle=936x1032+968+40
 else
