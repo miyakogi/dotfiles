@@ -1,7 +1,11 @@
 #! /bin/sh
 
 ### Auto startup
-pgrep -x sxhkd > /dev/null || sxhkd &
+if pgrep -x sxhkd > /dev/null; then
+  pkill -USR1 -x sxhkd
+else
+  sxhkd &
+fi
 
 # numlock on
 numlockx on &
