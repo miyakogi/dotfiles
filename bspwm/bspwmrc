@@ -4,7 +4,7 @@
 if pgrep -x sxhkd > /dev/null; then
   pkill -USR1 -x sxhkd
 else
-  sxhkd &
+  sxhkd -c ~/.config/bspwm/sxhkdrc &
 fi
 
 # numlock on

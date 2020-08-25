@@ -40,7 +40,6 @@ makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
 makedir_if_not_exists $CONFIG_HOME/i3
 makedir_if_not_exists $CONFIG_HOME/bspwm
-makedir_if_not_exists $CONFIG_HOME/sxhkd
 makedir_if_not_exists $CONFIG_HOME/i3/workspaces
 makedir_if_not_exists $CONFIG_HOME/picom
 makedir_if_not_exists $CONFIG_HOME/conky
@@ -138,8 +137,8 @@ ln -sf $BASEDIR/i3/transparent.py $CONFIG_HOME/i3
 
 # bspwm
 ln -sf $BASEDIR/bspwm/bspwmrc $CONFIG_HOME/bspwm
+ln -sf $BASEDIR/bspwm/sxhkdrc $CONFIG_HOME/bspwm
 ln -sf $BASEDIR/bspwm/scratchterm.sh $CONFIG_HOME/bspwm
-ln -sf $BASEDIR/sxhkd/sxhkdrc $CONFIG_HOME/sxhkd
 
 # picom (compositor)
 ln -sf $BASEDIR/picom/picom.conf $CONFIG_HOME/picom
