@@ -1,18 +1,11 @@
-#! /bin/sh
+#!/bin/sh
 
 ### Auto startup
-# keyboard
-$HOME/.config/i3/keyboard.sh
+# set keyboard layout and run sxhkd
+$HOME/.config/i3/keyboard.sh &
 
 # numlock on
-numlockx on
-
-# start sxhkd
-if pgrep -x sxhkd > /dev/null; then
-  pkill -USR1 -x sxhkd
-else
-  sxhkd -c ~/.config/bspwm/sxhkdrc &
-fi
+numlockx on &
 
 # unlock kwallet
 /usr/lib/pam_kwallet_init &
