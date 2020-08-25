@@ -391,11 +391,14 @@ endif
 "  Lazy Load Packages {{{
 " ============================================
 
+" Load abolish in the startup (temporary bug)
+packadd vim-abolish
+
 function! s:load_lazy_insert() abort
   autocmd! lazy_load_i
   if !exists(':packadd') | return | endif
 
-  packadd vim-abolish
+  " packadd vim-abolish
   packadd delimitMate
   call s:init_abolish()
   call s:init_delimitMate()
