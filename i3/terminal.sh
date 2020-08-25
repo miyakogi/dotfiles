@@ -5,3 +5,6 @@ if grep "gaps" ~/.config/i3/config; then
 else
   kitty &
 fi
+
+sleep 0.3
+xdotool key Muhenkan
