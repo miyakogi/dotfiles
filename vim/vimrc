@@ -598,7 +598,7 @@ let python_no_builtin_highlight = 1
 if executable('fcitx-remote')
   autocmd myvimrc InsertLeave * call system('fcitx-remote -c')
 else
-  autocmd myvimrc InsertLeave * set iminsert=0
+  autocmd myvimrc InsertLeave * call system('xdotool key Muhenkan')
 endif
 
 "}}}
