@@ -59,6 +59,7 @@ My dotfiles.
 - numlockx
 - autotiling (for i3 auto-tiling)
 - i3locks-color (screen lock)
+- dmenu
 - redshift
 - ibus
 - ibus-mozc
