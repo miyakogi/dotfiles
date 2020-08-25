@@ -22,6 +22,10 @@ super + Escape
 super + shift + {q,r}
 	bspc {quit,wm -r}
 
+# show exit menu
+super + shift + e
+	~/.config/bspwm/exit.sh
+
 # close and kill
 super + {_,shift + }w
 	bspc node -{c,k}
