@@ -74,7 +74,7 @@ element {
 
 element selected {
   background-color: @emphasis;
-  text-color: @yellow;
+  text-color: @green;
 }
 
 element urgent, element selected urgent {
