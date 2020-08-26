@@ -24,7 +24,7 @@ super + shift + {q,r}
 
 # show exit menu
 super + shift + e
-	~/.config/bspwm/leave.sh
+	~/.config/rofi/leave.sh
 
 # close and kill
 super + {_,shift + }w

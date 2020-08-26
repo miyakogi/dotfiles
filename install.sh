@@ -138,7 +138,6 @@ ln -sf $BASEDIR/i3/transparent.py $CONFIG_HOME/i3
 # bspwm
 ln -sf $BASEDIR/bspwm/bspwmrc $CONFIG_HOME/bspwm
 ln -sf $BASEDIR/bspwm/sxhkdrc $CONFIG_HOME/bspwm
-ln -sf $BASEDIR/bspwm/leave.sh $CONFIG_HOME/bspwm
 ln -sf $BASEDIR/bspwm/scratchterm.sh $CONFIG_HOME/bspwm
 
 # picom (compositor)
@@ -167,6 +166,7 @@ ln -sf $BASEDIR/rofi/main-theme.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/menu-theme.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/menu-theme-gaps.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/calendar-theme.rasi $CONFIG_HOME/rofi
+ln -sf $BASEDIR/rofi/leave.sh $CONFIG_HOME/rofi
 
 # chrome
 ln -sf $BASEDIR/chrome-flags.conf $CONFIG_HOME

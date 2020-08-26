@@ -270,19 +270,7 @@ bindsym $mod+Shift+c exec --no-startup-id "~/.config/i3/update_config.sh && i3-m
 bindsym $mod+Shift+r exec --no-startup-id "~/.config/i3/update_config.sh && i3-msg restart"
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-set $mode_system (l) lock, (e) logout, (r) reboot, (s) shutdown
-mode "$mode_system" {
-  bindsym l exec --no-startup-id "~/.config/i3/lock.sh", mode "default"
-  bindsym e exec --no-startup-id "killall redshift && i3-msg exit", mode "default"
-  bindsym r exec --no-startup-id systemctl reboot, mode "default"
-  bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
-
-  # back to normal: Enter/Esc
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-bindsym $mod+Shift+e mode "$mode_system"
+bindsym $mod+Shift+e exec --no-startup-id "~/.config/rofi/leave.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
