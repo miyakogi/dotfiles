@@ -71,3 +71,7 @@ bspc config gapless_monocle      true
 ### Set rules
 bspc rule -a Rofi focus=on
 bspc rule -a Screenkey manage=off
+
+# steam games (proton games seems to be floated by default)
+bspc rule -a Helltaker.x86_64 state=floating center=on
+bspc rule -a helltaker.x86_64 state=floating center=on
