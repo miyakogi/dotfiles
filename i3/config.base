@@ -335,15 +335,15 @@ no_focus [class="plasmashell" window_type="notification"]
 assign [title="Oracle VM VirtualBox$"] $ws7
 
 # Steam
-assign [title="^Steam$"] $ws5
+assign [class="^Steam$"] $ws5
 for_window [title="Steam - News"] floating enable
 assign [title="Steam - News"] $ws5
 
 # Steam games
 for_window [class="^(h|H)elltaker*"] floating enable, move position center
 assign [class="^(h|H)elltaker*"] $ws6
-for_window [class="^steam_app*"] floating enable, move position center
-assign [class="^steam_app*"] $ws6
+for_window [class="^steam_app_*"] floating enable, move position center
+assign [class="^steam_app_*"] $ws6
 
 # Music Players
 assign [class="Audacious"] $ws10
