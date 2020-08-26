@@ -14,8 +14,8 @@ if grep "gaps" ~/.config/i3/config >/dev/null; then
   polybar "left-$wm" &
   polybar "center-$wm" &
   polybar "right-$wm" &
-  picom -cb &
+  picom -cb --experimental-backends &
 else
   polybar "top-$wm" &
-  picom -b &
+  picom -b --experimental-backends &
 fi
