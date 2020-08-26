@@ -17,7 +17,7 @@
   blue:       #20bbfc;
   mangenta:   #6855de;
   cyan:       #4fb8cc;
-  emphasis:   #505050;
+  emphasis:   #50505040;
   text:       #f1f1f1;
   text-alt:   #b2b2b2;
   fg:         #abb2bf;
@@ -26,7 +26,7 @@
   spacing: 0;
   background-color: transparent;
 
-  font: "Knack Nerd Font 14";
+  font: "Hack 32";
   text-color: @text;
 }
 
