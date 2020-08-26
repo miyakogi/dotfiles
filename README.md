@@ -83,3 +83,12 @@ My dotfiles.
 # Change defualt shell to zsh
 chsh /bin/zsh
 ```
+
+## Kwallet auto unlock
+
+In `/etc/pam.d/login`, add:
+
+```
+auth optional pam_kwallet5.so
+session optional pam_kwallet5.so auto_start
+```

@@ -7,9 +7,6 @@ $HOME/.config/i3/keyboard.sh &
 # numlock on
 numlockx on &
 
-# unlock kwallet
-/usr/lib/pam_kwallet_init &
-
 # display power management
 xset s off &
 xset dpms 0 0 1200 &
