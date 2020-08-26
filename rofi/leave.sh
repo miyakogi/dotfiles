@@ -5,7 +5,7 @@ WM=$(wmctrl -m | grep "Name" | sed -r 's/^Name: ([a-zA-Z0-9\-_]+)$/\1/')
 
 # show menu by rofi
 menu="Lock\nExit\nRestart\nShutdown"
-RET=$(echo -e $menu | rofi -dmenu -i -p "" -width 12 -lines 4 -theme-str "listview { scrollbar: false; }")
+RET=$(echo -e $menu | rofi -dmenu -i -p "Select" -width 12 -lines 4 -theme leave-theme)
 
 case $RET in
   Lock)

@@ -165,6 +165,7 @@ ln -sf $BASEDIR/rofi/config.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/main-theme.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/menu-theme.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/menu-theme-gaps.rasi $CONFIG_HOME/rofi
+ln -sf $BASEDIR/rofi/leave-theme.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/calendar-theme.rasi $CONFIG_HOME/rofi
 ln -sf $BASEDIR/rofi/leave.sh $CONFIG_HOME/rofi
 
