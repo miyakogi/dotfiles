@@ -24,7 +24,7 @@ super + shift + {q,r}
 
 # show exit menu
 super + shift + e
-	~/.config/bspwm/exit.sh
+	~/.config/bspwm/leave.sh
 
 # close and kill
 super + {_,shift + }w
