@@ -5,7 +5,7 @@ term_class=scratchkitty
 
 wid=$(xdotool search --class $term_class)
 if [[ -z $wid ]]; then
-  env DROPDOWN=0 $term --class $term_class --override background_opacity=0.7 --override window_padding_width=0 &
+  env DROPDOWN=1 $term --class $term_class --override background_opacity=0.7 --override window_padding_width=0 &
   wid=`xdotool search --sync --class $term_class`
   if [[ -z $1 ]]; then
     bspc node $wid --flag hidden -f
