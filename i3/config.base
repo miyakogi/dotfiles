@@ -33,7 +33,7 @@ exec --no-startup-id "$HOME/.config/i3/keyboard.sh"
 # Numlock on
 exec --no-startup-id "numlockx on"
 
-# Unlock KWallet
+# Unlock KWallet (only needed for i3)
 exec --no-startup-id /usr/lib/pam_kwallet_init
 
 # Enable auto display power off and disable screensaver/suspend/standby
