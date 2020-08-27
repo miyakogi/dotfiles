@@ -45,7 +45,7 @@ bspc rule -a scratchkitty state=floating sticky=on hidden=on rectangle=$rectangl
 pgrep -f scratchkitty > /dev/null || ~/.config/bspwm/scratchterm.sh hide &
 
 ### Set workspaces
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -d 1 2 3 4 5 6
 
 ### Set windows
 bspc config border_width         0
