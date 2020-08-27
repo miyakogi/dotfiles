@@ -13,6 +13,8 @@ case $RET in
   Exit)
     killall redshift;
     case $WM in
+      awesome)
+        awesome-client "awesome.quit()";;
       bspwm)
         bspc quit;;
       i3)
