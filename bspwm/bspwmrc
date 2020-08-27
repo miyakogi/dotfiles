@@ -48,22 +48,22 @@ pgrep -f scratchkitty > /dev/null || ~/.config/bspwm/scratchterm.sh hide &
 bspc monitor -d 1 2 3 4 5 6
 
 ### Set windows
-bspc config border_width         0
-
 if grep "gaps" $HOME/.config/i3/config > /dev/null; then
-  bspc config top_padding         24
-  bspc config bottom_padding      -8
-  bspc config window_gap          16
-  bspc config split_ratio       0.50
+  bottom=-8
+  gap=16
 else
-  bspc config top_padding         24
-  bspc config bottom_padding       0
-  bspc config window_gap           0
-  bspc config split_ratio       0.50
+  bottom=0
+  gap=0
 fi
 
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bspc config border_width          0
+bspc config top_padding          24
+bspc config bottom_padding  $bottom
+bspc config window_gap         $gap
+bspc config split_ratio        0.50
+
+bspc config borderless_monocle true
+bspc config gapless_monocle    true
 
 ### Set rules
 bspc rule -a Rofi focus=on
