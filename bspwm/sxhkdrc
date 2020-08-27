@@ -78,6 +78,16 @@ super + {p,n}
 ctrl + alt + {Left,Right}
 	bspc desktop -f {prev,next}.local
 
+# focus to the empty desktop in the current monitor
+{ctrl + alt + Down,super + a}
+	for i in $(bspc query -D -m --names); do \
+		if ! bspc query -N -d $i > /dev/null; then \
+			bspc desktop -f $i; \
+			exit; \
+		fi; \
+	done; \
+	notify-send -u critical "BSPWM" "Currently all desktops are in use!"
+
 # focus the last node/desktop
 super + Tab
 	bspc desktop -f last
