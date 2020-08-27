@@ -258,7 +258,7 @@ ws-icon-default = 
 ; focused = Active workspace on focused monitor
 ; label-focused = %index%
 label-focused = %icon%  %name%
-label-focused-underline= ${colors.orange}
+label-focused-underline = ${colors.orange}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -283,9 +283,17 @@ inherit = module/ws-base
 type = internal/bspwm
 inherit = module/ws-base
 
-label-occupied = %icon%
-label-occupied-padding = 2
-label-empty =
+label-focused = ""
+label-focused-underline = ${colors.transparent}
+label-focused-padding = 0
+
+label-occupied = ""
+label-occupied-foreground = #ccc
+label-occupied-padding = 0
+
+label-empty = ""
+label-empty-foreground = #797979
+label-empty-padding = 0
 
 [module/mpd]
 type = internal/mpd
