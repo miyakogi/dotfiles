@@ -185,18 +185,21 @@ function load_if_exists() {
 
 ### Polybar setting
 # toggle split polybar
-function polybar-toggle() {
+function gaps-toggle() {
   if grep "gaps" ~/.config/i3/config >/dev/null; then
     cp -f ~/.config/i3/config.base ~/.config/i3/config
   else
     cat ~/.config/i3/config.base ~/.config/i3/config.gaps > ~/.config/i3/config
   fi
 
-  if wmctrl -m | grep "bspwm" >/dev/null; then
-    bspc wm -r
-  else
-    i3-msg restart
-  fi
+  WM=$(wmctrl -m | grep "Name" | sed -r 's/^Name: ([a-zA-Z0-9\-_]+)$/\1/')
+  case $WM in
+    bspwm)
+      bspc wm -r;;
+    i3)
+      i3-msg restart;;
+    *) ;;
+  esac
 }
 
 ### Python Virtualenv Control
