@@ -9,13 +9,20 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 0.1; done
 while pgrep -u $UID -x picom >/dev/null; do sleep 0.1; done
 
 # Launch Polybar
-if wmctrl -m | grep "bspwm" >/dev/null; then wm="bspwm"; else wm="i3"; fi
+if wmctrl -m | grep "bspwm" >/dev/null; then
+  wm="bspwm"
+  picom_opt="-f"
+else
+  wm="i3"
+  picom_opt=""
+fi
+
 if grep "gaps" ~/.config/i3/config >/dev/null; then
   polybar "left-$wm" &
   polybar "center-$wm" &
   polybar "right-$wm" &
-  picom -cb --experimental-backends &
+  picom -cb $picom_opt --experimental-backends &
 else
   polybar "top-$wm" &
-  picom -b --experimental-backends &
+  picom -b $picom_opt --experimental-backends &
 fi
