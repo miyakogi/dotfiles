@@ -402,7 +402,9 @@ ramp-used-7-foreground = #ff5252
 
 [module/gpu]
 type = custom/script
-exec = ~/.config/polybar/system-nvidia-smi.sh
+
+# from https://github.com/polybar/polybar-scripts/blob/master/polybar-scripts/system-nvidia-smi/system-nvidia-smi.sh
+exec = echo $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)%
 interval = 1
 
 format-prefix = " "
