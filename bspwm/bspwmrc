@@ -12,7 +12,7 @@ xset s off &
 xset dpms 0 0 1200 &
 
 # screen locker
-pgrep -x xautolock > /dev/null || xautolock -time 5 locker "$HOME/.config/i3/lock.sh" &
+pgrep -x xautolock > /dev/null || xautolock -time 5 -locker "$HOME/.config/i3/lock.sh" &
 
 # redshift
 pgrep -x redshift > /dev/null || redshift -l ${LATITUDE}:${LONGITUDE} &
