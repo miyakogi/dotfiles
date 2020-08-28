@@ -106,7 +106,7 @@ inherit = bar/top
 
 modules-left = menu title
 modules-center = date
-modules-right = bspwm-ws mpd volume cpu-graph memory gpu updates
+modules-right = bspwm-prev bspwm-ws bspwm-next mpd volume cpu-graph memory gpu updates
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
@@ -147,7 +147,7 @@ scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
 modules-left = menu title
-modules-right = bspwm-ws
+modules-right = bspwm-prev bspwm-ws bspwm-next
 
 [bar/center]
 inherit = bar/base
@@ -294,6 +294,18 @@ label-occupied-padding = 0
 label-empty = ""
 label-empty-foreground = #797979
 label-empty-padding = 0
+
+[module/bspwm-prev]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground-alt}
+click-left = bspc desktop -f prev.local
+
+[module/bspwm-next]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground-alt}
+click-left = bspc desktop -f next.local
 
 [module/mpd]
 type = internal/mpd
