@@ -96,7 +96,7 @@ inherit = bar/top
 
 modules-left = menu title i3-mode
 modules-center = date
-modules-right = addws i3-ws mpd volume cpu-graph memory gpu updates
+modules-right = addws i3-ws mpd volume cpu-graph memory gpu updates close
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -106,7 +106,7 @@ inherit = bar/top
 
 modules-left = menu title
 modules-center = date
-modules-right = bspwm-prev bspwm-ws bspwm-next mpd volume cpu-graph memory gpu updates
+modules-right = bspwm-prev bspwm-ws bspwm-next mpd volume cpu-graph memory gpu updates close
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
@@ -174,7 +174,7 @@ offset-x = 1232
 width = 672
 
 modules-left = volume mpd2
-modules-right = cpu-graph memory gpu updates
+modules-right = cpu-graph memory gpu updates close
 
 ;tray-position = right
 tray-padding = 6
@@ -229,7 +229,6 @@ label-mode-background = ${colors.yellow}
 [module/addws]
 type = custom/text
 content = 
-; content = +
 content-padding = 2
 content-foreground = ${colors.foreground}
 click-left = exec ~/.config/i3/addws.py
@@ -432,6 +431,13 @@ format-underline = #999999
 format-padding = 2
 
 click-left = ~/.config/polybar/rofi-calendar.sh
+
+[module/close]
+type = custom/text
+content = 
+content-padding = 1
+content-foreground = ${colors.foreground-alt}
+click-left = if wmctrl -m | grep "bspwm"; then bspc node -c; else i3-msg kill; fi
 
 [settings]
 screenchange-reload = true
