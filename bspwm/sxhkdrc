@@ -89,7 +89,7 @@ ctrl + alt + {Left,Right}
 # focus to the empty desktop in the current monitor
 {ctrl + alt + Down,super + a}
 	for i in $(bspc query -D -m --names); do \
-		if ! bspc query -N -d $i > /dev/null; then \
+		if ! bspc query -N -d $i -n .!sticky > /dev/null; then \
 			bspc desktop -f $i; \
 			exit; \
 		fi; \
