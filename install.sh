@@ -138,6 +138,7 @@ ln -sf $BASEDIR/i3/transparent.py $CONFIG_HOME/i3
 # bspwm
 ln -sf $BASEDIR/bspwm/bspwmrc $CONFIG_HOME/bspwm
 ln -sf $BASEDIR/bspwm/sxhkdrc $CONFIG_HOME/bspwm
+ln -sf $BASEDIR/bspwm/layout.sh $CONFIG_HOME/bspwm
 ln -sf $BASEDIR/bspwm/scratchterm.sh $CONFIG_HOME/bspwm
 
 # picom (compositor)
