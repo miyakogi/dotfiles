@@ -50,6 +50,7 @@ case $1 in
     fi
     exec i3;;
   kde)
+    export DESKTOP_SESSION=plasma
     exec startplasma-x11;;
   lxqt)
     exec startlxqt;;
