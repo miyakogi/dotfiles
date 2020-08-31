@@ -111,6 +111,13 @@ modules-right = bspwm-mode bspwm-prev bspwm-ws bspwm-next mpd volume cpu-graph m
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
+[bar/top-kwin]
+inherit = bar/top
+
+modules-left = menu title
+modules-center = date
+modules-right = mpd volume cpu-graph memory gpu updates close
+
 [bar/base]
 inherit = bar/top
 
@@ -149,6 +156,12 @@ scroll-down = bspwm-deskprev
 modules-left = menu title
 modules-right = bspwm-prev bspwm-ws bspwm-next bspwm-mode
 
+[bar/left-kwin]
+inherit = bar/left
+
+modules-left = menu title
+modules-right = kwin-ws
+
 [bar/center]
 inherit = bar/base
 offset-x = 42.5%
@@ -167,6 +180,9 @@ inherit = bar/center
 wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
+
+[bar/center-kwin]
+inherit = bar/center
 
 [bar/right]
 inherit = bar/base
@@ -194,6 +210,9 @@ inherit = bar/right
 wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
+
+[bar/right-kwin]
+inherit = bar/right
 
 [module/menu]
 type = custom/script
@@ -315,6 +334,21 @@ type = custom/text
 content = ""
 content-foreground = ${colors.foreground-alt}
 click-left = bspc desktop -f next.local
+
+[module/kwin-ws]
+type = internal/xworkspaces
+
+label-active = ""
+label-active-underline = ${colors.transparent}
+label-active-padding = 0
+
+label-occupied = ""
+label-occupied-foreground = #ccc
+label-occupied-padding = 0
+
+label-empty = ""
+label-empty-foreground = #797979
+label-empty-padding = 0
 
 [module/mpd]
 type = internal/mpd
@@ -449,7 +483,7 @@ type = custom/text
 content = 
 content-padding = 1
 content-foreground = ${colors.foreground-alt}
-click-left = if wmctrl -m | grep "bspwm"; then bspc node -c; else i3-msg kill; fi
+click-left = if wmctrl -m | grep "bspwm"; then bspc node -c; elif wmctrl -m | grep "i3"; then i3-msg kill; else xdotool key alt+F4; fi
 
 [settings]
 screenchange-reload = true
