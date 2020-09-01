@@ -53,6 +53,7 @@ case $1 in
     export DESKTOP_SESSION=plasma
     exec startplasma-x11;;
   lxqt)
+    xsetroot -cursor_name left_ptr
     exec startlxqt;;
   *)
     echo "Unknown WM/DE name: $1, try exec as command."
