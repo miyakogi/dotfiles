@@ -114,7 +114,7 @@ scroll-down = bspwm-deskprev
 [bar/top-kwin]
 inherit = bar/top
 
-modules-left = menu title
+modules-left = menu title-kwin
 modules-center = date
 modules-right = mpd volume cpu-graph memory gpu updates close
 
@@ -160,7 +160,7 @@ modules-right = bspwm-prev bspwm-ws bspwm-next bspwm-mode
 inherit = bar/left
 override-redirect = false
 
-modules-left = menu title
+modules-left = menu title-kwin
 modules-right = kwin-ws
 
 [bar/center]
@@ -226,6 +226,7 @@ format-padding = 1
 
 [module/title]
 type = internal/xwindow
+
 format = <label>
 format-background = ${colors.transparent}
 format-foreground = ${colors.foreground}
@@ -234,6 +235,14 @@ format-margin = 1
 format-padding = 2
 
 label = %title:0:30:...%
+
+[module/title-kwin]
+inherit = module/title
+type = custom/script
+exec = xdotool getactivewindow getwindowname | sed -r 's/^pcmanfm-qt$//'
+interval = 0.1
+
+label = %output:0:30:...%
 
 [module/i3-mode]
 type = internal/i3
