@@ -11,7 +11,7 @@ def echo(string: str) -> None:
     subprocess.run(['echo', string])
 
 
-async def get_layout(i3, e):
+async def get_layout(i3: Connection, e: Event) -> None:
     root = await i3.get_tree()
     win = root.find_focused()
     if win.type == 'con' and win.name:
