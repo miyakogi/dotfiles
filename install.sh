@@ -5,16 +5,16 @@ CONFIG_HOME=$HOME/.config
 
 # Make dir if not exists
 makedir_if_not_exists () {
-    if [ ! -e $1 ]; then
-        mkdir -p $1
-    fi
+  if [ ! -e $1 ]; then
+    mkdir -p $1
+  fi
 }
 
 # Delete link if exists
 delete_if_exists () {
-    if [ -h $1 ]; then
-        rm $1
-    fi
+  if [ -h $1 ]; then
+    rm $1
+  fi
 }
 
 # git clone if not exist
@@ -74,16 +74,16 @@ ln -sf $BASEDIR/tmux.conf $HOME/.tmux.conf
 VIMBASE=$BASEDIR/vim
 ln -sf $VIMBASE/vimrc $HOME/.vimrc
 case "${OSTYPE}" in
-# Mac(Unix)
-darwin*)
+  # Mac(Unix)
+  darwin*)
     ln -sf $VIMBASE/gvimrc_mac $HOME/.gvimrc
     ;;
-# Linux
-linux*)
+  # Linux
+  linux*)
     ln -sf $VIMBASE/gvimrc_linux $HOME/.gvimrc
     ;;
-# Windows
-msys*)
+  # Windows
+  msys*)
     ln -sf $VIMBASE/gvimrc_win $HOME/.gvimrc
     ;;
 esac
