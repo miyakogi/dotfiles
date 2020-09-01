@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # get WM name
-WM=$(wmctrl -m | grep "Name" | sed -r 's/^Name: ([a-zA-Z0-9\-_]+)$/\1/')
+WM=$(wmctrl -m | grep "Name" | sed -r 's/^Name: ([a-zA-Z0-9\-_]+)$/\1/' | tr '[:upper:]' '[:lower:]')
 
 # show menu by rofi
 menu="Lock\nExit\nRestart\nShutdown"
@@ -20,7 +20,7 @@ function _exit() {
       bspc quit;;
     i3)
       i3-msg exit;;
-    KWin)
+    kwin)
       lxqt-leave --logout;;
     *)
       ;;
@@ -28,7 +28,7 @@ function _exit() {
 }
 
 function reboot() {
-  if [[ $WM = "KWin" ]]; then
+  if [[ $WM = "kwin" ]]; then
     lxqt-leave --reboot
   else
     systemctl reboot
@@ -36,7 +36,7 @@ function reboot() {
 }
 
 function shutdown() {
-  if [[ $WM = "KWin" ]]; then
+  if [[ $WM = "kwin" ]]; then
     lxqt-leave --shutdown
   else
     systemctl poweroff -i
