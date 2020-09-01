@@ -68,8 +68,7 @@ My dotfiles.
 - klipper
 - perl-anyevent-i3 (save layout)
 - perl-json-xs (save layout)
-- python-i3-py (polybar's add workspace function)
-- python-i3ipc (scratchpad control)
+- python-i3ipc (scratchpad control and add workspace function)
 - pulsemixer (polybar's volume check/fix)
 - pavucontrol-qt
 - kitty

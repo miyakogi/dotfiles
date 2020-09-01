@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 
-import subprocess
-import i3
+from i3ipc import Connection
 
-max_ws = 0
-ws_list = [[x, 0] for x in range(11)]
+i3 = Connection()
+ws_list = {num: False for num in range(1, 11)}
 
-for ws in i3.get_workspaces():
-    ws_tree = i3.filter(num=ws.get('num'))
-    ws_list[int(ws.get('num'))][1] = 1
+for ws in i3.get_tree().workspaces():
+    ws_list[ws.num] = bool(ws.leaves())
 
-for i in ws_list:
-    if i[0] > max_ws and not i[1]:
-        subprocess.run(['i3-msg', 'workspace', str(i[0])])
+for num, exist in sorted(ws_list.items()):
+    if not exist:
+        i3.command('workspace {}'.format(num))
         break
