@@ -96,7 +96,7 @@ inherit = bar/top
 
 modules-left = menu title i3-mode
 modules-center = date
-modules-right = addws i3-ws mpd volume cpu-graph memory gpu updates close
+modules-right = i3-layout addws i3-ws mpd volume cpu-graph memory gpu updates close
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -145,7 +145,7 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 modules-left = menu title i3-mode
-modules-right = i3-ws addws
+modules-right = i3-ws addws i3-layout
 
 [bar/left-bspwm]
 inherit = bar/left
@@ -231,10 +231,6 @@ format-margin = 1
 format-padding = 2
 
 label = %title:0:30:...%
-; label-maxlen = 50
-
-; label-empty = Title
-; label-empty-foreground = ${colors.transparent}
 
 [module/i3-mode]
 type = internal/i3
@@ -244,6 +240,17 @@ label-mode = %mode%
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.yellow}
+
+[module/i3-layout]
+type = custom/script
+
+exec = exec ~/.config/i3/layout.py
+tail = true
+
+format = %{T2}<label>%{T-}
+format-padding = 2
+format-foreground = ${colors.foreground}
+click-left = i3-msg layout toggle && i3-msg -t send_tick
 
 [module/bspwm-mode]
 type = custom/script

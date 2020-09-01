@@ -169,18 +169,18 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+i split h
+bindsym $mod+i exec "i3-msg split h && i3-msg -t send_tick"
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v exec "i3-msg split v && i3-msg -t send_tick"
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+t exec "i3-msg layout toggle && i3-msg -t send_tick"
+bindsym $mod+s exec "i3-msg layout stacking && i3-msg -t send_tick"
+bindsym $mod+e exec "i3-msg layout toggle split && i3-msg -t send_tick"
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle

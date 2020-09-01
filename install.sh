@@ -133,6 +133,7 @@ ln -sf $BASEDIR/i3/scratchterm.py $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/save_layout.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/load_layouts.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/addws.py $CONFIG_HOME/i3
+ln -sf $BASEDIR/i3/layout.py $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/transparent.py $CONFIG_HOME/i3
 
 # bspwm
