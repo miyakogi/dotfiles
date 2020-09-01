@@ -8,15 +8,10 @@ killall -q picom
 while pgrep -u $UID -x polybar >/dev/null; do sleep 0.1; done
 while pgrep -u $UID -x picom >/dev/null; do sleep 0.1; done
 
-# Launch Polybar
-if wmctrl -m | grep "bspwm" >/dev/null; then
-  wm="bspwm"
+# get window manager name
+wm=$(wmctrl -m | grep "Name:" | sed -r 's/^Name: ([a-zA-Z0-9\-_]+)$/\1/' | tr '[:upper:]' '[:lower:]')
+if [[ $wm = "bspwm" ]]; then
   picom_opt="-f"
-elif wmctrl -m | grep "KWin" >/dev/null; then
-  wm="kwin"
-else
-  wm="i3"
-  picom_opt=""
 fi
 
 if grep "gaps" ~/.config/i3/config >/dev/null; then
