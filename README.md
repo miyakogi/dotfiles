@@ -20,7 +20,7 @@ My dotfiles.
 - i3-gaps
 - bspwm
 - sxhkd
-- picom (picom-ibhagwan-git)
+- picom (picom-git)
 - conky (conky-cairo)
 - dunst
 - polybar
