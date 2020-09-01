@@ -158,6 +158,7 @@ modules-right = bspwm-prev bspwm-ws bspwm-next bspwm-mode
 
 [bar/left-kwin]
 inherit = bar/left
+override-redirect = false
 
 modules-left = menu title
 modules-right = kwin-ws
@@ -183,6 +184,7 @@ scroll-down = bspwm-deskprev
 
 [bar/center-kwin]
 inherit = bar/center
+override-redirect = false
 
 [bar/right]
 inherit = bar/base
@@ -213,6 +215,7 @@ scroll-down = bspwm-deskprev
 
 [bar/right-kwin]
 inherit = bar/right
+override-redirect = false
 
 [module/menu]
 type = custom/script
