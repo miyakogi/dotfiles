@@ -22,7 +22,7 @@ configuration {
 	icon-theme: "neon-icons";
 /*	drun-match-fields: "name,generic,exec,categories";*/
 /*	drun-show-actions: false;*/
-	drun-display-format: "{name} [<span color="#bbbbbb">({generic})</span>]";
+	drun-display-format: "{name} [<span color="#cccccc">({generic})</span>]";
 /*	disable-history: false;*/
 /*	ignored-prefixes: "";*/
 /*	sort: false;*/
