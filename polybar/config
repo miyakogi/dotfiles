@@ -116,7 +116,7 @@ inherit = bar/top
 
 modules-left = menu title-kwin
 modules-center = date
-modules-right = mpd volume cpu-graph memory gpu updates close
+modules-right = kwin-prev kwin-ws kwin-next mpd volume cpu-graph memory gpu updates close
 
 [bar/base]
 inherit = bar/top
@@ -161,7 +161,7 @@ inherit = bar/left
 override-redirect = false
 
 modules-left = menu title-kwin
-modules-right = kwin-ws
+modules-right = kwin-prev kwin-ws kwin-next
 
 [bar/center]
 inherit = bar/base
@@ -368,6 +368,18 @@ label-occupied-padding = 0
 label-empty = ""
 label-empty-foreground = #797979
 label-empty-padding = 0
+
+[module/kwin-prev]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground-alt}
+click-left = if [[ $(qdbus org.kde.KWin /KWin org.kde.KWin.currentDesktop) -eq 1 ]]; then qdbus org.kde.KWin /KWin org.kde.KWin.setCurrentDesktop 6; else qdbus org.kde.KWin /KWin org.kde.KWin.previousDesktop; fi
+
+[module/kwin-next]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground-alt}
+click-left = if [[ $(qdbus org.kde.KWin /KWin org.kde.KWin.currentDesktop) -eq 6 ]]; then qdbus org.kde.KWin /KWin org.kde.KWin.setCurrentDesktop 1; else qdbus org.kde.KWin /KWin org.kde.KWin.nextDesktop; fi
 
 [module/mpd]
 type = internal/mpd
