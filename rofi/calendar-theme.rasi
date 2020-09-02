@@ -10,6 +10,12 @@ window {
 
 mainbox {
   background-color: #999999;
+  children: [inputbar, message, listview];
+}
+
+inputbar {
+  padding: 0 0 0 -32px;
+  children: [prompt];
 }
 
 element.selected {
@@ -21,6 +27,7 @@ element {
 }
 
 prompt {
+  font: "Fira Code 12";
   padding: 0 0 10px 42px;
 }
 
