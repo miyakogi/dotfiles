@@ -192,13 +192,15 @@ function gaps-toggle() {
     cat ~/.config/i3/config.base ~/.config/i3/config.gaps > ~/.config/i3/config
   fi
 
-  WM=$(wmctrl -m | grep "Name" | sed -r 's/^Name: ([a-zA-Z0-9\-_]+)$/\1/')
+  WM=$(wmctrl -m | grep "Name" | sed -r 's/^Name: ([a-zA-Z0-9\-_]+)$/\1/' | tr '[:upper:]' '[:lower:]')
   case $WM in
     bspwm)
       bspc wm -r;;
     i3)
       i3-msg restart;;
-    *) ;;
+    *)
+      # run script under sub-shell
+      ( ~/.config/polybar/launch.sh 1>/dev/null 2>/dev/null & );;
   esac
 }
 
