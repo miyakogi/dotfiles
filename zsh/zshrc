@@ -186,18 +186,41 @@ function load_if_exists() {
 ### Polybar setting
 # toggle split polybar
 function gaps-toggle() {
-  if grep "gaps" ~/.config/i3/config >/dev/null; then
-    cp -f ~/.config/i3/config.base ~/.config/i3/config
-  else
-    cat ~/.config/i3/config.base ~/.config/i3/config.gaps > ~/.config/i3/config
+  if ! pgrep "polybar" > /dev/null; then
+    echo "Polybar is not running"
+    return
   fi
 
   WM=$(wmctrl -m | grep "Name" | sed -r 's/^Name: ([a-zA-Z0-9\-_]+)$/\1/' | tr '[:upper:]' '[:lower:]')
+  if grep "gaps" ~/.config/i3/config >/dev/null; then
+    cp -f ~/.config/i3/config.base ~/.config/i3/config
+    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '0'
+    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapLeft'   '0'
+    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapRight'  '0'
+    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapTop'    '0'
+    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'tileLayoutGap'   '0'
+  else
+    cat ~/.config/i3/config.base ~/.config/i3/config.gaps > ~/.config/i3/config
+    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '8'
+    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapLeft'  '16'
+    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapRight' '16'
+    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapTop'    '8'
+    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'tileLayoutGap'  '16'
+  fi
+
   case $WM in
     bspwm)
       bspc wm -r;;
     i3)
       i3-msg restart;;
+    kwin)
+      # disable/enable krohnkite to reload gap config
+      kwriteconfig5 --file ~/.config/kwinrc --group Plugins --key 'krohnkiteEnabled' 'false'
+      qdbus org.kde.KWin /KWin org.kde.KWin.reconfigure
+      sleep 0.5  # need to wait for kwin reconfigure
+      kwriteconfig5 --file ~/.config/kwinrc --group Plugins --key 'krohnkiteEnabled' 'true'
+      qdbus org.kde.KWin /KWin org.kde.KWin.reconfigure
+      ( ~/.config/polybar/launch.sh 1>/dev/null 2>/dev/null & );;
     *)
       # run script under sub-shell
       ( ~/.config/polybar/launch.sh 1>/dev/null 2>/dev/null & );;
