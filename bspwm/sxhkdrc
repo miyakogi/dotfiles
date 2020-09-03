@@ -95,7 +95,7 @@ ctrl + alt + {Left,Right}
 			exit; \
 		fi; \
 	done; \
-	notify-send -u critical "BSPWM" "Currently all desktops are in use!"
+	notify-send -u critical "BSPWM" "No Empty Desktop!"
 
 # focus the last node/desktop
 super + Tab
