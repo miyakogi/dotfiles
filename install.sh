@@ -158,6 +158,7 @@ ln -sf $BASEDIR/polybar/launch.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/rofi-calendar.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/rofi-menu.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/updates.sh $CONFIG_HOME/polybar
+ln -sf $BASEDIR/polybar/nightcolor.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/ff-volume-check.sh $CONFIG_HOME/polybar
 ln -sf $BASEDIR/polybar/ff-volume-fix.sh $CONFIG_HOME/polybar
 
