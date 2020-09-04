@@ -177,17 +177,16 @@ ln -sf $BASEDIR/rofi/leave.sh $CONFIG_HOME/rofi
 # chrome
 ln -sf $BASEDIR/chrome-flags.conf $CONFIG_HOME
 
-# kwin
+# kwin/krohnkite
 ln -sf $BASEDIR/scripts/kwin-first-empty.sh $HOME/bin/kwin-first-empty
+ln -sf $BASEDIR/scripts/krohnkite-control.sh $HOME/bin/krohnkite-control
 
 # plasma
 ln -sf $BASEDIR/scripts/kde-autostart.sh $CONFIG_HOME/autostart-scripts
-ln -sf $BASEDIR/scripts/krohnkite-disable.sh $CONFIG_HOME/autostart-scripts
 ln -sf $BASEDIR/scripts/kde-shutdown.sh $CONFIG_HOME/plasma-workspace/shutdown
 
 # lxqt
 ln -sf $BASEDIR/scripts/lxqt-autostart.sh $HOME/bin/lxqt-autostart
-ln -sf $BASEDIR/scripts/krohnkite-enable.sh $HOME/bin/krohnkite-enable
 ln -sf $BASEDIR/autostart/lxqt-autostart.desktop $CONFIG_HOME/autostart
 
 # Install zaw.sh

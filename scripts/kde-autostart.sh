@@ -4,6 +4,9 @@ if [[ -n $KDEWM ]]; then
   exit
 fi
 
+# disable krohnkite
+krohnkite-control disable &
+
 # ibus input method
 pgrep -x ibus-daemon > /dev/null || ibus-daemon -drx --panel /usr/lib/ibus/ibus-ui-gtk3 &
 
