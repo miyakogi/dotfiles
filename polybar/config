@@ -373,13 +373,13 @@ label-empty-padding = 0
 type = custom/text
 content = ""
 content-foreground = ${colors.foreground-alt}
-click-left = if [[ $(qdbus org.kde.KWin /KWin org.kde.KWin.currentDesktop) -eq 1 ]]; then qdbus org.kde.KWin /KWin org.kde.KWin.setCurrentDesktop 6; else qdbus org.kde.KWin /KWin org.kde.KWin.previousDesktop; fi
+click-left = if [[ $(qdbus org.kde.KWin /KWin org.kde.KWin.currentDesktop) -eq 1 ]]; then qdbus org.kde.KWin /KWin org.kde.KWin.setCurrentDesktop $(qdbus org.kde.KWin /VirtualDesktopManager org.kde.KWin.VirtualDesktopManager.count); else qdbus org.kde.KWin /KWin org.kde.KWin.previousDesktop; fi
 
 [module/kwin-next]
 type = custom/text
 content = ""
 content-foreground = ${colors.foreground-alt}
-click-left = if [[ $(qdbus org.kde.KWin /KWin org.kde.KWin.currentDesktop) -eq 6 ]]; then qdbus org.kde.KWin /KWin org.kde.KWin.setCurrentDesktop 1; else qdbus org.kde.KWin /KWin org.kde.KWin.nextDesktop; fi
+click-left = if [[ $(qdbus org.kde.KWin /KWin org.kde.KWin.currentDesktop) -eq $(qdbus org.kde.KWin /VirtualDesktopManager org.kde.KWin.VirtualDesktopManager.count) ]]; then qdbus org.kde.KWin /KWin org.kde.KWin.setCurrentDesktop 1; else qdbus org.kde.KWin /KWin org.kde.KWin.nextDesktop; fi
 
 [module/nightcolor]
 type = custom/script
