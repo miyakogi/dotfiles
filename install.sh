@@ -46,6 +46,8 @@ makedir_if_not_exists $CONFIG_HOME/conky
 makedir_if_not_exists $CONFIG_HOME/dunst
 makedir_if_not_exists $CONFIG_HOME/polybar
 makedir_if_not_exists $CONFIG_HOME/rofi
+makedir_if_not_exists $CONFIG_HOME/autostart-scripts
+makedir_if_not_exists $CONFIG_HOME/plasma-workspace/shutdown
 
 # ======== Make Symbolic Link ==============
 # ------ Shell ------
@@ -173,6 +175,11 @@ ln -sf $BASEDIR/rofi/leave.sh $CONFIG_HOME/rofi
 
 # chrome
 ln -sf $BASEDIR/chrome-flags.conf $CONFIG_HOME
+
+# plasma
+ln -sf $BASEDIR/scripts/kde-autostart.sh $CONFIG_HOME/autostart-scripts
+ln -sf $BASEDIR/scripts/krohnkite-disable.sh $CONFIG_HOME/autostart-scripts
+ln -sf $BASEDIR/scripts/kde-shutdown.sh $CONFIG_HOME/plasma-workspace/shutdown
 
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
