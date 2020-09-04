@@ -184,6 +184,7 @@ ln -sf $BASEDIR/scripts/kde-shutdown.sh $CONFIG_HOME/plasma-workspace/shutdown
 
 # lxqt
 ln -sf $BASEDIR/scripts/lxqt-autostart.sh $HOME/bin/lxqt-autostart
+ln -sf $BASEDIR/scripts/krohnkite-enable.sh $HOME/bin/krohnkite-enable
 ln -sf $BASEDIR/autostart/lxqt-autostart.desktop $CONFIG_HOME/autostart
 
 # Install zaw.sh

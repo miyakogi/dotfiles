@@ -18,6 +18,9 @@ numlockx on &
 # unlock kwallet
 /usr/lib/pam_kwallet_init &
 
+# enable krohnkite
+krohnkite-enable &
+
 # launch polybar
 $HOME/.config/polybar/launch.sh &
 
