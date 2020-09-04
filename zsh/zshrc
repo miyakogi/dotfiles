@@ -192,20 +192,24 @@ function gaps-toggle() {
   fi
 
   WM=$(wmctrl -m | grep "Name" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
-  if grep "gaps" ~/.config/i3/config >/dev/null; then
+  if grep "gaps" ~/.config/i3/config > /dev/null; then
     cp -f ~/.config/i3/config.base ~/.config/i3/config
-    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '0'
-    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapLeft'   '0'
-    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapRight'  '0'
-    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapTop'    '0'
-    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'tileLayoutGap'   '0'
+    if which kwriteconfig5 > /dev/null && [[ -e ~/.config/kwinrc ]]; then
+      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '0'
+      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapLeft'   '0'
+      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapRight'  '0'
+      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapTop'    '0'
+      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'tileLayoutGap'   '0'
+    fi
   else
     cat ~/.config/i3/config.base ~/.config/i3/config.gaps > ~/.config/i3/config
-    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '8'
-    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapLeft'  '16'
-    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapRight' '16'
-    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapTop'    '8'
-    kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'tileLayoutGap'  '16'
+    if which kwriteconfig5 > /dev/null && [[ -e ~/.config/kwinrc ]]; then
+      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '8'
+      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapLeft'  '16'
+      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapRight' '16'
+      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapTop'    '8'
+      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'tileLayoutGap'  '16'
+    fi
   fi
 
   case $WM in
@@ -220,9 +224,11 @@ function gaps-toggle() {
       sleep 0.5  # need to wait for kwin reconfigure
       kwriteconfig5 --file ~/.config/kwinrc --group Plugins --key 'krohnkiteEnabled' 'true'
       qdbus org.kde.KWin /KWin org.kde.KWin.reconfigure
+
+      # run polybar launch script under sub-shell
       ( ~/.config/polybar/launch.sh 1>/dev/null 2>/dev/null & );;
     *)
-      # run script under sub-shell
+      # run polybar launch script under sub-shell
       ( ~/.config/polybar/launch.sh 1>/dev/null 2>/dev/null & );;
   esac
 }
