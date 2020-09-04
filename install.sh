@@ -177,6 +177,9 @@ ln -sf $BASEDIR/rofi/leave.sh $CONFIG_HOME/rofi
 # chrome
 ln -sf $BASEDIR/chrome-flags.conf $CONFIG_HOME
 
+# kwin
+ln -sf $BASEDIR/scripts/kwin-first-empty.sh $HOME/bin/kwin-first-empty
+
 # plasma
 ln -sf $BASEDIR/scripts/kde-autostart.sh $CONFIG_HOME/autostart-scripts
 ln -sf $BASEDIR/scripts/krohnkite-disable.sh $CONFIG_HOME/autostart-scripts
