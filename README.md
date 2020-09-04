@@ -30,7 +30,7 @@ These applications should be all installed.
 - dunst
 - polybar
 - rofi
-- plasma
+- plasma (X11)
 - lxqt (kwin + krohnkite)
 
 ## Required Applications (not listed above)
@@ -91,7 +91,13 @@ These applications should be all installed.
 chsh /bin/zsh
 ```
 
-## Kwallet auto unlock
+## Setup
+
+### Enable TTY Login
+
+Disable display managers (e.g. SDDM or GDM) if enabled.
+
+### Kwallet auto unlock
 
 In `/etc/pam.d/login`, add:
 
@@ -99,3 +105,19 @@ In `/etc/pam.d/login`, add:
 auth optional pam_kwallet5.so
 session optional pam_kwallet5.so auto_start
 ```
+
+### Plasma/LXQt Manual Setup
+
+In LXQt session settings, set window manager to `kwin_x11`.
+
+#### Krohnkite
+
+Add kwin window rule to disable title bars.
+
+`KDE System Settings` -> `Window Management` -> `Window Rules` -> press `Add New`, then set:
+
+- Window class (application): select `Regular Expression`, set `.*`
+- Appearance & Fixes: `No titlebar and frame`, select `Force`, select `Yes`
+
+When re-login to the LXQt session, titlebars will be removed.
+In plasma session, this setting will be automatically disabled.
