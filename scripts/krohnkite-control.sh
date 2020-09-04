@@ -40,8 +40,8 @@ rulesrc="$HOME/.config/kwinrulesrc"
 if grep "noborder=true" $rulesrc > /dev/null; then
   count=$(kreadconfig5 --file $rulesrc --group General --key count)
   for i in `seq $count`; do
-    # TODO: maybe better to use desctipton field
-    if [[ $(kreadconfig5 --file $rulesrc --group $i --key noborder) = "true" ]]; then
+    if [[ $(kreadconfig5 --file $rulesrc --group $i --key Description) == *Titlebar* ]] && \
+      [[ $(kreadconfig5 --file $rulesrc --group $i --key noborder) = "true" ]]; then
       kwriteconfig5 --file $rulesrc --group $i --key 'types' $types
       break
     fi

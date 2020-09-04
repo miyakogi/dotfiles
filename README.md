@@ -112,10 +112,11 @@ In LXQt session settings, set window manager to `kwin_x11`.
 
 #### Krohnkite
 
-Add kwin window rule to disable title bars.
+Add kwin window rule to disable title bars on LXQt session (krohnkite is enabled).
 
 `KDE System Settings` -> `Window Management` -> `Window Rules` -> press `Add New`, then set:
 
+- Description: MUST include `Titlebar`
 - Window class (application): select `Regular Expression`, set `.*`
 - Appearance & Fixes: `No titlebar and frame`, select `Force`, select `Yes`
 
