@@ -38,6 +38,7 @@ makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
+makedir_if_not_exists $CONFIG_HOME/autostart
 makedir_if_not_exists $CONFIG_HOME/i3
 makedir_if_not_exists $CONFIG_HOME/bspwm
 makedir_if_not_exists $CONFIG_HOME/i3/workspaces
@@ -180,6 +181,10 @@ ln -sf $BASEDIR/chrome-flags.conf $CONFIG_HOME
 ln -sf $BASEDIR/scripts/kde-autostart.sh $CONFIG_HOME/autostart-scripts
 ln -sf $BASEDIR/scripts/krohnkite-disable.sh $CONFIG_HOME/autostart-scripts
 ln -sf $BASEDIR/scripts/kde-shutdown.sh $CONFIG_HOME/plasma-workspace/shutdown
+
+# lxqt
+ln -sf $BASEDIR/scripts/lxqt-autostart.sh $HOME/bin/lxqt-autostart
+ln -sf $BASEDIR/autostart/lxqt-autostart.desktop $CONFIG_HOME/autostart
 
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw

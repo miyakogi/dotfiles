@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=lxqt-autostart
+Name=lxqt-autostart
+OnlyShowIn=LXQt;
+Type=Application
+Version=1.0
