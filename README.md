@@ -1,8 +1,13 @@
 # Dotfiles
 
-My dotfiles.
+My dotfiles for Arch Linux.
+
+Display manager is not supported.
+Use TTY login at tty-1 (default) and select DE/WM.
 
 ## Supported Applications
+
+These applications should be all installed.
 
 ### Terminal
 
@@ -25,6 +30,8 @@ My dotfiles.
 - dunst
 - polybar
 - rofi
+- plasma
+- lxqt (kwin + krohnkite)
 
 ## Required Applications (not listed above)
 
@@ -71,7 +78,8 @@ My dotfiles.
 - python-i3ipc (scratchpad control and add workspace function)
 - pulsemixer (polybar's volume check/fix)
 - pavucontrol-qt
-- kitty
+- yakuake
+- kwin-scripts-krohnkite-git
 
 ## Install
 
