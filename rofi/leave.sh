@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # get WM name
-WM=$(wmctrl -m | grep "Name" | sed -r 's/^Name: ([a-zA-Z0-9\-_]+)$/\1/' | tr '[:upper:]' '[:lower:]')
+WM=$(wmctrl -m | grep "Name" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
 
 # show menu by rofi
 menu="Lock\nExit\nRestart\nShutdown"

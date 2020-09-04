@@ -191,7 +191,7 @@ function gaps-toggle() {
     return
   fi
 
-  WM=$(wmctrl -m | grep "Name" | sed -r 's/^Name: ([a-zA-Z0-9\-_]+)$/\1/' | tr '[:upper:]' '[:lower:]')
+  WM=$(wmctrl -m | grep "Name" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
   if grep "gaps" ~/.config/i3/config >/dev/null; then
     cp -f ~/.config/i3/config.base ~/.config/i3/config
     kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '0'
