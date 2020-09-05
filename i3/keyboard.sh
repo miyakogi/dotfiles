@@ -1,13 +1,13 @@
 #!/bin/sh
 
+WM=$(wmctrl -m | grep "Name: " | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
+
 setxkbmap -layout jp -option 'ctrl:nocaps'
 sleep 1
-if test -f $HOME/.Xkeymap; then
-  xkbcomp $HOME/.Xkeymap $DISPLAY
-fi
+test -f $HOME/.Xkeymap && xkbcomp $HOME/.Xkeymap $DISPLAY
 
 # start sxhkd for bspwm
-if wmctrl -m | grep bspwm > /dev/null; then
+if [[ $WM = bspwm ]]; then
   if pgrep -x sxhkd > /dev/null; then
     pkill -USR1 -x sxhkd
   else
