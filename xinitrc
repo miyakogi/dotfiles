@@ -45,8 +45,10 @@ case $1 in
     xsetroot -cursor_name left_ptr
     exec bspwm;;
   i3)
-    if [[ ! -e ~/.config/i3/config ]]; then
-      cp ~/.config/i3/config.base ~/.config/i3/config
+    if grep "gaps" ~/.config/i3/config > /dev/null; then
+      cat ~/.config/i3/config.base ~/.config/i3/config.gaps > ~/.config/i3/config
+    else
+      cp -f ~/.config/i3/config.base ~/.config/i3/config
     fi
     exec i3;;
   kde)
