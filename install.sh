@@ -128,10 +128,12 @@ ln -sf $BASEDIR/kitty.conf $CONFIG_HOME/kitty
 # terminal launch script
 ln -sf $BASEDIR/scripts/launch-terminal.sh $HOME/bin/launch-terminal
 
+# screen lock script
+ln -sf $BASEDIR/scripts/lock-screen.sh $HOME/bin/lock-screen
+
 # i3 window manager
 ln -sf $BASEDIR/i3/config.base $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/config.gaps $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/lock.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/keyboard.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/update_config.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/scratchterm.py $CONFIG_HOME/i3

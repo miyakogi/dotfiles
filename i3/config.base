@@ -41,7 +41,7 @@ exec --no-startup-id "xset s off"
 exec --no-startup-id "xset dpms 0 0 1200"
 
 # Enable screen locker
-exec --no-startup-id "xautolock -time 5 -locker '$HOME/.config/i3/lock.sh'"
+exec --no-startup-id "xautolock -time 5 -locker lock-screen"
 
 # Start redshift
 # Need to set $LATITUDE and $LONGITUDE in ~/.zsh/.zshenv.local

@@ -8,7 +8,7 @@ menu="Lock\nExit\nRestart\nShutdown"
 RET=$(echo -e $menu | rofi -dmenu -i -p "Select" -theme leave-theme)
 
 function lock() {
-  ~/.config/i3/lock.sh
+  lock-screen
 }
 
 function _exit() {

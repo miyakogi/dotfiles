@@ -10,7 +10,7 @@ xset s off &
 xset dpms 0 0 1200 &
 
 # enable screen lock
-pgrep -x xautolock > /dev/null || xautolock -time 5 -locker "$HOME/.config/i3/lock.sh" &
+pgrep -x xautolock > /dev/null || xautolock -time 5 -locker lock-screen &
 
 # numlock on
 numlockx on &
