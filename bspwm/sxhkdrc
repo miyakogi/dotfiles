@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	~/.config/i3/terminal.sh
+	launch-terminal
 
 # program launcher
 super + z
