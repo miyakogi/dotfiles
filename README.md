@@ -106,6 +106,16 @@ auth optional pam_kwallet5.so
 session optional pam_kwallet5.so auto_start
 ```
 
+### Set Lock Screen Image
+
+Use lock images for each WM as below:
+
+- i3: `~/.config/i3/lock.{jpg,png}`
+- bspwm: `~/.config/bspwm/lock.{jpg,png}`
+- lxqt: `~/.config/lxqt/lock.{jpg,png}`
+
+If no image file is found, simply blur the desktop when lock screen.
+
 ### Plasma/LXQt Manual Setup
 
 In LXQt session settings, set window manager to `kwin_x11`.

@@ -2,6 +2,28 @@
 
 # Based on https://github.com/pavanjadhaw/betterlockscreen
 
+function get_image() {
+  local f=$(ls ~/.config/$1/lock.{png,jpg} 2>/dev/null | head -n 1)
+  if [[ -z $f ]]; then
+    echo "--blur=8"
+  else
+    echo "-i $f"
+  fi
+}
+
+WM=$(wmctrl -m | grep "Name: " | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
+
+case $WM in
+  i3)
+    image=$(get_image i3);;
+  bspwm)
+    image=$(get_image bspwm);;
+  kwin)
+    image=$(get_image lxqt);;
+  *)
+    image="--blur=8";;
+esac
+
 font='Raleway'
 white='ffffff88'
 transparent='00000000'
@@ -10,7 +32,7 @@ cyan='016392ff'
 red='d23c3dff'
 
 i3lock \
-  -t -p default -i $HOME/.config/i3/lock.png \
+  -t -p default $image \
   --timepos='x+110:h-70' --datepos='x+60:h-45' \
   --clock --date-align 1 --datestr="Screen Locked" \
   --insidecolor="$transparent" --ringcolor="$ringcolor" --line-uses-inside \
