@@ -2,7 +2,7 @@
 
 ### Auto startup
 # set keyboard layout and run sxhkd
-$HOME/.config/i3/keyboard.sh &
+keyboard-setup &
 
 # numlock on
 numlockx on &

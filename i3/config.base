@@ -28,7 +28,7 @@ font pango:Source Han Sans JP, Medium 12
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Keyboard
-exec --no-startup-id "$HOME/.config/i3/keyboard.sh"
+exec --no-startup-id keyboard-setup
 
 # Numlock on
 exec --no-startup-id "numlockx on"

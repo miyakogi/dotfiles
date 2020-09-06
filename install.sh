@@ -125,6 +125,9 @@ ln -sf $BASEDIR/alacritty.yml $CONFIG_HOME/alacritty
 # kitty (terminal)
 ln -sf $BASEDIR/kitty.conf $CONFIG_HOME/kitty
 
+# keyboard setup script
+ln -sf $BASEDIR/scripts/keyboard-setup.sh $HOME/bin/keyboard-setup
+
 # terminal launch script
 ln -sf $BASEDIR/scripts/launch-terminal.sh $HOME/bin/launch-terminal
 
@@ -134,7 +137,6 @@ ln -sf $BASEDIR/scripts/lock-screen.sh $HOME/bin/lock-screen
 # i3 window manager
 ln -sf $BASEDIR/i3/config.base $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/config.gaps $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/keyboard.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/update_config.sh $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/scratchterm.py $CONFIG_HOME/i3
 ln -sf $BASEDIR/i3/save_layout.sh $CONFIG_HOME/i3
