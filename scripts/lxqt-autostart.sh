@@ -12,6 +12,9 @@ xset dpms 0 0 1200 &
 # enable screen lock
 pgrep -x xautolock > /dev/null || xautolock -time 5 -locker lock-screen &
 
+# keyboard setup
+$HOME/.config/i3/keyboard.sh &
+
 # numlock on
 numlockx on &
 
