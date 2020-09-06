@@ -239,7 +239,7 @@ label = %title:0:30:...%
 [module/title-kwin]
 inherit = module/title
 type = custom/script
-exec = xdotool getactivewindow getwindowname | sed 's/^pcmanfm-qt$//'
+exec = xdotool getwindowfocus getwindowname | sed 's/^pcmanfm-qt$//'
 interval = 0.1
 
 label = %output:0:30:...%
