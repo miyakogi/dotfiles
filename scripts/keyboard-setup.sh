@@ -3,8 +3,11 @@
 WM=$(wmctrl -m | grep "Name: " | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
 
 setxkbmap -layout jp -option 'ctrl:nocaps'
-sleep 1
-test -f $HOME/.Xkeymap && xkbcomp $HOME/.Xkeymap $DISPLAY
+
+if [[ -f $HOME/.Xkeymap ]]; then
+  sleep 1
+  xkbcomp $HOME/.Xkeymap $DISPLAY
+fi
 
 # start sxhkd for bspwm
 if [[ $WM = bspwm ]]; then
