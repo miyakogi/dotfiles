@@ -45,11 +45,8 @@ case $1 in
     xsetroot -cursor_name left_ptr
     exec bspwm;;
   i3)
-    if grep "gaps" ~/.config/i3/config > /dev/null; then
-      cat ~/.config/i3/config.base ~/.config/i3/config.gaps > ~/.config/i3/config
-    else
-      cp -f ~/.config/i3/config.base ~/.config/i3/config
-    fi
+    # need to update config file
+    $HOME/.config/i3/update_config.sh
     exec i3;;
   kde)
     export DESKTOP_SESSION=plasma
