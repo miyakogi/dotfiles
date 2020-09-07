@@ -78,6 +78,7 @@ These applications should be all installed.
 - python-i3ipc (scratchpad control and add workspace function)
 - pulsemixer (polybar's volume check/fix)
 - pavucontrol-qt
+- qt5ct (qt5 app theming)
 - yakuake
 - kwin-scripts-krohnkite-git
 
