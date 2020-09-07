@@ -102,6 +102,15 @@ scrollbar {
 }
 
 element {
+	children: [element-icon, element-text];
+}
+
+element-icon {
+	size: 32px;
+	padding: 5px;
+}
+
+element-text {
 	padding: 5px;
 	highlight: bold underline;
 }
