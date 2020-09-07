@@ -1,9 +1,9 @@
 configuration {
 	modi: "window,run,drun";
 /*	width: 50;*/
-/*	lines: 15;*/
+	lines: 10;
 /*	columns: 1;*/
-  font: "Source Han Sans JP 14";
+  font: "Source Han Sans JP 20";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
