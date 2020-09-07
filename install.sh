@@ -10,13 +10,6 @@ makedir_if_not_exists () {
   fi
 }
 
-# Delete link if exists
-delete_if_exists () {
-  if [ -h $1 ]; then
-    rm $1
-  fi
-}
-
 # git clone if not exist
 git_clone () {
   if type git > /dev/null; then
@@ -107,7 +100,9 @@ ln -sf $VIMBASE/snippets $HOME/.vim
 ln -sf $VIMBASE/syntax $HOME/.vim
 
 # ------ NeoVim -------
-ln -sf $HOME/.vim $CONFIG_HOME/nvim
+if [ ! -h $CONFIG_HOME/nvim ]; then
+  ln -sf $HOME/.vim $CONFIG_HOME/nvim
+fi
 ln -sf $HOME/.vimrc $CONFIG_HOME/nvim/init.vim
 
 # Percol
