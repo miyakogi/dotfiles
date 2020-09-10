@@ -1,3 +1,0 @@
-#!/bin/zsh
-
-[[ -f $ZDOTDIR/.zlogin.local ]] && source $ZDOTDIR/.zlogin.local

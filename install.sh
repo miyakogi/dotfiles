@@ -54,7 +54,6 @@ ZSHBASE=$BASEDIR/zsh
 ln -sf $ZSHBASE/zshenv $HOME/.zsh/.zshenv
 ln -sf $ZSHBASE/zprofile $HOME/.zsh/.zprofile
 ln -sf $ZSHBASE/zshrc $HOME/.zsh/.zshrc
-ln -sf $ZSHBASE/zlogin $HOME/.zsh/.zlogin
 ln -sf $ZSHBASE/prompt.zsh $HOME/.zsh/prompt.zsh
 
 # ------ Git ------
