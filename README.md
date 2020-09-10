@@ -84,7 +84,13 @@ These applications should be all installed.
 
 ## Install
 
-After installing all requirements, run:
+After installing all requirements, make `/etc/zsh/zshenv` (on Arch Linux) as follows:
+
+```zsh
+test -d $HOME/.zsh && test -f $HOME/.zsh/.zshenv && export ZDOTDIR=$HOME/.zsh
+```
+
+Then run:
 
 ```sh
 # Install config files

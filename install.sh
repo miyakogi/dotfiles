@@ -51,7 +51,6 @@ ln -sf $BASEDIR/Xresources $HOME/.Xresources
 
 # zsh load files this order
 ZSHBASE=$BASEDIR/zsh
-ln -sf $ZSHBASE/zshenv $HOME/.zshenv
 ln -sf $ZSHBASE/zshenv $HOME/.zsh/.zshenv
 ln -sf $ZSHBASE/zprofile $HOME/.zsh/.zprofile
 ln -sf $ZSHBASE/zshrc $HOME/.zsh/.zshrc
