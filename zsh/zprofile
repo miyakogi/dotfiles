@@ -4,7 +4,7 @@
 # ===============================================
 
 # start graphical session
-if [[ -z $DISPLAY && $XDG_VTNR -eq 1 && $OSNAME == "Arch" ]]; then
+if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 && $OSNAME == "Arch" ]]; then
   echo -n "Select WM/DE [bspwm, i3, kde, lxqt (default: i3)]:\n>>> "
   read wm
   if [[ -z $wm ]]; then
