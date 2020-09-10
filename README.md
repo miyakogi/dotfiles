@@ -84,12 +84,15 @@ These applications should be all installed.
 
 ## Install
 
+After installing all requirements, run:
+
 ```sh
 # Install config files
 ./install.sh
 
 # Change defualt shell to zsh
-chsh /bin/zsh
+# check if output of `which zsh` is included in `chsh -l` and then run:
+chsh -s $(which zsh)
 ```
 
 ## Setup
