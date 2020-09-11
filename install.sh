@@ -31,17 +31,20 @@ makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
-makedir_if_not_exists $CONFIG_HOME/autostart
-makedir_if_not_exists $CONFIG_HOME/i3
-makedir_if_not_exists $CONFIG_HOME/bspwm
-makedir_if_not_exists $CONFIG_HOME/i3/workspaces
-makedir_if_not_exists $CONFIG_HOME/picom
-makedir_if_not_exists $CONFIG_HOME/conky
-makedir_if_not_exists $CONFIG_HOME/dunst
-makedir_if_not_exists $CONFIG_HOME/polybar
-makedir_if_not_exists $CONFIG_HOME/rofi
-makedir_if_not_exists $CONFIG_HOME/autostart-scripts
-makedir_if_not_exists $CONFIG_HOME/plasma-workspace/shutdown
+
+if [[ $OSTYPE == linux* ]]; then
+  makedir_if_not_exists $CONFIG_HOME/autostart
+  makedir_if_not_exists $CONFIG_HOME/i3
+  makedir_if_not_exists $CONFIG_HOME/bspwm
+  makedir_if_not_exists $CONFIG_HOME/i3/workspaces
+  makedir_if_not_exists $CONFIG_HOME/picom
+  makedir_if_not_exists $CONFIG_HOME/conky
+  makedir_if_not_exists $CONFIG_HOME/dunst
+  makedir_if_not_exists $CONFIG_HOME/polybar
+  makedir_if_not_exists $CONFIG_HOME/rofi
+  makedir_if_not_exists $CONFIG_HOME/autostart-scripts
+  makedir_if_not_exists $CONFIG_HOME/plasma-workspace/shutdown
+fi
 
 # ======== Make Symbolic Link ==============
 # ------ Shell ------
@@ -118,75 +121,77 @@ ln -sf $BASEDIR/alacritty.yml $CONFIG_HOME/alacritty
 # kitty (terminal)
 ln -sf $BASEDIR/kitty.conf $CONFIG_HOME/kitty
 
-# keyboard setup script
-ln -sf $BASEDIR/scripts/keyboard-setup.sh $HOME/bin/keyboard-setup
+if [[ $OSTYPE == linux* ]]; then
+  # keyboard setup script
+  ln -sf $BASEDIR/scripts/keyboard-setup.sh $HOME/bin/keyboard-setup
 
-# terminal launch script
-ln -sf $BASEDIR/scripts/launch-terminal.sh $HOME/bin/launch-terminal
+  # terminal launch script
+  ln -sf $BASEDIR/scripts/launch-terminal.sh $HOME/bin/launch-terminal
 
-# screen lock script
-ln -sf $BASEDIR/scripts/lock-screen.sh $HOME/bin/lock-screen
+  # screen lock script
+  ln -sf $BASEDIR/scripts/lock-screen.sh $HOME/bin/lock-screen
 
-# i3 window manager
-ln -sf $BASEDIR/i3/config.base $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/config.gaps $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/update_config.sh $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/scratchterm.py $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/save_layout.sh $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/load_layouts.sh $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/addws.py $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/layout.py $CONFIG_HOME/i3
-ln -sf $BASEDIR/i3/transparent.py $CONFIG_HOME/i3
+  # i3 window manager
+  ln -sf $BASEDIR/i3/config.base $CONFIG_HOME/i3
+  ln -sf $BASEDIR/i3/config.gaps $CONFIG_HOME/i3
+  ln -sf $BASEDIR/i3/update_config.sh $CONFIG_HOME/i3
+  ln -sf $BASEDIR/i3/scratchterm.py $CONFIG_HOME/i3
+  ln -sf $BASEDIR/i3/save_layout.sh $CONFIG_HOME/i3
+  ln -sf $BASEDIR/i3/load_layouts.sh $CONFIG_HOME/i3
+  ln -sf $BASEDIR/i3/addws.py $CONFIG_HOME/i3
+  ln -sf $BASEDIR/i3/layout.py $CONFIG_HOME/i3
+  ln -sf $BASEDIR/i3/transparent.py $CONFIG_HOME/i3
 
-# bspwm
-ln -sf $BASEDIR/bspwm/bspwmrc $CONFIG_HOME/bspwm
-ln -sf $BASEDIR/bspwm/sxhkdrc $CONFIG_HOME/bspwm
-ln -sf $BASEDIR/bspwm/layout.sh $CONFIG_HOME/bspwm
-ln -sf $BASEDIR/bspwm/scratchterm.sh $CONFIG_HOME/bspwm
+  # bspwm
+  ln -sf $BASEDIR/bspwm/bspwmrc $CONFIG_HOME/bspwm
+  ln -sf $BASEDIR/bspwm/sxhkdrc $CONFIG_HOME/bspwm
+  ln -sf $BASEDIR/bspwm/layout.sh $CONFIG_HOME/bspwm
+  ln -sf $BASEDIR/bspwm/scratchterm.sh $CONFIG_HOME/bspwm
 
-# picom (compositor)
-ln -sf $BASEDIR/picom/picom.conf $CONFIG_HOME/picom
+  # picom (compositor)
+  ln -sf $BASEDIR/picom/picom.conf $CONFIG_HOME/picom
 
-# conky
-ln -sf $BASEDIR/conky/conky.conf $CONFIG_HOME/conky
-ln -sf $BASEDIR/conky/rings.lua $CONFIG_HOME/conky
+  # conky
+  ln -sf $BASEDIR/conky/conky.conf $CONFIG_HOME/conky
+  ln -sf $BASEDIR/conky/rings.lua $CONFIG_HOME/conky
 
-# dunst
-ln -sf $BASEDIR/dunst/dunstrc $CONFIG_HOME/dunst
+  # dunst
+  ln -sf $BASEDIR/dunst/dunstrc $CONFIG_HOME/dunst
 
-# polybar
-ln -sf $BASEDIR/polybar/config $CONFIG_HOME/polybar
-ln -sf $BASEDIR/polybar/launch.sh $CONFIG_HOME/polybar
-ln -sf $BASEDIR/polybar/rofi-calendar.sh $CONFIG_HOME/polybar
-ln -sf $BASEDIR/polybar/rofi-menu.sh $CONFIG_HOME/polybar
-ln -sf $BASEDIR/polybar/updates.sh $CONFIG_HOME/polybar
-ln -sf $BASEDIR/polybar/nightcolor.sh $CONFIG_HOME/polybar
-ln -sf $BASEDIR/polybar/ff-volume-check.sh $CONFIG_HOME/polybar
-ln -sf $BASEDIR/polybar/ff-volume-fix.sh $CONFIG_HOME/polybar
+  # polybar
+  ln -sf $BASEDIR/polybar/config $CONFIG_HOME/polybar
+  ln -sf $BASEDIR/polybar/launch.sh $CONFIG_HOME/polybar
+  ln -sf $BASEDIR/polybar/rofi-calendar.sh $CONFIG_HOME/polybar
+  ln -sf $BASEDIR/polybar/rofi-menu.sh $CONFIG_HOME/polybar
+  ln -sf $BASEDIR/polybar/updates.sh $CONFIG_HOME/polybar
+  ln -sf $BASEDIR/polybar/nightcolor.sh $CONFIG_HOME/polybar
+  ln -sf $BASEDIR/polybar/ff-volume-check.sh $CONFIG_HOME/polybar
+  ln -sf $BASEDIR/polybar/ff-volume-fix.sh $CONFIG_HOME/polybar
 
-# rofi
-ln -sf $BASEDIR/rofi/config.rasi $CONFIG_HOME/rofi
-ln -sf $BASEDIR/rofi/main-theme.rasi $CONFIG_HOME/rofi
-ln -sf $BASEDIR/rofi/menu-theme.rasi $CONFIG_HOME/rofi
-ln -sf $BASEDIR/rofi/menu-theme-gaps.rasi $CONFIG_HOME/rofi
-ln -sf $BASEDIR/rofi/leave-theme.rasi $CONFIG_HOME/rofi
-ln -sf $BASEDIR/rofi/calendar-theme.rasi $CONFIG_HOME/rofi
-ln -sf $BASEDIR/rofi/leave.sh $CONFIG_HOME/rofi
+  # rofi
+  ln -sf $BASEDIR/rofi/config.rasi $CONFIG_HOME/rofi
+  ln -sf $BASEDIR/rofi/main-theme.rasi $CONFIG_HOME/rofi
+  ln -sf $BASEDIR/rofi/menu-theme.rasi $CONFIG_HOME/rofi
+  ln -sf $BASEDIR/rofi/menu-theme-gaps.rasi $CONFIG_HOME/rofi
+  ln -sf $BASEDIR/rofi/leave-theme.rasi $CONFIG_HOME/rofi
+  ln -sf $BASEDIR/rofi/calendar-theme.rasi $CONFIG_HOME/rofi
+  ln -sf $BASEDIR/rofi/leave.sh $CONFIG_HOME/rofi
 
-# chrome
-ln -sf $BASEDIR/chrome-flags.conf $CONFIG_HOME
+  # chrome (use kwallet by default)
+  ln -sf $BASEDIR/chrome-flags.conf $CONFIG_HOME
 
-# kwin/krohnkite
-ln -sf $BASEDIR/scripts/kwin-first-empty.sh $HOME/bin/kwin-first-empty
-ln -sf $BASEDIR/scripts/krohnkite-control.sh $HOME/bin/krohnkite-control
+  # kwin/krohnkite
+  ln -sf $BASEDIR/scripts/kwin-first-empty.sh $HOME/bin/kwin-first-empty
+  ln -sf $BASEDIR/scripts/krohnkite-control.sh $HOME/bin/krohnkite-control
 
-# plasma
-ln -sf $BASEDIR/scripts/kde-autostart.sh $CONFIG_HOME/autostart-scripts
-ln -sf $BASEDIR/scripts/kde-shutdown.sh $CONFIG_HOME/plasma-workspace/shutdown
+  # plasma
+  ln -sf $BASEDIR/scripts/kde-autostart.sh $CONFIG_HOME/autostart-scripts
+  ln -sf $BASEDIR/scripts/kde-shutdown.sh $CONFIG_HOME/plasma-workspace/shutdown
 
-# lxqt
-ln -sf $BASEDIR/scripts/lxqt-autostart.sh $HOME/bin/lxqt-autostart
-ln -sf $BASEDIR/autostart/lxqt-autostart.desktop $CONFIG_HOME/autostart
+  # lxqt
+  ln -sf $BASEDIR/scripts/lxqt-autostart.sh $HOME/bin/lxqt-autostart
+  ln -sf $BASEDIR/autostart/lxqt-autostart.desktop $CONFIG_HOME/autostart
+fi
 
 # Install zaw.sh
 git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
