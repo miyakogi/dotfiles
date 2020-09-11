@@ -2,6 +2,7 @@
 
 BASEDIR=$(cd $(dirname $0);pwd)
 CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+ZDOTDIR=${ZDOTDIR:-$HOME/.zsh}
 
 # Make dir if not exists
 makedir_if_not_exists () {
@@ -26,7 +27,7 @@ makedir_if_not_exists $HOME/.vim/doc
 makedir_if_not_exists $HOME/.vim/pack/remote
 makedir_if_not_exists $CONFIG_HOME/alacritty
 makedir_if_not_exists $CONFIG_HOME/kitty
-makedir_if_not_exists $HOME/.zsh
+makedir_if_not_exists $ZDOTDIR
 makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
 makedir_if_not_exists $HOME/.percol.d
@@ -54,10 +55,10 @@ ln -sf $BASEDIR/Xresources $HOME/.Xresources
 
 # zsh load files this order
 ZSHBASE=$BASEDIR/zsh
-ln -sf $ZSHBASE/zshenv $HOME/.zsh/.zshenv
-ln -sf $ZSHBASE/zprofile $HOME/.zsh/.zprofile
-ln -sf $ZSHBASE/zshrc $HOME/.zsh/.zshrc
-ln -sf $ZSHBASE/prompt.zsh $HOME/.zsh/prompt.zsh
+ln -sf $ZSHBASE/zshenv $ZDOTDIR/.zshenv
+ln -sf $ZSHBASE/zprofile $ZDOTDIR/.zprofile
+ln -sf $ZSHBASE/zshrc $ZDOTDIR/.zshrc
+ln -sf $ZSHBASE/prompt.zsh $ZDOTDIR/prompt.zsh
 
 # ------ Git ------
 ln -sf $BASEDIR/git/gitignore $HOME/.gitignore_global
@@ -194,20 +195,20 @@ if [[ $OSTYPE == linux* ]]; then
 fi
 
 # Install zaw.sh
-git_clone https://github.com/zsh-users/zaw.git  $HOME/.zsh/zaw
+git_clone https://github.com/zsh-users/zaw.git  $ZDOTDIR/zaw
 # Install zsh-autoenv
-git_clone https://github.com/Tarrasch/zsh-autoenv  $HOME/.zsh/zsh-autoenv
+git_clone https://github.com/Tarrasch/zsh-autoenv  $ZDOTDIR/zsh-autoenv
 # Install zsh-compoletions
-git_clone https://github.com/zsh-users/zsh-completions.git  $HOME/.zsh/zsh-completions
-git_clone https://github.com/bobthecow/git-flow-completion  $HOME/.zsh/git-flow-completion
+git_clone https://github.com/zsh-users/zsh-completions.git  $ZDOTDIR/zsh-completions
+git_clone https://github.com/bobthecow/git-flow-completion  $ZDOTDIR/git-flow-completion
 # Install zsh-nvm
-git_clone https://github.com/lukechilds/zsh-nvm  $HOME/.zsh/zsh-nvm
+git_clone https://github.com/lukechilds/zsh-nvm  $ZDOTDIR/zsh-nvm
 # Install zsh-autosuggestions
-git_clone https://github.com/zsh-users/zsh-autosuggestions  $HOME/.zsh/zsh-autosuggestions
+git_clone https://github.com/zsh-users/zsh-autosuggestions  $ZDOTDIR/zsh-autosuggestions
 # Install zsh-syntax-highlightinh
-git_clone https://github.com/zsh-users/zsh-syntax-highlightinh  $HOME/.zsh/zsh-syntax-highlighting
+git_clone https://github.com/zsh-users/zsh-syntax-highlightinh  $ZDOTDIR/zsh-syntax-highlighting
 # Install zsh-autopair
-git_clone https://github.com/hlissner/zsh-autopair $HOME/.zsh/zsh-autopair
+git_clone https://github.com/hlissner/zsh-autopair $ZDOTDIR/zsh-autopair
 
 # Install tpm
 git_clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
