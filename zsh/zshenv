@@ -4,7 +4,6 @@
 # ============================================
 
 # zsh default directory
-export ZDOTDIR=$HOME/.zsh
 export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=vim
 
@@ -133,6 +132,6 @@ export npm_config_prefix=~/.node_modules
 add_path $HOME/bin
 
 # load machine local profile
-[[ -f .zshenv.local ]] && source .zshenv.local
+[[ -f $ZDOTDIR/.zshenv.local ]] && source $ZDOTDIR/.zshenv.local
 
 # vim: sw=2 et
