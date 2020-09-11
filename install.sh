@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 BASEDIR=$(cd $(dirname $0);pwd)
-CONFIG_HOME=$HOME/.config
+CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 
 # Make dir if not exists
 makedir_if_not_exists () {
