@@ -36,7 +36,7 @@ fi
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 export XMODIFIERS=@im=ibus
-export GTK_IM_MODULE=xim
+export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export GLFW_IM_MODULE=ibus
 
