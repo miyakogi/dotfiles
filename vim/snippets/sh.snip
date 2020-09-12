@@ -1,11 +1,21 @@
-snippet    cb
-options     head
+delete  #!
+snippet #!
+abbr    #!/usr/bin/env zsh
+alias   shebang
+options head
+	#!/usr/bin/env ${1:zsh}
+	${0}
+
+snippet cb
+options head
 	# ============================================
 	#  ${1:#:title}
 	# ============================================
 	${2}
 
-snippet    cl
-options     head
+snippet cl
+options head
 	# ======== ${1:#:title} ========
 	${2}
+
+# vim: set noexpandtab :
