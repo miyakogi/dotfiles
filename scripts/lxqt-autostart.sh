@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 # lxqt monitor autostart
 lxqt-config-monitor -l &

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 # get WM name
 WM=$(wmctrl -m | grep "Name" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
@@ -28,7 +28,7 @@ function _exit() {
 }
 
 function reboot() {
-  if [[ $WM = "kwin" ]]; then
+  if [[ $WM == "kwin" ]]; then
     lxqt-leave --reboot
   else
     systemctl reboot
@@ -36,7 +36,7 @@ function reboot() {
 }
 
 function shutdown() {
-  if [[ $WM = "kwin" ]]; then
+  if [[ $WM == "kwin" ]]; then
     lxqt-leave --shutdown
   else
     systemctl poweroff -i

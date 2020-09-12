@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 # from https://qiita.com/matoruru/items/ab491eac6b2b74e3ce3b
 
 if ! updates_pacman=$(checkupdates 2>/dev/null | wc -l); then
@@ -9,9 +9,9 @@ if ! updates_yay=$(yay -Qum 2>/dev/null | wc -l); then
   updates_yay=0
 fi
 
-updates=$(("$updates_pacman" + "$updates_yay"))
+updates=$(($updates_pacman + $updates_yay))
 
-if [ "$updates" -gt 0 ]; then
+if [[ $updates -gt 0 ]]; then
   echo " $updates"
 else
   echo ""

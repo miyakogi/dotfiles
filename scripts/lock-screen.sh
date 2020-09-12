@@ -1,13 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 # Based on https://github.com/pavanjadhaw/betterlockscreen
 
 function get_image() {
-  local f=$(ls ~/.config/$1/lock.{png,jpg} 2>/dev/null | head -n 1)
+  local f=$(ls $HOME/.config/$1/lock.{png,jpg} 2>/dev/null | head -n 1)
   if [[ -z $f ]]; then
     echo "--blur=8"
   else
-    echo "-i $f"
+    echo "--image=$f"
   fi
 }
 

@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
-if grep "gaps" ~/.config/i3/config; then
+if grep "gaps" ~/.config/i3/config > /dev/null; then
   env DROPDOWN=1 kitty --override window_padding_width=0 &
 else
   kitty &

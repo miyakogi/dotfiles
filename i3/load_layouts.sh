@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 ws_dir="$HOME/.config/i3/workspaces"
 

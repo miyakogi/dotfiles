@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 if grep "gaps" ~/.config/i3/config >/dev/null; then
   xoffset=16

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 # Check executables
 function check_executable() {
@@ -41,7 +41,7 @@ if grep "noborder=true" $rulesrc > /dev/null; then
   count=$(kreadconfig5 --file $rulesrc --group General --key count)
   for i in `seq $count`; do
     if [[ $(kreadconfig5 --file $rulesrc --group $i --key Description) == *Titlebar* ]] && \
-      [[ $(kreadconfig5 --file $rulesrc --group $i --key noborder) = "true" ]]; then
+      [[ $(kreadconfig5 --file $rulesrc --group $i --key noborder) == "true" ]]; then
       kwriteconfig5 --file $rulesrc --group $i --key 'types' $types
       break
     fi

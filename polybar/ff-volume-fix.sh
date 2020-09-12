@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 pulsemixer --list-sinks | grep "Name: Firefox" | grep -v "100%" | while read -r line; do
   id=`echo $line | sed -r 's/^.*ID: ([a-zA-Z0-9\-]+).*$/\1/'`
