@@ -10,7 +10,7 @@ while pgrep -u $UID -x picom >/dev/null; do sleep 0.1; done
 
 # get window manager name
 wm=$(wmctrl -m | grep "Name:" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
-if [[ $wm = "bspwm" ]]; then
+if [[ $wm == "bspwm" ]]; then
   picom_opt="-f"
 fi
 

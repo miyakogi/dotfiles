@@ -10,7 +10,7 @@ if [[ -f $HOME/.Xkeymap ]]; then
 fi
 
 # start sxhkd for bspwm
-if [[ $WM = bspwm ]]; then
+if [[ $WM == bspwm ]]; then
   if pgrep -x sxhkd > /dev/null; then
     pkill -USR1 -x sxhkd
   else

@@ -75,7 +75,7 @@ function _update_lprompt() {
   if [[ -n "$VIRTUAL_ENV" ]]; then
     local icon=$'\ue235 '  # python 
     # local icon="🐍"  # snake
-    if [[ $OSTYPE = darwin* ]]; then
+    if [[ $OSTYPE == darwin* ]]; then
       local icon="${icon} "
     fi
     local icon="$icon$_icon_sep$(basename $VIRTUAL_ENV) "
@@ -124,7 +124,7 @@ function _get_time() {
 
 ### configure rprompt
 function _update_rprompt() {
-  [[ $PROMPT_SIMPLE_MODE = 1 ]] && RPROMPT="" && return
+  [[ $PROMPT_SIMPLE_MODE -eq 1 ]] && RPROMPT="" && return
   LANG=en_US.UTF-8 vcs_info
   local rinfo
   local gitinfo="`_get_vcs_info`"
@@ -139,7 +139,7 @@ function _update_rprompt() {
 # Delete RPROMPT after commands
 # setopt transient_rprompt
 function _reupdate_rprompt() {
-  if [[ $PROMPT_SIMPLE_MODE = 1 ]]; then
+  if [[ $PROMPT_SIMPLE_MODE -eq 1 ]]; then
     # cannot early return
     RPROMPT=""
   else
