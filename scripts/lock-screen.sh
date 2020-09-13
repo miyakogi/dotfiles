@@ -41,5 +41,5 @@ i3lock \
   --radius=120 --ring-width=32 --veriftext='Checking...' --wrongtext='WRONG' \
   --greetertext="Enter Password" --greetercolor="$white"\
   --verifcolor="$white" --timecolor="$white" --datecolor="$white" \
-  --time-font="$font" --date-font="$font" --layout-font="$font" --verif-font="$font" --wrong-font="$font" greeter-font="$font" --greetersize=124 --greeterpos="x+960:y+200" \
+  --time-font="$font" --date-font="$font" --layout-font="$font" --verif-font="$font" --wrong-font="$font" greeter-font="$font" --greetersize=124 --greeterpos="x+960:y+1000" \
   --noinputtext='' --force-clock --pass-media-keys
