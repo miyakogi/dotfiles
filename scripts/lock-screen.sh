@@ -32,7 +32,7 @@ cyan='016392ff'
 red='d23c3dff'
 
 i3lock \
-  -t -p default $image \
+  --centered -p default $image \
   --timepos='x+110:h-70' --datepos='x+60:h-45' \
   --clock --date-align 1 --datestr="Screen Locked" \
   --insidecolor="$transparent" --ringcolor="$ringcolor" --line-uses-inside \
