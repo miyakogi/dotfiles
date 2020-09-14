@@ -3,6 +3,11 @@
 ### Auto startup
 # set keyboard layout and run sxhkd
 keyboard-setup &
+if pgrep -x sxhkd > /dev/null; then
+  pkill -USR1 -x sxhkd &
+else
+  sxhkd -c ~/.config/bspwm/sxhkdrc &
+fi
 
 # numlock on
 numlockx on &
