@@ -120,14 +120,16 @@ session optional pam_kwallet5.so auto_start
 
 Use wallpaper for each WM as below:
 
-- i3: `$XDG_CONFIG_HOME/i3/bg.jpg`
-- bspwm: `$XDG_CONFIG_HOME/bspwm/bg.jpg`
+- i3: `$XDG_CONFIG_HOME/i3/bg.{jpg,png}`
+- bspwm: `$XDG_CONFIG_HOME/bspwm/bg.{jpg,png}`
+
+For LXQt and KDE, set wallpaper by those settings.
 
 Use lock images for each WM as below:
 
 - i3: `$XDG_CONFIG_HOME/i3/lock.{jpg,png}`
 - bspwm: `$XDG_CONFIG_HOME/bspwm/lock.{jpg,png}`
-- lxqt: `$XDG_CONFIG_HOME/lxqt/lock.{jpg,png}`
+- LXQt: `$XDG_CONFIG_HOME/lxqt/lock.{jpg,png}`
 
 If no image file is found, simply blur the desktop when lock screen.
 

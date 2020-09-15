@@ -56,7 +56,7 @@ run easystroke
 case $WM in
   bspwm)
     # wallpaper
-    feh --bg-scale $CONFIG_HOME/bspwm/bg.jpg &
+    feh --bg-scale $(ls $CONFIG_HOME/bspwm/bg.{jpg,png} 2>/dev/null | head -n 1) &
 
     # sxhkd (keyboard shortcut)
     if pgrep -x sxhkd > /dev/null; then
@@ -72,7 +72,7 @@ case $WM in
     /usr/lib/pam_kwallet_init &
 
     # wallpaper
-    feh --bg-scale $CONFIG_HOME/i3/bg.jpg &
+    feh --bg-scale $(ls $CONFIG_HOME/i3/bg.{jpg,png} 2>/dev/null | head -n 1) &
 
     # enable auto titling
     autotiling &
