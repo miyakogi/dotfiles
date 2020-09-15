@@ -84,7 +84,7 @@ These applications should be all installed.
 
 ## Install
 
-After installing all requirements, make `/etc/zsh/zshenv` (on Arch Linux) as follows:
+After installing all requirements, make `/etc/zsh/zshenv` (on Arch Linux) as below:
 
 ```zsh
 test -d $HOME/.zsh && test -f $HOME/.zsh/.zshenv && export ZDOTDIR=$HOME/.zsh
@@ -116,13 +116,18 @@ auth optional pam_kwallet5.so
 session optional pam_kwallet5.so auto_start
 ```
 
-### Set Lock Screen Image
+### Set Wallpaper and Lock Screen Image
+
+Use wallpaper for each WM as below:
+
+- i3: `$XDG_CONFIG_HOME/i3/bg.jpg`
+- bspwm: `$XDG_CONFIG_HOME/bspwm/bg.jpg`
 
 Use lock images for each WM as below:
 
-- i3: `~/.config/i3/lock.{jpg,png}`
-- bspwm: `~/.config/bspwm/lock.{jpg,png}`
-- lxqt: `~/.config/lxqt/lock.{jpg,png}`
+- i3: `$XDG_CONFIG_HOME/i3/lock.{jpg,png}`
+- bspwm: `$XDG_CONFIG_HOME/bspwm/lock.{jpg,png}`
+- lxqt: `$XDG_CONFIG_HOME/lxqt/lock.{jpg,png}`
 
 If no image file is found, simply blur the desktop when lock screen.
 
