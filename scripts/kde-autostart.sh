@@ -8,7 +8,7 @@ fi
 krohnkite-control disable &
 
 # ibus input method
-pgrep -x ibus-daemon > /dev/null || ibus-daemon -drx --panel /usr/lib/ibus/ibus-ui-gtk3 &
+pgrep -x ibus-daemon > /dev/null || ibus-daemon -drx &
 
 # easystroke (mouse gesture)
 pgrep -x easystroke > /dev/null || easystroke &
