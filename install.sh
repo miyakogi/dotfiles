@@ -189,7 +189,7 @@ if [[ $OSTYPE == linux* ]]; then
   ln -sf $BASEDIR/scripts/krohnkite-control.sh $HOME/bin/krohnkite-control
 
   # plasma
-  ln -sf $BASEDIR/scripts/kde-autostart.sh $CONFIG_HOME/autostart-scripts
+  ln -sf $BASEDIR/scripts/autostart.sh $CONFIG_HOME/autostart-scripts
   ln -sf $BASEDIR/scripts/kde-shutdown.sh $CONFIG_HOME/plasma-workspace/shutdown
 
   # lxqt
