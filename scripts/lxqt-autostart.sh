@@ -18,9 +18,6 @@ keyboard-setup &
 # numlock on
 numlockx on &
 
-# unlock kwallet
-/usr/lib/pam_kwallet_init &
-
 # enable krohnkite
 krohnkite-control enable &
 
