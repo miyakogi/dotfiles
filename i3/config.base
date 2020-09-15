@@ -20,6 +20,9 @@ font pango:Source Han Sans JP, Medium 12
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+# Start autostart script
+exec_always --no-startup-id $HOME/.config/i3/autostart.sh &
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -27,72 +30,15 @@ font pango:Source Han Sans JP, Medium 12
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# Keyboard
-exec --no-startup-id keyboard-setup
-
-# Numlock on
-exec --no-startup-id "numlockx on"
-
-# Unlock KWallet (only needed for i3)
-exec --no-startup-id /usr/lib/pam_kwallet_init
-
-# Enable auto display power off and disable screensaver/suspend/standby
-exec --no-startup-id "xset s off"
-exec --no-startup-id "xset dpms 0 0 1200"
-
-# Enable screen locker
-exec --no-startup-id "xautolock -time 5 -locker lock-screen"
-
-# Start redshift
-# Need to set $LATITUDE and $LONGITUDE in ~/.zsh/.zshenv.local
-exec --no-startup-id "redshift -l ${LATITUDE}:${LONGITUDE}"
-
-# Start polybar and compositor
-exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
-
-# Clipboard manager (need to keep screenshot in clipboard taken by spectacle)
-exec --no-startup-id klipper
-
-# Start conky system monitor
-# exec --no-startup-id conky
-
-# Start dunst notifier
-exec --no-startup-id dunst
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
-
-# Start IME
-exec --no-startup-id "ibus-daemon -drx"
-
-# Start albert launcher
-# exec --no-startup-id albert
-
-# Enable auto-tiling
-exec_always --no-startup-id autotiling
-
-# Start yakuake dropdown terminal
-# exec --no-startup-id yakuake
-
-# Start konsole as dropdown terminal by scratchpad
-exec --no-startup-id "~/.config/i3/scratchterm.py hide"
+# Start kitty as dropdown terminal by scratchpad
+# exec --no-startup-id "~/.config/i3/scratchterm.py hide"
 # keycode 68 = F2
-bindcode 68 exec --no-startup-id "~/.config/i3/scratchterm.py"
+bindcode 68 exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/scratchterm.py"
 for_window [class="scratchkitty"] border none
 for_window [class="scratchkitty"] floating enable sticky enable
 for_window [class="scratchkitty"] move scratchpad
 for_window [class="scratchkitty"] move to position 960 24
 for_window [class="scratchkitty"] resize set 960 1056
-
-# Start easystroke (mouse gesture)
-exec --no-startup-id easystroke
-
-# Wallpader
-exec --no-startup-id "feh --bg-scale $HOME/.config/i3/bg.jpg"
-
-# Restore workspace
-# exec --no-startup-id $HOME/.config/i3/load_layouts.sh
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
@@ -117,7 +63,7 @@ client.unfocused          #212121cc #212121d9 #888888 #000000 #222222
 client.focused_inactive   #212121cc #212121d9 #888888 #000000 #222222
 
 # Restore workspace
-bindsym $mod+Shift+g exec --no-startup-id ~/.config/i3/load_layouts.sh
+bindsym $mod+Shift+g exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/load_layouts.sh"
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
@@ -269,10 +215,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # reload the configuration file
 # bindsym $mod+Shift+c exec --no-startup-id "~/.config/i3/update_config.sh && i3-msg reload"
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec --no-startup-id "~/.config/i3/update_config.sh && i3-msg restart"
+bindsym $mod+Shift+r exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/update_config.sh && i3-msg restart"
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec --no-startup-id "~/.config/rofi/leave.sh"
+bindsym $mod+Shift+e exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/rofi/leave.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
