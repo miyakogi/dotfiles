@@ -123,6 +123,9 @@ ln -sf $BASEDIR/alacritty.yml $CONFIG_HOME/alacritty
 ln -sf $BASEDIR/kitty.conf $CONFIG_HOME/kitty
 
 if [[ $OSTYPE == linux* ]]; then
+  # autostart script
+  ln -sf $BASEDIR/scripts/autostart.sh $HOME/bin/autostart
+
   # keyboard setup script
   ln -sf $BASEDIR/scripts/keyboard-setup.sh $HOME/bin/keyboard-setup
 
@@ -135,7 +138,6 @@ if [[ $OSTYPE == linux* ]]; then
   # i3 window manager
   ln -sf $BASEDIR/i3/config.base $CONFIG_HOME/i3
   ln -sf $BASEDIR/i3/config.gaps $CONFIG_HOME/i3
-  ln -sf $BASEDIR/i3/autostart.sh $CONFIG_HOME/i3
   ln -sf $BASEDIR/i3/update_config.sh $CONFIG_HOME/i3
   ln -sf $BASEDIR/i3/scratchterm.py $CONFIG_HOME/i3
   ln -sf $BASEDIR/i3/save_layout.sh $CONFIG_HOME/i3

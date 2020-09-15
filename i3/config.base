@@ -21,7 +21,7 @@ font pango:Source Han Sans JP, Medium 12
 #font pango:DejaVu Sans Mono 8
 
 # Start autostart script
-exec_always --no-startup-id $HOME/.config/i3/autostart.sh &
+exec_always --no-startup-id autostart &
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
