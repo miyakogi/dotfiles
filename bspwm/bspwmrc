@@ -1,53 +1,15 @@
 #!/usr/bin/env zsh
 
 ### Auto startup
-# set keyboard layout and run sxhkd
-keyboard-setup &
-if pgrep -x sxhkd > /dev/null; then
-  pkill -USR1 -x sxhkd &
-else
-  sxhkd -c ~/.config/bspwm/sxhkdrc &
-fi
+autostart &
 
-# numlock on
-numlockx on &
-
-# display power management
-xset s off &
-xset dpms 0 0 1200 &
-
-# screen locker
-pgrep -x xautolock > /dev/null || xautolock -time 5 -locker lock-screen &
-
-# redshift
-pgrep -x redshift > /dev/null || redshift -l ${LATITUDE}:${LONGITUDE} &
-
-# launch polybar
-$HOME/.config/polybar/launch.sh &
-
-# clipboard manager
-pgrep -x klipper > /dev/null || klipper &
-
-# dunst notifier
-pgrep -x dunst > /dev/null || dunst &
-
-# ibus input method
-pgrep -x ibus-daemon > /dev/null || ibus-daemon -drx &
-
-# easystroke (mouse gesture)
-pgrep -x easystroke > /dev/null || easystroke &
-
-# set wallpaper
-feh --bg-scale $HOME/.config/i3/bg.jpg &
-
-# scrachpad terminal
+### Set scrachpad terminal
 if grep "gaps" ~/.config/i3/config > /dev/null; then
   rectangle=936x1032+968+40
 else
   rectangle=960x1056+960+24
 fi
 bspc rule -a scratchkitty state=floating sticky=on hidden=on rectangle=$rectangle
-pgrep -f scratchkitty > /dev/null || ~/.config/bspwm/scratchterm.sh hide &
 
 ### Set workspaces
 bspc monitor -d 1 2 3 4 5 6
