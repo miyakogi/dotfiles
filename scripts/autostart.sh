@@ -85,7 +85,7 @@ case $WM in
     run krohnkite-control enable
 
     # lxqt monitor setup
-    run lxqt-config-monitor
+    run lxqt-config-monitor -l
     ;;
   kwin-kde)
     # disable krohnkite
