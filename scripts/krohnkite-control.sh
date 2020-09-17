@@ -36,7 +36,7 @@ case $1 in
 esac
 
 # Disable/Enable window border and title bar
-rulesrc="$HOME/.config/kwinrulesrc"
+rulesrc="${XDG_CONFIG_HOME:-$HOME/.config}/kwinrulesrc"
 if grep "noborder=true" $rulesrc > /dev/null; then
   count=$(kreadconfig5 --file $rulesrc --group General --key count)
   for i in `seq $count`; do
@@ -49,7 +49,7 @@ if grep "noborder=true" $rulesrc > /dev/null; then
 fi
 
 # Enable/Disable krohnkite
-kwinrc="$HOME/.config/kwinrc"
+kwinrc="${XDG_CONFIG_HOME:-$HOME/.config}/kwinrc"
 if grep "krohnkiteEnabled" $kwinrc > /dev/null; then
   kwriteconfig5 --file $kwinrc --group Plugins --type bool --key 'krohnkiteEnabled' $enabled
 fi
