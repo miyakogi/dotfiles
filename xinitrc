@@ -46,7 +46,7 @@ case $1 in
     exec bspwm;;
   i3)
     # need to update config file
-    $HOME/.config/i3/update_config.sh
+    ${XDG_CONFIG_HOME:-$HOME/.config}/i3/update_config.sh
     exec i3;;
   kde)
     export DESKTOP_SESSION=plasma
