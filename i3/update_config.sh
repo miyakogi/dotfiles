@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
-if grep "gaps" ~/.config/i3/config > /dev/null; then
-  cat ~/.config/i3/config.base ~/.config/i3/config.gaps > ~/.config/i3/config
+CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+if grep "gaps" $CONFIG_HOME/i3/config > /dev/null; then
+  cat $CONFIG_HOME/i3/config.base $CONFIG_HOME/i3/config.gaps > $CONFIG_HOME/i3/config
 else
-  cp -f ~/.config/i3/config.base ~/.config/i3/config
+  cp -f $CONFIG_HOME/i3/config.base $CONFIG_HOME/i3/config
 fi
