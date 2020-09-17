@@ -24,7 +24,7 @@ super + shift + {q,r}
 
 # show exit menu
 super + shift + e
-	~/.config/rofi/leave.sh
+	$\{XDG_CONFIG_HOME:-$HOME/.config\}/rofi/leave.sh
 
 # close and kill
 super + {_,shift + }w
@@ -152,6 +152,6 @@ super + {Left,Down,Up,Right}
 #
 
 F2
-	~/.config/bspwm/scratchterm.sh
+	$\{XDG_CONFIG_HOME:-$HOME/.config\}/bspwm/scratchterm.sh
 
 # vim: set noexpandtab:
