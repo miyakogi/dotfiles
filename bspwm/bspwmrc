@@ -4,7 +4,8 @@
 autostart &
 
 ### Set scrachpad terminal
-if grep "gaps" ~/.config/i3/config > /dev/null; then
+i3_config=${XDG_CONFIG_HOME:-$HOME/.config}/i3/config
+if grep "gaps" $i3_config > /dev/null; then
   rectangle=936x1032+968+40
 else
   rectangle=960x1056+960+24
@@ -15,7 +16,7 @@ bspc rule -a scratchkitty state=floating sticky=on hidden=on rectangle=$rectangl
 bspc monitor -d 1 2 3 4 5 6
 
 ### Set windows
-if grep "gaps" $HOME/.config/i3/config > /dev/null; then
+if grep "gaps" $i3_config > /dev/null; then
   bottom=-8
   gap=16
 else
