@@ -4,7 +4,7 @@ year=$(date '+%Y')
 month=$(date '+%m')
 date=$(date '+%A, %d. %B')
 
-if grep "gaps" ~/.config/i3/config >/dev/null; then
+if grep "gaps" ${XDG_CONFIG_HOME:-$HOME/.config}/i3/config >/dev/null; then
   yoffset=32
 else
   yoffset=24

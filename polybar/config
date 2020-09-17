@@ -220,7 +220,7 @@ override-redirect = false
 [module/menu]
 type = custom/script
 exec = echo ""
-click-left = ~/.config/polybar/rofi-menu.sh
+click-left = $XDG_CONFIG_HOME/polybar/rofi-menu.sh
 format-foreground = ${colors.blue}
 format-padding = 1
 
@@ -256,7 +256,7 @@ label-mode-background = ${colors.yellow}
 [module/i3-layout]
 type = custom/script
 
-exec = exec ~/.config/i3/layout.py
+exec = exec ${XDG_CONFIG_HOME:-$HOME/.config}/i3/layout.py
 tail = true
 
 format = %{T2}<label>%{T-}
@@ -267,7 +267,7 @@ click-left = i3-msg layout toggle && i3-msg -t send_tick
 [module/bspwm-mode]
 type = custom/script
 
-exec = exec ~/.config/bspwm/layout.sh
+exec = exec ${XDG_CONFIG_HOME:-$HOME/.config}/bspwm/layout.sh
 tail = true
 
 format-padding = 2
@@ -279,7 +279,7 @@ type = custom/text
 content = 
 content-padding = 2
 content-foreground = ${colors.foreground}
-click-left = exec ~/.config/i3/addws.py
+click-left = exec $XDG_CONFIG_HOME/i3/addws.py
 
 [module/ws-base]
 format = <label-state>
@@ -383,7 +383,7 @@ click-left = if [[ $(qdbus org.kde.KWin /KWin org.kde.KWin.currentDesktop) -eq $
 
 [module/nightcolor]
 type = custom/script
-exec = exec ~/.config/polybar/nightcolor.sh
+exec = exec ${XDG_CONFIG_HOME:-$HOME/.config}/polybar/nightcolor.sh
 interval = 60
 
 content-padding = 2
@@ -422,9 +422,9 @@ format-online = <icon-prev> <toggle> <icon-stop> <icon-next> <bar-progress> <ico
 
 [module/volume]
 type = custom/script
-exec = exec ~/.config/polybar/ff-volume-check.sh
+exec = exec ${XDG_CONFIG_HOME:-$HOME/.config}/polybar/ff-volume-check.sh
 interval = 0.3
-click-left = exec ~/.config/polybar/ff-volume-fix.sh
+click-left = exec $XDG_CONFIG_HOME/polybar/ff-volume-fix.sh
 click-right = pavucontrol-qt &
 
 [module/cpu-graph]
@@ -500,7 +500,7 @@ format-padding = 2
 
 [module/updates]
 type = custom/script
-exec = ~/.config/polybar/updates.sh
+exec = exec ${XDG_CONFIG_HOME:-$HOME/.config}/polybar/updates.sh
 format-padding = 2
 format-foreground = ${colors.foreground}
 format-background = ${colors.red}
@@ -515,7 +515,7 @@ interval = 1
 format-underline = #999999
 format-padding = 2
 
-click-left = ~/.config/polybar/rofi-calendar.sh
+click-left = $XDG_CONFIG_HOME/polybar/rofi-calendar.sh
 
 [module/close]
 type = custom/text
