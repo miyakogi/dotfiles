@@ -186,7 +186,8 @@ function load_if_exists() {
 ### Polybar setting
 # toggle split polybar
 function _check_krohnkite() {
-  which kwriteconfig5 > /dev/null && [[ -e ~/.config/kwinrc ]] && grep "krohnkite" ~/.config/kwinrc > /dev/null
+  local kwinrc=${XDG_CONFIG_HOME:-$HOME/.config}/kwinrc
+  which kwriteconfig5 > /dev/null && [[ -e $kwinrc ]] && grep "krohnkite" $kwinrc > /dev/null
 }
 
 function gaps-toggle() {
@@ -196,23 +197,25 @@ function gaps-toggle() {
   fi
 
   local WM=$(wmctrl -m | grep "Name" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
-  if grep "gaps" ~/.config/i3/config > /dev/null; then
-    cp -f ~/.config/i3/config.base ~/.config/i3/config
+  local CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+  local kwinrc=$CONFIG_HOME/kwinrc
+  if grep "gaps" $CONFIG_HOME/i3/config > /dev/null; then
+    cp -f $CONFIG_HOME/i3/config.base $CONFIG_HOME/i3/config
     if _check_krohnkite; then
-      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '0'
-      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapLeft'   '0'
-      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapRight'  '0'
-      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapTop'    '0'
-      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'tileLayoutGap'   '0'
+      kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '0'
+      kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'screenGapLeft'   '0'
+      kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'screenGapRight'  '0'
+      kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'screenGapTop'    '0'
+      kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'tileLayoutGap'   '0'
     fi
   else
-    cat ~/.config/i3/config.base ~/.config/i3/config.gaps > ~/.config/i3/config
+    cat $CONFIG_HOME/i3/config.base $CONFIG_HOME/i3/config.gaps > $CONFIG_HOME/i3/config
     if _check_krohnkite; then
-      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '8'
-      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapLeft'  '16'
-      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapRight' '16'
-      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'screenGapTop'    '8'
-      kwriteconfig5 --file ~/.config/kwinrc --group 'Script-krohnkite' --key 'tileLayoutGap'  '16'
+      kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '8'
+      kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'screenGapLeft'  '16'
+      kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'screenGapRight' '16'
+      kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'screenGapTop'    '8'
+      kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'tileLayoutGap'  '16'
     fi
   fi
 
@@ -224,18 +227,18 @@ function gaps-toggle() {
     kwin)
       if _check_krohnkite; then
         # disable/enable krohnkite to reload gap config
-        kwriteconfig5 --file ~/.config/kwinrc --group Plugins --key 'krohnkiteEnabled' 'false'
+        kwriteconfig5 --file $kwinrc --group Plugins --key 'krohnkiteEnabled' 'false'
         qdbus org.kde.KWin /KWin org.kde.KWin.reconfigure
         sleep 0.5  # need to wait for kwin reconfiguration
-        kwriteconfig5 --file ~/.config/kwinrc --group Plugins --key 'krohnkiteEnabled' 'true'
+        kwriteconfig5 --file $kwinrc --group Plugins --key 'krohnkiteEnabled' 'true'
         qdbus org.kde.KWin /KWin org.kde.KWin.reconfigure
       fi
 
       # run polybar launch script under sub-shell
-      ( ~/.config/polybar/launch.sh 1>/dev/null 2>/dev/null & );;
+      ( $CONFIG_HOME/polybar/launch.sh 1>/dev/null 2>/dev/null & );;
     *)
       # run polybar launch script under sub-shell
-      ( ~/.config/polybar/launch.sh 1>/dev/null 2>/dev/null & );;
+      ( $CONFIG_HOME/polybar/launch.sh 1>/dev/null 2>/dev/null & );;
   esac
 }
 
