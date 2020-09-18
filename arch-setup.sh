@@ -33,6 +33,7 @@ yay -S \
   xorg-server \
   xorg-xinit \
   xlogin \
+  xdotool \
   wmctrl \
   kwallet-pam \
   xorg-xset \
