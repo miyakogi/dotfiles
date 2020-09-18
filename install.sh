@@ -208,7 +208,7 @@ git_clone https://github.com/lukechilds/zsh-nvm  $ZDOTDIR/zsh-nvm
 # Install zsh-autosuggestions
 git_clone https://github.com/zsh-users/zsh-autosuggestions  $ZDOTDIR/zsh-autosuggestions
 # Install zsh-syntax-highlightinh
-git_clone https://github.com/zsh-users/zsh-syntax-highlightinh  $ZDOTDIR/zsh-syntax-highlighting
+git_clone https://github.com/zsh-users/zsh-syntax-highlighting  $ZDOTDIR/zsh-syntax-highlighting
 # Install zsh-autopair
 git_clone https://github.com/hlissner/zsh-autopair $ZDOTDIR/zsh-autopair
 
