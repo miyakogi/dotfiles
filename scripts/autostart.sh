@@ -46,6 +46,11 @@ else
   run redshift -l ${LATITUDE}:${LONGITUDE}
 fi
 
+if [[ -z $DE ]]; then
+  # run polkit agent for non-DE environment (for bspwm and i3)
+  run /usr/lib/polkit-kde-authentication-agent-1
+fi
+
 # IME
 run ibus-daemon -drx
 
