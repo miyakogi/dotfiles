@@ -19,11 +19,11 @@ if grep "gaps" ${XDG_CONFIG_HOME:-$HOME/.config}/i3/config >/dev/null; then
   polybar "center-$wm" &
   polybar "right-$wm" &
   if [[ $wm != "kwin" ]]; then
-    picom -cb $picom_opt --experimental-backends &
+    picom -cb $picom_opt --experimental-backends $QEMU_PICOM_OPTION &
   fi
 else
   polybar "top-$wm" &
   if [[ $wm != "kwin" ]]; then
-    picom -b $picom_opt --experimental-backends &
+    picom -b $picom_opt --experimental-backends $QEMU_PICOM_OPTION &
   fi
 fi
