@@ -57,6 +57,7 @@ These applications should be all installed.
 
 ### Desktop
 
+- xorg-server
 - xorg-xinit
 - xlogin
 - xdotool
