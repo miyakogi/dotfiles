@@ -66,7 +66,7 @@ These applications should be all installed.
 - xorg-xset (display power management)
 - numlockx
 - autotiling (for i3 auto-tiling)
-- i3locks-color (screen lock)
+- i3lock-color (screen lock)
 - dmenu
 - redshift
 - ibus
