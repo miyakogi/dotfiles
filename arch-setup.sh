@@ -55,6 +55,7 @@ yay -S \
   pavucontrol-qt \
   mpd \
   qt5ct \
+  qt5-tools \
   yakuake \
   kwin-scripts-krohnkite-git \
   ksuperkey \
