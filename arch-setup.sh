@@ -12,6 +12,7 @@ yay -S \
   kitty \
   gvim \
   neovim \
+  python-pynvim \
   tmux \
   ctags \
   i3-gaps \
@@ -25,9 +26,10 @@ yay -S \
   plasma \
   lxqt \
   adobe-source-han-sans-jp-fonts \
-  bdf-unifont \
-  nerd-fonts-complete \
+  nerd-fonts-fira-code \
+  ttf-unifont \
   ttf-raleway \
+  ttf-nerd-fonts-symbols \
   xorg-server \
   xorg-xinit \
   xlogin \
@@ -37,6 +39,7 @@ yay -S \
   numlockx \
   autotiling \
   i3lock-color \
+  xautolock \
   dmenu \
   redshift \
   ibus \
@@ -49,6 +52,9 @@ yay -S \
   python-i3ipc \
   pulsemixer \
   pavucontrol-qt \
+  mpd \
   qt5ct \
   yakuake \
-  kwin-scripts-krohnkite-git
+  kwin-scripts-krohnkite-git \
+  ksuperkey \
+  xbindkeys
