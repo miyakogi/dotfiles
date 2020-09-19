@@ -32,7 +32,6 @@ yay -S \
   ttf-nerd-fonts-symbols \
   xorg-server \
   xorg-xinit \
-  xlogin \
   xdotool \
   wmctrl \
   kwallet-pam \

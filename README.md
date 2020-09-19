@@ -59,7 +59,6 @@ These applications should be all installed.
 
 - xorg-server
 - xorg-xinit
-- xlogin
 - xdotool
 - wmctrl (check current WM)
 - kwallet-pam (password management)
