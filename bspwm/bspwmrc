@@ -40,3 +40,6 @@ bspc rule -a Screenkey manage=off
 # steam games (proton games seems to be floated by default)
 bspc rule -a Helltaker.x86_64 state=floating center=on
 bspc rule -a helltaker.x86_64 state=floating center=on
+
+# looking-glass
+bspc rule -a looking-glass-client state=floating center=on

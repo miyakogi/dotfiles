@@ -284,3 +284,6 @@ assign [class="^steam_app_*"] $ws6
 # Music Players
 assign [class="Audacious"] $ws10
 assign [class="cantata"] $ws10
+
+# Lookign Glass
+for_window [class="looking-glass-client"] floating enable, move position center
