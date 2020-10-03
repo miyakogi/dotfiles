@@ -24,6 +24,9 @@ if [[ $DE != "kde" ]]; then
   xset s off &
   xset dpms 0 0 1200 &
 
+  # set keyboard repeat rate
+  xset r rate 300 36
+
   # enable screen locker
   run xautolock -time 5 -locker lock-screen
 
