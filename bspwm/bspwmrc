@@ -21,7 +21,7 @@ bspc monitor -d 1 2 3 4 5 6
 if grep -q "gaps" $i3_config; then
   border=2
   top=28
-  bottom=-4
+  bottom=-6
   gap=12
 else
   top=24
