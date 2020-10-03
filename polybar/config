@@ -125,6 +125,9 @@ height = 28
 offset-y = 4
 background = ${colors.semi-transparent}
 
+border-size = 2
+border-color = #434445
+
 override-redirect = true
 
 ; fonts with 2px top margin
