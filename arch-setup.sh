@@ -18,7 +18,7 @@ yay -S \
   i3-gaps \
   bspwm \
   sxhkd \
-  picom-git \
+  picom-ibhagwan-git \
   conky-cairo \
   dunst \
   polybar \
@@ -58,4 +58,5 @@ yay -S \
   yakuake \
   kwin-scripts-krohnkite-git \
   ksuperkey \
-  xbindkeys
+  xbindkeys \
+  numix-icon-theme-git

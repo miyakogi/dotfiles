@@ -82,6 +82,7 @@ These applications should be all installed.
 - qt5ct (qt5 app theming)
 - yakuake
 - kwin-scripts-krohnkite-git
+- numix-icon-theme-git (rofi leave script)
 
 ## Install
 
