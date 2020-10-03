@@ -51,15 +51,15 @@ for_window [class="scratchkitty"] resize set 960 1056
 floating_modifier $mod
 
 # Disable title bar for tiling window
-default_border pixel 0
+default_border pixel 2
 
 # Enable title bar for floating window
 title_align center
 default_floating_border normal
 
 # change colors           border  bg      text    indicat child_border
-client.focused            #212121cc #212121d9 #ffffff #3d9cca #1d5c8a
-client.unfocused          #212121cc #212121d9 #888888 #000000 #222222
+client.focused            #5fd7af #212121d9 #ffffff #3d9cca #5f7daf
+client.unfocused          #323334 #212121d9 #888888 #000000 #323334
 client.focused_inactive   #212121cc #212121d9 #888888 #000000 #222222
 
 # Restore workspace

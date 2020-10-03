@@ -15,8 +15,8 @@ gaps inner 16
 
 # more transparent title bars
 # change colors           border    bg        text    indicat child_border
-client.focused            #212121cc #00000099 #f1f1f1 #3d9cca #1d5c8a
-client.unfocused          #212121cc #00000099 #999999 #000000 #222222
+client.focused            #5fd7af #00000099 #f1f1f1 #3d9cca #5fd7af
+client.unfocused          #323334 #00000099 #999999 #000000 #323334
 client.focused_inactive   #212121cc #00000099 #999999 #000000 #222222
 
 # for scratchpad (dropdown terminal)
