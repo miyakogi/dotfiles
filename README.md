@@ -25,7 +25,7 @@ These applications should be all installed.
 - i3-gaps
 - bspwm
 - sxhkd
-- picom (picom-git)
+- picom (picom-ibhagwan-git)
 - conky (conky-cairo)
 - dunst
 - polybar
