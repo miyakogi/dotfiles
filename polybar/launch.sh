@@ -14,7 +14,7 @@ if [[ $wm == "bspwm" ]]; then
   picom_opt="-f"
 fi
 
-if grep "gaps" ${XDG_CONFIG_HOME:-$HOME/.config}/i3/config >/dev/null; then
+if grep -q "gaps" ${XDG_CONFIG_HOME:-$HOME/.config}/i3/config; then
   polybar "left-$wm" &
   polybar "center-$wm" &
   polybar "right-$wm" &

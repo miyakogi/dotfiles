@@ -187,7 +187,7 @@ function load_if_exists() {
 # toggle split polybar
 function _check_krohnkite() {
   local kwinrc=${XDG_CONFIG_HOME:-$HOME/.config}/kwinrc
-  which kwriteconfig5 > /dev/null && [[ -e $kwinrc ]] && grep "krohnkite" $kwinrc > /dev/null
+  which kwriteconfig5 > /dev/null && [[ -e $kwinrc ]] && grep -q "krohnkite" $kwinrc
 }
 
 function gaps-toggle() {
@@ -199,7 +199,7 @@ function gaps-toggle() {
   local WM=$(wmctrl -m | grep "Name" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
   local CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
   local kwinrc=$CONFIG_HOME/kwinrc
-  if grep "gaps" $CONFIG_HOME/i3/config > /dev/null; then
+  if grep -q "gaps" $CONFIG_HOME/i3/config; then
     cp -f $CONFIG_HOME/i3/config.base $CONFIG_HOME/i3/config
     if _check_krohnkite; then
       kwriteconfig5 --file $kwinrc --group 'Script-krohnkite' --key 'screenGapBottom' '0'

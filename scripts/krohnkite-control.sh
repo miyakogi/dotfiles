@@ -14,7 +14,7 @@ check_executable "kwriteconfig5"
 check_executable "kreadconfig5"
 
 # Check window manager is kwin
-if wmctrl -m | grep "Name:" | grep -v -i "kwin" > /dev/null; then
+if wmctrl -m | grep "Name:" | grep -q -v -i "kwin"; then
   echo "Current window manager is not Kwin"
   exit 1
 fi
@@ -37,7 +37,7 @@ esac
 
 # Disable/Enable window border and title bar
 rulesrc="${XDG_CONFIG_HOME:-$HOME/.config}/kwinrulesrc"
-if grep "noborder=true" $rulesrc > /dev/null; then
+if grep -q "noborder=true" $rulesrc; then
   count=$(kreadconfig5 --file $rulesrc --group General --key count)
   for i in `seq $count`; do
     if [[ $(kreadconfig5 --file $rulesrc --group $i --key Description) == *Titlebar* ]] && \
@@ -50,7 +50,7 @@ fi
 
 # Enable/Disable krohnkite
 kwinrc="${XDG_CONFIG_HOME:-$HOME/.config}/kwinrc"
-if grep "krohnkiteEnabled" $kwinrc > /dev/null; then
+if grep -q "krohnkiteEnabled" $kwinrc; then
   kwriteconfig5 --file $kwinrc --group Plugins --type bool --key 'krohnkiteEnabled' $enabled
 fi
 
