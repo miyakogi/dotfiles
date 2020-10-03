@@ -3,8 +3,10 @@
 ### Auto startup
 autostart &
 
+CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+
 ### Set scrachpad terminal
-i3_config=${XDG_CONFIG_HOME:-$HOME/.config}/i3/config
+i3_config=$CONFIG_HOME/i3/config
 if grep "gaps" $i3_config > /dev/null; then
   rectangle=936x1032+968+40
 else
