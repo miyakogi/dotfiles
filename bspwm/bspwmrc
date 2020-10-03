@@ -45,10 +45,6 @@ bspc config gapless_monocle   false
 bspc rule -a Rofi focus=on
 bspc rule -a Screenkey manage=off
 
-# set border rules
-bspc rule -a firefox-game border=off
-bspc rule -a discord border=off
-
 # steam games (proton games seems to be floated by default)
 bspc rule -a Helltaker.x86_64 state=floating center=on
 bspc rule -a helltaker.x86_64 state=floating center=on
