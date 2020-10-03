@@ -8,7 +8,7 @@ CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 ### Set scrachpad terminal
 i3_config=$CONFIG_HOME/i3/config
 if grep -q "gaps" $i3_config; then
-  rectangle=936x1028+968+40
+  rectangle=938x1028+966+40
 else
   rectangle=960x1056+960+24
 fi
