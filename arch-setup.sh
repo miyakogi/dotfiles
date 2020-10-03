@@ -8,7 +8,7 @@ fi
 yay -S \
   zsh \
   git \
-  alacritty \
+  alacritty-ligatures-git \
   kitty \
   gvim \
   neovim \
