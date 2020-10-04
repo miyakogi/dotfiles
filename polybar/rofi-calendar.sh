@@ -5,7 +5,7 @@ month=$(date '+%m')
 date=$(date '+%A, %d. %B')
 
 if grep -q "gaps" ${XDG_CONFIG_HOME:-$HOME/.config}/i3/config; then
-  yoffset=32
+  yoffset=36
 else
   yoffset=24
 fi
