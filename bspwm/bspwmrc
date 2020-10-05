@@ -24,8 +24,8 @@ if grep -q "gaps" $i3_config; then
   bottom=-6
   gap=12
 else
-  top=24
   border=0
+  top=24
   bottom=0
   gap=0
 fi
