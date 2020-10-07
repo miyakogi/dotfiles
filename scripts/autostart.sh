@@ -46,7 +46,7 @@ if [[ $WM == kwin* ]]; then
 else
   # start redshift
   # need to set $LATITUDE and $LONGITUDE in ~/.zsh/.zshenv.local
-  run redshift -l ${LATITUDE}:${LONGITUDE}
+  run redshift -l ${LATITUDE}:${LONGITUDE} -t 6500:5200
 fi
 
 if [[ -z $DE ]]; then
