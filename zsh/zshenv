@@ -6,6 +6,9 @@
 # zsh default directory
 export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR=vim
+if which vimpager > /dev/null; then
+  export PAGER=vimpager
+fi
 
 # OS setting
 if [[ "$(uname)" == "Darwin" ]]; then

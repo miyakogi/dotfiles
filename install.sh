@@ -101,6 +101,9 @@ ln -sf $VIMBASE/plugin $HOME/.vim
 ln -sf $VIMBASE/snippets $HOME/.vim
 ln -sf $VIMBASE/syntax $HOME/.vim
 
+# ------ VimPager ------
+ln -s $VIMBASE/vimpagerrc $HOME/.vim
+
 # ------ NeoVim -------
 if [ ! -h $CONFIG_HOME/nvim ]; then
   ln -sf $HOME/.vim $CONFIG_HOME/nvim

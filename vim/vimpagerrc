@@ -1,0 +1,20 @@
+set encoding=utf-8
+scriptencoding utf-8
+
+source $HOME/.vimrc
+
+" set vimpager options
+let g:vimpager_scrolloff=1
+
+" keybindings
+nnoremap <silent> gg :<C-u>1<CR>
+
+" set style
+autocmd VimEnter * colorscheme badwolf
+autocmd VimEnter * IndentLinesDisable
+autocmd VimEnter * SeiyaEnable
+
+" go to first line
+autocmd VimEnter * :1
+
+" vim: set ft=vim:

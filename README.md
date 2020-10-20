@@ -54,6 +54,7 @@ These applications should be all installed.
 - skim/percol
 - exa/lsd (`ls` alternatives)
 - bat (`cat` alternative)
+- vimpager (`less` alternative, used for man page)
 
 ### Desktop
 
