@@ -27,7 +27,6 @@ makedir_if_not_exists $HOME/.vim/doc
 makedir_if_not_exists $HOME/.vim/pack/remote
 makedir_if_not_exists $CONFIG_HOME/alacritty
 makedir_if_not_exists $CONFIG_HOME/kitty
-makedir_if_not_exists $CONFIG_HOME/pip
 makedir_if_not_exists $ZDOTDIR
 makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
@@ -35,6 +34,7 @@ makedir_if_not_exists $HOME/.percol.d
 makedir_if_not_exists $HOME/.cargo
 
 if [[ $OSTYPE == linux* ]]; then
+  makedir_if_not_exists $CONFIG_HOME/pip  # windows use wheel package
   makedir_if_not_exists $CONFIG_HOME/autostart
   makedir_if_not_exists $CONFIG_HOME/i3
   makedir_if_not_exists $CONFIG_HOME/bspwm
@@ -115,7 +115,6 @@ ln -sf $HOME/.vimrc $CONFIG_HOME/nvim/init.vim
 ln -sf $BASEDIR/percolrc.py $HOME/.percol.d/rc.py
 
 # pip
-ln -sf $BASEDIR/pip.conf $CONFIG_HOME/pip
 ln -sf $BASEDIR/scripts/pip-update $HOME/bin/pip-update
 
 # Rust (Cargo)
@@ -128,6 +127,9 @@ ln -sf $BASEDIR/alacritty.yml $CONFIG_HOME/alacritty
 ln -sf $BASEDIR/kitty.conf $CONFIG_HOME/kitty
 
 if [[ $OSTYPE == linux* ]]; then
+  # pip install --no-binary option
+  ln -sf $BASEDIR/pip.conf $CONFIG_HOME/pip
+
   # autostart script
   ln -sf $BASEDIR/scripts/autostart.sh $HOME/bin/autostart
 
