@@ -27,6 +27,7 @@ makedir_if_not_exists $HOME/.vim/doc
 makedir_if_not_exists $HOME/.vim/pack/remote
 makedir_if_not_exists $CONFIG_HOME/alacritty
 makedir_if_not_exists $CONFIG_HOME/kitty
+makedir_if_not_exists $CONFIG_HOME/pip
 makedir_if_not_exists $ZDOTDIR
 makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
@@ -102,7 +103,7 @@ ln -sf $VIMBASE/snippets $HOME/.vim
 ln -sf $VIMBASE/syntax $HOME/.vim
 
 # ------ VimPager ------
-ln -s $VIMBASE/vimpagerrc $HOME/.vim
+ln -sf $VIMBASE/vimpagerrc $HOME/.vim
 
 # ------ NeoVim -------
 if [ ! -h $CONFIG_HOME/nvim ]; then
@@ -114,6 +115,7 @@ ln -sf $HOME/.vimrc $CONFIG_HOME/nvim/init.vim
 ln -sf $BASEDIR/percolrc.py $HOME/.percol.d/rc.py
 
 # pip
+ln -sf $BASEDIR/pip.conf $CONFIG_HOME/pip
 ln -sf $BASEDIR/scripts/pip-update $HOME/bin/pip-update
 
 # Rust (Cargo)

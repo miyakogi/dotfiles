@@ -332,7 +332,7 @@ function pip-init() {
   echo -e "\e[36m[pip-init] update pip and setuptools\e[m"
   pip install -U pip setuptools
   echo -e "\n\e[36m[pip-init] install jeid, pynvim, nose, and ptpython\e[m"
-  pip install --no-binary greenlet,msgpack jedi pynvim nose ptpython
+  pip install jedi pynvim nose ptpython
   if [[ -e "setup.py" ]]; then
     echo -e "\n\e[36m[pip-init] install this package with editable mode\e[m"
     pip install -e .
