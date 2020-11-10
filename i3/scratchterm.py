@@ -40,7 +40,7 @@ def main() -> None:
             'env', 'DROPDOWN=1', TERM,
             '--class', TERM_CLASS,
             '--override', 'background_opacity=0.7',
-            '--override', 'window_padding_width=0',
+            '--override', 'window_padding_width=2',
         ])
         for _ in range(100):
             time.sleep(0.01)
