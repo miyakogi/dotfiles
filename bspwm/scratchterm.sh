@@ -8,7 +8,7 @@ wid=$(xdotool search --class $term_class)
 
 if [[ -z $wid ]]; then
   # if dropdown terminal is not running, start it
-  env DROPDOWN=1 $term --class $term_class --override background_opacity=0.7 --override window_padding_width=0 &
+  env DROPDOWN=1 $term --class $term_class --override background_opacity=0.7 --override window_padding_width=2 &
 
   # get new window id of dropdown terminal (wait until window appears)
   wid=`xdotool search --sync --class $term_class`
