@@ -152,7 +152,6 @@ modules-right = addws i3-ws i3-layout
 
 [bar/left-bspwm]
 inherit = bar/left
-wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
@@ -181,7 +180,6 @@ scroll-down = i3wm-wsprev
 
 [bar/center-bspwm]
 inherit = bar/center
-wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
@@ -212,7 +210,6 @@ scroll-down = i3wm-wsprev
 
 [bar/right-bspwm]
 inherit = bar/right
-wm-restack = bspwm
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
