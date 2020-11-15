@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 daytemp=6500
-nighttemp=4500
+nighttemp=5200
 temp=$(qdbus org.kde.KWin /ColorCorrect org.kde.kwin.ColorCorrect.currentTemperature)
 
 if [[ $temp -eq $daytemp ]]; then
