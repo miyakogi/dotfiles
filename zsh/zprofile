@@ -5,10 +5,10 @@
 
 # start graphical session
 if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 && $OSNAME == "Arch" ]]; then
-  echo -n "Select WM/DE [bspwm, i3, kde, lxqt (default: i3)]:\n>>> "
+  echo -n "Select WM/DE [bspwm, i3, kde, lxqt (default: bspwm)]:\n>>> "
   read wm
   if [[ -z $wm ]]; then
-    wm="i3"
+    wm="bspwm"
   fi
 
   exec startx ~/.xinitrc $wm -- -maxclients 2048
