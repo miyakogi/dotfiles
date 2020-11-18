@@ -88,8 +88,8 @@ cursor-click = pointer
 ; cursor-scroll = ns-resize
 
 ; DPI
-dpi-x = 90
-dpi-y = 91
+; dpi-x = 90
+; dpi-y = 91
 
 [bar/top-i3]
 inherit = bar/top
