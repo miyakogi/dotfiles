@@ -12,11 +12,13 @@ function get_image() {
 }
 
 WM=$(wmctrl -m | grep "Name: " | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
+y=1000
 
 case $WM in
   i3)
     image=$(get_image i3);;
   bspwm)
+    y=120
     image=$(get_image bspwm);;
   kwin)
     image=$(get_image lxqt);;
@@ -41,5 +43,5 @@ i3lock \
   --radius=120 --ring-width=32 --veriftext='Checking...' --wrongtext='WRONG' \
   --greetertext="Enter Password" --greetercolor="$white"\
   --verifcolor="$white" --timecolor="$white" --datecolor="$white" \
-  --time-font="$font" --date-font="$font" --layout-font="$font" --verif-font="$font" --wrong-font="$font" greeter-font="$font" --greetersize=124 --greeterpos="x+960:y+1000" \
+  --time-font="$font" --date-font="$font" --layout-font="$font" --verif-font="$font" --wrong-font="$font" greeter-font="$font" --greetersize=124 --greeterpos="x+960:y+$y" \
   --noinputtext='' --force-clock --pass-media-keys
