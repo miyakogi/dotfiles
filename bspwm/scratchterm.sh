@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 term=kitty
-term_class=scratchkitty
+term_class=scratchterm
 
 # get window id of currently runnning dropdown terminal
 wid=$(xdotool search --class $term_class)

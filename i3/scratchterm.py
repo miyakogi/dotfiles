@@ -9,19 +9,7 @@ from i3ipc import Connection, Con
 
 i3 = Connection()
 TERM = 'kitty'
-TERM_CLASS = 'scratchkitty'
-
-
-def is_running() -> bool:
-    proc = subprocess.run(
-        ['pgrep', '-c', '-f', TERM_CLASS],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-    )
-    try:
-        return int(proc.stdout.decode().strip()) > 0
-    except ValueError:
-        return False
+TERM_CLASS = 'scratchterm'
 
 
 def get_window() -> Optional[Con]:
@@ -33,11 +21,12 @@ def get_window() -> Optional[Con]:
 
 
 def main() -> None:
-    window = None
+    window = get_window()
 
-    if not is_running():
+    if window is None:
         subprocess.Popen([
-            'env', 'DROPDOWN=1', TERM,
+            'env', 'DROPDOWN=1',
+            TERM,
             '--class', TERM_CLASS,
             '--override', 'background_opacity=0.7',
             '--override', 'window_padding_width=2',

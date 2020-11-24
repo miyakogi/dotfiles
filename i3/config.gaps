@@ -20,5 +20,5 @@ client.unfocused          #323334 #00000099 #999999 #000000 #323334
 client.focused_inactive   #212121cc #00000099 #999999 #000000 #222222
 
 # for scratchpad (dropdown terminal)
-for_window [class="scratchkitty"] move to position 968 40
-for_window [class="scratchkitty"] resize set 940 1032
+for_window [class="scratchterm"] move to position 968 40
+for_window [class="scratchterm"] resize set 940 1032

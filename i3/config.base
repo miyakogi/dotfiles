@@ -34,11 +34,11 @@ exec_always --no-startup-id autostart &
 # exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/scratchterm.py hide"
 # keycode 68 = F2
 bindcode 68 exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/scratchterm.py"
-for_window [class="scratchkitty"] border none
-for_window [class="scratchkitty"] floating enable sticky enable
-for_window [class="scratchkitty"] move scratchpad
-for_window [class="scratchkitty"] move to position 960 24
-for_window [class="scratchkitty"] resize set 960 1056
+for_window [class="scratchterm"] border none
+for_window [class="scratchterm"] floating enable sticky enable
+for_window [class="scratchterm"] move scratchpad
+for_window [class="scratchterm"] move to position 960 24
+for_window [class="scratchterm"] resize set 960 1056
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
