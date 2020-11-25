@@ -16,6 +16,7 @@ y=1000
 
 case $WM in
   i3)
+    y=200
     image=$(get_image i3);;
   bspwm)
     y=120
