@@ -17,6 +17,8 @@ async def get_layout(i3: Connection, e: Event) -> None:
     if win.type == 'con' and win.name:
         if win.parent.layout.startswith('split'):
             echo('﩯')
+        elif win.parent.layout == 'stacked':
+            echo('类')
         elif win.parent.layout == 'tabbed':
             echo('裡')
         else:
