@@ -124,7 +124,7 @@ bindsym $mod+v exec "i3-msg split v && i3-msg -t send_tick"
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+t exec "i3-msg layout toggle && i3-msg -t send_tick"
+bindsym $mod+t exec "i3-msg layout toggle tabbed splith && i3-msg -t send_tick"
 bindsym $mod+s exec "i3-msg layout stacking && i3-msg -t send_tick"
 bindsym $mod+e exec "i3-msg layout toggle split && i3-msg -t send_tick"
 
