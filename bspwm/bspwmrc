@@ -46,6 +46,7 @@ bspc config gapless_monocle   false
 ### Set rules
 bspc rule -a Rofi focus=on
 bspc rule -a Screenkey manage=off
+bspc rule -a Steam desktop=4
 
 # FFXIV benchmark
 bspc rule -a ffxiv-shadowbringers-bench.exe state=floating center=on
