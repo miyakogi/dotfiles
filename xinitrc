@@ -34,11 +34,17 @@ fi
 
 # start session
 
+# set qt theme
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+# set input method
 export XMODIFIERS=@im=ibus
 export GTK_IM_MODULE=xim
 export QT_IM_MODULE=ibus
 export GLFW_IM_MODULE=ibus
+
+# set firefox HW acceleration
+export MOZ_X11_EGL=1
 
 case $1 in
   bspwm)
