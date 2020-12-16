@@ -42,6 +42,7 @@
       "zchee/deoplete-jedi",
       "dag/vim-fish",
       "Glench/Vim-Jinja2-Syntax",
+      "kevinoid/vim-jsonc",
       "cespare/vim-toml",
       "pangloss/vim-javascript",
       "mattn/jscomplete-vim",
