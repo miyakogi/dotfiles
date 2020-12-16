@@ -72,9 +72,6 @@ case $WM in
     else
       sxhkd -c $CONFIG_HOME/bspwm/sxhkdrc &
     fi
-
-    # scratchpad terminal
-    pgrep -f scratchkitty > /dev/null || $CONFIG_HOME/bspwm/scratchterm.sh hide &
     ;;
   i3)
     /usr/lib/pam_kwallet_init &
@@ -84,9 +81,6 @@ case $WM in
 
     # enable auto titling
     autotiling &
-
-    # setup scratchpad
-    $CONFIG_HOME/i3/scratchterm.py hide &
     ;;
   kwin-lxqt)
     # enable krohnkite

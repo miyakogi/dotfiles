@@ -12,11 +12,6 @@ if [[ -z $wid ]]; then
 
   # get new window id of dropdown terminal (wait until window appears)
   wid=`xdotool search --sync --class $term_class`
-
-  if [[ -z $1 ]]; then
-    # show dropdown terminal (it's hidden by default window rule)
-    bspc node $wid --flag hidden -f
-  fi
 else
   # dropdown terminal is running
   if [[ `xdotool getactivewindow` -eq $wid ]]; then

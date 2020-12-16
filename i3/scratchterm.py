@@ -40,21 +40,13 @@ def main() -> None:
         if window is None:
             return
 
-        # add konsole to scratchpad
+        # add terminal to scratchpad
         window.command('scratchpad show')
 
-        if 'hide' in sys.argv:
-            # hide scratchpad
-            window.command('scratchpad show')
-        return
-
-    window = get_window()
-    if window is None:
-        return
-
-    if window.focused:
+    elif window.focused:
         # hide scratchpad
         window.command('scratchpad show')
+
     else:
         # Focus the scratchpad on the workspace
         window.command('focus')
