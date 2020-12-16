@@ -5,10 +5,22 @@
 
 # start graphical session
 if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 && $OSNAME == "Arch" ]]; then
-  echo -n "Select WM/DE [bspwm, i3, kde, lxqt (default: bspwm)]:\n>>> "
+  echo -n "Select WM/DE [bspwm, i3, kde, lxqt, sway] [default: bspwm]:\n>>> "
   read wm
   if [[ -z $wm ]]; then
     wm="bspwm"
+  fi
+
+  # for sway
+  if [[ $wm == sway ]]; then
+    export QT_QPA_PLATFORM=wayland
+    export QT_QPA_PLATFORMTHEME=qt5ct
+    export XMODIFIERS=@im=ibus
+    export GTK_IM_MODULE=ibus
+    export QT_IM_MODULE=ibus
+    export GLFW_IM_MODULE=ibus
+    export MOZ_ENABLE_WAYLAND=1
+    exec sway
   fi
 
   exec startx ~/.xinitrc $wm -- -maxclients 2048

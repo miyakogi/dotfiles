@@ -22,6 +22,8 @@ function _exit() {
       i3-msg exit;;
     kwin)
       lxqt-leave --logout;;
+    wlroots*)  # sway
+      swaymsg exit;;
     *)
       ;;
   esac
