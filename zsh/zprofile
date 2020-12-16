@@ -13,13 +13,24 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
 
   # for sway
   if [[ $wm == sway ]]; then
+    # set xdg env var
+    export XDG_SESSION_TYPE=wayland
+    export XDG_CURRENT_DESKTOP=sway
+
+    # set qt
     export QT_QPA_PLATFORM=wayland
     export QT_QPA_PLATFORMTHEME=qt5ct
+
+    # set IM
     export XMODIFIERS=@im=ibus
     export GTK_IM_MODULE=ibus
     export QT_IM_MODULE=ibus
     export GLFW_IM_MODULE=ibus
+
+    # set firefox
     export MOZ_ENABLE_WAYLAND=1
+
+    # start sway
     exec sway
   fi
 
