@@ -166,12 +166,8 @@ bindsym Control+$alt+Left workspace prev
 bindsym Control+$alt+Right workspace next
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
-bindsym $mod+colon workspace next
-bindsym $mod+semicolon workspace prev
 bindsym $mod+bracketright workspace next
 bindsym $mod+bracketleft workspace prev
-bindsym Control+F8 workspace prev
-bindsym Control+F10 workspace next
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
