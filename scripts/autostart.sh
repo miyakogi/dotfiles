@@ -54,6 +54,9 @@ if [[ -z $DE ]]; then
   run /usr/lib/polkit-kde-authentication-agent-1
 fi
 
+# set mouse buttons profile for X11 by piper/ratbagd
+ratbagctl warbling-mara profile active set 0 &
+
 # IME
 run ibus-daemon -drx
 
