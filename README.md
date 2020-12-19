@@ -69,8 +69,8 @@ These applications should be all installed.
 - i3lock-color (screen lock)
 - dmenu
 - redshift
-- ibus
-- ibus-mozc
+- fcitx
+- fcitx-mozc
 - easystroke
 - feh
 - klipper

@@ -42,8 +42,10 @@ yay -S \
   xautolock \
   dmenu \
   redshift \
-  ibus \
-  ibus-mozc \
+  fcitx \
+  fcitx-im \
+  fcitx-mozc \
+  kcm-fcitx \
   easystroke \
   feh \
   klipper \

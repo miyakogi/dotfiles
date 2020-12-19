@@ -59,7 +59,7 @@ fi
 ratbagctl warbling-mara profile active set 0 &
 
 # IME
-run ibus-daemon -drx
+run fcitx-autostart
 
 # mouse gesture
 run easystroke

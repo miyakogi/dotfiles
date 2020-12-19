@@ -38,10 +38,10 @@ fi
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # set input method
-export XMODIFIERS=@im=ibus
-export GTK_IM_MODULE=xim
-export QT_IM_MODULE=ibus
-export GLFW_IM_MODULE=ibus
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export GLFW_IM_MODULE=fcitx
 
 # set firefox HW acceleration
 export MOZ_X11_EGL=1
