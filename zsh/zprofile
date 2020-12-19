@@ -28,7 +28,7 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
     export GLFW_IM_MODULE=ibus
 
     # set firefox
-    export MOZ_ENABLE_WAYLAND=1
+    # export MOZ_ENABLE_WAYLAND=1
 
     # start sway
     exec sway
