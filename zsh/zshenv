@@ -3,8 +3,9 @@
 #  Zsh Environment Variables
 # ============================================
 
-# zsh default directory
+# Set default environment variables
 export XDG_CONFIG_HOME=$HOME/.config
+export XDG_PICTURES_DIR=$HOME/Pictures
 export EDITOR=vim
 if which vimpager > /dev/null; then
   export PAGER=vimpager
