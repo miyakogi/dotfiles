@@ -53,6 +53,7 @@ fi
 ln -sf $BASEDIR/profile $HOME/.profile
 ln -sf $BASEDIR/xinitrc $HOME/.xinitrc
 ln -sf $BASEDIR/Xresources $HOME/.Xresources
+ln -sf $BASEDIR/Xresources $HOME/.Xdefaults  # for wayland sessions
 
 # zsh load files this order
 ZSHBASE=$BASEDIR/zsh
