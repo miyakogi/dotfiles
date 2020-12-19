@@ -93,6 +93,10 @@ zstyle ':zle:*' word-chars " -/=;@:{},|"
 zstyle ':zle:*' word-style unspecified
 
 ########## ALIAS ##########
+if [[ $XDG_SESSION_TYPE == wayland ]]; then
+  # vim's clipboard does not work on wayland
+  alias vim=nvim
+fi
 alias vi="/usr/bin/vim --noplugin"
 alias :q="exit"
 alias tmux="tmux -2"
