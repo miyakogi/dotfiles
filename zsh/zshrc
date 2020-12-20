@@ -96,6 +96,7 @@ zstyle ':zle:*' word-style unspecified
 if [[ $XDG_SESSION_TYPE == wayland ]]; then
   # vim's clipboard does not work on wayland
   alias vim=nvim
+  export EDITOR=nvim
 fi
 alias vi="/usr/bin/vim --noplugin"
 alias :q="exit"
