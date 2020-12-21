@@ -100,12 +100,15 @@ if [[ $XDG_SESSION_TYPE == wayland ]]; then
 fi
 alias vi="/usr/bin/vim --noplugin"
 alias :q="exit"
-alias tmux="tmux -2"
 alias mkdir="mkdir -p"
 alias ln="ln -v"  # verbose
 if [[ $TERM == (alacritty*|kitty*) ]]; then
   # alacritty/kitty does not correctly handled
   alias ssh="TERM=xterm-256color ssh"
+fi
+if [[ $TERM == alacritty ]]; then
+  # alacritty default $TERM does not support TrueColor on tmux
+  alias tmux="TERM=xterm-256color tmux"
 fi
 alias path='echo $PATH | tr -s ":" "\n"'  # pretty print path
 
