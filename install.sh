@@ -140,6 +140,9 @@ if [[ $OSTYPE == linux* ]]; then
   # terminal launch script
   ln -sf $BASEDIR/scripts/launch-terminal.sh $HOME/bin/launch-terminal
 
+  # dropdown terminal script
+  ln -sf $BASEDIR/scripts/scratchterm-tmux.sh $HOME/bin/scratchterm-tmux
+
   # screen lock script
   ln -sf $BASEDIR/scripts/lock-screen.sh $HOME/bin/lock-screen
 

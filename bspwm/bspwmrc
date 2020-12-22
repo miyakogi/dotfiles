@@ -12,7 +12,7 @@ if grep -q "gaps" $i3_config; then
 else
   rectangle=960x1056+960+24
 fi
-bspc rule -a scratchterm state=floating sticky=on hidden=on rectangle=$rectangle
+bspc rule -a Alacritty:scratchterm state=floating sticky=on hidden=on rectangle=$rectangle
 
 ### Set workspaces
 bspc monitor -d 1 2 3 4 5 6

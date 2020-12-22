@@ -7,14 +7,14 @@ from typing import Optional
 from i3ipc import Connection, Con
 
 i3 = Connection()
-TERM = 'kitty'
+TERM = 'alacritty'
 TERM_CLASS = 'scratchterm'
 
 
 def get_window() -> Optional[Con]:
     root = i3.get_tree()
     for win in root:
-        if win.window_class == TERM_CLASS:
+        if win.window_instance == TERM_CLASS:
             return win
     return None
 
@@ -24,11 +24,13 @@ def main() -> None:
 
     if window is None:
         subprocess.Popen([
-            'env', 'DROPDOWN=1',
             TERM,
             '--class', TERM_CLASS,
-            '--override', 'background_opacity=0.7',
-            '--override', 'window_padding_width=2',
+            '--option', 'env.TERM=xterm-256color',  # need true color support
+            '--option', 'background_opacity=0.7',
+            '--option', 'window.padding.x=2',
+            '--option', 'window.padding.y=2',
+            '--command', 'scratchterm-tmux',
         ])
         for _ in range(100):
             time.sleep(0.01)
