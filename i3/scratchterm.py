@@ -14,7 +14,7 @@ TERM_CLASS = 'scratchterm'
 def get_window() -> Optional[Con]:
     root = i3.get_tree()
     for win in root:
-        if win.window_instance == TERM_CLASS:
+        if TERM_CLASS in (win.window_class, win.window_instance, win.app_id):
             return win
     return None
 
