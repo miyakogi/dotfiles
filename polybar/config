@@ -223,7 +223,7 @@ override-redirect = false
 [module/menu]
 type = custom/script
 exec = echo ""
-click-left = $XDG_CONFIG_HOME/polybar/rofi-menu.sh
+click-left = ${XDG_CONFIG_HOME:-$HOME/.config}/polybar/rofi-menu.sh
 format-foreground = ${colors.blue}
 format-padding = 1
 
