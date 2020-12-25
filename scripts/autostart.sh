@@ -48,6 +48,9 @@ else
   # need to set $LATITUDE and $LONGITUDE in ~/.zsh/.zshenv.local
   # run redshift -l ${LATITUDE}:${LONGITUDE} -t 6500:5200
   run redshift -l ${LATITUDE}:${LONGITUDE}
+
+  # picom compositor
+  run picom -b --experimental-backend
 fi
 
 if [[ -z $DE ]]; then

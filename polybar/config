@@ -20,7 +20,8 @@
 transparent = #00000000
 
 ; Dark bar
-semi-transparent = #99000000
+;semi-transparent = #99000000
+semi-transparent = #80000000
 background = #d9212121
 background-alt = #d9212121
 foreground = #f1f1f1
@@ -125,7 +126,7 @@ height = 28
 offset-y = 4
 background = ${colors.semi-transparent}
 
-border-size = 2
+border-size = 0.0
 border-color = #434445
 
 override-redirect = true
@@ -342,7 +343,7 @@ label-occupied-foreground = #ccc
 label-occupied-padding = 0
 
 label-empty = ""
-label-empty-foreground = #797979
+label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 0
 
 [module/bspwm-prev]
@@ -369,7 +370,7 @@ label-occupied-foreground = #ccc
 label-occupied-padding = 0
 
 label-empty = ""
-label-empty-foreground = #797979
+label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 0
 
 [module/kwin-prev]
