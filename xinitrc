@@ -39,7 +39,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 # set input method
 export XMODIFIERS=@im=fcitx
-export GTK_IM_MODULE=fcitx
+export GTK_IM_MODULE=xim
 export QT_IM_MODULE=fcitx
 export GLFW_IM_MODULE=fcitx
 
