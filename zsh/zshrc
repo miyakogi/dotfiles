@@ -88,8 +88,8 @@ fi
 # Set keyword
 autoload -Uz select-word-style
 select-word-style default
-# Add word separations (-,/,=,;,@,:,{,},|,',')
-zstyle ':zle:*' word-chars " -/=;@:{},|"
+# Add word separations (-,/,=,;,@,:,[,],{,},(,),|,',',.)
+zstyle ':zle:*' word-chars " -/=;@:[]{}()<>,|.'"
 zstyle ':zle:*' word-style unspecified
 
 ########## ALIAS ##########
