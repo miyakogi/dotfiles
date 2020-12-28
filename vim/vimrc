@@ -22,6 +22,11 @@ augroup END
 if has('vim_starting') && has('reltime')
   let g:startuptime = reltime()
 endif
+
+" set python3 dll path for windows
+if has('win32') || has('win64')
+  set pythonthreedll=$HOME/scoop/apps/python/current/python39.dll
+endif
 "}}}
 
 " ======== Environment variables ======== {{{
