@@ -28,7 +28,6 @@ SOFTWARE.
 '''
 
 import json
-import curses
 import logging
 import shutil
 import argparse
@@ -64,8 +63,9 @@ class Formatter(logging.Formatter):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.colors = {}
-        curses.setupterm()
         try:
+            import curses
+            curses.setupterm()
             self.colors['normal'] = curses.tigetstr('sgr0').decode('utf-8')
             for color, val in self._colors_int.items():
                 self.colors[color] = curses.tparm(
