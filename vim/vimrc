@@ -24,7 +24,7 @@ if has('vim_starting') && has('reltime')
 endif
 
 " set python3 dll path for windows
-if has('win32') || has('win64')
+if (has('win32') || has('win64')) && !has('nvim')
   set pythonthreedll=$HOME/scoop/apps/python/current/python39.dll
 endif
 "}}}
