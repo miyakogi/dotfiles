@@ -192,8 +192,11 @@ if [[ $OSTYPE == linux* ]]; then
   ln -sf $BASEDIR/rofi/calendar-theme.rasi $CONFIG_HOME/rofi
   ln -sf $BASEDIR/rofi/leave.sh $CONFIG_HOME/rofi
 
-  # chrome (use kwallet by default)
+  # chrome
+  # set default flags
   ln -sf $BASEDIR/chrome-flags.conf $CONFIG_HOME
+  # startup script
+  ln -sf $BASEDIR/scripts/chrome.sh $HOME/bin/chrome.sh
 
   # kwin/krohnkite
   ln -sf $BASEDIR/scripts/kwin-first-empty.sh $HOME/bin/kwin-first-empty
