@@ -7,7 +7,7 @@ flags=("--ignore-gpu-blocklist" "--enable-gpu-rasterization" "--enable-zero-copy
 
 if [[ $session == "wayland" ]]; then
   # Wayland session
-  flags+=("--enable-features=UseOzonePlatform" "--ozone-platform=wayland")
+  flags+=("--enable-features=UseOzonePlatform,WebRTCPipeWireCapturer" "--ozone-platform=wayland")
 else
   # Xorg session
   flags+=("--use-gl=desktop")
