@@ -16,6 +16,7 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
     # set xdg env var
     export XDG_SESSION_TYPE=wayland
     export XDG_CURRENT_DESKTOP=sway
+    systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
 
     # set qt
     export QT_QPA_PLATFORM=wayland
@@ -32,6 +33,7 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
 
     # start sway
     exec sway
+    exit 0
   fi
 
   exec startx ~/.xinitrc $wm -- -maxclients 2048
