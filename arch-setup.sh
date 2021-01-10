@@ -18,11 +18,20 @@ yay -S \
   i3-gaps \
   bspwm \
   sxhkd \
+  sway \
+  swaybg \
+  swaylock \
+  swayidle \
   picom-ibhagwan-git \
   conky-cairo \
   dunst \
+  mako \
   polybar \
+  waybar \
   rofi \
+  grim \
+  slurp \
+  swappy \
   plasma \
   lxqt \
   adobe-source-han-sans-jp-fonts \
@@ -32,6 +41,7 @@ yay -S \
   ttf-nerd-fonts-symbols \
   xorg-server \
   xorg-xinit \
+  xorg-xwayland \
   xdotool \
   wmctrl \
   kwallet-pam \
@@ -42,13 +52,17 @@ yay -S \
   xautolock \
   dmenu \
   redshift \
-  fcitx \
-  fcitx-im \
-  fcitx-mozc \
-  kcm-fcitx \
+  gammastep \
+  fcitx5 \
+  fcitx5-gtk \
+  fcitx5-qt \
+  fcitx5-mozc \
+  fcitx5-config-qt \
   easystroke \
   feh \
   klipper \
+  wl-clipbaord \
+  wl-clipbaord-x11 \
   perl-anyevent-i3 \
   perl-json-xs \
   python-i3ipc \

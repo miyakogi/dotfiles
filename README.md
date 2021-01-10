@@ -5,7 +5,7 @@ My dotfiles for Arch Linux.
 Display manager is not supported.
 Use TTY login at tty-1 (default) and select DE/WM.
 
-## Supported Applications
+## Supported Applications (contains config files in this repo)
 
 These applications should be all installed.
 
@@ -18,20 +18,31 @@ These applications should be all installed.
 - vim/neovim
 - tmux
 - ctags
+- (python) pip
 - (rust) cargo
 
-### Desktop
+### Desktop (X11)
 
 - i3-gaps
+- plasma (X11)
+- lxqt (kwin + krohnkite)
 - bspwm
 - sxhkd
 - picom (picom-ibhagwan-git)
 - conky (conky-cairo)
 - dunst
 - polybar
+
+### Desktop (Wayland)
+
+- sway
+- mako
+- waybar
+- swappy
+
+### Desktop (common)
+
 - rofi
-- plasma (X11)
-- lxqt (kwin + krohnkite)
 
 ## Required Applications (not listed above)
 
@@ -56,7 +67,7 @@ These applications should be all installed.
 - bat (`cat` alternative)
 - vimpager (`less` alternative, used for man page)
 
-### Desktop
+### Desktop (X11)
 
 - xorg-server
 - xorg-xinit
@@ -67,23 +78,35 @@ These applications should be all installed.
 - numlockx
 - autotiling (for i3 auto-tiling)
 - i3lock-color (screen lock)
-- dmenu
 - redshift
-- fcitx
-- fcitx-mozc
 - easystroke
 - feh
 - klipper
 - perl-anyevent-i3 (save layout)
 - perl-json-xs (save layout)
-- python-i3ipc (scratchpad control and add workspace function)
 - pulsemixer (polybar's volume check/fix)
-- pavucontrol-qt
-- mpd (polybar module)
-- qt5ct (qt5 app theming)
 - yakuake
 - kwin-scripts-krohnkite-git
+- zafiro-icon-theme-git (rofi default icon)
 - numix-icon-theme-git (rofi leave script)
+
+### Desktop (Wayland)
+
+- xorg-xwayland
+- grim
+- slurp
+- gammastep
+- wl-clipboard
+- wl-clipboard-x11
+
+### Desktop (common)
+
+- dmenu
+- fcitx5
+- fcitx5-mozc
+- python-i3ipc (scratchpad control and add workspace function for i3/sway)
+- mpd (polybar module)
+- qt5ct (qt5 app theming)
 
 ## Install
 
