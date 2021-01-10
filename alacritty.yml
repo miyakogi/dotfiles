@@ -383,37 +383,37 @@ draw_bold_text_with_bright_colors: true
 #     cyan:    '0x14ffff'
 #     white:   '0xffffff'
 
-# Colors (Pencil Dark)
-colors:
-  # Default Colors
-  primary:
-    background: '0x212121'
-    foreground: '0xf1f1f1'
-
-  # cursor colors
-  cursor:
-    cursor: '0xf1f1f1'
-
-  # Normal colors
-  normal:
-    black:   '0x212121'
-    red:     '0xc30771'
-    green:   '0x10a778'
-    yellow:  '0xa89c14'
-    blue:    '0x008ec4'
-    magenta: '0x523c79'
-    cyan:    '0x20a5ba'
-    white:   '0xe0e0e0'
-  # Bright colors
-  bright:
-    black:   '0x212121'
-    red:     '0xfb007a'
-    green:   '0x5fd7af'
-    yellow:  '0xf3e430'
-    blue:    '0x20bbfc'
-    magenta: '0x6855de'
-    cyan:    '0x4fb8cc'
-    white:   '0xf1f1f1'
+# # Colors (Pencil Dark)
+# colors:
+#   # Default Colors
+#   primary:
+#     background: '0x212121'
+#     foreground: '0xf1f1f1'
+#
+#   # cursor colors
+#   cursor:
+#     cursor: '0xf1f1f1'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x212121'
+#     red:     '0xc30771'
+#     green:   '0x10a778'
+#     yellow:  '0xa89c14'
+#     blue:    '0x008ec4'
+#     magenta: '0x523c79'
+#     cyan:    '0x20a5ba'
+#     white:   '0xe0e0e0'
+#   # Bright colors
+#   bright:
+#     black:   '0x212121'
+#     red:     '0xfb007a'
+#     green:   '0x5fd7af'
+#     yellow:  '0xf3e430'
+#     blue:    '0x20bbfc'
+#     magenta: '0x6855de'
+#     cyan:    '0x4fb8cc'
+#     white:   '0xf1f1f1'
 
 # # Colors (Pencil Light)
 # colors:
@@ -499,6 +499,41 @@ colors:
 #     magenta: '0xff5c8f'
 #     cyan:    '0x53fde9'
 #     white:   '0xfce8c3'
+
+# Colors (Sweet)
+colors:
+  # Default colors
+  primary:
+    background: '0x161925'
+    foreground: '0xc3c7d1'
+
+  # cursor colors
+  cursor:
+    cursor: '0x7b7bbd'
+
+  # Normal colors
+  normal:
+    black:   '0x161925'
+    red:     '0xed25e4'
+    # green:   '0x71f79f'
+    green:   '0x00c8c5'
+    yellow:  '0xf9dc5c'
+    blue:    '0x7cb7ff'
+    magenta: '0xc74ded'
+    cyan:    '0x00c1e1'
+    white:   '0xc3c7d1'
+
+  # Bright colors
+  bright:
+    black:   '0x161925'
+    red:     '0xed25e4'
+    # green:   '0x71f79f'
+    green:   '0x00c8c5'
+    yellow:  '0xf9dc5c'
+    blue:    '0x7cb7ff'
+    magenta: '0xc74ded'
+    cyan:    '0x00c1e1'
+    white:   '0xc3c7d1'
 
 # Visual Bell
 #
