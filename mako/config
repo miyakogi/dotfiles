@@ -1,0 +1,24 @@
+###########################
+# Mako Configuration File #
+###########################
+
+# set position
+anchor=bottom-right
+
+# set default timeout
+default-timeout=5000
+
+# set style
+font=Source Han Sans JP Medium 12
+# background-color=#323334FF
+background-color=#161925FF
+# text-color=#F1F1F1FF
+text-color=#c3c7d1FF
+width=420
+height=120
+margin=18
+padding=5
+border-size=4
+# border-color=#4FB8CCFF
+border-color=#c74dedFF
+border-radius=0

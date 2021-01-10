@@ -1,0 +1,379 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $alt Mod1
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term env DROPDOWN=1 alacritty
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+### Output configuration
+#
+# Display
+output DP-2 {
+    # Default resolution and refresh rate, checked by `swaymsg -t get_outpus`
+    # need `--custom` flag to lower vram clock on idle
+    mode --custom 1920x1080@144Hz
+    # mode 1920x1080@144Hz
+    # mode --custom 1920x1080@120Hz
+    # mode 1920x1080@119.982Hz
+    # mode 1920x1080@60Hz
+
+    # Enable FreeSync
+    adaptive_sync on
+
+    # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+    background ${XDG_CONFIG_HOME:-$HOME/.config}/sway/bg.png fill
+
+    # Composit output timing in milliseconds
+    max_render_time 3
+}
+
+### Decoration configuration
+#
+# Font
+font pango:Source Han Sans JP, Medium 12
+# Border
+default_border pixel 2
+default_floating_border pixel 2
+# Title bar
+title_align center
+#
+# Border colors
+#                        border  bg        text    indicat child_border
+#client.focused           #5fd7af #212121d9 #f1f1f1 #3d9cca #5f7daf
+client.focused           #b81bd2aa #212121d9 #f1f1f1 #b81bd2 #b81bd288
+client.unfocused         #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
+client.focused_inactive  #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
+
+### Gaps
+gaps inner 12
+gaps top -4
+gaps bottom -4
+# smart_gaps on
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle -w \
+        timeout 300 'lock-screen' \
+        timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+        before-sleep 'lock-screen'
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+input * {
+    xkb_layout "jp"
+    xkb_options "ctrl:nocaps"
+    xkb_numlock enable
+    repeat_delay 300
+    repeat_rate 36
+}
+
+# set mouse profile for wayland, by piper/ratbagd
+exec_always ratbagctl warbling-mara profile active set 1
+
+### Autostart Apps
+# Start xdg-desktop-portal for gtk and sway (wlroots)
+exec systemctl --user start xdg-desktop-portal-gtk
+exec systemctl --user start xdg-desktop-portal-wlr
+
+# Input Method
+# exec fcitx-autostart
+exec fcitx5
+
+# notification manager
+exec mako
+
+# bar
+exec_always --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/waybar/launch.sh &"
+
+# redshift alternative
+exec_always --no-startup-id "pgrep gammastep || gammastep -l ${LATITUDE}:${LONGITUDE} &"
+
+# autotiling
+exec autotiling
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+w kill
+    bindsym $mod+q kill
+    bindsym button2 kill
+
+    # Start your launcher
+    # bindsym $mod+d exec $menu
+    bindsym $mod+z exec "rofi -show drun"
+    bindsym $mod+Shift+z exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    # bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
+
+    # Exit sway (logs you out of your Wayland session)
+    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/rofi/leave.sh"
+
+    # Take screenshot
+    bindsym Print exec --no-startup-id _grim_file="${XDG_PICTURE_DIR:-$HOME/Pictures}/screenshots/grim/grim-$(date +%Y%m%d-%H%M%S).png" && grim $_grim_file && notify-send "Screenshot saved to $(echo $_grim_file | sed \"s|$HOME|~|\")"
+    bindsym Shift+Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
+
+    # Scratchpad terminal (alacritty with tmux)
+    bindcode 68 exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/scratchterm.py"
+    for_window [app_id="scratchterm"] floating enable
+    for_window [app_id="scratchterm"] sticky enable
+    for_window [app_id="scratchterm"] move scratchpad
+    for_window [app_id="scratchterm"] move position 1024 216
+    for_window [app_id="scratchterm"] resize set width 944
+    for_window [app_id="scratchterm"] resize set height 1032
+
+#
+# Moving around:
+#
+    # Disable auto mouse focus
+    # focus_follows_mouse no
+
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+    # Move focus next/prev
+    bindsym $mod+c focus next
+    bindsym $mod+Shift+c focus prev
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+
+    # Define names for default workspaces for which we configure key bindings later on.
+    # We use variables to avoid repeating the names in multiple places.
+    set $ws1 "1"
+    set $ws2 "2"
+    set $ws3 "3"
+    set $ws4 "4"
+    set $ws5 "5"
+    set $ws6 "6"
+    set $ws7 "7"
+    set $ws8 "8"
+    set $ws9 "9"
+    set $ws10 "10"
+
+    # Switch to workspace
+    bindsym $mod+1 workspace number $ws1
+    bindsym $mod+2 workspace number $ws2
+    bindsym $mod+3 workspace number $ws3
+    bindsym $mod+4 workspace number $ws4
+    bindsym $mod+5 workspace number $ws5
+    bindsym $mod+6 workspace number $ws6
+    bindsym $mod+7 workspace number $ws7
+    bindsym $mod+8 workspace number $ws8
+    bindsym $mod+9 workspace number $ws9
+    bindsym $mod+0 workspace number $ws10
+
+    # Switch workspace
+    bindsym Control+$alt+Left workspace prev
+    bindsym Control+$alt+Right workspace next
+    bindsym $mod+n workspace next
+    bindsym $mod+p workspace prev
+    bindsym $mod+bracketright workspace next
+    bindsym $mod+bracketleft workspace prev
+
+    # Add new workspace
+    bindsym $mod+a exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+    bindsym Control+$alt+Down exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+    bindsym Control+$alt+Up exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number $ws1
+    bindsym $mod+Shift+2 move container to workspace number $ws2
+    bindsym $mod+Shift+3 move container to workspace number $ws3
+    bindsym $mod+Shift+4 move container to workspace number $ws4
+    bindsym $mod+Shift+5 move container to workspace number $ws5
+    bindsym $mod+Shift+6 move container to workspace number $ws6
+    bindsym $mod+Shift+7 move container to workspace number $ws7
+    bindsym $mod+Shift+8 move container to workspace number $ws8
+    bindsym $mod+Shift+9 move container to workspace number $ws9
+    bindsym $mod+Shift+0 move container to workspace number $ws10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+i splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+t layout toggle splith tabbed
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent/child container
+    bindsym $mod+y focus parent
+    bindsym $mod+d focus child
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    # bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    # bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Default window mode configuration
+#
+
+# Xeys
+for_window [class="XEyes"] floating enable
+
+# pulseaudio volume control
+for_window [app_id="pavucontrol-qt"] floating enable
+
+# virtual machine client/viewer
+assign [app_id="looking-glass-client"] workspace $ws10
+for_window [app_id="looking-glass-client"] floating enable
+for_window [app_id="looking-glass-client"] inhibit_idle visible
+assign [app_id="virt-viewer"] workspace $ws10
+
+#
+# Steam:
+#
+assign [class="Steam"] workspace $ws5
+
+# Steam Games
+# Proton games
+assign [class="^steam_app_*"] workspace $ws6
+
+# Tomb Raider
+for_window [class="^steam_app_203160$"] fullscreen enable  # Tomb Raider 1
+assign [class="RiseOfTheTombRaider"] workspace $ws6
+assign [class="ShadowOfTheTombRaider"] workspace $ws6
+
+# Native games
+for_window [class="^(h|H)elltaker*"] floating enable, move position center
+assign [class="^(h|H)elltaker*"] workspace $ws6
+
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+# bar {
+#     position top
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+#
+#     colors {
+#         statusline #f1f1f1
+#         background #323334
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
+
+include /etc/sway/config.d/*
+
+# vim: shiftwidth=4 tabstop=4 softtabstop=4

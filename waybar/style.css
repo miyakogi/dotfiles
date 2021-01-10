@@ -1,0 +1,249 @@
+/* *** COLORS *** */
+@define-color black #000000;
+@define-color white #ffffff;
+
+/* *** Nord Colors *** */
+/*
+@define-color foreground #f1f1f1;
+@define-color foreground-alt #cccccc;
+@define-color background rgba(33, 33, 33, 0.60);
+@define-color bottom-border rgba(100, 114, 125, 0.5);
+@define-color arch #20bbfc;
+@define-color clock #4fb8cc;
+@define-color red #fb4433;
+@define-color orange #d75f5f;
+@define-color cyan #4fb8cc;
+@define-color teal #5fd7af;
+@define-color yellow #f3e430;
+@define-color magenta #4fb8cc;
+@define-color green #66cc99;
+@define-color blue #2980b9;
+*/
+
+
+/* *** Sweet Colors *** */
+@define-color foreground #c3c7d1;
+@define-color foreground-alt #a3a7b1;
+@define-color background rgba(33, 33, 33, 0.60);
+@define-color bottom-border rgba(186, 89, 226, 0.3);
+@define-color arch #20bbfc;
+@define-color clock #c74ded;
+@define-color lime #71f79f;
+@define-color red #ed254e;
+@define-color orange #ff6a00;
+@define-color cyan #00c1e4;
+@define-color teal #00e8c6;
+@define-color yellow #f9dc5c;
+@define-color magenta #c74ded;
+@define-color green #00e8c6;
+@define-color blue #7cb7ff;
+
+* {
+  border: none;
+  border-radius: 0;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "Source Han Sans JP Medium", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  min-height: 0;
+}
+
+window#waybar {
+  border-radius: 0;
+  background-color: @background;
+  border-bottom: 4px solid @bottom-border;
+  color: @foreground-alt;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces {
+  margin: 0 4px;
+}
+
+#workspaces button {
+  color: @foreground-alt;
+  padding: 0 5px;
+  background-color: transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  /* box-shadow: inset 0 -4px #999999; */
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+  color: @foreground;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -4px @foreground;
+}
+
+#workspaces button.focused {
+  background-color: rgba(60, 60, 60, 0.4);
+  box-shadow: inset 0 -4px @green;
+}
+
+#workspaces button.urgent {
+  color: @foreground;
+  box-shadow: inset 0 -4px @red;
+}
+
+#taskbar {
+  margin: 0 4px;
+}
+
+#custom-addws {
+  font-size: 18px;
+  padding: 0 4px;
+  margin: 0 2px;
+}
+
+#custom-ws-left,
+#custom-ws-right {
+  font-size: 18px;
+  padding: 0 4px;
+}
+
+#mode {
+  color: @white;
+  background-color: @magenta;
+}
+
+#clock,
+#cpu,
+#memory,
+#temperature,
+#mode,
+#custom-volume,
+#custom-gpu,
+#custom-updates,
+#tray,
+#mpd {
+  font-size: 14px;
+  padding: 0 10px;
+  /* margin: 0 4px; */
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+#custom-menu {
+  color: @arch;
+  padding: 0 10px;
+}
+
+#window {
+  font-size: 16px;
+  color: @foreground;
+  box-shadow: inset 0 -4px @cyan;
+  padding: 0 10px;
+}
+
+#clock {
+  font-size: 15px;
+  color: @foreground;
+  box-shadow: inset 0 -4px @magenta;
+  margin: 0 96px;
+}
+
+@keyframes blink {
+  to {
+    background-color: @foreground;
+    color: @black;
+  }
+}
+
+label:focus {
+  background-color: @black;
+}
+
+#cpu {
+  background-color: transparent;
+  box-shadow: inset 0 -4px @cyan;
+}
+
+#cpu.warning {
+  box-shadow: inset 0 -4px @orange;
+}
+
+#cpu.critical {
+  color: @red;
+  box-shadow: inset 0 -4px @red;
+}
+
+#memory {
+  background-color: transparent;
+  box-shadow: inset 0 -4px @teal;
+}
+
+#memory.warning {
+  box-shadow: inset 0 -4px @orange;
+}
+
+#memory.critical {
+  color: @red;
+  box-shadow: inset 0 -4px @red;
+}
+
+#custom-gpu {
+  box-shadow: inset 0 -4px @yellow;
+}
+
+#custom-volume {
+  font-family: "NotoEmoji Nerd Font Mono";
+  font-size: 16px;
+  margin: 0;
+  box-shadow: inset 0 -4px @green;
+}
+
+#custom-updates {
+  color: @white;
+  background-color: @red;
+}
+
+#custom-close {
+  padding: 0 10px;
+  margin-left: 4px;
+  margin-right: 6px;
+  color: #aaa;
+}
+
+#tray {
+  box-shadow: inset 0 -4px @blue;
+}
+
+#idle_inhibitor {
+  padding: 0 4px;
+  margin-left: 4px;
+}
+
+#idle_inhibitor.activated {
+  color: @red;
+}
+
+#mpd {
+  font-family: "NotoEmoji Nerd Font Mono";
+  font-size: 12px;
+  /* box-shadow: inset 0 -4px @green; */
+  margin: 0;
+}
+
+#mpd.disconnected {
+  box-shadow: inset 0 -4px @orange;
+}
+
+#mpd.stopped {
+  /* box-shadow: inset 0 -4px @green; */
+}
+
+#mpd.paused {
+  /* box-shadow: inset 0 -4px @green; */
+}

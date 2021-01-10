@@ -46,6 +46,10 @@ if [[ $OSTYPE == linux* ]]; then
   makedir_if_not_exists $CONFIG_HOME/rofi
   makedir_if_not_exists $CONFIG_HOME/autostart-scripts
   makedir_if_not_exists $CONFIG_HOME/plasma-workspace/shutdown
+  makedir_if_not_exists $CONFIG_HOME/sway
+  makedir_if_not_exists $CONFIG_HOME/mako
+  makedir_if_not_exists $CONFIG_HOME/swappy
+  makedir_if_not_exists $CONFIG_HOME/waybar
 fi
 
 # ======== Make Symbolic Link ==============
@@ -191,6 +195,14 @@ if [[ $OSTYPE == linux* ]]; then
   ln -sf $BASEDIR/rofi/leave-theme.rasi $CONFIG_HOME/rofi
   ln -sf $BASEDIR/rofi/calendar-theme.rasi $CONFIG_HOME/rofi
   ln -sf $BASEDIR/rofi/leave.sh $CONFIG_HOME/rofi
+
+  # sway
+  ln -sf $BASEDIR/sway/config $CONFIG_HOME/sway
+  ln -sf $BASEDIR/waybar/config $CONFIG_HOME/waybar
+  ln -sf $BASEDIR/waybar/style.css $CONFIG_HOME/waybar
+  ln -sf $BASEDIR/waybar/launch.sh $CONFIG_HOME/waybar
+  ln -sf $BASEDIR/mako/config $CONFIG_HOME/mako
+  ln -sf $BASEDIR/swappy/config $CONFIG_HOME/swappy
 
   # chrome
   # set default flags
