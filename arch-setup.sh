@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
 if ! which yay > /dev/null; then
-  echo "Need `yay` to install requirements."
+  echo "Need `yay` to install requirements. Install yay by below command:"
+  echo "git clone https://aur.archlinux.org/yay.git && cd yay && makepgk -si"
   exit 1
 fi
 
