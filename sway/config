@@ -162,7 +162,7 @@ exec autotiling
     bindsym $mod+Shift+e exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/rofi/leave.sh"
 
     # Take screenshot
-    bindsym Print exec --no-startup-id _grim_file="${XDG_PICTURE_DIR:-$HOME/Pictures}/screenshots/grim/grim-$(date +%Y%m%d-%H%M%S).png" && grim $_grim_file && notify-send "Screenshot saved to $(echo $_grim_file | sed \"s|$HOME|~|\")"
+    bindsym Print exec --no-startup-id _grim_file="${XDG_PICTURE_DIR:-$HOME/Pictures}/screenshots/grim/grim-$(date +%Y%m%d-%H%M%S).png" && grim $_grim_file && notify-send -i camera "Screenshot saved to $(echo $_grim_file | sed \"s|$HOME|~|\")"
     bindsym Shift+Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
 
     # Scratchpad terminal (alacritty with tmux)
