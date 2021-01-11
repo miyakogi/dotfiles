@@ -9,7 +9,6 @@
 @define-color background rgba(33, 33, 33, 0.60);
 @define-color bottom-border rgba(100, 114, 125, 0.5);
 @define-color arch #20bbfc;
-@define-color clock #4fb8cc;
 @define-color red #fb4433;
 @define-color orange #d75f5f;
 @define-color cyan #4fb8cc;
@@ -26,17 +25,15 @@
 @define-color foreground-alt #a3a7b1;
 @define-color background rgba(33, 33, 33, 0.60);
 @define-color bottom-border rgba(186, 89, 226, 0.3);
-@define-color arch #20bbfc;
-@define-color clock #c74ded;
-@define-color lime #71f79f;
-@define-color red #ed254e;
-@define-color orange #ff6a00;
-@define-color cyan #00c1e4;
-@define-color teal #00e8c6;
-@define-color yellow #f9dc5c;
-@define-color magenta #c74ded;
-@define-color green #00e8c6;
-@define-color blue #7cb7ff;
+@define-color arch rgba(32, 187, 252, 1.0);
+@define-color red rgba(237, 37, 78, 1.0);
+@define-color orange rgba(255, 106, 0, 1.0);
+@define-color cyan rgba(0, 193, 228, 1.0);
+@define-color teal rgba(0, 232, 198, 1.0);
+@define-color yellow rgba(249, 220, 92, 1.0);
+@define-color magenta rgba(199, 77, 237, 1.0);
+@define-color green rgba(0, 232, 198, 1.0);
+@define-color blue rgba(124, 183, 255, 1.0);
 
 * {
   border: none;
