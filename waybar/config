@@ -53,15 +53,15 @@
     "unknown-tag": "N/A",
     "interval": 1,
     "random-icons": {
-      "on": "<span color=\"#f53c3c\"></span>",
+      "on": "<span color=\"#b81bd2\"></span>",
       "off": ""
     },
     "repeat-icons": {
-      "on": "<span color=\"#f53c3c\">凌</span>",
+      "on": "<span color=\"#b81bd2\">凌</span>",
       "off": "凌"
     },
     "single-icons": {
-      "on": "<span color=\"#f53c3c\">綾</span>",
+      "on": "<span color=\"#b81bd2\">綾</span>",
       "off": "綾"
     },
     "state-icons": {
