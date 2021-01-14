@@ -1,2 +1,6 @@
 #!/usr/bin/env zsh
-echo 'launch zsh -c ncmpcpp\nlaunch zsh -c mpdcover\nlaunch cava' | kitty --title kitty-music --session -
+kitty --title kitty-music --session - <<EOF
+launch zsh -c ncmpcpp
+launch mpdcover
+launch cava
+EOF
