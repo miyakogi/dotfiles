@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # Should be executed by kitty with remote control enabled
-# Ex: `kitty -T kitty-music -o allow_remote_control=yes -o enabled_layouts="*" kitty-music.sh`
+# Ex: `kitty --class kitty-music -o allow_remote_control=yes -o enabled_layouts="*" kitty-music.sh`
 
 kitty @ goto-layout splits
 kitty @ launch --title ncmpcpp --location vsplit --keep-focus ncmpcpp

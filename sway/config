@@ -361,7 +361,7 @@ assign [class="^(h|H)elltaker*"] workspace $ws6
 # for_window [title="^ncmpcpp$"] move workspace $ws9
 # for_window [title="^mpdcover.py$"] move workspace $ws9
 # for_window [title="^cava$"] move workspace $ws9
-for_window [title="^kitty-music$"] move workspace $ws9
+assign [app_id="^kitty-music$"] workspace $ws9
 
 #
 # Status Bar:
