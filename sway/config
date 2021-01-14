@@ -355,6 +355,12 @@ assign [class="ShadowOfTheTombRaider"] workspace $ws6
 for_window [class="^(h|H)elltaker*"] floating enable, move position center
 assign [class="^(h|H)elltaker*"] workspace $ws6
 
+#
+# Music:
+#
+for_window [title="^ncmpcpp$"] move workspace $ws9
+for_window [title="^mpdcover.py$"] move workspace $ws9
+for_window [title="^cava$"] move workspace $ws9
 
 #
 # Status Bar:
