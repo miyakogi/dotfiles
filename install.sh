@@ -214,6 +214,9 @@ if [[ $OSTYPE == linux* ]]; then
   ln -sf $BASEDIR/scripts/kwin-first-empty.sh $HOME/bin/kwin-first-empty
   ln -sf $BASEDIR/scripts/krohnkite-control.sh $HOME/bin/krohnkite-control
 
+  # kitty mpd music player
+  ln -sf $BASEDIR/scripts/kitty-music.sh $HOME/bin/kitty-music
+
   # plasma
   ln -sf $BASEDIR/scripts/autostart.sh $CONFIG_HOME/autostart-scripts
   ln -sf $BASEDIR/scripts/kde-shutdown.sh $CONFIG_HOME/plasma-workspace/shutdown

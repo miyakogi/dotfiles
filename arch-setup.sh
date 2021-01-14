@@ -70,6 +70,8 @@ packages=(
   pulsemixer
   pavucontrol-qt
   mpd
+  ncmpcpp
+  cava
   qt5ct
   qt5-tools
   yakuake
