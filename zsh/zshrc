@@ -361,7 +361,7 @@ if (which sk > /dev/null || which percol > /dev/null) && [[ $OSTYPE != msys ]]; 
   export HIST_DIRS_MAX=5000
   function cdhist() {
     python << EOS
-curdir = '$(pwd)' + '\n'
+curdir = '$(pwd | sed -e "s|'|\\\\'|g" | sed -e "s|\!|\\\\\!|g")' + '\n'
 if curdir.startswith('$HOME'):
     curdir = curdir.replace('$HOME', '\$HOME')
 if '$USER' in curdir:
