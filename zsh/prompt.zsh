@@ -3,6 +3,8 @@
 #  Prompt Setting for ZSH
 # ============================================
 
+_ZSH_STARTUP=1
+
 if [[ $OSNAME == Windows ]]; then
   # Windows terminal does not have $DISPLAY
   PROMPT_SIMPLE_MODE=0
@@ -14,6 +16,16 @@ else
   PROMPT_SIMPLE_MODE=1
 fi
 BR=$'\n'
+
+# insert newline after commands (before prompt)
+function cmdsep() {
+  if [[ -z $_ZSH_STARTUP ]] && [[ $PROMPT_SIMPLE_MODE == 0 ]]; then
+    echo ""
+  else
+    unset _ZSH_STARTUP
+  fi
+}
+add-zsh-hook -Uz precmd cmdsep
 
 ### configure lprompt
 function _update_lprompt() {
@@ -60,18 +72,6 @@ function _update_lprompt() {
   local _icon_color="%F{008}%(?,$_success_back,%K{yellow})"
   local _icon_dash="%K{008}%(?,%F{green},%F{yellow}) "
 
-  local _cols=`tput cols`
-  if [[ $OSNAME == Windows ]] && [[ $TERM != cygwin ]]; then
-    _cols=$(($_cols / 2))
-  fi
-  if [[ -z $DROPDOWN ]]; then
-    local _sep=`repeat $_cols printf ─`
-    local _separator="%F{238}$_sep%f$BR"
-  else
-    local _separator=""
-    unset DROPDOWN
-  fi
-
   if [[ -n "$VIRTUAL_ENV" ]]; then
     local icon=$'\ue235 '  # python 
     # local icon="🐍"  # snake
@@ -89,7 +89,7 @@ function _update_lprompt() {
   fi
 
   local mark="%(?,$_success_front$_mark%f,%F{yellow}$_mark%f)%(!,#,)"
-  PROMPT="$_separator$_icon_color $icon$_icon_dash%F{007}%~ %k$BR$mark"
+  PROMPT="$_icon_color $icon$_icon_dash%F{007}%~ %k$BR$mark"
 }
 
 ### RPROMPT
