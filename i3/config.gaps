@@ -1,23 +1,7 @@
-
 # i3-gaps
 gaps top 28
 gaps bottom -6
 gaps inner 12
-# gaps horizontal 0
-# gaps bottom 0
-# smart_gaps on
-# gaps inner 12
-# gaps outer 0
-# workspace $ws1 gaps inner 0
-# workspace $ws1 gaps outer 0
-# workspace $ws2 gaps inner 0
-# workspace $ws2 gaps outer 0
-
-# more transparent title bars
-# change colors           border    bg        text    indicat child_border
-client.focused            #5fd7af #00000099 #f1f1f1 #3d9cca #5fd7af
-client.unfocused          #323334 #00000099 #999999 #000000 #323334
-client.focused_inactive   #212121cc #00000099 #999999 #000000 #222222
 
 # for scratchpad (dropdown terminal)
 for_window [instance="scratchterm"] move to position 968 40
