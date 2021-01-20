@@ -11,6 +11,10 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
     wm="bspwm"
   fi
 
+  if [[ $wm == "exit" ]]; then
+    exit 0
+  fi
+
   # for wayland
   if [[ $wm == sway ]]; then
     # set xdg env var
