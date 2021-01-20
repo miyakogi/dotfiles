@@ -84,8 +84,8 @@ bindsym --release button2 kill
 bindsym $mod+z exec --no-startup-id "rofi -show drun"
 bindsym $alt+Tab exec --no-startup-id "rofi -show window"
 
-# disable mosue focus
-focus_follows_mouse no
+# enable mosue focus
+focus_follows_mouse yes
 
 # change focus
 bindsym $mod+h focus left
