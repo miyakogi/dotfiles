@@ -5,7 +5,7 @@
 
 # start graphical session
 if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 && ( -z $XDG_SESSION_TYPE || $XDG_SESSION_TYPE == tty ) && $OSNAME == "Arch" ]]; then
-  echo -n "Select WM/DE [bspwm, i3, kde, lxqt, sway] [default: bspwm]:\n>>> "
+  echo -n "Select WM/DE [bspwm, gnome(-x11), i3, kde, lxqt, sway] [default: bspwm]:\n>>> "
   read wm
   if [[ -z $wm ]]; then
     wm="bspwm"
@@ -16,7 +16,7 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
   fi
 
   # for wayland
-  if [[ $wm == sway ]]; then
+  if [[ $wm == (sway|gnome) ]]; then
     # set xdg env var
     export XDG_SESSION_TYPE=wayland
 
@@ -33,11 +33,16 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
     # set firefox
     export MOZ_ENABLE_WAYLAND=1
 
-    # start sway
-    export XDG_CURRENT_DESKTOP=sway
-    systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
-    exec sway
-    exit 0
+    if [[ $wm == sway ]]; then
+      # start sway
+      export XDG_CURRENT_DESKTOP=sway
+      systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+      exec sway
+      exit 0
+    elif [[ $wm == gnome ]]; then
+      exec dbus-run-session gnome-session
+      exit 0
+    fi
 
   else # for X session
     # start X session

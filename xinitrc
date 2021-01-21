@@ -50,6 +50,10 @@ case $1 in
   bspwm)
     xsetroot -cursor_name left_ptr
     exec bspwm;;
+  gnome-x11)
+    export XDG_SESSION_TYPE=x11
+    export GDK_BACKEND=x11
+    exec gnome-session;;
   i3)
     # need to update config file
     ${XDG_CONFIG_HOME:-$HOME/.config}/i3/update_config.sh
