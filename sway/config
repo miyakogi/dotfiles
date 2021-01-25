@@ -36,6 +36,9 @@ output DP-2 {
     # Enable FreeSync
     adaptive_sync on
 
+    # Manually set subpixel hinting
+    subpixel rgb
+
     # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
     background ${XDG_CONFIG_HOME:-$HOME/.config}/sway/bg.png fill
 
