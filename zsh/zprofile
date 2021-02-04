@@ -37,6 +37,11 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
       # start sway
       export XDG_CURRENT_DESKTOP=sway
       systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+
+      # use old api
+      # new api looks 288fps and reduce game performance
+      export WLR_DRM_NO_ATOMIC=1
+
       exec sway
       exit 0
     elif [[ $wm == gnome ]]; then
