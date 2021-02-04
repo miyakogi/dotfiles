@@ -80,6 +80,8 @@ packages=(
   xbindkeys
   zafiro-icon-theme-git
   numix-icon-theme-git
+  rustup
+  sccache  # rustc cache support
 )
 
 yay -S "${packages[@]}"

@@ -19,7 +19,7 @@ These applications should be all installed.
 - tmux
 - ctags
 - (python) pip
-- (rust) cargo
+- (rust) cargo (rustup + sccache)
 
 ### Desktop (X11)
 
