@@ -8,7 +8,6 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-set $alt Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -238,8 +237,8 @@ exec autotiling
     bindsym $mod+0 workspace number $ws10
 
     # Switch workspace
-    bindsym Control+$alt+Left workspace prev
-    bindsym Control+$alt+Right workspace next
+    bindsym Control+$mod+Left workspace prev
+    bindsym Control+$mod+Right workspace next
     bindsym $mod+n workspace next
     bindsym $mod+p workspace prev
     bindsym $mod+bracketright workspace next
@@ -247,8 +246,8 @@ exec autotiling
 
     # Add new workspace
     bindsym $mod+a exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
-    bindsym Control+$alt+Down exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
-    bindsym Control+$alt+Up exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+    bindsym Control+$mod+Down exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+    bindsym Control+$mod+Up exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
 
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number $ws1
