@@ -156,13 +156,13 @@ set $ws9 "9"
 set $ws10 "10"
 
 # add workspace
-bindsym Control+$alt+Down exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
-bindsym Control+$alt+Up exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
+bindsym Control+$mod+Down exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
+bindsym Control+$mod+Up exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
 bindsym $mod+a exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
 
 # switch to workspace
-bindsym Control+$alt+Left workspace prev
-bindsym Control+$alt+Right workspace next
+bindsym Control+$mod+Left workspace prev
+bindsym Control+$mod+Right workspace next
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 bindsym $mod+bracketright workspace next
@@ -193,8 +193,8 @@ bindsym $mod+Mod2+KP_9 workspace number $ws9
 bindsym $mod+Mod2+KP_0 workspace number $ws10
 
 # move focused container to workspace
-bindsym Control+$alt+Shift+Left move container to workspace prev
-bindsym Control+$alt+Shift+Right move container to workspace next
+bindsym Control+$mod+Shift+Left move container to workspace prev
+bindsym Control+$mod+Shift+Right move container to workspace next
 
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
