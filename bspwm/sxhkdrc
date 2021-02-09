@@ -84,11 +84,11 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 super + {p,n}
 	bspc desktop -f {prev,next}.local
-ctrl + alt + {Left,Right}
+ctrl + super + {Left,Right}
 	bspc desktop -f {prev,next}.local
 
 # focus to the empty desktop in the current monitor
-{ctrl + alt + Down,super + a}
+{ctrl + super + Down,super + a}
 	for i in $(bspc query -D -m --names); do \
 		if ! bspc query -N -d $i -n .!sticky > /dev/null; then \
 			bspc desktop -f $i; \
