@@ -349,6 +349,9 @@ assign [class="Steam"] workspace $ws5
 # Proton games
 assign [class="^steam_app_*"] workspace $ws6
 
+# Directly launched by proton
+for_window [class="^steam_proton$"] floating enable
+
 # Tomb Raider
 for_window [class="^steam_app_203160$"] fullscreen enable  # Tomb Raider 1
 assign [class="RiseOfTheTombRaider"] workspace $ws6
