@@ -246,6 +246,7 @@ exec autotiling
 
     # Add new workspace
     bindsym $mod+a exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+    bindsym $mod+backslash exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
     bindsym Control+$mod+Down exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
     bindsym Control+$mod+Up exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
 
