@@ -25,9 +25,10 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Display
 output DP-2 {
     # # Default resolution and refresh rate, checked by `swaymsg -t get_outpus`
-    # mode 1920x1080@144Hz
+    # Use custom EDID file on KMS to override custom 144Hz + VRR + low vram clock on idle
+    mode 1920x1080@144Hz
     # # need `--custom` flag to lower vram clock on idle
-    mode --custom 1920x1080@144Hz
+    # mode --custom 1920x1080@144Hz
     # mode --custom 1920x1080@120Hz
     # mode 1920x1080@119.982Hz
     # mode 1920x1080@60Hz
