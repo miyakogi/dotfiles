@@ -159,6 +159,7 @@ set $ws10 "10"
 bindsym Control+$mod+Down exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
 bindsym Control+$mod+Up exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
 bindsym $mod+a exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
+bindsym $mod+backslash exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
 
 # switch to workspace
 bindsym Control+$mod+Left workspace prev
