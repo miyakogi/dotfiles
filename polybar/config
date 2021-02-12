@@ -512,7 +512,7 @@ format-padding = 2
 format-foreground = ${colors.foreground}
 format-background = ${colors.red}
 format-underline = ${colors.red}
-interval = 600
+interval = 60
 
 [module/date]
 type = custom/script
