@@ -50,6 +50,10 @@ if [[ $OSTYPE == linux* ]]; then
   makedir_if_not_exists $CONFIG_HOME/mako
   makedir_if_not_exists $CONFIG_HOME/swappy
   makedir_if_not_exists $CONFIG_HOME/waybar
+
+  # wayland screenshot dirs
+  makedir_if_not_exists $HOME/Pictures/screenshots/grim
+  makedir_if_not_exists $HOME/Pictures/screenshots/swappy
 fi
 
 # ======== Make Symbolic Link ==============
