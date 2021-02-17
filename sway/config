@@ -112,10 +112,6 @@ input type:keyboard {
 exec_always ratbagctl warbling-mara profile active set 1
 
 ### Autostart Apps
-# Start xdg-desktop-portal for gtk and sway (wlroots)
-exec systemctl --user start xdg-desktop-portal-gtk
-exec systemctl --user start xdg-desktop-portal-wlr
-
 # Input Method
 # exec fcitx-autostart
 exec fcitx5
