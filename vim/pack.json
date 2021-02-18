@@ -16,7 +16,6 @@
       "thinca/vim-visualstar",
       "itchyny/vim-cursorword",
       "majutsushi/tagbar",
-      "mattn/sonictemplate-vim",
       "Shougo/deoplete.nvim",
       "Shougo/neosnippet",
       "Shougo/neosnippet-snippets",
@@ -72,4 +71,3 @@
     ]
   }
 }
-
