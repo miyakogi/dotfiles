@@ -50,6 +50,8 @@
       "posva/vim-vue",
       "rust-lang/rust.vim",
       "racer-rust/vim-racer",
+      "dart-lang/dart-vim-plugin",
+      "thosakwe/vim-flutter",
       "miyakogi/conoline.vim",
       "miyakogi/sidepanel.vim",
       "miyakogi/seiya.vim",
