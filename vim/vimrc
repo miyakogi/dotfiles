@@ -590,7 +590,7 @@ endif
 "}}}
 
 " ============================================
-"    Filetype Dependent Settings {{{
+"  Filetype Dependent Settings {{{
 " ============================================
 let python_no_builtin_highlight = 1
 "}}}
@@ -661,10 +661,6 @@ let g:neosnippet#snippets_directory=[
       \ '~/.vim/snippets',
       \ '~/.vim/bundle/vim-snippets/snippets',
       \]
-"}}}
-
-" ======== sonic-template ======== {{{
-let g:sonictemplate_vim_template_dir = '$HOME/.vim/template'
 "}}}
 
 " ======== Tcomment ======== {{{
@@ -853,6 +849,22 @@ let g:lightline_conf = $HOME . '/.vim/config/lightline_conf.vim'
 if filereadable(g:lightline_conf)
   execute 'source ' . g:lightline_conf
 endif
+"}}}
+
+" ======== Language Server Settings ======== {{{
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  nmap <buffer> gd <plug>(lsp-definition)
+endfunction
+
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+let g:lsp_diagnostics_enabled = 0
+" let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_text_edit_enabled = 0
 "}}}
 
 " ======== ale ======== {{{

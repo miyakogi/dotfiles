@@ -29,26 +29,25 @@
       "kien/rainbow_parentheses.vim",
       "Yggdroot/indentLine",
       "thinca/vim-quickrun",
+      "prabirshrestha/vim-lsp",
+      "mattn/vim-lsp-settings",
+      "lighttiger2505/deoplete-vim-lsp",
       "dense-analysis/ale",
       "janko-m/vim-test",
       "cohama/vim-hier",
       "KazuakiM/vim-qfstatusline",
       "altercation/vim-colors-solarized",
       "itchyny/lightline.vim",
-      "miyakogi/vim-flake8",
       "jmcantrell/vim-virtualenv",
       "Vimjas/vim-python-pep8-indent",
-      "zchee/deoplete-jedi",
       "dag/vim-fish",
       "Glench/Vim-Jinja2-Syntax",
       "kevinoid/vim-jsonc",
       "cespare/vim-toml",
       "pangloss/vim-javascript",
-      "mattn/jscomplete-vim",
       "leafgarland/typescript-vim",
       "posva/vim-vue",
       "rust-lang/rust.vim",
-      "racer-rust/vim-racer",
       "dart-lang/dart-vim-plugin",
       "thosakwe/vim-flutter",
       "miyakogi/conoline.vim",
@@ -66,8 +65,7 @@
   "opt": {
     "github.com": [
       "Raimondi/delimitMate",
-      "tpope/vim-abolish",
-      "davidhalter/jedi-vim"
+      "tpope/vim-abolish"
     ]
   }
 }

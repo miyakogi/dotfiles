@@ -76,38 +76,6 @@ function! s:init() abort
     endif
   endfunction
 
-  " ======== jedi ========
-  function! s:jedi_rename() abort
-    packadd jedi-vim
-    call jedi#rename()
-  endfunction
-
-  function! s:jedi_usages()
-    packadd jedi-vim
-    call jedi#usages()
-    if len(getqflist()) < 10 && &filetype ==# 'qf'
-      resize 10
-    endif
-  endfunction
-
-  function! s:jedi_goto_a()
-    packadd jedi-vim
-    call jedi#goto_assignments()
-  endfunction
-
-  function! s:jedi_doto_d()
-    packadd jedi-vim
-    call jedi#goto_definitions()
-  endfunction
-
-  function! s:jedi_doc()
-    packadd jedi-vim
-    call jedi#show_documentation()
-    if winheight(0) < 10
-      resize 10
-    endif
-  endfunction
-
   let s:initialized = 1
 endfunction
 
@@ -117,13 +85,6 @@ if !s:initialized | call s:init() | endif
 " ======== run script ========
 nnoremap <buffer><silent> <Leader>r :<C-u>call <SID>quickrun_py()<CR>
 nnoremap <expr><buffer> <Leader>p <SID>python_shell()
-
-" ======== Jedi-vim ========
-command! -buffer JediRename call <SID>jedi_rename()
-nnoremap <buffer><silent> gl :<C-u>call <SID>jedi_usages()<CR>
-nnoremap <buffer><silent> gd :<C-u>call <SID>jedi_goto_a()<CR>
-nnoremap <buffer><silent> gD :<C-u>call <SID>jedi_doto_d()<CR>
-nnoremap <buffer><silent> K :<C-u>call <SID>jedi_doc()<CR>
 
 " ========= vim-flake8 ========
 if exists(':Flake8')
