@@ -140,8 +140,9 @@ set nonumber " show line number column
 set showcmd " show some command in the end of cmd win
 set report=2
 set noruler
-set nospell " Disable spell check
+set spell " Enable spell check
 set spelllang+=cjk " Disable spell check on multibyte characters
+set spelloptions+=camel " Enable spell check for camel case words
 set list " Display invisible chars
 set listchars=tab:\|\ ,trail:_
 set fillchars+=vert:┃
