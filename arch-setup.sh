@@ -12,7 +12,7 @@ packages=(
   alacritty-ligatures-git  # ligature-supported version of alacritty
   kitty
   gvim  # normal vim packages does not support clipboard
-  neovim
+  neovim-git
   python-pynvim  # neovim support package
   tmux
   ctags
