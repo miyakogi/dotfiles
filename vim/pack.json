@@ -17,6 +17,7 @@
       "itchyny/vim-cursorword",
       "majutsushi/tagbar",
       "Shougo/deoplete.nvim",
+      "deathlyfrantic/deoplete-spell",
       "Shougo/neosnippet",
       "Shougo/neosnippet-snippets",
       "tomtom/tcomment_vim",
