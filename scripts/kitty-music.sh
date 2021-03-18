@@ -7,3 +7,4 @@ kitty @ launch --title ncmpcpp --location vsplit --keep-focus ncmpcpp
 kitty @ launch --title cava --location hsplit --keep-focus cava
 kitty @ launch --title mpdcover --location hsplit --keep-focus mpdcover
 kitty @ resize-window --match title:ncmpcpp --increment 45
+kitty @ focus-window --match title:ncmpcpp
