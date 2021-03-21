@@ -5,10 +5,10 @@
 
 # start graphical session
 if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 && ( -z $XDG_SESSION_TYPE || $XDG_SESSION_TYPE == tty ) && $OSNAME == "Arch" ]]; then
-  echo -n "Select WM/DE [bspwm, gnome(-x11), i3, kde, lxqt, sway] [default: bspwm]:\n>>> "
+  echo -n "Select WM/DE [bspwm, gnome(-x11), i3, kde, lxqt, sway] [default: sway]:\n>>> "
   read wm
   if [[ -z $wm ]]; then
-    wm="bspwm"
+    wm="sway"
   fi
 
   if [[ $wm == "exit" ]]; then
@@ -43,11 +43,10 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
       # export WLR_DRM_NO_ATOMIC=1
 
       exec sway
-      exit 0
     elif [[ $wm == gnome ]]; then
       exec dbus-run-session gnome-session
-      exit 0
     fi
+    exit 0
 
   else # for X session
     # start X session
