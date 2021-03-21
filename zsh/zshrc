@@ -286,7 +286,6 @@ load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
 load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
 ### zsh-autopair
 load_if_exists $ZDOTDIR/zsh-autopair/autopair.zsh
-autopair-init
 
 ### syntax highlight
 if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then  # Arch
