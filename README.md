@@ -15,6 +15,7 @@ These applications should be all installed.
 - git
 - alacritty
 - kitty
+- foot
 - vim/neovim
 - tmux
 - ctags

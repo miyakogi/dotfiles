@@ -27,6 +27,7 @@ makedir_if_not_exists $HOME/.vim/doc
 makedir_if_not_exists $HOME/.vim/pack/remote
 makedir_if_not_exists $CONFIG_HOME/alacritty
 makedir_if_not_exists $CONFIG_HOME/kitty
+makedir_if_not_exists $CONFIG_HOME/foot
 makedir_if_not_exists $ZDOTDIR
 makedir_if_not_exists $HOME/.tmux/plugins
 makedir_if_not_exists $HOME/bin
@@ -137,6 +138,9 @@ ln -sf $BASEDIR/alacritty.yml $CONFIG_HOME/alacritty
 
 # kitty (terminal)
 ln -sf $BASEDIR/kitty.conf $CONFIG_HOME/kitty
+
+# foot (terminal)
+ln -sf $BASEDIR/foot/foot.ini $CONFIG_HOME/foot/foot.ini
 
 if [[ $OSTYPE == linux* ]]; then
   # pip install --no-binary option

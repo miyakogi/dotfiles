@@ -11,6 +11,7 @@ packages=(
   git
   alacritty-ligatures-git  # ligature-supported version of alacritty
   kitty
+  foot
   gvim  # normal vim packages does not support clipboard
   neovim-git
   python-pynvim  # neovim support package
