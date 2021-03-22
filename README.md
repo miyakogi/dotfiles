@@ -48,9 +48,10 @@ These applications should be all installed.
 
 ### Fonts
 
+- Nerd Font Symbols
 - Source Han Sans JP
-- Fira Code Nerd Font Mono
-- Noto Emoji Nerd Font Mono
+- Fira Code
+- Fira Code Nerd Fonts
 - unifont
 - Hack
 - Raleway

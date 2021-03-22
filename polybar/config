@@ -67,9 +67,9 @@ module-margin-left = 0
 module-margin-right = 0
 
 font-0 = Source Han Sans JP Medium:pixelsize=12:antialias=true;0
-font-1 = NotoEmoji Nerd Font Mono:pixelsize=12;0
+font-1 = Noto Emoji:pixelsize=12;0
 font-2 = unifont:fontformat=truetype:size=6:antialias=false;1
-font-3 = NotoEmoji Nerd Font Mono:pixelsize=8;0
+font-3 = Noto Emoji:pixelsize=8;0
 
 ; tray-position = right
 ; tray-padding = 6
@@ -133,9 +133,9 @@ override-redirect = true
 
 ; fonts with 2px top margin
 font-0 = Source Han Sans JP Medium:pixelsize=12:antialias=true;2
-font-1 = NotoEmoji Nerd Font Mono:pixelsize=12;2
+font-1 = Noto Emoji:pixelsize=12;2
 font-2 = unifont:fontformat=truetype:size=6:antialias=false;3
-font-3 = NotoEmoji Nerd Font Mono:pixelsize=8;2
+font-3 = Noto Emoji:pixelsize=8;2
 
 [bar/left]
 inherit = bar/base
