@@ -7,7 +7,7 @@
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_PICTURES_DIR=$HOME/Pictures
 export EDITOR=vim
-if which vimpager > /dev/null; then
+if which vimpager > /dev/null 2>&1; then
   export PAGER=vimpager
 fi
 
@@ -101,7 +101,7 @@ if [[ $OSNAME == Ubuntu ]]; then
 fi
 
 # pyenv
-if which pyenv >/dev/null; then
+if which pyenv >/dev/null 2>&1; then
   add_path "$(pyenv root)/shims"
 fi
 
