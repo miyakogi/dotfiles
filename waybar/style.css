@@ -199,8 +199,8 @@ label:focus {
 }
 
 #custom-volume {
-  font-family: "Noto Emoji";
-  font-size: 16px;
+  font-family: "Symbols Nerd Font";
+  font-size: 18px;
   margin: 0;
   box-shadow: inset 0 -4px @green;
 }
@@ -231,8 +231,8 @@ label:focus {
 }
 
 #mpd {
-  font-family: "Noto Emoji";
-  font-size: 12px;
+  font-family: "Symbols Nerd Font";
+  font-size: 18px;
   /* box-shadow: inset 0 -4px @green; */
   margin: 0;
 }

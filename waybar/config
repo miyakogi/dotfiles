@@ -48,9 +48,9 @@
     "on-click": "swaymsg workspace next"
   },
   "mpd": {
-    "format": "{stateIcon}{randomIcon}{repeatIcon}{singleIcon}",
-    "format-disconnected": "MPD Disconnected ",
-    "format-stopped": "栗{randomIcon}{repeatIcon}{singleIcon}",
+    "format": "{stateIcon} {randomIcon} {repeatIcon} {singleIcon}  ",
+    "format-disconnected": "MPD Disconnected  ",
+    "format-stopped": "栗 {randomIcon} {repeatIcon} {singleIcon}  ",
     "unknown-tag": "N/A",
     "interval": 1,
     "random-icons": {
@@ -67,7 +67,7 @@
     },
     "state-icons": {
       "paused": "",
-      "playing": "契"
+      "playing": ""
     },
     "tooltip-format": "connected",
     "tooltip-format-disconnected": "disconnected"
