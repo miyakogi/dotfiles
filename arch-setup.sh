@@ -83,6 +83,7 @@ packages=(
   numix-icon-theme-git
   rustup
   sccache  # rustc cache support
+  starship
 )
 
 yay -S "${packages[@]}"

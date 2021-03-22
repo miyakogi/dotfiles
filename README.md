@@ -67,6 +67,7 @@ These applications should be all installed.
 - exa/lsd (`ls` alternatives)
 - bat (`cat` alternative)
 - vimpager (`less` alternative, used for man page)
+- starship (prompt)
 
 ### Desktop (X11)
 

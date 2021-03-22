@@ -129,6 +129,9 @@ ln -sf $BASEDIR/scripts/pip-update $HOME/bin/pip-update
 # Rust (Cargo)
 ln -sf $BASEDIR/cargo.toml $HOME/.cargo/config
 
+# starship (prompt)
+ln -sf $BASEDIR/starship.toml $CONFIG_HOME/starship.toml
+
 # alacritty (terminal)
 ln -sf $BASEDIR/alacritty.yml $CONFIG_HOME/alacritty
 
