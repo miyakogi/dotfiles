@@ -71,6 +71,9 @@ ln -sf $ZSHBASE/zprofile $ZDOTDIR/.zprofile
 ln -sf $ZSHBASE/zshrc $ZDOTDIR/.zshrc
 ln -sf $ZSHBASE/prompt.zsh $ZDOTDIR/prompt.zsh
 
+# fish shell
+ln -sf $BASEDIR/fish $CONFIG_HOME/
+
 # ------ Git ------
 ln -sf $BASEDIR/git/gitignore $HOME/.gitignore_global
 ln -sf $BASEDIR/git/gitconfig $HOME/.gitconfig

@@ -9,6 +9,7 @@ fi
 packages=(
   zsh
   git
+  fish
   alacritty-ligatures-git  # ligature-supported version of alacritty
   kitty
   foot
@@ -85,6 +86,8 @@ packages=(
   rustup
   sccache  # rustc cache support
   starship
+  python-virtualenvwrapper
+  virtualfish  # python venv manager for fish shell
 )
 
 yay -S "${packages[@]}"

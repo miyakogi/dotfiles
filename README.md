@@ -13,6 +13,7 @@ These applications should be all installed.
 
 - zsh
 - git
+- fish
 - alacritty
 - kitty
 - foot
@@ -60,6 +61,7 @@ These applications should be all installed.
 ### Terminal
 
 - (python) virtualenv/virtualenv-wrapper
+- (python) virtualfish
 - (python) cookiecutter
 
 #### Optional
