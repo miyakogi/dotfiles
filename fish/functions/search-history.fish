@@ -1,6 +1,10 @@
 function search-history
-  set -l cmd (history search --reverse | eval $_search_cmd)
-  test -z $cmd ; and return
-  commandline -b $cmd
+  if not test -z $_search_cmd
+    set -l cmd (history search --reverse | eval $_search_cmd)
+    test -z $cmd; and return
+    commandline -b $cmd
+  else
+    echo -e "Install `skim` or `percol` to use search history shortcut\n\n"
+    commandline -f repaint
+  end
 end
-
