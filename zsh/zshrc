@@ -130,10 +130,10 @@ function __which() {
 # alias for `ls` command
 if __which exa; then
   if [[ -n $DISPLAY ]]; then
-    alias ls="exa --icons --git-ignore"
+    alias ls="exa --icons"
     alias lsa="exa --icons -a"
   else
-    alias ls="exa --git-ignore"
+    alias ls="exa"
     alias lsa="exa -a"
   fi
 elif __which lsd && [[ -n $DISPLAY ]]; then

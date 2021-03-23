@@ -26,7 +26,7 @@ end
 
 # ls -> exa/lsd
 if __which exa
-  alias ls "exa --icons --git-ignore"
+  alias ls "exa --icons"
 else if __which lsd
   alias ls lsd
 end
