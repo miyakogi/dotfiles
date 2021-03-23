@@ -4,9 +4,9 @@
 set fish_greeting
 
 # set skim/percol search command
-if __which sk
+if type -q sk
   set _search_cmd "sk --tac --no-sort --reverse --exact --tiebreak index --ansi -p 'skim>' --margin 2% --query (commandline -b)"
-else if __which percol
+else if type -q percol
   set _search_cmd "percol --reverse --query (commandline -b)"
 end
 
@@ -22,6 +22,6 @@ function __auto_ls --on-variable PWD; auto_ls; end
 set -x VIRTUALFISH_HOME $HOME/.virtualenvs/arch
 
 # prompt
-if __which starship
+if type -q starship
   starship init fish | source
 end

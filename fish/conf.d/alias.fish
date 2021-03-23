@@ -19,20 +19,20 @@ abbr --add --global vi "vim --no-plugin"
 abbr --add --global gstatus "git status -s -b"
 
 # vim/nvim
-if __which nvim; and test $XDG_SESSION_TYPE = wayland
+if type -q nvim; and test $XDG_SESSION_TYPE = wayland
   abbr --add --global vim nvim
   set -x EDITOR nvim
 end
 
 # ls -> lsd/exa
-if __which lsd
+if type -q lsd
   abbr --add --global ls lsd
-else if __which exa
+else if type -q exa
   abbr --add --global ls "exa --icons"
 end
 
 # cat -> bat
-if __which bat
+if type -q bat
   abbr --add --global cat "env PAGER=less bat"
 end
 

@@ -1,7 +1,7 @@
 function auto_ls
-  if __which lsd
+  if type -q lsd
     lsd
-  else if __which exa
+  else if type -q exa
     exa --icons
   else
     ls
