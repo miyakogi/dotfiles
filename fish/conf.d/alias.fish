@@ -24,11 +24,11 @@ if __which nvim; and test $XDG_SESSION_TYPE = wayland
   set -x EDITOR nvim
 end
 
-# ls -> exa/lsd
-if __which exa
-  abbr --add --global ls "exa --icons"
-else if __which lsd
+# ls -> lsd/exa
+if __which lsd
   abbr --add --global ls lsd
+else if __which exa
+  abbr --add --global ls "exa --icons"
 end
 
 # cat -> bat
