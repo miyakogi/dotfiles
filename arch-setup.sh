@@ -38,6 +38,7 @@ packages=(
   plasma
   lxqt
   adobe-source-han-sans-jp-fonts
+  adobe-source-han-mono-jp-fonts
   ttf-fira-code
   nerd-fonts-fira-code
   ttf-unifont
