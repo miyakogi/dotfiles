@@ -1,3 +1,9 @@
 function auto_ls
-  ls
+  if __which exa
+    exa --icons
+  else if __which lsd
+    lsd
+  else
+    ls
+  end
 end
