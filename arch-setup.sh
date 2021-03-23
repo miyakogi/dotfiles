@@ -88,6 +88,10 @@ packages=(
   starship
   python-virtualenvwrapper
   virtualfish  # python venv manager for fish shell
+  lsd  # ls alternative
+  exa  # ls alternative
+  bat  # cat alternative
+  skim  # fuzzy searcher
 )
 
 yay -S "${packages[@]}"
