@@ -31,11 +31,6 @@ else if type -q exa
   abbr --add --global ls "exa --icons"
 end
 
-# cat -> bat
-if type -q bat
-  abbr --add --global cat "env PAGER=less bat"
-end
-
 # ssh
 if test $TERM = "alacritty"; or test $TERM = "kitty"; or test $TERM = "foot"
   abbr --add --global ssh "env TERM=xterm-256color ssh"
