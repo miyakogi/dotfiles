@@ -8,7 +8,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_PICTURES_DIR=$HOME/Pictures
 export EDITOR=vim
 if which vimpager > /dev/null 2>&1; then
-  export PAGER=vimpager
+  export MANPAGER=vimpager
 fi
 
 # OS setting

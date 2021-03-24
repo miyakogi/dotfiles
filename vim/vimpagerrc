@@ -1,7 +1,8 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-source $HOME/.vimrc
+" should not load plugins
+set noloadplugins
 
 " set vimpager options
 let g:vimpager_scrolloff=1
@@ -10,9 +11,10 @@ let g:vimpager_scrolloff=1
 nnoremap <silent> gg :<C-u>1<CR>
 
 " set style
-autocmd VimEnter * colorscheme badwolf
-autocmd VimEnter * IndentLinesDisable
-autocmd VimEnter * SeiyaEnable
+colorscheme pencil
+
+" transparent background
+highlight Normal ctermbg=NONE
 
 " go to first line
 autocmd VimEnter * :1
