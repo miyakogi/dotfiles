@@ -1,7 +1,11 @@
 #!/usr/bin/env zsh
 # This script enables chrome's HW acceleration on both Wayland and Xorg sessions
 
-session=$(loginctl show-session $(loginctl show-user $(whoami) -p Display --value) -p Type --value)
+if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
+  session="wayland"
+else
+  session=$(loginctl show-session $(loginctl show-user $(whoami) -p Display --value) -p Type --value)
+fi
 
 flags=("--ignore-gpu-blocklist" "--enable-gpu-rasterization" "--enable-zero-copy")
 
