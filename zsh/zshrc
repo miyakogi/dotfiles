@@ -364,22 +364,9 @@ if (__which sk || __which percol) && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
   export HIST_DIRS_MAX=5000
   function cdhist() {
-    python << EOS
-curdir = '$(pwd | sed -e "s|'|\\\\'|g" | sed -e "s|\!|\\\\\!|g")' + '\n'
-if curdir.startswith('$HOME'):
-    curdir = curdir.replace('$HOME', '\$HOME')
-if '$USER' in curdir:
-    curdir = curdir.replace('$USER', '\$USER')
-with open('${HIST_DIRS_FILE}', 'r') as f:
-    lines = f.readlines()
-if len(lines) > ${HIST_DIRS_MAX}:
-    lines = lines[-${HIST_DIRS_MAX}:]
-while curdir in lines:
-    lines.remove(curdir)
-lines.append(curdir)
-with open('${HIST_DIRS_FILE}', 'w') as f:
-    f.write(''.join(lines))
-EOS
+    local curdir=$(pwd | sed -e "s|$HOME|\$HOME|" -e "s|$USER|\$USER|")
+    local tmphist=$({ grep -v -x "$curdir" "$HIST_DIRS_FILE"; echo "$curdir" } | tail -n $HIST_DIRS_MAX)
+    echo $tmphist >$HIST_DIRS_FILE
   }
   add-zsh-hook chpwd cdhist
 
