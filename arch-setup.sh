@@ -92,7 +92,8 @@ packages=(
   lsd  # ls alternative
   exa  # ls alternative
   bat  # cat alternative
-  skim  # fuzzy searcher
+  skim  # fuzzy searcher written in rust
+  pkgfile  # faster fish command failure support
 )
 
 yay -S "${packages[@]}"
