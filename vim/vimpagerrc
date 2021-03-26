@@ -16,7 +16,11 @@ colorscheme pencil
 " transparent background
 highlight Normal ctermbg=NONE
 
-" go to first line
+" set search highlight color 
+" (`pencil` colorscheme does not highlight search)
+highlight Search ctermbg=3 ctermfg=0
+
+" go to first line at startup
 autocmd VimEnter * :1
 
 " vim: set ft=vim:
