@@ -32,7 +32,7 @@ symbol = " "
 [python]
 format = '[${symbol}${pyenv_prefix}(${version} )(\(${virtualenv}\) )]($style)'
 symbol = "🐍"
-scan_for_pyfiles = false
+detect_extensions = []
 
 [rust]
 format = "[$symbol($version )]($style)"
