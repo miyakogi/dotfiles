@@ -1,8 +1,5 @@
 #!/usr/bin/env fish
 
-# disable fish greeting message
-set fish_greeting
-
 # set skim/percol search command
 if type -q sk
   set _search_cmd "sk --tac --no-sort --reverse --exact --tiebreak index --ansi -p 'skim>' --margin 2% --query (commandline -b)"
