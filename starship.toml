@@ -5,6 +5,15 @@ success_symbol = "[](bold green)"
 error_symbol = "[](bold red)"
 vicmd_symbol = "[](bold green)"
 
+[shell]
+disabled = false
+format = '[$indicator](bold white)'
+bash_indicator = 'bash '
+zsh_indicator = 'zsh '
+fish_indicator = ''
+powershell_indicator = 'PowerShell '
+elvish_indicator = 'Elvish '
+
 [memory_usage]
 disabled = false
 threshold = 60
