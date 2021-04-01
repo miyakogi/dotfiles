@@ -173,9 +173,9 @@ exec --no-startup-id foot --server
     for_window [app_id="scratchterm"] floating enable
     for_window [app_id="scratchterm"] sticky enable
     for_window [app_id="scratchterm"] move scratchpad
-    for_window [app_id="scratchterm"] move position 1024 216
-    for_window [app_id="scratchterm"] resize set width 944
-    for_window [app_id="scratchterm"] resize set height 1032
+    for_window [app_id="scratchterm"] move position 1038 224
+    for_window [app_id="scratchterm"] resize set width 960
+    for_window [app_id="scratchterm"] resize set height 1052
 
 #
 # Moving around:
