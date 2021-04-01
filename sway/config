@@ -55,6 +55,8 @@ default_border pixel 2
 default_floating_border pixel 2
 # Title bar
 title_align center
+# Edge border
+hide_edge_borders both
 #
 # Border colors
 #                        border  bg        text    indicat child_border
@@ -64,10 +66,8 @@ client.unfocused         #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
 client.focused_inactive  #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
 
 ### Gaps
-gaps inner 12
-gaps top -4
-gaps bottom -4
-# smart_gaps on
+gaps inner 8
+gaps outer -8
 
 ### Idle configuration
 #
