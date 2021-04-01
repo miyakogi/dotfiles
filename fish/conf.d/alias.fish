@@ -26,9 +26,11 @@ end
 
 # ls -> lsd/exa
 if type -q lsd
-  abbr --add --global ls lsd
+  abbr --add --global ls "lsd"
+  abbr --add --global tree "lsd --tree"
 else if type -q exa
   abbr --add --global ls "exa --icons"
+  abbr --add --global tree "exa --icons --tree"
 end
 
 # ssh
