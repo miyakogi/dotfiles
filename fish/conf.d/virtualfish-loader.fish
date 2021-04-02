@@ -1,5 +1,11 @@
 #!/usr/bin/env fish
 
+if not test -f /usr/lib/python3.9/site-packages/virtualfish/virtual.fish
+  echo "VirtualFish is not installed. Install by bellow command:"
+  echo "yay -S virtualfish"
+  exit
+end
+
 set -g VIRTUALFISH_VERSION 2.5.1
 set -g VIRTUALFISH_PYTHON_EXEC /usr/bin/python
 

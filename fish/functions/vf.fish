@@ -1,4 +1,12 @@
 function vf --description "VirtualFish: fish plugin to manage virtualenvs"
+    # check for virtualfish installation
+    if not test -f /usr/lib/python3.9/site-packages/virtualfish/virtual.fish
+        echo "vf command needs virtualfish to be installed."
+        echo "Install it by bellow command:"
+        echo "yay -S virtualfish"
+        return 1
+    end
+
     # Check for existence of $VIRTUALFISH_HOME
     if not test -d $VIRTUALFISH_HOME
         echo "The directory $VIRTUALFISH_HOME does not exist."
