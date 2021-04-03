@@ -356,7 +356,7 @@ function pip-init() {
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
 if (__which sk || __which percol) && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
-  export HIST_DIRS_MAX=5000
+  export HIST_DIRS_MAX=1000
   function cdhist() {
     local curdir=$(pwd | sed -e "s|$HOME|\$HOME|" -e "s|$USER|\$USER|")
     local tmphist=$({ grep -v -x "$curdir" "$HIST_DIRS_FILE"; echo "$curdir" } | tail -n $HIST_DIRS_MAX)
