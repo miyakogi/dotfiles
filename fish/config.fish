@@ -9,7 +9,7 @@ end
 
 # save dirhist on pwd changed
 set -x HIST_DIRS_FILE $HOME/.histdir
-set -x HIST_DIRS_MAX 5000
+set -x HIST_DIRS_MAX 1000
 function __chpwd --on-variable PWD; chpwd; end
 
 # auto ls on cd
