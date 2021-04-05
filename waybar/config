@@ -30,7 +30,7 @@
   },
   "custom/menu": {
     "format": "",
-    "on-click": "${XDG_CONFIG_HOME:-$HOME/.config}/polybar/rofi-menu.sh"
+    "on-click": "rofi -modi run,drun -show drun -theme menu-theme-gaps -xoffset 12 yoffset 16"
   },
   "custom/addws": {
     "format": "",
