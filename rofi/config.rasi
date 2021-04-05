@@ -20,7 +20,7 @@ configuration {
 /*	window-command: "wmctrl -i -R {window}";*/
 /*	window-match-fields: "all";*/
 	icon-theme: "zafiro-icon-theme";
-/*	drun-match-fields: "name,generic,exec,categories";*/
+	drun-match-fields: "name,generic,categories";
 /*	drun-show-actions: false;*/
 	drun-display-format: "{name} [<span color="#cccccc">({generic})</span>]";
 /*	disable-history: false;*/
