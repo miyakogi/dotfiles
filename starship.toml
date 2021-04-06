@@ -16,7 +16,7 @@ elvish_indicator = 'Elvish '
 
 [memory_usage]
 disabled = false
-threshold = 60
+threshold = 70
 format = "[${ram}( | ${swap})]($style) "
 style = "bold dimmed yellow"
 
