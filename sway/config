@@ -70,8 +70,8 @@ client.unfocused         #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
 client.focused_inactive  #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
 
 ### Gaps
-gaps inner 4
-gaps outer -4
+# gaps inner 4
+# gaps outer -4
 
 ### Idle configuration
 #
