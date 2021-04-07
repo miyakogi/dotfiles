@@ -87,10 +87,6 @@ if (($PSVersionTable.PSVersion.Major -ge 6) -and (Get-Command zoxide 2>$null)) {
     $ExecutionContext.InvokeCommand.LocationChangedAction = {
         $null = __zoxide_hook
     }
-} else {
-    Write-Error "`
-zoxide: PWD hooks are not supported below PowerShell 6.
-        Use '--hook prompt' when initializing zoxide."
 }
 
 # =============================================================================
