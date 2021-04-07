@@ -125,7 +125,8 @@ def make_empty_directories() -> None:
     """
     mkdir(HOME / '.vim' / 'backup')
     mkdir(HOME / '.vim' / 'doc')
-    mkdir(HOME / '.tmux' / 'plugins')
+    if not WINDOWS:
+        mkdir(HOME / '.tmux' / 'plugins')
 
 
 def make_empty_directories_linux() -> None:
