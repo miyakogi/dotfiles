@@ -287,6 +287,16 @@ def main() -> None:
     # fish shell
     install(BASEDIR / 'fish', CONFIG_HOME / 'fish')
 
+    # PowerShell
+    if WINDOWS:
+        PWSH_HOME = HOME / 'Documents' / 'PowerShell'
+    else:
+        PWSH_HOME = CONFIG_HOME / 'powershell'
+    install(
+        BASEDIR / 'powershell' / 'profile.ps1',
+        PWSH_HOME / 'Microsoft.PowerShell_profile.ps1',
+    )
+
     # git
     install(BASEDIR / 'git' / 'gitignore', HOME / '.gitignore_global')
     install(BASEDIR / 'git' / 'gitconfig', HOME / '.gitconfig')
