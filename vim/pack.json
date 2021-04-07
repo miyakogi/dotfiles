@@ -49,6 +49,7 @@
       "leafgarland/typescript-vim",
       "posva/vim-vue",
       "rust-lang/rust.vim",
+      "pprovost/vim-ps1",
       "dart-lang/dart-vim-plugin",
       "thosakwe/vim-flutter",
       "miyakogi/conoline.vim",
