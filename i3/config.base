@@ -56,6 +56,9 @@ default_border pixel 2
 title_align center
 default_floating_border pixel 2
 
+# hide outer side borders
+hide_edge_borders both
+
 # change colors           border  bg      text    indicat child_border
 client.focused           #b81bd288 #212121d9 #f1f1f1 #b81bd2aa #b81bd288
 client.unfocused         #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
