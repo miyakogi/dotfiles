@@ -77,7 +77,7 @@ case $WM in
     if pgrep -x sxhkd > /dev/null; then
       pkill -USR1 -x sxhkd &
     else
-      sxhkd -c $CONFIG_HOME/bspwm/sxhkdrc &
+      sxhkd -m 1 -c $CONFIG_HOME/bspwm/sxhkdrc &
     fi
     ;;
   i3)
