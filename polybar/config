@@ -336,15 +336,15 @@ inherit = module/ws-base
 
 label-focused = ""
 label-focused-underline = ${colors.transparent}
-label-focused-padding = 0
+label-focused-padding = 1
 
 label-occupied = ""
 label-occupied-foreground = #ccc
-label-occupied-padding = 0
+label-occupied-padding = 1
 
 label-empty = ""
 label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 0
+label-empty-padding = 1
 
 [module/bspwm-prev]
 type = custom/text
@@ -363,15 +363,15 @@ type = internal/xworkspaces
 
 label-active = ""
 label-active-underline = ${colors.transparent}
-label-active-padding = 0
+label-active-padding = 1
 
 label-occupied = ""
 label-occupied-foreground = #ccc
-label-occupied-padding = 0
+label-occupied-padding = 1
 
 label-empty = ""
 label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 0
+label-empty-padding = 1
 
 [module/kwin-prev]
 type = custom/text
