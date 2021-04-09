@@ -82,7 +82,7 @@ cursor-click = pointer
 inherit = bar/top
 
 modules-left = menu title i3-mode
-modules-center = addws i3-ws i3-layout date volume mpd
+modules-center = addws i3-prev i3-ws i3-next i3-layout date volume mpd
 modules-right = cpu-graph memory gpu updates close
 
 scroll-up = i3wm-wsprev
@@ -135,7 +135,7 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 modules-left = menu title i3-mode
-modules-right = addws i3-ws i3-layout
+modules-right = addws i3-prev i3-ws i3-next i3-layout
 
 [bar/left-bspwm]
 inherit = bar/left
@@ -251,6 +251,7 @@ tail = true
 
 format = %{T2}<label>%{T-}
 format-padding = 2
+format-margin = 2
 format-foreground = ${colors.foreground}
 click-left = i3-msg layout toggle && i3-msg -t send_tick
 
@@ -268,6 +269,7 @@ click-left = bspc desktop --layout next
 type = custom/text
 content = 
 content-padding = 2
+content-margin = 2
 content-foreground = ${colors.foreground}
 click-left = exec $XDG_CONFIG_HOME/i3/addws.py
 
@@ -315,6 +317,18 @@ label-urgent-padding = 2
 [module/i3-ws]
 type = internal/i3
 inherit = module/ws-base
+
+[module/i3-prev]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground}
+click-left = i3-msg workspace prev
+
+[module/i3-next]
+type = custom/text
+content = ""
+content-foreground = ${colors.foreground}
+click-left = i3-msg workspace next
 
 [module/bspwm-ws]
 type = internal/bspwm
