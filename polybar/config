@@ -215,6 +215,7 @@ label-urgent-padding = 2
 [module/i3-ws]
 type = internal/i3
 inherit = module/ws-base
+format-margin = 2
 
 [module/i3-prev]
 type = custom/text
@@ -297,15 +298,15 @@ type = internal/mpd
 host = 127.0.0.1
 port = 6600
 
-format-online = %{T2}%{T-} <icon-prev> <toggle> <icon-stop> <icon-next> <icon-repeat> <icon-single> <icon-random>
-format-online-margin = 1
+format-online = %{T2}%{T-}  <icon-prev>  <toggle>  <icon-stop>  <icon-next>  <icon-repeat>  <icon-single>  <icon-random>
+format-online-margin = 4
 
 label-song = %title%
-icon-prev =  %{T4}玲%{T-}
+icon-prev =  %{T4}%{T-}
 icon-play =  %{T4}契%{T-}
 icon-pause = %{T4}%{T-}
 icon-stop =  %{T4}栗%{T-}
-icon-next =  %{T4}怜%{T-}
+icon-next =  %{T4}%{T-}
 icon-repeat = %{T4}凌%{T-}
 icon-single = %{T4}綾%{T-}
 icon-random = %{T4}%{T-}
