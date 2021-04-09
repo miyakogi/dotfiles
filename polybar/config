@@ -20,34 +20,24 @@
 transparent = #00000000
 
 ; Dark bar
-;semi-transparent = #99000000
 semi-transparent = #80000000
-background = #d9212121
-background-alt = #d9212121
-foreground = #f1f1f1
+background = #b1161925
+background-alt = #b1161925
+foreground = #c3c7d1
 foreground-alt = #999
 
-; Bright bar
-; semi-transparent = #99ffffff
-; background = #99f3f3f3
-; background-alt = #ccf3f3f3
-; foreground = #212121
-; foreground-alt = #666
-
-red = fb4433
-green = #5fd7af
-yellow = #f3e430
-blue = #20bbfc
-magenta = #6855de
-cyan = #4fb8cc
-orange = #d75f5f
+arch = #20bbfc
+red = #ed254e
+orange = #ff6a00
+cyan = #00c1e4
+yellow = #f9dc5c
+magenta = #c74ded
+green = #00e8c6
+blue = #7cb7ff
 
 [bar/top]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 24
-;offset-x = 30%
-;offset-y = 1%
+height = 25
 radius = 0.0
 fixed-center = true
 
@@ -59,6 +49,9 @@ line-color = #f00
 
 border-size = 0
 border-color = #00000000
+
+border-bottom-size = 3
+border-bottom-color = #66ba59e2
 
 padding-left = 2
 padding-right = 2
@@ -87,10 +80,6 @@ font-3 = Symbols Nerd Font:pixelsize=12;0
 
 cursor-click = pointer
 ; cursor-scroll = ns-resize
-
-; DPI
-; dpi-x = 90
-; dpi-y = 91
 
 [bar/top-i3]
 inherit = bar/top
@@ -225,7 +214,7 @@ override-redirect = false
 type = custom/script
 exec = echo ""
 click-left = $XDG_CONFIG_HOME/polybar/rofi-menu.sh
-format-foreground = ${colors.blue}
+format-foreground = ${colors.arch}
 format-padding = 1
 
 [module/title]
@@ -519,7 +508,7 @@ type = custom/script
 exec = date +" %a. %d %b. %Y   %H:%M:%S"
 interval = 1
 
-format-underline = #999999
+format-underline = ${colors.magenta}
 format-padding = 2
 
 click-left = exec $XDG_CONFIG_HOME/polybar/rofi-calendar.sh
