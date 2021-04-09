@@ -138,8 +138,8 @@ format = <label-mode>
 
 label-mode = %mode%
 label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.yellow}
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.red}
 
 [module/i3-layout]
 type = custom/script
