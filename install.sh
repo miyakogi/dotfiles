@@ -165,9 +165,7 @@ if [[ $OSTYPE == linux* ]]; then
   ln -sf $BASEDIR/scripts/lock-screen.sh $HOME/bin/lock-screen
 
   # i3 window manager
-  ln -sf $BASEDIR/i3/config.base $CONFIG_HOME/i3
-  ln -sf $BASEDIR/i3/config.gaps $CONFIG_HOME/i3
-  ln -sf $BASEDIR/i3/update_config.sh $CONFIG_HOME/i3
+  ln -sf $BASEDIR/i3/config $CONFIG_HOME/i3
   ln -sf $BASEDIR/i3/scratchterm.py $CONFIG_HOME/i3
   ln -sf $BASEDIR/i3/save_layout.sh $CONFIG_HOME/i3
   ln -sf $BASEDIR/i3/load_layouts.sh $CONFIG_HOME/i3

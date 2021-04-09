@@ -1,8 +1,0 @@
-# i3-gaps
-gaps top 28
-gaps bottom -6
-gaps inner 12
-
-# for scratchpad (dropdown terminal)
-for_window [instance="scratchterm"] move to position 968 40
-for_window [instance="scratchterm"] resize set 940 1032

@@ -169,9 +169,7 @@ def install_linux() -> None:
     # i3 window manager
     I3SRC = BASEDIR / 'i3'
     I3DEST = CONFIG_HOME / 'i3'
-    install(I3SRC / 'config.base', I3DEST / 'config.base')
-    install(I3SRC / 'config.gaps', I3DEST / 'config.gaps')
-    install(I3SRC / 'update_config.sh', I3DEST / 'update_config.sh')
+    install(I3SRC / 'config', I3DEST / 'config')
     install(I3SRC / 'scratchterm.py', I3DEST / 'scratchterm.py')
     install(I3SRC / 'save_layout.sh', I3DEST / 'save_layout.sh')
     install(I3SRC / 'load_layouts.sh', I3DEST / 'load_layouts.sh')
