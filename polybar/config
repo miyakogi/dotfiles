@@ -85,8 +85,8 @@ cursor-click = pointer
 inherit = bar/top
 
 modules-left = menu title i3-mode
-modules-center = date
-modules-right = i3-layout i3-ws addws mpd volume cpu-graph memory gpu updates close
+modules-center = addws i3-ws i3-layout date volume mpd
+modules-right = cpu-graph memory gpu updates close
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -95,8 +95,8 @@ scroll-down = i3wm-wsprev
 inherit = bar/top
 
 modules-left = menu title
-modules-center = date
-modules-right = bspwm-mode bspwm-prev bspwm-ws bspwm-next mpd volume cpu-graph memory gpu updates close
+modules-center = bspwm-prev bspwm-ws bspwm-next bspwm-mode date volume mpd
+modules-right = cpu-graph memory gpu updates close
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
@@ -105,8 +105,8 @@ scroll-down = bspwm-deskprev
 inherit = bar/top
 
 modules-left = menu title-kwin
-modules-center = date
-modules-right = nightcolor kwin-prev kwin-ws kwin-next mpd volume cpu-graph memory gpu updates close
+modules-center = kwin-prev kwin-ws kwin-next nightcolor date volume mpd
+modules-right = cpu-graph memory gpu updates close
 
 [bar/base]
 inherit = bar/top
@@ -388,7 +388,7 @@ type = internal/mpd
 host = 127.0.0.1
 port = 6600
 
-format-online = %{T2}%{T-} <icon-prev> <toggle> <icon-stop> <icon-next> <bar-progress> <icon-repeat> <icon-single> <icon-random>
+format-online = %{T2}%{T-} <icon-prev> <toggle> <icon-stop> <icon-next> <icon-repeat> <icon-single> <icon-random>
 format-online-margin = 1
 
 label-song = %title%
@@ -509,7 +509,8 @@ exec = date +" %a. %d %b. %Y   %H:%M:%S"
 interval = 1
 
 format-underline = ${colors.magenta}
-format-padding = 2
+format-padding = 4
+format-margin = 24
 
 click-left = exec $XDG_CONFIG_HOME/polybar/rofi-calendar.sh
 
