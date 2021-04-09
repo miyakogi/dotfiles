@@ -30,7 +30,7 @@ These applications should be all installed.
 - lxqt (kwin + krohnkite)
 - bspwm
 - sxhkd
-- picom (picom-ibhagwan-git)
+- picom
 - conky (conky-cairo)
 - dunst
 - polybar
