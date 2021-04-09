@@ -25,14 +25,14 @@
 @define-color foreground-alt #a3a7b1;
 @define-color background rgba(33, 33, 33, 0.60);
 @define-color bottom-border rgba(186, 89, 226, 0.3);  /* #ba59e2 */
-@define-color arch rgba(32, 187, 252, 1.0);  /* #20bbfc */
-@define-color red rgba(237, 37, 78, 0.55);  /* #ed254e */
-@define-color orange rgba(255, 106, 0, 0.55);  /* #ff6a00 */
-@define-color cyan rgba(0, 193, 228, 0.55);  /* #00c1e4 */
-@define-color yellow rgba(249, 220, 92, 0.55);  /* #f9dc5c */
-@define-color magenta rgba(199, 77, 237, 0.55);  /* #c74ded */
-@define-color green rgba(0, 232, 198, 0.55);  /* #00e8c6 */
-@define-color blue rgba(124, 183, 255, 0.55);  /* #7cb7ff */
+@define-color arch rgba(32, 187, 252, 1.0);           /* #20bbfc */
+@define-color red rgba(237, 37, 78, 0.55);            /* #ed254e */
+@define-color orange rgba(255, 106, 0, 0.55);         /* #ff6a00 */
+@define-color cyan rgba(0, 193, 228, 0.55);           /* #00c1e4 */
+@define-color yellow rgba(249, 220, 92, 0.55);        /* #f9dc5c */
+@define-color magenta rgba(199, 77, 237, 0.55);       /* #c74ded */
+@define-color green rgba(0, 232, 198, 0.55);          /* #00e8c6 */
+@define-color blue rgba(124, 183, 255, 0.55);         /* #7cb7ff */
 
 * {
   border: none;
@@ -103,7 +103,7 @@ window#waybar.hidden {
 
 #mode {
   color: @white;
-  background-color: @magenta;
+  background-color: @red;
 }
 
 #clock,
