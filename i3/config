@@ -87,6 +87,10 @@ bindsym --release button2 kill
 bindsym $mod+z exec --no-startup-id "rofi -show drun"
 bindsym $alt+Tab exec --no-startup-id "rofi -show window"
 
+# screen shot
+bindsym Print exec spectacle
+bindsym Ctrl+Print exec spectacle -r
+
 # enable mosue focus
 focus_follows_mouse yes
 
