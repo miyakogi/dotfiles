@@ -26,14 +26,14 @@ background-alt = #b1161925
 foreground = #c3c7d1
 foreground-alt = #999
 
-arch = #20bbfc
-red = #ed254e
-orange = #ff6a00
-cyan = #00c1e4
-yellow = #f9dc5c
-magenta = #c74ded
-green = #00e8c6
-blue = #7cb7ff
+arch    = #20bbfc
+red     = #b0ed254e
+orange  = #b0ff6a00
+cyan    = #b000c1e4
+yellow  = #b0f9dc5c
+magenta = #b0c74ded
+green   = #b000e8c6
+blue    = #b07cb7ff
 
 [bar/top]
 width = 100%
@@ -295,7 +295,7 @@ ws-icon-default = 
 ; focused = Active workspace on focused monitor
 ; label-focused = %index%
 label-focused = %icon%
-label-focused-underline = ${colors.orange}
+label-focused-underline = ${colors.green}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -309,7 +309,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
-label-urgent-background = ${colors.orange}
+label-urgent-background = ${colors.red}
 label-urgent-padding = 2
 
 [module/i3-ws]
@@ -416,6 +416,10 @@ exec = exec ${XDG_CONFIG_HOME:-$HOME/.config}/polybar/ff-volume-check.sh
 interval = 0.3
 click-left = exec $XDG_CONFIG_HOME/polybar/ff-volume-fix.sh
 click-right = pavucontrol-qt &
+
+format-underline = ${colors.green}
+format-padding = 1
+format-margin = 1
 
 [module/cpu-graph]
 type = internal/cpu
