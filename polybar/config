@@ -75,9 +75,6 @@ font-3 = Symbols Nerd Font:pixelsize=12;0
 ;wm-restack = bspwm
 ;wm-restack = i3
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
 cursor-click = pointer
 ; cursor-scroll = ns-resize
 
@@ -88,8 +85,8 @@ modules-left = menu title i3-mode
 modules-center = addws i3-ws i3-layout date volume mpd
 modules-right = cpu-graph memory gpu updates close
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+scroll-up = i3wm-wsprev
+scroll-down = i3wm-wsnext
 
 [bar/top-bspwm]
 inherit = bar/top
@@ -98,8 +95,8 @@ modules-left = menu title
 modules-center = bspwm-prev bspwm-ws bspwm-next bspwm-mode date volume mpd
 modules-right = cpu-graph memory gpu updates close
 
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
+scroll-up = bspwm-deskprev
+scroll-down = bspwm-desknext
 
 [bar/top-kwin]
 inherit = bar/top
