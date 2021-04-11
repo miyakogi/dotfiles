@@ -32,7 +32,8 @@ orange  = #b0ff6a00
 cyan    = #b000c1e4
 yellow  = #b0f9dc5c
 magenta = #b0c74ded
-green   = #b000e8c6
+;green   = #b000e8c6
+green   = #b071f79f
 blue    = #b07cb7ff
 
 [bar/top]
