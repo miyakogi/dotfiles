@@ -31,7 +31,8 @@
 @define-color cyan rgba(0, 193, 228, 0.55);           /* #00c1e4 */
 @define-color yellow rgba(249, 220, 92, 0.55);        /* #f9dc5c */
 @define-color magenta rgba(199, 77, 237, 0.55);       /* #c74ded */
-@define-color green rgba(0, 232, 198, 0.55);          /* #00e8c6 */
+/* @define-color green rgba(0, 232, 198, 0.55); */      /* #00e8c6 */
+@define-color green rgba(113, 247, 159, 0.55);        /* #71f79f */
 @define-color blue rgba(124, 183, 255, 0.55);         /* #7cb7ff */
 
 * {
