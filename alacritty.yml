@@ -515,7 +515,8 @@ colors:
   normal:
     black:   '0x161925'
     red:     '0xed254e'
-    green:   '0x71f79f'
+    # green:   '0x71f79f'
+    green:   '0x00e8c6'
     yellow:  '0xf9dc5c'
     blue:    '0x7cb7ff'
     magenta: '0xc74ded'
@@ -526,7 +527,8 @@ colors:
   bright:
     black:   '0x161925'
     red:     '0xed254e'
-    green:   '0x71f79f'
+    # green:   '0x71f79f'
+    green:   '0x00e8c6'
     yellow:  '0xf9dc5c'
     blue:    '0x7cb7ff'
     magenta: '0xc74ded'
