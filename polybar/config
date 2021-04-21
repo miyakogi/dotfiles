@@ -302,6 +302,8 @@ port = 6600
 format-online = %{T2}%{T-}  <icon-prev>  <toggle>  <icon-stop>  <icon-next>  <icon-repeat>  <icon-single>  <icon-random>
 format-online-margin = 4
 
+label-offline = 🎜 mpd is offline
+
 label-song = %title%
 icon-prev =  %{T4}%{T-}
 icon-play =  %{T4}契%{T-}
