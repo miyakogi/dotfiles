@@ -50,7 +50,7 @@ else
   run redshift -l ${LATITUDE}:${LONGITUDE}
 
   # picom compositor
-  run picom -b --experimental-backend
+  run picom
 fi
 
 if [[ -z $DE ]]; then
