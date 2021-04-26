@@ -437,7 +437,7 @@ click-left = exec $XDG_CONFIG_HOME/polybar/rofi-calendar.sh
 [module/close]
 type = custom/text
 content = 
-content-padding = 1
+content-padding = 2
 content-foreground = ${colors.foreground-alt}
 click-left = if wmctrl -m | grep "bspwm"; then bspc node -c; elif wmctrl -m | grep "i3"; then i3-msg kill; else xdotool getactivewindow windowclose; fi
 
