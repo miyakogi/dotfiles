@@ -417,6 +417,7 @@ format-padding = 2
 type = custom/script
 exec = exec ${XDG_CONFIG_HOME:-$HOME/.config}/polybar/updates.sh
 format-padding = 2
+format-margin = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.red}
 format-underline = ${colors.red}
