@@ -15,17 +15,17 @@ configuration {
 
 * {
   /* --- Based on Pencil Color Scheme --- */
-	base00: #212121;  /* black */
-	base03: #212121;  /* black */
-	base07: #F1F1F1;  /* white */
+	base00: #161925;  /* black */
+	base03: #161925;  /* black */
+	base07: #c3c7d1;  /* white */
 	/* base0B: #C3E88D; */
-	base0B: #F3E430;  /* yellow (bright) */
+	base0B: #f9dc5c;  /* yellow (bright) */
 	/* base0C: #89DDFF; */
-	base0C: #20BBFC;  /* blue (bright) */
+	base0C: #7cb7ff;  /* blue (bright) */
 	/* base0D: #00BCD4; */
-	base0D: #20A5BA;  /* cyan */
+	base0D: #00c1e1;  /* cyan */
 	/* base0F: #FF5370; */
-	base0F: #FB007A;  /* red (bright) */
+	base0F: #ed254e;  /* red (bright) */
 
 	spacing: 0;
 	background-color: transparent;
@@ -34,7 +34,7 @@ configuration {
 window {
 	transparency: "real";
 	/* fullscreen: true; */
-	background-color: #212121DE; /*base00 + CC (80% opacity)*/
+	background-color: #161925DE; /*base00 + CC (80% opacity)*/
 }
 
 mainbox {
@@ -85,6 +85,7 @@ button, textbox {
 
 button selected {
 	background-color: @base0D;
+	text-color: @base00;
 }
 
 listview {
@@ -121,13 +122,15 @@ element normal {
 
 element selected {
 	background-color: @base0D;
+	text-color: @base00;
 }
 
 element alternate {
-	/*background-color: @base03;*/
+	/* background-color: @base03; */
+	text-color: @base00;
 }
 
-element normal normal, element selected normal, element alternate normal {
+element normal normal, element alternate normal {
 	text-color: @base07;
 }
 

@@ -22,7 +22,7 @@ configuration {
 	icon-theme: "zafiro-icon-theme";
 	drun-match-fields: "name,generic,categories";
 /*	drun-show-actions: false;*/
-	drun-display-format: "{name} [<span color="#cccccc">({generic})</span>]";
+	drun-display-format: "{name} [({generic})]";
 /*	disable-history: false;*/
 /*	ignored-prefixes: "";*/
 /*	sort: false;*/
