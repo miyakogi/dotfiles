@@ -39,7 +39,7 @@
   border: none;
   border-radius: 0;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "Source Han Sans JP Medium", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Symbols Nerd Font", "Fira Code", sans-serif;
   font-size: 18px;
   min-height: 0;
 }
@@ -117,7 +117,8 @@ window#waybar.hidden {
 #custom-updates,
 #tray,
 #mpd {
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   padding: 0 10px;
   /* margin: 0 4px; */
 }
@@ -138,10 +139,11 @@ window#waybar.hidden {
 }
 
 #window {
-  font-size: 16px;
+  font-size: 14px;
+  font-family: "Source Han Sans JP Medium", "Symbols Nerd Font", sans-serif;
   color: @foreground;
   box-shadow: inset 0 -4px @cyan;
-  padding: 0 10px;
+  padding: 0 2px;
 }
 
 window#waybar.empty #window {
@@ -149,7 +151,8 @@ window#waybar.empty #window {
 }
 
 #clock {
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 500;
   color: @foreground;
   box-shadow: inset 0 -4px @magenta;
   margin: 0 32px;
