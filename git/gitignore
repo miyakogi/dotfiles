@@ -45,6 +45,8 @@ sdist/
 .installed.cfg
 *.egg
 pip-selfcheck.json
+# Virtualenv
+.venv
 # Unit test / coverage reports
 .coverage
 .coverage.*
