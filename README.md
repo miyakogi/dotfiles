@@ -71,6 +71,7 @@ These applications should be all installed.
 - bat (`cat` alternative)
 - vimpager (`less` alternative, used for man page)
 - starship (prompt)
+- direnv
 
 ### Desktop (X11)
 

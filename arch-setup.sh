@@ -87,6 +87,7 @@ packages=(
   rustup
   sccache  # rustc cache support
   starship
+  direnv  # directory based env setting
   python-virtualenvwrapper
   virtualfish  # python venv manager for fish shell
   lsd  # ls alternative
