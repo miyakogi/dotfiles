@@ -22,6 +22,11 @@ function __auto_ls --on-variable PWD; auto_ls; end
 # VirtualFish
 set -x VIRTUALFISH_HOME $HOME/.virtualenvs/arch
 
+# direnv
+if type -q direnv
+  direnv hook fish | source
+end
+
 # prompt
 if type -q starship
   starship init fish | source
