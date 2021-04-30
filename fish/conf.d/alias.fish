@@ -13,7 +13,7 @@ abbr --add --global tmux "env TERM=xterm-256color tmux -2"
 abbr --add --global ln "ln -v"
 
 # vi
-abbr --add --global vi "vim --no-plugin"
+abbr --add --global vi "vim --noplugin"
 
 # git
 abbr --add --global gstatus "git status -s -b"
