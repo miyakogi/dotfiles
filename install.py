@@ -165,6 +165,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'kwin-first-empty.sh', BINDIR / 'kwin-first-empty')
     install(SCRIPTSDIR / 'krohnkite-control.sh', BINDIR / 'krohnkite-control')
     install(SCRIPTSDIR / 'kitty-music.sh', BINDIR / 'kitty-music')
+    install(SCRIPTSDIR / 'mpdplayer.sh', BINDIR / 'mpdplayer')
 
     # i3 window manager
     I3SRC = BASEDIR / 'i3'
