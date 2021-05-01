@@ -18,7 +18,15 @@ set $term launch-terminal
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu dmenu_path | \
+    dmenu \
+    -p "Command:" \
+    -fn "Fira Code:Regular:pixelsize=20" \
+    -nb "#161925" \
+    -nf "#c3c7d1" \
+    -sb "#c74ded" \
+    -sf "#161925" \
+    | xargs swaymsg exec --
 
 ### Output configuration
 #
