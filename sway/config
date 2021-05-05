@@ -126,7 +126,7 @@ exec_always ratbagctl warbling-mara profile active set 1
 ### Autostart Apps
 # Input Method
 # exec fcitx-autostart
-exec fcitx5
+exec fcitx5 -d
 
 # notification manager
 exec mako
