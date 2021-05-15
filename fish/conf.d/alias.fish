@@ -25,7 +25,9 @@ if type -q nvim; and test $XDG_SESSION_TYPE = wayland
 end
 
 # ls -> lsd/exa
-if type -q lsd
+if test -z $DISPLAY
+  abbr --add --global ls "ls --color"
+else if type -q lsd
   abbr --add --global ls "lsd"
   abbr --add --global tree "lsd --tree"
 else if type -q exa

@@ -28,6 +28,7 @@ if type -q direnv
 end
 
 # prompt
-if type -q starship
+# both -n and -z $DISPLAY return TRUE on TTY, so use ! -z $DISPLAY here
+if type -q starship; and ! test -z $DISPLAY
   starship init fish | source
 end
