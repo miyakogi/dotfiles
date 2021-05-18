@@ -56,6 +56,7 @@ packages=(
   i3lock-color
   xautolock
   dmenu
+  sway-launcher-desktop
   redshift
   gammastep
   fcitx5
