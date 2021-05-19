@@ -39,7 +39,6 @@
 * {
   border: none;
   border-radius: 0;
-  /* `otf-font-awesome` is required to be installed for icons */
   font-family: "Symbols Nerd Font", "Fira Code", sans-serif;
   font-size: 18px;
   min-height: 0;
@@ -245,6 +244,8 @@ label:focus {
 }
 
 #mpd.disconnected {
+  font-family: "Fira Code";
+  font-size: 14px;
   box-shadow: inset 0 -4px @orange;
 }
 

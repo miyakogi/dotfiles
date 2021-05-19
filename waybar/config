@@ -53,7 +53,7 @@
   },
   "mpd": {
     "format": "{stateIcon} {randomIcon} {repeatIcon} {singleIcon}  ",
-    "format-disconnected": "MPD Disconnected  ",
+    "format-disconnected": "disconnected",
     "format-stopped": "栗 {randomIcon} {repeatIcon} {singleIcon}  ",
     "unknown-tag": "N/A",
     "interval": 1,
