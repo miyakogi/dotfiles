@@ -25,6 +25,7 @@
 @define-color foreground-alt #a3a7b1;
 @define-color background rgba(22, 25, 37, 0.85);      /* #161925 */
 @define-color bottom-border rgba(186, 89, 226, 0.3);  /* #ba59e2 */
+@define-color fake-border #4a2e63;                    /* #4a2e63 */
 @define-color arch rgba(32, 187, 252, 1.0);           /* #20bbfc */
 @define-color red rgba(237, 37, 78, 0.55);            /* #ed254e */
 @define-color orange rgba(255, 106, 0, 0.55);         /* #ff6a00 */
@@ -138,6 +139,10 @@ window#waybar.hidden {
   padding: 0 10px;
 }
 
+#custom-sep {
+  color: @fake-border;
+}
+
 #window {
   font-size: 14px;
   font-family: "Source Han Sans JP Medium", "Symbols Nerd Font", sans-serif;
@@ -155,7 +160,7 @@ window#waybar.empty #window {
   font-weight: 500;
   color: @foreground;
   box-shadow: inset 0 -4px @magenta;
-  margin: 0 32px;
+  margin: 0;
 }
 
 @keyframes blink {
@@ -205,7 +210,6 @@ label:focus {
   font-family: "Symbols Nerd Font";
   font-size: 18px;
   margin: 0;
-  box-shadow: inset 0 -4px @green;
 }
 
 #custom-updates {
@@ -236,7 +240,7 @@ label:focus {
 #mpd {
   font-family: "Symbols Nerd Font";
   font-size: 18px;
-  /* box-shadow: inset 0 -4px @green; */
+  box-shadow: inset 0 -4px @green;
   margin: 0;
 }
 

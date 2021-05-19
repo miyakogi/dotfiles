@@ -9,7 +9,7 @@
   "margin-right": 0,
   // Choose the order of the modules
   "modules-left": ["custom/menu", "sway/window", "sway/mode"],
-  "modules-center": ["custom/addws", "custom/ws-left", "sway/workspaces", "custom/ws-right", "clock", "custom/volume", "mpd"],
+  "modules-center": ["custom/addws", "custom/ws-left", "sway/workspaces", "custom/ws-right", "custom/sep", "clock", "custom/sep", "custom/volume", "mpd"],
   "modules-right": ["cpu", "memory", "custom/gpu", "tray", "idle_inhibitor", "custom/updates", "custom/close"],
   "sway/mode": {
     "format": "{}"
@@ -27,6 +27,10 @@
       "9": "ﱘ",
       "10": ""
     }
+  },
+  "custom/sep": {
+    "format": "│",
+    "tooltip": false
   },
   "custom/menu": {
     "format": "",
