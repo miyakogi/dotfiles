@@ -56,6 +56,8 @@ packages=(
   i3lock-color
   xautolock
   dmenu
+  bemenu
+  bemenu-wayland
   sway-launcher-desktop
   redshift
   gammastep

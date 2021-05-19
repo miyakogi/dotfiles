@@ -82,6 +82,7 @@ These applications should be all installed.
 - kwallet-pam (password management)
 - xorg-xset (display power management)
 - numlockx
+- dmenu
 - autotiling (for i3 auto-tiling)
 - i3lock-color (screen lock)
 - redshift
@@ -99,6 +100,9 @@ These applications should be all installed.
 ### Desktop (Wayland)
 
 - xorg-xwayland
+- sway-launcher-desktop
+- bemenu
+- bemenu-wayland
 - grim
 - slurp
 - gammastep
@@ -107,7 +111,6 @@ These applications should be all installed.
 
 ### Desktop (common)
 
-- dmenu
 - fcitx5
 - fcitx5-mozc
 - python-i3ipc (scratchpad control and add workspace function for i3/sway)
