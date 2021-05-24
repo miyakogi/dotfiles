@@ -8,9 +8,9 @@
   "margin-left": 0,
   "margin-right": 0,
   // Choose the order of the modules
-  "modules-left": ["custom/menu", "sway/window", "sway/mode"],
-  "modules-center": ["custom/addws", "custom/ws-left", "sway/workspaces", "custom/ws-right", "custom/sep", "clock", "custom/sep", "custom/volume", "mpd"],
-  "modules-right": ["cpu", "memory", "custom/gpu", "tray", "idle_inhibitor", "custom/updates", "custom/close"],
+  "modules-left": ["custom/menu", "custom/ws-left", "sway/workspaces", "custom/ws-right", "custom/addws", "sway/mode"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/volume", "mpd", "cpu", "memory", "custom/gpu", "tray", "custom/updates", "custom/close"],
   "sway/mode": {
     "format": "{}"
   },
@@ -52,9 +52,9 @@
     "on-click": "swaymsg workspace next"
   },
   "mpd": {
-    "format": "{stateIcon} {randomIcon} {repeatIcon} {singleIcon}  ",
+    "format": "{stateIcon} {randomIcon} {repeatIcon} {singleIcon}",
     "format-disconnected": "disconnected",
-    "format-stopped": "栗 {randomIcon} {repeatIcon} {singleIcon}  ",
+    "format-stopped": "栗 {randomIcon} {repeatIcon} {singleIcon}",
     "unknown-tag": "N/A",
     "interval": 1,
     "random-icons": {

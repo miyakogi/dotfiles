@@ -102,6 +102,10 @@ window#waybar.hidden {
   padding: 0 4px;
 }
 
+#custom-ws-left {
+  padding-left: 10px;
+}
+
 #mode {
   color: @white;
   background-color: @red;
@@ -112,7 +116,6 @@ window#waybar.hidden {
 #memory,
 #temperature,
 #mode,
-#custom-volume,
 #custom-gpu,
 #custom-updates,
 #tray,
@@ -136,6 +139,7 @@ window#waybar.hidden {
 #custom-menu {
   color: @arch;
   padding: 0 10px;
+  box-shadow: inset 0 -4px @arch;
 }
 
 #custom-sep {
@@ -189,7 +193,7 @@ label:focus {
 
 #memory {
   background-color: transparent;
-  box-shadow: inset 0 -4px @green;
+  box-shadow: inset 0 -4px @cyan;
 }
 
 #memory.warning {
@@ -209,6 +213,9 @@ label:focus {
   font-family: "Symbols Nerd Font";
   font-size: 18px;
   margin: 0;
+  padding-right: 0;
+  padding-left: 10px;
+  box-shadow: inset 0 -4px @green;
 }
 
 #custom-updates {
