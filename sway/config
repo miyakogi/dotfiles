@@ -32,7 +32,7 @@ set $dmenu dmenu_path | \
     | xargs swaymsg exec --
 
 set $swaymenu foot \
-    --font "Fira Code:size=16" \
+    --font "Fira Code:size=18" \
     --window-size-pixels=800x800 \
     --app-id "swaymenu" \
     env TERMINAL_COMMAND="foot" \
