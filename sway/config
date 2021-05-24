@@ -174,8 +174,8 @@ exec --no-startup-id foot --server
 
     # Start your launcher
     # bindsym $mod+d exec $menu
-    bindsym $mod+z exec "rofi -modi run,drun -show drun"
-    bindsym $mod+Shift+z exec $swaymenu
+    bindsym $mod+z exec $swaymenu
+    bindsym $mod+Shift+z exec "rofi -modi run,drun -show drun"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
