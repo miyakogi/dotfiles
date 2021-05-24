@@ -174,183 +174,191 @@ exec --no-startup-id foot --server
 #
 # Basics:
 #
-    # Start a terminal which can run without xwayland
-    bindsym $mod+Return exec footclient || foot
-    # Start terminal chooser
-    bindsym $mod+Shift+Return exec $term
 
-    # Kill focused window
-    bindsym $mod+w kill
-    bindsym $mod+q kill
-    bindsym button2 kill
+# Start a terminal which can run without xwayland
+bindsym $mod+Return exec footclient || foot
+# Start terminal chooser
+bindsym $mod+Shift+Return exec $term
 
-    # Start your launcher
-    # bindsym $mod+d exec $menu
-    bindsym $mod+z exec $swaymenu
-    bindsym $mod+Shift+z exec "rofi -modi run,drun -show drun"
+# Kill focused window
+bindsym $mod+w kill
+bindsym $mod+q kill
+bindsym button2 kill
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Start your launcher
+# bindsym $mod+d exec $menu
+bindsym $mod+z exec $swaymenu
+bindsym $mod+Shift+z exec "rofi -modi run,drun -show drun"
 
-    # Reload the configuration file
-    # bindsym $mod+Shift+c reload
-    bindsym $mod+Shift+r reload
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
 
-    # Exit sway (logs you out of your Wayland session)
-    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-    bindsym $mod+Shift+e exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/rofi/leave.sh"
+# Reload the configuration file
+# bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 
-    # Take screenshot
-    bindsym Print exec _grim_file="${XDG_PICTURE_DIR:-$HOME/Pictures}/screenshots/grim/grim-$(date +%Y%m%d-%H%M%S).png" && grim $_grim_file && notify-send -i camera "Screenshot saved to $(echo $_grim_file | sed \"s|$HOME|~|\")"
-    bindsym Shift+Print exec _grim_file="${XDG_PICTURE_DIR:-$HOME/Pictures}/screenshots/grim/grim-$(date +%Y%m%d-%H%M%S).png" && echo $(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | \"\(.x),\(.y) \(.width)x\(.height)\"') | grim -g - $_grim_file && notify-send -i camera "Screenshot saved to $(echo $_grim_file | sed \"s|$HOME|~|\")"
-    bindsym Control+Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
+# Exit sway (logs you out of your Wayland session)
+# bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/rofi/leave.sh"
 
-    # Scratchpad terminal (alacritty with tmux)
-    bindcode 68 exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/scratchterm.py"
-    for_window [app_id="scratchterm"] floating enable
-    for_window [app_id="scratchterm"] sticky enable
-    for_window [app_id="scratchterm"] move scratchpad
-    for_window [app_id="scratchterm"] move position 1038 224
-    for_window [app_id="scratchterm"] resize set width 960
-    for_window [app_id="scratchterm"] resize set height 1052
+# Take screenshot
+bindsym Print exec _grim_file="${XDG_PICTURE_DIR:-$HOME/Pictures}/screenshots/grim/grim-$(date +%Y%m%d-%H%M%S).png" && grim $_grim_file && notify-send -i camera "Screenshot saved to $(echo $_grim_file | sed \"s|$HOME|~|\")"
+bindsym Shift+Print exec _grim_file="${XDG_PICTURE_DIR:-$HOME/Pictures}/screenshots/grim/grim-$(date +%Y%m%d-%H%M%S).png" && echo $(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | \"\(.x),\(.y) \(.width)x\(.height)\"') | grim -g - $_grim_file && notify-send -i camera "Screenshot saved to $(echo $_grim_file | sed \"s|$HOME|~|\")"
+bindsym Control+Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
+
+# Scratchpad terminal (alacritty with tmux)
+bindcode 68 exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/scratchterm.py"
+for_window [app_id="scratchterm"] floating enable
+for_window [app_id="scratchterm"] sticky enable
+for_window [app_id="scratchterm"] move scratchpad
+for_window [app_id="scratchterm"] move position 1038 224
+for_window [app_id="scratchterm"] resize set width 960
+for_window [app_id="scratchterm"] resize set height 1052
 
 #
 # Moving around:
 #
-    # Disable auto mouse focus
-    # focus_follows_mouse no
 
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
-    # Move focus next/prev
-    bindsym $mod+c focus next
-    bindsym $mod+Shift+c focus prev
+# Disable auto mouse focus
+# focus_follows_mouse no
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# Move focus next/prev
+bindsym $mod+c focus next
+bindsym $mod+Shift+c focus prev
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
 
-    # Define names for default workspaces for which we configure key bindings later on.
-    # We use variables to avoid repeating the names in multiple places.
-    # set $ws1 "1:"
-    # set $ws2 "2:"
-    # set $ws3 "3:"
-    # set $ws4 "4:"
-    # set $ws5 "5:"
-    # set $ws6 "6:"
-    # set $ws7 "7:"
-    # set $ws8 "8:"
-    # set $ws9 "9:"
-    # set $ws10 "10:者"
-    set $ws1 "1:一"
-    set $ws2 "2:二"
-    set $ws3 "3:三"
-    set $ws4 "4:四"
-    set $ws5 "5:五"
-    set $ws6 "6:六"
-    set $ws7 "7:七"
-    set $ws8 "8:八"
-    set $ws9 "9:九"
-    set $ws10 "10:十"
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+# set $ws1 "1:"
+# set $ws2 "2:"
+# set $ws3 "3:"
+# set $ws4 "4:"
+# set $ws5 "5:"
+# set $ws6 "6:"
+# set $ws7 "7:"
+# set $ws8 "8:"
+# set $ws9 "9:"
+# set $ws10 "10:者"
+set $ws1 "1:一"
+set $ws2 "2:二"
+set $ws3 "3:三"
+set $ws4 "4:四"
+set $ws5 "5:五"
+set $ws6 "6:六"
+set $ws7 "7:七"
+set $ws8 "8:八"
+set $ws9 "9:九"
+set $ws10 "10:十"
 
-    # Switch to workspace
-    bindsym $mod+1 workspace $ws1
-    bindsym $mod+2 workspace $ws2
-    bindsym $mod+3 workspace $ws3
-    bindsym $mod+4 workspace $ws4
-    bindsym $mod+5 workspace $ws5
-    bindsym $mod+6 workspace $ws6
-    bindsym $mod+7 workspace $ws7
-    bindsym $mod+8 workspace $ws8
-    bindsym $mod+9 workspace $ws9
-    bindsym $mod+0 workspace $ws10
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
-    # Switch workspace
-    bindsym Control+$mod+Left workspace prev
-    bindsym Control+$mod+Right workspace next
-    bindsym $mod+n workspace next
-    bindsym $mod+p workspace prev
-    bindsym $mod+bracketright workspace next
-    bindsym $mod+bracketleft workspace prev
+# Switch workspace
+bindsym Control+$mod+Left workspace prev
+bindsym Control+$mod+Right workspace next
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+bindsym $mod+bracketright workspace next
+bindsym $mod+bracketleft workspace prev
 
-    # Add new workspace
-    bindsym $mod+a exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
-    bindsym $mod+backslash exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
-    bindsym Control+$mod+Down exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
-    bindsym Control+$mod+Up exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+# Add new workspace
+bindsym $mod+a exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+bindsym $mod+backslash exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+bindsym Control+$mod+Down exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+bindsym Control+$mod+Up exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
 
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $ws1
-    bindsym $mod+Shift+2 move container to workspace $ws2
-    bindsym $mod+Shift+3 move container to workspace $ws3
-    bindsym $mod+Shift+4 move container to workspace $ws4
-    bindsym $mod+Shift+5 move container to workspace $ws5
-    bindsym $mod+Shift+6 move container to workspace $ws6
-    bindsym $mod+Shift+7 move container to workspace $ws7
-    bindsym $mod+Shift+8 move container to workspace $ws8
-    bindsym $mod+Shift+9 move container to workspace $ws9
-    bindsym $mod+Shift+0 move container to workspace $ws10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
+
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+i splith
-    bindsym $mod+v splitv
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+t layout toggle splith tabbed
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+i splith
+bindsym $mod+v splitv
 
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+t layout toggle splith tabbed
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
 
-    # Move focus to the parent/child container
-    bindsym $mod+y focus parent
-    bindsym $mod+d focus child
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Move focus to the parent/child container
+bindsym $mod+y focus parent
+bindsym $mod+d focus child
+
 #
 # Scratchpad:
 #
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
 
-    # Move the currently focused window to the scratchpad
-    # bindsym $mod+Shift+minus move scratchpad
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    # bindsym $mod+minus scratchpad show
+# Move the currently focused window to the scratchpad
+# bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+# bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
