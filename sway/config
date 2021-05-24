@@ -15,6 +15,18 @@ set $down j
 set $up k
 set $right l
 
+# Colors
+set $foreground  #c3c7d1
+set $background  #161925
+set $transparent #00000000
+set $red         #ed254e
+set $orange      #ff6a00
+set $cyan        #00c1e4
+set $yellow      #f9dc5c
+set $magenta     #c74ded
+set $green       #00e8c6
+set $blue        #7cb7ff
+
 # Your preferred terminal emulator
 set $term launch-terminal
 
@@ -62,8 +74,8 @@ output DP-2 {
     # Manually set subpixel hinting
     subpixel rgb
 
-    # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-    background ${XDG_CONFIG_HOME:-$HOME/.config}/sway/bg.png fill
+    # Default wallpaper
+    background ${XDG_CONFIG_HOME:-$HOME/.config}/sway/bg.png center $background
 
     # Composit output timing in milliseconds
     max_render_time 6
