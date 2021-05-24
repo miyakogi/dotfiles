@@ -181,16 +181,21 @@ wrapping-scroll = true
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;者
+[module/i3-ws]
+type = internal/i3
+inherit = module/ws-base
+format-margin = 2
+
+ws-icon-0 = 1:一;
+ws-icon-1 = 2:二;
+ws-icon-2 = 3:三;
+ws-icon-3 = 4:四;
+ws-icon-4 = 5:五;
+ws-icon-5 = 6:六;
+ws-icon-6 = 7:七;
+ws-icon-7 = 8:八;
+ws-icon-8 = 9:九;
+ws-icon-9 = 10:十;者
 ws-icon-default = 
 
 ; focused = Active workspace on focused monitor
@@ -212,11 +217,6 @@ label-visible-padding = ${self.label-focused-padding}
 label-urgent = %icon%
 label-urgent-background = ${colors.red}
 label-urgent-padding = 2
-
-[module/i3-ws]
-type = internal/i3
-inherit = module/ws-base
-format-margin = 2
 
 [module/i3-prev]
 type = custom/text
@@ -418,7 +418,7 @@ format-margin = 1
 format-foreground = #fff
 format-background = ${colors.red}
 format-underline = ${colors.red}
-interval = 60
+interval = 600
 
 [module/date]
 type = custom/script

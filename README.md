@@ -113,6 +113,7 @@ These applications should be all installed.
 
 - fcitx5
 - fcitx5-mozc
+- i3status-rust (status block generator for i3bar/swaybar)
 - python-i3ipc (scratchpad control and add workspace function for i3/sway)
 - mpd (polybar module)
 - qt5ct (qt5 app theming)
@@ -129,7 +130,7 @@ Then run:
 
 ```sh
 # Install config files
-./install.sh
+./install.py
 
 # Change defualt shell to zsh
 # check if output of `which zsh` is included in `chsh -l` and then run:
@@ -157,6 +158,7 @@ Use wallpaper for each WM as below:
 
 - i3: `$XDG_CONFIG_HOME/i3/bg.{jpg,png}`
 - bspwm: `$XDG_CONFIG_HOME/bspwm/bg.{jpg,png}`
+- sway: `$XDG_CONFIG_HOME/sway/bg.png`
 
 For LXQt and KDE, set wallpaper by those settings.
 
@@ -165,6 +167,7 @@ Use lock images for each WM as below:
 - i3: `$XDG_CONFIG_HOME/i3/lock.{jpg,png}`
 - bspwm: `$XDG_CONFIG_HOME/bspwm/lock.{jpg,png}`
 - LXQt: `$XDG_CONFIG_HOME/lxqt/lock.{jpg,png}`
+- sway: `$XDG_CONFIG_HOME/sway/lock.png`
 
 If no image file is found, simply blur the desktop when lock screen.
 

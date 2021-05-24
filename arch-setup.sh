@@ -54,6 +54,7 @@ packages=(
   numlockx
   autotiling
   i3lock-color
+  i3status-rust  # status block generator for i3bar/swaybar
   xautolock
   dmenu
   bemenu

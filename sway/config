@@ -88,7 +88,7 @@ output DP-2 {
 
 # Title bar
 title_align center
-font pango:Source Han Sans JP, Medium 12
+font pango:Source Han Mono M 10
 
 # Border
 default_border pixel 2
@@ -159,7 +159,7 @@ exec_always --no-startup-id "pgrep fcitx5 || fcitx5 -d &"
 exec mako
 
 # bar
-exec_always --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/waybar/launch.sh &"
+# exec_always --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/waybar/launch.sh &"
 
 # redshift alternative
 exec_always --no-startup-id "pgrep gammastep || gammastep -l ${LATITUDE}:${LONGITUDE} &"
@@ -254,28 +254,38 @@ exec --no-startup-id foot --server
 
     # Define names for default workspaces for which we configure key bindings later on.
     # We use variables to avoid repeating the names in multiple places.
-    set $ws1 "1"
-    set $ws2 "2"
-    set $ws3 "3"
-    set $ws4 "4"
-    set $ws5 "5"
-    set $ws6 "6"
-    set $ws7 "7"
-    set $ws8 "8"
-    set $ws9 "9"
-    set $ws10 "10"
+    # set $ws1 "1:"
+    # set $ws2 "2:"
+    # set $ws3 "3:"
+    # set $ws4 "4:"
+    # set $ws5 "5:"
+    # set $ws6 "6:"
+    # set $ws7 "7:"
+    # set $ws8 "8:"
+    # set $ws9 "9:"
+    # set $ws10 "10:者"
+    set $ws1 "1:一"
+    set $ws2 "2:二"
+    set $ws3 "3:三"
+    set $ws4 "4:四"
+    set $ws5 "5:五"
+    set $ws6 "6:六"
+    set $ws7 "7:七"
+    set $ws8 "8:八"
+    set $ws9 "9:九"
+    set $ws10 "10:十"
 
     # Switch to workspace
-    bindsym $mod+1 workspace number $ws1
-    bindsym $mod+2 workspace number $ws2
-    bindsym $mod+3 workspace number $ws3
-    bindsym $mod+4 workspace number $ws4
-    bindsym $mod+5 workspace number $ws5
-    bindsym $mod+6 workspace number $ws6
-    bindsym $mod+7 workspace number $ws7
-    bindsym $mod+8 workspace number $ws8
-    bindsym $mod+9 workspace number $ws9
-    bindsym $mod+0 workspace number $ws10
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    bindsym $mod+8 workspace $ws8
+    bindsym $mod+9 workspace $ws9
+    bindsym $mod+0 workspace $ws10
 
     # Switch workspace
     bindsym Control+$mod+Left workspace prev
@@ -292,16 +302,16 @@ exec --no-startup-id foot --server
     bindsym Control+$mod+Up exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
 
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number $ws1
-    bindsym $mod+Shift+2 move container to workspace number $ws2
-    bindsym $mod+Shift+3 move container to workspace number $ws3
-    bindsym $mod+Shift+4 move container to workspace number $ws4
-    bindsym $mod+Shift+5 move container to workspace number $ws5
-    bindsym $mod+Shift+6 move container to workspace number $ws6
-    bindsym $mod+Shift+7 move container to workspace number $ws7
-    bindsym $mod+Shift+8 move container to workspace number $ws8
-    bindsym $mod+Shift+9 move container to workspace number $ws9
-    bindsym $mod+Shift+0 move container to workspace number $ws10
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace $ws9
+    bindsym $mod+Shift+0 move container to workspace $ws10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -411,20 +421,24 @@ assign [app_id="^kitty-music$"] workspace $ws9
 #
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
-#
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-#
-#     colors {
-#         statusline #f1f1f1
-#         background #323334
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
+bar {
+    font pango:Symbols Nerd Font, Source Han Mono M 10
+    position top
+    status_command i3status-rs
+    pango_markup enabled
+    strip_workspace_numbers yes
+    icon_theme Adwaita
+
+    colors {
+        separator $magenta
+        background $background
+        statusline $foreground
+        focused_workspace $magenta $magenta $background
+        inactive_workspace $magenta $background $magenta
+        urgent_workspace $red $red $background
+        binding_mode $red $red $background
+    }
+}
 
 include /etc/sway/config.d/*
 

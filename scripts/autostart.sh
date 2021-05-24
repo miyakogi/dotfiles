@@ -30,9 +30,6 @@ if [[ $DE != "kde" ]]; then
   # enable screen locker
   run xautolock -time 5 -locker lock-screen
 
-  # start polybar
-  $CONFIG_HOME/polybar/launch.sh &
-
   # notification manager
   run dunst
 
@@ -73,6 +70,9 @@ case $WM in
     # wallpaper
     feh --bg-scale $(ls $CONFIG_HOME/bspwm/bg.{jpg,png} 2>/dev/null | head -n 1) &
 
+    # start polybar
+    $CONFIG_HOME/polybar/launch.sh &
+
     # sxhkd (keyboard shortcut)
     if pgrep -x sxhkd > /dev/null; then
       pkill -USR1 -x sxhkd &
@@ -92,6 +92,9 @@ case $WM in
   kwin-lxqt)
     # enable krohnkite
     run krohnkite-control enable
+
+    # start polybar
+    $CONFIG_HOME/polybar/launch.sh &
 
     # lxqt monitor setup
     # run lxqt-config-monitor -l
