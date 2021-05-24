@@ -155,17 +155,17 @@ exec_always --no-startup-id "pgrep gammastep || gammastep -l ${LATITUDE}:${LONGI
 # autotiling
 exec autotiling
 
-# Foot terminal server
+# foot terminal server
 exec --no-startup-id foot --server
 
 ### Key bindings
 #
 # Basics:
 #
-    # Start a terminal
-    bindsym $mod+Return exec $term
-    # Start terminal which can run without xwayland
-    bindsym $mod+Shift+Return exec alacritty
+    # Start a terminal which can run without xwayland
+    bindsym $mod+Return exec footclient || foot
+    # Start terminal chooser
+    bindsym $mod+Shift+Return exec $term
 
     # Kill focused window
     bindsym $mod+w kill
