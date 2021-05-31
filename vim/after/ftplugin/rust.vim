@@ -35,4 +35,7 @@ endif
 
 " ======== mappings ========
 nnoremap <buffer><silent> <Leader>r :<C-u>call <SID>quickrun_cargo()<CR>
-imap <buffer><expr> <C-l> IsInstalled('smartchr') ? smartchr#loop(' -> ', ' => ') : ' -> '
+if IsInstalled('vim-smartchr')
+  inoremap <buffer><expr> <C-l> smartchr#loop(' -> ', ' => ')
+  inoremap <buffer><expr> = smartchr#loop(' = ', '=', ' == ', '==')
+endif
