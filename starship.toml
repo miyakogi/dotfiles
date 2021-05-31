@@ -34,6 +34,9 @@ format = "[$symbol$branch]($style) "
 [git_status]
 untracked = ""
 
+[package]
+disabled = true
+
 [nodejs]
 format = "[$symbol($version )]($style)"
 symbol = " "
@@ -45,7 +48,7 @@ detect_extensions = []
 
 [rust]
 format = "[$symbol($version )]($style)"
-symbol = ""
+symbol = " "
 
 [status]
 disabled = false
