@@ -12,14 +12,13 @@ features="VaapiVideoDecoder,Vulkan"
 options=("$@")
 
 if [[ $1 == "wayland" ]]; then
+  # Native wayland
   features="$features,UseOzonePlatform,WebRTCPipeWireCapturer"
-  flags+=("--ozone-platform=wayland")
+  flags+=("--enable-features=$features" "--ozone-platform=wayland")
   options=("${options[2,-1]}")  # remove $1
-fi
-
-if [[ $session == "wayland" ]]; then
-  # Wayland session
-  flags+=("--enable-features=$features")
+elif [[ $session == "wayland" ]]; then
+  # XWayland
+  flags+=("--enable-features=$features" "--use-gl=egl")
 else
   # Xorg session
   flags+=("--enable-features=$features" "--use-gl=desktop")
