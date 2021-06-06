@@ -21,14 +21,14 @@ marquee_interval = 3
 marquee_speed = 0.5
 buttons = ["prev", "play", "next"]
 hide_when_empty = true
-format = " {player}: {combo} "
+format = " [{avail}] {player}: {combo} "
 [block.theme_overrides]
 info_fg = "#c74ded"
 info_bg = "#161925"
 
 [[block]]
 block = "cpu"
-format = '<span color="#c74ded99" font_family="Fira Code">{barchart}</span>{utilization}'
+format = '<span color="#c74ded99" font_family="Fira Code">{barchart}</span> {utilization}'
 interval = 1
 
 [[block]]
