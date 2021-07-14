@@ -51,7 +51,7 @@ format = "%a %d %b %Y  %H:%M:%S"
 
 [[block]]
 block = "pacman"
-interval = 600
+interval = 3600
 aur_command = "yay -Qum"
 format = "{both}"
 format_singular = "{both}"
