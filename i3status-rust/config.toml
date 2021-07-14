@@ -20,7 +20,7 @@ dynamic_width = true
 marquee_interval = 3
 marquee_speed = 0.5
 buttons = ["prev", "play", "next"]
-hide_when_empty = true
+hide_when_empty = false
 format = " [{avail}] {player}: {combo} "
 [block.theme_overrides]
 info_fg = "#c74ded"
