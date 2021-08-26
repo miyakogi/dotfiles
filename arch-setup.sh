@@ -78,6 +78,7 @@ packages=(
   pulsemixer
   pavucontrol-qt
   mpd
+  mpdris2
   ncmpcpp
   cava
   qt5ct
