@@ -18,6 +18,9 @@ abbr --add --global vi "vim --noplugin"
 # git
 abbr --add --global gstatus "git status -s -b"
 
+# python unittest
+abbr --add --global pyunit "python -m unittest discover"
+
 # vim/nvim
 if type -q nvim; and test $XDG_SESSION_TYPE = wayland
   abbr --add --global vim nvim
