@@ -7,10 +7,10 @@ name = "material-nf"
 time = ""
 
 [[block]]
-block = "sound"
-format = ""
-max_vol = 100
-on_click = "~/.config/polybar/ff-volume-fix.sh"
+block = "custom"
+command = "${XDG_CONFIG_HOME:-$HOME/.config}/polybar/ff-volume-check.sh"
+interval = 1
+on_click = "${XDG_CONFIG_HOME:-$HOME/.config}/polybar/ff-volume-fix.sh"
 
 [[block]]
 block = "music"
