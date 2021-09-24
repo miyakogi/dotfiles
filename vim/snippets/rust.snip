@@ -1,0 +1,7 @@
+snippet     tests
+abbr        #[cfg(test)]  mod tests {}
+options     head
+    #[cfg(test)]
+    mod tests {
+        ${0:TARGET}
+    }
