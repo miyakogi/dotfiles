@@ -22,7 +22,7 @@ if [[ $DE != "kde" ]]; then
 
   # set display settings
   xset s off &
-  xset dpms 0 0 1200 &
+  xset dpms 0 0 600 &
 
   # set keyboard repeat rate
   xset r rate 300 36
