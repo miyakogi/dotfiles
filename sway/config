@@ -27,6 +27,10 @@ set $magenta     #c74ded
 set $green       #00e8c6
 set $blue        #7cb7ff
 
+# semi-transparent colors
+set $cyan2       #00c1e4bb
+set $magenta2    #c74dedbb
+
 # Your preferred terminal emulator
 set $term launch-terminal
 
@@ -89,10 +93,10 @@ hide_edge_borders both
 
 #
 # Border colors
-#                        border  bg        text    indicat child_border
-client.focused           #b81bd2aa #212121d9 #f1f1f1 #b81bd2 #b81bd288
-client.unfocused         #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
-client.focused_inactive  #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
+#                        border    bg        text        indicat  child_border
+client.focused           $magenta2 $magenta2 $background $magenta $magenta2
+client.unfocused         $cyan2    $cyan2    $background $cyan    $cyan2
+client.focused_inactive  $cyan2    $cyan2    $background $cyan    $cyan2
 
 ### Gaps
 # gaps inner 4
@@ -425,6 +429,7 @@ bar {
     status_command i3status-rs
     pango_markup enabled
     strip_workspace_numbers yes
+    # wrap_scroll yes
     icon_theme Adwaita
 
     colors {
