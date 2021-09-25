@@ -27,3 +27,5 @@
 [pull]
   rebase = false
   ff = true
+[credential]
+  helper = store
