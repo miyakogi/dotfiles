@@ -85,6 +85,11 @@ element active, element selected active {
   text-color: @purple;
 }
 
+element-icon {
+  size: 36;
+  padding: 5;
+}
+
 message {
   padding: 5px;
   border-radius: 3px;
