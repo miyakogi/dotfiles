@@ -4,13 +4,15 @@
 
 # terminal emulator
 super + Return
+	st -e fish
+super + shift + Return
 	launch-terminal
 
 # program launcher
 super + z
 	rofi -show drun
 
-# make sxhkd reload its configuration files:
+# let sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
