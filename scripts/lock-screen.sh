@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Based on https://github.com/pavanjadhaw/betterlockscreen
 

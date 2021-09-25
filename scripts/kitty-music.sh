@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Should be executed by kitty with remote control enabled
 # Ex: `kitty --class kitty-music -o allow_remote_control=yes -o enabled_layouts="*" kitty-music.sh`
 
