@@ -33,6 +33,7 @@ set $term launch-terminal
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
+set $menu launch-menu
 set $dmenu dmenu_path | \
     dmenu \
     -p "Command:" \
@@ -42,17 +43,6 @@ set $dmenu dmenu_path | \
     -sb "#c74ded" \
     -sf "#161925" \
     | xargs swaymsg exec --
-
-set $swaymenu foot \
-    --font "Fira Code:size=18" \
-    --window-size-pixels=800x800 \
-    --app-id "swaymenu" \
-    env TERMINAL_COMMAND="foot" \
-    env FZF_DEFAULT_OPTS="--reverse --exact" \
-    env GLYPH_PROMPT=" " \
-    sway-launcher-desktop
-
-for_window [app_id="^swaymenu$"] floating enable, sticky enable
 
 
 ### Output configuration
@@ -186,9 +176,9 @@ bindsym $mod+q kill
 bindsym button2 kill
 
 # Start your launcher
-# bindsym $mod+d exec $menu
-bindsym $mod+z exec $swaymenu
+bindsym $mod+z exec $menu
 bindsym $mod+Shift+z exec "rofi -modi run,drun -show drun"
+for_window [app_id="^sklauncher$"] floating enable, sticky enable
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.

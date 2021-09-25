@@ -10,6 +10,8 @@ super + shift + Return
 
 # program launcher
 super + z
+	launch-menu
+super + shift + z
 	rofi -show drun
 
 # let sxhkd reload its configuration files:

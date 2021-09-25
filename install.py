@@ -159,6 +159,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'autostart.sh', BINDIR / 'autostart')
     install(SCRIPTSDIR / 'keyboard-setup.sh', BINDIR / 'keyboard-setup')
     install(SCRIPTSDIR / 'launch-terminal.sh', BINDIR / 'launch-terminal')
+    install(SCRIPTSDIR / 'launch-menu.sh', BINDIR / 'launch-menu')
     install(SCRIPTSDIR / 'scratchterm-tmux.sh', BINDIR / 'scratchterm-tmux')
     install(SCRIPTSDIR / 'lock-screen.sh', BINDIR / 'lock-screen')
     install(SCRIPTSDIR / 'chrome.sh', BINDIR / 'chrome.sh')

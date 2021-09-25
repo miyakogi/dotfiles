@@ -85,7 +85,10 @@ bindsym --release button2 kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+z exec --no-startup-id "rofi -show drun"
+bindsym $mod+z exec --no-startup-id launch-menu
+bindsym $mod+Shift+z exec --no-startup-id "rofi -show drun"
+for_window [class="^sklauncher$"] floating enable
+
 bindsym $alt+Tab exec --no-startup-id "rofi -show window"
 
 # screen shot

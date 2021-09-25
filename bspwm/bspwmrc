@@ -31,6 +31,7 @@ bspc config borderless_monocle false
 bspc config gapless_monocle   false
 
 ### Set rules
+bspc rule -a sklauncher state=floating
 bspc rule -a Rofi focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a Steam desktop=4
