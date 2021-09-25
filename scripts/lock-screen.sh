@@ -14,16 +14,16 @@ function get_image() {
 function xlock() {
   i3lock \
     --centered -p default $image \
-    --timepos='x+110:h-70' --datepos='x+60:h-45' \
-    --clock --date-align 1 --datestr="Screen Locked" \
-    --insidecolor="$transparent" --ringcolor="$ringcolor" --line-uses-inside \
-    --keyhlcolor="$cyan" --bshlcolor="$cyan" --separatorcolor="$transparent" \
-    --insidevercolor="$transparent" --insidewrongcolor="$red" --indpos="x+960:y+480" \
-    --radius=120 --ring-width=32 --veriftext='Checking...' --wrongtext='WRONG' \
-    --greetertext="Enter Password" --greetercolor="$white"\
-    --verifcolor="$white" --timecolor="$white" --datecolor="$white" \
-    --time-font="$font" --date-font="$font" --layout-font="$font" --verif-font="$font" --wrong-font="$font" greeter-font="$font" --greetersize=124 --greeterpos="x+960:y+$y" \
-    --noinputtext='' --force-clock --pass-media-keys
+    --time-pos='x+110:h-70' --date-pos='x+60:h-45' \
+    --clock --date-align 1 --date-str="Screen Locked" \
+    --inside-color="$transparent" --ring-color="$ringcolor" --line-uses-inside \
+    --keyhl-color="$cyan" --bshl-color="$cyan" --separator-color="$transparent" \
+    --insidever-color="$transparent" --insidewrong-color="$red" --ind-pos="x+960:y+480" \
+    --radius=120 --ring-width=32 --verif-text='Checking...' --wrong-text='WRONG' \
+    --greeter-text="Enter Password" --greeter-color="$white"\
+    --verif-color="$white" --time-color="$white" --date-color="$white" \
+    --time-font="$font" --date-font="$font" --layout-font="$font" --verif-font="$font" --wrong-font="$font" --greeter-font="$font" --greeter-size=124 --greeter-pos="x+960:y+$y" \
+    --noinput-text='' --force-clock --pass-media-keys
 }
 
 function wlock() {
