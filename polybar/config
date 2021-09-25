@@ -327,9 +327,9 @@ format-online = <icon-prev> <toggle> <icon-stop> <icon-next> <bar-progress> <ico
 
 [module/volume]
 type = custom/script
-exec = exec ${XDG_CONFIG_HOME:-$HOME/.config}/polybar/ff-volume-check.sh
+exec = exec ff-volume-check
 interval = 0.3
-click-left = exec $XDG_CONFIG_HOME/polybar/ff-volume-fix.sh
+click-left = exec ff-volume-fix
 click-right = pavucontrol-qt &
 
 format-underline = ${colors.green}

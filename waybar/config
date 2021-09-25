@@ -124,8 +124,8 @@
   },
   "custom/volume": {
     "format": "{}",
-    "exec": "${XDG_CONFIG_HOME:-$HOME/.config}/polybar/ff-volume-check.sh",
-    "on-click": "${XDG_CONFIG_HOME:-$HOME/.config}/polybar/ff-volume-fix.sh",
+    "exec": "ff-volume-check",
+    "on-click": "ff-volume-fix",
     "interval": 1
   },
   "idle_inhibitor": {

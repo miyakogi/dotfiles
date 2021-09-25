@@ -166,6 +166,8 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'krohnkite-control.sh', BINDIR / 'krohnkite-control')
     install(SCRIPTSDIR / 'kitty-music.sh', BINDIR / 'kitty-music')
     install(SCRIPTSDIR / 'mpdplayer.sh', BINDIR / 'mpdplayer')
+    install(SCRIPTSDIR / 'ff-volume-check.sh', BINDIR / 'ff-volume-check')
+    install(SCRIPTSDIR / 'ff-volume-fix.sh', BINDIR / 'ff-volume-fix')
 
     # i3 window manager
     I3SRC = BASEDIR / 'i3'
@@ -234,8 +236,6 @@ def install_linux() -> None:
     install(POLYSRC / 'rofi-menu.sh', POLYDEST / 'rofi-menu.sh')
     install(POLYSRC / 'updates.sh', POLYDEST / 'updates.sh')
     install(POLYSRC / 'nightcolor.sh', POLYDEST / 'nightcolor.sh')
-    install(POLYSRC / 'ff-volume-check.sh', POLYDEST / 'ff-volume-check.sh')
-    install(POLYSRC / 'ff-volume-fix.sh', POLYDEST / 'ff-volume-fix.sh')
 
     # rofi
     ROFISRC = BASEDIR / 'rofi'
