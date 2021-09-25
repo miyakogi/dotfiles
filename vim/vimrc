@@ -657,10 +657,8 @@ let g:deoplete#enable_at_startup = 1 " Use deoplete
 " }}}
 
 " ======== NeoSnippets ======== {{{
-" let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory=[
       \ '~/.vim/snippets',
-      \ '~/.vim/bundle/vim-snippets/snippets',
       \]
 "}}}
 
