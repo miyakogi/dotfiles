@@ -25,7 +25,7 @@ packages=(
   swaybg
   swaylock
   swayidle
-  picom-ibhagwan-git  # support rounded-corners and blur
+  picom-git
   conky-cairo
   dunst
   mako
