@@ -58,4 +58,4 @@ format_singular = "{both}"
 hide_when_uptodate = true
 [block.theme_overrides]
 info_fg = "#161925"
-info_bg = "#ed254e"
+info_bg = "#c74ded"
