@@ -41,6 +41,7 @@ packages=(
   adobe-source-han-mono-jp-fonts
   ttf-fira-code
   nerd-fonts-fira-code
+  ttf-iosevka
   ttf-unifont
   ttf-raleway
   ttf-nerd-fonts-symbols

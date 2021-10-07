@@ -54,6 +54,7 @@ These applications should be all installed.
 - Source Han Sans JP
 - Fira Code
 - Fira Code Nerd Fonts
+- Iosevka
 - unifont
 - Hack
 - Raleway
