@@ -220,6 +220,9 @@ for_window [app_id="scratchterm"] resize set height 1052
 # Disable auto mouse focus
 # focus_follows_mouse no
 
+# Disable focus wrapping inside the workspace
+focus_wrapping no
+
 # Move your focus around
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
