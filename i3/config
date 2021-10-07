@@ -98,6 +98,9 @@ bindsym Ctrl+Print exec spectacle -r
 # enable mosue focus
 focus_follows_mouse yes
 
+# disable focus wrapping inside the workspace
+focus_wrapping no
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
