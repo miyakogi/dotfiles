@@ -22,7 +22,7 @@ abbr --add --global gstatus "git status -s -b"
 abbr --add --global pyunit "python -m unittest discover"
 
 # vim/nvim
-if type -q nvim; and test $XDG_SESSION_TYPE = wayland
+if type -q nvim
   abbr --add --global vim nvim
   set -x EDITOR nvim
 end
