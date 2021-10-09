@@ -28,7 +28,7 @@ info_bg = "#161925"
 
 [[block]]
 block = "cpu"
-format = '<span color="#c74ded99" font_family="Fira Code">{barchart}</span> {utilization}'
+format = '<span color="#c74ded99" font_family="unifont">{barchart}</span> {utilization}'
 interval = 1
 
 [[block]]
