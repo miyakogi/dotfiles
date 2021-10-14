@@ -1,16 +1,42 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-if ! which yay > /dev/null 2>&1; then
-  echo "Need \`yay\` to be installed. Install yay by below command:"
-  echo "git clone https://aur.archlinux.org/yay.git && cd yay && makepgk -si"
-  exit 1
+install_paru() {
+  if ! which git > /dev/null 2>&1; then
+    echo "Install git"
+    sudo pacman -S git
+  fi
+
+  if ! which cargo > /dev/null 2>&1; then
+    echo "Install cargo/rustc by rustup"
+    sudo pacman -S rustup
+    # install and set stable channel as defualt for rustc
+    rustup default stable
+  fi
+
+  curdir=$PWD
+  git clone https://aur.archlinux.org/paru.git /tmp/paru && cd /tmp/paru && makepkg -si
+  cd $curdir
+}
+
+if ! which paru > /dev/null 2>&1; then
+  echo "Need \`paru\` AUR helper to be installed."
+  echo -n "Automatically install paru now? [y/N]"
+  read ans
+  case $ans in
+    [Yy]*)
+      install_paru;;
+    *)
+      echo "You can install paru by below command:"
+      echo "git clone https://aru.archlinux.org/paru.git && cd paru && makepgk -si"
+      exit 1;;
+  esac
 fi
 
 packages=(
   zsh
   git
   fish
-  alacritty-ligatures-git  # ligature-supported version of alacritty
+  alacritty
   kitty
   foot
   gvim  # normal vim packages does not support clipboard
@@ -90,9 +116,8 @@ packages=(
   xbindkeys
   zafiro-icon-theme-git
   numix-icon-theme-git
-  rustup
   sccache  # rustc cache support
-  starship
+  starship  # prompt manager
   direnv  # directory based env setting
   python-virtualenvwrapper
   virtualfish  # python venv manager for fish shell
@@ -103,4 +128,4 @@ packages=(
   pkgfile  # faster fish command failure support
 )
 
-yay -S "${packages[@]}"
+paru -S "${packages[@]}"

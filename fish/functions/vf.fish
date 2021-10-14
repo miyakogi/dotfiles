@@ -3,7 +3,7 @@ function vf --description "VirtualFish: fish plugin to manage virtualenvs"
     if not test -f /usr/lib/python3.9/site-packages/virtualfish/virtual.fish
         echo "vf command needs virtualfish to be installed."
         echo "Install it by bellow command:"
-        echo "yay -S virtualfish"
+        echo "paru -S virtualfish"
         return 1
     end
 

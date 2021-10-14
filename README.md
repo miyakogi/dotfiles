@@ -11,8 +11,8 @@ These applications should be all installed.
 
 ### Terminal
 
-- zsh
 - git
+- zsh
 - fish
 - alacritty
 - kitty
@@ -31,7 +31,7 @@ These applications should be all installed.
 - bspwm
 - sxhkd
 - picom
-- conky (conky-cairo)
+- rofi
 - dunst
 - polybar
 
@@ -41,10 +41,6 @@ These applications should be all installed.
 - mako
 - waybar
 - swappy
-
-### Desktop (common)
-
-- rofi
 
 ## Required Applications (not listed above)
 

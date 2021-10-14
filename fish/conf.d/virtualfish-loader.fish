@@ -2,7 +2,7 @@
 
 if not test -f /usr/lib/python3.9/site-packages/virtualfish/virtual.fish
   echo "VirtualFish is not installed. Install by bellow command:"
-  echo "yay -S virtualfish"
+  echo "paru -S virtualfish"
   exit
 end
 

@@ -5,11 +5,11 @@ if ! updates_pacman=$(checkupdates 2>/dev/null | wc -l); then
   updates_pacman=0
 fi
 
-if ! updates_yay=$(yay -Qum 2>/dev/null | wc -l); then
-  updates_yay=0
+if ! updates_aur=$(paru -Qua 2>/dev/null | wc -l); then
+  updates_aur=0
 fi
 
-updates=$(($updates_pacman + $updates_yay))
+updates=$(($updates_pacman + $updates_aur))
 
 if [[ $updates -gt 0 ]]; then
   echo " $updates"
