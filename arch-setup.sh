@@ -26,13 +26,14 @@ if ! which paru > /dev/null 2>&1; then
     [Yy]*)
       install_paru;;
     *)
-      echo "You can install paru by below command:"
-      echo "git clone https://aru.archlinux.org/paru.git && cd paru && makepgk -si"
+      echo "You can manually install paru by below command:"
+      echo "git clone https://aru.archlinux.org/paru.git && cd paru && makepkg -si"
       exit 1;;
   esac
 fi
 
 packages=(
+  python
   zsh
   git
   fish

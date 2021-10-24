@@ -117,7 +117,10 @@ These applications should be all installed.
 
 ## Install
 
-After installing all requirements, make `/etc/zsh/zshenv` (on Arch Linux) as below:
+On Arch Linux, run `./arch-setup.sh`.
+This script installs all required packages.
+
+After installing all requirements, make `/etc/zsh/zshenv` file (on Arch Linux) as below:
 
 ```zsh
 test -d $HOME/.zsh && test -f $HOME/.zsh/.zshenv && export ZDOTDIR=$HOME/.zsh
@@ -166,7 +169,7 @@ Use lock images for each WM as below:
 - LXQt: `$XDG_CONFIG_HOME/lxqt/lock.{jpg,png}`
 - sway: `$XDG_CONFIG_HOME/sway/lock.png`
 
-If no image file is found, simply blur the desktop when lock screen.
+If no image file is found, simply blur the desktop when locking screen.
 
 ### Plasma/LXQt Manual Setup
 
