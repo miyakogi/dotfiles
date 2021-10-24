@@ -12,12 +12,6 @@ function! s:enable_colorscheme(...) abort
   if has_key(g:, 'MyColorScheme')
     set background=dark
     execute 'colorscheme ' . g:MyColorScheme
-    if g:MyColorScheme ==# 'pencil'
-      " change colors for GitGutter
-      highlight GitGutterAdd    guifg=#009900 ctermfg=2
-      highlight GitGutterChange guifg=#bbbb00 ctermfg=3
-      highlight GitGutterDelete guifg=#ff2222 ctermfg=1
-    end
   endif
   syntax enable
 
