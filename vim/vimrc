@@ -601,8 +601,8 @@ let python_no_builtin_highlight = 1
 " ============================================
 
 " Automatically disable IM when leaved insert mode
-if executable('fcitx-remote')
-  autocmd myvimrc InsertLeave * call system('fcitx-remote -c')
+if executable('fcitx5-remote')
+  autocmd myvimrc InsertLeave * call system('fcitx5-remote -c')
 else
   autocmd myvimrc InsertLeave * call system('xdotool key Muhenkan')
 endif
