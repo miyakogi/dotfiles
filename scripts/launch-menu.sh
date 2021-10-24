@@ -12,8 +12,8 @@ if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
     --window-size-pixels "800x800"
     --app-id "sklauncher"
   )
-else
-  # use st
+elif which st >/dev/null 2>&1; then
+  # use st if possible on X11
   termcmd="st -e"
   cmd+=(
     st
@@ -21,6 +21,20 @@ else
     -g "80x33"  # geometry
     -c "sklauncher"  # class name
     -e
+  )
+else
+  # use alacritty
+  termcmd="alacritty -e"
+  cmd+=(
+    alacritty
+    --class "sklauncher,sklauncher"
+    --option window.startup_mode="Windowed"
+    --option window.dimensions.columns=48
+    --option window.dimensions.lines=24
+    --option font.normal.family="Fira Code"
+    --option font.normal.style="Medium"
+    --option font.size=18
+    --command
   )
 fi
 
