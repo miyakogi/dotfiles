@@ -9,6 +9,8 @@ function! s:enable_colorscheme(...) abort
   if get(g:, 'MyColorScheme') ==# 'onedark'
     " enable italics on onedark
     let g:onedark_terminal_italics = 1
+    " use purple color for rust's keywords
+    autocmd myvimrc ColorScheme,Syntax rust call onedark#set_highlight("rustKeyword", { "fg": onedark#GetColors().purple })
   else
     " use italics for all comment text
     autocmd myvimrc ColorScheme,Syntax * highlight Comment cterm=italic gui=italic
