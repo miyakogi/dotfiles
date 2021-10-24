@@ -137,11 +137,12 @@ endif
 
 " ======== Signify ======== {{{
 if get(g:, 'loaded_signify')
-  " from sweet colors
-  autocmd myvimrc ColorScheme,Syntax *
-        \   highlight SignifySignAdd    ctermfg=green  guifg=#00e8c6 cterm=NONE gui=NONE
-        \ | highlight SignifySignDelete ctermfg=red    guifg=#ed254e cterm=NONE gui=NONE
-        \ | highlight SignifySignChange ctermfg=yellow guifg=#f9dc5c cterm=NONE gui=NONE
+  " ======== onedark including signify colors, so disable color settings ========
+  " " from sweet colors
+  " autocmd myvimrc ColorScheme,Syntax *
+  "       \   highlight SignifySignAdd    ctermfg=green  guifg=#00e8c6 cterm=NONE gui=NONE
+  "       \ | highlight SignifySignDelete ctermfg=red    guifg=#ed254e cterm=NONE gui=NONE
+  "       \ | highlight SignifySignChange ctermfg=yellow guifg=#f9dc5c cterm=NONE gui=NONE
 endif
 "}}}
 
