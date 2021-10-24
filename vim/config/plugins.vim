@@ -6,6 +6,9 @@
 " Enable colorscheme
 function! s:enable_colorscheme(...) abort
 
+  " use italic for comment texts
+  autocmd myvimrc ColorScheme * highlight Comment cterm=italic gui=italic
+
   if has_key(g:, 'MyColorScheme')
     set background=dark
     execute 'colorscheme ' . g:MyColorScheme
