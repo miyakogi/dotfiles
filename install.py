@@ -23,6 +23,7 @@ HOME = Path.home()
 BASEDIR = Path(__file__).resolve().parent
 CONFIG_HOME = Path(os.getenv('XDG_CONFIG_HOME', HOME / '.config'))
 CONFIG_HOME_WIN = Path(os.getenv('XDG_CONFIG_HOME', HOME / 'AppData' / 'Roaming'))  # noqa
+PICTURES_DIR = Path(os.getenv('XDG_PICTURES_DIR', HOME / 'Pictures'))
 ZDOTDIR = Path(os.getenv('ZDOTDIR', HOME / '.zsh'))
 BINDIR = HOME / 'bin'
 
@@ -134,8 +135,8 @@ def make_empty_directories_linux() -> None:
     These dirs don't contain config files but need to exist in linux systems.
     """
     mkdir(CONFIG_HOME / 'i3' / 'workspaces')
-    mkdir(HOME / 'Pictures' / 'screenshots' / 'grim')
-    mkdir(HOME / 'Pictures' / 'screenshots' / 'swappy')
+    mkdir(PICTURES_DIR / 'screenshots' / 'grim')
+    mkdir(PICTURES_DIR / 'screenshots' / 'swappy')
 
 
 def install_linux() -> None:
