@@ -10,6 +10,9 @@ let g:vimpager_scrolloff=1
 " keybindings
 nnoremap <silent> gg :<C-u>1<CR>
 
+" enable smart case search
+set ignorecase
+set smartcase
 
 " go to first line at startup
 autocmd VimEnter * :1
