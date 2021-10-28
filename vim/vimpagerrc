@@ -10,20 +10,15 @@ let g:vimpager_scrolloff=1
 " keybindings
 nnoremap <silent> gg :<C-u>1<CR>
 
-" set style
-colorscheme pencil
-
-" transparent background
-highlight Normal ctermbg=NONE
-
-" set search highlight color 
-" (`pencil` colorscheme does not highlight search)
-highlight Search ctermbg=3 ctermfg=0
 
 " go to first line at startup
 autocmd VimEnter * :1
 
 " forcibly disable cursorline
 autocmd CursorMoved * set nocursorline
+
+" set colorscheme
+autocmd VimEnter * colorscheme onedark
+autocmd VimEnter * highlight Normal ctermbg=NONE
 
 " vim: set ft=vim:
