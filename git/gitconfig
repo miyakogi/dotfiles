@@ -14,7 +14,7 @@
   branch = auto
 [alias]
   clone-shallow = clone --depth=1
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  hist = log --pretty=format:\"%C(magenta)%h%Creset %C(cyan)%ad%Creset - %s%C(red)%d%Creset %C(yellow)[%an]%Creset\" --graph --date=short
   ffeature = flow feature
   fstart = flow feature start
   ffinish = flow feature finish
