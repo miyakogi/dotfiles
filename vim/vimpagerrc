@@ -2,7 +2,7 @@ set encoding=utf-8
 scriptencoding utf-8
 
 " should not load plugins
-set noloadplugins
+" set noloadplugins
 
 " set vimpager options
 let g:vimpager_scrolloff=1
@@ -22,5 +22,8 @@ highlight Search ctermbg=3 ctermfg=0
 
 " go to first line at startup
 autocmd VimEnter * :1
+
+" forcibly disable cursorline
+autocmd CursorMoved * set nocursorline
 
 " vim: set ft=vim:
