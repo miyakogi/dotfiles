@@ -27,5 +27,6 @@ function __vfsupport_setup_autocomplete --on-event virtualfish_did_setup_plugins
     end
 
     complete -x -c vf -n '__vfcompletion_using_command activate' -a "(vf ls)"
+    complete -x -c vf -n '__vfcompletion_using_command connect' -a "(vf ls)"
     complete -x -c vf -n '__vfcompletion_using_command rm' -a "(vf ls)"
 end
