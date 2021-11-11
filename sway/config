@@ -175,6 +175,7 @@ bindsym $mod+Shift+Return exec $term
 # Kill focused window
 bindsym $mod+w kill
 bindsym $mod+q kill
+bindsym $mod+d kill
 bindsym button2 kill
 
 # Start your launcher
