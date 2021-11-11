@@ -134,6 +134,7 @@ exec swayidle -w \
 # Read `man 5 sway-input` for more information about this section.
 
 input type:keyboard {
+    xkb_file ~/.Xkeymap
     xkb_layout "jp"
     xkb_options "ctrl:nocaps"
     xkb_numlock enable
