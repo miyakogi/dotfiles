@@ -180,6 +180,7 @@ bindsym button2 kill
 
 # Start your launcher
 bindsym $mod+z exec $menu
+bindsym $mod+space exec $menu
 bindsym $mod+Shift+z exec "rofi -modi run,drun -show drun"
 for_window [app_id="^sklauncher$"] floating enable, sticky enable
 
