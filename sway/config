@@ -171,6 +171,7 @@ exec autotiling
 bindsym $mod+Return exec foot
 # Start terminal chooser
 bindsym $mod+Shift+Return exec $term
+bindsym $mod+Shift+space exec $term
 
 # Kill focused window
 bindsym $mod+w kill
