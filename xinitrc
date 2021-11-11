@@ -55,8 +55,6 @@ case $1 in
     export GDK_BACKEND=x11
     exec gnome-session;;
   i3)
-    # need to update config file
-    ${XDG_CONFIG_HOME:-$HOME/.config}/i3/update_config.sh
     exec i3;;
   kde)
     export DESKTOP_SESSION=plasma
