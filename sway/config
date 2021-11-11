@@ -231,9 +231,6 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-# Move focus next/prev
-bindsym $mod+c focus next
-bindsym $mod+Shift+c focus prev
 
 # Move the focused window with the same, but add Shift
 bindsym $mod+Shift+$left move left
