@@ -75,6 +75,7 @@ bindsym $mod+Shift+Return exec --no-startup-id launch-terminal
 # kill focused window
 bindsym $mod+w kill
 bindsym $mod+q kill
+bindsym $mod+d kill
 
 # kill window when clicked by middle mouse button on title bar
 bindsym --release button2 kill
