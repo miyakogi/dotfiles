@@ -70,6 +70,7 @@ bindsym $mod+Shift+g exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec --no-startup-id "st -e fish"
+bindsym $mod+Shift+space exec --no-startup-id launch-terminal
 bindsym $mod+Shift+Return exec --no-startup-id launch-terminal
 
 # kill focused window
