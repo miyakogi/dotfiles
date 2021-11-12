@@ -142,9 +142,6 @@ bindsym $mod+e exec "i3-msg layout toggle split && i3-msg -t send_tick"
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
 
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
 # focus the parent container
 bindsym $mod+y focus parent
 
