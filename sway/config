@@ -425,7 +425,6 @@ bar {
     status_command i3status-rs
     pango_markup enabled
     strip_workspace_numbers yes
-    # wrap_scroll yes
     icon_theme Adwaita
 
     colors {
