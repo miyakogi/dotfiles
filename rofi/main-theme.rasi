@@ -15,20 +15,20 @@ configuration {
 
 * {
   /* --- Based on Pencil Color Scheme --- */
-	base00: #161925;  /* black */
-	base03: #161925;  /* black */
-	base07: #c3c7d1;  /* white */
-	/* base0B: #C3E88D; */
-	base0B: #f9dc5c;  /* yellow (bright) */
-	/* base0C: #89DDFF; */
-	base0C: #7cb7ff;  /* blue (bright) */
-	/* base0D: #00BCD4; */
-	base0D: #00c1e1;  /* cyan */
-	/* base0F: #FF5370; */
-	base0F: #ed254e;  /* red (bright) */
+  base00: #161925;  /* black */
+  base03: #161925;  /* black */
+  base07: #c3c7d1;  /* white */
+  /* base0B: #C3E88D; */
+  base0B: #f9dc5c;  /* yellow (bright) */
+  /* base0C: #89DDFF; */
+  base0C: #7cb7ff;  /* blue (bright) */
+  /* base0D: #00BCD4; */
+  base0D: #00c1e1;  /* cyan */
+  /* base0F: #FF5370; */
+  base0F: #ed254e;  /* red (bright) */
 
-	spacing: 0;
-	background-color: transparent;
+  spacing: 0;
+  background-color: transparent;
 }
 
 window {

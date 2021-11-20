@@ -180,7 +180,7 @@ bindsym button2 kill
 # Start your launcher
 bindsym $mod+z exec $menu
 bindsym $mod+space exec $menu
-bindsym $mod+Shift+z exec "rofi -modi run,drun -show drun"
+bindsym $mod+Shift+z exec "rofi -modi run,drun -show drun -theme main-theme"
 for_window [app_id="^sklauncher$"] floating enable, sticky enable
 
 # Drag floating windows by holding down $mod and left mouse button.
