@@ -13,6 +13,9 @@ configuration {
   display-window: "Windows";
 }
 
+/* reset default theme */
+@theme "/dev/null"
+
 * {
   /* --- Based on Pencil Color Scheme --- */
   base00: #161925;  /* black */
