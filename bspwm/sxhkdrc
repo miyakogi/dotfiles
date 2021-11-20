@@ -7,6 +7,8 @@ super + Return
 	st -e fish
 super + shift + Return
 	launch-terminal
+super + shift + space
+	launch-terminal
 
 # program launcher
 super + z
@@ -31,6 +33,8 @@ super + shift + e
 	$\{XDG_CONFIG_HOME:-$HOME/.config\}/rofi/leave.sh
 
 # close and kill
+super + d
+	bspc node -c
 super + {_,shift + }w
 	bspc node -{c,k}
 
@@ -60,7 +64,7 @@ super + f
 	bspc node focused.fullscreen -t tiled || bspc node -t fullscreen
 
 # toggle floating
-super + shift + space
+super + shift + f
 	bspc node focused.floating -t tiled || bspc node -t floating
 
 # set the node flags
