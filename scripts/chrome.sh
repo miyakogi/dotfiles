@@ -8,10 +8,12 @@ else
 fi
 
 flags=(
+  --enable-accelerated-video
+  --enable-accelerated-video-decoder
   --ignore-gpu-blocklist
   --enable-gpu-rasterization
   --enable-zero-copy
-  --enable-accelerated-video-decoder
+  --use-gl=egl
 )
 features="VaapiVideoDecoder,Vulkan"
 options=("$@")
@@ -26,13 +28,6 @@ if [[ $1 == "wayland" ]]; then
   options=("${options[2,-1]}")  # remove first option ($1)
 else
   flags+=(--enable-features="$features")
-  if [[ $session == "wayland" ]]; then
-    # XWayland
-    flags+=(--use-gl=egl)
-  else
-    # Xorg session
-    flags+=(--use-gl=desktop)
-  fi
 fi
 
 exec google-chrome-stable "${flags[@]}" "${options[@]}"
