@@ -113,7 +113,7 @@ client.focused_inactive  $cyan2    $cyan2    $background $cyan    $cyan2
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
-        timeout 300 'lock-screen' \
+        timeout 480 'lock-screen' \
         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
         before-sleep 'lock-screen'
 
