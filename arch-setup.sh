@@ -34,8 +34,8 @@ fi
 
 packages=(
   python
-  zsh
   git
+  zsh
   fish
   alacritty
   kitty
@@ -53,11 +53,11 @@ packages=(
   swaylock
   swayidle
   picom-git
-  conky-cairo
+  conky-cairo  # currently not in use
   dunst
-  mako
+  mako  # currently not in use
   polybar
-  waybar
+  waybar  # currently not in use
   rofi
   grim
   slurp

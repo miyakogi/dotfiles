@@ -34,12 +34,13 @@ These applications should be all installed.
 - rofi
 - dunst
 - polybar
+- conky (currently not in use)
 
 ### Desktop (Wayland)
 
 - sway
-- mako
-- waybar
+- mako (currently not in use)
+- waybar (currently not in use)
 - swappy
 
 ## Required Applications (not listed above)
