@@ -9,22 +9,26 @@ Use TTY login at tty-1 (default) and select DE/WM.
 
 These applications should be all installed.
 
-### Terminal
+### Command-Line Tool
 
 - git
 - zsh
 - fish
-- alacritty
-- kitty
-- foot
-- vim/neovim
+- (g)vim/neovim
 - tmux
 - ctags
 - mpd
-- (python) pip
-- (rust) cargo (rustup + sccache)
+- cava
+- cargo (rustup + sccache)
+- pip
 
-### Desktop (X11)
+### Desktop
+
+- alacritty
+- kitty
+- dunst
+
+#### Xorg
 
 - i3-gaps
 - plasma (X11)
@@ -33,13 +37,13 @@ These applications should be all installed.
 - sxhkd
 - picom
 - rofi
-- dunst
 - polybar
 - conky (currently not in use)
 
-### Desktop (Wayland)
+#### Wayland
 
 - sway
+- foot
 - mako (currently not in use)
 - waybar (currently not in use)
 - swappy
@@ -57,22 +61,39 @@ These applications should be all installed.
 - Hack
 - Raleway
 
-### Terminal
+### Command-Line Tool
 
-- (python) virtualenv/virtualenv-wrapper
-- (python) virtualfish
-- (python) cookiecutter
+- virtualenv/virtualenv-wrapper
+- virtualfish
+- cookiecutter
 
 #### Optional
 
 - skim/percol
-- exa/lsd (`ls` alternatives)
+- lsd/exa (`ls` alternatives)
 - bat (`cat` alternative)
 - vimpager (`less` alternative, used for man page)
-- starship (prompt)
+- starship (prompt generator)
 - direnv
 
-### Desktop (X11)
+### Desktop (Common)
+
+- qt5ct (qt5 app theming)
+- yakuake
+- klipper
+- sway-launcher-desktop
+- fcitx5
+- fcitx5-mozc
+- autotiling (i3/sway auto-tiling)
+- i3status-rust (status block generator for i3bar/swaybar)
+- perl-anyevent-i3 (save layout)
+- perl-json-xs (save layout)
+- python-i3ipc (scratchpad control and add workspace function for i3/sway)
+- pulsemixer (volume check/fix)
+- zafiro-icon-theme-git (rofi default icon)
+- numix-icon-theme-git (rofi leave script)
+
+#### Xorg
 
 - xorg-server
 - xorg-xinit
@@ -82,24 +103,15 @@ These applications should be all installed.
 - xorg-xset (display power management)
 - numlockx
 - dmenu
-- autotiling (for i3 auto-tiling)
 - i3lock-color (screen lock)
 - redshift
 - easystroke
 - feh
-- klipper
-- perl-anyevent-i3 (save layout)
-- perl-json-xs (save layout)
-- pulsemixer (polybar's volume check/fix)
-- yakuake
 - kwin-scripts-krohnkite-git
-- zafiro-icon-theme-git (rofi default icon)
-- numix-icon-theme-git (rofi leave script)
 
-### Desktop (Wayland)
+#### Wayland
 
 - xorg-xwayland
-- sway-launcher-desktop
 - bemenu
 - bemenu-wayland
 - grim
@@ -107,14 +119,6 @@ These applications should be all installed.
 - gammastep
 - wl-clipboard
 - wl-clipboard-x11
-
-### Desktop (common)
-
-- fcitx5
-- fcitx5-mozc
-- i3status-rust (status block generator for i3bar/swaybar)
-- python-i3ipc (scratchpad control and add workspace function for i3/sway)
-- qt5ct (qt5 app theming)
 
 ## Install
 
