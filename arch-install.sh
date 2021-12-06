@@ -109,6 +109,9 @@ packages=(
   mpdris2  # currently not in use
   ncmpcpp
   cava
+  python-mpd2  # for mpdcovoer script
+  imagemagick  # for mpdcovoer script
+  ffmpegthumbnailer  # for mpdcovoer script
   qt5ct
   qt5-tools
   yakuake

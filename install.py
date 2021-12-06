@@ -171,6 +171,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'krohnkite-control.sh', BINDIR / 'krohnkite-control')
     install(SCRIPTSDIR / 'kitty-music.sh', BINDIR / 'kitty-music')
     install(SCRIPTSDIR / 'mpdplayer.sh', BINDIR / 'mpdplayer')
+    install(SCRIPTSDIR / 'mpdcover.py', BINDIR / 'mpdcover')
     install(SCRIPTSDIR / 'ff-volume-check.sh', BINDIR / 'ff-volume-check')
     install(SCRIPTSDIR / 'ff-volume-fix.sh', BINDIR / 'ff-volume-fix')
 

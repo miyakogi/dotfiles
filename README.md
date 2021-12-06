@@ -67,6 +67,12 @@ These applications should be all installed.
 - virtualfish
 - cookiecutter
 
+##### for mpdcover script
+
+- python-mpd2
+- imagemagick
+- ffmpegthumbnailer
+
 #### Optional
 
 - skim/percol
