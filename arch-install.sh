@@ -106,7 +106,7 @@ packages=(
   pulsemixer  # used by volume check/fix scripts
   pavucontrol-qt
   mpd
-  mpdris2
+  mpdris2  # currently not in use
   ncmpcpp
   cava
   qt5ct

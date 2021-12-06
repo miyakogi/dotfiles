@@ -20,6 +20,7 @@ These applications should be all installed.
 - vim/neovim
 - tmux
 - ctags
+- mpd
 - (python) pip
 - (rust) cargo (rustup + sccache)
 
@@ -113,7 +114,6 @@ These applications should be all installed.
 - fcitx5-mozc
 - i3status-rust (status block generator for i3bar/swaybar)
 - python-i3ipc (scratchpad control and add workspace function for i3/sway)
-- mpd (polybar module)
 - qt5ct (qt5 app theming)
 
 ## Install
@@ -146,10 +146,10 @@ Disable display managers (e.g. SDDM or GDM) if enabled.
 
 ### Enable Systemd User Services
 
-Enable systemd services for mpd and mpDris2
+Enable systemd services for mpd.
 
 ```sh
-systemctl --user enable --now mpd.service mpDris2.service
+systemctl --user enable --now mpd.service
 ```
 
 ### Kwallet auto unlock
