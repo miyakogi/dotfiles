@@ -103,7 +103,7 @@ packages=(
   perl-anyevent-i3
   perl-json-xs
   python-i3ipc
-  pulsemixer
+  pulsemixer  # used by volume check/fix scripts
   pavucontrol-qt
   mpd
   mpdris2
