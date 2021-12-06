@@ -118,7 +118,7 @@ These applications should be all installed.
 
 ## Install
 
-On Arch Linux, run `./arch-setup.sh`.
+On Arch Linux, run `./arch-install.sh`.
 This script installs all required packages.
 
 After installing all requirements, make `/etc/zsh/zshenv` file (on Arch Linux) as below:
