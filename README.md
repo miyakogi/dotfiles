@@ -144,6 +144,14 @@ chsh -s $(which zsh)
 
 Disable display managers (e.g. SDDM or GDM) if enabled.
 
+### Enable Systemd User Services
+
+Enable systemd services for mpd and mpDris2
+
+```sh
+systemctl --user enable --now mpd.service mpDris2.service
+```
+
 ### Kwallet auto unlock
 
 In `/etc/pam.d/login`, add:
