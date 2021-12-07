@@ -45,6 +45,12 @@ interval = 1
 json = true
 
 [[block]]
+block = "disk_space"
+path = "/"
+info_type = "used"
+format = "{icon} {available}"
+
+[[block]]
 block = "time"
 interval = 0.5
 format = "%a %d %b %Y  %H:%M:%S"
