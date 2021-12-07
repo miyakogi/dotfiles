@@ -7,6 +7,13 @@ name = "material-nf"
 time = ""
 
 [[block]]
+block = "custom"
+command = "echo ''"
+interval = "once"
+[block.theme_overrides]
+idle_fg = "#20bbfc"
+
+[[block]]
 block = "music"
 interface_name_exclude = []
 max_width = 70
