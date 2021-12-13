@@ -55,19 +55,19 @@
       "miyakogi/conoline.vim",
       "miyakogi/sidepanel.vim",
       "miyakogi/seiya.vim",
-      "miyakogi/slateblue.vim",
-      "miyakogi/badwolf",
-      "joshdick/onedark.vim",
-      "morhetz/gruvbox",
-      "srcery-colors/srcery-vim",
-      "reedes/vim-colors-pencil",
-      "connorholyday/vim-snazzy"
+      "joshdick/onedark.vim"
     ]
   },
   "opt": {
     "github.com": [
       "Raimondi/delimitMate",
-      "tpope/vim-abolish"
+      "tpope/vim-abolish",
+      "miyakogi/slateblue.vim",
+      "miyakogi/badwolf",
+      "morhetz/gruvbox",
+      "srcery-colors/srcery-vim",
+      "reedes/vim-colors-pencil",
+      "connorholyday/vim-snazzy"
     ]
   }
 }
