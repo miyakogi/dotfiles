@@ -614,14 +614,15 @@ endif
 " ============================================
 
 function! IsInstalled(name) abort
-  if match(&runtimepath, 'dein') >= 0
-    return !dein#check_install([a:name])
-  else
-    if match(&runtimepath, a:name) >= 0
-      return 1
-    endif
+  if !has('nvim')
+    return match(&runtimepath, a:name) > 0
   endif
-  return 0
+
+  " currently I don't use NeoVim on Windows, so don't need to care Windows Path here
+  if !get(g:, '_nvim_runtimepath')
+    let g:_nvim_runtimepath = glob('~/.config/nvim/pack/*/start/*')
+  endif
+  return match(g:_nvim_runtimepath, a:name) > 0
 endfunction
 
 " ======== neomru ======== {{{
