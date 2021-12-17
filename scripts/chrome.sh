@@ -20,9 +20,10 @@ options=("$@")
 
 if [[ $1 == "wayland" ]]; then
   # Native wayland
-  features="$features,UseOzonePlatform,WebRTCPipeWireCapturer"
+  features="$features,WebRTCPipeWireCapturer"
   flags+=(
     --enable-features="$features"
+    --disable-features="Vulkan"
     --ozone-platform=wayland
   )
   options=("${options[2,-1]}")  # remove first option ($1)
