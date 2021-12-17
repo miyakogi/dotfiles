@@ -75,7 +75,7 @@ These applications should be all installed.
 
 #### Optional
 
-- skim/percol
+- skim
 - lsd/exa (`ls` alternatives)
 - bat (`cat` alternative)
 - vimpager (`less` alternative, used for man page)

@@ -293,9 +293,9 @@ function pip-init() {
   fi
 }
 
-### skim/percol
+### skim
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
-if (__which sk || __which percol) && [[ $OSTYPE != msys ]]; then
+if __which sk && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
   export HIST_DIRS_MAX=1000
   function cdhist() {
@@ -305,11 +305,7 @@ if (__which sk || __which percol) && [[ $OSTYPE != msys ]]; then
   }
   add-zsh-hook chpwd cdhist
 
-  if __which sk; then
-    local cmd='sk --tac --no-sort --reverse --exact --tiebreak index --prompt "skim>" --margin 2% --query "$BUFFER"'
-  else
-    local cmd='percol --reverse --query "$BUFFER"'
-  fi
+  local cmd='sk --tac --no-sort --reverse --exact --tiebreak index --prompt "skim>" --margin 2% --query "$BUFFER"'
 
   function search-history() {
     BUFFER=$(history -n 1 | eval ${cmd})
@@ -325,7 +321,7 @@ if (__which sk || __which percol) && [[ $OSTYPE != msys ]]; then
     zle reset-prompt
   }
 else
-  # if skim and percol is not available, use zaw and cdr
+  # if skim is not available, use zaw and cdr
   # very slow...
   # http://yagays.github.io/blog/2013/05/20/zaw-zsh/
   # Save cd history

@@ -355,10 +355,6 @@ def main() -> None:
     install(HOME / '.vim', NVIM_HOME)
     install(HOME / '.vimrc', NVIM_HOME / 'init.vim')
 
-    # percol
-    if not WINDOWS:
-        install(BASEDIR / 'percolrc.py', HOME / '.percol.d' / 'rc.py')
-
     # pip update script
     install(BASEDIR / 'scripts' / 'pip-update', BINDIR / 'pip-update')
 
