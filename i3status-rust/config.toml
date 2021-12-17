@@ -58,6 +58,22 @@ info_type = "used"
 format = "{icon} {available}"
 
 [[block]]
+block = "temperature"
+collapsed = false
+inputs = [
+  # CPU temperatures
+  "Package id 0", "Core 0", "Core 1", "Core 2", "Core 3", "Core 4", "Core 5",
+  # GPU temperatures
+  "edge", "junction", "mem",
+]
+format = "{max}C"
+[block.theme_overrides]
+warning_fg = "#c74ded"
+warning_bg = "#161925"
+critical_fg = "#161925"
+critical_bg = "#ed254e"
+
+[[block]]
 block = "time"
 interval = 0.5
 format = "%a %d %b %Y  %H:%M:%S"
