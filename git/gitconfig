@@ -27,7 +27,3 @@
 [pull]
   rebase = false
   ff = true
-
-[url "github:"]
-  InsteadOf = https://github.com/
-  InsteadOf = git@github.com:
