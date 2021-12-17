@@ -27,5 +27,7 @@
 [pull]
   rebase = false
   ff = true
-[credential]
-  helper = store
+
+[url "github:"]
+  InsteadOf = https://github.com/
+  InsteadOf = git@github.com:
