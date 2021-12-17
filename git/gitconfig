@@ -29,5 +29,5 @@
   ff = true
 
 [url "github:"]
-  InsteadOf = https://github.com/
-  InsteadOf = git@github.com:
+  pushInsteadOf = https://github.com/
+  pushInsteadOf = git@github.com:
