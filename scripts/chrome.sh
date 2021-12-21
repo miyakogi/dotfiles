@@ -15,7 +15,7 @@ flags=(
   --enable-zero-copy
   --use-gl=egl
 )
-features="VaapiVideoDecoder,Vulkan"
+features="VaapiVideoDecoder"
 options=("$@")
 
 if [[ $1 == "wayland" ]]; then
@@ -23,12 +23,14 @@ if [[ $1 == "wayland" ]]; then
   features="$features,WebRTCPipeWireCapturer"
   flags+=(
     --enable-features="$features"
-    --disable-features="Vulkan"
     --ozone-platform=wayland
   )
   options=("${options[2,-1]}")  # remove first option ($1)
 else
-  flags+=(--enable-features="$features")
+  flags+=(
+    --enable-features="$features"
+    --disable-features="UseOzonePlatform"
+  )
 fi
 
 exec google-chrome-stable "${flags[@]}" "${options[@]}"
