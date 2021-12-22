@@ -1,5 +1,19 @@
-#!/usr/bin/env bash
-# This script enables chrome's HW acceleration on both Wayland and Xorg sessions
+#!/usr/bin/sh
+# Generate option args for chromium-based apps to enable HW acceleration on both Wayland and Xorg
+
+### Usage
+#
+# Execute this script by shell then gets option arguments in the desktop file.
+#
+# Example:
+#   Exec=/usr/bin/google-chrome-stable $(/path/to/chromium-options.sh)
+#
+# On the wayland session, this script generates option args to run on Xwayland.
+# If you want to use native wayland, add `wayland` option as the first argument to this script.
+#
+# Example:
+#   Exec=/usr/bin/google-chrome-stable $(/path/to/chromium-options.sh wayland)
+#
 
 if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
   session="wayland"
@@ -50,4 +64,4 @@ else
   fi
 fi
 
-exec google-chrome-stable "${flags[@]}" "${options[@]}"
+echo -n "${flags[@]} ${options[@]}"

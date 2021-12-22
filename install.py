@@ -166,7 +166,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'launch-menu.sh', BINDIR / 'launch-menu')
     install(SCRIPTSDIR / 'scratchterm-tmux.sh', BINDIR / 'scratchterm-tmux')
     install(SCRIPTSDIR / 'lock-screen.sh', BINDIR / 'lock-screen')
-    install(SCRIPTSDIR / 'chrome.sh', BINDIR / 'chrome.sh')
+    install(SCRIPTSDIR / 'chromium-options.sh', BINDIR / 'chromium-options')
     install(SCRIPTSDIR / 'kwin-first-empty.sh', BINDIR / 'kwin-first-empty')
     install(SCRIPTSDIR / 'krohnkite-control.sh', BINDIR / 'krohnkite-control')
     install(SCRIPTSDIR / 'kitty-music.sh', BINDIR / 'kitty-music')
