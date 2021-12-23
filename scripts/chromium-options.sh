@@ -25,6 +25,7 @@ flags=(
   # Enable HW video acceleration
   --enable-accelerated-video
   --enable-accelerated-video-decoder
+
   # Force GPU Acceleration
   # see https://wiki.archlinux.org/title/Chromium#Force_GPU_acceleration
   --ignore-gpu-blocklist
@@ -58,8 +59,12 @@ else
   else
     # Xorg
     flags+=(
-      # GL is broken on Xwayland
-      --use-gl=egl
+      # # GL is broken on Xwayland
+      # --use-gl=egl
+
+      # EGL is also broken on Xorg for HW accelerated video playback, so force ANGLE
+      --use-angle=vulkan
+      --use-cmd-decoder=passthrough
     )
   fi
 fi
