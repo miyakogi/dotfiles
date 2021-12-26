@@ -44,27 +44,29 @@ if [[ $1 == "wayland" ]]; then
   )
   options=("${options[2,-1]}")  # remove first option ($1)
 else
-  features="$features,Vulkan"
-  flags+=(
-    --enable-features="$features"
-  )
   if [[ $session == "wayland" ]]; then
-    # Xwayland
+    # --- Xwayland ---
+    # Vulkan renderer + EGL results in unstable and slow fps (~10)
+    # So disable EGL and use ANGLE
     flags+=(
+      # Vulkan can be used on Xwayland
+      --enable-features="$features,Vulkan"
+
       # Force to use ANGLE to fix Xwayland issues, especially on NVIDIA GPU (but also useful on AMD GPU)
-      # see https://wiki.archlinux.org/title/chromium#Running_on_XWayland
-      --use-angle=vulkan
+      # See https://wiki.archlinux.org/title/chromium#Running_on_XWayland
+      # note: Vulkan backend of ANGLE is broken with AMD-enabled ffmpeg, so use GL backend
+      --use-angle=gl
       --use-cmd-decoder=passthrough
     )
   else
-    # Xorg
+    # --- Xorg ---
     flags+=(
-      # # GL is broken on Xwayland
-      # --use-gl=egl
+      # Vulkan breaks video playback on Xorg
+      --enable-features="$features"
 
-      # EGL is also broken on Xorg for HW accelerated video playback, so force ANGLE
-      --use-angle=vulkan
-      --use-cmd-decoder=passthrough
+      # Both vulkan and gl backends for ANGLE is broken on Xorg with AMD-enabled ffmpeg
+      # EGL is broken on Xwayland, but works on Xorg with no-Vulkan
+      --use-gl=egl
     )
   fi
 fi
