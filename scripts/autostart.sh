@@ -32,14 +32,14 @@ if [[ $DE != "kde" ]]; then
 
   # notification manager
   run dunst
-
-  # klipboard manager
-  run klipper
 fi
 
 if [[ $WM == kwin* ]]; then
   # start yakuake
   run yakuake
+
+  # klipboard manager
+  run klipper
 else
   # start redshift
   # need to set $LATITUDE and $LONGITUDE in ~/.zsh/.zshenv.local
@@ -58,8 +58,8 @@ fi
 # set mouse buttons profile for X11 by piper/ratbagd
 ratbagctl warbling-mara profile active set 0 &
 
-# IME
-run fcitx5
+# IME (daemon mode)
+run fcitx5 -d
 
 # mouse gesture
 run easystroke
