@@ -148,10 +148,6 @@ def install_linux() -> None:
     # pip (pip's --no-binary option for some packages on linux)
     install(BASEDIR / 'pip.conf', CONFIG_HOME / 'pip' / 'pip.conf')
 
-    # google-chrome
-    # flags for key storage and device factor
-    install(BASEDIR / 'chrome-flags.conf', CONFIG_HOME / 'chrome-flags.conf')
-
     # mpd: Music Player Daemon
     install(BASEDIR / 'mpd' / 'mpd.conf', CONFIG_HOME / 'mpd' / 'mpd.conf')
 
