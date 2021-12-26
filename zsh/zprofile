@@ -39,7 +39,7 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
         systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
 
         # start sway
-        exec dbus-run-session sway ;;
+        exec sway ;;
       gnome)
         # start gnome wayland session
         exec dbus-run-session gnome-session ;;
