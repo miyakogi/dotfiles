@@ -17,8 +17,8 @@ elif which st >/dev/null 2>&1; then
   termcmd="st -e"
   cmd+=(
     st
-    -f "Fira Code Medium:pixelsize=18:antialias=true"  # font
-    -g "80x33"  # geometry
+    -f "Fira Code Medium:pixelsize=22:antialias=true"  # font
+    -g "48x28"  # geometry
     -c "sklauncher"  # class name
     -e
   )
