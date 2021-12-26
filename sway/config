@@ -49,6 +49,11 @@ set $dmenu dmenu_path | \
     | xargs swaymsg exec --
 
 
+### Import XDG desktop portal environmental variables
+#
+# DBus
+exec "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart xdg-desktop-portal.service xdg-desktop-portal-gtk.service xdg-desktop-portal-wlr.service"
+
 ### Output configuration
 #
 # Display
