@@ -32,7 +32,10 @@ flags=(
   --enable-gpu-rasterization
   --enable-zero-copy
 )
-features="VaapiVideoDecoder,CanvasOopRasterization,EnableDrDc,RawDraw"
+
+# Some popups (like discord settings) are collapsed by enabling RawDraw feature with AMD-enabled ffmpeg
+# This bug will be fixed on v98, but on current stable v96, we need to disable RawDraw feature
+features="VaapiVideoDecoder,CanvasOopRasterization,EnableDrDc"
 options=("$@")
 
 if [[ $1 == "wayland" ]]; then
