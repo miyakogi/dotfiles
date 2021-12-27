@@ -36,7 +36,8 @@ features="VaapiVideoDecoder,CanvasOopRasterization,EnableDrDc,RawDraw"
 options=("$@")
 
 if [[ $1 == "wayland" ]]; then
-  # Native wayland
+  # --- Native Wayland --- #
+  # Currently broken (chromium v96)
   features="$features,WebRTCPipeWireCapturer"
   flags+=(
     --enable-features="$features"
@@ -45,7 +46,7 @@ if [[ $1 == "wayland" ]]; then
   options=("${options[2,-1]}")  # remove first option ($1)
 else
   if [[ $session == "wayland" ]]; then
-    # --- Xwayland ---
+    # --- Xwayland --- #
     # Vulkan renderer + EGL results in unstable and slow fps (~10)
     # So disable EGL and use ANGLE
     flags+=(
@@ -54,18 +55,18 @@ else
 
       # Force to use ANGLE to fix Xwayland issues, especially on NVIDIA GPU (but also useful on AMD GPU)
       # See https://wiki.archlinux.org/title/chromium#Running_on_XWayland
-      # note: Vulkan backend of ANGLE is broken with AMD-enabled ffmpeg, so use GL backend
+      # Note: Vulkan backend for ANGLE is broken with AMD-enabled ffmpeg, so use GL backend
       --use-angle=gl
       --use-cmd-decoder=passthrough
     )
   else
-    # --- Xorg ---
+    # --- Xorg --- #
     flags+=(
       # Vulkan breaks video playback on Xorg
       --enable-features="$features"
 
       # Both vulkan and gl backends for ANGLE is broken on Xorg with AMD-enabled ffmpeg
-      # EGL is broken on Xwayland, but works on Xorg with no-Vulkan
+      # EGL is broken on Xwayland, but works on Xorg without Vulkan
       --use-gl=egl
     )
   fi
