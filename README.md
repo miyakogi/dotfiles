@@ -39,6 +39,9 @@ These applications should be all installed.
 - rofi
 - polybar
 - conky (currently not in use)
+- xterm
+- urxvt (rxvt-unicord)
+- yakuake
 
 #### Wayland
 
@@ -52,7 +55,6 @@ These applications should be all installed.
 
 ### Fonts
 
-- Nerd Font Symbols
 - Source Han Sans JP
 - Fira Code
 - Fira Code Nerd Fonts
@@ -60,6 +62,7 @@ These applications should be all installed.
 - unifont
 - Hack
 - Raleway
+- Nerd Font Symbols
 
 ### Command-Line Tool
 
@@ -85,7 +88,7 @@ These applications should be all installed.
 ### Desktop (Common)
 
 - qt5ct (qt5 app theming)
-- yakuake
+- qt6ct (qt6 app theming)
 - klipper
 - sway-launcher-desktop
 - fcitx5

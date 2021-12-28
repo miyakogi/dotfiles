@@ -37,13 +37,17 @@ packages=(
   git
   zsh
   fish
+  locale  # need to run xterm with utf8 mode
+  xterm
+  rxvt-unicode
   alacritty
   kitty
+  yakuake
   foot
+  tmux
   gvim  # normal vim packages does not support clipboard
   neovim-git
   python-pynvim  # neovim support package
-  tmux
   ctags
   i3-gaps  # gap-supported version
   bspwm
@@ -70,6 +74,7 @@ packages=(
   nerd-fonts-fira-code
   ttc-iosevka
   ttf-unifont
+  ttf-hack
   ttf-raleway
   ttf-nerd-fonts-symbols
   xorg-server
@@ -77,9 +82,10 @@ packages=(
   xorg-xwayland
   xdotool
   wmctrl
-  kwallet-pam
   xorg-xset
   numlockx
+  xbindkeys
+  kwallet-pam
   autotiling
   i3lock-color
   i3status-rust  # status block generator for i3bar/swaybar
@@ -106,20 +112,22 @@ packages=(
   pulsemixer  # used by volume check/fix scripts
   pavucontrol-qt
   mpd
-  mpdris2  # currently not in use
+  mpdris2
   ncmpcpp
   cava
   python-mpd2  # for mpdcovoer script
   imagemagick  # for mpdcovoer script
   ffmpegthumbnailer  # for mpdcovoer script
   qt5ct
+  qt6ct
   qt5-tools
-  yakuake
+  qt6-tools
+  kvantaum
   kwin-scripts-krohnkite-git
   ksuperkey
-  xbindkeys
   zafiro-icon-theme-git
   numix-icon-theme-git
+  ccache
   sccache  # rustc cache support
   starship  # prompt manager
   direnv  # directory based env setting
