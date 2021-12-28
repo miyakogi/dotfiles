@@ -14,6 +14,7 @@ XTerm.vt100.utf8: true
 
 ! scroll back
 URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
 URxvt.scrollBar: false
 
 ! padding
@@ -22,32 +23,32 @@ UXTerm.vt100.internalBorder: 8
 URxvt.internalBorder: 8
 
 ! font
-XTerm.vt100.faceName: FiraCode Nerd Font Mono:medium:size=12:antialias=true
-UXTerm.vt100.faceName: FiraCode Nerd Font Mono:medium:size=12:antialias=true
-URxvt.font: xft:FiraCode Nerd Font Mono:medium:size=12:antialias=true
+XTerm.vt100.faceName: Iosevka Nerd Font Mono:medium:size=13.5:antialias=true
+UXTerm.vt100.faceName: Iosevka Nerd Font Mono:medium:size=13.5:antialias=true
+URxvt.font: xft:Iosevka Nerd Font Mono:medium:size=13.5:antialias=true
 URxvt.letterSpace: -1
 
 ! Color Settings --------------------------------------------------
-*foreground: rgb:f1/f1/f1
-*background: rgb:21/21/21
+*foreground: rgb:c3/c7/d1
+*background: rgb:16/19/25
 
-*color0: rgb:21/21/21
-*color8: rgb:1a/1a/1a
-*color1: rgb:c3/07/71
-*color9: rgb:fb/00/7a
-*color2: rgb:10/a7/78
-*color10: rgb:5f/d7/af
-*color3: rgb:a8/9c/14
-*color11: rgb:f3/e4/30
-*color4: rgb:00/83/c4
-*color12: rgb:20/bb/fc
-*color5: rgb:52/3c/79
-*color13: rgb:68/55/de
-*color6: rgb:20/a5/ba
-*color14: rgb:4f/b8/cc
-*color7: rgb:e0/e0/e0
-*color15: rgb:f1/f1/f1
+*color0: rgb:16/19/25
+*color8: rgb:16/19/25
+*color1: rgb:ed/25/4e
+*color9: rgb:ed/25/4e
+*color2: rgb:00/e8/c6
+*color10: rgb:00/e8/c6
+*color3: rgb:f9/dc/5c
+*color11: rgb:f9/dc/5c
+*color4: rgb:7c/b7/ff
+*color12: rgb:7c/b7/ff
+*color5: rgb:c7/4d/ed
+*color13: rgb:c7/4d/ed
+*color6: rgb:00/c1/e1
+*color14: rgb:00/c1/e1
+*color7: rgb:c3/c7/d1
+*color15: rgb:c3/c7/d1
 
 ! transparent urxvt background
 URxvt.depth: 32
-URxvt.background: [85]#212121
+URxvt.background: [85]#161925

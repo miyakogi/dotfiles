@@ -96,8 +96,8 @@ case $_terminal in
   foot)
     footclient || foot &
     ;;
-  st)
-    st -e fish &
+  st|xterm|urxvt)
+    $_terminal -e fish &
     ;;
   *)
     $_terminal &

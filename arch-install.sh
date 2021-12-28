@@ -73,6 +73,7 @@ packages=(
   ttf-fira-code
   nerd-fonts-fira-code
   ttc-iosevka
+  ttf-iosevka-nerd
   ttf-unifont
   ttf-hack
   ttf-raleway
