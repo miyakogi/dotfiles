@@ -7,12 +7,12 @@ vicmd_symbol = "[](bold green)"
 
 [shell]
 disabled = false
-format = '[$indicator](bold white)'
-bash_indicator = 'bash '
-zsh_indicator = 'zsh '
+format = '$indicator'
+bash_indicator = '[bash](dimmed white) '
+zsh_indicator = '[zsh](dimmed white) '
 fish_indicator = ''
-powershell_indicator = 'PowerShell '
-elvish_indicator = 'Elvish '
+powershell_indicator = '[PowerShell](yellow) '
+elvish_indicator = '[Elvish](cyan) '
 
 [memory_usage]
 disabled = false

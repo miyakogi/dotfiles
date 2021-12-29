@@ -215,9 +215,6 @@ export NVM_LAZY_LOAD=true
 export NVM_NO_USE=true
 load_if_exists $ZDOTDIR/zsh-nvm/zsh-nvm.plugin.zsh
 
-### prompt
-load_if_exists $ZDOTDIR/prompt.zsh
-
 ### zsh-completions
 # http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
 fpath=($ZDOTDIR/zsh-completions/src(N-/) $fpath)
@@ -365,10 +362,19 @@ function mkpjpy() {
   cd $pjdir
 }
 
-# load machine local file
+### prompt
+if [[ -n $DISPLAY ]] && __which starship; then
+  # use starship prompt in graphical session
+  eval "$(starship init zsh)"
+else
+  # use my prompt on TTY
+  load_if_exists $ZDOTDIR/prompt.zsh
+fi
+
+### load machine local file
 [[ -f $ZDOTDIR/.zshrc.local ]] && source $ZDOTDIR/.zshrc.local
 
-# profiling
+### profiling
 if (__which zprof) ; then
   zprof
 fi
