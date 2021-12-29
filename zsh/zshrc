@@ -219,10 +219,8 @@ load_if_exists $ZDOTDIR/zsh-nvm/zsh-nvm.plugin.zsh
 # http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
 fpath=($ZDOTDIR/zsh-completions/src(N-/) $fpath)
 load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
-### direnv
-if __which direnv; then
-  eval "$(direnv hook zsh)"
-fi
+### zsh-autoenv
+load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
 ### zsh-autopair
 load_if_exists $ZDOTDIR/zsh-autopair/autopair.zsh
 
