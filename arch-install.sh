@@ -103,7 +103,6 @@ packages=(
   fcitx5-qt
   fcitx5-mozc
   fcitx5-config-qt
-  easystroke
   feh
   klipper
   wl-clipbaord

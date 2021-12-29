@@ -61,9 +61,6 @@ ratbagctl warbling-mara profile active set 0 &
 # IME (daemon mode)
 run fcitx5 -d
 
-# mouse gesture
-run easystroke
-
 # WM/DE specific setup
 case $WM in
   bspwm)

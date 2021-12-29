@@ -115,7 +115,6 @@ These applications should be all installed.
 - dmenu
 - i3lock-color (screen lock)
 - redshift
-- easystroke
 - feh
 - kwin-scripts-krohnkite-git
 
