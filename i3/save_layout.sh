@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/sh
 
 if [[ -z $1 ]]; then
   echo "workspace number is required"

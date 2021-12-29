@@ -1,4 +1,6 @@
-#!/usr/bin/env zsh
+#!/usr/bin/sh
+
+### NightColor support on KWin (LXQt)
 
 daytemp=6500
 nighttemp=5200

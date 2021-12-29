@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/sh
 # from https://qiita.com/matoruru/items/ab491eac6b2b74e3ce3b
 
 if ! updates_pacman=$(checkupdates 2>/dev/null | wc -l); then

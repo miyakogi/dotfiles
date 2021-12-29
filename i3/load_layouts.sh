@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/sh
 
 ws_dir=${XDG_CONFIG_HOME:-$HOME/.config}/i3/workspaces
 

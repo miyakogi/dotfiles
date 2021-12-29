@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/sh
 
 year=$(date '+%Y')
 month=$(date '+%m')
