@@ -11,9 +11,10 @@ These applications should be all installed.
 
 ### Command-Line Tool
 
-- git
+- bash
 - zsh
 - fish
+- git
 - (g)vim/neovim
 - tmux
 - ctags

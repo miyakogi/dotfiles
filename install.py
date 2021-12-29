@@ -285,6 +285,9 @@ def main() -> None:
     # Shell defaults
     install(BASEDIR / 'profile', HOME / '.profile')
 
+    # bash files
+    install(BASEDIR / 'bashrc', HOME / '.bashrc')
+
     # zsh files (load this order on startup)
     ZSHBASE = BASEDIR / 'zsh'
     install(ZSHBASE / 'zshenv', ZDOTDIR / '.zshenv')

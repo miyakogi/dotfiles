@@ -27,4 +27,4 @@ if [ -f $HOME/.profile.local ]; then
   source $HOME/.profile.local
 fi
 
-# vim: sw=2 et ft=zsh
+# vim: sw=2 et ft=sh

@@ -34,9 +34,10 @@ fi
 
 packages=(
   python
-  git
+  bash
   zsh
   fish
+  git
   locale  # need to run xterm with utf8 mode
   xterm
   rxvt-unicode
