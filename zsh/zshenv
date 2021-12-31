@@ -46,6 +46,8 @@ fi
 
 # Project setting
 export PROJECT_HOME=$HOME/Projects
+
+# Setting python venv home
 if [[ $OSTYPE == msys ]]; then
   export WORKON_HOME=$HOME/.virtualenvs/msys
 elif [[ $OSTYPE == cygwin ]]; then
@@ -64,11 +66,7 @@ function add_path() {
   esac
 }
 
-# Nix
-if [[ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]]; then
-  . $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
-
+# set basic bin path
 if [[ $OSNAME == Windows ]]; then
   export MSYS2_PATH_TYPE=inherit
   add_path /mingw64/bin
@@ -77,25 +75,6 @@ fi
 if [[ $OSNAME == Mac ]]; then
   add_path /usr/local/sbin
   add_path /usr/local/bin
-fi
-
-if [[ $OSNAME == Ubuntu ]]; then
-  # ubuntu specific binaries
-  add_path $HOME/bin/ubuntu
-
-  # go
-  export GOROOT=/usr/local/go
-  add_path $GOROOT/bin
-
-  # nim
-  add_path $HOME/.nimble/bin
-
-  # node
-  add_path $HOME/opt/node/bin
-
-  # pyenv
-  export PYENV_ROOT="$HOME/.pyenv"
-  add_path $PYENV_ROOT/bin
 fi
 
 # pyenv

@@ -206,6 +206,7 @@ elif [[ $OSNAME == Mac ]]; then
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
   load_if_exists $HOME/Library/Python/3.7/bin/virtualenvwrapper_lazy.sh
 else
+  # ArchLinux's system virtualenvwrapper
   export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
   load_if_exists /usr/bin/virtualenvwrapper_lazy.sh
 fi
