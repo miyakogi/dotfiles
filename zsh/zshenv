@@ -46,11 +46,7 @@ fi
 
 # Project setting
 export PROJECT_HOME=$HOME/Projects
-if [[ $OSNAME == Ubuntu ]]; then
-  export WORKON_HOME=$HOME/.virtualenvs/ubuntu
-elif [[ $OSNAME == Arch ]]; then
-  export WORKON_HOME=$HOME/.virtualenvs/arch
-elif [[ $OSTYPE == msys ]]; then
+if [[ $OSTYPE == msys ]]; then
   export WORKON_HOME=$HOME/.virtualenvs/msys
 elif [[ $OSTYPE == cygwin ]]; then
   export WORKON_HOME=$HOME/.virtualenvs/cygwin
