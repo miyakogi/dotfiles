@@ -42,7 +42,7 @@ format = "[$symbol($version )]($style)"
 symbol = " "
 
 [python]
-format = '[${symbol}${pyenv_prefix}(${version} )(\(${virtualenv}\) )]($style)'
+format = '[${symbol}(${version} )(\(${virtualenv}\) )]($style)'
 symbol = "🐍"
 detect_extensions = []
 

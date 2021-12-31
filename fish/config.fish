@@ -17,9 +17,6 @@ function __chpwd --on-variable PWD; chpwd; end
 # auto ls on cd
 function __auto_ls --on-variable PWD; auto_ls; end
 
-# VirtualFish
-set -x VIRTUALFISH_HOME $HOME/.virtualenvs
-
 # direnv
 if type -q direnv
   direnv hook fish | source

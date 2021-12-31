@@ -191,26 +191,6 @@ function load_if_exists() {
   [[ -f $1 ]] && source $1
 }
 
-### Python Virtualenv Control
-if [[ $OSNAME == Ubuntu ]]; then
-  # virtualenvwrapper
-  if [[ -f "$HOME/.local/bin/virtualenvwrapper.sh" ]]; then
-    export VIRTUALENVWRAPPER_SCRIPT="$HOME/.local/bin/virtualenvwrapper.sh"
-    load_if_exists "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
-  else
-    export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
-    load_if_exists /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
-  fi
-elif [[ $OSNAME == Mac ]]; then
-  # virtualenvwrapper
-  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-  load_if_exists $HOME/Library/Python/3.7/bin/virtualenvwrapper_lazy.sh
-else
-  # ArchLinux's system virtualenvwrapper
-  export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
-  load_if_exists /usr/bin/virtualenvwrapper_lazy.sh
-fi
-
 ### Node.js virtual env control
 export NVM_LAZY_LOAD=true
 export NVM_NO_USE=true
@@ -220,8 +200,6 @@ load_if_exists $ZDOTDIR/zsh-nvm/zsh-nvm.plugin.zsh
 # http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
 fpath=($ZDOTDIR/zsh-completions/src(N-/) $fpath)
 load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
-### zsh-autoenv
-load_if_exists $ZDOTDIR/zsh-autoenv/autoenv.zsh
 ### zsh-autopair
 load_if_exists $ZDOTDIR/zsh-autopair/autopair.zsh
 
@@ -291,6 +269,11 @@ function pip-init() {
   fi
 }
 
+function pipenv-init() {
+  # Initialize python virtual environment by pipenv
+  pipenv install --dev pynvim ptpython
+}
+
 ### skim
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
 if __which sk && [[ $OSTYPE != msys ]]; then
@@ -347,7 +330,7 @@ fi
 
 function mkpjpy() {
   [[ -z $1 ]] && echo "Need project name." && return 1
-  local pjdir_root=${PROJECT_HOME:-$HOME/Project}
+  local pjdir_root=${PROJECT_HOME:-$HOME/Projects}
   local pjdir=${pjdir_root}/$1
   [[ -e $pjdir ]] && echo "Target project ${pjdir} already exists." && return 1
 
@@ -362,6 +345,11 @@ function mkpjpy() {
   [[ ! -e $pjdir ]] && echo "Failed to make new project." && return 1
   cd $pjdir
 }
+
+### direnv
+if __which direnv; then
+  eval "$(direnv hook zsh)"
+fi
 
 ### prompt
 if [[ -n $DISPLAY ]] && __which starship; then

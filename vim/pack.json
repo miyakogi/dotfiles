@@ -39,7 +39,6 @@
       "KazuakiM/vim-qfstatusline",
       "altercation/vim-colors-solarized",
       "itchyny/lightline.vim",
-      "jmcantrell/vim-virtualenv",
       "Vimjas/vim-python-pep8-indent",
       "dag/vim-fish",
       "Glench/Vim-Jinja2-Syntax",
