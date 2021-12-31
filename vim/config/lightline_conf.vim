@@ -49,14 +49,6 @@ let g:lightline = {
     \ }
 
 " ======== Lightline functions ========
-function! MyVirtualEnv() abort
-  if &filetype[:5] ==? 'python' && exists('g:virtualenv_name') && g:virtualenv_name !=# ''
-    return ' (' . virtualenv#statusline() . ')'
-  else
-    return ''
-  endif
-endfunction
-
 function! MyModified() abort
   return &buftype !=# '' ? '' : &modified ? '✚ ' : &modifiable ? '' : '-'
 endfunction
@@ -81,7 +73,7 @@ function! MyFileformat() abort
 endfunction
 
 function! MyFiletype() abort
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . MyVirtualEnv() : 'no ft') : ''
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
 endfunction
 
 function! MyFileencoding() abort

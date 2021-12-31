@@ -47,15 +47,6 @@ fi
 # Project setting
 export PROJECT_HOME=$HOME/Projects
 
-# Setting python venv home
-if [[ $OSTYPE == msys ]]; then
-  export WORKON_HOME=$HOME/.virtualenvs/msys
-elif [[ $OSTYPE == cygwin ]]; then
-  export WORKON_HOME=$HOME/.virtualenvs/cygwin
-else
-  export WORKON_HOME=$HOME/.virtualenvs
-fi
-
 # Setting $PATH
 function add_path() {
   case ":$PATH:" in

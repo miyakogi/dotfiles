@@ -67,8 +67,8 @@ These applications should be all installed.
 
 ### Command-Line Tool
 
-- virtualenv/virtualenv-wrapper
-- virtualfish
+- direnv
+- pipenv
 - cookiecutter
 
 ##### for mpdcover script
@@ -84,7 +84,6 @@ These applications should be all installed.
 - bat (`cat` alternative)
 - vimpager (`less` alternative, used for man page)
 - starship (prompt generator)
-- direnv
 
 ### Desktop (Common)
 

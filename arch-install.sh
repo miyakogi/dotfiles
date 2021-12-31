@@ -132,8 +132,7 @@ packages=(
   sccache  # rustc cache support
   starship  # prompt manager
   direnv  # directory based env setting
-  python-virtualenvwrapper
-  virtualfish  # python venv manager for fish shell
+  pipenv  # python virtualenv/package manager
   lsd  # ls alternative
   exa  # ls alternative
   bat  # cat alternative
