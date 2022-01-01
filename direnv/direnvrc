@@ -48,4 +48,6 @@ layout_poetry() {
   export VIRTUAL_ENV=$VENV
   export POETRY_ACTIVE=1
   PATH_add "$VENV/bin"
+
+  log_status "enabled poetry environment."
 }
