@@ -269,11 +269,6 @@ function pip-init() {
   fi
 }
 
-function pipenv-init() {
-  # Initialize python virtual environment by pipenv
-  pipenv install --dev pynvim ptpython
-}
-
 ### skim
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
 if __which sk && [[ $OSTYPE != msys ]]; then

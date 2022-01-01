@@ -68,7 +68,7 @@ These applications should be all installed.
 ### Command-Line Tool
 
 - direnv
-- pipenv
+- poetry
 - cookiecutter
 
 ##### for mpdcover script
