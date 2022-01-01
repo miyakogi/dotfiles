@@ -24,7 +24,6 @@ layout_poetry() {
 
     # Create venv by python's venv inside the project dir and use project name for the prompt
     python -m venv --prompt $(poetry version | cut -d' ' -f1) .venv
-    poetry install
 
     # Check if new venv is created
     VENV=$(poetry env info --path)
