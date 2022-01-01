@@ -20,6 +20,11 @@ log_warning() {
 
 # --- Poetry Support ---
 layout_poetry() {
+  if ! has poetry; then
+    log_error '`poetry` command not found. Install `poetry` first.'
+    exit 2
+  fi
+
   if [[ ! -f pyproject.toml ]]; then
     log_error 'No pyproject.toml found. Use `poetry new` or `poetry init` to create one first.'
     exit 2
