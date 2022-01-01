@@ -70,7 +70,7 @@ class Formatter(logging.Formatter):
 
 # Make logger
 logger = logging.getLogger('Install')
-level = logging.DEBUG
+level = logging.INFO
 logger.setLevel(level)
 handler = logging.StreamHandler()
 handler.setLevel(level)
@@ -353,6 +353,9 @@ def main() -> None:
         NVIM_HOME = CONFIG_HOME / 'nvim'
     install(HOME / '.vim', NVIM_HOME)
     install(HOME / '.vimrc', NVIM_HOME / 'init.vim')
+
+    # direnv
+    install(BASEDIR / 'direnv', CONFIG_HOME / 'direnv')
 
     # pip update script
     install(BASEDIR / 'scripts' / 'pip-update', BINDIR / 'pip-update')

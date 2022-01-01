@@ -1,0 +1,40 @@
+#!/usr/bin/bash
+
+log_warning() {
+  local color_normal=$(tput sgr0)
+  local color_warning=$(tput setaf 3)  # yellow
+  if [[ -n $DIRENV_LOG_FORMAT ]]; then
+    local msg=$*
+    printf "${color_warning}${DIRENV_LOG_FORMAT}${color_normal}\n" "$msg" >&2
+  fi
+}
+
+# --- Poetry Support ---
+layout_poetry() {
+  if [[ ! -f pyproject.toml ]]; then
+    log_error 'No pyproject.toml found. Use `poetry new` or `poetry init` to create one first.'
+    exit 2
+  fi
+
+  local VENV
+  VENV=$(poetry env info --path)
+  if [[ -z $VENV || ! -d $VENV/bin ]]; then
+    log_error 'No poetry virtual environment found!'
+    log_warning 'Automatically creat virtual environment at `.venv`.'
+
+    # Create venv by python's venv inside the project dir and use project name for the prompt
+    python -m venv --prompt $(poetry version | cut -d' ' -f1) .venv
+    poetry install
+
+    # Check if new venv is created
+    VENV=$(poetry env info --path)
+    if [[ -z $VENV || ! -d $VENV/bin ]]; then
+      log_error 'Failed to create new virtual environment for poetry.'
+      exit 2
+    fi
+  fi
+
+  export VIRTUAL_ENV=$VENV
+  export POETRY_ACTIVE=1
+  PATH_add "$VENV/bin"
+}

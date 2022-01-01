@@ -132,7 +132,7 @@ packages=(
   sccache  # rustc cache support
   starship  # prompt manager
   direnv  # directory based env setting
-  pipenv  # python virtualenv/package manager
+  poetry  # python virtualenv/package manager
   lsd  # ls alternative
   exa  # ls alternative
   bat  # cat alternative
