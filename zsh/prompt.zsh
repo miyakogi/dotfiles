@@ -118,7 +118,7 @@ function _get_vcs_info() {
 }
 
 function _get_time() {
-  local time=`date "+%H:%M:%S"$'\ue621'"%Y/%m/%d"`
+  local time=$(date "+%H:%M:%S"$'\ue621'"%Y/%m/%d")
   echo "$time"
 }
 
@@ -127,11 +127,11 @@ function _update_rprompt() {
   [[ $PROMPT_SIMPLE_MODE -eq 1 ]] && RPROMPT="" && return
   LANG=en_US.UTF-8 vcs_info
   local rinfo
-  local gitinfo="`_get_vcs_info`"
+  local gitinfo="$(_get_vcs_info)"
   if [[ -n ${gitinfo} ]]; then
     rinfo=${gitinfo}
   else
-    rinfo="%F{007}`_get_time`"
+    rinfo="%F{007}$(_get_time)"
   fi
   RPROMPT="%K{008} ${rinfo} %f%k"
 }
@@ -143,7 +143,7 @@ function _reupdate_rprompt() {
     # cannot early return
     RPROMPT=""
   else
-    RPROMPT="%F{246}%K{234} `_get_time` %f%k"
+    RPROMPT="%F{246}%K{234} $(_get_time) %f%k"
   fi
   zle .accept-line
   zle .reset-prompt

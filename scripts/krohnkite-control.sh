@@ -39,7 +39,7 @@ esac
 rulesrc="${XDG_CONFIG_HOME:-$HOME/.config}/kwinrulesrc"
 if grep -q "noborder=true" $rulesrc; then
   count=$(kreadconfig5 --file $rulesrc --group General --key count)
-  for i in `seq $count`; do
+  for i in $(seq $count); do
     if [[ $(kreadconfig5 --file $rulesrc --group $i --key Description) == *Titlebar* ]] && \
       [[ $(kreadconfig5 --file $rulesrc --group $i --key noborder) == "true" ]]; then
       kwriteconfig5 --file $rulesrc --group $i --key 'types' $types

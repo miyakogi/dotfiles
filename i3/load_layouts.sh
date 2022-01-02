@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-ws_dir=${XDG_CONFIG_HOME:-$HOME/.config}/i3/workspaces
+ws_dir="${XDG_CONFIG_HOME:-$HOME/.config}/i3/workspaces"
 
-for i in `seq 1 10`; do
-  if [[ -f ${ws_dir}/workspace_$i.json ]]; then
-    i3-msg "workspace $i; append_layout ${ws_dir}/workspace_$i.json"
+for i in $(seq 1 10); do
+  if [[ -f "${ws_dir}/workspace_${i}.json" ]]; then
+    i3-msg "workspace $i; append_layout \"${ws_dir}/workspace_${i}.json\""
   fi
 done
 
