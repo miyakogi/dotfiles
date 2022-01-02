@@ -23,8 +23,8 @@ export LANGUAGE=en_US.UTF-8
 export PATH=$PATH:/sbin
 export PATH=$HOME/bin:$PATH
 
-if [ -f $HOME/.profile.local ]; then
-  source $HOME/.profile.local
+if [[ -f "$HOME/.profile.local" ]]; then
+  source "$HOME/.profile.local"
 fi
 
 # vim: sw=2 et ft=sh

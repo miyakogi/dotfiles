@@ -62,7 +62,7 @@ function _update_lprompt() {
   fi
 
   local _success_front _success_back
-  if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
+  if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
     _success_front="%F{cyan}"
     _success_back="%K{cyan}"
   else
@@ -83,7 +83,7 @@ function _update_lprompt() {
     local icon=$_icon
   fi
 
-  if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
+  if [[ -n "${REMOTEHOST}${SSH_CONNECTION}" ]]; then
     local ssh_icon=$'\uf023'  # 
     local icon="$ssh_icon %M $_icon_sep $icon "
   fi

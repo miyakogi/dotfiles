@@ -23,9 +23,9 @@ elif [[ "$(expr substr $(uname -s) 1 4)" == "MSYS" ]]; then
 elif [[ "$(expr substr $(uname -s) 1 6)" == "CYGWIN" ]]; then
   export OSNAME=Windows
 elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
-  if [ -e /etc/arch-release ]; then
+  if [[ -e /etc/arch-release ]]; then
     export OSNAME=Arch
-  elif [ -e /etc/lsb-release ]; then
+  elif [[ -e /etc/lsb-release ]]; then
     export OSNAME=Ubuntu
   else
     export OSNAME=Linux

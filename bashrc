@@ -7,7 +7,7 @@ if [[ -n $DISPLAY ]] && type starship &>/dev/null; then
 fi
 
 ### Load local settings
-if [ -f $HOME/.bashrc.local ]; then
+if [[ -f "${HOME}/.bashrc.local" ]]; then
   source "${HOME}/.bashrc.local"
 fi
 

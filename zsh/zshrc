@@ -53,7 +53,7 @@ setopt interactivecomments
 # Color setting
 export LSCOLORS=Exfxcxdxbxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-export ZLS_COLORS=$LS_COLORS
+export ZLS_COLORS="$LS_COLORS"
 export CLICOLOR=true
 
 ########## COMPLETION ##########
@@ -79,7 +79,7 @@ zstyle ':completion:*' rehash true
 function _title() {
   print -Pn "\e]2;${1:-zsh}\a"
 }
-if [[ $TERM == (alacritty*|kitty*) ]]; then
+if [[ "$TERM" == (alacritty*|kitty*) ]]; then
   add-zsh-hook -Uz precmd _title
   add-zsh-hook -Uz preexec _title
 fi
@@ -93,7 +93,7 @@ zstyle ':zle:*' word-chars " -/=;@:[]{}()<>,|.'"
 zstyle ':zle:*' word-style unspecified
 
 ########## ALIAS ##########
-if [[ $XDG_SESSION_TYPE == wayland ]]; then
+if [[ "$XDG_SESSION_TYPE" == wayland ]]; then
   # vim's clipboard does not work on wayland
   alias vim=nvim
   export EDITOR=nvim
@@ -102,11 +102,11 @@ alias vi="/usr/bin/vim --noplugin"
 alias :q="exit"
 alias mkdir="mkdir -p"
 alias ln="ln -v"  # verbose
-if [[ $TERM == (alacritty*|kitty*) ]]; then
+if [[ "$TERM" == (alacritty*|kitty*) ]]; then
   # alacritty/kitty does not correctly handled
   alias ssh="TERM=xterm-256color ssh"
 fi
-if [[ $TERM == alacritty ]]; then
+if [[ "$TERM" == alacritty ]]; then
   # alacritty default $TERM does not support TrueColor on tmux
   alias tmux="TERM=xterm-256color tmux"
 fi
@@ -194,20 +194,20 @@ function load_if_exists() {
 ### Node.js virtual env control
 export NVM_LAZY_LOAD=true
 export NVM_NO_USE=true
-load_if_exists $ZDOTDIR/zsh-nvm/zsh-nvm.plugin.zsh
+load_if_exists "$ZDOTDIR/zsh-nvm/zsh-nvm.plugin.zsh"
 
 ### zsh-completions
 # http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
 fpath=($ZDOTDIR/zsh-completions/src(N-/) $fpath)
-load_if_exists $ZDOTDIR/git-flow-completion/git-flow-completion.zsh
+load_if_exists "$ZDOTDIR/git-flow-completion/git-flow-completion.zsh"
 ### zsh-autopair
-load_if_exists $ZDOTDIR/zsh-autopair/autopair.zsh
+load_if_exists "$ZDOTDIR/zsh-autopair/autopair.zsh"
 
 ### syntax highlight
 if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then  # Arch
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
-  load_if_exists $ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  load_if_exists "$ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
@@ -228,7 +228,7 @@ ZSH_HIGHLIGHT_PATTERNS+=('sudoedit' 'fg=white,bold,bg=red')
 if [[ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then  # Arch
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
-  load_if_exists $ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+  load_if_exists "$ZDOTDIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
 bindkey '^f' forward-word
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
@@ -292,7 +292,7 @@ if __check_cmd sk && [[ $OSTYPE != msys ]]; then
   bindkey '^R' search-history
 
   function myjump() {
-    local destination=$([[ -e $HIST_DIRS_FILE ]] && cat $HIST_DIRS_FILE | eval ${cmd})
+    local destination=$([[ -e "$HIST_DIRS_FILE" ]] && cat "$HIST_DIRS_FILE" | eval ${cmd})
     [[ -n "$destination" ]] && BUFFER="cd \"$destination\"" && zle accept-line
     zle reset-prompt
   }
@@ -307,7 +307,7 @@ else
   zstyle ':chpwd:*' recent-dirs-default yes
   zstyle ':completion:*' recent-dirs-insert both
 
-  load_if_exists $ZDOTDIR/zaw/zaw.zsh
+  load_if_exists "$ZDOTDIR/zaw/zaw.zsh"
   zstyle ':filter-select' case-insensitive yes # case-insensitive matching
   bindkey '^R' zaw-history # zaw-historyをbindkey
 
@@ -315,30 +315,24 @@ else
 fi
 
 zle -N myjump
-if [ $DOLPHIN ]; then
-  bindkey '^L' myjump
-elif [ $VIM ]; then
-  bindkey '^L' myjump
-else
-  bindkey '^J' myjump
-fi
+bindkey '^J' myjump
 
 function mkpjpy() {
-  [[ -z $1 ]] && echo "Need project name." && return 1
-  local pjdir_root=${PROJECT_HOME:-$HOME/Projects}
-  local pjdir=${pjdir_root}/$1
-  [[ -e $pjdir ]] && echo "Target project ${pjdir} already exists." && return 1
+  [[ -z "$1" ]] && echo "Need project name." && return 1
+  local pjdir_root="${PROJECT_HOME:-$HOME/Projects}"
+  local pjdir="${pjdir_root}/$1"
+  [[ -e "$pjdir" ]] && echo "Target project '${pjdir}' already exists." && return 1
 
   # make new project by cookiecutter
   echo "### Create project directory by cookiecutter ###"
-  local cookierc=${HOME}/.cookiecutterrc
-  cookiecutter --config-file ${cookierc} --no-input -o ${pjdir_root} cookiecutter-python \
-    project_name=${1} project_slug=${1} \
+  local cookierc="${HOME}/.cookiecutterrc"
+  cookiecutter --config-file "${cookierc}" --no-input -o "${pjdir_root}" cookiecutter-python \
+    project_name="${1}" project_slug="${1}" \
     project_short_description="short description for this project" \
     version="0.0.1" license="MIT license"
 
-  [[ ! -e $pjdir ]] && echo "Failed to make new project." && return 1
-  cd $pjdir
+  [[ ! -e "$pjdir" ]] && echo "Failed to make new project." && return 1
+  cd "$pjdir"
 }
 
 ### direnv
@@ -352,11 +346,11 @@ if [[ -n $DISPLAY ]] && __check_cmd starship; then
   eval "$(starship init zsh)"
 else
   # use my prompt on TTY
-  load_if_exists $ZDOTDIR/prompt.zsh
+  load_if_exists "$ZDOTDIR/prompt.zsh"
 fi
 
 ### load machine local file
-[[ -f $ZDOTDIR/.zshrc.local ]] && source $ZDOTDIR/.zshrc.local
+[[ -f "$ZDOTDIR/.zshrc.local" ]] && source "$ZDOTDIR/.zshrc.local"
 
 ### profiling
 if (__check_cmd zprof) ; then
