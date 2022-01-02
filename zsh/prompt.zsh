@@ -18,7 +18,7 @@ fi
 BR=$'\n'
 
 # insert newline after commands (before prompt)
-function cmdsep() {
+cmdsep() {
   if [[ -z $_ZSH_STARTUP ]] && [[ $PROMPT_SIMPLE_MODE == 0 ]]; then
     echo ""
   else
@@ -28,7 +28,7 @@ function cmdsep() {
 add-zsh-hook -Uz precmd cmdsep
 
 ### configure lprompt
-function _update_lprompt() {
+_update_lprompt() {
   if [[ $PROMPT_SIMPLE_MODE == 1 ]]; then
     local venv
     if [[ -n "$VIRTUAL_ENV" ]]; then
@@ -104,7 +104,7 @@ zstyle ':vcs_info:*' stagedstr "%F{012}+"
 zstyle ':vcs_info:git:*' check-for-changes true
 # zstyle ':vcs_info:hg:*' check-for-changes true
 
-function _get_vcs_info() {
+_get_vcs_info() {
   # not prompt if vcs_info get nothing
   [[ -z ${vcs_info_msg_0_} ]] && return 0
 
@@ -117,13 +117,13 @@ function _get_vcs_info() {
   echo -n ${messages[*]}
 }
 
-function _get_time() {
+_get_time() {
   local time=$(date "+%H:%M:%S"$'\ue621'"%Y/%m/%d")
   echo "$time"
 }
 
 ### configure rprompt
-function _update_rprompt() {
+_update_rprompt() {
   [[ $PROMPT_SIMPLE_MODE -eq 1 ]] && RPROMPT="" && return
   LANG=en_US.UTF-8 vcs_info
   local rinfo
@@ -138,7 +138,7 @@ function _update_rprompt() {
 
 # Delete RPROMPT after commands
 # setopt transient_rprompt
-function _reupdate_rprompt() {
+_reupdate_rprompt() {
   if [[ $PROMPT_SIMPLE_MODE -eq 1 ]]; then
     # cannot early return
     RPROMPT=""
@@ -151,16 +151,16 @@ function _reupdate_rprompt() {
 # show datetime at old line
 zle -N accept-line _reupdate_rprompt
 
-function _update_prompt() {
+_update_prompt() {
   _update_lprompt
   _update_rprompt
 }
 
-function prompt_simple() {
+prompt_simple() {
   PROMPT_SIMPLE_MODE=1
 }
 
-function prompt_fancy() {
+prompt_fancy() {
   PROMPT_SIMPLE_MODE=0
 }
 

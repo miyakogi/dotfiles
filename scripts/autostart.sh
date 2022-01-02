@@ -7,8 +7,8 @@ if [[ -n $DE ]]; then
   WM=$WM-$DE
 fi
 
-function run() {
-  if ! pgrep -x $1 > /dev/null; then
+run() {
+  if ! pgrep -x $1 &>/dev/null; then
     $@ &
   fi
 }

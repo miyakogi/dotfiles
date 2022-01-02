@@ -7,11 +7,11 @@ WM=$(wmctrl -m | grep "Name" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:l
 menu="\x20Lock\0icon\x1fsystem-lock-screen\n Exit\0icon\x1fsystem-logout\n Restart\0icon\x1fsystem-reboot\n Shutdown\0icon\x1fsystem-shutdown"
 RET=$(echo -en $menu | rofi -dmenu -i -p "Select" -theme leave-theme -icon-theme Numix | tr -d '[:space:]')
 
-function lock() {
+_lock() {
   lock-screen
 }
 
-function _exit() {
+_exit() {
   killall redshift
   case $WM in
     awesome)
@@ -29,7 +29,7 @@ function _exit() {
   esac
 }
 
-function reboot() {
+_reboot() {
   if [[ $WM == "kwin" ]]; then
     lxqt-leave --reboot
   else
@@ -37,7 +37,7 @@ function reboot() {
   fi
 }
 
-function shutdown() {
+_shutdown() {
   if [[ $WM == "kwin" ]]; then
     lxqt-leave --shutdown
   else
@@ -47,13 +47,13 @@ function shutdown() {
 
 case $RET in
   Lock)
-    lock;;
+    _lock;;
   Exit)
     _exit;;
   Restart)
-    reboot;;
+    _reboot;;
   Shutdown)
-    shutdown;;
+    _shutdown;;
   *)
     ;;
 esac

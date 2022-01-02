@@ -2,7 +2,7 @@
 
 # Based on https://github.com/pavanjadhaw/betterlockscreen
 
-function get_image() {
+get_image() {
   local f=$(ls ${XDG_CONFIG_HOME:-$HOME/.config}/$1/lock.{png,jpg} 2>/dev/null | head -n 1)
   if [[ -z $f ]]; then
     echo "--blur=8"
@@ -11,7 +11,7 @@ function get_image() {
   fi
 }
 
-function xlock() {
+xlock() {
   i3lock \
     --centered -p default $image \
     --time-pos='x+110:h-70' --date-pos='x+60:h-45' \
@@ -26,7 +26,7 @@ function xlock() {
     --noinput-text='' --force-clock --pass-media-keys
 }
 
-function wlock() {
+wlock() {
   swaylock -f $image \
     --scaling center \
     --inside-color="$transparent" --ring-color="$ringcolor" --line-uses-inside \

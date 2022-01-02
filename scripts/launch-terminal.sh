@@ -24,9 +24,9 @@ if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
   terminals=(foot ${terminals[@]})
 fi
 
-function list_terminals() {
+list_terminals() {
   for t in ${terminals[@]}; do
-    if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
       # wrap by spaces for bemenu
       echo " $t "
     else

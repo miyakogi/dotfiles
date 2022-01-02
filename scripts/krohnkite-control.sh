@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Check executables
-function check_executable() {
+check_executable() {
   if ! type $1 &>/dev/null; then
     echo "Need $1 command"
     exit 1
