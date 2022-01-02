@@ -1,4 +1,5 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
+
 # Generate option args for chromium-based apps to enable HW acceleration on both Wayland and Xorg
 
 ### Usage

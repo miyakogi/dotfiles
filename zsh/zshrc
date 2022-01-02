@@ -114,7 +114,7 @@ alias path='echo $PATH | tr -s ":" "\n"'  # pretty print path
 
 # go to git root by `gg`
 function git_root() {
-  if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
     cd `pwd`/`git rev-parse --show-cdup`
   else
     cd ~
@@ -122,13 +122,13 @@ function git_root() {
 }
 alias gg=git_root
 
-# quiet which command
-function __which() {
-  which $@ >/dev/null 2>&1
+# quiet command existance check
+function __check_cmd() {
+  type $@ &>/dev/null
 }
 
 # alias for `ls` command
-if __which exa; then
+if __check_cmd exa; then
   if [[ -n $DISPLAY ]]; then
     alias ls="exa --icons"
     alias lsa="exa --icons -a"
@@ -136,7 +136,7 @@ if __which exa; then
     alias ls="exa"
     alias lsa="exa -a"
   fi
-elif __which lsd && [[ -n $DISPLAY ]]; then
+elif __check_cmd lsd && [[ -n $DISPLAY ]]; then
   alias ls="lsd"
 else
   case "${OSTYPE}" in
@@ -271,7 +271,7 @@ function pip-init() {
 
 ### skim
 export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
-if __which sk && [[ $OSTYPE != msys ]]; then
+if __check_cmd sk && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
   export HIST_DIRS_MAX=1000
   function cdhist() {
@@ -342,12 +342,12 @@ function mkpjpy() {
 }
 
 ### direnv
-if __which direnv; then
+if __check_cmd direnv; then
   eval "$(direnv hook zsh)"
 fi
 
 ### prompt
-if [[ -n $DISPLAY ]] && __which starship; then
+if [[ -n $DISPLAY ]] && __check_cmd starship; then
   # use starship prompt in graphical session
   eval "$(starship init zsh)"
 else
@@ -359,7 +359,7 @@ fi
 [[ -f $ZDOTDIR/.zshrc.local ]] && source $ZDOTDIR/.zshrc.local
 
 ### profiling
-if (__which zprof) ; then
+if (__check_cmd zprof) ; then
   zprof
 fi
 

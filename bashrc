@@ -2,7 +2,7 @@
 
 ### Prompt
 # use startship only on graphical session
-if [[ -n $DISPLAY ]] && which starship >/dev/null 2>&1; then
+if [[ -n $DISPLAY ]] && type starship &>/dev/null; then
   eval "$(starship init bash)"
 fi
 

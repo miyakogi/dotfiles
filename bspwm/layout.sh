@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 bspc subscribe report | while read report; do
   case $report in

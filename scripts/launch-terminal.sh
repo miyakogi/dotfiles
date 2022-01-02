@@ -12,7 +12,7 @@ terminals=(
   xterm
 )
 
-if which st >/dev/null 2>&1; then
+if type st &>/dev/null; then
   if [[ $(wmctrl -m | grep "Name:" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]') != "kwin" ]]; then
     terminals=(st ${terminals[@]})
   else

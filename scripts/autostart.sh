@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 WM=$(wmctrl -m | grep "Name:" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')

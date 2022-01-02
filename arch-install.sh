@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 install_paru() {
-  if ! which git > /dev/null 2>&1; then
+  if ! type git &>/dev/null; then
     echo "Install git"
     sudo pacman -S git
   fi
 
-  if ! which cargo > /dev/null 2>&1; then
+  if ! type cargo &>/dev/null; then
     echo "Install cargo/rustc by rustup"
     sudo pacman -S rustup
     # install and set stable channel as defualt for rustc
@@ -18,7 +18,7 @@ install_paru() {
   cd $curdir
 }
 
-if ! which paru > /dev/null 2>&1; then
+if ! type paru &>/dev/null; then
   echo "Need \`paru\` AUR helper to be installed."
   echo -n "Automatically install paru now? [y/N]"
   read ans

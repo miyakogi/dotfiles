@@ -9,7 +9,7 @@ export XDG_PICTURES_DIR=$HOME/Pictures
 export EDITOR=vim
 export LESS="-iFRS"
 export SYSTEMD_LESS="iFRSM"
-if which vimpager > /dev/null 2>&1; then
+if type vimpager &>/dev/null; then
   export MANPAGER=vimpager
 fi
 
@@ -69,7 +69,7 @@ if [[ $OSNAME == Mac ]]; then
 fi
 
 # pyenv
-if which pyenv >/dev/null 2>&1; then
+if type pyenv &>/dev/null; then
   add_path "$(pyenv root)/shims"
 fi
 
@@ -82,10 +82,10 @@ fi
 
 # rust
 add_path $HOME/.cargo/bin
-if which rustc > /dev/null 2>&1; then
+if type rustc &>/dev/null; then
   export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
-if which sccache > /dev/null 2>&1; then
+if type sccache &>/dev/null; then
   export RUSTC_WRAPPER=$(which sccache)
 fi
 

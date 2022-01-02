@@ -12,7 +12,7 @@ if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
     --window-size-pixels "800x800"
     --app-id "sklauncher"
   )
-elif which st >/dev/null 2>&1; then
+elif type st &>/dev/null; then
   # use st if possible on X11
   termcmd="st -e"
   cmd+=(
@@ -39,7 +39,7 @@ else
 fi
 
 # set launcher command and options
-if which sklauncher >/dev/null 2>&1; then
+if type sklauncher &>/dev/null; then
   # use `sklauncher`
   cmd+=(
     sklauncher
@@ -53,7 +53,7 @@ if which sklauncher >/dev/null 2>&1; then
     --prompt " "
     --preview-window "up:3"
   )
-elif which sway-launcher-desktop >/dev/null 2>&1; then
+elif type sway-launcher-desktop &>/dev/null; then
   # use `sway-launcher-desktop`
   cmd+=(
     env TERMINAL_COMMAND="$termcmd"

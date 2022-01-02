@@ -1,9 +1,9 @@
 delete  #!
 snippet #!
-abbr    #!/usr/bin/sh
+abbr    #!/usr/bin/env bash
 alias   shebang
 options head
-	#!/usr/bin/${1:sh}
+	#!/usr/bin/env ${1:bash}
 	${0}
 
 snippet cb

@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 ### NightColor support on KWin (LXQt)
 

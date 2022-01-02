@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 if grep -q "gaps" ${XDG_CONFIG_HOME:-$HOME/.config}/i3/config; then
   xoffset=12

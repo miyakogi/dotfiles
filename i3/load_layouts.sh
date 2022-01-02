@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 ws_dir=${XDG_CONFIG_HOME:-$HOME/.config}/i3/workspaces
 
@@ -8,8 +8,8 @@ for i in `seq 1 10`; do
   fi
 done
 
-function exec_if_possible() {
-  if which $1 >/dev/null; then
+exec_if_possible() {
+  if type $1 &>/dev/null; then
     ($@ &)
   fi
 }
