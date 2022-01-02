@@ -27,4 +27,4 @@ cal --color=always $month $year \
       -width 16 \
       -yoffset $yoffset \
       -no-custom \
-      -p "$date" >/dev/null
+      -p "$date" &>/dev/null

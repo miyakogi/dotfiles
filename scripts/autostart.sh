@@ -71,7 +71,7 @@ case $WM in
     $CONFIG_HOME/polybar/launch.sh &
 
     # sxhkd (keyboard shortcut)
-    if pgrep -x sxhkd > /dev/null; then
+    if pgrep -x sxhkd &>/dev/null; then
       pkill -USR1 -x sxhkd &
     else
       sxhkd -m -1 -c $CONFIG_HOME/bspwm/sxhkdrc &
