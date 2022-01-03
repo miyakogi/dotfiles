@@ -34,9 +34,12 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
 
     case $wm in
       sway)
-        # set env var
+        # set env vars for sway
         export XDG_CURRENT_DESKTOP=sway
         systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+
+        # use vulkan renderer
+        export WLR_REDERER=vulkan
 
         # start sway
         exec sway ;;
