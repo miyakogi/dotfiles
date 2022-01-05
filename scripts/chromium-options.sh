@@ -59,8 +59,10 @@ else
 
       # Force to use ANGLE to fix Xwayland issues, especially on NVIDIA GPU (but also useful on AMD GPU)
       # See https://wiki.archlinux.org/title/chromium#Running_on_XWayland
-      # Note: Vulkan backend for ANGLE is broken with AMD-enabled ffmpeg, so use GL backend
-      --use-angle=gl
+      # Note: Vulkan backend for ANGLE is broken on electron with AMD-enabled ffmpeg, so use GL backend
+      # --use-angle=gl
+      # -> Update: switching from ffmpeg-amd-full to ffmpeg-vaapi (not enable vulkan) seems to fix this issue
+      --use-angle=vulkan
       --use-cmd-decoder=passthrough
     )
   else
