@@ -3,6 +3,9 @@
 # zsh loads this file only if it is a login-shell
 # ===============================================
 
+# load machine local profile
+[[ -f $ZDOTDIR/.zprofile.local ]] && source $ZDOTDIR/.zprofile.local
+
 # start graphical session
 if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 && ( -z $XDG_SESSION_TYPE || $XDG_SESSION_TYPE == tty ) && $OSNAME == "Arch" ]]; then
   echo -n "Select WM/DE [bspwm, gnome(-x11), i3, kde, lxqt, sway] [default: sway]:\n>>> "
@@ -54,8 +57,5 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
     exec startx ~/.xinitrc $wm -- -maxclients 2048
   fi
 fi
-
-# load machine local profile
-[[ -f $ZDOTDIR/.zprofile.local ]] && source $ZDOTDIR/.zprofile.local
 
 # vim: sw=2 et
