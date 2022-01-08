@@ -31,3 +31,8 @@ else
     printf '[%s] (fish)\n$ ' (prompt_pwd)
   end
 end
+
+# load machine local setting (~/.config/fish/local.fish)
+if test -f ~/.config/fish/local.fish
+  source ~/.config/fish/local.fish
+end

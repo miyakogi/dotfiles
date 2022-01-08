@@ -3,3 +3,6 @@ pack/remote/ever
 pack/remote/opt
 _.vim
 tags*
+
+# ignore local fish config file
+fish/local.fish
