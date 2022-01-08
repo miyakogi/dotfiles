@@ -25,4 +25,9 @@ end
 # prompt
 if type -q starship; and test -n "$DISPLAY"
   starship init fish | source
+else
+  set -g fish_prompt_pwd_dir_length 0
+  function fish_prompt
+    printf '[%s] (fish)\n$ ' (prompt_pwd)
+  end
 end
