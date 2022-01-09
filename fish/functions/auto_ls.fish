@@ -1,6 +1,6 @@
 function auto_ls
   if test -z "$DISPLAY"
-    ls --color --group-directories-first
+    ls -v --color --group-directories-first
   else if type -q lsd
     lsd
   else if type -q exa

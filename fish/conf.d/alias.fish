@@ -29,7 +29,7 @@ end
 
 # ls -> lsd/exa
 if test -z "$DISPLAY"
-  abbr --add --global ls "ls --color --group-directories-first"
+  abbr --add --global ls "ls -v --color --group-directories-first"
 else if type -q lsd
   abbr --add --global ls "lsd"
   abbr --add --global tree "lsd --tree"
