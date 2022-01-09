@@ -1,11 +1,9 @@
 function auto_ls
-  if test -z "$DISPLAY"
-    ls -v --color --group-directories-first
-  else if type -q lsd
+  if type -q lsd; and test -n "$DISPLAY"
     lsd
-  else if type -q exa
+  else if type -q exa; and test -n "$DISPLAY"
     exa --icons
   else
-    ls
+    ls -v --color --group-directories-first
   end
 end

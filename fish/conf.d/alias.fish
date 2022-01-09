@@ -28,14 +28,14 @@ if type -q nvim
 end
 
 # ls -> lsd/exa
-if test -z "$DISPLAY"
-  abbr --add --global ls "ls -v --color --group-directories-first"
-else if type -q lsd
+if type -q lsd; and test -n "$DISPLAY"
   abbr --add --global ls "lsd"
   abbr --add --global tree "lsd --tree"
-else if type -q exa
+else if type -q exa; and test -n "$DISPLAY"
   abbr --add --global ls "exa --icons"
   abbr --add --global tree "exa --icons --tree"
+else
+  abbr --add --global ls "ls -v --color --group-directories-first"
 end
 
 # ssh
