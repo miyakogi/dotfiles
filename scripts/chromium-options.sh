@@ -35,19 +35,18 @@ flags=(
 )
 
 # Some popups (like discord settings) are collapsed by enabling RawDraw feature with AMD-enabled ffmpeg
-# This bug will be fixed on v98, but on current stable v96, we need to disable RawDraw feature
+# This bug will be fixed on v99, but on current stable v96, we need to disable RawDraw feature
 features="VaapiVideoDecoder,CanvasOopRasterization,EnableDrDc"
-options=("$@")
 
 if [[ $1 == "wayland" ]]; then
   # --- Native Wayland --- #
-  # Currently broken (chromium v96)
-  features="$features,WebRTCPipeWireCapturer"
+  # Broken on chromium v96 with sway 1.7rc
+  # -> Fixed on chromium v99
+  features="$features,UseOzonePlatform,WebRTCPipeWireCapturer,RawDraw"
   flags+=(
     --enable-features="$features"
     --ozone-platform=wayland
   )
-  options=("${options[2,-1]}")  # remove first option ($1)
 else
   if [[ $session == "wayland" ]]; then
     # --- Xwayland --- #
