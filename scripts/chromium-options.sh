@@ -7,13 +7,13 @@
 # Execute this script by shell then gets option arguments in the desktop file.
 #
 # Example:
-#   Exec=/usr/bin/google-chrome-stable $(/path/to/chromium-options.sh)
+#   Exec=/usr/bin/google-chrome-stable $(/path/to/chromium-options.sh) --some-other-option
 #
 # On the wayland session, this script generates option args to run on Xwayland.
 # If you want to use native wayland, add `wayland` option as the first argument to this script.
 #
 # Example:
-#   Exec=/usr/bin/google-chrome-stable $(/path/to/chromium-options.sh wayland)
+#   Exec=/usr/bin/google-chrome-stable $(/path/to/chromium-options.sh wayland) --some-other-option
 #
 
 if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
@@ -78,4 +78,4 @@ else
   fi
 fi
 
-echo -n "${flags[@]} ${options[@]}"
+echo -n "${flags[@]}"
