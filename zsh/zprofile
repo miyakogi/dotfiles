@@ -10,13 +10,27 @@
 if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 && ( -z $XDG_SESSION_TYPE || $XDG_SESSION_TYPE == tty ) && $OSNAME == "Arch" ]]; then
   echo -n "Select WM/DE [bspwm, gnome(-x11), i3, kde(-x11), lxqt, sway] [default: sway]:\n>>> "
   read wm
+
+  # set default wm as sway
   if [[ -z $wm ]]; then
     wm="sway"
   fi
 
-  if [[ $wm == "exit" ]]; then
-    exit 0
-  fi
+  # exec shell or exit
+  case $wm in
+    shell)
+      exec $SHELL;;
+    sh)
+      exec sh;;
+    bash)
+      exec bash;;
+    zsh)
+      exec zsh;;
+    fish)
+      exec fish;;
+    exit)
+      exit 0;;
+  esac
 
   if [[ $wm == (sway|gnome|kde) ]]; then  # for wayland
     # set xdg env var
