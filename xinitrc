@@ -50,13 +50,13 @@ case $1 in
   bspwm)
     xsetroot -cursor_name left_ptr
     exec bspwm;;
-  gnome-x11)
+  gnome*)
     export XDG_SESSION_TYPE=x11
     export GDK_BACKEND=x11
     exec gnome-session;;
   i3)
     exec i3;;
-  kde)
+  kde*)
     export DESKTOP_SESSION=plasma
     exec startplasma-x11;;
   lxqt)

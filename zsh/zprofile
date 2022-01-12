@@ -8,7 +8,7 @@
 
 # start graphical session
 if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 && ( -z $XDG_SESSION_TYPE || $XDG_SESSION_TYPE == tty ) && $OSNAME == "Arch" ]]; then
-  echo -n "Select WM/DE [bspwm, gnome(-x11), i3, kde, lxqt, sway] [default: sway]:\n>>> "
+  echo -n "Select WM/DE [bspwm, gnome(-x11), i3, kde(-x11), lxqt, sway] [default: sway]:\n>>> "
   read wm
   if [[ -z $wm ]]; then
     wm="sway"
@@ -18,7 +18,7 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
     exit 0
   fi
 
-  if [[ $wm == (sway|gnome) ]]; then  # for wayland
+  if [[ $wm == (sway|gnome|kde) ]]; then  # for wayland
     # set xdg env var
     export XDG_SESSION_TYPE=wayland
 
@@ -49,6 +49,9 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
       gnome)
         # start gnome wayland session
         exec dbus-run-session gnome-session ;;
+      kde)
+        # start kde plasma wayland session
+        exec dbus-run-session startplasma-wayland ;;
     esac
     exit 0
 
