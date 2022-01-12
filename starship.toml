@@ -68,7 +68,7 @@ elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
 elif [[ "$GIT_REMOTE" =~ "git" ]]; then
     GIT_REMOTE_SYMBOL=" "
 else
-    GIT_REMOTE_SYMBOL=" "
+    GIT_REMOTE_SYMBOL=" "
 fi
 echo "$GIT_REMOTE_SYMBOL"
 """
