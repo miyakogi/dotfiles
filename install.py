@@ -177,7 +177,6 @@ def install_linux() -> None:
     install(I3SRC / 'scratchterm.py', I3DEST / 'scratchterm.py')
     install(I3SRC / 'addws.py', I3DEST / 'addws.py')
     install(I3SRC / 'layout.py', I3DEST / 'layout.py')
-    install(I3SRC / 'transparent.py', I3DEST / 'transparent.py')
     install(
         BASEDIR / 'i3status-rust' / 'config.toml',
         CONFIG_HOME / 'i3status-rust' / 'config.toml',
