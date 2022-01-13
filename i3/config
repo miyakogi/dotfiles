@@ -64,9 +64,6 @@ client.focused           #b81bd288 #212121d9 #f1f1f1 #b81bd2aa #b81bd288
 client.unfocused         #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
 client.focused_inactive  #2ac2d188 #212121d9 #888888 #000000 #2ac2d166
 
-# Restore workspace
-bindsym $mod+Shift+g exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/load_layouts.sh"
-
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec --no-startup-id "st -e fish"

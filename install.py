@@ -134,7 +134,6 @@ def make_empty_directories_linux() -> None:
     """
     These dirs don't contain config files but need to exist in linux systems.
     """
-    mkdir(CONFIG_HOME / 'i3' / 'workspaces')
     mkdir(PICTURES_DIR / 'screenshots' / 'grim')
     mkdir(PICTURES_DIR / 'screenshots' / 'swappy')
 
@@ -176,8 +175,6 @@ def install_linux() -> None:
     I3DEST = CONFIG_HOME / 'i3'
     install(I3SRC / 'config', I3DEST / 'config')
     install(I3SRC / 'scratchterm.py', I3DEST / 'scratchterm.py')
-    install(I3SRC / 'save_layout.sh', I3DEST / 'save_layout.sh')
-    install(I3SRC / 'load_layouts.sh', I3DEST / 'load_layouts.sh')
     install(I3SRC / 'addws.py', I3DEST / 'addws.py')
     install(I3SRC / 'layout.py', I3DEST / 'layout.py')
     install(I3SRC / 'transparent.py', I3DEST / 'transparent.py')
