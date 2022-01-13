@@ -107,8 +107,6 @@ packages=(
   klipper
   wl-clipbaord
   wl-clipbaord-x11
-  perl-anyevent-i3
-  perl-json-xs
   python-i3ipc
   pulsemixer  # used by volume check/fix scripts
   pavucontrol-qt

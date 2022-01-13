@@ -95,8 +95,6 @@ These applications should be all installed.
 - fcitx5-mozc
 - autotiling (i3/sway auto-tiling)
 - i3status-rust (status block generator for i3bar/swaybar)
-- perl-anyevent-i3 (save layout)
-- perl-json-xs (save layout)
 - python-i3ipc (scratchpad control and add workspace function for i3/sway)
 - pulsemixer (volume check/fix)
 - zafiro-icon-theme-git (rofi default icon)
