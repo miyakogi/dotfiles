@@ -16,7 +16,7 @@ idle_fg = "#20bbfc"
 [[block]]
 block = "music"
 interface_name_exclude = []
-max_width = 70
+max_width = 60
 dynamic_width = true
 marquee_interval = 10
 marquee_speed = 0.5
