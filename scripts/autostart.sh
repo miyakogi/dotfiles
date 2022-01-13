@@ -83,12 +83,12 @@ case $WM in
     # wallpaper
     feh --bg-scale $(ls $CONFIG_HOME/i3/bg.{jpg,png} 2>/dev/null | head -n 1) &
 
-    # enable auto titling
-    autotiling &
+    # enable auto tiling
+    run autotiling
     ;;
   kwin-lxqt)
-    # enable krohnkite
-    run krohnkite-control enable
+    # enable bismuth
+    run bismuth-control enable
 
     # start polybar
     $CONFIG_HOME/polybar/launch.sh &
@@ -97,8 +97,8 @@ case $WM in
     # run lxqt-config-monitor -l
     ;;
   kwin-kde)
-    # disable krohnkite
-    run krohnkite-control disable
+    # disable bismuth
+    run bismuth-control disable
 
     # KDE keyboard setup
     run ksuperkey

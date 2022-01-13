@@ -122,7 +122,7 @@ packages=(
   qt5-tools
   qt6-tools
   kvantaum
-  kwin-scripts-krohnkite-git
+  kwin-bismuth  # kwin tiling script
   ksuperkey
   zafiro-icon-theme-git
   numix-icon-theme-git

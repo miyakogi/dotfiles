@@ -48,10 +48,12 @@ if grep -q "noborder=true" $rulesrc; then
   done
 fi
 
-# Enable/Disable krohnkite
+# Enable/Disable bismuth
 kwinrc="${XDG_CONFIG_HOME:-$HOME/.config}/kwinrc"
-if grep -q "krohnkiteEnabled" $kwinrc; then
-  kwriteconfig5 --file $kwinrc --group Plugins --type bool --key 'krohnkiteEnabled' $enabled
+if grep -q "bismuthEnabled" $kwinrc && [[ "$enabled" == "false" ]]; then
+  kwriteconfig5 --file $kwinrc --group Plugins --delete --key 'bismuthEnabled'
+else
+  kwriteconfig5 --file $kwinrc --group Plugins --type bool --key 'bismuthEnabled' $enabled
 fi
 
 # Reconfigure kwin

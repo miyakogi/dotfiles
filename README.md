@@ -33,7 +33,7 @@ These applications should be all installed.
 
 - i3-gaps
 - plasma (X11)
-- lxqt (kwin + krohnkite)
+- lxqt (kwin + bismuth)
 - bspwm
 - sxhkd
 - picom
@@ -113,7 +113,7 @@ These applications should be all installed.
 - i3lock-color (screen lock)
 - redshift
 - feh
-- kwin-scripts-krohnkite-git
+- kwin-bismuth
 
 #### Wayland
 
@@ -194,9 +194,9 @@ If no image file is found, simply blur the desktop when locking screen.
 
 In LXQt session settings, set window manager to `kwin_x11`.
 
-#### Krohnkite
+#### Bismuth
 
-Add kwin window rule to disable title bars on LXQt session (krohnkite is enabled).
+Add kwin window rule to disable title bars on LXQt session (bismuth would be enabled by default).
 
 `KDE System Settings` -> `Window Management` -> `Window Rules` -> press `Add New`, then set:
 

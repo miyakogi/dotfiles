@@ -163,7 +163,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'lock-screen.sh', BINDIR / 'lock-screen')
     install(SCRIPTSDIR / 'chromium-options.sh', BINDIR / 'chromium-options')
     install(SCRIPTSDIR / 'kwin-first-empty.sh', BINDIR / 'kwin-first-empty')
-    install(SCRIPTSDIR / 'krohnkite-control.sh', BINDIR / 'krohnkite-control')
+    install(SCRIPTSDIR / 'bismuth-control.sh', BINDIR / 'bismuth-control')
     install(SCRIPTSDIR / 'kitty-music.sh', BINDIR / 'kitty-music')
     install(SCRIPTSDIR / 'mpdplayer.sh', BINDIR / 'mpdplayer')
     install(SCRIPTSDIR / 'mpdcover.py', BINDIR / 'mpdcover')
