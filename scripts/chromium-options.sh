@@ -35,17 +35,29 @@ flags=(
 )
 
 # Some popups (like discord settings) are collapsed by enabling RawDraw feature with AMD-enabled ffmpeg
-# This bug will be fixed on v99, but on current stable v96, we need to disable RawDraw feature
+# This bug will be fixed on v99, but we need to disable RawDraw feature on current stable (v97)
 features="VaapiVideoDecoder,CanvasOopRasterization,EnableDrDc"
 
 if [[ $1 == "wayland" ]]; then
   # --- Native Wayland --- #
-  # Broken on chromium v96 with sway 1.7rc
+  # Broken on chromium v97 with sway 1.7rc
   # -> Fixed on chromium v99
-  features="$features,UseOzonePlatform,WebRTCPipeWireCapturer,RawDraw"
+
+  # Enabel pipewire for RTC support
+  features="$features,WebRTCPipeWireCapturer"
+  # Enable RawDraw since wayland can be only enabled on versions above v99
+  features="$features,RawDraw"
+  # # Vulkan does not support WebGL, WebGL2, and some compositing HW accelerations now (v99)
+  # features="$features,Vulkan"
+
   flags+=(
     --enable-features="$features"
+    --ozone-platform-hint=wayland
     --ozone-platform=wayland
+
+    # Necessary to enable fcitx5 (v99)
+    # see: https://www.reddit.com/r/swaywm/comments/rwqo1d/yesterdays_chrome_97_stable_release_has_gtk4_im/
+    --gtk-version=4
   )
 else
   if [[ $session == "wayland" ]]; then
