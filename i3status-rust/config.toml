@@ -15,7 +15,7 @@ idle_fg = "#20bbfc"
 
 [[block]]
 block = "music"
-interface_name_exclude = []
+interface_name_exclude = ["firefox", "chromium"]
 max_width = 60
 dynamic_width = true
 marquee_interval = 10
