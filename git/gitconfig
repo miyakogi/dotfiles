@@ -1,6 +1,6 @@
 [core]
   quotepath = false
-  editor = vim
+  editor = nvim
   excludesfile = ~/.gitignore_global
   preloadindex = true
   fscashe = true
@@ -21,7 +21,7 @@
 [merge]
   ff = false
 [diff]
-  tool = vimdiff
+  tool = nvimdiff
 [push]
   default = simple
 [pull]
