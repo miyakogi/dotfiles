@@ -23,9 +23,20 @@ if has('vim_starting') && has('reltime')
   let g:startuptime = reltime()
 endif
 
-" set python3 dll path for windows
-if (has('win32') || has('win64')) && !has('nvim')
-  set pythonthreedll=$HOME/scoop/apps/python/current/python39.dll
+if has('nvim')
+  " set python3 path for neovim
+  if has('mac')
+    " for mac's python installed by homebrew
+    let g:python3_host_prog = '/usr/local/bin/python'
+  elseif has('unix')
+    " for linux
+    let g:python3_host_prog = '/usr/bin/python'
+  endif
+else
+  if has('win32') || has('win64')
+    " set python3 dll path for windows
+    set pythonthreedll=$HOME/scoop/apps/python/current/python39.dll
+  endif
 endif
 "}}}
 
