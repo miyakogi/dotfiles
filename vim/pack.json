@@ -37,7 +37,6 @@
       "janko-m/vim-test",
       "cohama/vim-hier",
       "KazuakiM/vim-qfstatusline",
-      "altercation/vim-colors-solarized",
       "itchyny/lightline.vim",
       "Vimjas/vim-python-pep8-indent",
       "dag/vim-fish",
@@ -66,6 +65,7 @@
       "morhetz/gruvbox",
       "srcery-colors/srcery-vim",
       "reedes/vim-colors-pencil",
+      "altercation/vim-colors-solarized",
       "connorholyday/vim-snazzy"
     ]
   }
