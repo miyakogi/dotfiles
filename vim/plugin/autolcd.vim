@@ -6,7 +6,7 @@ function! s:autolcd_autolcd()
   if &buftype == ''
     let autolcd_current_dir = substitute(fnamemodify(resolve(expand('%:p')), ":h"), '\s', '\\\ ', 'g')
     let autolcd_cmd = 'lcd ' . autolcd_current_dir
-    if match(autolcd_current_dir, '^fugitive:') < 0
+    if match(autolcd_current_dir, '\v^(fugitive|quickrun):') < 0
       execute autolcd_cmd
     endif
   endif
