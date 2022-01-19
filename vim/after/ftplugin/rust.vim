@@ -12,7 +12,7 @@ let b:loaded_rust_ftplugin_after = 1
 " ======== Initialization ========"{{{
 if !get(s:, 'initialized')
   function! <SID>quickrun_cargo() abort
-    if !executable('cargo') || expand('%:t') ==? 'main.rs'
+    if !executable('cargo')
       let cmd = 'QuickRun rust'
     else
       if index(split(expand('%:p')), 'tests') > 0
@@ -20,9 +20,9 @@ if !get(s:, 'initialized')
       elseif expand('%:t') ==? 'lib.rs'  " main module
         let args = '--lib -- --nocapture'
       elseif expand('%:t') ==? 'mod.rs'  " in module top
-        let args = '--lib -- --nocapture ' . expand('%:p:h:t')
+        let args = '-- --nocapture ' . expand('%:p:h:t')
       else                               " in normal module
-        let args = '--lib -- --nocapture ' . expand('%:t:r')
+        let args = '-- --nocapture ' . expand('%:t:r')
       endif
       let cmd = 'QuickRun cargo/test -args "' . l:args . '"'
     endif
@@ -35,6 +35,7 @@ endif
 
 " ======== mappings ========
 nnoremap <buffer><silent> <Leader>r :<C-u>call <SID>quickrun_cargo()<CR>
+nnoremap <buffer><silent> <Leader>t :<C-u>QuickRun cargo/test<CR>
 if IsInstalled('vim-smartchr')
   inoremap <buffer><expr> <C-l> smartchr#loop(' -> ', ' => ')
   inoremap <buffer><expr> = smartchr#loop(' = ', '=', ' == ', '==')
