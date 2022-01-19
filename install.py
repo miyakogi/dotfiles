@@ -317,7 +317,7 @@ def main() -> None:
     VIMBASE = BASEDIR / 'vim'
     VIMDOTDIR = HOME / '.vim'
     install(VIMBASE / 'vimrc', HOME / '.vimrc')
-    install(VIMBASE / 'pack.json', VIMDOTDIR / 'pack' / 'remote' / 'pack.json')
+    install(VIMBASE / 'pack.ini', VIMDOTDIR / 'pack' / 'remote' / 'pack.ini')
     install(VIMBASE / 'rgb.txt', VIMDOTDIR / 'rgb.txt')
     install(VIMBASE / 'vimpack.py', BINDIR / 'vimpack')
     install(VIMBASE / 'after', VIMDOTDIR / 'after')

@@ -27,23 +27,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 '''
 
-import json
+from configparser import ConfigParser
 import logging
 import shutil
 import argparse
 from pathlib import Path
 from itertools import chain
 import subprocess
-from typing import Union
 import sys
 
 PROTO = 'https'
-
+PACKAGES_CONF = ConfigParser()
 
 # Make option parser
 parser = argparse.ArgumentParser(description='Vim Package Helper')
 parser.add_argument('command', choices=['install', 'update', 'check'])
-parser.add_argument('config_file', default='pack.json', nargs='?')
+parser.add_argument('config_file', default='pack.ini', nargs='?')
 parser.add_argument('--no-dummy', default=False, action='store_true',
                     help='prevent making dummy files (plugin/_.vim)')
 parser.add_argument('--no-doc', default=False, action='store_true',
@@ -121,19 +120,14 @@ def find_vimhome():
 VIMHOME = find_vimhome()
 
 
-def load_config_file(file: Union[Path, str]):
-    if isinstance(file, Path):
-        with file.open() as f:
-            config = json.load(f)
-    else:
-        with open(file) as f:
-            config = json.load(f)
-    return config
+def load_config_file(file: Path):
+    PACKAGES_CONF.read(file)
+    return PACKAGES_CONF
 
 
 def ensure_dir(path: Path):
     if not path.exists():
-        path.mkdir()
+        path.mkdir(parents=True)
         logger.info('{} created'.format(path))
 
 
@@ -249,21 +243,21 @@ class Packager:
 
     def install(self):
         check_commands()
-        for d in self.config:
-            ensure_dir(self.dir / d)
-            base = self.dir / d
-            for domain in self.config[d]:
+        for section in ['start', 'opt']:
+            ensure_dir(self.dir / section)
+            base = self.dir / section
+            for domain, repos in self.config.items(section):
                 host = Path(domain)
-                for repo in self.config[d][domain]:
+                for repo in [r for r in repos.splitlines() if r]:
                     Git.clone(host / repo, base)
         logger.info('Install completed')
         self.helptags()
 
     def update(self):
         check_commands()
-        for d in self.config:
-            ensure_dir(self.dir / d)
-            base = self.dir / d
+        for section in ['start', 'opt']:
+            ensure_dir(self.dir / section)
+            base = self.dir / section
             for plugin_dir in base.iterdir():
                 if plugin_dir.is_dir():
                     Git.pull(plugin_dir)
@@ -272,13 +266,16 @@ class Packager:
 
     def check(self):
         ensure_dir(VIMHOME / 'doc')
-        for d in self.config:
-            base = self.dir / d
+        for section in ['start', 'opt']:
+            base = self.dir / section
             managed_plugins = []
             unmanaged_plugins = []
-            for host in self.config[d]:
+            for _, repos in self.config.items(section):
                 managed_plugins.extend(
-                        Path(repo).name for repo in self.config[d][host])
+                    Path(repo).name
+                    for repo in repos.splitlines()
+                    if repo  # remove empty lines
+                )
             for plugin in base.iterdir():
                 if plugin.is_dir():
                     if plugin.name in managed_plugins:
