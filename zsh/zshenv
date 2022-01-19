@@ -48,7 +48,7 @@ fi
 export PROJECT_HOME=$HOME/Projects
 
 # Setting $PATH
-function add_path() {
+add_path() {
   case ":$PATH:" in
     *:"$1":*)
       ;;

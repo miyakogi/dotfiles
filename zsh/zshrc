@@ -235,7 +235,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 
 ### pip
 # pip zsh completion start
-function _pip_completion() {
+_pip_completion() {
   local words cword
   read -Ac words
   read -cn cword
@@ -245,7 +245,7 @@ function _pip_completion() {
 }
 compctl -K _pip_completion pip
 
-function pip-init() {
+pip-init() {
   # Initialize python virtual environment.
   # This function installs these additional dependencies:
   #   - jedi: auto-completion
@@ -274,7 +274,7 @@ export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || r
 if __check_cmd sk && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
   export HIST_DIRS_MAX=1000
-  function cdhist() {
+  cdhist() {
     local curdir=$(pwd | sed -e "s|$HOME|\$HOME|" -e "s|$USER|\$USER|")
     local tmphist=$({ grep -v -x "$curdir" "$HIST_DIRS_FILE"; echo "$curdir" } | tail -n $HIST_DIRS_MAX)
     echo $tmphist >$HIST_DIRS_FILE
@@ -283,7 +283,7 @@ if __check_cmd sk && [[ $OSTYPE != msys ]]; then
 
   local cmd='sk --tac --no-sort --reverse --exact --tiebreak index --prompt "skim>" --margin 2% --query "$BUFFER"'
 
-  function search-history() {
+  search-history() {
     BUFFER=$(history -n 1 | eval ${cmd})
     CURSOR=$#BUFFER
     zle -R -c
@@ -291,7 +291,7 @@ if __check_cmd sk && [[ $OSTYPE != msys ]]; then
   zle -N search-history
   bindkey '^R' search-history
 
-  function myjump() {
+  myjump() {
     local destination=$([[ -e "$HIST_DIRS_FILE" ]] && cat "$HIST_DIRS_FILE" | eval ${cmd})
     [[ -n "$destination" ]] && BUFFER="cd \"$destination\"" && zle accept-line
     zle reset-prompt
@@ -311,13 +311,13 @@ else
   zstyle ':filter-select' case-insensitive yes # case-insensitive matching
   bindkey '^R' zaw-history # zaw-historyをbindkey
 
-  function myjump() { zaw-cdr }
+  myjump() { zaw-cdr }
 fi
 
 zle -N myjump
 bindkey '^J' myjump
 
-function mkpjpy() {
+mkpjpy() {
   [[ -z "$1" ]] && echo "Need project name." && return 1
   local pjdir_root="${PROJECT_HOME:-$HOME/Projects}"
   local pjdir="${pjdir_root}/$1"
