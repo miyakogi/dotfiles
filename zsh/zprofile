@@ -32,7 +32,7 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
       exit 0;;
   esac
 
-  if [[ $wm == (sway|gnome|kde) ]]; then  # for wayland
+  if [[ $wm == (sway|gnome|kde|weston) ]]; then  # for wayland
     # set xdg env var
     export XDG_SESSION_TYPE=wayland
 
@@ -66,6 +66,8 @@ if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 
       kde)
         # start kde plasma wayland session
         exec dbus-run-session startplasma-wayland ;;
+      weston)
+        exec weston-launch ;;
     esac
     exit 0
 
