@@ -161,6 +161,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'launch-menu.sh', BINDIR / 'launch-menu')
     install(SCRIPTSDIR / 'scratchterm-tmux.sh', BINDIR / 'scratchterm-tmux')
     install(SCRIPTSDIR / 'lock-screen.sh', BINDIR / 'lock-screen')
+    install(SCRIPTSDIR / 'chromium-launcher.sh', BINDIR / 'chromium-launcher')
     install(SCRIPTSDIR / 'chromium-options.sh', BINDIR / 'chromium-options')
     install(SCRIPTSDIR / 'kwin-first-empty.sh', BINDIR / 'kwin-first-empty')
     install(SCRIPTSDIR / 'bismuth-control.sh', BINDIR / 'bismuth-control')
