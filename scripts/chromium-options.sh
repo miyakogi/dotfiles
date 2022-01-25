@@ -43,7 +43,7 @@ if [[ $1 == "wayland" ]]; then
   # Broken on chromium v97 with sway 1.7rc
   # -> Fixed on chromium v99
 
-  # Enabel pipewire for RTC support
+  # Enable pipewire for RTC support
   features="$features,WebRTCPipeWireCapturer"
   # Enable RawDraw since wayland can be only enabled on versions above v99
   features="$features,RawDraw"
