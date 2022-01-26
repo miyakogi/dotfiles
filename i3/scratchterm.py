@@ -27,7 +27,7 @@ def main() -> None:
             TERM,
             '--class', TERM_CLASS,
             '--option', 'env.TERM=xterm-256color',  # need true color support
-            '--option', 'background_opacity=0.7',
+            '--option', 'window.opacity=0.7',
             '--option', 'window.padding.x=2',
             '--option', 'window.padding.y=2',
             '--command', 'scratchterm-tmux',
