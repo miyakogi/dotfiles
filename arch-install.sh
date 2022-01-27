@@ -75,6 +75,7 @@ packages=(
   nerd-fonts-fira-code
   ttc-iosevka
   ttf-iosevka-nerd
+  ttf-sarasa-gothic  # iosevka + source han sans font for CJK
   ttf-unifont
   ttf-hack
   ttf-raleway
