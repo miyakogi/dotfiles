@@ -60,6 +60,7 @@ These applications should be all installed.
 - Fira Code
 - Fira Code Nerd Fonts
 - Iosevka
+- Sarasa Gothic
 - unifont
 - Hack
 - Raleway
