@@ -145,8 +145,11 @@ input type:keyboard {
     repeat_rate 36
 }
 
-# set mouse profile for wayland, by piper/ratbagd
-exec_always ratbagctl warbling-mara profile active set 1
+input type:pointer {
+    # disable mouse acceleration
+    accel_profile flat
+    pointer_accel 0
+}
 
 ### Autostart Apps
 # unlock kwallet password store (ambiguous)
