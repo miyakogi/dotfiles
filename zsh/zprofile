@@ -7,7 +7,9 @@
 [[ -f $ZDOTDIR/.zprofile.local ]] && source $ZDOTDIR/.zprofile.local
 
 # start graphical session
-if systemctl -q is-active graphical.target && [[ -z $DISPLAY && $XDG_VTNR -eq 1 && ( -z $XDG_SESSION_TYPE || $XDG_SESSION_TYPE == tty ) && $OSNAME == "Arch" ]]; then
+# -> after updating BIOS(?) it takes long time (~2min) to reach graphical.target
+#    so ignore graphical-target (remove `systemctl -q is-active graphical.target` check)
+if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SESSION_TYPE" == tty ) && "$OSNAME" == "Arch" ]]; then
   echo -n "Select WM/DE [bspwm, gnome(-x11), i3, kde(-x11), lxqt, sway] [default: sway]:\n>>> "
   read wm
 
