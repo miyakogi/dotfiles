@@ -52,12 +52,6 @@ interval = 1
 json = true
 
 [[block]]
-block = "disk_space"
-path = "/"
-info_type = "used"
-format = "{icon} {available}"
-
-[[block]]
 block = "temperature"
 collapsed = false
 inputs = [
