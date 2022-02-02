@@ -24,8 +24,10 @@ fi
 
 flags=(
   # Enable HW video acceleration
-  --enable-accelerated-video
-  --enable-accelerated-video-decoder
+  # -> maybe enabled by default at least on v98
+  #--enable-accelerated-video
+  #--enable-accelerated-video-decode
+  #--enable-accelerated-video-decoder
 
   # Force GPU Acceleration
   # see https://wiki.archlinux.org/title/Chromium#Force_GPU_acceleration
@@ -40,14 +42,15 @@ features="VaapiVideoDecoder,CanvasOopRasterization,EnableDrDc"
 
 if [[ $1 == "wayland" ]]; then
   # --- Native Wayland --- #
-  # Broken on chromium v97 with sway 1.7rc
+  # Broken on chrome v97 with sway 1.7
   # -> Fixed on chromium v99
+  # -> Backported to chromium v97 and chrome v98
 
   # Enable pipewire for RTC support
   features="$features,WebRTCPipeWireCapturer"
-  # Enable RawDraw since wayland can be only enabled on versions above v99
+  # Enable RawDraw since wayland can be only enabled on versions above v98
   features="$features,RawDraw"
-  # # Vulkan does not support WebGL, WebGL2, and some compositing HW accelerations now (v99)
+  # # Vulkan does not support WebGL, WebGL2, and some compositing HW accelerations now (v98/v99)
   # features="$features,Vulkan"
 
   flags+=(
@@ -55,7 +58,10 @@ if [[ $1 == "wayland" ]]; then
     --ozone-platform-hint=wayland
     --ozone-platform=wayland
 
-    # Necessary to enable fcitx5 (v99)
+    # EGL seems to be the best option now (v98)
+    --use-gl=egl
+
+    # Necessary to enable fcitx5 (v98~)
     # see: https://www.reddit.com/r/swaywm/comments/rwqo1d/yesterdays_chrome_97_stable_release_has_gtk4_im/
     --gtk-version=4
   )
