@@ -451,11 +451,11 @@ bar {
 
 ### Start Systemd User Services
 #
-# Import All Environment Variables to Systemd
-exec "systemctl --user import-environment"
+# Import Environment Variables Defined in ZSHENV to Systemd for Foot Terminal Server
+exec "systemctl --user import-environment XDG_CONFIG_HOME XDG_PICTURES_DIR EDITOR LESS SYSTEMD_LESS MANPAGER OSNAME PROJECT_HOME PATH RUST_SRC RUSTC_WRAPPER GOPATH NVM_DIR npm_config_preifx"
 
 # --- Start Foot Terminal Server Service
-# Requires user-level systemd unit file ~/.config/systemd/user/foot-server.service as below
+# Requires user-level systemd unit file (~/.config/systemd/user/foot-server.service) as below:
 #
 # [Unit]
 # Description=Foot Terminal Server
