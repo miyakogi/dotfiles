@@ -93,9 +93,6 @@ _terminal=$( list_terminals | "${cmd[@]}" | tr -d '[:space:]')
 
 # modify some terminal command and launch
 case $_terminal in
-  foot)
-    footclient || foot &
-    ;;
   st|xterm|urxvt)
     $_terminal -e fish &
     ;;

@@ -173,7 +173,9 @@ exec autotiling
 #
 
 # Start a terminal which can run without xwayland
-bindsym $mod+Return exec foot
+# `footclient` requires foot server. see bottom how to start foot server process.
+bindsym $mod+Return exec footclient
+
 # Start terminal chooser
 bindsym $mod+Shift+Return exec $term
 bindsym $mod+Shift+space exec $term
@@ -447,11 +449,29 @@ bar {
     }
 }
 
-### Import XDG desktop portal environmental variables
+### Start Systemd User Services
 #
-# DBus
+# Import All Environment Variables to Systemd
+exec "systemctl --user import-environment"
+
+# --- Start Foot Terminal Server Service
+# Requires user-level systemd unit file ~/.config/systemd/user/foot-server.service as below
+#
+# [Unit]
+# Description=Foot Terminal Server
+# ConditionEnvironment=WAYLAND_DISPLAY
+# After=graphical.target
+# 
+# [Service]
+# Type=simple
+# ExecStart=/usr/bin/foot --server --log-level=warning
+#
+exec "systemctl --user is-active -q foot-server.service || systemctl --user restart foot-server.service"
+
+# --- Update DBus Environment Variables and Start XDG Desktop Portal Service
 exec "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart xdg-desktop-portal-wlr.service"
 
+# import other files
 include /etc/sway/config.d/*
 
 # vim: shiftwidth=4 tabstop=4 softtabstop=4
