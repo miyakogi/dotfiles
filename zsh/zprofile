@@ -39,7 +39,7 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
     export XDG_SESSION_TYPE=wayland
 
     # set qt
-    export QT_QPA_PLATFORM=wayland-egl
+    export QT_QPA_PLATFORM=wayland
     export QT_QPA_PLATFORMTHEME=qt5ct
 
     # set IM
