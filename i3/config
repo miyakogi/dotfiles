@@ -296,7 +296,7 @@ set $green       #00e8c6
 set $blue        #7cb7ff
 
 bar {
-    font pango:Symbols Nerd Font, Sarasa Term J 11.5
+    font pango:Symbols Nerd Font, Sarasa Term J Semibold 11.5
     position top
     height 28
     tray_padding 4
