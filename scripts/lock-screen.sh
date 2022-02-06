@@ -56,9 +56,6 @@ case $WM in
     y=120
     image=$(get_image bspwm)
     xlock;;
-  kwin)
-    image=$(get_image lxqt)
-    xlock;;
   wlroots*)  # sway
     image=$(get_image sway)
     wlock;;

@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=autostart
-Exec=sh -c "~/bin/autostart"
-OnlyShowIn=LXQt;
-Type=Application
-Version=1.0

@@ -14,14 +14,10 @@ _lock() {
 _exit() {
   killall redshift
   case $WM in
-    awesome)
-      awesome-client "awesome.quit()";;
     bspwm)
       bspc quit;;
     i3)
       i3-msg exit;;
-    kwin)
-      lxqt-leave --logout;;
     wlroots*)  # sway
       swaymsg exit;;
     *)
@@ -30,19 +26,11 @@ _exit() {
 }
 
 _reboot() {
-  if [[ $WM == "kwin" ]]; then
-    lxqt-leave --reboot
-  else
-    systemctl reboot
-  fi
+  systemctl reboot
 }
 
 _shutdown() {
-  if [[ $WM == "kwin" ]]; then
-    lxqt-leave --shutdown
-  else
-    systemctl poweroff -i
-  fi
+  systemctl poweroff -i
 }
 
 case $RET in

@@ -32,8 +32,6 @@ These applications should be all installed.
 #### Xorg
 
 - i3-gaps
-- plasma (X11)
-- lxqt (kwin + bismuth)
 - bspwm
 - sxhkd
 - picom
@@ -42,7 +40,6 @@ These applications should be all installed.
 - conky (currently not in use)
 - xterm
 - urxvt (rxvt-unicord)
-- yakuake
 
 #### Wayland
 
@@ -90,7 +87,6 @@ These applications should be all installed.
 
 - qt5ct (qt5 app theming)
 - qt6ct (qt6 app theming)
-- klipper
 - sway-launcher-desktop
 - fcitx5
 - fcitx5-mozc
@@ -107,14 +103,12 @@ These applications should be all installed.
 - xorg-xinit
 - xdotool
 - wmctrl (check current WM)
-- kwallet-pam (password management)
 - xorg-xset (display power management)
 - numlockx
 - dmenu
 - i3lock-color (screen lock)
 - redshift
 - feh
-- kwin-bismuth
 
 #### Wayland
 
@@ -180,30 +174,10 @@ Use wallpaper for each WM as below:
 - bspwm: `$XDG_CONFIG_HOME/bspwm/bg.{jpg,png}`
 - sway: `$XDG_CONFIG_HOME/sway/bg.png`
 
-For LXQt and KDE, set wallpaper by those settings.
-
 Use lock images for each WM as below:
 
 - i3: `$XDG_CONFIG_HOME/i3/lock.{jpg,png}`
 - bspwm: `$XDG_CONFIG_HOME/bspwm/lock.{jpg,png}`
-- LXQt: `$XDG_CONFIG_HOME/lxqt/lock.{jpg,png}`
 - sway: `$XDG_CONFIG_HOME/sway/lock.png`
 
 If no image file is found, simply blur the desktop when locking screen.
-
-### Plasma/LXQt Manual Setup
-
-In LXQt session settings, set window manager to `kwin_x11`.
-
-#### Bismuth
-
-Add kwin window rule to disable title bars on LXQt session (bismuth would be enabled by default).
-
-`KDE System Settings` -> `Window Management` -> `Window Rules` -> press `Add New`, then set:
-
-- Description: MUST include `Titlebar`
-- Window class (application): select `Regular Expression`, set `.*`
-- Appearance & Fixes: `No titlebar and frame`, select `Force`, select `Yes`
-
-When re-login to the LXQt session, titlebars will be removed.
-In plasma session, this setting will be automatically disabled.

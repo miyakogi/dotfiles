@@ -13,11 +13,7 @@ terminals=(
 )
 
 if type st &>/dev/null; then
-  if [[ $(wmctrl -m | grep "Name:" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]') != "kwin" ]]; then
-    terminals=(st ${terminals[@]})
-  else
-    terminals+=(st)
-  fi
+  terminals=(st ${terminals[@]})
 fi
 
 if [[ $XDG_SESSION_TYPE == "wayland" ]]; then

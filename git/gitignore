@@ -23,7 +23,7 @@ cscope.out
 cscope.in.out
 cscope.po.out
 
-###### KDE ######
+###### File System ######
 .directory
 .fuse*
 

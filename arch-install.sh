@@ -43,7 +43,6 @@ packages=(
   rxvt-unicode
   alacritty
   kitty
-  yakuake
   foot
   tmux
   gvim  # normal vim packages does not support clipboard
@@ -67,8 +66,6 @@ packages=(
   grim
   slurp
   swappy
-  plasma
-  lxqt
   adobe-source-han-sans-jp-fonts
   adobe-source-han-mono-jp-fonts
   ttf-fira-code
@@ -82,13 +79,12 @@ packages=(
   ttf-nerd-fonts-symbols
   xorg-server
   xorg-xinit
+  xorg-xset
   xorg-xwayland
   xdotool
   wmctrl
-  xorg-xset
   numlockx
   xbindkeys
-  kwallet-pam
   autotiling
   i3lock-color
   i3status-rust  # status block generator for i3bar/swaybar
@@ -105,7 +101,6 @@ packages=(
   fcitx5-mozc
   fcitx5-config-qt
   feh
-  klipper
   wl-clipbaord
   wl-clipbaord-x11
   python-i3ipc
@@ -123,8 +118,6 @@ packages=(
   qt5-tools
   qt6-tools
   kvantaum
-  kwin-bismuth  # kwin tiling script
-  ksuperkey
   zafiro-icon-theme-git
   numix-icon-theme-git
   ccache

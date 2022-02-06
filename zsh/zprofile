@@ -10,11 +10,11 @@
 # -> after updating BIOS(?) it takes long time (~2min) to reach graphical.target
 #    so ignore graphical-target (remove `systemctl -q is-active graphical.target` check)
 if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SESSION_TYPE" == tty ) && "$OSNAME" == "Arch" ]]; then
-  echo -n "Select WM/DE [bspwm, gnome(-x11), i3, kde(-x11), lxqt, sway] [default: sway]:\n>>> "
+  echo -n "Select Window Manager or Shell  [bash, bspwm, fish, i3, sway, zsh] [default: sway]:\n>>> "
   read wm
 
   # set default wm as sway
-  if [[ -z $wm ]]; then
+  if [[ -z "$wm" ]]; then
     wm="sway"
   fi
 
@@ -34,7 +34,7 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
       exit 0;;
   esac
 
-  if [[ $wm == (sway|gnome|kde|weston) ]]; then  # for wayland
+  if [[ $wm == (sway|weston) ]]; then  # for wayland
     # set xdg env var
     export XDG_SESSION_TYPE=wayland
 
@@ -62,12 +62,6 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
 
         # start sway
         exec sway ;;
-      gnome)
-        # start gnome wayland session
-        exec dbus-run-session gnome-session ;;
-      kde)
-        # start kde plasma wayland session
-        exec dbus-run-session startplasma-wayland ;;
       weston)
         exec weston-launch ;;
     esac

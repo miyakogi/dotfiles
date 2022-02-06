@@ -163,8 +163,6 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'lock-screen.sh', BINDIR / 'lock-screen')
     install(SCRIPTSDIR / 'chromium-launcher.sh', BINDIR / 'chromium-launcher')
     install(SCRIPTSDIR / 'chromium-options.sh', BINDIR / 'chromium-options')
-    install(SCRIPTSDIR / 'kwin-first-empty.sh', BINDIR / 'kwin-first-empty')
-    install(SCRIPTSDIR / 'bismuth-control.sh', BINDIR / 'bismuth-control')
     install(SCRIPTSDIR / 'kitty-music.sh', BINDIR / 'kitty-music')
     install(SCRIPTSDIR / 'mpdplayer.sh', BINDIR / 'mpdplayer')
     install(SCRIPTSDIR / 'mpdcover.py', BINDIR / 'mpdcover')
@@ -190,22 +188,6 @@ def install_linux() -> None:
     install(BSPSRC / 'sxhkdrc', BSPDEST / 'sxhkdrc')
     install(BSPSRC / 'layout.sh', BSPDEST / 'layout.sh')
     install(BSPSRC / 'scratchterm.sh', BSPDEST / 'scratchterm.sh')
-
-    # Plasma/KDE
-    install(
-        SCRIPTSDIR / 'autostart.sh',
-        CONFIG_HOME / 'autostart-scripts' / 'autostart.sh',
-    )
-    install(
-        SCRIPTSDIR / 'kde-shutdown.sh',
-        CONFIG_HOME / 'plasma-workspace' / 'shutdown' / 'kde-shutdown.sh',
-    )
-
-    # LXQt + KWin
-    install(
-        BASEDIR / 'autostart' / 'lxqt-autostart.desktop',
-        CONFIG_HOME / 'autostart' / 'lxqt-autostart.desktop',
-    )
 
     # picom
     install(
@@ -234,7 +216,6 @@ def install_linux() -> None:
     install(POLYSRC / 'rofi-calendar.sh', POLYDEST / 'rofi-calendar.sh')
     install(POLYSRC / 'rofi-menu.sh', POLYDEST / 'rofi-menu.sh')
     install(POLYSRC / 'updates.sh', POLYDEST / 'updates.sh')
-    install(POLYSRC / 'nightcolor.sh', POLYDEST / 'nightcolor.sh')
 
     # rofi
     ROFISRC = BASEDIR / 'rofi'

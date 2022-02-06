@@ -99,13 +99,6 @@ modules-right = cpu-graph memory gpu updates close
 scroll-up = bspwm-deskprev
 scroll-down = bspwm-desknext
 
-[bar/top-kwin]
-inherit = bar/top
-
-modules-left = menu title-kwin
-modules-center = kwin-prev kwin-ws kwin-next nightcolor date volume mpd
-modules-right = cpu-graph memory gpu updates close
-
 [module/menu]
 type = custom/script
 exec = echo ""
@@ -124,14 +117,6 @@ format-margin = 1
 format-padding = 2
 
 label = %title:0:30:...%
-
-[module/title-kwin]
-inherit = module/title
-type = custom/script
-exec = xdotool getwindowfocus getwindowname | sed 's/^pcmanfm-qt$//'
-interval = 0.1
-
-label = %output:0:30:...%
 
 [module/i3-mode]
 type = internal/i3
@@ -256,41 +241,6 @@ type = custom/text
 content = ""
 content-foreground = ${colors.foreground-alt}
 click-left = bspc desktop -f next.local
-
-[module/kwin-ws]
-type = internal/xworkspaces
-
-label-active = ""
-label-active-padding = 1
-
-label-occupied = ""
-label-occupied-padding = 1
-
-label-empty = ""
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 1
-
-[module/kwin-prev]
-type = custom/text
-content = ""
-content-foreground = ${colors.foreground-alt}
-content-padding = 1
-click-left = if [[ $(qdbus org.kde.KWin /KWin org.kde.KWin.currentDesktop) -eq 1 ]]; then qdbus org.kde.KWin /KWin org.kde.KWin.setCurrentDesktop $(qdbus org.kde.KWin /VirtualDesktopManager org.kde.KWin.VirtualDesktopManager.count); else qdbus org.kde.KWin /KWin org.kde.KWin.previousDesktop; fi
-
-[module/kwin-next]
-type = custom/text
-content = ""
-content-foreground = ${colors.foreground-alt}
-content-padding = 1
-click-left = if [[ $(qdbus org.kde.KWin /KWin org.kde.KWin.currentDesktop) -eq $(qdbus org.kde.KWin /VirtualDesktopManager org.kde.KWin.VirtualDesktopManager.count) ]]; then qdbus org.kde.KWin /KWin org.kde.KWin.setCurrentDesktop 1; else qdbus org.kde.KWin /KWin org.kde.KWin.nextDesktop; fi
-
-[module/nightcolor]
-type = custom/script
-exec = exec ${XDG_CONFIG_HOME:-$HOME/.config}/polybar/nightcolor.sh
-interval = 60
-
-format-padding = 1
-format-foreground = ${colors.foreground}
 
 [module/mpd]
 type = internal/mpd

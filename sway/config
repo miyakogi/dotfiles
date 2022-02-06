@@ -147,10 +147,6 @@ input type:pointer {
 }
 
 ### Autostart Apps
-# unlock kwallet password store (ambiguous)
-exec --no-startup-id "/usr/lib/polkit-kde-authentication-agent-1"
-exec --no-startup-id "/usr/lib/pam_kwallet_init"
-
 # Input Method
 # exec fcitx-autostart
 exec_always --no-startup-id "pgrep fcitx5 || fcitx5 -d &"
