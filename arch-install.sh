@@ -119,7 +119,6 @@ packages=(
   qt6-tools
   kvantaum
   zafiro-icon-theme-git
-  numix-icon-theme-git
   ccache
   sccache  # rustc cache support
   starship  # prompt manager
