@@ -7,7 +7,6 @@ terminals=(
   alacritty
   kitty
   konsole
-  gnome-terminal
   urxvt
   xterm
 )
