@@ -61,15 +61,15 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
         export WLR_REDERER=vulkan
 
         # start sway
-        exec sway ;;
+        exec nice -n 5 sway ;;
       weston)
-        exec weston-launch ;;
+        exec nice -n 5 weston-launch ;;
     esac
     exit 0
 
   else
     # start X session
-    exec startx ~/.xinitrc $wm -- -maxclients 2048
+    exec nice -n 5 startx ~/.xinitrc $wm -- -maxclients 2048
   fi
 fi
 
