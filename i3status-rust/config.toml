@@ -26,7 +26,6 @@ hide_when_empty = false
 format = " [{avail}] {player}: {combo} "
 [block.theme_overrides]
 info_fg = "#c74ded"
-info_bg = "#161925"
 
 [[block]]
 block = "custom"
@@ -64,7 +63,6 @@ inputs = [
 format = "{max}C"
 [block.theme_overrides]
 warning_fg = "#c74ded"
-warning_bg = "#161925"
 critical_fg = "#161925"
 critical_bg = "#ed254e"
 
