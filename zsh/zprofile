@@ -63,7 +63,11 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
         # start sway
         exec sway ;;
       weston)
-        exec weston-launch ;;
+        # set env vars for weston
+        export XDG_CURRENT_DESKTOP=weston
+        systemctl --user set-environment XDG_CURRENT_DESKTOP=weston
+
+        exec weston ;;
     esac
     exit 0
 
