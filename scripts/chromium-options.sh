@@ -16,10 +16,10 @@
 #   Exec=/usr/bin/google-chrome-stable $(/path/to/chromium-options.sh wayland) --some-other-option
 #
 
-if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
+if [[ -n "$WAYLAND_DISPLAY" || "$XDG_SESSION_TYPE" == "wayland" ]]; then
   session="wayland"
 else
-  session=$(loginctl show-session $(loginctl show-user $(whoami) -p Display --value) -p Type --value)
+  session="$(loginctl show-session $(loginctl show-user $(whoami) -p Display --value) -p Type --value)"
 fi
 
 flags=(
@@ -49,9 +49,10 @@ if [[ $1 == "wayland" ]]; then
   # Enable pipewire for RTC support
   features="$features,WebRTCPipeWireCapturer"
   # Enable RawDraw since wayland can be only enabled on versions above v98
-  features="$features,RawDraw"
-  # # Vulkan does not support WebGL, WebGL2, and some compositing HW accelerations now (v98/v99)
-  # features="$features,Vulkan"
+  # -> RawDraw still does not render some popups correctly, so disabled (v98)
+  #features="$features,RawDraw"
+  # Vulkan does not support WebGL, WebGL2, and some compositing HW accelerations now (v98/v99)
+  #features="$features,Vulkan"
 
   flags+=(
     --enable-features="$features"
@@ -70,29 +71,42 @@ else
     # --- Xwayland --- #
     # Vulkan renderer + EGL results in unstable and slow fps (~10)
     # So disable EGL and use ANGLE
+    # -> This flag seems to be fixed by gtk4 flag on v98
     flags+=(
       # Vulkan can be used on Xwayland
       --enable-features="$features,Vulkan"
+      # RawDraw works fine on Xwayland (v98)
+      --enable-features="$features,RawDraw"
 
       # Force to use ANGLE to fix Xwayland issues, especially on NVIDIA GPU (but also useful on AMD GPU)
       # See https://wiki.archlinux.org/title/chromium#Running_on_XWayland
       # Note: Vulkan backend for ANGLE is broken on electron with AMD-enabled ffmpeg, so use GL backend
-      # --use-angle=gl
-      # -> Update: switching from ffmpeg-amd-full to ffmpeg-vaapi (not enable vulkan) seems to fix this issue
-      --use-angle=vulkan
-      --use-cmd-decoder=passthrough
+      #--use-angle=gl
+      #--use-cmd-decoder=passthrough
+
+      # EGL works fine on gtk4
+      --use-gl=egl
+      --gtk-version=4
     )
   else
     # --- Xorg --- #
     flags+=(
       # Vulkan breaks video playback on Xorg
-      --enable-features="$features"
+      # -> fixed on v98
+      --enable-features="$features,Vulkan"
+      # RawDraw works fine on Xorg (v98)
+      --enable-features="$features,RawDraw"
 
       # Both vulkan and gl backends for ANGLE is broken on Xorg with AMD-enabled ffmpeg
       # EGL is broken on Xwayland, but works on Xorg without Vulkan
+      # -> fixed on v98, both Vulkan and EGL work fine on Xorg
       --use-gl=egl
+
+      # Fcitx5 on GTK4 does not work
+      #--gtk-version=4
     )
   fi
 fi
 
+# output all flags
 echo -n "${flags[@]}"
