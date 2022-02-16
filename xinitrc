@@ -33,6 +33,7 @@ if [[ -d /etc/X11/xinit/xinitrc.d ]]; then
 fi
 
 # start session
+export XDG_SESSION_TYPE=x11
 
 # set qt theme
 export QT_QPA_PLATFORMTHEME=qt5ct
