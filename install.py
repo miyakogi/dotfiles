@@ -364,7 +364,6 @@ def main() -> None:
 
     # zsh
     git_clone('https://github.com/zsh-users/zaw', ZDOTDIR / 'zaw')
-    git_clone('https://github.com/lukechilds/zsh-nvm', ZDOTDIR / 'zsh-nvm')
     git_clone(
         'https://github.com/zsh-users/zsh-completions',
         ZDOTDIR / 'zsh-completions',

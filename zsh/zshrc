@@ -191,11 +191,6 @@ load_if_exists() {
   [[ -f $1 ]] && source $1
 }
 
-### Node.js virtual env control
-export NVM_LAZY_LOAD=true
-export NVM_NO_USE=true
-load_if_exists "$ZDOTDIR/zsh-nvm/zsh-nvm.plugin.zsh"
-
 ### zsh-completions
 # http://www.slideshare.net/mollifier/zsh-3?next_slideshow=1
 fpath=($ZDOTDIR/zsh-completions/src(N-/) $fpath)
