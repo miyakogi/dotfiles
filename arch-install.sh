@@ -129,6 +129,7 @@ packages=(
   bat  # cat alternative
   skim  # fuzzy searcher written in rust
   pkgfile  # faster fish command failure support
+  jq  # used in some scripts
 )
 
 paru -S "${packages[@]}"

@@ -29,7 +29,7 @@ info_fg = "#c74ded"
 
 [[block]]
 block = "custom"
-command = "ff-volume-check"
+command = "ff-volume-watch"
 interval = 1
 on_click = "ff-volume-fix"
 
