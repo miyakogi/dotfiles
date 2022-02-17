@@ -167,7 +167,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'mpdplayer.sh', BINDIR / 'mpdplayer')
     install(SCRIPTSDIR / 'mpdcover.py', BINDIR / 'mpdcover')
     install(SCRIPTSDIR / 'ff-volume-watch.sh', BINDIR / 'ff-volume-watch')
-    install(SCRIPTSDIR / 'ff-volume-fix.sh', BINDIR / 'ff-volume-fix')
+    install(SCRIPTSDIR / 'ff-volume-toggle.sh', BINDIR / 'ff-volume-toggle')
 
     # i3 window manager
     I3SRC = BASEDIR / 'i3'

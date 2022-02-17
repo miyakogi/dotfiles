@@ -30,8 +30,8 @@ info_fg = "#c74ded"
 [[block]]
 block = "custom"
 command = "ff-volume-watch"
-interval = 1
-on_click = "ff-volume-fix"
+interval = 0.5
+on_click = "ff-volume-toggle"
 
 [[block]]
 block = "cpu"
