@@ -9,7 +9,7 @@
 #
 ###############
 
-# setup cmd empty array
+# setup empty cmd array
 cmd=()
 
 # check firejail
