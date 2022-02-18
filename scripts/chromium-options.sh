@@ -72,11 +72,15 @@ else
     # Vulkan renderer + EGL results in unstable and slow fps (~10)
     # So disable EGL and use ANGLE
     # -> This flag seems to be fixed by gtk4 flag on v98
+
+    # Vulkan can be used on Xwayland
+    features="$features,Vulkan"
+    # RawDraw works fine on Xwayland (v98)
+    features="$features,RawDraw"
+
+    # Build flags
     flags+=(
-      # Vulkan can be used on Xwayland
-      --enable-features="$features,Vulkan"
-      # RawDraw works fine on Xwayland (v98)
-      --enable-features="$features,RawDraw"
+      --enable-features="$features"
 
       # Force to use ANGLE to fix Xwayland issues, especially on NVIDIA GPU (but also useful on AMD GPU)
       # See https://wiki.archlinux.org/title/chromium#Running_on_XWayland
