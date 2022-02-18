@@ -38,7 +38,7 @@ flags=(
 
 # Some popups (like discord settings) are collapsed by enabling RawDraw feature with AMD-enabled ffmpeg
 # This bug will be fixed on v99, but we need to disable RawDraw feature on current stable (v97)
-features="VaapiVideoDecoder,CanvasOopRasterization,EnableDrDc"
+features="VaapiVideoEncoder,VaapiVideoDecoder,CanvasOopRasterization,EnableDrDc"
 
 if [[ $1 == "wayland" ]]; then
   # --- Native Wayland --- #
