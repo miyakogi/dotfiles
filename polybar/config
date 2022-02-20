@@ -277,9 +277,9 @@ format-online = <icon-prev> <toggle> <icon-stop> <icon-next> <bar-progress> <ico
 
 [module/volume]
 type = custom/script
-exec = exec ff-volume-check
+exec = exec ff-volume-watch
 interval = 0.3
-click-left = exec ff-volume-fix
+click-left = exec ff-volume-toggle
 click-right = pavucontrol-qt &
 
 format-underline = ${colors.green}
