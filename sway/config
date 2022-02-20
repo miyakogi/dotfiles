@@ -389,7 +389,7 @@ bindsym $mod+r mode "resize"
 for_window [class="XEyes"] floating enable
 
 # pulseaudio volume control
-for_window [app_id="pavucontrol-qt"] floating enable
+for_window [app_id="pavucontrol"] floating enable
 
 # virtual machine client/viewer
 assign [app_id="looking-glass-client"] workspace $ws10

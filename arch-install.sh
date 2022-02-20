@@ -105,7 +105,7 @@ packages=(
   wl-clipbaord-x11
   python-i3ipc
   pulsemixer  # used by volume check/fix scripts
-  pavucontrol-qt
+  pavucontrol
   mpd
   mpdris2
   ncmpcpp

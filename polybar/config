@@ -280,7 +280,7 @@ type = custom/script
 exec = exec ff-volume-watch
 interval = 0.3
 click-left = exec ff-volume-toggle
-click-right = pavucontrol-qt &
+click-right = pavucontrol &
 
 format-underline = ${colors.green}
 format-padding = 1
