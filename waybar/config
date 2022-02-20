@@ -124,8 +124,8 @@
   },
   "custom/volume": {
     "format": "{}",
-    "exec": "ff-volume-check",
-    "on-click": "ff-volume-fix",
+    "exec": "ff-volume-watch",
+    "on-click": "ff-volume-toggle",
     "interval": 1
   },
   "idle_inhibitor": {
