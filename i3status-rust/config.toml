@@ -4,6 +4,7 @@ name = "native"
 [icons]
 name = "material-nf"
 [icons.overrides]
+music = ""
 time = ""
 weather_thunder = ""
 
@@ -23,7 +24,7 @@ marquee_interval = 10
 marquee_speed = 0.5
 buttons = ["prev", "play", "next"]
 hide_when_empty = false
-format = " [{avail}] {player}: {combo} "
+format = " {combo} "
 [block.theme_overrides]
 info_fg = "#c74ded"
 
