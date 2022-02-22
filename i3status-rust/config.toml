@@ -64,7 +64,7 @@ inputs = [
 format = "{max}C"
 [block.theme_overrides]
 warning_fg = "#c74ded"
-critical_fg = "#161925"
+critical_fg = "#000000"
 critical_bg = "#ed254e"
 
 [[block]]
@@ -80,7 +80,7 @@ format = "{both}"
 format_singular = "{both}"
 hide_when_uptodate = true
 [block.theme_overrides]
-info_fg = "#161925"
+info_fg = "#000000"
 info_bg = "#c74ded"
 
 [[block]]
@@ -91,5 +91,5 @@ json = true
 command = '''printf '{"icon": "weather_thunder", "state": "Warning", "text": "%s"}' $(systemctl --state=failed -q | wc -l | tr -d 0)'''
 hide_when_empty = true
 [block.theme_overrides]
-warning_fg = "#161925"
+warning_fg = "#000000"
 warning_bg = "#f9dc5c"
