@@ -19,6 +19,8 @@ set $right l
 set $foreground  #c3c7d1
 set $background  #161925
 set $transparent #00000000
+set $white       #ffffff
+set $black       #000000
 set $red         #ed254e
 set $orange      #ff6a00
 set $cyan        #00c1e4
@@ -436,12 +438,12 @@ bar {
 
     colors {
         separator $magenta
-        background $background
+        background $black
         statusline $foreground
-        focused_workspace $magenta $magenta $background
-        inactive_workspace $magenta $background $magenta
-        urgent_workspace $red $red $background
-        binding_mode $red $red $background
+        focused_workspace $magenta $magenta $black
+        inactive_workspace $magenta $black $magenta
+        urgent_workspace $red $red $black
+        binding_mode $red $red $black
     }
 }
 
