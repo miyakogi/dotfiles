@@ -455,19 +455,41 @@ exec "systemctl --user import-environment XDG_SESSION_TYPE QT_QPA_PLATFORM QT_QP
 # --- Start Foot Terminal Server Service
 # Requires user-level systemd unit file (~/.config/systemd/user/foot-server.service) as below:
 #
+# ```
 # [Unit]
 # Description=Foot Terminal Server
 # ConditionEnvironment=WAYLAND_DISPLAY
 # After=graphical.target
-# 
+#
 # [Service]
 # Type=simple
 # ExecStart=/usr/bin/foot --server --log-level=warning
+# ```
 #
 exec "systemctl --user is-active -q foot-server.service || systemctl --user restart foot-server.service"
 
 # --- Update DBus Environment Variables and Start XDG Desktop Portal Service
 exec "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart xdg-desktop-portal-wlr.service"
+
+# --- Start input-remapper auto configurator for mouse buttons
+# Requires `input-remapper` and user-level systemd unit file (~/.config/systemd/user/input-remapper-autoload.service) as below:
+#
+# ```
+# [Unit]
+# Description=Autoload Input Remapper Settings
+# Requires=graphical-session.target
+# After=graphical-session.target dbus.service input-remapper.service
+#
+# [Service]
+# Type=oneshot
+# ExecStart=/usr/bin/input-remapper-control --command autoload
+# RemainAfterExit=yes
+#
+# [Install]
+# WantedBy=graphical-session.target
+# ```
+#
+exec "systemctl --user -q is-active input-remapper-autoload.service || systemctl --user start input-remapper-autoload.service"
 
 # import other files
 include /etc/sway/config.d/*
