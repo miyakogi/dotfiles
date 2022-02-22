@@ -53,10 +53,10 @@ set $dmenu dmenu_path | \
 #
 # Display
 output DP-2 {
-    # # Default resolution and refresh rate, checked by `swaymsg -t get_outpus`
-    # Use custom EDID file on KMS to override custom 144Hz + VRR + low vram clock on idle
-    # mode 1920x1080@144Hz
+    # Default resolution and refresh rate, checked by `swaymsg -t get_outpus`
     # vram idle clock issue has been fixed on linux-5.15, now don't need to use custom resolution
+    # mode 1920x1080@144Hz
+    # mode --custom 1920x1080@144Hz
     mode 1920x1080@119.982Hz
     # mode 1920x1080@60Hz
 
