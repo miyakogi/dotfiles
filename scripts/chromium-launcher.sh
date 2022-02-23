@@ -13,10 +13,15 @@
 cmd=()
 
 # check firejail
-if type firejail &>/dev/null && [[ "${1}" == "--firejail" ]]; then
-  # Run browser inside firejail environment
-  cmd+=(firejail)
-  shift
+if [[ "${1}" == "--firejail" ]]; then
+  if type firejail &>/dev/null; then
+    # Run browser inside firejail environment
+    cmd+=(firejail)
+    shift
+  else
+    echo "firejail is not installed"
+    exit 1
+  fi
 fi
 
 # check target browser
