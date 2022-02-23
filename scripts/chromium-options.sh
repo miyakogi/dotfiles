@@ -76,6 +76,18 @@ if [[ $1 == "wayland" ]]; then
     # see: https://www.reddit.com/r/swaywm/comments/rwqo1d/yesterdays_chrome_97_stable_release_has_gtk4_im/
     --gtk-version=4
   )
+elif [[ $1 == "discord" ]]; then
+  # community/discord-0.0.17 and community/discord-canary-0.0.133 does neither work properly with egl,
+  # nor GTK4, so separate here and use desktop OpenGL and GTK3
+  flags+=(
+    --enable-features="$features"
+
+    # disable egl and use desktop OpenGL
+    --use-gl=desktop
+
+    # discord does not support GTK4
+    --gtk-version=3
+  )
 else
   # Vulkan is necessary to use EGL on Xwayland/Xorg
   # Without Vulkan, browser shows very slow fps
