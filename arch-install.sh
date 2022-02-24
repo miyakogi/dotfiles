@@ -118,7 +118,7 @@ packages=(
   qt5-tools
   qt6-tools
   kvantaum
-  zafiro-icon-theme-git
+  papirus-icon-theme
   ccache
   sccache  # rustc cache support
   starship  # prompt manager

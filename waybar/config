@@ -82,7 +82,7 @@
   },
   "wlr/taskbar": {
     "icon-size": 18,
-    "icon-theme": "zafiro-icon-theme",
+    "icon-theme": "Papirus",
     "on-click": "activate",
     "on-click-middle": "close"
   },

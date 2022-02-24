@@ -434,7 +434,7 @@ bar {
     status_command i3status-rs
     pango_markup enabled
     strip_workspace_numbers yes
-    icon_theme Adwaita
+    icon_theme Papirus
 
     colors {
         separator $magenta

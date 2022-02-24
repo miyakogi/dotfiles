@@ -198,8 +198,7 @@
     max_icon_size = 48
 
     # Paths to default icons.
-    # icon_path = /usr/share/icons/gnome/48x48/status/:/usr/share/icons/gnome/48x48/devices/
-    icon_path = /usr/share/icons/zafiro-icon-theme/apps/scalable/:/usr/share/icons/zafiro-icon-theme/actions/48/:/usr/share/icons/zafiro-icon-theme/status/22/:/usr/share/icons/zafiro-icon-theme/devices/48/
+    icon_path = /usr/share/icons/Papirus/symbolic/apps/:/usr/share/icons/Papirus/symbolic/actions/:/usr/share/icons/Papirus/48x48/apps/:/usr/share/icons/Papirus/48x48/devices/
 
     ### History ###
 

@@ -94,7 +94,7 @@ These applications should be all installed.
 - i3status-rust (status block generator for i3bar/swaybar)
 - python-i3ipc (scratchpad control and add workspace function for i3/sway)
 - pulsemixer (volume check/fix)
-- zafiro-icon-theme-git (rofi default icon)
+- papirus-icon-theme (default icon)
 
 #### Xorg
 
