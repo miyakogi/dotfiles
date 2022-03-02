@@ -9,11 +9,13 @@ time = ""
 weather_thunder = ""
 
 [[block]]
+# empty block just to show left-side separator
 block = "custom"
 command = "echo ''"
 interval = "once"
 [block.theme_overrides]
-idle_fg = "#20bbfc"
+# transparent foreground
+idle_fg = "#0000000"
 
 [[block]]
 block = "music"
