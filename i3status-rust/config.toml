@@ -19,14 +19,15 @@ idle_fg = "#0000000"
 
 [[block]]
 block = "music"
-interface_name_exclude = ["firefox", "chromium"]
-max_width = 60
+player = "mpd"
+max_width = 76
 dynamic_width = true
 marquee_interval = 10
 marquee_speed = 0.5
 buttons = ["prev", "play", "next"]
 hide_when_empty = false
-format = " {combo} "
+on_click = "mpc stop"
+format = ' MPD: {combo} '
 [block.theme_overrides]
 info_fg = "#c74ded"
 
