@@ -69,7 +69,7 @@ critical_bg = "#ed254e"
 
 [[block]]
 block = "time"
-interval = 0.5
+interval = 0.25
 format = "%a %d %b %Y  %H:%M:%S"
 
 [[block]]
