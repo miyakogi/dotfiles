@@ -214,9 +214,9 @@ bindcode 68 exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/scratchte
 for_window [app_id="scratchterm"] floating enable
 for_window [app_id="scratchterm"] sticky enable
 for_window [app_id="scratchterm"] move scratchpad
-for_window [app_id="scratchterm"] move position 1038 224
 for_window [app_id="scratchterm"] resize set width 960
-for_window [app_id="scratchterm"] resize set height 1052
+for_window [app_id="scratchterm"] resize set height 1056
+for_window [app_id="scratchterm"] move right 480
 
 #
 # Moving around:
