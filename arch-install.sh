@@ -120,6 +120,7 @@ packages=(
   kvantaum
   papirus-icon-theme
   ccache
+  mold  # modern linker for clang, gcc, and rust
   sccache  # rustc cache support
   starship  # prompt manager
   direnv  # directory based env setting
