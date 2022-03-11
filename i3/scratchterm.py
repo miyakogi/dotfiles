@@ -15,29 +15,35 @@ TERM_CLASS = 'scratchterm'
 # TERM_CMD = [
 #     'kitty',
 #     '--class', TERM_CLASS,
-#     '--override', 'background_opacity=0.85',
+#     '--override', 'background_opacity=0.7',
 #     '--override', 'window_padding_width=2',
 # ]
 if os.getenv('WAYLAND_SOCKET') or os.getenv('XDG_SESSION_TYPE') == 'wayland':
-    # on wayland, use foot with tmux
+    # on Wayland, use foot
     TERM_CMD = [
         'foot',
         '--app-id', TERM_CLASS,
-        '--term', 'xterm-256color',  # need true color support
         '--override=colors.alpha=0.7',
         '--override=pad=2x2',
-        'scratchterm-tmux',
+
+        # for true color support on tmux
+        #'--term', 'xterm-256color',
+        # run tmux session
+        #'scratchterm-tmux',
     ]
 else:
-    # on Xorg, use alacritty with tmux
+    # on Xorg, use alacritty
     TERM_CMD = [
         'alacritty',
         '--class', TERM_CLASS,
-        '--option', 'env.TERM=xterm-256color',  # need true color support
         '--option', 'window.opacity=0.7',
         '--option', 'window.padding.x=2',
         '--option', 'window.padding.y=2',
-        '--command', 'scratchterm-tmux',
+
+        # for true color support on tmux
+        #'--option', 'env.TERM=xterm-256color',
+        # run tmux session
+        #'--command', 'scratchterm-tmux',
     ]
 
 
