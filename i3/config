@@ -165,18 +165,16 @@ set $ws9 "9:九"
 set $ws10 "10:十"
 
 # add workspace
-bindsym Control+$mod+Down exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
-bindsym Control+$mod+Up exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
 bindsym $mod+a exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
 bindsym $mod+backslash exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
+bindsym Control+$mod+Down exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
+bindsym Control+$mod+Up exec --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py
 
 # switch to workspace
-bindsym Control+$mod+Left workspace prev
-bindsym Control+$mod+Right workspace next
-bindsym $mod+n workspace next
-bindsym $mod+p workspace prev
 bindsym $mod+bracketright workspace next
 bindsym $mod+bracketleft workspace prev
+bindsym Control+$mod+Left workspace prev
+bindsym Control+$mod+Right workspace next
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
