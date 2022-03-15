@@ -296,12 +296,10 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # Switch workspace
-bindsym Control+$mod+Left workspace prev
-bindsym Control+$mod+Right workspace next
-bindsym $mod+n workspace next
-bindsym $mod+p workspace prev
 bindsym $mod+bracketright workspace next
 bindsym $mod+bracketleft workspace prev
+bindsym Control+$mod+Left workspace prev
+bindsym Control+$mod+Right workspace next
 
 # Add new workspace
 bindsym $mod+a exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
