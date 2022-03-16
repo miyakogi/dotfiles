@@ -26,7 +26,7 @@ marquee_interval = 10
 marquee_speed = 0.5
 buttons = ["prev", "play", "next"]
 hide_when_empty = false
-on_click = "mpc stop"
+on_click = "if [ $(mpc status %state%) = 'playing' ]; then mpc stop; else mpc play; fi"
 format = ' MPD: {combo} '
 [block.theme_overrides]
 info_fg = "#c74ded"
