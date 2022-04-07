@@ -9,6 +9,7 @@ let g:vimpager_scrolloff=1
 
 " keybindings
 nnoremap <silent> gg :<C-u>1<CR>
+nunmap <C-d>
 
 " enable smart case search
 set ignorecase
