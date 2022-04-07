@@ -33,13 +33,13 @@ flags=(
   # Out of process rasterization for the rendering on GPU
   --enable-oop-rasterization
 
+  # Need to enable HW accelerated video playback (at least currently working on Xorg)
+  --disable-features="UseChromeOSDirectVideoDecoder"
+
   # Initialize and enable Vulkan support
   # With only this flag, Vulkan compositing and rasterization are not selected/used
   # To really enable Vulkan, add `Vulkan` in --enable-features list
   --use-vulkan
-
-  # EGL seems to be the best option for now (v98)
-  --use-gl=egl
 )
 
 # --- Define Default Features ---
@@ -49,18 +49,14 @@ features="VaapiVideoEncoder,VaapiVideoDecoder"
 features="$features,CanvasOopRasterization"
 # Enabel Direct Rendering Display Compositor
 features="$features,EnableDrDc"
-# Some popups (like discord settings) are collapsed by enabling RawDraw feature with AMD-enabled ffmpeg
-# This bug will be fixed on v99, but we need to disable RawDraw feature on current stable (v97)
-# -> RawDraw still has some issues on native Wayland on v98
+# RawDraw issues are maybe fixed at least on v99
+# -> still broken on YouTube overlay
 #features="$features,RawDraw"
 
 # --- Set Platform Specific Features/Flags ---
 if [[ $1 == "wayland" ]]; then
   # Enable pipewire support for WebRTC screen sharing
   features="$features,WebRTCPipeWireCapturer"
-  # Enable RawDraw since wayland can be only enabled on versions above v98
-  # -> RawDraw still does not render some popups correctly, so disabled (v98)
-  #features="$features,RawDraw"
   # Vulkan does not support WebGL, WebGL2, and some compositing HW accelerations now (v98/v99)
   # -> --disablie-gpu-driver-bug-workarounds does not fix this
   #features="$features,Vulkan"
@@ -72,44 +68,42 @@ if [[ $1 == "wayland" ]]; then
     --ozone-platform-hint=wayland
     --ozone-platform=wayland
 
+    # EGL seems to be the best option for now (v98)
+    --use-gl=egl
+
     # Necessary to enable fcitx5 (v98+)
     # see: https://www.reddit.com/r/swaywm/comments/rwqo1d/yesterdays_chrome_97_stable_release_has_gtk4_im/
     --gtk-version=4
   )
-elif [[ $1 == "discord" ]]; then
-  # community/discord-0.0.17 and community/discord-canary-0.0.133 does neither work properly with egl,
-  # nor GTK4, so separate here and use desktop OpenGL and GTK3
-  flags+=(
-    --enable-features="$features"
-
-    # disable egl and use desktop OpenGL
-    --use-gl=desktop
-
-    # discord does not support GTK4
-    --gtk-version=3
-  )
 else
-  # Vulkan is necessary to use EGL on Xwayland/Xorg
-  # Without Vulkan, browser shows very slow fps
-  features="$features,Vulkan"
-  # RawDraw is maybe working fine on Xwayland/Xorg (v98+)
-  features="$features,RawDraw"
+  # Vulkan breaks rendering on ShinyColors (v99)
+  #features="$features,Vulkan"
+
+  flags+=(
+    # native gpu memory buffers are disabled on Xorg/Xwayland by default
+    --enable-native-gpu-memory-buffers
+  )
 
   if [[ $session == "wayland" ]]; then
     # --- Xwayland --- #
     flags+=(
       --enable-features="$features"
 
-      # EGL works fine on gtk4
-      --gtk-version=4
+      # EGL renders in low FPS (10~20fps)
+      #--use-gl=desktop
+      # -> fixed by mesa's MR !15381 (not merged into main yet)
+      --use-gl=egl
     )
   else
     # --- Xorg --- #
     flags+=(
       --enable-features="$features"
 
+      # EGL works properly on Xorg
+      --use-gl=egl
+
       # Fcitx5 does not work on GTK4
-      #--gtk-version=4
+      --gtk-version=3
     )
   fi
 fi
