@@ -63,8 +63,8 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
         export XDG_CURRENT_DESKTOP=sway
         systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
 
-        # use vulkan renderer
-        export WLR_REDERER=vulkan
+        # use vulkan renderer (default: gles2)
+        #export WLR_REDERER=vulkan
 
         # start sway
         exec sway ;;
