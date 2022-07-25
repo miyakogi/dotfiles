@@ -3,6 +3,11 @@
 # zsh loads this file only if it is a login-shell
 # ===============================================
 
+# load system zprofile
+if [ -f /etc/zsh/zprofile ]; then
+  source /etc/zsh/zprofile
+fi
+
 # load machine local profile
 [[ -f $ZDOTDIR/.zprofile.local ]] && source $ZDOTDIR/.zprofile.local
 
