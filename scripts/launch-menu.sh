@@ -6,10 +6,22 @@ declare -a cmd=()
 if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
   # use foot
   termcmd="foot"
+  if [[ $XDG_CURRENT_DESKTOP == "sway" ]]; then
+    _font="Sarasa Term J"
+    if [[ $(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name') == '"DP-1"' ]]; then
+      _fsize=28
+      _weight="light"
+      winsize="1600x1600"
+    else
+      _fsize=16
+      _weight="regular"
+      winsize="800x800"
+    fi
+  fi
   cmd+=(
     foot
-    --font "Fira Code:size=18"
-    --window-size-pixels "800x800"
+    --font "${_font}:weight=${_weight}:size=${_fsize}"
+    --window-size-pixels "$winsize"
     --app-id "sklauncher"
   )
 elif type st &>/dev/null; then

@@ -82,6 +82,10 @@ def main() -> None:
 
     else:
         # Focus the scratchpad on the workspace
+        if hasattr(window, 'app_id'):
+            # Wayland (sway)
+            # always open scratchpad on right display (DP-2)
+            i3.command('focus output DP-2')
         window.command('focus')
 
 

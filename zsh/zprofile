@@ -48,6 +48,9 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
     export QT_STYLE_OVERRIDE=kvantum
     export QT_QPA_PLATFORMTHEME=kvantum
 
+    # scale qt apps on 4K display only
+    export QT_SCREEN_SCALE_FACTORS="1.8;1"
+
     # set IM
     export XMODIFIERS=@im=fcitx
     export GTK_IM_MODULE=fcitx

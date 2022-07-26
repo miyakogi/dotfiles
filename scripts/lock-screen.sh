@@ -3,17 +3,28 @@
 # Based on https://github.com/pavanjadhaw/betterlockscreen
 
 get_image() {
-  local f=$(ls ${XDG_CONFIG_HOME:-$HOME/.config}/$1/lock.{png,jpg} 2>/dev/null | head -n 1)
-  if [[ -z $f ]]; then
+  local f1=$(ls ${XDG_CONFIG_HOME:-$HOME/.config}/$1/lock.{png,jpg} 2>/dev/null | head -n 1)
+  local f2=$(ls ${XDG_CONFIG_HOME:-$HOME/.config}/$1/lock_4k.{png,jpg} 2>/dev/null | head -n 1)
+  if [[ -z "$f1" ]] && [[ -z "$f2" ]]; then
     echo "--blur=8"
   else
-    echo "--image=$f"
+    if [[ "$1" != sway ]]; then
+      if [[ -n "$f1" ]]; then
+        echo "--image=$f1"
+      else
+        echo "--image=$f2"
+      fi
+    else
+      echo "--image DP-1:${f2} --image DP-2:${f1}"
+    fi
   fi
 }
 
 xlock() {
   i3lock \
-    --centered -p default $image \
+    -p default \
+    $image \
+    --centered \
     --time-pos='x+110:h-70' --date-pos='x+60:h-45' \
     --clock --date-align 1 --date-str="Screen Locked" \
     --inside-color="$transparent" --ring-color="$ringcolor" --line-uses-inside \
@@ -27,7 +38,9 @@ xlock() {
 }
 
 wlock() {
-  swaylock -f $image \
+  swaylock \
+    -f \
+    $image \
     --scaling center \
     --inside-color="$transparent" --ring-color="$ringcolor" --line-uses-inside \
     --key-hl-color="$cyan" --bs-hl-color="$cyan" --separator-color="$transparent" \

@@ -2,7 +2,7 @@
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
-    monitor = 0
+    monitor = 1
 
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
@@ -15,7 +15,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    follow = none
 
     ### Geometry ###
     width = (0, 420)
@@ -26,16 +26,16 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = (0, 420)
+    width = (0, 840)
 
     # The maximum height of a single notification, excluding the frame.
-    height = 120
+    height = 240
 
     # Position the notification in the top right corner
     origin = bottom-right
 
     # Offset from the origin
-    offset = 26x26
+    offset = 52x52
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -54,7 +54,7 @@
     progress_bar_height = 10
 
     # Set the frame width of the progress bar
-    progress_bar_frame_width = 1
+    progress_bar_frame_width = 2
 
     # Set the minimum width for the progress bar
     progress_bar_min_width = 150
@@ -75,20 +75,20 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 2
+    separator_height = 4
 
     # Padding between text and separator.
-    padding = 8
+    padding = 16
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 16
 
     # Padding between text and icon.
-    text_icon_padding = 0
+    text_icon_padding = 8
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 2
+    frame_width = 4
 
     # Defines color of the frame around the notification window.
     frame_color = "#161925cc"
@@ -113,7 +113,7 @@
 
     ### Text ###
 
-    font = Source Han Sans JP Medium 12
+    font = Source Han Sans JP Medium 24
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.

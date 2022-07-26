@@ -158,6 +158,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'autostart.sh', BINDIR / 'autostart')
     install(SCRIPTSDIR / 'keyboard-setup.sh', BINDIR / 'keyboard-setup')
     install(SCRIPTSDIR / 'launch-terminal.sh', BINDIR / 'launch-terminal')
+    install(SCRIPTSDIR / 'launch-foot.sh', BINDIR / 'launch-foot')
     install(SCRIPTSDIR / 'launch-menu.sh', BINDIR / 'launch-menu')
     install(SCRIPTSDIR / 'scratchterm-tmux.sh', BINDIR / 'scratchterm-tmux')
     install(SCRIPTSDIR / 'lock-screen.sh', BINDIR / 'lock-screen')
@@ -168,6 +169,8 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'mpdcover.py', BINDIR / 'mpdcover')
     install(SCRIPTSDIR / 'ff-volume-watch.sh', BINDIR / 'ff-volume-watch')
     install(SCRIPTSDIR / 'ff-volume-toggle.sh', BINDIR / 'ff-volume-toggle')
+    install(SCRIPTSDIR / 'mic-mute-watch.sh', BINDIR / 'mic-mute-watch')
+    install(SCRIPTSDIR / 'mic-mute-toggle.sh', BINDIR / 'mic-mute-toggle')
 
     # i3 window manager
     I3SRC = BASEDIR / 'i3'
@@ -177,8 +180,12 @@ def install_linux() -> None:
     install(I3SRC / 'addws.py', I3DEST / 'addws.py')
     install(I3SRC / 'layout.py', I3DEST / 'layout.py')
     install(
-        BASEDIR / 'i3status-rust' / 'config.toml',
-        CONFIG_HOME / 'i3status-rust' / 'config.toml',
+        BASEDIR / 'i3status-rust' / 'main.toml',
+        CONFIG_HOME / 'i3status-rust' / 'main.toml',
+    )
+    install(
+        BASEDIR / 'i3status-rust' / 'sub.toml',
+        CONFIG_HOME / 'i3status-rust' / 'sub.toml',
     )
 
     # BSPWM window manager

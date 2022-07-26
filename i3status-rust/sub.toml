@@ -4,38 +4,26 @@ name = "native"
 [icons]
 name = "material-nf"
 [icons.overrides]
-music = ""
 time = ""
 weather_thunder = ""
 
-[[block]]
-# empty block just to show left-side separator
-block = "custom"
-command = "echo ''"
-interval = "once"
-[block.theme_overrides]
-# transparent foreground
-idle_fg = "#0000000"
-
-[[block]]
-block = "music"
-player = "mpd"
-max_width = 76
-dynamic_width = true
-marquee_interval = 10
-marquee_speed = 0.5
-buttons = ["prev", "play", "next"]
-hide_when_empty = false
-on_click = "if [ $(mpc status %state%) = 'playing' ]; then mpc stop; else mpc play; fi"
-format = ' MPD: {combo} '
-[block.theme_overrides]
-info_fg = "#c74ded"
+# [[block]]
+# # empty block just to show left-side separator
+# block = "custom"
+# command = "echo ''"
+# interval = "once"
+# [block.theme_overrides]
+# # transparent foreground
+# idle_fg = "#0000000"
 
 [[block]]
 block = "custom"
-command = "ff-volume-watch"
+command = "mic-mute-watch"
+json = true
 interval = 0.5
-on_click = "ff-volume-toggle"
+on_click = "mic-mute-toggle"
+[block.theme_overrides]
+info_fg = "#ed254e"
 
 [[block]]
 block = "cpu"
@@ -58,11 +46,21 @@ json = true
 [[block]]
 block = "temperature"
 collapsed = false
+info = 64
 inputs = [
   # CPU temperatures
-  "Package id 0", "Core 0", "Core 1", "Core 2", "Core 3", "Core 4", "Core 5",
+  "Package id 0",
+  "Core 0",
+  "Core 1",
+  "Core 2",
+  "Core 3",
+  "Core 4",
+  "Core 5",
+
   # GPU temperatures
-  "edge", "junction", "mem",
+  "edge",
+  #"junction",
+  "mem",
 ]
 format = "{max}C"
 [block.theme_overrides]
@@ -72,7 +70,7 @@ critical_bg = "#ed254e"
 
 [[block]]
 block = "time"
-interval = 0.25
+interval = 0.2
 format = "%a %d %b %Y  %H:%M:%S"
 
 [[block]]
@@ -89,9 +87,9 @@ info_bg = "#c74ded"
 [[block]]
 # block to show the number of systemd failures
 block = "custom"
-interval = 600
+interval = 60
 json = true
-command = '''printf '{"icon": "weather_thunder", "state": "Warning", "text": "%s"}' $(systemctl --state=failed -q | wc -l | tr -d 0)'''
+command = '''printf '{"icon": "weather_thunder", "state": "Warning", "text": "%s"}' $(echo "$(($(systemctl --state=failed -q | wc -l)+$(systemctl --user --state=failed -q | wc -l)))" | tr -d 0)'''
 hide_when_empty = true
 [block.theme_overrides]
 warning_fg = "#000000"
