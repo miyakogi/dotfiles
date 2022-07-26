@@ -41,10 +41,6 @@ if [[ "${1}" == "--wayland" ]]; then
     $(chromium-options wayland)
   )
   shift
-elif [[ "${target}" =~ "discord"* ]]; then
-  cmd+=(
-    $(chromium-options discord)
-  )
 else
   cmd+=(
     $(chromium-options)
