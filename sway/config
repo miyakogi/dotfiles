@@ -67,7 +67,7 @@ output DP-2 {
     background ${XDG_CONFIG_HOME:-$HOME/.config}/sway/bg.png center $background
 
     # Composit output timing in milliseconds
-    max_render_time 3
+    max_render_time off
 }
 
 ### Decoration configuration
