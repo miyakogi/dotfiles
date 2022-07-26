@@ -10,7 +10,7 @@ abbr --add --global mkdir "mkdir -p"
 abbr --add --global tmux "env TERM=xterm-256color tmux -2"
 
 # ln -v
-abbr --add --global ln "ln -v"
+abbr --add --global ln "ln -v -s"
 
 # vi
 abbr --add --global vi "vim --noplugin"
