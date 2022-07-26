@@ -146,7 +146,8 @@ input type:keyboard {
 input type:pointer {
     # disable mouse acceleration
     accel_profile flat
-    pointer_accel 0
+    # 800DPI -> 1600DPI
+    pointer_accel 0.5
 }
 
 # set cursor theme
