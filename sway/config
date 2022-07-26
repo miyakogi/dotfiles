@@ -164,7 +164,7 @@ exec dunst
 # exec_always --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/waybar/launch.sh &"
 
 # redshift alternative
-exec_always --no-startup-id "pgrep gammastep || gammastep -l ${LATITUDE}:${LONGITUDE} &"
+#exec_always --no-startup-id "pgrep gammastep || gammastep -l ${LATITUDE}:${LONGITUDE} &"
 
 # autotiling
 exec autotiling
