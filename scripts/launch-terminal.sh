@@ -92,11 +92,7 @@ case $_terminal in
     $_terminal -e fish &
     ;;
   foot)
-    if [[ $(swaymsg -t get_outputs | jq '.[]  | select(.focused) | .name') == \"DP-1\" ]]; then
-      foot --override=pad=12x12 --override=font="Sarasa Term J:weight=Light:size=22.5" &
-    else
-      foot &
-    fi
+    launch-foot &
     ;;
   *)
     $_terminal &

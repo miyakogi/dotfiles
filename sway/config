@@ -213,8 +213,6 @@ exec autotiling
 #
 
 # Start a terminal which can run without xwayland
-# `footclient` requires foot server. see bottom how to start foot server process.
-# bindsym $mod+Return exec footclient
 bindsym $mod+Return exec launch-foot
 
 # Start terminal chooser
@@ -547,27 +545,6 @@ bar {
 
 ### Start Systemd User Services
 #
-# Import Environment Variables Defined in zshenv to Systemd for Foot Terminal Server
-exec "systemctl --user import-environment XDG_CONFIG_HOME XDG_PICTURES_DIR EDITOR LESS SYSTEMD_LESS MANPAGER OSNAME PROJECT_HOME PATH RUST_SRC RUSTC_WRAPPER GOPATH NVM_DIR npm_config_preifx"
-# Import Environment Variables Defined in zprofile to Systemd for Foot Terminal Server
-exec "systemctl --user import-environment XDG_SESSION_TYPE QT_QPA_PLATFORM QT_QPA_PLATFORMTHEME XMODIFIERS GTK_IM_MODULE QT_IM_MODULE GLFW_IM_MODULE MOZ_ENABLE_WAYLAND XDG_CURRENT_DESKTOP"
-
-# --- Start Foot Terminal Server Service
-# Requires user-level systemd unit file (~/.config/systemd/user/foot-server.service) as below:
-#
-# ```
-# [Unit]
-# Description=Foot Terminal Server
-# ConditionEnvironment=WAYLAND_DISPLAY
-# After=graphical.target
-#
-# [Service]
-# Type=simple
-# ExecStart=/usr/bin/foot --server --log-level=warning
-# ```
-#
-exec "systemctl --user is-active -q foot-server.service || systemctl --user restart foot-server.service"
-
 # --- Update DBus Environment Variables and Start XDG Desktop Portal Service
 exec "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart xdg-desktop-portal-wlr.service"
 
