@@ -188,7 +188,7 @@ function! s:fugitive() abort
     return ''
   endif
 
-  let head = fugitive#head()
+  let head = fugitive#Head()
   if strlen(l:head) > 0
     let head = 'Git:' . head
   endif
