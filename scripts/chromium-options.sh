@@ -34,7 +34,7 @@ flags=(
   --enable-oop-rasterization
 
   # Need to enable HW accelerated video playback (at least currently working on Xorg)
-  --disable-features="UseChromeOSDirectVideoDecoder"
+  #--disable-features="UseChromeOSDirectVideoDecoder"
 
   # Initialize and enable Vulkan support
   # With only this flag, Vulkan compositing and rasterization are not selected/used
@@ -98,6 +98,9 @@ else
     # --- Xorg --- #
     flags+=(
       --enable-features="$features"
+
+      # Need to enable HW accelerated video playback (at least currently working on Xorg)
+      --disable-features="UseChromeOSDirectVideoDecoder"
 
       # EGL works properly on Xorg
       --use-gl=egl
