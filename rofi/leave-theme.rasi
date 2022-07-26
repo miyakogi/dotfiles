@@ -37,7 +37,7 @@ window {
 }
 
 mainbox {
-  padding: 30% 30%;
+  padding: 25% 30%;
 }
 
 inputbar {
