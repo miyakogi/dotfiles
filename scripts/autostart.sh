@@ -56,8 +56,6 @@ case $WM in
     fi
     ;;
   i3)
-    /usr/lib/pam_kwallet_init &
-
     # wallpaper
     feh --bg-scale $(ls $CONFIG_HOME/i3/bg.{jpg,png} 2>/dev/null | head -n 1) &
 

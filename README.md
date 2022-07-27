@@ -156,15 +156,6 @@ Enable systemd services for mpd.
 systemctl --user enable --now mpd.service
 ```
 
-### Kwallet auto unlock
-
-In `/etc/pam.d/login`, add:
-
-```
-auth optional pam_kwallet5.so
-session optional pam_kwallet5.so auto_start force_run
-```
-
 ### Set Wallpaper and Lock Screen Image
 
 Use wallpaper for each WM as below:
