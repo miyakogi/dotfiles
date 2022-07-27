@@ -587,7 +587,8 @@ bar {
 ### Start Systemd User Services
 #
 # --- Update DBus Environment Variables and Start XDG Desktop Portal Service
-exec "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway && systemctl --user restart xdg-desktop-portal-wlr.service"
+# see: https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+exec "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway && systemctl --user restart xdg-desktop-portal.service xdg-desktop-portal-wlr.service"
 
 # --- Start input-remapper auto configurator for mouse buttons
 # Requires `input-remapper` and user-level systemd unit file (~/.config/systemd/user/input-remapper-autoload.service) as below:
