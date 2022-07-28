@@ -482,13 +482,12 @@ assign [class="^Brave-browser$"] workspace $ws13
 assign [app_id="tweetdeck"] workspace $ws14
 assign [instance="tweetdeck"] workspace $ws14
 assign [title="^TweetDeck$"] workspace $ws14
-assign [class="^Min$"] workspace $ws15
-#assign [instance="^spotify$"] workspace $ws16  # Does not work!
-#assign [class="^Spotify$"] workspace $ws16  # Does not work!
-#assign [title="^Spotify$"] workspace $ws16  # Does not work!
-for_window [instance="^spotify$"] move window to workspace $ws16
-for_window [class="^Spotify$"] move window to workspace $ws16
-for_window [title="^Spotify$"] move window to workspace $ws16
+#assign [instance="^spotify$"] workspace $ws15  # Does not work!
+#assign [class="^Spotify$"] workspace $ws15  # Does not work!
+#assign [title="^Spotify$"] workspace $ws15  # Does not work!
+for_window [instance="^spotify$"] move window to workspace $ws15
+for_window [class="^Spotify$"] move window to workspace $ws15
+for_window [title="^Spotify$"] move window to workspace $ws15
 
 # Xeys
 for_window [class="XEyes"] floating enable
