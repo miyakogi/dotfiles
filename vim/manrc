@@ -1,0 +1,32 @@
+" vim: set ft=vim:
+
+set encoding=utf-8
+scriptencoding utf-8
+
+" Search settings
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set history=10000
+set nowrapscan
+
+" forcibly disable cursorline
+autocmd CursorMoved * set nocursorline
+
+" Keybindings
+xnoremap <C-c> "+y
+
+" Disable some unnecesarry plugins
+set laststatus=0
+let g:loaded_lightline = 1
+
+" plugin settings
+function! s:plugin_setting() abort
+  " currently empty
+endfunction
+autocmd VimEnter * call s:plugin_setting()
+
+" set colorscheme
+autocmd VimEnter * colorscheme pencil
+autocmd VimEnter * highlight Normal ctermbg=NONE

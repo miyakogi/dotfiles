@@ -338,6 +338,8 @@ def main() -> None:
         NVIM_HOME = CONFIG_HOME / 'nvim'
     install(HOME / '.vim', NVIM_HOME)
     install(HOME / '.vimrc', NVIM_HOME / 'init.vim')
+    if OS_NAME != 'Windows':
+        install(VIMBASE / 'manrc', NVIM_HOME / 'manrc')
 
     # direnv
     install(BASEDIR / 'direnv', CONFIG_HOME / 'direnv')
