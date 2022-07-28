@@ -23,7 +23,7 @@ on_click = "ff-volume-toggle"
 
 [[block]]
 block = "music"
-player = ["mpd", "spotifyd"]
+player = ["mpd", "spotify", "spotifyd"]
 max_width = 120
 dynamic_width = true
 marquee_interval = 10
