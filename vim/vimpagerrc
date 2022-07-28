@@ -15,6 +15,10 @@ nunmap <C-d>
 set ignorecase
 set smartcase
 
+" Clear highlighting search word -> moved to
+nnoremap <silent> <ESC><ESC> :<C-u>nohl<CR><C-l>
+nnoremap <silent> <C-l> :<C-u>nohl<CR><C-l>
+
 " go to first line at startup
 autocmd VimEnter * :1
 
