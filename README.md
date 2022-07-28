@@ -47,7 +47,6 @@ These applications should be all installed.
 - foot
 - mako (currently not in use)
 - waybar (currently not in use)
-- swappy
 
 ## Required Applications (not listed above)
 
@@ -116,6 +115,7 @@ These applications should be all installed.
 - bemenu-wayland
 - grim
 - slurp
+- swappy
 - gammastep
 - wl-clipboard
 - wl-clipboard-x11
