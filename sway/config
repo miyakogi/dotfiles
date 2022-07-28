@@ -207,6 +207,9 @@ exec dunst
 # autotiling
 exec autotiling
 
+# start thunar daemon
+exec env GDK_DPI_SCALE=2.0 thunar --daemon
+
 ### Key bindings
 #
 # Basics:
