@@ -24,7 +24,6 @@ abbr --add --global pyunit "python -m unittest discover"
 # vim/nvim
 if type -q nvim
   abbr --add --global vim nvim
-  set -x EDITOR nvim
 end
 
 # ls -> lsd/exa

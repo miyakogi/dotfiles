@@ -6,12 +6,8 @@
 # Set default environment variables
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_PICTURES_DIR=$HOME/Pictures
-export EDITOR=vim
 export LESS="-iFRS"
 export SYSTEMD_LESS="iFRSM"
-if type vimpager &>/dev/null; then
-  export MANPAGER=vimpager
-fi
 
 # OS setting
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -99,6 +95,16 @@ export npm_config_prefix=~/.node_modules
 
 # user local scripts
 add_path $HOME/bin
+
+# set default programs
+if type nvim &>/dev/null; then
+  export EDITOR=nvim
+else
+  export EDITOR=vim
+  if type vimpager &>/dev/null; then
+    export MANPAGER=vimpager
+  fi
+fi
 
 # load machine local profile
 [[ -f $ZDOTDIR/.zshenv.local ]] && source $ZDOTDIR/.zshenv.local
