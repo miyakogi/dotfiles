@@ -35,9 +35,27 @@ noremap L $
 " Keybindings
 xnoremap <C-c> "+y
 
-" Disable some unnecesarry plugins
+" === Misc ===
+" Disable unnecesarry plugins
 set laststatus=0
 let g:loaded_lightline = 1
+let g:loaded_denite = 1
+let g:loaded_defx = 1
+let g:loaded_signify = 1
+" let g:loaded_anzu = 1
+" let g:loaded_vidualstar = 1
+let g:loaded_deoplete = 1
+let g:loaded_neosnippet = 1
+let g:loaded_tcomment = 1
+let g:loaded_ale = 1
+let g:loaded_quickrun = 1
+let g:loaded_test = 1
+let g:loaded_cursorword = 1
+let g:loaded_conoline = 1
+let g:loaded_sidepanel = 1
+let g:loaded_conoline = 1
+let g:loaded_conoline = 1
+
 
 " forcibly disable cursorline
 autocmd CursorMoved * set nocursorline
