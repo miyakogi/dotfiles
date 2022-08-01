@@ -32,7 +32,7 @@ xnoremap <silent> gk k
 noremap H ^
 noremap L $
 
-" Keybindings
+" copy char till end of the line
 xnoremap <C-c> "+y
 
 " === Misc ===
@@ -69,3 +69,4 @@ autocmd VimEnter * call s:plugin_setting()
 " set colorscheme
 autocmd VimEnter * colorscheme pencil
 autocmd VimEnter * highlight Normal ctermbg=NONE
+autocmd VimEnter * highlight Search ctermbg=3 ctermfg=0
