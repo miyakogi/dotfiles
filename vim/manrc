@@ -3,7 +3,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-" Search settings
+" === Search settings ===
 set ignorecase
 set smartcase
 set incsearch
@@ -11,8 +11,26 @@ set hlsearch
 set history=10000
 set nowrapscan
 
-" forcibly disable cursorline
-autocmd CursorMoved * set nocursorline
+" === Keybindings ===
+" Move to wrap end/start of lines by h,l
+nnoremap h <Left>
+nnoremap l <Right>
+xnoremap h <Left>
+xnoremap l <Right>
+
+" Down and Up with display-lines
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+xnoremap <silent> j gj
+xnoremap <silent> k gk
+nnoremap <silent> gj j
+nnoremap <silent> gk k
+xnoremap <silent> gj j
+xnoremap <silent> gk k
+
+" Move to start/end of lines
+noremap H ^
+noremap L $
 
 " Keybindings
 xnoremap <C-c> "+y
@@ -20,6 +38,9 @@ xnoremap <C-c> "+y
 " Disable some unnecesarry plugins
 set laststatus=0
 let g:loaded_lightline = 1
+
+" forcibly disable cursorline
+autocmd CursorMoved * set nocursorline
 
 " plugin settings
 function! s:plugin_setting() abort
