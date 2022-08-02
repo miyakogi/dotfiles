@@ -80,8 +80,9 @@ else
   #features="$features,Vulkan"
 
   flags+=(
-    # native gpu memory buffers are disabled on Xorg/Xwayland by default
-    --enable-native-gpu-memory-buffers
+    # Native gpu memory buffers are disabled on Xorg/Xwayland by default
+    # -> this breaks flatpak version (v103)
+    #--enable-native-gpu-memory-buffers
   )
 
   if [[ $session == "wayland" ]]; then
@@ -90,9 +91,10 @@ else
       --enable-features="$features"
 
       # EGL renders in low FPS (10~20fps)
-      #--use-gl=desktop
+      --use-gl=desktop
       # -> fixed by mesa's MR !15381 (not merged into main yet)
-      --use-gl=egl
+      # -> in flatpak, can't use system mesa, so this MR is not included
+      #--use-gl=egl
     )
   else
     # --- Xorg --- #
