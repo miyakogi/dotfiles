@@ -26,17 +26,12 @@ if type -q nvim
   abbr --add --global vim nvim
 end
 
-# ls -> lsd/exa
+# ls -> lsd
 if type -q lsd; and test -n "$DISPLAY"
   abbr --add --global ls "lsd"
   abbr --add --global lsa "lsd --all"
   abbr --add --global lsl "lsd --long"
   abbr --add --global tree "lsd --tree"
-else if type -q exa; and test -n "$DISPLAY"
-  abbr --add --global ls "exa --icons"
-  abbr --add --global lsa "exa --icons --all"
-  abbr --add --global lsl "exa --icons --long"
-  abbr --add --global tree "exa --icons --tree"
 else
   abbr --add --global ls "ls -v --color --group-directories-first"
   abbr --add --global lsa "ls -v --color --group-directories-first --all"

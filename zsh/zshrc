@@ -128,16 +128,11 @@ __check_cmd() {
 }
 
 # alias for `ls` command
-if __check_cmd exa; then
-  if [[ -n $DISPLAY ]]; then
-    alias ls="exa --icons"
-    alias lsa="exa --icons -a"
-  else
-    alias ls="exa"
-    alias lsa="exa -a"
-  fi
-elif __check_cmd lsd && [[ -n $DISPLAY ]]; then
+if __check_cmd lsd && [ -n "$DISPLAY" ]; then
   alias ls="lsd"
+  alias lsa="lsd --all"
+  alias lsl "lsd --long"
+  alias tree "lsd --tree"
 else
   case "${OSTYPE}" in
   # Mac(Unix)
@@ -151,7 +146,9 @@ else
     export LS_OPTIONS='--color=auto' ;;
   esac
   [[ -f ~/.dircolors ]] && eval "$(dircolors ~/.dircolors)"
-  alias ls="ls $LS_OPTIONS"
+  alias ls="ls -v --color --group-directories-first $LS_OPTIONS"
+  alias lsa="ls -v --color --group-directories-first --all $LS_OPTIONS"
+  alias lsl="ls -v --color --group-directories-first -hl $LS_OPTIONS"
 fi
 
 # Colorize man page

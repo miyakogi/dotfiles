@@ -77,7 +77,7 @@ These applications should be all installed.
 #### Optional
 
 - skim
-- lsd/exa (`ls` alternatives)
+- lsd (`ls` alternatives)
 - bat (`cat` alternative)
 - vimpager (`less` alternative, used for man page)
 - starship (prompt generator)

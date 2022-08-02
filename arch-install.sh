@@ -126,7 +126,6 @@ packages=(
   direnv  # directory based env setting
   python-poetry  # python virtualenv/package manager
   lsd  # ls alternative
-  exa  # ls alternative
   bat  # cat alternative
   skim  # fuzzy searcher written in rust
   pkgfile  # faster fish command failure support
