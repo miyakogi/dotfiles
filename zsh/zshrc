@@ -287,6 +287,15 @@ if __check_cmd fzf && [[ $OSTYPE != msys ]]; then
     [[ -n "$destination" ]] && BUFFER="cd \"$destination\"" && zle accept-line
     zle reset-prompt
   }
+
+  f() {
+    local target=$(fzf) || return 0
+    if [ -f "$target" ]; then
+      "$EDITOR" "$target"
+    elif [ -d "$target" ]; then
+      cd "$target"
+    fi
+  }
 else
   # if fzf is not available, use zaw and cdr
   # very slow...

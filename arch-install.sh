@@ -128,6 +128,7 @@ packages=(
   lsd  # ls alternative
   bat  # cat alternative
   fzf  # fuzzy searcher
+  fd  # find alternative written by rust
   pkgfile  # faster fish command failure support
   jq  # used in some scripts
 )
