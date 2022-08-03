@@ -93,12 +93,10 @@ zstyle ':zle:*' word-chars " -/=;@:[]{}()<>,|.'"
 zstyle ':zle:*' word-style unspecified
 
 ########## ALIAS ##########
-if [[ "$XDG_SESSION_TYPE" == wayland ]]; then
-  # vim's clipboard does not work on wayland
+if type nvim &>/dev/null; then
   alias vim=nvim
-  export EDITOR=nvim
+  alias vi="/usr/bin/nvim --noplugin"
 fi
-alias vi="/usr/bin/vim --noplugin"
 alias :q="exit"
 alias mkdir="mkdir -p"
 alias ln="ln -v"  # verbose

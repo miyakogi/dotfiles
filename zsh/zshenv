@@ -100,11 +100,6 @@ add_path $HOME/bin
 if type nvim &>/dev/null; then
   export EDITOR=nvim
   export MANPAGER="nvim +Man! -u ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/manrc"
-else
-  export EDITOR=vim
-  if type vimpager &>/dev/null; then
-    export MANPAGER=vimpager
-  fi
 fi
 
 # load machine local profile

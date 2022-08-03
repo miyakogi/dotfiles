@@ -12,9 +12,6 @@ abbr --add --global tmux "env TERM=xterm-256color tmux -2"
 # ln -v
 abbr --add --global ln "ln -v -s"
 
-# vi
-abbr --add --global vi "vim --noplugin"
-
 # git
 abbr --add --global gstatus "git status -s -b"
 
@@ -24,6 +21,7 @@ abbr --add --global pyunit "python -m unittest discover"
 # vim/nvim
 if type -q nvim
   abbr --add --global vim nvim
+  abbr --add --global vi "nvim --noplugin"
 end
 
 # ls -> lsd

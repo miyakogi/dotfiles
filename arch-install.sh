@@ -45,8 +45,8 @@ packages=(
   kitty
   foot
   tmux
-  gvim  # normal vim packages does not support clipboard
-  neovim-git
+  #gvim  # normal vim packages does not support clipboard
+  neovim
   python-pynvim  # neovim support package
   ctags
   i3-gaps  # gap-supported version
