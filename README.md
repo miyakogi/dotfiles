@@ -76,7 +76,7 @@ These applications should be all installed.
 
 #### Optional
 
-- skim
+- fzf
 - lsd (`ls` alternatives)
 - bat (`cat` alternative)
 - vimpager (`less` alternative, used for man page)

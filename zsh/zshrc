@@ -259,9 +259,10 @@ pip-init() {
   fi
 }
 
-### skim
-export SKIM_DEFAULT_COMMAND="fd --type f || git ls-tree -r --name-only HEAD || rg --files || find ."
-if __check_cmd sk && [[ $OSTYPE != msys ]]; then
+### FZF
+export FZF_DEFAULT_COMMAND="fd || find ."
+export FZF_DEFAULT_OPTS="--exact"
+if __check_cmd fzf && [[ $OSTYPE != msys ]]; then
   export HIST_DIRS_FILE=$HOME/.histdir
   export HIST_DIRS_MAX=1000
   cdhist() {
@@ -271,7 +272,7 @@ if __check_cmd sk && [[ $OSTYPE != msys ]]; then
   }
   add-zsh-hook chpwd cdhist
 
-  local cmd='sk --tac --no-sort --reverse --exact --tiebreak index --prompt "skim>" --margin 2% --query "$BUFFER"'
+  local cmd='fzf --tac --no-sort --reverse --exact --tiebreak index --prompt "fzf> " --margin 2% --query "$BUFFER"'
 
   search-history() {
     BUFFER=$(history -n 1 | eval ${cmd})
@@ -287,7 +288,7 @@ if __check_cmd sk && [[ $OSTYPE != msys ]]; then
     zle reset-prompt
   }
 else
-  # if skim is not available, use zaw and cdr
+  # if fzf is not available, use zaw and cdr
   # very slow...
   # http://yagays.github.io/blog/2013/05/20/zaw-zsh/
   # Save cd history

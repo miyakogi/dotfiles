@@ -127,7 +127,7 @@ packages=(
   python-poetry  # python virtualenv/package manager
   lsd  # ls alternative
   bat  # cat alternative
-  skim  # fuzzy searcher written in rust
+  fzf  # fuzzy searcher
   pkgfile  # faster fish command failure support
   jq  # used in some scripts
 )

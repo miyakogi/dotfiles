@@ -5,7 +5,7 @@ function myjump
     commandline -b "cd \"$destination\""
     commandline -f execute
   else
-    echo -e "Install `skim` to use jump dir shortcut\n\n"
+    echo -e "Install `fzf` to use jump dir shortcut\n\n"
     commandline -f repaint
   end
 end
