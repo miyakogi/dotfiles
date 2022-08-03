@@ -36,7 +36,7 @@ fi
 export XDG_SESSION_TYPE=x11
 
 # set qt theme
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=kvantum
 
 # set input method
 export XMODIFIERS=@im=fcitx
