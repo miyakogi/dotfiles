@@ -4,10 +4,7 @@
 # list terminals
 #
 terminals=(
-  alacritty
   kitty
-  konsole
-  urxvt
   xterm
 )
 
