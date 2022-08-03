@@ -15,7 +15,7 @@ fi
 # -> after updating BIOS(?) it takes long time (~2min) to reach graphical.target
 #    so ignore graphical-target (remove `systemctl -q is-active graphical.target` check)
 if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SESSION_TYPE" == tty ) && "$OSNAME" == "Arch" ]]; then
-  echo -n "Select Window Manager or Shell  [bash, fish, sway, zsh] [default: sway]:\n>>> "
+  echo -n "Select Window Manager or Shell  [sway, bash, fish, zsh] [default: sway]:\n>>> "
   read wm
 
   # set default wm as sway
