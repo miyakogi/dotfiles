@@ -542,7 +542,7 @@ bar {
     id main
     output DP-1
 
-    font pango:Symbols Nerd Font, Sarasa Term J 21.5
+    font pango:Symbols Nerd Font, Sarasa Term J 24
     height 48
     position top
     status_command i3status-rs $HOME/.config/i3status-rust/main.toml
@@ -550,7 +550,7 @@ bar {
     strip_workspace_numbers yes
 
     tray {
-        #tray_output none
+        tray_padding 0
         icon_theme Adwaita
     }
 
