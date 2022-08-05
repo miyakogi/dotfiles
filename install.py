@@ -160,6 +160,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'launch-terminal.sh', BINDIR / 'launch-terminal')
     install(SCRIPTSDIR / 'launch-foot.sh', BINDIR / 'launch-foot')
     install(SCRIPTSDIR / 'launch-menu.sh', BINDIR / 'launch-menu')
+    install(SCRIPTSDIR / 'leave.sh', BINDIR / 'leave')
     install(SCRIPTSDIR / 'scratchterm-tmux.sh', BINDIR / 'scratchterm-tmux')
     install(SCRIPTSDIR / 'lock-screen.sh', BINDIR / 'lock-screen')
     install(SCRIPTSDIR / 'chromium-launcher.sh', BINDIR / 'chromium-launcher')
@@ -233,7 +234,6 @@ def install_linux() -> None:
     install(ROFISRC / 'menu-theme-gaps.rasi', ROFIDEST / 'menu-theme-gaps.rasi')  # noqa
     install(ROFISRC / 'leave-theme.rasi', ROFIDEST / 'leave-theme.rasi')
     install(ROFISRC / 'calendar-theme.rasi', ROFIDEST / 'calendar-theme.rasi')
-    install(ROFISRC / 'leave.sh', ROFIDEST / 'leave.sh')
 
     ###########
     # Wayland #

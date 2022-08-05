@@ -50,7 +50,8 @@ wlock() {
     --font="$font"
 }
 
-WM=$(wmctrl -m | grep "Name: " | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
+#WM=$(wmctrl -m | grep "Name: " | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
+WM="wlroots wm"
 y=1000
 
 font='Raleway'
