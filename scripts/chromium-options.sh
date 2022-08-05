@@ -64,6 +64,10 @@ if [[ $1 == "wayland" ]]; then
   flags+=(
     --enable-features="$features"
 
+    # Native gpu memory buffers are enabled on wayland by default,
+    # bu this flag enables some more gpu memory access
+    --enable-native-gpu-memory-buffers
+
     # Enable native Wayland support
     --ozone-platform-hint=wayland
     --ozone-platform=wayland
@@ -93,8 +97,11 @@ else
       # EGL renders in low FPS (10~20fps)
       --use-gl=desktop
       # -> fixed by mesa's MR !15381 (not merged into main yet)
-      # -> in flatpak, can't use system mesa, so this MR is not included
+      # -> on flatpak version, can't use system mesa, so this MR is not included
       #--use-gl=egl
+
+      # Windowing by GTK4
+      --gtk-version=4
     )
   else
     # --- Xorg --- #
