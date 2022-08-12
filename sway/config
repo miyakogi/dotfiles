@@ -4,6 +4,17 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+### Start Systemd User Services
+#
+# --- Update DBus Environment Variables and Start XDG Desktop Portal Service
+# see: https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+exec "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway && systemctl --user restart xdg-desktop-portal.service xdg-desktop-portal-wlr.service"
+
+# Trigger user-graphical-session and sway-graphical-session targets
+# -> autostart services on graphical session
+exec "systemctl --user start user-graphical-session.target"
+exec "systemctl --user start sway-graphical-session.target"
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -130,31 +141,6 @@ client.focused           $magenta2 $magenta2 $background $magenta $magenta2
 client.unfocused         $cyan2    $cyan2    $background $cyan    $cyan2
 client.focused_inactive  $cyan2    $cyan2    $background $cyan    $cyan2
 
-### Gaps
-# gaps inner 4
-# gaps outer -4
-
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-# exec swayidle -w \
-#         timeout 480 'lock-screen' \
-#         timeout 600 'swaymsg "output * power off"' \
-#         resume 'swaymsg "output * power on"' \
-#         before-sleep 'lock-screen'
-exec swayidle -w \
-        timeout 600 'lock-screen' \
-        timeout 900 'systemctl suspend'
-
 ### Input configuration
 #
 # Example configuration:
@@ -189,26 +175,6 @@ input type:pointer {
 
 # set cursor theme
 seat seat0 xcursor_theme default
-
-### Autostart Apps
-# Input Method
-# exec fcitx-autostart
-exec_always --no-startup-id "pgrep fcitx5 || fcitx5 -d &"
-
-# notification manager
-exec dunst
-
-# bar
-# exec_always --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/waybar/launch.sh &"
-
-# redshift alternative
-exec_always --no-startup-id "pgrep gammastep || gammastep -l ${LATITUDE}:${LONGITUDE} -t 6200:5200 &"
-
-# autotiling
-exec autotiling
-
-# start thunar daemon
-exec env GDK_DPI_SCALE=2.0 thunar --daemon
 
 ### Key bindings
 #
@@ -591,32 +557,6 @@ bar {
         binding_mode $red $red $black
     }
 }
-
-### Start Systemd User Services
-#
-# --- Update DBus Environment Variables and Start XDG Desktop Portal Service
-# see: https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
-exec "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway && systemctl --user restart xdg-desktop-portal.service xdg-desktop-portal-wlr.service"
-
-# --- Start input-remapper auto configurator for mouse buttons
-# Requires `input-remapper` and user-level systemd unit file (~/.config/systemd/user/input-remapper-autoload.service) as below:
-#
-# ```
-# [Unit]
-# Description=Autoload Input Remapper Settings
-# Requires=graphical-session.target
-# After=graphical-session.target dbus.service input-remapper.service
-#
-# [Service]
-# Type=oneshot
-# ExecStart=/usr/bin/input-remapper-control --command autoload
-# RemainAfterExit=yes
-#
-# [Install]
-# WantedBy=graphical-session.target
-# ```
-#
-exec "systemctl --user -q is-active input-remapper-autoload.service || systemctl --user start input-remapper-autoload.service"
 
 # import other files
 include /etc/sway/config.d/*

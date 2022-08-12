@@ -1,0 +1,10 @@
+[Unit]
+Description=Imput Method Daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/autotiling
+Restart=on-failure
+
+[Install]
+WantedBy=sway-graphical-session.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Imput Method Daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/gammastep -l ${LATITUDE}:${LONGITUDE} -t 6200:5200
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=sway-graphical-session.target

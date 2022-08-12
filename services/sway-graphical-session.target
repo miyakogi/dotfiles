@@ -1,0 +1,5 @@
+[Unit]
+Description=User Graphical Session
+Requires=graphical-session.target
+After=graphical-session.target
+#AllowIsolate=yes

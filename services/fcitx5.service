@@ -1,0 +1,11 @@
+[Unit]
+Description=Imput Method Daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/fcitx5
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=user-graphical-session.target

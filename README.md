@@ -150,11 +150,13 @@ Disable display managers (e.g. SDDM or GDM) if enabled.
 
 ### Enable Systemd User Services
 
-Enable systemd services for mpd.
+Enable systemd services for graphical session.
 
 ```sh
-systemctl --user enable --now mpd.service
+systemctl --user enable autotiling.service dunst-notification.service fcitx5.service gammastep.service sway-idle.service
 ```
+
+Then logout/login or reboot.
 
 ### Set Wallpaper and Lock Screen Image
 

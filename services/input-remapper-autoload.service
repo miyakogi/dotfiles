@@ -1,0 +1,11 @@
+[Unit]
+Description=Autoload Input Remapper Settings
+After=dbus.service input-remapper.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/input-remapper-control --command autoload
+RemainAfterExit=yes
+
+[Install]
+WantedBy=user-graphical-session.target

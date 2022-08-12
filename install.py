@@ -256,6 +256,30 @@ def install_linux() -> None:
     # swappy
     install(BASEDIR / 'swappy' / 'config', CONFIG_HOME / 'swappy' / 'config')
 
+    ####################
+    # Systemd Services #
+    ####################
+    SERVICE_DIR = BASEDIR / 'services'
+    TARGET_DIR = CONFIG_HOME / 'systemd' / 'user'
+    mkdir(TARGET_DIR)
+
+    def install_service(service: str) -> None:
+        install(SERVICE_DIR / service, TARGET_DIR / service)
+
+    # Install targets
+    install_service('user-graphical-session.target')
+    install_service('sway-graphical-session.target')
+
+    # WM/DE independent
+    install_service('fcitx5.service')
+    install_service('input-remapper-autoload.service')
+
+    # for Sway
+    install_service('autotiling.service')
+    install_service('gammastep.service')
+    install_service('swayidle.service')
+    install_service('dunst-notification.service')
+
 
 def main() -> None:
     # Make empty directories

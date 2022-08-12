@@ -1,0 +1,10 @@
+[Unit]
+Description=Imput Method Daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/swayidle -w timeout 600 'lock-screen' timeout 900 'systemctl suspend'
+Restart=on-failure
+
+[Install]
+WantedBy=sway-graphical-session.target
