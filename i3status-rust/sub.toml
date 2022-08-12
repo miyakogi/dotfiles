@@ -14,6 +14,7 @@ json = true
 interval = 0.5
 on_click = "mic-mute-toggle"
 [block.theme_overrides]
+idle_fg = "#999999"
 info_fg = "#ed254e"
 
 [[block]]
