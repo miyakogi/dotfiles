@@ -6,14 +6,15 @@ name = "material-nf"
 [icons.overrides]
 time = ""
 
-# [[block]]
-# # empty block just to show left-side separator
-# block = "custom"
-# command = "echo ''"
-# interval = "once"
-# [block.theme_overrides]
-# # transparent foreground
-# idle_fg = "#0000000"
+[[block]]
+block = "custom"
+json = true
+command = "sway-idle-watch"
+interval = 1
+on_click = "sway-idle-toggle"
+[block.theme_overrides]
+idle_fg = "#7c7c7c"
+info_fg = "#ed254e"
 
 [[block]]
 block = "custom"
@@ -23,14 +24,13 @@ on_click = "ff-volume-toggle"
 
 [[block]]
 block = "music"
-player = ["mpd", "spotify", "spotifyd"]
+player = ["spotify"]
 max_width = 120
 dynamic_width = true
 marquee_interval = 10
 marquee_speed = 0.5
 buttons = ["prev", "play", "next"]
 hide_when_empty = false
-#on_click = "if [ $(mpc status %state%) = 'playing' ]; then mpc stop; else mpc play; fi"
 format = ' {player}: {combo} '
 [block.theme_overrides]
 info_fg = "#c74ded"

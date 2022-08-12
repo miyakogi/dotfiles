@@ -172,6 +172,8 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'ff-volume-toggle.sh', BINDIR / 'ff-volume-toggle')
     install(SCRIPTSDIR / 'mic-mute-watch.sh', BINDIR / 'mic-mute-watch')
     install(SCRIPTSDIR / 'mic-mute-toggle.sh', BINDIR / 'mic-mute-toggle')
+    install(SCRIPTSDIR / 'sway-idle-watch.sh', BINDIR / 'sway-idle-watch')
+    install(SCRIPTSDIR / 'sway-idle-toggle.sh', BINDIR / 'sway-idle-toggle')
 
     # i3 window manager
     I3SRC = BASEDIR / 'i3'
