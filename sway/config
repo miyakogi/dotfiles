@@ -174,7 +174,7 @@ input type:pointer {
 }
 
 # set cursor theme
-seat seat0 xcursor_theme default
+seat seat0 xcursor_theme default 48
 
 ### Key bindings
 #
