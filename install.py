@@ -121,9 +121,6 @@ def make_empty_directories() -> None:
     mkdir(PICTURES_DIR / 'screenshots' / 'swappy')
 
 
-def install_linux() -> None:
-
-
 def main() -> None:
     # Make empty directories
     make_empty_directories()
@@ -154,13 +151,13 @@ def main() -> None:
     install(BASEDIR / 'git' / 'bin' / 'git-workflow', BINDIR / 'git-workflow')
 
     # rust/cargo
-    install(BASEDIR / 'cargo.toml', HOME / '.cargo' / 'config')
+    install(BASEDIR / 'cargo' / 'config', HOME / '.cargo' / 'config')
 
     # pip (pip's --no-binary option for some packages on linux)
-    install(BASEDIR / 'pip.conf', CONFIG_HOME / 'pip' / 'pip.conf')
+    install(BASEDIR / 'pip', CONFIG_HOME / 'pip')
 
     # tmux
-    install(BASEDIR / 'tmux.conf', HOME / '.tmux.conf')
+    install(BASEDIR / 'tmux' / 'tmux.conf', HOME / '.tmux.conf')
 
     # vim
     VIMBASE = BASEDIR / 'vim'
@@ -227,11 +224,10 @@ def main() -> None:
     install(BASEDIR / 'sway' / 'config', CONFIG_HOME / 'sway' / 'config')
 
     # alacritty terminal
-    ALACRITTY_CONFIG = CONFIG_HOME / 'alacritty'
-    install(BASEDIR / 'alacritty.yml', ALACRITTY_CONFIG / 'alacritty.yml')
+    install(BASEDIR / 'alacritty', CONFIG_HOME / 'alacritty')
 
     # kitty terminal
-    install(BASEDIR / 'kitty.conf', CONFIG_HOME / 'kitty' / 'kitty.conf')
+    install(BASEDIR / 'kitty', CONFIG_HOME / 'kitty')
 
     # foot terminal emulator for wayland
     install(BASEDIR / 'foot' / 'foot.ini', CONFIG_HOME / 'foot' / 'foot.ini')
