@@ -4,26 +4,18 @@
 # list terminals
 #
 terminals=(
+  foot
+  alacritty
   kitty
-  xterm
 )
 
 if type st &>/dev/null; then
-  terminals=(st ${terminals[@]})
-fi
-
-if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
-  terminals=(foot ${terminals[@]})
+  terminals=(${terminals[@]} st)
 fi
 
 list_terminals() {
   for t in ${terminals[@]}; do
-    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-      # wrap by spaces for bemenu
-      echo " $t "
-    else
-      echo $t
-    fi
+    echo " $t "
   done
 }
 
@@ -59,22 +51,7 @@ bemenu_cmd=(
   --sf "$black"  # selected foreground color
 )
 
-# set dmenu command options
-dmenu_cmd=(
-  dmenu
-  -p "$prompt"  # prompt
-  -fn "Fira Code:Regular:pixelsize=20"  # font
-  -nb "$black"  # normal background color
-  -nf "$white"  # normal foreground color
-  -sb "$cyan"   # selected background color
-  -sf "$black"  # selected foreground color
-)
-
-if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
-  cmd=("${bemenu_cmd[@]}")
-else
-  cmd=("${dmenu_cmd[@]}")
-fi
+cmd=("${bemenu_cmd[@]}")
 
 #####################
 # Execute
@@ -85,7 +62,7 @@ _terminal=$( list_terminals | "${cmd[@]}" | tr -d '[:space:]' )
 
 # modify some terminal command and launch
 case $_terminal in
-  st|xterm|urxvt)
+  st)
     $_terminal -e fish &
     ;;
   foot)
@@ -95,9 +72,3 @@ case $_terminal in
     $_terminal &
     ;;
 esac
-
-# send Muhenkan key if on Xorg
-if [[ $XDG_SESSION_TYPE != "wayland" ]]; then
-  sleep 0.3
-  xdotool key Muhenkan
-fi

@@ -40,7 +40,7 @@ packages=(
   fish
 
   # terminals
-  xterm
+  alacritty
   kitty
   foot
   tmux
@@ -49,7 +49,6 @@ packages=(
   git
   neovim
   python-pynvim  # neovim support package
-  locale  # need to run xterm with utf8 mode
   ctags
   ccache
   mold  # modern linker for clang, gcc, and rust
