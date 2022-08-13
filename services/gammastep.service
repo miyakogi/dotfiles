@@ -1,9 +1,10 @@
 [Unit]
 Description=Display Hue Shifter
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/gammastep -l ${LATITUDE}:${LONGITUDE} -t 6200:5200
+ExecStart=/usr/bin/gammastep -l "${LATITUDE}:${LONGITUDE}" -t "6200:5200"
 Restart=on-failure
 RestartSec=3
 

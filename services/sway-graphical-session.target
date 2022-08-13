@@ -1,5 +1,6 @@
 [Unit]
-Description=User Graphical Session
-Requires=graphical-session.target
-After=graphical-session.target
-#AllowIsolate=yes
+Description=Sway Graphical Session
+Documentation=man:systemd.special(7)
+BindsTo=graphical-session.target
+Wants=graphical-session-pre.target
+After=graphical-session-pre.target

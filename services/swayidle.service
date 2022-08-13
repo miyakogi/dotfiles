@@ -1,5 +1,6 @@
 [Unit]
 Description=Idle/Sleep Control
+PartOf=graphical-session.target
 
 [Service]
 Type=simple

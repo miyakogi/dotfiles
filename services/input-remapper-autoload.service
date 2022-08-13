@@ -1,6 +1,7 @@
 [Unit]
 Description=Autoload Input Remapper Settings
 After=dbus.service input-remapper.service
+PartOf=graphical-session.target
 
 [Service]
 Type=oneshot

@@ -1,5 +1,6 @@
 [Unit]
 Description=Input Method Daemon
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
