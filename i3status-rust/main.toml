@@ -5,6 +5,7 @@ name = "native"
 name = "material-nf"
 [icons.overrides]
 time = ""
+music = "  "
 
 [[block]]
 block = "custom"
@@ -31,7 +32,7 @@ marquee_interval = 10
 marquee_speed = 0.5
 buttons = ["prev", "play", "next"]
 hide_when_empty = false
-format = ' {player}: {combo} '
+format = '{combo} '
 [block.theme_overrides]
 info_fg = "#c74ded"
 
