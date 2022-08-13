@@ -161,6 +161,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'launch-foot.sh', BINDIR / 'launch-foot')
     install(SCRIPTSDIR / 'launch-menu.sh', BINDIR / 'launch-menu')
     install(SCRIPTSDIR / 'leave.sh', BINDIR / 'leave')
+    install(SCRIPTSDIR / 'sway-scratchterm.py', BINDIR / 'sway-scratchterm')
     install(SCRIPTSDIR / 'scratchterm-tmux.sh', BINDIR / 'scratchterm-tmux')
     install(SCRIPTSDIR / 'lock-screen.sh', BINDIR / 'lock-screen')
     install(SCRIPTSDIR / 'chromium-launcher.sh', BINDIR / 'chromium-launcher')
@@ -174,13 +175,12 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'mic-mute-toggle.sh', BINDIR / 'mic-mute-toggle')
     install(SCRIPTSDIR / 'sway-idle-watch.sh', BINDIR / 'sway-idle-watch')
     install(SCRIPTSDIR / 'sway-idle-toggle.sh', BINDIR / 'sway-idle-toggle')
+    install(SCRIPTSDIR / 'sway-addws.py', BINDIR / 'sway-addws')
 
     # i3 window manager
     I3SRC = BASEDIR / 'i3'
     I3DEST = CONFIG_HOME / 'i3'
     install(I3SRC / 'config', I3DEST / 'config')
-    install(I3SRC / 'scratchterm.py', I3DEST / 'scratchterm.py')
-    install(I3SRC / 'addws.py', I3DEST / 'addws.py')
     install(I3SRC / 'layout.py', I3DEST / 'layout.py')
     install(
         BASEDIR / 'i3status-rust' / 'main.toml',

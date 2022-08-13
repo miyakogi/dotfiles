@@ -220,7 +220,7 @@ bindsym Shift+Print exec _grim_file="${XDG_PICTURES_DIR:-$HOME/Pictures}/screens
 bindsym Control+Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
 
 # Scratchpad terminal (alacritty with tmux)
-bindcode 68 exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/scratchterm.py"
+bindcode 68 exec --no-startup-id sway-scratchterm
 assign [app_id="scratchterm"] output DP-2
 for_window [app_id="scratchterm"] floating enable
 for_window [app_id="scratchterm"] sticky enable
@@ -338,10 +338,10 @@ bindsym $mod+Left focus output left
 bindsym $mod+Right focus output right
 
 # Add new workspace
-bindsym $mod+a exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
-bindsym $mod+backslash exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
-bindsym Control+$mod+Down exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
-bindsym Control+$mod+Up exec --no-startup-id "${XDG_CONFIG_HOME:-$HOME/.config}/i3/addws.py"
+bindsym $mod+a exec --no-startup-id sway-addws
+bindsym $mod+backslash exec --no-startup-id sway-addws
+bindsym Control+$mod+Down exec --no-startup-id sway-addws
+bindsym Control+$mod+Up exec --no-startup-id sway-addws
 
 # Move focused container to workspace
 bindsym Shift+$mod+1 move container to workspace $ws1
