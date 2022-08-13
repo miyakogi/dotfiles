@@ -176,6 +176,7 @@ def install_linux() -> None:
     install(SCRIPTSDIR / 'sway-idle-watch.sh', BINDIR / 'sway-idle-watch')
     install(SCRIPTSDIR / 'sway-idle-toggle.sh', BINDIR / 'sway-idle-toggle')
     install(SCRIPTSDIR / 'sway-addws.py', BINDIR / 'sway-addws')
+    install(SCRIPTSDIR / 'vimpack.py', BINDIR / 'vimpack')
 
     # i3 window manager
     I3SRC = BASEDIR / 'i3'
@@ -334,7 +335,6 @@ def main() -> None:
     install(VIMBASE / 'vimrc', HOME / '.vimrc')
     install(VIMBASE / 'pack.ini', VIMDOTDIR / 'pack' / 'remote' / 'pack.ini')
     install(VIMBASE / 'rgb.txt', VIMDOTDIR / 'rgb.txt')
-    install(VIMBASE / 'vimpack.py', BINDIR / 'vimpack')
     install(VIMBASE / 'after', VIMDOTDIR / 'after')
     install(VIMBASE / 'autoload', VIMDOTDIR / 'autoload')
     install(VIMBASE / 'colors', VIMDOTDIR / 'colors')
