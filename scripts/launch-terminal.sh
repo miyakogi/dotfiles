@@ -34,11 +34,18 @@ blue="#7cb7ff"
 magenta="#c74ded"
 cyan="#00c1e1"
 
+# set dispaly specific options
+if [[ $(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name') == '"DP-1"' ]]; then
+  font="Fira Code 28"
+else
+  font="Fira Code 16.5"
+fi
+
 # set bemenu command options
 bemenu_cmd=(
   bemenu
   --prompt "$prompt"  # prompt
-  --fn "Fira Code 15"  # font
+  --fn "$font"  # font
   --tb "$cyan"   # title background color
   --tf "$black"  # title foreground color
   --fb "$black"  # filter background color
