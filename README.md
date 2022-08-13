@@ -15,38 +15,30 @@ These applications should be all installed.
 - zsh
 - fish
 - git
-- (g)vim/neovim
+- neovim
 - tmux
 - ctags
-- mpd
-- cava
 - cargo (rustup + sccache)
 - pip
 
-### Desktop
+### Terminal
 
 - alacritty
 - kitty
-- dunst
+- foot
 
-#### Xorg
-
-- i3-gaps
-- bspwm
-- sxhkd
-- picom
-- rofi
-- polybar
-- conky (currently not in use)
-- xterm
-- urxvt (rxvt-unicord)
-
-#### Wayland
+### Desktop
 
 - sway
-- foot
-- mako (currently not in use)
-- waybar (currently not in use)
+- xorg-xwayland
+- dunst
+- autotiling (sway auto-tiling)
+- i3status-rust (status block generator for i3bar/swaybar)
+- python-i3ipc (scratchpad control and add workspace function for i3/sway)
+- fcitx5
+- fcitx5-mozc
+- pulsemixer (volume check/fix)
+- papirus-icon-theme (default icon)
 
 ## Required Applications (not listed above)
 
@@ -58,59 +50,19 @@ These applications should be all installed.
 - Iosevka
 - Sarasa Gothic
 - unifont
-- Hack
-- Raleway
 - Nerd Font Symbols
 
 ### Command-Line Tool
 
 - direnv
 - poetry
-- cookiecutter
-
-##### for mpdcover script
-
-- python-mpd2
-- imagemagick
-- ffmpegthumbnailer
-
-#### Optional
-
 - fzf
 - lsd (`ls` alternatives)
 - bat (`cat` alternative)
-- vimpager (`less` alternative, used for man page)
 - starship (prompt generator)
 
-### Desktop (Common)
+### Desktop
 
-- qt5ct (qt5 app theming)
-- qt6ct (qt6 app theming)
-- sway-launcher-desktop
-- fcitx5
-- fcitx5-mozc
-- autotiling (i3/sway auto-tiling)
-- i3status-rust (status block generator for i3bar/swaybar)
-- python-i3ipc (scratchpad control and add workspace function for i3/sway)
-- pulsemixer (volume check/fix)
-- papirus-icon-theme (default icon)
-
-#### Xorg
-
-- xorg-server
-- xorg-xinit
-- xdotool
-- wmctrl (check current WM)
-- xorg-xset (display power management)
-- numlockx
-- dmenu
-- i3lock-color (screen lock)
-- redshift
-- feh
-
-#### Wayland
-
-- xorg-xwayland
 - bemenu
 - bemenu-wayland
 - grim
@@ -118,7 +70,6 @@ These applications should be all installed.
 - swappy
 - gammastep
 - wl-clipboard
-- wl-clipboard-x11
 
 ## Install
 
@@ -162,14 +113,8 @@ Then logout/login or reboot.
 
 Use wallpaper for each WM as below:
 
-- i3: `$XDG_CONFIG_HOME/i3/bg.{jpg,png}`
-- bspwm: `$XDG_CONFIG_HOME/bspwm/bg.{jpg,png}`
-- sway: `$XDG_CONFIG_HOME/sway/bg.png`
+- sway: `$XDG_CONFIG_HOME/sway/bg{,_4k}.png`
 
 Use lock images for each WM as below:
 
-- i3: `$XDG_CONFIG_HOME/i3/lock.{jpg,png}`
-- bspwm: `$XDG_CONFIG_HOME/bspwm/lock.{jpg,png}`
-- sway: `$XDG_CONFIG_HOME/sway/lock.png`
-
-If no image file is found, simply blur the desktop when locking screen.
+- sway: `$XDG_CONFIG_HOME/sway/lock{,_4k}.{png,jpg}`

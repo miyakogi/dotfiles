@@ -1,5 +1,0 @@
-@theme "menu-theme"
-
-window {
-  height: 1028px;
-}
