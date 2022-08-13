@@ -230,13 +230,13 @@ def main() -> None:
     install(BASEDIR / 'kitty', CONFIG_HOME / 'kitty')
 
     # foot terminal emulator for wayland
-    install(BASEDIR / 'foot' / 'foot.ini', CONFIG_HOME / 'foot' / 'foot.ini')
+    install(BASEDIR / 'foot', CONFIG_HOME / 'foot')
 
     # dunst
-    install(BASEDIR / 'dunst' / 'dunstrc', CONFIG_HOME / 'dunst' / 'dunstrc')
+    install(BASEDIR / 'dunst', CONFIG_HOME / 'dunst')
 
     # swappy
-    install(BASEDIR / 'swappy' / 'config', CONFIG_HOME / 'swappy' / 'config')
+    install(BASEDIR / 'swappy', CONFIG_HOME / 'swappy')
 
     ####################
     # Systemd Services #
