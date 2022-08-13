@@ -11,40 +11,13 @@ i3 = Connection()
 TERM_CLASS = 'scratchterm'
 
 # --- Define Command for Dropdown Terminal
-# Example (kitty without tmux):
-# TERM_CMD = [
-#     'kitty',
-#     '--class', TERM_CLASS,
-#     '--override', 'background_opacity=0.7',
-#     '--override', 'window_padding_width=2',
-# ]
-if os.getenv('WAYLAND_SOCKET') or os.getenv('XDG_SESSION_TYPE') == 'wayland':
-    # on Wayland, use foot
-    TERM_CMD = [
-        'foot',
-        '--app-id', TERM_CLASS,
-        '--override=colors.alpha=0.7',
-        '--override=pad=2x2',
-
-        # for true color support on tmux
-        #'--term', 'xterm-256color',
-        # run tmux session
-        #'scratchterm-tmux',
-    ]
-else:
-    # on Xorg, use alacritty
-    TERM_CMD = [
-        'alacritty',
-        '--class', TERM_CLASS,
-        '--option', 'window.opacity=0.7',
-        '--option', 'window.padding.x=2',
-        '--option', 'window.padding.y=2',
-
-        # for true color support on tmux
-        #'--option', 'env.TERM=xterm-256color',
-        # run tmux session
-        #'--command', 'scratchterm-tmux',
-    ]
+# on Wayland, use foot
+TERM_CMD = [
+    'foot',
+    '--app-id', TERM_CLASS,
+    '--override=colors.alpha=0.7',
+    '--override=pad=2x2',
+]
 
 
 def get_window() -> Optional[Con]:
