@@ -1,5 +1,5 @@
 [Unit]
-Description=Imput Method Daemon
+Description=Idle/Sleep Control
 
 [Service]
 Type=simple

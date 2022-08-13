@@ -1,5 +1,5 @@
 [Unit]
-Description=Imput Method Daemon
+Description=Automatic Tiling Direction Control
 
 [Service]
 Type=simple

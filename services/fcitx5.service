@@ -1,5 +1,5 @@
 [Unit]
-Description=Imput Method Daemon
+Description=Input Method Daemon
 
 [Service]
 Type=simple

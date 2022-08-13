@@ -1,5 +1,5 @@
 [Unit]
-Description=Imput Method Daemon
+Description=Display Hue Shifter
 
 [Service]
 Type=simple
