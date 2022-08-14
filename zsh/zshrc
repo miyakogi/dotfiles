@@ -340,6 +340,11 @@ if __check_cmd direnv; then
   eval "$(direnv hook zsh)"
 fi
 
+## zoxide
+if __check_cmd zoxide; then
+  eval "$(zoxide init zsh)"
+fi
+
 ### prompt
 if [[ -n $DISPLAY ]] && __check_cmd starship; then
   # use starship prompt in graphical session
