@@ -78,6 +78,7 @@ packages=(
   python-i3ipc
   i3status-rust  # status block generator for swaybar
   pulsemixer  # used by volume check/fix scripts on i3status-rust
+  playerctl  # for audio control by keyboard on sway
   bemenu
   bemenu-wayland
   gammastep

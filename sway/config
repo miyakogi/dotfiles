@@ -233,6 +233,12 @@ for_window [app_id="scratchterm"] resize set width 960
 for_window [app_id="scratchterm"] resize set height 1056
 for_window [app_id="scratchterm"] move right 480
 
+# Audio control
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # Mute mic
 bindcode 121 exec --no-startup-id "pulsemixer --id $(pulsemixer --list-sources | grep 'Name: USB PnP Audio Device Mono' | sed -r 's/^.*ID: ([a-zA-Z0-9\-]+).*$/\1/') --mute"
 
