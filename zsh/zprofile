@@ -73,7 +73,7 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
         #export WLR_REDERER=vulkan
 
         # start sway
-        dbus-run-session sway ;;
+        exec sway ;;
       weston)
         # set env vars for weston
         export XDG_CURRENT_DESKTOP=weston

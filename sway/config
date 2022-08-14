@@ -562,7 +562,7 @@ bar {
     }
 }
 
-# import other files
+# import other files from system
 include /etc/sway/config.d/*
 
 # vim: shiftwidth=4 tabstop=4 softtabstop=4
