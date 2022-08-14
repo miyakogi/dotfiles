@@ -1,6 +1,6 @@
 [Unit]
 Description=Automatic Tiling Direction Control
-PartOf=graphical-session.target
+BindsTo=sway-graphical-session.target
 
 [Service]
 Type=simple
