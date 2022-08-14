@@ -62,6 +62,7 @@ packages=(
   fd  # find alternative written by rust
   pkgfile  # faster fish command failure support
   jq  # used in some scripts
+  zoxide  # smart cd
 
   # wayland (sway) session
   xorg-xwayland
