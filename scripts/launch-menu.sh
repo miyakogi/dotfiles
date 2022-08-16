@@ -40,7 +40,8 @@ cmd+=(
   --match-generic-name
   --tiebreak "index"
   --exact
-  --color "16,bg+:-1,border:5,pointer:3"
+  --accent-color "green"
+  --color "16,bg+:-1,fg+:4,prompt:4,border:4,pointer:4"
   --reverse
   --margin "1,2"
   --prompt " "

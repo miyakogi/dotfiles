@@ -15,7 +15,7 @@ interval = 1
 on_click = "sway-idle-toggle"
 [block.theme_overrides]
 idle_fg = "#7c7c7c"
-info_fg = "#ed254e"
+info_fg = "#e7564b"
 
 [[block]]
 block = "custom"
@@ -34,7 +34,7 @@ buttons = ["prev", "play", "next"]
 hide_when_empty = false
 format = '{combo} '
 [block.theme_overrides]
-info_fg = "#c74ded"
+info_fg = "#5dda92"
 
 [[block]]
 block = "time"

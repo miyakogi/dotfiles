@@ -31,22 +31,22 @@ set $up k
 set $right l
 
 # Colors
-set $foreground  #c3c7d1
-set $background  #161925
+set $foreground  #edf0f5
+set $background  #282828
 set $transparent #00000000
-set $white       #ffffff
 set $black       #000000
-set $red         #ed254e
-set $orange      #ff6a00
-set $cyan        #00c1e4
-set $yellow      #f9dc5c
-set $magenta     #c74ded
-set $green       #00e8c6
-set $blue        #7cb7ff
+set $red         #e64e42
+set $green       #48d684
+set $yellow      #f9a55b
+set $blue        #00ad9f
+set $magenta     #9059c8
+set $cyan        #6699ee
+set $white       #ffffff
 
 # semi-transparent colors
-set $cyan2       #00c1e4bb
-set $magenta2    #c74dedbb
+set $green2      #48d684bb
+set $magenta2    #9059c8bb
+set $cyan2       #6699eebb
 
 # Your preferred terminal emulator
 set $term launch-terminal
@@ -83,7 +83,7 @@ output DP-1 {
     subpixel rgb
 
     # Default wallpaper
-    background ${XDG_CONFIG_HOME:-$HOME/.config}/sway/bg_4k.png center $black
+    background ${XDG_CONFIG_HOME:-$HOME/.config}/sway/bg_4k.png center $background
 
     # Composit output timing in milliseconds
     max_render_time off
@@ -116,7 +116,7 @@ output DP-2 {
     subpixel rgb
 
     # Default wallpaper
-    background ${XDG_CONFIG_HOME:-$HOME/.config}/sway/bg.png center $black
+    background ${XDG_CONFIG_HOME:-$HOME/.config}/sway/bg.png center $background
 
     # Composit output timing in milliseconds
     max_render_time off
@@ -140,10 +140,10 @@ hide_edge_borders both
 
 #
 # Border colors
-#                        border    bg        text        indicat  child_border
-client.focused           $magenta2 $magenta2 $background $magenta $magenta2
-client.unfocused         $cyan2    $cyan2    $background $cyan    $cyan2
-client.focused_inactive  $cyan2    $cyan2    $background $cyan    $cyan2
+#                        border   bg       text        indicat  child_border
+client.focused           $green   $green   $background $green   $green
+client.unfocused         $cyan    $cyan    $background $cyan    $cyan
+client.focused_inactive  $cyan    $cyan    $background $cyan    $cyan
 
 ### Input configuration
 #
@@ -531,14 +531,14 @@ bar {
     }
 
     colors {
-        separator $magenta
-        background $black
+        separator $green
+        background $background
         statusline $foreground
-        focused_workspace $magenta $magenta $black
-        active_workspace $magenta $black $foreground
-        inactive_workspace $magenta $black $magenta
+        focused_workspace $green $green $background
+        active_workspace $green $background $foreground
+        inactive_workspace $green $background $green
         urgent_workspace $red $red $black
-        binding_mode $red $red $black
+        binding_mode $red $red $background
     }
 }
 
@@ -557,14 +557,14 @@ bar {
     }
 
     colors {
-        separator $magenta
-        background $black
+        separator $green
+        background $background
         statusline $foreground
-        focused_workspace $magenta $magenta $black
-        active_workspace $magenta $black $foreground
-        inactive_workspace $magenta $black $magenta
+        focused_workspace $green $green $background
+        active_workspace $green $background $foreground
+        inactive_workspace $green $background $green
         urgent_workspace $red $red $black
-        binding_mode $red $red $black
+        binding_mode $red $red $background
     }
 }
 

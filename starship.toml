@@ -1,9 +1,9 @@
 # Starship Config File
 
 [character]
-success_symbol = "[](bold green)"
-error_symbol = "[](bold red)"
-vicmd_symbol = "[](bold green)"
+success_symbol = "[](green)"
+error_symbol = "[](red)"
+vicmd_symbol = "[](green)"
 
 [shell]
 disabled = false
@@ -27,6 +27,7 @@ disabled = true
 truncation_length = 5
 truncate_to_repo = false
 truncation_symbol = ".../"
+style = "bold blue"
 
 [git_branch]
 format = "[$symbol$branch]($style) "

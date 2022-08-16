@@ -19,7 +19,7 @@ info_fg = "#ed254e"
 
 [[block]]
 block = "cpu"
-format = '<span color="#c74ded99" font_family="unifont">{barchart}</span> {utilization}'
+format = '<span color="#5dda92" font_family="unifont">{barchart}</span> {utilization}'
 interval = 1
 
 [[block]]
@@ -56,7 +56,7 @@ inputs = [
 ]
 format = "{max}C"
 [block.theme_overrides]
-warning_fg = "#c74ded"
+warning_fg = "#ff1493"
 critical_fg = "#000000"
 critical_bg = "#ed254e"
 
