@@ -228,4 +228,4 @@ endfunction
 
 " }}}
 
-let g:lightline.colorscheme = 'onedark'
+let g:lightline.colorscheme = 'darcula'
