@@ -34,12 +34,18 @@ format = "[$symbol$branch]($style) "
 [git_status]
 untracked = ""
 
-[package]
+[haskell]
+disabled = true
+
+[lua]
 disabled = true
 
 [nodejs]
 format = "[$symbol($version )]($style)"
 symbol = " "
+
+[package]
+disabled = true
 
 [python]
 format = '[${symbol}(${version} )(\(${virtualenv}\) )]($style)'
