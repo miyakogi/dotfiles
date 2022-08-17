@@ -8,20 +8,21 @@ WM="wlroots wm"
 menu=" Lock\n Suspend \n Hibernate \n Exit \n Restart \n Shutdown"
 
 if [[ $(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name') == '"DP-1"' ]]; then
-  font="Fira Code 28"
+  font="Fira Code 30"
 else
   font="Fira Code 16.5"
 fi
 
 # define colors
-white="#c3c7d1"
-black="#161925"
-red="#ed254e"
-green="#00e8c6"
-yellow="#f9dc5c"
-blue="#7cb7ff"
-magenta="#c74ded"
-cyan="#00c1e1"
+white="#edf0f5"
+black="#282828"
+red="#e64e42"
+green="#48d684"
+yellow="#f9a55b"
+blue="#00ad9f"
+magenta="#9059c8"
+cyan="#6699ee"
+
 
 cmd=(
   bemenu
