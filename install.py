@@ -222,6 +222,7 @@ def main() -> None:
     ### Desktop
     # sway
     install(BASEDIR / 'sway' / 'config', CONFIG_HOME / 'sway' / 'config')
+    install(BASEDIR / 'sway' / 'config.d', CONFIG_HOME / 'sway' / 'config.d')
 
     # alacritty terminal
     install(BASEDIR / 'alacritty', CONFIG_HOME / 'alacritty')
