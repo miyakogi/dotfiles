@@ -12,9 +12,9 @@ if not sys.platform.startswith('linux'):
 
 HOME = Path.home()
 BASEDIR = Path(__file__).resolve().parent
-CONFIG_HOME = Path(os.getenv('XDG_CONFIG_HOME', HOME / '.config'))
-PICTURES_DIR = Path(os.getenv('XDG_PICTURES_DIR', HOME / 'Pictures'))
-ZDOTDIR = Path(os.getenv('ZDOTDIR', HOME / '.zsh'))
+CONFIG_HOME = Path(os.getenv('XDG_CONFIG_HOME') or HOME / '.config')
+PICTURES_DIR = Path(os.getenv('XDG_PICTURES_DIR') or HOME / 'Pictures')
+ZDOTDIR = Path(os.getenv('ZDOTDIR') or  HOME / '.zsh')
 BINDIR = HOME / 'bin'
 
 
