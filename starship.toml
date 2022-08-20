@@ -1,5 +1,93 @@
 # Starship Config File
 
+format = """
+$username\
+$hostname\
+$container\
+${custom.podman}\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+${custom.giturl}\
+$hg_branch\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$haskell\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$conda\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$shell\
+$status\
+$character\
+"""
+
+right_format = """
+$time\
+"""
+
+[time]
+time_format = " %T  %a %d %b %Y"
+disabled = false
+style = "bold white dimmed"
+format = "[$time]($style)"
+
 [character]
 success_symbol = "[](green)"
 error_symbol = "[](red)"
@@ -18,9 +106,12 @@ elvish_indicator = '[Elvish](cyan) '
 disabled = false
 threshold = 70
 format = "[${ram}( | ${swap})]($style) "
-style = "bold dimmed yellow"
+style = "bold yellow"
 
 [cmd_duration]
+disabled = true
+
+[container]
 disabled = true
 
 [directory]
@@ -30,10 +121,12 @@ truncation_symbol = ".../"
 style = "bold blue"
 
 [git_branch]
-format = "[$symbol$branch]($style) "
+style = "fg:purple"
+format = "[$symbol$branch ]($style)"
 
 [git_status]
 untracked = ""
+style = "fg:purple bold"
 
 [haskell]
 disabled = true
@@ -80,4 +173,12 @@ fi
 echo "$GIT_REMOTE_SYMBOL"
 """
 when = 'git rev-parse --is-inside-work-tree 2>/dev/null'
-format = "$output"
+format = "$output "
+
+[custom.podman]
+description = "Show podman hostname in container"
+shell = [ "bash", "--noprofile", "--norc" ]
+command = """echo "$HOSTNAME" | sed -E 's/^([^.]+).*/\\1/'"""
+when = "test -f /run/.containerenv"
+style = "bg:cyan fg:black bold"
+format = '[ [](bg:cyan cyan dimmed) $output ]($style) '
