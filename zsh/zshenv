@@ -4,8 +4,6 @@
 # ============================================
 
 # Set default environment variables
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_PICTURES_DIR=$HOME/Pictures
 export LESS="-iFRS"
 export SYSTEMD_LESS="iFRSM"
 
