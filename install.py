@@ -14,7 +14,6 @@ HOME = Path.home()
 BASEDIR = Path(__file__).resolve().parent
 CONFIG_HOME = Path(os.getenv('XDG_CONFIG_HOME') or HOME / '.config')
 PICTURES_DIR = Path(os.getenv('XDG_PICTURES_DIR') or HOME / 'Pictures')
-ZDOTDIR = Path(os.getenv('ZDOTDIR') or  HOME / '.zsh')
 BINDIR = HOME / 'bin'
 
 
@@ -133,14 +132,10 @@ def main() -> None:
     install(BASEDIR / 'profile', HOME / '.profile')
 
     # bash files
-    install(BASEDIR / 'bashrc', HOME / '.bashrc')
-
-    # zsh files (load this order on startup)
-    ZSHBASE = BASEDIR / 'zsh'
-    install(ZSHBASE / 'zshenv', ZDOTDIR / '.zshenv')
-    install(ZSHBASE / 'zprofile', ZDOTDIR / '.zprofile')
-    install(ZSHBASE / 'zshrc', ZDOTDIR / '.zshrc')
-    install(ZSHBASE / 'prompt.zsh', ZDOTDIR / 'prompt.zsh')
+    BASHDIR = BASEDIR / 'bash'
+    install(BASHDIR / 'bash_profile', HOME / '.bash_profile')
+    install(BASHDIR / 'bash_login', HOME / '.bash_login')
+    install(BASHDIR / 'bashrc', HOME / '.bashrc')
 
     # fish shell
     install(BASEDIR / 'fish', CONFIG_HOME / 'fish')
@@ -266,32 +261,6 @@ def main() -> None:
     ###############################
     # Install plugins from github #
     ###############################
-
-    # zsh
-    git_clone(
-        'https://github.com/zsh-users/zaw',
-        ZDOTDIR / 'zaw'
-    )
-    git_clone(
-        'https://github.com/zsh-users/zsh-completions',
-        ZDOTDIR / 'zsh-completions',
-    )
-    git_clone(
-        'https://github.com/bobthecow/git-flow-completion',
-        ZDOTDIR / 'git-flow-completion',
-    )
-    git_clone(
-        'https://github.com/zsh-users/zsh-autosuggestions',
-        ZDOTDIR / 'zsh-autosuggestions',
-    )
-    git_clone(
-        'https://github.com/zsh-users/zsh-syntax-highlighting',
-        ZDOTDIR / 'zsh-syntax-highlighting',
-    )
-    git_clone(
-        'https://github.com/hlissner/zsh-autopair',
-        ZDOTDIR / 'zsh-autopair',
-    )
 
     # tmux
     git_clone(

@@ -36,7 +36,6 @@ packages=(
   # shell
   python
   bash
-  zsh
   fish
 
   # terminals

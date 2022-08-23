@@ -12,7 +12,6 @@ These applications should be all installed.
 ### Command-Line Tool
 
 - bash
-- zsh
 - fish
 - git
 - neovim
@@ -76,21 +75,11 @@ These applications should be all installed.
 On Arch Linux, run `./arch-install.sh`.
 This script installs all required packages.
 
-After installing all requirements, make `/etc/zsh/zshenv` file (on Arch Linux) as below:
-
-```zsh
-test -d $HOME/.zsh && test -f $HOME/.zsh/.zshenv && export ZDOTDIR=$HOME/.zsh
-```
-
-Then run:
+Run:
 
 ```sh
 # Install config files
 ./install.py
-
-# Change defualt shell to zsh
-# check if output of `which zsh` is included in `chsh -l` and then run:
-chsh -s $(which zsh)
 ```
 
 ## Setup
