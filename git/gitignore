@@ -65,6 +65,3 @@ docs/_build/
 .env
 # direnv
 .envrc
-# zsh-autoenv
-.autoenv.zsh
-.autoenv_leave.zsh
