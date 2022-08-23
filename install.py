@@ -133,7 +133,10 @@ def main() -> None:
     install(BASEDIR / 'profile', HOME / '.profile')
 
     # bash files
-    install(BASEDIR / 'bashrc', HOME / '.bashrc')
+    BASHDIR = BASEDIR / 'bash'
+    install(BASHDIR / 'bash_profile', HOME / '.bash_profile')
+    install(BASHDIR / 'bash_login', HOME / '.bash_login')
+    install(BASHDIR / 'bashrc', HOME / '.bashrc')
 
     # zsh files (load this order on startup)
     ZSHBASE = BASEDIR / 'zsh'

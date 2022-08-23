@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+### Start fish if login shell on tty
+if type fish &>/dev/null && shopt -q login_shell; then
+  exec fish
+fi
+
+
+### Load local settings
+if [[ -f "${HOME}/.bashrc.local" ]]; then
+  source "${HOME}/.bashrc.local"
+fi
+
+
+### Prompt
+# use startship only on graphical session
+if [[ -n $DISPLAY ]] && type starship &>/dev/null; then
+  eval "$(starship init bash)"
+fi
+
+# vim: sw=2 et ft=bash

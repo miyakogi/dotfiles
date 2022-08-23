@@ -1,0 +1,97 @@
+#!/usr/bin/bash
+
+# ===============================================
+# Session Startup Configuration
+# ===============================================
+
+# load machine local file
+[ -f $HOME/.bash_login.local ] && source $HOME/.bash_login.local
+
+# Start Graphical Session or SHELL
+if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SESSION_TYPE" == tty ) ]]; then
+  echo -e -n "Select Window Manager or Shell [sway, bash, fish] [default: sway]:\n>>> "
+  read wm
+
+  # set default wm as sway
+  if test -z "$wm"; then
+    wm="sway"
+  fi
+
+  # exec shell or exit
+  case $wm in
+    shell)
+      exec $SHELL
+      ;;
+    sh)
+      exec sh
+      ;;
+    bash)
+      exec bash
+      ;;
+    fish)
+      exec fish
+      ;;
+    exit)
+      exit 0
+      ;;
+  esac
+
+  # Start wayland session
+  case "$wm" in
+    sway | weston)
+      # set xdg env var
+      export XDG_SESSION_TYPE=wayland
+
+      # set gtk theme
+      export GTK_THEME=Adwaita:dark
+
+      # set qt backend and theme
+      export QT_QPA_PLATFORM=wayland
+      export QT_STYLE_OVERRIDE=kvantum
+      export QT_QPA_PLATFORMTHEME=kvantum
+
+      # set input method
+      export XMODIFIERS=@im=fcitx
+      export GTK_IM_MODULE=fcitx
+      export QT_IM_MODULE=fcitx
+      export QT_IM_MODULE=fcitx
+      export GLFW_IM_MODULE=fcitx
+
+      # set firefox use wayland default
+      export MOZ_ENABLE_WAYLAND=1
+
+      # start graphical session
+      case "$wm" in
+        sway)
+          # set env vars for sway
+          export XDG_CURRENT_DESKTOP=sway
+          systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
+
+          # start
+          dbus-run-session sway
+          #exec sway
+          ;;
+        weston)
+          # set env vars for weston
+          export XDG_CURRENT_DESKTOP=weston
+          systemctl --user set-environment XDG_CURRENT_DESKTOP=weston
+
+          # start
+          exec weston
+          ;;
+      esac
+      exit 0
+      ;;
+
+    *)  # Invalid value
+      # start X session
+      echo "Unsupported Shell/WM/DE selected, exit"
+      exit 1
+      ;;
+  esac
+fi
+
+# load bashrc
+[ -f $HOME/.bashrc ] && source $HOME/.bashrc
+
+# vim: sw=2 et
