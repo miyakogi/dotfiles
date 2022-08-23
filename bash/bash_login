@@ -68,8 +68,7 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
           systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
 
           # start
-          dbus-run-session sway
-          #exec sway
+          exec sway
           ;;
         weston)
           # set env vars for weston
