@@ -174,10 +174,10 @@ def main() -> None:
     install(VIMBASE / 'gvimrc_linux', HOME / '.gvimrc')
 
     # neovim
+    NVIM_BASE = BASEDIR / 'nvim'
     NVIM_HOME = CONFIG_HOME / 'nvim'
-    install(HOME / '.vim', NVIM_HOME)
-    install(HOME / '.vimrc', NVIM_HOME / 'init.vim')
-    install(VIMBASE / 'manrc', NVIM_HOME / 'manrc')
+    install(NVIM_BASE / 'init.lua', NVIM_HOME / 'init.lua')
+    install(NVIM_BASE / 'manrc', NVIM_HOME / 'manrc')
 
     # direnv
     install(BASEDIR / 'direnv', CONFIG_HOME / 'direnv')
