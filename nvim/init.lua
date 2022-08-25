@@ -2,11 +2,138 @@
 -- Startup
 -- =========================================================
 
+-- Start mesurement
 vim.cmd([[
   if has('vim_starting') && has('reltime')
     let g:startuptime = reltime()
   endif
 ]])
+
+-- Create deafult auto group
+vim.api.nvim_create_augroup('init', {})
+
+
+-- =========================================================
+-- Set Global Options
+-- =========================================================
+
+-- Reload when file modified outfside nvim
+vim.opt.autoread = true
+
+-- Disable default files
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.backupdir = ''
+vim.opt.undofile = false
+vim.opt.swapfile = false
+
+-- Background buffer setting
+vim.opt.hidden = true
+
+-- Wildmenu (enhanced command-line completion)
+vim.opt.wildmenu = true
+vim.opt.wildmode:append({'longest:full', 'full'})
+
+-- Virtual edit (enable visual block to select over eol)
+vim.opt.virtualedit:append({'block'})
+
+-- Format options
+vim.api.nvim_create_autocmd('bufenter', {
+  group = 'init',
+  pattern = {'*'},
+  callback = function()
+    vim.opt_local.formatoptions:remove('or')
+    vim.opt_local.formatoptions:append('Mj')
+  end,
+})
+vim.opt.nrformats:remove({'octal'})
+vim.opt.joinspaces = false
+
+-- End of line action
+vim.opt.textwidth = 0  -- disable text wrap
+vim.opt.backspace = {'indent', 'eol', 'start'}
+
+-- Ignore unnecessary files from completion
+vim.opt.wildignore = {
+  '*.sw?',  -- vim swap file
+  '*.bak', '*.?~', '*.??~', '*.???~', '*.~',  -- backup files
+  '*.pyc',  -- python byte code
+}
+
+-- Help setting
+vim.opt.keywordprg = ':help'
+vim.opt.helplang = {'ja', 'en'}
+
+-- Improve timeout
+vim.opt.timeout = false
+vim.opt.ttimeout = true
+vim.opt.ttimeoutlen = 50
+
+-- Command-line completion behaviour
+vim.opt.completeopt:append({'menu', 'menuone', 'noselect', 'noinsert'})
+
+-- Visual bell
+vim.opt.visualbell = true
+vim.opt.errorbells = false
+
+-- Mouse
+vim.opt.mouse = 'a'
+vim.opt.mousehide = true
+vim.opt.mousemodel = 'popup'
+
+-- Display setting
+vim.opt.scrolloff = 5  -- min lines of up/bottom of cursor
+vim.opt.sidescrolloff = 5  -- min cols of left/right of cursor
+vim.opt.wrap = true  -- wrap long line (only on display)
+vim.opt.number = false  -- disble number sign col
+vim.opt.showcmd = true  -- show show some command in the end of cmd win
+vim.opt.report = 2  -- threashold for reporting number of lines changed
+vim.opt.ruler = false
+
+-- Spell check
+vim.opt.spell = false  -- disable spell check by default
+vim.opt.spelllang:append({'cjk'})  -- disable spell check on multibyte characters
+vim.opt.spelloptions:append({'camel'})  -- Enable spell check for camel case words
+
+-- Invisible chars
+vim.opt.list = true  -- display invisible chars
+vim.opt.listchars = {tab = '| ', trail = '_'}
+vim.opt.fillchars:append({vert = '┃'})
+vim.opt.linebreak = false
+vim.opt.shiftround = true -- round indent to multile of 'shiftwidth'
+vim.opt.showbreak = '↪ '
+vim.opt.breakindent = true
+vim.opt.ambiwidth = 'single'
+
+-- Window setting
+vim.opt.cmdheight = 1
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.equalalways = false  -- disable to set all windows to the same size aster split/close
+
+-- Folding setting
+vim.opt.foldmethod = 'marker'
+
+-- Search setting
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.history = 10000
+vim.opt.wrapscan = false
+
+-- Tab/indent setting (global)
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.cindent = false
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
+-- Rendering setting
+-- vim.opt.synmaxcol = 360
+vim.opt.lazyredraw = true
 
 -- =========================================================
 -- Key Mapping
@@ -94,3 +221,5 @@ vim.cmd([[
     autocmd VimEnter * echomsg 'startuptime: ' . reltimestr(reltime(g:startuptime))
   endif
 ]])
+
+-- vim: set sw=2 et
