@@ -17,6 +17,20 @@ vim.api.nvim_create_augroup('init', {})
 -- Set Global Options
 -- =========================================================
 
+-- Disable default plugins
+vim.g.loaded_gzip = 1
+vim.g.loaded_LogiPat = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_rrhelper = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_vimballPlugin = 1
+vim.g.loaded_zipPlugin = 1
+
+
+-- =========================================================
+-- Set Global Options
+-- =========================================================
+
 -- Reload when file modified outfside nvim
 vim.opt.autoread = true
 
