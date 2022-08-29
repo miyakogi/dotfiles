@@ -71,7 +71,19 @@ return require('packer').startup(function(use)
     'kylechui/nvim-surround',
     config = function()
       require('nvim-surround').setup()
-    end
+    end,
+  }
+
+  -- auto surrounding/pairing
+  use {
+    'windwp/nvim-autopairs',
+    opt = true,
+    event = 'InsertEnter',
+    config = function()
+      require'nvim-autopairs'.setup({
+        map_c_h = true,
+      })
+    end,
   }
 
   -- comment plugin
@@ -79,11 +91,15 @@ return require('packer').startup(function(use)
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
-    end
+    end,
   }
 
   -- input method (fcitx/fcitx5) control
-  use 'h-hg/fcitx.nvim'
+  use {
+    'h-hg/fcitx.nvim',
+    opt = true,
+    event = 'InsertEnter',
+  }
 
 end)
 
