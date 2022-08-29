@@ -149,6 +149,9 @@ vim.opt.smartindent = true
 -- vim.opt.synmaxcol = 360
 vim.opt.lazyredraw = true
 
+-- Color setting
+vim.opt.termguicolors = true
+
 -- =========================================================
 -- Key Mapping
 -- =========================================================
