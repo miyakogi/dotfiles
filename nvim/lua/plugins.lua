@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
-      require('nvim-treesitter.configs').setup {
+      require('nvim-treesitter.configs').setup({
         -- A list of parser names, or 'all'
         ensure_installed = {
           'bash',
@@ -62,7 +62,7 @@ return require('packer').startup(function(use)
           -- Instead of true it can also be a list of languages
           additional_vim_regex_highlighting = false,
         },
-      }
+      })
     end,
   }
 
