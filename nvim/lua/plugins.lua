@@ -121,9 +121,25 @@ return require('packer').startup(function(use)
   -- replacement of 'itchyny/lightline.vim'
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    requires = {
+      {
+        'kyazdani42/nvim-web-devicons',
+        opt = true,
+      }, {
+        'RRethy/nvim-base16',
+        config = function()
+          vim.cmd([[ colorscheme base16-tomorrow-night-eighties ]])
+        end,
+      },
+    },
     config = function()
-      require('lualine').setup({})
+      require('lualine').setup({
+        options = {
+          theme = 'base16',
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
+        },
+      })
     end,
   }
 
