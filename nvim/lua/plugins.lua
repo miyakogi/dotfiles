@@ -117,6 +117,16 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- status line
+  -- replacement of 'itchyny/lightline.vim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function()
+      require('lualine').setup({})
+    end,
+  }
+
   -- open the last-edited place
   use {
     'ethanholz/nvim-lastplace',
