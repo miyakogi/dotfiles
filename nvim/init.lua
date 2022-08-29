@@ -2,14 +2,14 @@
 -- Startup
 -- =========================================================
 
--- Start mesurement
+-- Start measurement
 vim.cmd([[
   if has('vim_starting') && has('reltime')
     let g:startuptime = reltime()
   endif
 ]])
 
--- Create deafult auto group
+-- Create default auto group
 vim.api.nvim_create_augroup('init', {})
 
 
@@ -31,7 +31,7 @@ vim.g.loaded_zipPlugin = 1
 -- Set Global Options
 -- =========================================================
 
--- Reload when file modified outfside nvim
+-- Reload when file modified outside nvim
 vim.opt.autoread = true
 
 -- Disable default files
@@ -105,7 +105,7 @@ vim.opt.report = 2  -- threashold for reporting number of lines changed
 vim.opt.ruler = false
 
 -- Spell check
-vim.opt.spell = false  -- disable spell check by default
+vim.opt.spell = true  -- enable spell check and spellsitter by default
 vim.opt.spelllang:append({'cjk'})  -- disable spell check on multibyte characters
 vim.opt.spelloptions:append({'camel'})  -- Enable spell check for camel case words
 
@@ -182,7 +182,7 @@ vim.keymap.set('n', 'L', '$')
 vim.keymap.set('x', 'H', '^')
 vim.keymap.set('x', 'L', '$')
 
--- ======== Insert/Commnad Cursor Move ========
+-- ======== Insert/Command Cursor Move ========
 vim.keymap.set('i', '<C-a>', '<C-o>_')
 vim.keymap.set('i', '<C-e>', '<End>')
 vim.keymap.set('i', '<C-f>', '<Right>')

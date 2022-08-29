@@ -66,6 +66,15 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- spellchecker
+  use {
+    'lewis6991/spellsitter.nvim',
+    requires = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('spellsitter').setup({})
+    end,
+  }
+
   -- highlight current word
   -- replacement of 'itchyny/vim-cursorword'
   use {
