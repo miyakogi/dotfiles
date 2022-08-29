@@ -97,6 +97,13 @@ return require('packer').startup(function(use)
           end, { expr = true })
         end,
       })
+
+      -- add command
+      vim.api.nvim_create_user_command(
+        'Gwrite',
+        'Gitsigns stage_buffer',
+        {}
+      )
     end,
   }
 
