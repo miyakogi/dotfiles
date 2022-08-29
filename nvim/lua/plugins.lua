@@ -100,8 +100,13 @@ return require('packer').startup(function(use)
 
       -- add command
       vim.api.nvim_create_user_command(
-        'Gwrite',
+        'Gwrite',  -- stage file
         'Gitsigns stage_buffer',
+        {}
+      )
+      vim.api.nvim_create_user_command(
+        'Gdiff',  -- show diff
+        'Gitsigns diffthis',
         {}
       )
     end,
