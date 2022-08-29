@@ -66,6 +66,14 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- comment plugin
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
+
   -- input method (fcitx/fcitx5) control
   use 'h-hg/fcitx.nvim'
 
