@@ -66,6 +66,20 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- file management
+
+  -- telescope.nvim - find, filter, preview, and pick files
+  -- replacement of denite.nvim
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { { 'nvim-lua/plenary.nvim' } },
+    run = ':checkhealth telescope',
+    config = function()
+      vim.keymap.set('n', '<Leader>ff', function() require('telescope.builtin').find_files() end)
+      -- TODO: more customization
+    end
+  }
+
   -- git integration
   use {
     'lewis6991/gitsigns.nvim',
