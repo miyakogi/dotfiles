@@ -189,6 +189,19 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- indent highlight
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('indent_blankline').setup({
+        char = '▏',
+        char_blankline = ' ',
+        show_current_context = true,
+        show_current_context_start = true,
+      })
+    end,
+  }
+
   -- open the last-edited place
   use {
     'ethanholz/nvim-lastplace',
