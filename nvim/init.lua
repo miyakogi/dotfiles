@@ -195,7 +195,7 @@ vim.keymap.set('c', '<Down>', '<C-n>')
 vim.keymap.set('c', '<Up>', '<C-p>')
 
 -- ======== Tab Control ========
-vim.api.nvim_set_option('showtabline', 2)
+vim.api.nvim_set_option('showtabline', 1)
 vim.keymap.set('n', '<C-j>', 'gt')
 vim.keymap.set('n', '<C-k>', 'gT')
 
