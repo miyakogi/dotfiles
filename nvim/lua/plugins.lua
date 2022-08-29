@@ -104,7 +104,15 @@ return require('packer').startup(function(use)
   use {
     'numToStr/Comment.nvim',
     config = function()
-      require('Comment').setup()
+      require('Comment').setup({})
+    end,
+  }
+
+  -- open the last-edited place
+  use {
+    'ethanholz/nvim-lastplace',
+    config = function()
+      require('nvim-lastplace').setup({})
     end,
   }
 
