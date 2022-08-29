@@ -66,6 +66,17 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- highlight current word
+  -- replacement of 'itchyny/vim-cursorword'
+  use {
+    'RRethy/vim-illuminate',
+    config = function()
+      require('illuminate').configure({
+        delay = 30,  -- sway's key repeat rate = 36 -> 27.8ms
+      })
+    end,
+  }
+
   -- surround (parenthesis/quote/tab/etc...) control
   -- replacement of 'tpope/vim-surround'
   use {
