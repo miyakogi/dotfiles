@@ -72,11 +72,44 @@ return require('packer').startup(function(use)
   -- replacement of denite.nvim
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } },
+    branch = '0.1.x',
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    },
     run = ':checkhealth telescope',
     config = function()
-      vim.keymap.set('n', '<Leader>ff', function() require('telescope.builtin').find_files() end)
-      -- TODO: more customization
+      local telescope = require('telescope')
+      local actions = require('telescope.actions')
+
+      telescope.setup({
+        defaults = {
+          path_dispaly = { truncate = 4 },
+          mappings = {
+            i = {
+              ['<esc>'] = actions.close,  -- <Esc> close popup
+              ['<C-u>'] = false,  -- <C-u> clear prompt
+            },
+          },
+        },
+        pickers = {
+          find_files = {
+            theme = 'dropdown',
+          },
+        },
+        extensions = {
+          fzf = {
+            fuzzy = false,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = 'smart_case',
+          },
+        },
+      })
+      -- load fzf extension
+      telescope.load_extension('fzf')
+      -- vim.keymap.set('n', '<Leader>ff', function() require('telescope.builtin').find_files() end)
+      vim.keymap.set('n', '<Leader>ff', '<cmd>Telescope find_files<CR>')
     end
   }
 
