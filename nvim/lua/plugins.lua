@@ -80,6 +80,14 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- external terminal based file-manager integration
+  use {
+    'is0n/fm-nvim',
+    config = function()
+      require('fm-nvim').setup({})
+    end,
+  }
+
   -- git integration
   use {
     'lewis6991/gitsigns.nvim',
