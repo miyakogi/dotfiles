@@ -202,6 +202,23 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- abbreviation
+  use {
+    'tpope/vim-abolish',
+    opt = true,
+    event = 'InsertEnter',
+    config = function()
+      vim.cmd([[
+        :Abolish teh the
+        :Abolish qunatum quantum
+        :Abolish fro for
+        :Abolish sefl self
+        :Abolish strign string
+        :Abolish tokne{,s} token{}
+      ]])
+    end
+  }
+
   -- open the last-edited place
   use {
     'ethanholz/nvim-lastplace',
