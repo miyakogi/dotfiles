@@ -66,6 +66,14 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- surround (parenthesis/quote/tab/etc...) control
+  use {
+    'kylechui/nvim-surround',
+    config = function()
+      require('nvim-surround').setup()
+    end
+  }
+
   -- comment plugin
   use {
     'numToStr/Comment.nvim',
