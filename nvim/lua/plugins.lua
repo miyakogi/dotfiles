@@ -196,7 +196,7 @@ return require('packer').startup(function(use)
       }, {
         'RRethy/nvim-base16',
         config = function()
-          vim.cmd([[ colorscheme base16-tomorrow-night-eighties ]])
+          vim.cmd([[ colorscheme base16-eighties ]])
         end,
       },
     },
