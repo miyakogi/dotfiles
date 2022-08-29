@@ -230,6 +230,11 @@ vim.keymap.set('n', '<C-l>', ':<C-u>nohl<CR><C-l>')
 -- =========================================================
 -- Post Process
 -- =========================================================
+
+-- load plugin config
+require('plugins')
+
+-- end startup time profiling
 vim.cmd([[
   if has('vim_starting') && has('reltime')
     autocmd VimEnter * echomsg 'startuptime: ' . reltimestr(reltime(g:startuptime))

@@ -178,6 +178,7 @@ def main() -> None:
     NVIM_HOME = CONFIG_HOME / 'nvim'
     install(NVIM_BASE / 'init.lua', NVIM_HOME / 'init.lua')
     install(NVIM_BASE / 'manrc', NVIM_HOME / 'manrc')
+    install(NVIM_BASE / 'lua', NVIM_HOME / 'lua')
 
     # direnv
     install(BASEDIR / 'direnv', CONFIG_HOME / 'direnv')
@@ -261,6 +262,13 @@ def main() -> None:
     ###############################
     # Install plugins from github #
     ###############################
+
+    # nvim
+    mkdir(HOME / '.local' / 'share' / 'nvim' / 'site' / 'pack' / 'packer' / 'start')
+    git_clone(
+        'https://github.com/wbthomason/packer.nvim',
+        HOME / '.local' / 'share' / 'nvim' / 'site' / 'pack' / 'packer' / 'start' / 'packer.nvim',
+    )
 
     # tmux
     git_clone(
