@@ -67,6 +67,7 @@ return require('packer').startup(function(use)
   }
 
   -- surround (parenthesis/quote/tab/etc...) control
+  -- replacement of 'tpope/vim-surround'
   use {
     'kylechui/nvim-surround',
     config = function()
@@ -75,6 +76,7 @@ return require('packer').startup(function(use)
   }
 
   -- auto surrounding/pairing
+  -- replacement of 'Raimondi/delimitMate'
   use {
     'windwp/nvim-autopairs',
     opt = true,
@@ -87,6 +89,7 @@ return require('packer').startup(function(use)
   }
 
   -- comment plugin
+  -- replacement of 'tomtom/tcomment_vim'
   use {
     'numToStr/Comment.nvim',
     config = function()
