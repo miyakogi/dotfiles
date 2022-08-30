@@ -168,113 +168,116 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- lsp
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      -- Enable LSP Client When Entering Insert Mode on Supported Filetype
+      vim.api.nvim_create_augroup('lsp', {})
+      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew' }, {
+        group = 'lsp',
+        callback = function()
+          vim.api.nvim_command('LspStart')
+        end,
+        pattern = {
+          '*.lua',
+          '*.py',
+          '*.rs',
+        },
+      })
+
+      local opts = { noremap = true, silent = true }
+      vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
+      vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
+
+      local on_attach = function(client, bufnr)
+        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+        if vim.opt.filetype == 'lua' then
+          vim.diagnostic.disable()
+        end
+
+        -- key mapping
+        local bufopts = { noremap=true, silent=true, buffer=bufnr }
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+
+        -- command
+        vim.api.nvim_create_user_command('Rename', function() vim.lsp.buf.references(bufopt) end, {})
+      end
+
+      local lsp_flags = {
+        document_text_change = 150,
+      }
+
+      require('lspconfig')['sumneko_lua'].setup({
+        on_attach = on_attach,
+        flags = lsp_flags,
+        settings = {
+          Lua = {
+            runtime = {
+              -- neovim embedded lua is LuaJIT
+              version = 'LuaJIT',
+            },
+            diagnostics = {
+              enable = false,
+              -- ignore undefined error for `vim` global variable on nvim config
+              globals = { 'vim' },  -- not working...
+            },
+            workspaces = {
+              -- make the server aware of neovim runtime files
+              library = vim.api.nvim_get_runtime_file('', true),
+            },
+            -- Do not send telemetry data
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      })
+
+      require('lspconfig')['pyright'].setup({
+        on_attach = on_attach,
+        flags = lsp_flags,
+      })
+
+      require('lspconfig')['rust_analyzer'].setup({
+        on_attach = onattach,
+        flags = lsp_flags,
+        settings = {
+          -- server specific setting
+          ["rust-analyzer"] = {}
+        }
+      })
+    end,
+  }
+
   -- completion
   use {
     'hrsh7th/nvim-cmp',
     -- opt = true,
     -- event = 'InsertEnter',
     requires = {
-      {
-        'neovim/nvim-lspconfig',
-        config = function()
-          -- Enable LSP Client When Entering Insert Mode on Supported Filetype
-          vim.api.nvim_create_augroup('lsp', {})
-          vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew' }, {
-            group = 'lsp',
-            callback = function()
-              vim.api.nvim_command('LspStart')
-            end,
-            pattern = {
-              '*.lua',
-              '*.py',
-              '*.rs',
-            },
-          })
-
-          local opts = { noremap = true, silent = true }
-          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-
-          local on_attach = function(client, bufnr)
-            vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-            if vim.opt.filetype == 'lua' then
-              vim.diagnostic.disable()
-            end
-
-            -- key mapping
-            local bufopts = { noremap=true, silent=true, buffer=bufnr }
-            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-
-            -- command
-            vim.api.nvim_create_user_command('Rename', function() vim.lsp.buf.references(bufopt) end, {})
-          end
-
-          local lsp_flags = {
-            document_text_change = 150,
-          }
-
-          require('lspconfig')['sumneko_lua'].setup({
-            on_attach = on_attach,
-            flags = lsp_flags,
-            settings = {
-              Lua = {
-                runtime = {
-                  -- neovim embedded lua is LuaJIT
-                  version = 'LuaJIT',
-                },
-                diagnostics = {
-                  enable = false,
-                  -- ignore undefined error for `vim` global variable on nvim config
-                  globals = { 'vim' },  -- not working...
-                },
-                workspaces = {
-                  -- make the server aware of neovim runtime files
-                  library = vim.api.nvim_get_runtime_file('', true),
-                },
-                -- Do not send telemetry data
-                telemetry = {
-                  enable = false,
-                },
-              },
-            },
-          })
-
-          require('lspconfig')['pyright'].setup({
-            on_attach = on_attach,
-            flags = lsp_flags,
-          })
-
-          require('lspconfig')['rust_analyzer'].setup({
-            on_attach = onattach,
-            flags = lsp_flags,
-            settings = {
-              -- server specific setting
-              ["rust-analyzer"] = {}
-            }
-          })
-        end,
+        { 'neovim/nvim-lspconfig' },
+        { 'hrsh7th/cmp-nvim-lsp' },
+        { 'hrsh7th/cmp-buffer' },
+        { 'hrsh7th/cmp-path' },
+        { 'hrsh7th/cmp-cmdline' },
+        { 'saadparwaiz1/cmp_luasnip' },
       },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'hrsh7th/cmp-cmdline' },
-      { 'saadparwaiz1/cmp_luasnip' },
-    },
-    setup = function()
-      vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-    end,
-    config = function()
-      -- setup nvim-cmp
-      local cmp = require('cmp')
-      cmp.setup({
-        -- snippet
-        snippet = {
-          expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-          end
+      setup = function()
+        vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+      end,
+      config = function()
+        -- setup nvim-cmp
+        local cmp = require('cmp')
+        cmp.setup({
+          -- snippet
+          snippet = {
+            expand = function(args)
+              require('luasnip').lsp_expand(args.body)
+            end
         },
 
         -- mapping
