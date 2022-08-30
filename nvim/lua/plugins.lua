@@ -261,8 +261,7 @@ return require('packer').startup(function(use)
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
       { 'hrsh7th/cmp-cmdline' },
-      { 'hrsh7th/cmp-vsnip' },
-      { 'hrsh7th/vim-vsnip' },
+      { 'saadparwaiz1/cmp_luasnip' },
     },
     setup = function()
       vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -274,7 +273,7 @@ return require('packer').startup(function(use)
         -- snippet
         snippet = {
           expand = function(args)
-            vim.fn['vsnip#anonymous'](args.body)
+            require('luasnip').lsp_expand(args.body)
           end
         },
 
@@ -289,7 +288,7 @@ return require('packer').startup(function(use)
         -- sources
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
-          { name = 'vsnip' },
+          { name = 'luasnip' },
         }, {
           { name = 'buffer' },
         })
@@ -300,6 +299,21 @@ return require('packer').startup(function(use)
       -- require('lspconfig')['rust_analyzer'].setup {
       --   capabilities = capabilities
       -- }
+    end,
+  }
+
+  -- snippet
+  use {
+    'L3MON4D3/LuaSnip',
+    requires = { 'rafamadriz/friendly-snippets' },
+    opt = false,  -- cannnot load lazily
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      -- failed to set <C-Space> for expand/jump
+      vim.cmd([[
+        imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+        imap <silent><expr> <C-j> '<Plug>luasnip-expand-or-jump'
+      ]])
     end,
   }
 
