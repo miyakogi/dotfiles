@@ -180,6 +180,7 @@ return require('packer').startup(function(use)
           vim.api.nvim_command('LspStart')
         end,
         pattern = {
+          '*.bash', '*.sh',
           '*.lua',
           '*.py',
           '*.rs',
@@ -211,6 +212,14 @@ return require('packer').startup(function(use)
         document_text_change = 150,
       }
 
+      -- bash
+      require('lspconfig')['bashls'].setup({
+        on_attach = on_attach,
+        flags = lsp_flags,
+        filetypes = { 'sh', 'bash' },
+      })
+
+      -- lua
       require('lspconfig')['sumneko_lua'].setup({
         on_attach = on_attach,
         flags = lsp_flags,
@@ -237,11 +246,13 @@ return require('packer').startup(function(use)
         },
       })
 
+      -- python
       require('lspconfig')['pyright'].setup({
         on_attach = on_attach,
         flags = lsp_flags,
       })
 
+      -- rust
       require('lspconfig')['rust_analyzer'].setup({
         on_attach = onattach,
         flags = lsp_flags,
