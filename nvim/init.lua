@@ -2,14 +2,14 @@
 -- Startup
 -- =========================================================
 
--- Start mesurement
+-- Start measurement
 vim.cmd([[
   if has('vim_starting') && has('reltime')
     let g:startuptime = reltime()
   endif
 ]])
 
--- Create deafult auto group
+-- Create default auto group
 vim.api.nvim_create_augroup('init', {})
 
 
@@ -31,7 +31,7 @@ vim.g.loaded_zipPlugin = 1
 -- Set Global Options
 -- =========================================================
 
--- Reload when file modified outfside nvim
+-- Reload when file modified outside nvim
 vim.opt.autoread = true
 
 -- Disable default files
@@ -105,7 +105,7 @@ vim.opt.report = 2  -- threashold for reporting number of lines changed
 vim.opt.ruler = false
 
 -- Spell check
-vim.opt.spell = false  -- disable spell check by default
+vim.opt.spell = true  -- enable spell check and spellsitter by default
 vim.opt.spelllang:append({'cjk'})  -- disable spell check on multibyte characters
 vim.opt.spelloptions:append({'camel'})  -- Enable spell check for camel case words
 
@@ -149,6 +149,9 @@ vim.opt.smartindent = true
 -- vim.opt.synmaxcol = 360
 vim.opt.lazyredraw = true
 
+-- Color setting
+vim.opt.termguicolors = true
+
 -- =========================================================
 -- Key Mapping
 -- =========================================================
@@ -179,7 +182,7 @@ vim.keymap.set('n', 'L', '$')
 vim.keymap.set('x', 'H', '^')
 vim.keymap.set('x', 'L', '$')
 
--- ======== Insert/Commnad Cursor Move ========
+-- ======== Insert/Command Cursor Move ========
 vim.keymap.set('i', '<C-a>', '<C-o>_')
 vim.keymap.set('i', '<C-e>', '<End>')
 vim.keymap.set('i', '<C-f>', '<Right>')
@@ -192,7 +195,7 @@ vim.keymap.set('c', '<Down>', '<C-n>')
 vim.keymap.set('c', '<Up>', '<C-p>')
 
 -- ======== Tab Control ========
-vim.api.nvim_set_option('showtabline', 2)
+vim.api.nvim_set_option('showtabline', 1)
 vim.keymap.set('n', '<C-j>', 'gt')
 vim.keymap.set('n', '<C-k>', 'gT')
 
@@ -230,6 +233,11 @@ vim.keymap.set('n', '<C-l>', ':<C-u>nohl<CR><C-l>')
 -- =========================================================
 -- Post Process
 -- =========================================================
+
+-- load plugin config
+require('plugins')
+
+-- end startup time profiling
 vim.cmd([[
   if has('vim_starting') && has('reltime')
     autocmd VimEnter * echomsg 'startuptime: ' . reltimestr(reltime(g:startuptime))

@@ -24,6 +24,9 @@ if type -q direnv
   direnv hook fish | source
 end
 
+# zk note taking directory
+set -x ZK_NOTEBOOK_DIR $HOME/notes/main
+
 # prompt
 if type -q starship; and test -n "$DISPLAY"
   starship init fish | source
