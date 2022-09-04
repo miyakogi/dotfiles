@@ -325,16 +325,11 @@ return require('packer').startup(function(use)
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
+          { name = 'path' },
         }, {
           { name = 'buffer' },
         })
       })
-
-      -- setup lspconfig for each language server
-      -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-      -- require('lspconfig')['rust_analyzer'].setup {
-      --   capabilities = capabilities
-      -- }
     end,
   }
 
