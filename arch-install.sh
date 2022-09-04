@@ -62,6 +62,7 @@ packages=(
   pkgfile  # faster fish command failure support
   jq  # used in some scripts
   zoxide  # smart cd
+  zk  # note taking tool
 
   # wayland (sway) session
   xorg-xwayland

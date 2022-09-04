@@ -122,6 +122,42 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- note taking
+  use {
+    'mickael-menu/zk-nvim',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      require('zk').setup({
+        picker = 'telescope',
+        lsp = {
+          config = {
+            cmd = { 'zk', 'lsp' },
+            name = 'zk',
+          },
+          auto_attach = {
+            enabled = true,
+            filetypes = { 'markdown', },
+          },
+        },
+      })
+
+      -- key mapping
+      local opts = { noremap = true, silent = false, }
+      -- create a new note with title
+      vim.keymap.set('n', '<Leader>zn', '<Cmd>ZkNew { title = vim.fn.input("title: ") }<CR>', opts)
+      -- open note
+      vim.keymap.set('n', '<Leader>zo', '<Cmd>ZkNotes { sort = { "modified" } }<CR>', opts)
+      -- open note by tag
+      vim.keymap.set('n', '<Leader>zt', '<Cmd>ZkTags<CR>', opts)
+      -- search note by search query
+      vim.keymap.set('n', '<Leader>zf', '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>', opts)
+      -- search selected word
+      vim.keymap.set('v', '<Leader>zf', ':"<,">ZkMatch<CR>', opts)
+    end,
+  }
+
   -- git integration
   use {
     'lewis6991/gitsigns.nvim',
@@ -426,6 +462,7 @@ return require('packer').startup(function(use)
   }
 
   -- indent highlight
+  -- replacement of indentLine
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
