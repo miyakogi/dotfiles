@@ -94,7 +94,7 @@ return require('packer').startup(function(use)
         },
         pickers = {
           find_files = {
-            theme = 'dropdown',
+            -- theme = 'dropdown',
           },
         },
         extensions = {
