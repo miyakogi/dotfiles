@@ -154,7 +154,7 @@ return require('packer').startup(function(use)
       -- search note by search query
       vim.keymap.set('n', '<Leader>zf', '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>', opts)
       -- search selected word
-      vim.keymap.set('v', '<Leader>zf', ':"<,">ZkMatch<CR>', opts)
+      vim.keymap.set('v', '<Leader>zf', ':ZkMatch<CR>', opts)
     end,
   }
 
