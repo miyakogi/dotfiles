@@ -106,11 +106,13 @@ return require('packer').startup(function(use)
           },
         },
       })
+
       -- load fzf extension
       telescope.load_extension('fzf')
 
       -- set key mappings
       vim.keymap.set('n', '<Leader>ff', function() require('telescope.builtin').find_files() end)
+      vim.keymap.set('n', '<Leader>fm', function() require('telescope.builtin').oldfiles() end)
     end
   }
 
