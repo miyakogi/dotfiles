@@ -112,6 +112,7 @@ return require('packer').startup(function(use)
 
       -- set key mappings
       vim.keymap.set('n', '<Leader>ff', function() require('telescope.builtin').find_files() end)
+      vim.keymap.set('n', '<Leader>fg', function() require('telescope.builtin').git_files() end)
       vim.keymap.set('n', '<Leader>fm', function() require('telescope.builtin').oldfiles() end)
     end
   }
