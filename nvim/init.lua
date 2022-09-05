@@ -235,7 +235,8 @@ vim.keymap.set('n', '<C-l>', ':<C-u>nohl<CR><C-l>')
 -- =========================================================
 
 -- load plugin config
-require('plugins')
+require('plugins')  -- all package settings with packer.nvim
+require('autolcd')  -- automatically change local working directory for buffers
 
 -- end startup time profiling
 vim.cmd([[
