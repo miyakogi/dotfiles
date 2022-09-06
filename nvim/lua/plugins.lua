@@ -337,6 +337,7 @@ return require('packer').startup(function(use)
         { 'hrsh7th/cmp-buffer' },
         { 'hrsh7th/cmp-path' },
         { 'hrsh7th/cmp-cmdline' },
+        { 'f3fora/cmp-spell' },
         { 'saadparwaiz1/cmp_luasnip' },
       },
       setup = function()
@@ -351,24 +352,25 @@ return require('packer').startup(function(use)
             expand = function(args)
               require('luasnip').lsp_expand(args.body)
             end
-        },
+          },
 
-        -- mapping
-        mapping = cmp.mapping.preset.insert({
-          ['<C-p>'] = cmp.mapping.select_prev_item(),
-          ['<C-n>'] = cmp.mapping.select_next_item(),
-          ['<C-Space>'] = cmp.mapping.complete(),
-        }),
+          -- mapping
+          mapping = cmp.mapping.preset.insert({
+            ['<C-p>'] = cmp.mapping.select_prev_item(),
+            ['<C-n>'] = cmp.mapping.select_next_item(),
+            ['<C-Space>'] = cmp.mapping.complete(),
+          }),
 
-        -- sources
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'path' },
-        }, {
-          { name = 'buffer' },
+          -- sources
+          sources = cmp.config.sources({
+            { name = 'nvim_lsp' },
+            { name = 'luasnip' },
+            { name = 'path' },
+          }, {
+            { name = 'buffer' },
+            { name = 'spell' },
+          }),
         })
-      })
     end,
   }
 
