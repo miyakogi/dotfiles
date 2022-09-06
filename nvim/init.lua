@@ -237,6 +237,7 @@ vim.keymap.set('n', '<C-l>', ':<C-u>nohl<CR><C-l>')
 -- load plugin config
 require('plugins')  -- all package settings with packer.nvim
 require('autolcd')  -- automatically change local working directory for buffers
+require('quick-closer')  -- quickly close tiny buffers by pressing `q` in normal mode
 
 -- end startup time profiling
 vim.cmd([[
