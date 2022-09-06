@@ -417,6 +417,20 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- visual star (search by selected region)
+  use {
+    'thinca/vim-visualstar',
+    setup = function()
+      vim.g.visualstar_no_default_key_mappings = 1
+    end,
+    config = function()
+      vim.keymap.set('x', '*', '<Plug>(visualstar-*)')
+      vim.keymap.set('x', 'g*', '<Plug>(visualstar-g*)')
+      vim.keymap.set('x', '#', '<Plug>(visualstar-#)')
+      vim.keymap.set('x', 'g#', '<Plug>(visualstar-g#)')
+    end
+  }
+
   -- highlight current word
   -- replacement of 'itchyny/vim-cursorword'
   use {
