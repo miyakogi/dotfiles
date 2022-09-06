@@ -389,6 +389,68 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- smartchr
+  use {
+    'kana/vim-smartchr',
+    opt = true,
+    event = 'InsertEnter',
+    setup = function()  -- Define autocmd at setup, as `config` is called after entering insert-mode
+      -- filetype specific keymappings
+      vim.api.nvim_create_augroup('smartchr', {})
+
+      -- python
+      vim.api.nvim_create_autocmd(
+        'bufenter',
+        {
+          group = 'smartchr',
+          pattern = '*.py',
+          callback = function()
+            vim.cmd([[
+              inoremap <expr> <buffer> = smartchr#loop(' = ', '=', ' == ', '==')
+            ]])
+          end,
+        }
+      )
+
+      -- rust
+      vim.api.nvim_create_autocmd(
+        'bufenter',
+        {
+          group = 'smartchr',
+          pattern = '*.rs',
+          callback = function()
+            vim.cmd([[
+              inoremap <expr> <buffer> <C-l> smartchr#loop(' -> ', ' => ')
+              inoremap <expr> <buffer> = smartchr#loop(' = ', '=', ' == ', '==')
+            ]])
+          end,
+        }
+      )
+
+      -- javascript
+      vim.api.nvim_create_autocmd(
+        'bufenter',
+        {
+          group = 'smartchr',
+          pattern = '*.js',
+          callback = function()
+            vim.cmd([[
+              inoremap <expr> <buffer> = smartchr#loop(' = ', '=', ' == ', ' === ')
+            ]])
+          end,
+        }
+      )
+    end,
+    config = function()
+      -- gloabally set `,`
+      --vim.keymap.set('i', ',', function() vim.fn['smartchr#loop'](', ', ',') end, { expr = true, noremap = true })
+      -- `vim.keymap.set` does not work...
+      vim.cmd([[
+        inoremap <expr> , smartchr#loop(', ', ',')
+      ]])
+    end,
+  }
+
   -- textobj
   -- wiw (support `snake_case`, `CamelCase`, `CAPITAL_CASE`, and so on...)
   use {
