@@ -389,6 +389,25 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- textobj
+  -- wiw (support `snake_case`, `CamelCase`, `CAPITAL_CASE`, and so on...)
+  use {
+    'rhysd/vim-textobj-wiw',
+    requires = { 'kana/vim-textobj-user', },
+    setup = function()
+      vim.g.textobj_wiw_no_default_key_mappings = 1
+    end,
+    config = function()
+      vim.keymap.set({'x', 'o'}, 'au', '<Plug>(textobj-wiw-a)', { noremap = false })
+      vim.keymap.set({'x', 'o'}, 'iu', '<Plug>(textobj-wiw-i)', { noremap = false })
+    end,
+  }
+  -- parameter (support function parameters)
+  use {
+    'sgur/vim-textobj-parameter',
+    requires = { 'kana/vim-textobj-user', },
+  }
+
   -- spellchecker
   use {
     'lewis6991/spellsitter.nvim',
