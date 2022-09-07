@@ -34,7 +34,7 @@ buttons = ["prev", "play", "next"]
 hide_when_empty = false
 format = '{combo} '
 [block.theme_overrides]
-info_fg = "#99cc99"
+info_fg = "#66cccc"
 
 [[block]]
 block = "time"
