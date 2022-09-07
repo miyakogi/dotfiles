@@ -19,7 +19,7 @@ info_fg = "#ed254e"
 
 [[block]]
 block = "cpu"
-format = '<span color="#5dda92" font_family="unifont">{barchart}</span> {utilization}'
+format = '<span color="#66cccc" font_family="unifont">{barchart}</span> {utilization}'
 interval = 1
 
 [[block]]
@@ -56,9 +56,9 @@ inputs = [
 ]
 format = "{max}C"
 [block.theme_overrides]
-warning_fg = "#ff1493"
+warning_fg = "#f2777a"
 critical_fg = "#000000"
-critical_bg = "#ed254e"
+critical_bg = "#f2777a"
 
 [[block]]
 block = "time"
@@ -74,7 +74,7 @@ format_singular = "{both}"
 hide_when_uptodate = true
 [block.theme_overrides]
 info_fg = "#000000"
-info_bg = "#c74ded"
+info_bg = "#cc99cc"
 
 [[block]]
 # block to show the number of systemd failures
@@ -85,4 +85,4 @@ command = '''printf '{"icon": "weather_thunder", "state": "Warning", "text": "%s
 hide_when_empty = true
 [block.theme_overrides]
 warning_fg = "#000000"
-warning_bg = "#f9dc5c"
+warning_bg = "#ffcc66"

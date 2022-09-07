@@ -5,6 +5,7 @@
   preloadindex = true
   fscashe = true
   autoCRLF = false
+  pager = delta
 [include]
   path = ~/.gitconfig.local
 [color]
@@ -12,6 +13,10 @@
   diff = auto
   status = auto
   branch = auto
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
 [alias]
   clone-shallow = clone --depth=1
   hist = log --pretty=format:\"%C(magenta)%h%Creset %C(cyan)%ad%Creset - %s %C(dim)<%C(italic)%an%Creset%C(dim)>%Creset%C(yellow)%d%Creset\" --graph --date=short
@@ -20,8 +25,10 @@
   ffinish = flow feature finish
 [merge]
   ff = false
+  conflictstyle = diff3
 [diff]
   tool = nvimdiff
+  colorMoved = default
 [push]
   default = simple
 [pull]
