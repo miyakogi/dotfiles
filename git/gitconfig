@@ -17,6 +17,8 @@
   diffFilter = delta --color-only
 [delta]
   navigate = true
+  side-by-side = true
+  syntax-theme = TwoDark
 [alias]
   clone-shallow = clone --depth=1
   hist = log --pretty=format:\"%C(magenta)%h%Creset %C(cyan)%ad%Creset - %s %C(dim)<%C(italic)%an%Creset%C(dim)>%Creset%C(yellow)%d%Creset\" --graph --date=short
