@@ -29,8 +29,14 @@
   ff = false
   conflictstyle = diff3
 [diff]
-  tool = nvimdiff
+  tool = difftastic
   colorMoved = default
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft --display side-by-side-show-both "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [push]
   default = simple
 [pull]
