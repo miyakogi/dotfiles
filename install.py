@@ -179,6 +179,7 @@ def main() -> None:
     install(NVIM_BASE / 'init.lua', NVIM_HOME / 'init.lua')
     install(NVIM_BASE / 'manrc', NVIM_HOME / 'manrc')
     install(NVIM_BASE / 'lua', NVIM_HOME / 'lua')
+    install(NVIM_BASE / 'after', NVIM_HOME / 'after')
     install(NVIM_BASE / 'ftplugin', NVIM_HOME / 'ftplugin')
 
     # direnv

@@ -106,11 +106,14 @@ return require('packer').startup(function(use)
           },
         },
       })
+
       -- load fzf extension
       telescope.load_extension('fzf')
 
       -- set key mappings
       vim.keymap.set('n', '<Leader>ff', function() require('telescope.builtin').find_files() end)
+      vim.keymap.set('n', '<Leader>fg', function() require('telescope.builtin').git_files() end)
+      vim.keymap.set('n', '<Leader>fm', function() require('telescope.builtin').oldfiles() end)
     end
   }
 
@@ -154,7 +157,7 @@ return require('packer').startup(function(use)
       -- search note by search query
       vim.keymap.set('n', '<Leader>zf', '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>', opts)
       -- search selected word
-      vim.keymap.set('v', '<Leader>zf', ':"<,">ZkMatch<CR>', opts)
+      vim.keymap.set('v', '<Leader>zf', ':ZkMatch<CR>', opts)
     end,
   }
 
@@ -334,6 +337,7 @@ return require('packer').startup(function(use)
         { 'hrsh7th/cmp-buffer' },
         { 'hrsh7th/cmp-path' },
         { 'hrsh7th/cmp-cmdline' },
+        { 'f3fora/cmp-spell' },
         { 'saadparwaiz1/cmp_luasnip' },
       },
       setup = function()
@@ -348,24 +352,25 @@ return require('packer').startup(function(use)
             expand = function(args)
               require('luasnip').lsp_expand(args.body)
             end
-        },
+          },
 
-        -- mapping
-        mapping = cmp.mapping.preset.insert({
-          ['<C-p>'] = cmp.mapping.select_prev_item(),
-          ['<C-n>'] = cmp.mapping.select_next_item(),
-          ['<C-Space>'] = cmp.mapping.complete(),
-        }),
+          -- mapping
+          mapping = cmp.mapping.preset.insert({
+            ['<C-p>'] = cmp.mapping.select_prev_item(),
+            ['<C-n>'] = cmp.mapping.select_next_item(),
+            ['<C-Space>'] = cmp.mapping.complete(),
+          }),
 
-        -- sources
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'path' },
-        }, {
-          { name = 'buffer' },
+          -- sources
+          sources = cmp.config.sources({
+            { name = 'nvim_lsp' },
+            { name = 'luasnip' },
+            { name = 'path' },
+          }, {
+            { name = 'buffer' },
+            { name = 'spell' },
+          }),
         })
-      })
     end,
   }
 
@@ -384,6 +389,87 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- smartchr
+  use {
+    'kana/vim-smartchr',
+    opt = true,
+    event = 'InsertEnter',
+    setup = function()  -- Define autocmd at setup, as `config` is called after entering insert-mode
+      -- filetype specific keymappings
+      vim.api.nvim_create_augroup('smartchr', {})
+
+      -- python
+      vim.api.nvim_create_autocmd(
+        'bufenter',
+        {
+          group = 'smartchr',
+          pattern = '*.py',
+          callback = function()
+            vim.cmd([[
+              inoremap <expr> <buffer> = smartchr#loop(' = ', '=', ' == ', '==')
+            ]])
+          end,
+        }
+      )
+
+      -- rust
+      vim.api.nvim_create_autocmd(
+        'bufenter',
+        {
+          group = 'smartchr',
+          pattern = '*.rs',
+          callback = function()
+            vim.cmd([[
+              inoremap <expr> <buffer> <C-l> smartchr#loop(' -> ', ' => ')
+              inoremap <expr> <buffer> = smartchr#loop(' = ', '=', ' == ', '==')
+            ]])
+          end,
+        }
+      )
+
+      -- javascript
+      vim.api.nvim_create_autocmd(
+        'bufenter',
+        {
+          group = 'smartchr',
+          pattern = '*.js',
+          callback = function()
+            vim.cmd([[
+              inoremap <expr> <buffer> = smartchr#loop(' = ', '=', ' == ', ' === ')
+            ]])
+          end,
+        }
+      )
+    end,
+    config = function()
+      -- gloabally set `,`
+      --vim.keymap.set('i', ',', function() vim.fn['smartchr#loop'](', ', ',') end, { expr = true, noremap = true })
+      -- `vim.keymap.set` does not work...
+      vim.cmd([[
+        inoremap <expr> , smartchr#loop(', ', ',')
+      ]])
+    end,
+  }
+
+  -- textobj
+  -- wiw (support `snake_case`, `CamelCase`, `CAPITAL_CASE`, and so on...)
+  use {
+    'rhysd/vim-textobj-wiw',
+    requires = { 'kana/vim-textobj-user', },
+    setup = function()
+      vim.g.textobj_wiw_no_default_key_mappings = 1
+    end,
+    config = function()
+      vim.keymap.set({'x', 'o'}, 'au', '<Plug>(textobj-wiw-a)', { noremap = false })
+      vim.keymap.set({'x', 'o'}, 'iu', '<Plug>(textobj-wiw-i)', { noremap = false })
+    end,
+  }
+  -- parameter (support function parameters)
+  use {
+    'sgur/vim-textobj-parameter',
+    requires = { 'kana/vim-textobj-user', },
+  }
+
   -- spellchecker
   use {
     'lewis6991/spellsitter.nvim',
@@ -391,6 +477,20 @@ return require('packer').startup(function(use)
     config = function()
       require('spellsitter').setup({})
     end,
+  }
+
+  -- visual star (search by selected region)
+  use {
+    'thinca/vim-visualstar',
+    setup = function()
+      vim.g.visualstar_no_default_key_mappings = 1
+    end,
+    config = function()
+      vim.keymap.set('x', '*', '<Plug>(visualstar-*)')
+      vim.keymap.set('x', 'g*', '<Plug>(visualstar-g*)')
+      vim.keymap.set('x', '#', '<Plug>(visualstar-#)')
+      vim.keymap.set('x', 'g#', '<Plug>(visualstar-g#)')
+    end
   }
 
   -- highlight current word
