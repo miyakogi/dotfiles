@@ -1,3 +1,6 @@
+-- Set basic options
+vim.opt_local.shiftwidth = 4
+
 -- Add the key mappings only for Markdown files in a zk notebook.
 if require("zk.util").notebook_root(vim.fn.expand('%:p')) ~= nil then
   vim.opt_local.conceallevel = 2  -- hide link id
