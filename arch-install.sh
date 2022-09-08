@@ -63,6 +63,8 @@ packages=(
   jq  # used in some scripts
   zoxide  # smart cd
   zk  # note taking tool
+  git-delta  # better diff tool
+  difftastic  # syntax-aware diff tool
 
   # wayland (sway) session
   xorg-xwayland

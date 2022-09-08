@@ -17,6 +17,8 @@
   diffFilter = delta --color-only
 [delta]
   navigate = true
+  side-by-side = true
+  syntax-theme = TwoDark
 [alias]
   clone-shallow = clone --depth=1
   hist = log --pretty=format:\"%C(magenta)%h%Creset %C(cyan)%ad%Creset - %s %C(dim)<%C(italic)%an%Creset%C(dim)>%Creset%C(yellow)%d%Creset\" --graph --date=short
@@ -27,8 +29,14 @@
   ff = false
   conflictstyle = diff3
 [diff]
-  tool = nvimdiff
+  tool = difftastic
   colorMoved = default
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft --display side-by-side-show-both "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [push]
   default = simple
 [pull]

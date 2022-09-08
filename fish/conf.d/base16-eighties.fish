@@ -1,23 +1,21 @@
 #!/usr/bin/env fish
 
 # Dracula Color Palette
-set -l foreground f8f8f2
-set -l selection 44475a
-set -l comment 6272a4
-set -l red ff5555
-set -l orange ffb86c
-set -l yellow f1fa8c
-set -l green 50fa7b
-set -l purple bd93f9
-set -l cyan 8be9fd
-set -l pink ff79c6
+set -l foreground d3d0c8
+set -l selection 6699cc
+set -l comment 747369
+set -l red f2777a
+set -l yellow ffcc66
+set -l green 99cc99
+set -l purple cc99cc
+set -l cyan 66cccc
 
 # Syntax Highlighting Colors
 set -g fish_color_normal $foreground
 set -g fish_color_command $cyan
 set -g fish_color_quote $yellow
 set -g fish_color_redirection $foreground
-set -g fish_color_end $orange
+set -g fish_color_end $cyan
 set -g fish_color_error $red
 set -g fish_color_param $purple
 set -g fish_color_comment $comment
@@ -25,7 +23,7 @@ set -g fish_color_match --background=$selection
 set -g fish_color_selection --background=$selection
 set -g fish_color_search_match --background=$selection
 set -g fish_color_operator $green
-set -g fish_color_escape $pink
+set -g fish_color_escape $cyan
 set -g fish_color_autosuggestion $comment
 
 # Completion Pager Colors
