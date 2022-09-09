@@ -216,6 +216,7 @@ def main() -> None:
     install(SCRIPTSDIR / 'sway-idle-toggle.sh', BINDIR / 'sway-idle-toggle')
     install(SCRIPTSDIR / 'sway-addws.py', BINDIR / 'sway-addws')
     install(SCRIPTSDIR / 'vimpack.py', BINDIR / 'vimpack')
+    install(SCRIPTSDIR / 'bw-launch.sh', BINDIR / 'bw-launch')
 
     ### Desktop
     # sway
