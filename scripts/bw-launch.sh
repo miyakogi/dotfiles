@@ -200,9 +200,9 @@ while [[ "$1" = "--"* ]]; do
     --chromium)
       # Add chromium options
       if [[ "${*}" = *--wayland* ]] || [[ "${cmd[*]}" = *wayland-1* ]]; then
-        mapfile -t options < <(chromium-options wayland | sed -r 's/\s/\n/g')
+        mapfile -t options < <(chromium-options wayland)
       else
-        mapfile -t options < <(chromium-options | sed -r 's/\s/\n/g')
+        mapfile -t options < <(chromium-options)
       fi
       shift
       ;;

@@ -121,4 +121,6 @@ else
 fi
 
 # --- Output All Flags/Features ---
-echo -n "${flags[@]}"
+for flag in "${flags[@]}"; do
+  echo "$flag"
+done
