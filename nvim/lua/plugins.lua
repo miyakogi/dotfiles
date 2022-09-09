@@ -233,10 +233,6 @@ return require('packer').startup(function(use)
       local on_attach = function(client, bufnr)
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-        if vim.opt.filetype == 'lua' then
-          vim.diagnostic.disable()
-        end
-
         -- key mapping
         local bufopts = { noremap=true, silent=true, buffer=bufnr }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -252,6 +248,7 @@ return require('packer').startup(function(use)
       }
 
       -- bash
+      -- requires `shellcheck` command to enable diagnostic
       require('lspconfig')['bashls'].setup({
         on_attach = on_attach,
         flags = lsp_flags,
@@ -269,9 +266,9 @@ return require('packer').startup(function(use)
               version = 'LuaJIT',
             },
             diagnostics = {
-              enable = false,
+              enable = true,
               -- ignore undefined error for `vim` global variable on nvim config
-              globals = { 'vim' },  -- not working...
+              globals = { 'vim' },
             },
             workspaces = {
               -- make the server aware of neovim runtime files
@@ -293,7 +290,7 @@ return require('packer').startup(function(use)
 
       -- rust
       require('lspconfig')['rust_analyzer'].setup({
-        on_attach = onattach,
+        on_attach = on_attach,
         flags = lsp_flags,
         settings = {
           -- server specific setting
