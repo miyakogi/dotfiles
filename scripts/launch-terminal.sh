@@ -10,11 +10,11 @@ terminals=(
 )
 
 if type st &>/dev/null; then
-  terminals=(${terminals[@]} st)
+  terminals+=(st)
 fi
 
 list_terminals() {
-  for t in ${terminals[@]}; do
+  for t in "${terminals[@]}"; do
     echo " $t "
   done
 }
@@ -24,14 +24,24 @@ list_terminals() {
 #
 prompt="Launch Terminal:"
 
-# define colors
+# Define colors
+# these colors may not be used - disable shellcheck warning
+
+# shellcheck disable=SC2034
 white="#edf0f5"
+# shellcheck disable=SC2034
 black="#282828"
+# shellcheck disable=SC2034
 red="#e64e42"
+# shellcheck disable=SC2034
 green="#48d684"
+# shellcheck disable=SC2034
 yellow="#f9a55b"
+# shellcheck disable=SC2034
 blue="#00ad9f"
+# shellcheck disable=SC2034
 magenta="#9059c8"
+# shellcheck disable=SC2034
 cyan="#6699ee"
 
 # set dispaly specific options

@@ -37,14 +37,10 @@ shift
 
 # check wayland option
 if [[ "${1}" == "--wayland" ]]; then
-  cmd+=(
-    $(chromium-options wayland)
-  )
+  mapfile -t -O "${#cmd[*]}" cmd < <(chromium-options wayland | sed -r 's/\s/\n/g')
   shift
 else
-  cmd+=(
-    $(chromium-options)
-  )
+  mapfile -t -O "${#cmd[*]}" cmd < <(chromium-options | sed -r 's/\s/\n/g')
 fi
 
 # execute command

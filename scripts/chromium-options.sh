@@ -19,7 +19,7 @@
 if [[ -n "$WAYLAND_DISPLAY" || "$XDG_SESSION_TYPE" == "wayland" ]]; then
   session="wayland"
 else
-  session="$(loginctl show-session $(loginctl show-user $(whoami) -p Display --value) -p Type --value)"
+  session="$(loginctl show-session "$(loginctl show-user "$(whoami)" -p Display --value)" -p Type --value)"
 fi
 
 # --- Define Default Flags ---

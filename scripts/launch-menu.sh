@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 if ! type foot &>/dev/null; then
-  notify-send -i system-error -u critical "ERROR" "Need `foot` to be installed for application launcher"
+  notify-send -i system-error -u critical "ERROR" "Need \`foot\` to be installed for application launcher"
 fi
 
 if ! type sklauncher &>/dev/null; then
-  notify-send -i system-error -u critical "ERROR" "Need `sklauncher` to be installed for application launcher"
+  notify-send -i system-error -u critical "ERROR" "Need \`sklauncher\` to be installed for application launcher"
 fi
 
 declare -a cmd=()
