@@ -375,7 +375,7 @@ return require('packer').startup(function(use)
   use {
     'L3MON4D3/LuaSnip',
     requires = { 'rafamadriz/friendly-snippets' },
-    opt = false,  -- cannnot load lazily
+    opt = false,  -- lazy loading breaks nvim-cmp's snippet sources
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
       -- failed to set <C-Space> for expand/jump
