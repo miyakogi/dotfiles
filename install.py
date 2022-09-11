@@ -206,7 +206,6 @@ def main() -> None:
     install(SCRIPTSDIR / 'sway-scratchterm.py', BINDIR / 'sway-scratchterm')
     install(SCRIPTSDIR / 'scratchterm-tmux.sh', BINDIR / 'scratchterm-tmux')
     install(SCRIPTSDIR / 'lock-screen.sh', BINDIR / 'lock-screen')
-    install(SCRIPTSDIR / 'chromium-launcher.sh', BINDIR / 'chromium-launcher')
     install(SCRIPTSDIR / 'chromium-options.sh', BINDIR / 'chromium-options')
     install(SCRIPTSDIR / 'ff-volume-watch.sh', BINDIR / 'ff-volume-watch')
     install(SCRIPTSDIR / 'ff-volume-toggle.sh', BINDIR / 'ff-volume-toggle')
@@ -216,6 +215,7 @@ def main() -> None:
     install(SCRIPTSDIR / 'sway-idle-toggle.sh', BINDIR / 'sway-idle-toggle')
     install(SCRIPTSDIR / 'sway-addws.py', BINDIR / 'sway-addws')
     install(SCRIPTSDIR / 'vimpack.py', BINDIR / 'vimpack')
+    install(SCRIPTSDIR / 'bw-launch.sh', BINDIR / 'bw-launch')
 
     ### Desktop
     # sway

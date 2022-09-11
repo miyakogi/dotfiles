@@ -20,8 +20,8 @@ if [[ $("$msg" -t get_tree | jq '.. | select(.focused?) | .name | test(" - YouTu
   modified_ff_sinks=$(pulsemixer --list-sinks | grep 'Name: Firefox' | grep -v '100%')
   if [[ -n "$modified_ff_sinks" ]]; then
     echo "$modified_ff_sinks" | while read -r line; do
-      ff_sink_id=$(echo $line | sed -r 's/^.*ID: ([a-zA-Z0-9\-]+).*$/\1/')
-      pulsemixer --id $ff_sink_id --set-volume 100
+      ff_sink_id=$(echo "$line" | sed -r 's/^.*ID: ([a-zA-Z0-9\-]+).*$/\1/')
+      pulsemixer --id "$ff_sink_id" --set-volume 100
     done
   fi
 fi

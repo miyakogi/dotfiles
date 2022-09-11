@@ -2,58 +2,7 @@
 
 # Based on https://github.com/pavanjadhaw/betterlockscreen
 
-get_image() {
-  local f1=$(ls ${XDG_CONFIG_HOME:-$HOME/.config}/$1/lock.{png,jpg} 2>/dev/null | head -n 1)
-  local f2=$(ls ${XDG_CONFIG_HOME:-$HOME/.config}/$1/lock_4k.{png,jpg} 2>/dev/null | head -n 1)
-  if [[ -z "$f1" ]] && [[ -z "$f2" ]]; then
-    echo "--blur=8"
-  else
-    if [[ "$1" != sway ]]; then
-      if [[ -n "$f1" ]]; then
-        echo "--image=$f1"
-      else
-        echo "--image=$f2"
-      fi
-    else
-      echo "--image DP-1:${f2} --image DP-2:${f1}"
-    fi
-  fi
-}
-
-xlock() {
-  i3lock \
-    -p default \
-    $image \
-    --centered \
-    --time-pos='x+110:h-70' --date-pos='x+60:h-45' \
-    --clock --date-align 1 --date-str="Screen Locked" \
-    --inside-color="$transparent" --ring-color="$ringcolor" --line-uses-inside \
-    --keyhl-color="$cyan" --bshl-color="$cyan" --separator-color="$transparent" \
-    --insidever-color="$transparent" --insidewrong-color="$red" --ind-pos="x+960:y+480" \
-    --radius=120 --ring-width=32 --verif-text='Checking...' --wrong-text='WRONG' \
-    --greeter-text="Enter Password" --greeter-color="$white"\
-    --verif-color="$white" --time-color="$white" --date-color="$white" \
-    --time-font="$font" --date-font="$font" --layout-font="$font" --verif-font="$font" --wrong-font="$font" --greeter-font="$font" --greeter-size=124 --greeter-pos="x+960:y+$y" \
-    --noinput-text='' --force-clock --pass-media-keys
-}
-
-wlock() {
-  swaylock \
-    -f \
-    $image \
-    --scaling center \
-    --inside-color="$transparent" --ring-color="$ringcolor" --line-uses-inside \
-    --key-hl-color="$cyan" --bs-hl-color="$cyan" --separator-color="$transparent" \
-    --inside-color="$transparent" --inside-wrong-color="$red" \
-    --indicator-radius=120 --indicator-thickness=32 \
-    --ring-ver-color="$white" \
-    --font="$font"
-}
-
-#WM=$(wmctrl -m | grep "Name: " | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
-WM="wlroots wm"
-y=1000
-
+# Define variables
 font='Raleway'
 white='ffffff88'
 transparent='00000000'
@@ -61,19 +10,46 @@ ringcolor='01639266'
 cyan='016392ff'
 red='d23c3dff'
 
-case $WM in
-  i3)
-    y=200
-    image=$(get_image i3)
-    xlock;;
-  bspwm)
-    y=120
-    image=$(get_image bspwm)
-    xlock;;
-  wlroots*)  # sway
-    image=$(get_image sway)
-    wlock;;
-  *)
-    image="--blur=8"
-    xlock;;
-esac
+# Build command
+cmd=(
+  swaylock
+  --daemonize
+  --scaling fill
+  --inside-color="$transparent"
+  --ring-color="$ringcolor"
+  --line-uses-inside
+  --key-hl-color="$cyan"
+  --bs-hl-color="$cyan"
+  --separator-color="$transparent"
+  --inside-color="$transparent"
+  --inside-wrong-color="$red"
+  --indicator-radius=120
+  --indicator-thickness=32
+  --ring-ver-color="$white"
+  --font="$font"
+)
+
+# Set image paths
+directory="${XDG_CONFIG_HOME:-${HOME}/.config}/sway"
+f1=$(find "$directory"/lock.{png,jpg} 2>/dev/null | head -n 1)
+f2=$(find "$directory"/lock_4k.{png,jpg} 2>/dev/null | head -n 1)
+if [[ -n "$f1" ]] && [[ -n "$f2" ]]; then
+  cmd+=(
+    "--image=DP-1:${f2}"
+    "--image=DP-2:${f1}"
+  )
+elif [[ -n "$f1" ]]; then
+  cmd+=(
+    "--image=$f1"
+  )
+elif [[ -n "$f2" ]]; then
+  cmd+=(
+    "--image=$f2"
+  )
+else
+  cmd+=(
+    "--image=blur"
+  )
+fi
+
+"${cmd[@]}"

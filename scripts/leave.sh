@@ -5,7 +5,7 @@
 WM="wlroots wm"
 
 # show menu by rofi (first space is trimmed by sh/bash, so use ASCII code (0x20))
-menu=" Lock\n Suspend \n Hibernate \n Exit \n Restart \n Shutdown"
+menu=" Lock \n Suspend \n Hibernate \n Exit \n Restart \n Shutdown "
 
 if [[ $(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name') == '"DP-1"' ]]; then
   font="Fira Code 30"
@@ -13,14 +13,24 @@ else
   font="Fira Code 16.5"
 fi
 
-# define colors
+# Define colors
+# these colors may not be used - disable shellcheck warnings
+
+# shellcheck disable=SC2034
 white="#edf0f5"
+# shellcheck disable=SC2034
 black="#282828"
+# shellcheck disable=SC2034
 red="#e64e42"
+# shellcheck disable=SC2034
 green="#48d684"
+# shellcheck disable=SC2034
 yellow="#f9a55b"
+# shellcheck disable=SC2034
 blue="#00ad9f"
+# shellcheck disable=SC2034
 magenta="#9059c8"
+# shellcheck disable=SC2034
 cyan="#6699ee"
 
 
@@ -41,7 +51,7 @@ cmd=(
   --sf "$black"  # selected foreground color
 )
 
-RET=$(echo -en $menu | "${cmd[@]}" | tr -d '[:space:]')
+RET=$(echo -en "$menu" | "${cmd[@]}" | tr -d '[:space:]')
 
 _lock() {
   lock-screen

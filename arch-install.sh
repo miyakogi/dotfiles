@@ -15,13 +15,13 @@ install_paru() {
 
   curdir=$PWD
   git clone https://aur.archlinux.org/paru.git /tmp/paru && cd /tmp/paru && makepkg -si
-  cd $curdir
+  cd "$curdir" || exit 1
 }
 
 if ! type paru &>/dev/null; then
   echo "Need \`paru\` AUR helper to be installed."
   echo -n "Automatically install paru now? [y/N]"
-  read ans
+  read -r ans
   case $ans in
     [Yy]*)
       install_paru;;
