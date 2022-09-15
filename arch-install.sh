@@ -65,8 +65,8 @@ packages=(
   zk  # note taking tool
   git-delta  # better diff tool
   difftastic  # syntax-aware diff tool
-  lf  # terminal file manager
-  gitui  # terminal ui for git
+  lf  # terminal emulator (used by nvim)
+  gitui  # terminal git ui (used by nvim)
 
   # wayland (sway) session
   xorg-xwayland

@@ -122,6 +122,8 @@ return require('packer').startup(function(use)
     'is0n/fm-nvim',
     config = function()
       require('fm-nvim').setup({})
+      vim.keymap.set('n', '<Space>e', ':Lf<CR>')
+      vim.keymap.set('n', '<Space>g', ':Gitui<CR>')
     end,
   }
 
@@ -375,7 +377,7 @@ return require('packer').startup(function(use)
   use {
     'L3MON4D3/LuaSnip',
     requires = { 'rafamadriz/friendly-snippets' },
-    opt = false,  -- cannnot load lazily
+    opt = false,  -- lazy loading breaks nvim-cmp's snippet sources
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
       -- failed to set <C-Space> for expand/jump
