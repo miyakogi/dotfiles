@@ -65,6 +65,8 @@ packages=(
   zk  # note taking tool
   git-delta  # better diff tool
   difftastic  # syntax-aware diff tool
+  lf  # terminal file manager
+  gitui  # terminal ui for git
 
   # wayland (sway) session
   xorg-xwayland
