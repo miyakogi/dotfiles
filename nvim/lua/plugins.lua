@@ -213,20 +213,15 @@ return require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     config = function()
-      -- Enable LSP Client When Entering Insert Mode on Supported Filetype
+      -- Start LSP Client When Opening Supported Files
       vim.api.nvim_create_augroup('lsp', {})
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew' }, {
-        group = 'lsp',
-        callback = function()
-          vim.api.nvim_command('LspStart')
-        end,
-        pattern = {
-          '*.bash', '*.sh',
-          '*.lua',
-          '*.py',
-          '*.rs',
-        },
-      })
+      local function lsp_autocmd(pattern)
+        vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew' }, {
+          group = 'lsp',
+          callback = function() vim.api.nvim_command('LspStart') end,
+          pattern = pattern,
+        })
+      end
 
       local opts = { noremap = true, silent = true }
       vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
@@ -251,54 +246,66 @@ return require('packer').startup(function(use)
 
       -- bash
       -- requires `shellcheck` command to enable diagnostic
-      require('lspconfig')['bashls'].setup({
-        on_attach = on_attach,
-        flags = lsp_flags,
-        filetypes = { 'sh', 'bash' },
-      })
+      if vim.fn.executable('bash-language-server') > 0 then
+        lsp_autocmd({ '*.bash', '*.sh' })
+        require('lspconfig')['bashls'].setup({
+          on_attach = on_attach,
+          flags = lsp_flags,
+          filetypes = { 'sh', 'bash' },
+        })
+      end
 
       -- lua
-      require('lspconfig')['sumneko_lua'].setup({
-        on_attach = on_attach,
-        flags = lsp_flags,
-        settings = {
-          Lua = {
-            runtime = {
-              -- neovim embedded lua is LuaJIT
-              version = 'LuaJIT',
-            },
-            diagnostics = {
-              enable = true,
-              -- ignore undefined error for `vim` global variable on nvim config
-              globals = { 'vim' },
-            },
-            workspaces = {
-              -- make the server aware of neovim runtime files
-              library = vim.api.nvim_get_runtime_file('', true),
-            },
-            -- Do not send telemetry data
-            telemetry = {
-              enable = false,
+      if vim.fn.executable('lua-language-server') > 0 then
+        lsp_autocmd({ '*.lua' })
+        require('lspconfig')['sumneko_lua'].setup({
+          on_attach = on_attach,
+          flags = lsp_flags,
+          settings = {
+            Lua = {
+              runtime = {
+                -- neovim embedded lua is LuaJIT
+                version = 'LuaJIT',
+              },
+              diagnostics = {
+                enable = true,
+                -- ignore undefined error for `vim` global variable on nvim config
+                globals = { 'vim' },
+              },
+              workspaces = {
+                -- make the server aware of neovim runtime files
+                library = vim.api.nvim_get_runtime_file('', true),
+              },
+              -- Do not send telemetry data
+              telemetry = {
+                enable = false,
+              },
             },
           },
-        },
-      })
+        })
+      end
 
       -- python
-      require('lspconfig')['pyright'].setup({
-        on_attach = on_attach,
-        flags = lsp_flags,
-      })
+      if vim.fn.executable('pyright-langserver') > 0 then
+        lsp_autocmd({ '*.py' })
+        require('lspconfig')['pyright'].setup({
+          on_attach = on_attach,
+          flags = lsp_flags,
+        })
+      end
 
       -- rust
-      require('lspconfig')['rust_analyzer'].setup({
-        on_attach = on_attach,
-        flags = lsp_flags,
-        settings = {
-          -- server specific setting
-          ["rust-analyzer"] = {}
-        }
-      })
+      if vim.fn.executable('rust-analyzer') > 0 then
+        lsp_autocmd({ '*.rs' })
+        require('lspconfig')['rust_analyzer'].setup({
+          on_attach = on_attach,
+          flags = lsp_flags,
+          settings = {
+            -- server specific setting
+            ["rust-analyzer"] = {}
+          }
+        })
+      end
     end,
   }
 
