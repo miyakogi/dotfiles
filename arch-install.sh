@@ -65,6 +65,7 @@ packages=(
   zk  # note taking tool
   git-delta  # better diff tool
   difftastic  # syntax-aware diff tool
+  lf  # terminal emulator (used by nvim)
 
   # wayland (sway) session
   xorg-xwayland

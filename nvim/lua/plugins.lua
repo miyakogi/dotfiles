@@ -122,6 +122,7 @@ return require('packer').startup(function(use)
     'is0n/fm-nvim',
     config = function()
       require('fm-nvim').setup({})
+      vim.keymap.set('n', '<Space>e', ':Lf<CR>')
     end,
   }
 
