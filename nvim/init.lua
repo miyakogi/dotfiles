@@ -120,7 +120,11 @@ vim.opt.breakindent = true
 vim.opt.ambiwidth = 'single'
 
 -- Window setting
-vim.opt.cmdheight = 1
+if vim.fn.has('nvim-0.8') > 0 then  -- stable version of neovim 0.7.* does not support this option
+  vim.opt.cmdheight = 0  -- hide cmdline when unnecessary
+else
+  vim.opt.cmdheight = 1
+end
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.equalalways = false  -- disable to set all windows to the same size aster split/close
