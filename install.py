@@ -185,6 +185,9 @@ def main() -> None:
     # direnv
     install(BASEDIR / 'direnv', CONFIG_HOME / 'direnv')
 
+    # lf terminal file manager
+    install(BASEDIR / 'lf', CONFIG_HOME / 'lf')
+
     # starship shell prompt
     install(BASEDIR / 'starship.toml', CONFIG_HOME / 'starship.toml')
 
