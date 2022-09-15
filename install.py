@@ -145,6 +145,9 @@ def main() -> None:
     install(BASEDIR / 'git' / 'gitconfig', HOME / '.gitconfig')
     install(BASEDIR / 'git' / 'bin' / 'git-workflow', BINDIR / 'git-workflow')
 
+    # gitui - terminal ui for git
+    install(BASEDIR / 'gitui', CONFIG_HOME / 'gitui')
+
     # rust/cargo
     install(BASEDIR / 'cargo' / 'config', HOME / '.cargo' / 'config')
 
@@ -185,7 +188,7 @@ def main() -> None:
     # direnv
     install(BASEDIR / 'direnv', CONFIG_HOME / 'direnv')
 
-    # lf terminal file manager
+    # lf - terminal file manager
     install(BASEDIR / 'lf', CONFIG_HOME / 'lf')
 
     # starship shell prompt
