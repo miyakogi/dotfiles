@@ -122,8 +122,12 @@ return require('packer').startup(function(use)
     'is0n/fm-nvim',
     config = function()
       require('fm-nvim').setup({})
-      vim.keymap.set('n', '<Space>e', ':Lf<CR>')
-      vim.keymap.set('n', '<Space>g', ':Gitui<CR>')
+      if vim.fn.executable('lf') then
+        vim.keymap.set('n', '<Space>e', ':Lf<CR>')
+      end
+      if vim.fn.executable('gitui') then
+        vim.keymap.set('n', '<Space>g', ':Gitui<CR>')
+      end
     end,
   }
 
