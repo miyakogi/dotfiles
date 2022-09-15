@@ -123,6 +123,7 @@ return require('packer').startup(function(use)
     config = function()
       require('fm-nvim').setup({})
       vim.keymap.set('n', '<Space>e', ':Lf<CR>')
+      vim.keymap.set('n', '<Space>g', ':Gitui<CR>')
     end,
   }
 

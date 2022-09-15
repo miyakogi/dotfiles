@@ -66,6 +66,7 @@ packages=(
   git-delta  # better diff tool
   difftastic  # syntax-aware diff tool
   lf  # terminal emulator (used by nvim)
+  gitui  # terminal git ui (used by nvim)
 
   # wayland (sway) session
   xorg-xwayland
