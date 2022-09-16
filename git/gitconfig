@@ -33,6 +33,8 @@
   minus-emph-style = "red bold normal"
   plus-style = "green normal"
   plus-emph-style = "green bold normal"
+[delta "signs"]
+  keep-plus-minus-markers = true
 [alias]
   clone-shallow = clone --depth=1
   hist = log --pretty=format:\"%C(magenta)%h%Creset %C(cyan)%ad%Creset - %s %C(dim)<%C(italic)%an%Creset%C(dim)>%Creset%C(yellow)%d%Creset\" --graph --date=short
