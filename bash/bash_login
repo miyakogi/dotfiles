@@ -5,12 +5,12 @@
 # ===============================================
 
 # load machine local file
-[ -f $HOME/.bash_login.local ] && source $HOME/.bash_login.local
+[ -f "$HOME/.bash_login.local" ] && source "$HOME/.bash_login.local"
 
 # Start Graphical Session or SHELL
 if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SESSION_TYPE" == tty ) ]]; then
   echo -e -n "Select Window Manager or Shell [sway, bash, fish] [default: sway]:\n>>> "
-  read wm
+  read -r wm
 
   # set default wm as sway
   if test -z "$wm"; then
@@ -91,6 +91,6 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
 fi
 
 # load bashrc
-[ -f $HOME/.bashrc ] && source $HOME/.bashrc
+[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
 
 # vim: sw=2 et

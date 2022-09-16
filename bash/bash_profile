@@ -10,7 +10,7 @@ add_path() {
     *:"$1":*)
       ;;
     *)
-      path=("$1" $path)
+      path=("$1" "$path")
   esac
 }
 
@@ -19,10 +19,12 @@ export PATH="$HOME/.local/bin:$PATH"
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 if type rustc &>/dev/null; then
-  export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+  RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+  export RUST_SRC_PATH
 fi
 if type sccache &>/dev/null; then
-  export RUSTC_WRAPPER=$(which sccache)
+  RUSTC_WRAPPER=$(which sccache)
+  export RUSTC_WRAPPER
 fi
 
 # Add user specific bin dir
@@ -39,9 +41,9 @@ export LESS="-iFRS"
 export SYSTEMD_LESS="iFRSM"
 
 # load machine local bash_profile
-[ -f $HOME/.bash_profile.local ] && source $HOME/.bash_profile.local
+[ -f "$HOME/.bash_profile.local" ] && source "$HOME/.bash_profile.local"
 
 # load ~/.bash_login sequencial
-[ -f $HOME/.bash_login ] && source $HOME/.bash_login
+[ -f "$HOME/.bash_login" ] && source "$HOME/.bash_login"
 
 # vim: sw=2 et
