@@ -35,7 +35,7 @@ if type nvim &>/dev/null; then
 fi
 
 # Set less variables
-export LEFF="-iFRS"
+export LESS="-iFRS"
 export SYSTEMD_LESS="iFRSM"
 
 # load machine local bash_profile
