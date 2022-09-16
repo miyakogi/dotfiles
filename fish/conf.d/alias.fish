@@ -40,3 +40,8 @@ end
 if test $TERM = "alacritty"; or test $TERM = "kitty"; or test $TERM = "foot"
   abbr --add --global ssh "env TERM=xterm-256color ssh"
 end
+
+# difftastic
+if type -q difft
+  abbr --add --global difft "difft --color always --display side-by-side-show-both"
+end
