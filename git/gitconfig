@@ -19,8 +19,12 @@
   useBuiltin = false
 [delta]
   navigate = true
+  features = side-by-side ansi clean-style
+[delta "side-by-side"]
   side-by-side = true
+[delta "ansi"]
   syntax-theme = ansi
+[delta "clean-style"]
   line-numbers-left-format = "{nm:>4}│"
   line-numbers-right-format = "{np:>4}│"
   line-numbers-minus-style = "red normal"
