@@ -5,7 +5,7 @@
 WM="wlroots wm"
 
 # show menu by rofi (first space is trimmed by sh/bash, so use ASCII code (0x20))
-menu=" Lock \n Suspend \n Hibernate \n Exit \n Restart \n Shutdown "
+menu=" Lock \n Sleep \n Suspend \n Hibernate \n Exit \n Restart \n Shutdown "
 
 if [[ $(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name') == '"DP-1"' ]]; then
   font="Fira Code 30"
@@ -57,6 +57,17 @@ _lock() {
   lock-screen
 }
 
+_sleep() {
+  resumecmd='swaymsg "output * power on"'
+  resumecmd+=' && sleep 1'
+  resumecmd+=' && pkill swayidle'
+  resumecmd+=' && sleep 1'
+  resumecmd+=' && systemctl --user restart swayidle.service'
+  systemctl --user stop swayidle.service
+  lock-screen
+  swayidle -w timeout 1 'swaymsg "output * power off"' resume "$resumecmd"
+}
+
 _suspend() {
   lock-screen
   sleep 3
@@ -94,6 +105,8 @@ _shutdown() {
 case $RET in
   Lock)
     _lock;;
+  Sleep)
+    _sleep;;
   Suspend)
     _suspend;;
   Hibernate)
