@@ -24,47 +24,48 @@ list_terminals() {
 #
 prompt="Launch Terminal:"
 
-# Define colors
-# these colors may not be used - disable shellcheck warning
-
-# shellcheck disable=SC2034
-white="#edf0f5"
-# shellcheck disable=SC2034
-black="#282828"
-# shellcheck disable=SC2034
-red="#e64e42"
-# shellcheck disable=SC2034
-green="#48d684"
-# shellcheck disable=SC2034
-yellow="#f9a55b"
-# shellcheck disable=SC2034
-blue="#00ad9f"
-# shellcheck disable=SC2034
-magenta="#9059c8"
-# shellcheck disable=SC2034
-cyan="#6699ee"
-
-# set dispaly specific options
+# Set dispaly specific options
 if [[ $(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name') == '"DP-1"' ]]; then
   font="Fira Code 30"
 else
   font="Fira Code 16.5"
 fi
 
+# Define colors
+# these colors may not be used - disable shellcheck warning
+
+# shellcheck disable=SC2034
+white="#d3d0c8"
+# shellcheck disable=SC2034
+black="#2d2d2d"
+# shellcheck disable=SC2034
+red="#f2777a"
+# shellcheck disable=SC2034
+green="#99cc99"
+# shellcheck disable=SC2034
+yellow="#ffcc66"
+# shellcheck disable=SC2034
+blue="#6699cc"
+# shellcheck disable=SC2034
+magenta="#cc99cc"
+# shellcheck disable=SC2034
+cyan="#66cccc"
+
 # set bemenu command options
+basecolor="$blue"
 bemenu_cmd=(
   bemenu
   --prompt "$prompt"  # prompt
   --fn "$font"  # font
-  --tb "$cyan"   # title background color
+  --tb "$basecolor"   # title background color
   --tf "$black"  # title foreground color
   --fb "$black"  # filter background color
   --ff "$white"  # filter foreground color
   --nb "$black"  # normal background color
   --nf "$white"  # normal foreground color
-  --hb "$cyan"   # selected background color
+  --hb "$basecolor"   # selected background color
   --hf "$black"  # selected foreground color
-  --sb "$cyan"   # selected background color
+  --sb "$basecolor"   # selected background color
   --sf "$black"  # selected foreground color
 )
 
