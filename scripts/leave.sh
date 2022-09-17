@@ -27,37 +27,37 @@ fi
 # these colors may not be used - disable shellcheck warnings
 
 # shellcheck disable=SC2034
-white="#edf0f5"
+white="#d3d0c8"
 # shellcheck disable=SC2034
-black="#282828"
+black="#2d2d2d"
 # shellcheck disable=SC2034
-red="#e64e42"
+red="#f2777a"
 # shellcheck disable=SC2034
-green="#48d684"
+green="#99cc99"
 # shellcheck disable=SC2034
-yellow="#f9a55b"
+yellow="#ffcc66"
 # shellcheck disable=SC2034
-blue="#00ad9f"
+blue="#6699cc"
 # shellcheck disable=SC2034
-magenta="#9059c8"
+magenta="#cc99cc"
 # shellcheck disable=SC2034
-cyan="#6699ee"
+cyan="#66cccc"
 
-
+basecolor="$magenta"
 cmd=(
   bemenu
   --prompt "Leave:"  # prompt
   --ignorecase
   --fn "$font"  # font
-  --tb "$magenta"   # title background color
+  --tb "$basecolor"   # title background color
   --tf "$black"  # title foreground color
   --fb "$black"  # filter background color
   --ff "$white"  # filter foreground color
   --nb "$black"  # normal background color
   --nf "$white"  # normal foreground color
-  --hb "$magenta"   # selected background color
+  --hb "$basecolor"   # selected background color
   --hf "$black"  # selected foreground color
-  --sb "$magenta"   # selected background color
+  --sb "$basecolor"   # selected background color
   --sf "$black"  # selected foreground color
 )
 
