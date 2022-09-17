@@ -48,7 +48,6 @@ packages=(
   git
   neovim
   python-pynvim  # neovim support package
-  ctags
   ccache
   mold  # modern linker for clang, gcc, and rust
   sccache  # rustc cache support
