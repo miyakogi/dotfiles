@@ -234,7 +234,7 @@ return require('packer').startup(function(use)
       vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
       vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
 
-      local on_attach = function(client, bufnr)
+      local on_attach = function(_, bufnr)
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
         -- key mapping
@@ -244,7 +244,7 @@ return require('packer').startup(function(use)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 
         -- command
-        vim.api.nvim_create_user_command('Rename', function() vim.lsp.buf.references(bufopt) end, {})
+        vim.api.nvim_create_user_command('Rename', function() vim.lsp.buf.references(bufopts) end, {})
       end
 
       local lsp_flags = {
@@ -332,7 +332,7 @@ return require('packer').startup(function(use)
 
             -- The function below will be called before any actual modifications from lspkind
             -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-            before = function (entry, vim_item)
+            before = function (_, vim_item)
               return vim_item
             end
           })
