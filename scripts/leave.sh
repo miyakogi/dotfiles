@@ -1,12 +1,22 @@
 #!/usr/bin/env bash
 
-# get WM name
-#WM=$(wmctrl -m | grep "Name" | sed 's/^Name: \(.\+\)$/\1/' | tr '[:upper:]' '[:lower:]')
-WM="wlroots wm"
+# List up menu items
+function menu() {
+  items=(
+    "Lock"
+    "Sleep"
+    "Suspend"
+    "Hibernate"
+    "Exit"
+    "Restart"
+    "Shutdown"
+  )
+  for item in "${items[@]}"; do
+    echo " $item "
+  done
+}
 
-# show menu by rofi (first space is trimmed by sh/bash, so use ASCII code (0x20))
-menu=" Lock \n Sleep \n Suspend \n Hibernate \n Exit \n Restart \n Shutdown "
-
+# Setup bemenu parameters
 if [[ $(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name') == '"DP-1"' ]]; then
   font="Fira Code 30"
 else
@@ -51,7 +61,7 @@ cmd=(
   --sf "$black"  # selected foreground color
 )
 
-RET=$(echo -en "$menu" | "${cmd[@]}" | tr -d '[:space:]')
+RET=$(menu | "${cmd[@]}" | tr -d '[:space:]')
 
 _lock() {
   lock-screen
@@ -81,17 +91,7 @@ _hibernate() {
 }
 
 _exit() {
-  killall redshift
-  case $WM in
-    bspwm)
-      bspc quit;;
-    i3)
-      i3-msg exit;;
-    wlroots*)  # sway
-      swaymsg exit;;
-    *)
-      ;;
-  esac
+  swaymsg exit
 }
 
 _reboot() {
