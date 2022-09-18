@@ -4,7 +4,7 @@
 install_aur_package() {
   # Check argument
   if [ -z "$1" ]; then
-    echo "ERROR: package to install is required."
+    echo "ERROR: package name to install is required."
     exit 1
   fi
   target="$1"
@@ -26,8 +26,12 @@ install_aur_package() {
 
 # Install packages by makepkg
 # Use `-bin` package here to ignore make dependencies and build time
-install_aur_package "paru-bin"
-install_aur_package "lf-bin"  # required for paru's PKGBUILD review
+if ! type paru &>/dev/null; then
+  install_aur_package "paru-bin"
+fi
+if ! type lf &>/dev/null; then
+  install_aur_package "lf-bin"  # required for paru's PKGBUILD review
+fi
 
 # List packages to be installed
 packages=(
