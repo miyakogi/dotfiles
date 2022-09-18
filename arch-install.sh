@@ -64,9 +64,10 @@ packages=(
   zk  # note taking tool
   git-delta  # better diff tool
   difftastic  # syntax-aware diff tool
-  lf  # terminal file manager (used by nvim)
+  lf-bin  # terminal file manager (used by nvim and paru)
   gitui  # terminal git ui (used by nvim)
   tig  # simple terminal git ui
+  nodejs  # required for nvim-treesitter...
 
   # wayland (sway) session
   xorg-xwayland
