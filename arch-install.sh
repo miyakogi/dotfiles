@@ -1,5 +1,44 @@
 #!/usr/bin/env bash
 
+
+# Check required install type: full or min (container)
+declare _install_type
+declare install_type
+
+if [ -n "$1" ]; then
+  _install_type="$1"
+else
+  echo -n "Choose install type from [min, distrobox, full]: "
+  read -r _install_type
+fi
+
+case "$_install_type" in
+  min*)
+    install_type="min"
+    echo -e "\e[1;32m=== Start minimal installation ===\e[m"
+    echo "Press some key to continue, or press <C-c> to cancel"
+    read -r _
+    ;;
+  distrobox)
+    install_type="distrobox"
+    echo -e "\e[1;32m=== Start installation for distrobox-container ===\e[m"
+    echo "Press some key to continue, or press <C-c> to cancel"
+    read -r _
+    ;;
+  full)
+    install_type="full"
+    echo "\e[1;32m=== Start full installation ===\e[m"
+    echo "Press some key to continue, or press <C-c> to cancel"
+    read -r _
+    ;;
+  *)
+    echo -e "\e[1;31mERROR: Invalid option selected: $_install_type\e[m"
+    echo -e "\e[1;31m       Choose from: [full, min, distrobox]\e[m"
+    exit 1
+    ;;
+esac
+
+
 # Install paru and lf
 install_aur_package() {
   # Check argument
@@ -35,7 +74,7 @@ if ! type lf &>/dev/null; then
   install_aur_package "lf-bin"  # required for paru's PKGBUILD review
 fi
 
-# Pickup minimal packages for distrobox environment with this dotfiles
+# List minimal packages for distrobox environment with this dotfiles
 packages=(
   ## Shell
   bash
@@ -71,15 +110,30 @@ packages=(
   fzf  # fuzzy searcher
   fd  # find alternative written by rust
   zoxide  # smart cd
+)
 
+# Install minimal setup for non-graphical environment (e.g. ssh server or simple container)
+if [ "$install_type" = "min" ]; then
+  paru -S "${packages[@]}"
+  exit
+fi
+
+# Add packages for distrobox environment
+packages+=(
   ## Graphical Session (Wayland)
   xorg-xwayland
   wl-clipbaord
   fcitx5-gtk
 )
 
+# Install for distrobox container
+if [ "$install_type" = "distrobox" ]; then
+  paru -S "${packages[@]}"
+  exit
+fi
 
-# List packages to be installed
+
+# Add packages to be installed for full/base system
 packages+=(
   ## Terminals
   alacritty
