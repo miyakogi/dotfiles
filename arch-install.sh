@@ -1,37 +1,35 @@
 #!/usr/bin/env bash
 
-install_paru() {
+# Install paru and lf
+install_aur_package() {
+  # Check argument
+  if [ -z "$1" ]; then
+    echo "ERROR: package to install is required."
+    exit 1
+  fi
+  target="$1"
+
+  # Check `git` command
   if ! type git &>/dev/null; then
-    echo "Install git"
+    echo "Installing Git"
     sudo pacman -S git
   fi
 
-  if ! type cargo &>/dev/null; then
-    echo "Install cargo/rustc by rustup"
-    sudo pacman -S rustup
-    # install and set stable channel as defualt for rustc
-    rustup default stable
-  fi
-
-  curdir=$PWD
-  git clone https://aur.archlinux.org/paru.git /tmp/paru && cd /tmp/paru && makepkg -si
-  cd "$curdir" || exit 1
+  # Install AUR package by makepkg
+  origdir="$(realpath "$(pwd)")"
+  tmpdir="/tmp/${target}-$(uuidgen)"
+  git clone "https://aur.archlinux.org/${target}.git" "${tmpdir}" && \
+    cd "${tmpdir}" && \
+    makepkg -si
+  cd "$origdir" || exit 1
 }
 
-if ! type paru &>/dev/null; then
-  echo "Need \`paru\` AUR helper to be installed."
-  echo -n "Automatically install paru now? [y/N]"
-  read -r ans
-  case $ans in
-    [Yy]*)
-      install_paru;;
-    *)
-      echo "You can manually install paru by below command:"
-      echo "git clone https://aru.archlinux.org/paru.git && cd paru && makepkg -si"
-      exit 1;;
-  esac
-fi
+# Install packages by makepkg
+# Use `-bin` package here to ignore make dependencies and build time
+install_aur_package "paru-bin"
+install_aur_package "lf-bin"  # required for paru's PKGBUILD review
 
+# List packages to be installed
 packages=(
   # shell
   python
@@ -64,7 +62,6 @@ packages=(
   zk  # note taking tool
   git-delta  # better diff tool
   difftastic  # syntax-aware diff tool
-  lf-bin  # terminal file manager (used by nvim and paru)
   gitui  # terminal git ui (used by nvim)
   tig  # simple terminal git ui
   nodejs  # required for nvim-treesitter...
