@@ -33,45 +33,64 @@ if ! type lf &>/dev/null; then
   install_aur_package "lf-bin"  # required for paru's PKGBUILD review
 fi
 
-# List packages to be installed
+# Pickup minimal packages for distrobox environment with this dotfiles
 packages=(
-  # shell
-  python
+  ## Shell
   bash
+  python
   fish
+  pkgfile  # faster fish command failure support
 
-  # terminals
+  ## Build Tools
+  # PKGBUILD
+  ccache  # for better makepkg build like mesa-git, obs-studio-*, ...
+  # Rust
+  clang  # for rust packages
+  mold  # modern linker for clang, gcc, and rust, used by cargo
+  sccache  # rust cache support
+
+  ## Command Line Tools
+  # Git
+  git
+  git-delta  # better diff tool (used by git config)
+  difftastic  # syntax-aware diff tool (used by git config)
+  gitui  # terminal git ui (used by nvim)
+
+  # Neovim
+  neovim
+  python-pynvim  # neovim support package
+  nodejs  # required for nvim-treesitter...
+
+  # Command-line
+  starship  # prompt manager
+  direnv  # directory based env setting
+  lsd  # ls alternative
+  bat  # cat alternative
+  fzf  # fuzzy searcher
+  fd  # find alternative written by rust
+  zoxide  # smart cd
+
+  ## Graphical Session (Wayland)
+  xorg-xwayland
+  wl-clipbaord
+  fcitx5-gtk
+)
+
+
+# List packages to be installed
+packages+=(
+  ## Terminals
   alacritty
   kitty
   foot
   tmux
 
-  # cli tools
-  git
-  neovim
-  python-pynvim  # neovim support package
-  ccache
-  mold  # modern linker for clang, gcc, and rust
-  sccache  # rustc cache support
-  starship  # prompt manager
-  direnv  # directory based env setting
+  # Command Line Tools
   python-poetry  # python virtualenv/package manager
-  lsd  # ls alternative
-  bat  # cat alternative
-  fzf  # fuzzy searcher
-  fd  # find alternative written by rust
-  pkgfile  # faster fish command failure support
-  jq  # used in some scripts
-  zoxide  # smart cd
   zk  # note taking tool
-  git-delta  # better diff tool
-  difftastic  # syntax-aware diff tool
-  gitui  # terminal git ui (used by nvim)
   tig  # simple terminal git ui
-  nodejs  # required for nvim-treesitter...
 
   # wayland (sway) session
-  xorg-xwayland
   sway
   swaybg
   swaylock
@@ -80,21 +99,20 @@ packages=(
   grim
   slurp
   swappy
+  jq  # used in some scripts for sway
   autotiling
-  python-i3ipc
-  i3status-rust  # status block generator for swaybar
+  python-i3ipc  # used in some script for sway
+  i3status-rust  # status block generator for sway-bar
   pulsemixer  # used by volume check/fix scripts on i3status-rust
   playerctl  # for audio control by keyboard on sway
   bemenu
   bemenu-wayland
   gammastep
-  wl-clipbaord
   kvantaum  # qt theme setting
 
   # input method
   fcitx5
   fcitx5-configtool
-  fcitx5-gtk
   mozc-ut
   fcitx5-mozc-ut
 
