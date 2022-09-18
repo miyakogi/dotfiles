@@ -3,82 +3,29 @@
 My dotfiles for Arch Linux.
 
 Display manager is not supported.
-Use TTY login at tty-1 (default) and select DE/WM.
-
-## Supported Applications (contains config files in this repo)
-
-These applications should be all installed.
-
-### Command-Line Tool
-
-- bash
-- fish
-- git
-- neovim
-- tmux
-- ctags
-- cargo (rustup + sccache)
-- pip
-
-### Terminal
-
-- alacritty
-- kitty
-- foot
-
-### Desktop
-
-- sway
-- xorg-xwayland
-- dunst
-- autotiling (sway auto-tiling)
-- i3status-rust (status block generator for i3bar/swaybar)
-- python-i3ipc (scratchpad control and add workspace function for i3/sway)
-- fcitx5
-- fcitx5-mozc
-- pulsemixer (volume check/fix)
-- papirus-icon-theme (default icon)
-
-## Required Applications (not listed above)
-
-### Fonts
-
-- Source Han Sans JP
-- Fira Code
-- Fira Code Nerd Fonts
-- Iosevka
-- Sarasa Gothic
-- unifont
-- Nerd Font Symbols
-
-### Command-Line Tool
-
-- direnv
-- poetry
-- fzf
-- lsd (`ls` alternatives)
-- bat (`cat` alternative)
-- starship (prompt generator)
-
-### Desktop
-
-- bemenu
-- bemenu-wayland
-- grim
-- slurp
-- swappy
-- gammastep
-- wl-clipboard
+Use TTY login at tty-1 (default) and select Shell/DE/WM.
 
 ## Install
 
-On Arch Linux, run `./arch-install.sh`.
-This script installs all required packages.
+At first, confirm that `base` and `base-devel` packages are installed:
 
-Run:
+```
+sudo pacman -S base base-devel
+```
+
+Then, on Arch Linux, install packages by run:
+
+```
+./arch-install.sh
+```
+
+This installs all required packages.
+**Other Distributions (including Arch-Derivatives) are not supported**.
+If you still want to try, check packages in `arch-install.sh` script and install them manually.
+
+Then make config files for supported applicatiosn, run:
 
 ```sh
-# Install config files
 ./install.py
 ```
 
@@ -93,7 +40,7 @@ Disable display managers (e.g. SDDM or GDM) if enabled.
 Enable systemd services for graphical session.
 
 ```sh
-systemctl --user enable autotiling.service dunst-notification.service fcitx5.service gammastep.service sway-idle.service
+systemctl --user enable --now autotiling.service dunst-notification.service fcitx5.service gammastep.service sway-idle.service
 ```
 
 Then logout/login or reboot.
@@ -107,3 +54,5 @@ Use wallpaper for each WM as below:
 Use lock images for each WM as below:
 
 - sway: `$XDG_CONFIG_HOME/sway/lock{,_4k}.{png,jpg}`
+
+Monitor settings are hard-coded for my environment (DP-1 for 4K 144Hz main monitor and DP-2 for FHD 144Hz sub monitor).
