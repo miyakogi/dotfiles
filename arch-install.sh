@@ -121,7 +121,6 @@ fi
 # Add packages for distrobox environment
 packages+=(
   ## Graphical Session (Wayland)
-  xorg-xwayland
   wl-clipbaord
   fcitx5-gtk
 )
@@ -161,6 +160,7 @@ packages+=(
   i3status-rust  # status block generator for sway-bar
   pulsemixer  # used by volume check/fix scripts on i3status-rust
   playerctl  # for audio control by keyboard on sway
+  xorg-xwayland
   bemenu
   bemenu-wayland
   gammastep
