@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import os
 import subprocess
 import time
 from typing import Optional
@@ -15,7 +14,7 @@ TERM_CLASS = 'scratchterm'
 TERM_CMD = [
     'foot',
     '--app-id', TERM_CLASS,
-    '--override=colors.alpha=0.7',
+    '--override=colors.alpha=0.85',
     '--override=pad=2x2',
 ]
 
