@@ -100,6 +100,7 @@ packages=(
 
   # font/theme
   adobe-source-han-sans-jp-fonts
+  adobe-source-han-serif-jp-fonts
   adobe-source-han-mono-jp-fonts
   ttf-fira-code
   nerd-fonts-fira-code
