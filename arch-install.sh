@@ -121,7 +121,7 @@ fi
 # Add packages for distrobox environment
 packages+=(
   ## Graphical Session (Wayland)
-  wl-clipbaord
+  wl-clipboard
   fcitx5-gtk
 )
 
