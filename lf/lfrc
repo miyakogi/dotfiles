@@ -39,7 +39,14 @@ cmd open ${{
     test -L $f && f=$(readlink -f $f)
     case $(file --mime-type $f -b) in
         text/*)
-          $EDITOR $fx
+          $EDITOR "$fx"
+          ;;
+        application/pdf)
+          if type zathura &>/dev/null; then
+            zathura "$fx"
+          elif type distrobox &>/dev/null; then
+            distrobox enter arch-media -- zathura \"$fx\"
+          fi
           ;;
         image/*)
           if type imv &>/dev/null; then
