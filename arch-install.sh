@@ -81,6 +81,7 @@ packages=(
   python
   fish
   pkgfile  # faster fish command failure support
+  man-db  # man command
 
   ## Build Tools
   # PKGBUILD
