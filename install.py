@@ -144,7 +144,6 @@ def install_base() -> None:
     # git
     install(BASEDIR / 'git' / 'gitignore', HOME / '.gitignore_global')
     install(BASEDIR / 'git' / 'gitconfig', HOME / '.gitconfig')
-    install(BASEDIR / 'git' / 'bin' / 'git-workflow', BINDIR / 'git-workflow')
 
     # gitui - terminal ui for git
     install(BASEDIR / 'gitui', CONFIG_HOME / 'gitui')
