@@ -300,9 +300,6 @@ def install_other_home() -> None:
     install(HOST_CONFIG_HOME / 'ccache', CONFIG_HOME / 'ccache')
     install(HOST_CONFIG_HOME / 'fontconfig', CONFIG_HOME / 'fontconfig')
 
-    HOST_DATA_HOME = HOST_HOME / '.local' / 'share'
-    install(HOST_DATA_HOME / 'nvim' / 'site' / 'pack', DATA_HOME / 'nvim' / 'site' / 'pack')
-
     CACHE_DIR = HOME / '.cache'
     HOST_CACHE_DIR = HOST_HOME / '.cache'
     install(HOST_CACHE_DIR / 'ccache', CACHE_DIR / 'ccache')
