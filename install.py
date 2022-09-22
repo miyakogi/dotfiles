@@ -13,9 +13,12 @@ if not sys.platform.startswith('linux'):
 HOME = Path.home()
 BASEDIR = Path(__file__).resolve().parent
 CONFIG_HOME = Path(os.getenv('XDG_CONFIG_HOME') or HOME / '.config')
+DATA_HOME = Path(os.getenv('XDG_DATA_HOME') or HOME / '.local' / 'share')
 PICTURES_DIR = Path(os.getenv('XDG_PICTURES_DIR') or HOME / 'Pictures')
 BINDIR = HOME / 'bin'
 
+# Used in distrobox environment
+HOST_HOME = Path('/home') / os.getenv('USER', '')
 
 class Formatter(logging.Formatter):
     _colors_int = {'red': 1, 'green': 2, 'yellow': 3, 'blue': 4}
@@ -109,6 +112,14 @@ def git_clone(url: str, out: Path) -> None:
     logger.info(f'cloned {url} to {out}')
 
 
+def is_orig_home() -> bool:
+    """
+    Check if $HOME is same as /home/$USER.
+    If different, possibly running in distrobox container.
+    """
+    return HOST_HOME == HOME
+
+
 def make_empty_directories() -> None:
     """
     These dirs don't contain config files but need to exist.
@@ -120,22 +131,12 @@ def make_empty_directories() -> None:
     mkdir(PICTURES_DIR / 'screenshots' / 'swappy')
 
 
-def main() -> None:
-    # Make empty directories
-    make_empty_directories()
+def install_base() -> None:
+    """
+    Install config files for both of host and distrobox container.
+    """
 
-    ##################
-    # Install Starts #
-    ##################
-
-    # Shell defaults
-    install(BASEDIR / 'profile', HOME / '.profile')
-
-    # bash files
-    BASHDIR = BASEDIR / 'bash'
-    install(BASHDIR / 'bash_profile', HOME / '.bash_profile')
-    install(BASHDIR / 'bash_login', HOME / '.bash_login')
-    install(BASHDIR / 'bashrc', HOME / '.bashrc')
+    logger.info('Install Base Config')
 
     # fish shell
     install(BASEDIR / 'fish', CONFIG_HOME / 'fish')
@@ -157,25 +158,6 @@ def main() -> None:
     # tmux
     install(BASEDIR / 'tmux' / 'tmux.conf', HOME / '.tmux.conf')
 
-    # vim
-    VIMBASE = BASEDIR / 'vim'
-    VIMDOTDIR = HOME / '.vim'
-    install(VIMBASE / 'vimrc', HOME / '.vimrc')
-    install(VIMBASE / 'pack.ini', VIMDOTDIR / 'pack' / 'remote' / 'pack.ini')
-    install(VIMBASE / 'rgb.txt', VIMDOTDIR / 'rgb.txt')
-    install(VIMBASE / 'after', VIMDOTDIR / 'after')
-    install(VIMBASE / 'autoload', VIMDOTDIR / 'autoload')
-    install(VIMBASE / 'colors', VIMDOTDIR / 'colors')
-    install(VIMBASE / 'config', VIMDOTDIR / 'config')
-    install(VIMBASE / 'ftdetect', VIMDOTDIR / 'ftdetect')
-    install(VIMBASE / 'ftplugin', VIMDOTDIR / 'ftplugin')
-    install(VIMBASE / 'plugin', VIMDOTDIR / 'plugin')
-    install(VIMBASE / 'snippets', VIMDOTDIR / 'snippets')
-    install(VIMBASE / 'syntax', VIMDOTDIR / 'syntax')
-
-    # gvim
-    install(VIMBASE / 'gvimrc_linux', HOME / '.gvimrc')
-
     # neovim
     NVIM_BASE = BASEDIR / 'nvim'
     NVIM_HOME = CONFIG_HOME / 'nvim'
@@ -193,6 +175,44 @@ def main() -> None:
 
     # starship shell prompt
     install(BASEDIR / 'starship.toml', CONFIG_HOME / 'starship.toml')
+
+    ###############################
+    # Install plugins from github #
+    ###############################
+
+    # nvim
+    mkdir(DATA_HOME / 'nvim' / 'site' / 'pack' / 'packer' / 'start')
+    git_clone(
+        'https://github.com/wbthomason/packer.nvim',
+        DATA_HOME / 'nvim' / 'site' / 'pack' / 'packer' / 'start' / 'packer.nvim',
+    )
+
+    # tmux
+    git_clone(
+        'https://github.com/tmux-plugins/tpm',
+        HOME / '.tmux' / 'plugins' / 'tpm',
+    )
+
+
+def install_desktop() -> None:
+    """
+    Install config for tty-login by bash and desktop files.
+    """
+    logger.info('Install Desktop Config')
+
+    #########################
+    # Install for TTY Login #
+    #########################
+
+    # Shell defaults
+    install(BASEDIR / 'profile', HOME / '.profile')
+
+    # bash files
+    BASHDIR = BASEDIR / 'bash'
+    install(BASHDIR / 'bash_profile', HOME / '.bash_profile')
+    install(BASHDIR / 'bash_login', HOME / '.bash_login')
+    install(BASHDIR / 'bashrc', HOME / '.bashrc')
+
 
     ##############################
     # Install for Desktop System #
@@ -267,23 +287,47 @@ def main() -> None:
     install_service('swayidle.service')
     install_service('dunst-notification.service')
 
-    ###############################
-    # Install plugins from github #
-    ###############################
 
-    # nvim
-    mkdir(HOME / '.local' / 'share' / 'nvim' / 'site' / 'pack' / 'packer' / 'start')
-    git_clone(
-        'https://github.com/wbthomason/packer.nvim',
-        HOME / '.local' / 'share' / 'nvim' / 'site' / 'pack' / 'packer' / 'start' / 'packer.nvim',
-    )
+def install_other_home() -> None:
+    """
+    Create link of some directories between host's home and distrobox's home
+    """
+    logger.info("Link Distrobox Container and Host's HOME" )
 
-    # tmux
-    git_clone(
-        'https://github.com/tmux-plugins/tpm',
-        HOME / '.tmux' / 'plugins' / 'tpm',
-    )
+    # Some shareable xdg-directories
+    HOST_CONFIG_HOME = HOST_HOME / '.config'
+    install(HOST_CONFIG_HOME / 'nvim' / 'spell', CONFIG_HOME / 'nvim' / 'spell')
+    install(HOST_CONFIG_HOME / 'ccache', CONFIG_HOME / 'ccache')
+    install(HOST_CONFIG_HOME / 'fontconfig', CONFIG_HOME / 'fontconfig')
 
+    HOST_DATA_HOME = HOST_HOME / '.local' / 'share'
+    install(HOST_DATA_HOME / 'nvim' / 'site' / 'pack', DATA_HOME / 'nvim' / 'site' / 'pack')
+
+    CACHE_DIR = HOME / '.cache'
+    HOST_CACHE_DIR = HOST_HOME / '.cache'
+    install(HOST_CACHE_DIR / 'ccache', CACHE_DIR / 'ccache')
+    install(HOST_CACHE_DIR / 'sccache', CACHE_DIR / 'sccache')
+
+    # Config files for packages installed by arch-install.sh
+    install(HOST_CONFIG_HOME / 'bat', CONFIG_HOME / 'bat')
+    install(HOST_CONFIG_HOME / 'lsd', CONFIG_HOME / 'lsd')
+    install(HOST_CONFIG_HOME / 'paru', CONFIG_HOME / 'paru')
+
+
+def main() -> None:
+    # Make empty directories
+    make_empty_directories()
+
+    ##################
+    # Install Starts #
+    ##################
+    install_base()
+    if is_orig_home():
+        install_desktop()
+    else:
+        install_other_home()
+
+    # Complete Installation
     logger.info('Install Completed')
 
 
