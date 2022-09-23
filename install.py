@@ -303,6 +303,7 @@ def install_other_home() -> None:
     CACHE_DIR = HOME / '.cache'
     HOST_CACHE_DIR = HOST_HOME / '.cache'
     install(HOST_CACHE_DIR / 'ccache', CACHE_DIR / 'ccache')
+    install(HOST_CACHE_DIR / 'paru', CACHE_DIR / 'paru')
     install(HOST_CACHE_DIR / 'sccache', CACHE_DIR / 'sccache')
 
     # Config files for packages installed by arch-install.sh
