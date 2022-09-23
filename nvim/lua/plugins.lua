@@ -94,6 +94,15 @@ return require('packer').startup(function(use)
               ['<C-u>'] = false,  -- <C-u> clear prompt
             },
           },
+          layout_strategy = 'flex',
+          layout_config = {
+            height = 0.95,
+            width = 0.9,
+            flex = {
+              flip_columns = 120,
+              flip_lines = 40,
+            },
+          },
         },
         pickers = {
           find_files = {
