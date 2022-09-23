@@ -127,8 +127,9 @@ def make_empty_directories() -> None:
     mkdir(HOME / '.vim' / 'backup')
     mkdir(HOME / '.vim' / 'doc')
     mkdir(HOME / '.tmux' / 'plugins')
-    mkdir(PICTURES_DIR / 'screenshots' / 'grim')
-    mkdir(PICTURES_DIR / 'screenshots' / 'swappy')
+    if is_orig_home():
+        mkdir(PICTURES_DIR / 'screenshots' / 'grim')
+        mkdir(PICTURES_DIR / 'screenshots' / 'swappy')
 
 
 def install_base() -> None:
