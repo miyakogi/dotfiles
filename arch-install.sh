@@ -110,6 +110,7 @@ packages=(
   bat  # cat alternative
   fzf  # fuzzy searcher
   fd  # find alternative written by rust
+  ripgrep  # better grep
   zoxide  # smart cd
 )
 
@@ -181,6 +182,7 @@ packages+=(
   nerd-fonts-fira-code
   ttc-iosevka
   ttf-iosevka-nerd
+  ttf-recursive
   ttf-sarasa-gothic  # iosevka + source han sans font for CJK
   ttf-unifont
   ttf-nerd-fonts-symbols
