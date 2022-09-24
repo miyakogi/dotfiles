@@ -96,8 +96,6 @@ return require('packer').startup(function(use)
           },
           layout_strategy = 'flex',
           layout_config = {
-            height = 0.95,
-            width = 0.9,
             flex = {
               flip_columns = 120,
               flip_lines = 40,
