@@ -15,20 +15,19 @@ declare -a cmd=()
 termcmd="foot"
 
 # set output specific options
-_font="Sarasa Term J"
 if [[ $(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name') == '"DP-1"' ]]; then
+  _font="Recursive Mn Lnr St"  # Recursive Mono Linear Static (Regular)
   _fsize=28
-  _weight="light"
   winsize="1600x1600"
 else
+  _font="Recursive Mn Lnr St Med"  # Recursive Mono Linear Static (Medium)
   _fsize=16
-  _weight="regular"
   winsize="800x800"
 fi
 
 cmd+=(
   foot
-  --font "${_font}:weight=${_weight}:size=${_fsize}"
+  --font "${_font}:size=${_fsize}"
   --window-size-pixels "$winsize"
   --app-id "sklauncher"
 )
