@@ -25,7 +25,7 @@ on_click = "ff-volume-toggle"
 
 [[block]]
 block = "music"
-player = ["spotify"]
+player = ["spotify", "audacious"]
 max_width = 120
 dynamic_width = true
 marquee_interval = 10
