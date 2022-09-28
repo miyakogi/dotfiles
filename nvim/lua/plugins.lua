@@ -145,7 +145,7 @@ return require('packer').startup(function(use)
   use {
     'mickael-menu/zk-nvim',
     requires = {
-      'nvim-telescope/telescope.nvim',
+      { 'nvim-telescope/telescope.nvim' },
     },
     config = function()
       require('zk').setup({
@@ -328,7 +328,9 @@ return require('packer').startup(function(use)
     'onsails/lspkind.nvim',
     opt = true,
     event = 'InsertEnter',
-    requires = { 'hrsh7th/nvim-cmp' },
+    requires = {
+      { 'hrsh7th/nvim-cmp' },
+    },
     config = function()
       local lspkind = require('lspkind')
       require('cmp').setup {
@@ -397,7 +399,9 @@ return require('packer').startup(function(use)
   -- snippet
   use {
     'L3MON4D3/LuaSnip',
-    requires = { 'rafamadriz/friendly-snippets' },
+    requires = {
+      { 'rafamadriz/friendly-snippets' },
+    },
     opt = false,  -- lazy loading breaks nvim-cmp's snippet sources
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -475,7 +479,9 @@ return require('packer').startup(function(use)
   -- wiw (support `snake_case`, `CamelCase`, `CAPITAL_CASE`, and so on...)
   use {
     'rhysd/vim-textobj-wiw',
-    requires = { 'kana/vim-textobj-user', },
+    requires = { 
+      { 'kana/vim-textobj-user' },
+    },
     setup = function()
       vim.g.textobj_wiw_no_default_key_mappings = 1
     end,
@@ -487,13 +493,17 @@ return require('packer').startup(function(use)
   -- parameter (support function parameters)
   use {
     'sgur/vim-textobj-parameter',
-    requires = { 'kana/vim-textobj-user', },
+    requires = {
+      { 'kana/vim-textobj-user' },
+    },
   }
 
   -- spellchecker
   use {
     'lewis6991/spellsitter.nvim',
-    requires = { 'nvim-treesitter/nvim-treesitter' },
+    requires = {
+      { 'nvim-treesitter/nvim-treesitter' },
+    },
     config = function()
       require('spellsitter').setup({})
     end,
