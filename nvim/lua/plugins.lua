@@ -7,6 +7,9 @@ return require('packer').startup(function(use)
   -- tree-sitter support
   use {
     'nvim-treesitter/nvim-treesitter',
+    requires = {
+      { 'p00f/nvim-ts-rainbow' },
+    },
     run = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup({
@@ -64,6 +67,13 @@ return require('packer').startup(function(use)
             -- need for zk-nvim
             'markdown',
           },
+        },
+
+        -- rainbow-parenthesis
+        rainbow = {
+          enable = true,
+          extended_mode = true,
+          max_file_lines = nil,
         },
       })
     end,
@@ -603,21 +613,6 @@ return require('packer').startup(function(use)
         show_current_context_start = false,
       })
     end,
-  }
-
-  -- rainbow-parenthesis
-  use {
-    'p00f/nvim-ts-rainbow',
-    requires = { { 'nvim-treesitter/nvim-treesitter', }, },
-    config = function()
-      require('nvim-treesitter.configs').setup({
-        rainbow = {
-          enable = true,
-          extended_mode = true,
-          max_file_lines = nil,
-        },
-      })
-    end
   }
 
   -- abbreviation
