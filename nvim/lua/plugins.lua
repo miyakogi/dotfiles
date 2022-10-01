@@ -489,7 +489,7 @@ return require('packer').startup(function(use)
   -- wiw (support `snake_case`, `CamelCase`, `CAPITAL_CASE`, and so on...)
   use {
     'rhysd/vim-textobj-wiw',
-    requires = { 
+    requires = {
       { 'kana/vim-textobj-user' },
     },
     setup = function()
