@@ -86,6 +86,9 @@ case $_terminal in
   foot)
     launch-foot &
     ;;
+  alacritty)
+    launch-alacritty &
+    ;;
   *)
     $_terminal &
     ;;
