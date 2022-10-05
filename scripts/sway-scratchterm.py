@@ -10,12 +10,13 @@ i3 = Connection()
 TERM_CLASS = 'scratchterm'
 
 # --- Define Command for Dropdown Terminal
-# on Wayland, use foot
+# on Wayland, use Alacritty
 TERM_CMD = [
-    'foot',
-    '--app-id', TERM_CLASS,
-    '--override=colors.alpha=0.85',
-    '--override=pad=2x2',
+    'alacritty',
+    '--class', TERM_CLASS,
+    '--option=window.opacity=0.85',
+    '--option=window.padding.x=2',
+    '--option=window.padding.y=2',
 ]
 
 
