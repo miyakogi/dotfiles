@@ -519,27 +519,13 @@ return require('packer').startup(function(use)
     end,
   }
 
-  -- visual star (search by selected region)
-  use {
-    'thinca/vim-visualstar',
-    setup = function()
-      vim.g.visualstar_no_default_key_mappings = 1
-    end,
-    config = function()
-      vim.keymap.set('x', '*', '<Plug>(visualstar-*)')
-      vim.keymap.set('x', 'g*', '<Plug>(visualstar-g*)')
-      vim.keymap.set('x', '#', '<Plug>(visualstar-#)')
-      vim.keymap.set('x', 'g#', '<Plug>(visualstar-g#)')
-    end
-  }
-
   -- highlight current word
   -- replacement of 'itchyny/vim-cursorword'
   use {
     'RRethy/vim-illuminate',
     config = function()
       require('illuminate').configure({
-        delay = 30,  -- sway's key repeat rate = 36 -> 27.8ms
+        delay = 30,  -- sway's key repeat rate = 36/s -> 27.8ms
       })
     end,
   }
