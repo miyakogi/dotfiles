@@ -24,8 +24,15 @@ list_terminals() {
 #
 prompt="Launch Terminal:"
 
-# Set dispaly specific options
+# Check display
 if [[ $(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name') == '"DP-1"' ]]; then
+  hidpi=true
+else
+  hidpi=false
+fi
+
+# Set dispaly specific options
+if [ $hidpi = true ]; then
   font="Fira Code 30"
 else
   font="Fira Code 16.5"
@@ -81,7 +88,11 @@ _terminal=$( list_terminals | "${cmd[@]}" | tr -d '[:space:]' )
 # modify some terminal command and launch
 case $_terminal in
   st)
-    $_terminal -e fish &
+    if [ $hidpi = true ]; then
+      st -f "Sarasa Term Nerd Font:medium:size=22.5:antialias=true" -e fish &
+    else
+      st -e fish &
+    fi
     ;;
   foot)
     launch-foot &
