@@ -570,13 +570,12 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-web-devicons',
         opt = true,
       }, {
-        'RRethy/nvim-base16',
+        'catppuccin/nvim',
       },
     },
     config = function()
       require('lualine').setup({
         options = {
-          theme = 'base16',
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
         },
@@ -586,10 +585,13 @@ return require('packer').startup(function(use)
 
   -- colorscheme
   use {
-    'RRethy/nvim-base16',
+    'catppuccin/nvim',
+    as = 'catppuccin',
     config = function()
-      vim.cmd([[ colorscheme base16-eighties ]])
-    end,
+      vim.g.catppuccin_flavour = 'macchiato' -- latte, frappe, macchiato, mocha
+      require('catppuccin').setup()
+      vim.api.nvim_command 'colorscheme catppuccin'
+    end
   }
 
   -- indent highlight
