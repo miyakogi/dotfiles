@@ -570,7 +570,7 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-web-devicons',
         opt = true,
       }, {
-        'catppuccin/nvim',
+        'arcticicestudio/nord-vim',
       },
     },
     config = function()
@@ -585,12 +585,13 @@ return require('packer').startup(function(use)
 
   -- colorscheme
   use {
-    'catppuccin/nvim',
-    as = 'catppuccin',
+    'arcticicestudio/nord-vim',
+    setup = function()
+      vim.g.nord_italic = 1
+      vim.g.nord_italic_comments = 1
+    end,
     config = function()
-      vim.g.catppuccin_flavour = 'macchiato' -- latte, frappe, macchiato, mocha
-      require('catppuccin').setup()
-      vim.api.nvim_command 'colorscheme catppuccin'
+      vim.api.nvim_command('colorscheme nord')
     end
   }
 
