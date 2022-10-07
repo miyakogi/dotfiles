@@ -14,8 +14,8 @@ json = true
 interval = 0.5
 on_click = "mic-mute-toggle"
 [block.theme_overrides]
-idle_fg = "#a5adcb"
-info_fg = "#ed8796"
+idle_fg = "#aeb3bb"  # comment color
+info_fg = "#bf616a"  # red
 
 [[block]]
 block = "cpu"
@@ -56,9 +56,9 @@ inputs = [
 ]
 format = "{max}C"
 [block.theme_overrides]
-warning_fg = "#ed8796"
+warning_fg = "#bf616a"  # red
 critical_fg = "#000000"
-critical_bg = "#ed8796"
+critical_bg = "#bf616a"  # red
 
 [[block]]
 block = "time"
@@ -74,7 +74,7 @@ format_singular = "{both}"
 hide_when_uptodate = true
 [block.theme_overrides]
 info_fg = "#000000"
-info_bg = "#f5bde6"
+info_bg = "#b48ead"  # magenta
 
 [[block]]
 # block to show the number of systemd failures
@@ -85,4 +85,4 @@ command = '''printf '{"icon": "weather_thunder", "state": "Warning", "text": "%s
 hide_when_empty = true
 [block.theme_overrides]
 warning_fg = "#000000"
-warning_bg = "#eed49f"
+warning_bg = "#ebcb8b"  # yellow

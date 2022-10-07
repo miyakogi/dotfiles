@@ -27,21 +27,21 @@ fi
 # these colors may not be used - disable shellcheck warnings
 
 # shellcheck disable=SC2034
-white="#cad3f5"
+white="#d8dee9"
 # shellcheck disable=SC2034
-black="#24273a"
+black="#2e3440"
 # shellcheck disable=SC2034
-red="#ed8796"
+red="#bf616a"
 # shellcheck disable=SC2034
-green="#a6da95"
+green="#a3be8c"
 # shellcheck disable=SC2034
-yellow="#eed49f"
+yellow="#ebcb8b"
 # shellcheck disable=SC2034
-blue="#8aadf4"
+blue="#81a1c1"
 # shellcheck disable=SC2034
-magenta="#f5bde6"
+magenta="#b48ead"
 # shellcheck disable=SC2034
-cyan="#8bd5ca"
+cyan="#88c0d0"
 
 basecolor="$red"
 cmd=(
