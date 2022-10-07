@@ -535,38 +535,119 @@ draw_bold_text_with_bright_colors: true
 #     cyan:    '0x00c1e1'
 #     white:   '0xc3c7d1'
 
-# Colors (Base16-Eighties)
-colors:
-  # Default colors
-  primary:
-    foreground: '0xd3d0c8'
-    background: '0x2d2d2d'
+# # Colors (Base16-Eighties)
+# colors:
+#   # Default colors
+#   primary:
+#     foreground: '0xd3d0c8'
+#     background: '0x2d2d2d'
+#
+#   # cursor colors
+#   cursor:
+#     cursor: '0xd3d0c8'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x2d2d2d'
+#     red:     '0xf2777a'
+#     green:   '0x99cc99'
+#     yellow:  '0xffcc66'
+#     blue:    '0x6699cc'
+#     magenta: '0xcc99cc'
+#     cyan:    '0x66cccc'
+#     white:   '0xd3d0c8'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0x2d2d2d'
+#     red:     '0xf2777a'
+#     green:   '0x99cc99'
+#     yellow:  '0xffcc66'
+#     blue:    '0x6699cc'
+#     magenta: '0xcc99cc'
+#     cyan:    '0x66cccc'
+#     white:   '0xd3d0c8'
 
-  # cursor colors
+# Colors (Catppuccin Mocha)
+# from: https://github.com/catppuccin/alacritty
+colors:
+  primary:
+    background: "#1E1E2E" # base
+    foreground: "#CDD6F4" # text
+    # Bright and dim foreground colors
+    dim_foreground: "#CDD6F4" # text
+    bright_foreground: "#CDD6F4" # text
+
+  # Cursor colors
   cursor:
-    cursor: '0xd3d0c8'
+    text: "#1E1E2E" # base
+    cursor: "#F5E0DC" # rosewater
+  vi_mode_cursor:
+    text: "#1E1E2E" # base
+    cursor: "#B4BEFE" # lavender
+
+  # Search colors
+  search:
+    matches:
+      foreground: "#1E1E2E" # base
+      background: "#A6ADC8" # subtext0
+    focused_match:
+      foreground: "#1E1E2E" # base
+      background: "#A6E3A1" # green
+    footer_bar:
+      foreground: "#1E1E2E" # base
+      background: "#A6ADC8" # subtext0
+
+  # Keyboard regex hints
+  hints:
+    start:
+      foreground: "#1E1E2E" # base
+      background: "#F9E2AF" # yellow
+    end:
+      foreground: "#1E1E2E" # base
+      background: "#A6ADC8" # subtext0
+
+  # Selection colors
+  selection:
+    text: "#1E1E2E" # base
+    background: "#F5E0DC" # rosewater
 
   # Normal colors
   normal:
-    black:   '0x2d2d2d'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xd3d0c8'
+    black: "#45475A" # surface1
+    red: "#F38BA8" # red
+    green: "#A6E3A1" # green
+    yellow: "#F9E2AF" # yellow
+    blue: "#89B4FA" # blue
+    magenta: "#F5C2E7" # pink
+    cyan: "#94E2D5" # teal
+    white: "#BAC2DE" # subtext1
 
   # Bright colors
   bright:
-    black:   '0x2d2d2d'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xd3d0c8'
+    black: "#585B70" # surface2
+    red: "#F38BA8" # red
+    green: "#A6E3A1" # green
+    yellow: "#F9E2AF" # yellow
+    blue: "#89B4FA" # blue
+    magenta: "#F5C2E7" # pink
+    cyan: "#94E2D5" # teal
+    white: "#A6ADC8" # subtext0
+
+  # Dim colors
+  dim:
+    black: "#45475A" # surface1
+    red: "#F38BA8" # red
+    green: "#A6E3A1" # green
+    yellow: "#F9E2AF" # yellow
+    blue: "#89B4FA" # blue
+    magenta: "#F5C2E7" # pink
+    cyan: "#94E2D5" # teal
+    white: "#BAC2DE" # subtext1
+
+  indexed_colors:
+    - { index: 16, color: "#FAB387" }
+    - { index: 17, color: "#F5E0DC" }
 
 # Visual Bell
 #
