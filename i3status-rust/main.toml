@@ -14,8 +14,8 @@ command = "sway-idle-watch"
 interval = 1
 on_click = "sway-idle-toggle"
 [block.theme_overrides]
-idle_fg = "#a5adcb"
-info_fg = "#ed8796"
+idle_fg = "#aeb3bb"  # comment color
+info_fg = "#bf616a"  # red
 
 [[block]]
 block = "custom"
@@ -34,7 +34,7 @@ buttons = ["prev", "play", "next"]
 hide_when_empty = false
 format = '{combo} '
 [block.theme_overrides]
-info_fg = "#8bd5ca"
+info_fg = "#8fbcbb"  # cyan
 
 [[block]]
 block = "time"
