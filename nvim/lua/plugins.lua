@@ -571,9 +571,6 @@ return require('packer').startup(function(use)
         opt = true,
       }, {
         'RRethy/nvim-base16',
-        config = function()
-          vim.cmd([[ colorscheme base16-eighties ]])
-        end,
       },
     },
     config = function()
@@ -584,6 +581,14 @@ return require('packer').startup(function(use)
           section_separators = { left = '', right = '' },
         },
       })
+    end,
+  }
+
+  -- colorscheme
+  use {
+    'RRethy/nvim-base16',
+    config = function()
+      vim.cmd([[ colorscheme base16-eighties ]])
     end,
   }
 
