@@ -79,6 +79,24 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    'nvim-treesitter/playground',
+    requires = {
+      { 'nvim-treesitter/nvim-treesitter' },
+    },
+    opt = true,
+    cmd = {
+      'TSHighlightCapturesUnderCursor',
+    },
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        playground = {
+          enable = true,
+        },
+      })
+    end,
+  }
+
   -- file management
 
   -- telescope.nvim - find, filter, preview, and pick files
