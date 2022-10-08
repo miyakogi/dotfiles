@@ -588,7 +588,10 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-web-devicons',
         opt = true,
       }, {
-        'arcticicestudio/nord-vim',
+        -- set colorscheme before status line setup
+        -- lualine uses global colorscheme by default
+        'miyakogi/nord.nvim',
+        -- '~/Projects/nord.nvim',  -- for development
       },
     },
     config = function()
@@ -603,10 +606,13 @@ return require('packer').startup(function(use)
 
   -- colorscheme
   use {
-    'arcticicestudio/nord-vim',
+    'miyakogi/nord.nvim',
+    -- '~/Projects/nord.nvim',  -- for development
+    branch = 'main',
     setup = function()
-      vim.g.nord_italic = 1
-      vim.g.nord_italic_comments = 1
+      vim.g.nord_italic_comments = true
+      vim.g.nord_italic = false
+      vim.g.nord_spell_highlight = false
     end,
     config = function()
       vim.api.nvim_command('colorscheme nord')
