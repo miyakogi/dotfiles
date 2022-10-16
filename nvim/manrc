@@ -67,6 +67,4 @@ endfunction
 autocmd VimEnter * call s:plugin_setting()
 
 " set colorscheme
-autocmd VimEnter * colorscheme base16-eighties
-autocmd VimEnter * highlight Normal ctermbg=NONE
 autocmd VimEnter * highlight Search ctermbg=3 ctermfg=0
