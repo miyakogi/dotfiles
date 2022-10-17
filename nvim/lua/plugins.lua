@@ -297,6 +297,16 @@ return require('packer').startup(function(use)
         })
       end
 
+      -- c/cpp
+      -- requires `clangd` included in `clang` package
+      if vim.fn.executable('clangd') > 0 then
+        lsp_autocmd({ '*.c', '*.h', '*.cpp', '*.hpp' })
+        require('lspconfig')['clangd'].setup({
+          on_attach = on_attach,
+          flags = lsp_flags,
+        })
+      end
+
       -- lua
       if vim.fn.executable('lua-language-server') > 0 then
         lsp_autocmd({ '*.lua' })
