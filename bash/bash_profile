@@ -4,16 +4,7 @@
 # Environment Variables
 # ============================================
 
-# Setting $PATH
-add_path() {
-  case ":$PATH:" in
-    *:"$1":*)
-      ;;
-    *)
-      path=("$1" "$path")
-  esac
-}
-
+# XDG Data bin PATH
 export PATH="$HOME/.local/bin:$PATH"
 
 # Rust
@@ -43,7 +34,7 @@ export SYSTEMD_LESS="iFRSM"
 # load machine local bash_profile
 [ -f "$HOME/.bash_profile.local" ] && source "$HOME/.bash_profile.local"
 
-# load ~/.bash_login sequencial
+# load ~/.bash_login sequential
 [ -f "$HOME/.bash_login" ] && source "$HOME/.bash_login"
 
 # vim: sw=2 et
