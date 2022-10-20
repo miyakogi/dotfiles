@@ -155,14 +155,46 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- filer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',  -- optional, for file icons
+    },
+    tag = 'nightly',  -- optional, updated every week. (see issue #1193)
+    config = function()
+      -- set options
+      require('nvim-tree').setup({
+        disable_netrw = true,
+        sort_by = 'case_sensitive',
+        git = {
+          ignore = false,  -- show gitignored files by default - toggle by <S-I>
+        },
+        view = {
+          signcolumn = 'yes',
+        },
+        filters = {
+          dotfiles = true,  -- hide dotfiles by default - toggle by <S-H>
+        },
+      })
+
+      -- keymap
+      local tree_toggle = function()
+        if vim.fn.bufname('%'):find('^NvimTree_') then
+          vim.api.nvim_command('NvimTreeClose')
+        else
+          vim.api.nvim_command('NvimTreeFocus')
+        end
+      end
+      vim.keymap.set('n', '<Space>e', tree_toggle)
+    end
+  }
+
   -- external terminal based file-manager integration
   use {
     'is0n/fm-nvim',
     config = function()
       require('fm-nvim').setup({})
-      if vim.fn.executable('lf') then
-        vim.keymap.set('n', '<Space>e', ':Lf<CR>')
-      end
       if vim.fn.executable('gitui') then
         vim.keymap.set('n', '<Space>g', ':Gitui<CR>')
       end

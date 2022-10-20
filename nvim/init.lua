@@ -20,6 +20,7 @@ vim.api.nvim_create_augroup('init', {})
 -- Disable default plugins
 vim.g.loaded_gzip = 1
 vim.g.loaded_LogiPat = 1
+vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_rrhelper = 1
 vim.g.loaded_tarPlugin = 1
