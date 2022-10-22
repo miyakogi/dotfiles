@@ -655,6 +655,7 @@ return require('packer').startup(function(use)
       vim.g.nord_italic_comments = true
       vim.g.nord_italic = false
       vim.g.nord_spell_highlight = false
+      vim.g.nord_borders = true
     end,
     config = function()
       vim.api.nvim_command('colorscheme nord')
