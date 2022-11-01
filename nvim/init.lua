@@ -121,11 +121,7 @@ vim.opt.breakindent = true
 vim.opt.ambiwidth = 'single'
 
 -- Window setting
-if vim.fn.has('nvim-0.8') > 0 then  -- stable version of neovim 0.7.* does not support this option
-  vim.opt.cmdheight = 0  -- hide cmdline when unnecessary
-else
-  vim.opt.cmdheight = 1
-end
+vim.opt.cmdheight = 1  -- always show status-line, command-line is shown by noice.nvim
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.equalalways = false  -- disable to set all windows to the same size aster split/close
@@ -152,7 +148,7 @@ vim.opt.smartindent = true
 
 -- Rendering setting
 -- vim.opt.synmaxcol = 360
-vim.opt.lazyredraw = true
+vim.opt.lazyredraw = false
 
 -- Color setting
 vim.opt.termguicolors = true
