@@ -178,10 +178,7 @@ packages+=(
   adobe-source-han-sans-jp-fonts
   adobe-source-han-serif-jp-fonts
   adobe-source-han-mono-jp-fonts
-  ttf-fira-code
-  nerd-fonts-fira-code
   ttc-iosevka
-  ttf-iosevka-nerd
   ttf-recursive
   ttf-sarasa-gothic  # iosevka + source han sans font for CJK
   ttf-unifont
