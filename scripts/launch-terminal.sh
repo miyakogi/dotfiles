@@ -94,11 +94,14 @@ case $_terminal in
       st -e fish &
     fi
     ;;
+  alacritty)
+    launch-alacritty &
+    ;;
   foot)
     launch-foot &
     ;;
-  alacritty)
-    launch-alacritty &
+  kitty)
+    launch-kitty &
     ;;
   *)
     $_terminal &

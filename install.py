@@ -228,6 +228,7 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / 'launch-terminal.sh', BINDIR / 'launch-terminal')
     install(SCRIPTSDIR / 'launch-alacritty.sh', BINDIR / 'launch-alacritty')
     install(SCRIPTSDIR / 'launch-foot.sh', BINDIR / 'launch-foot')
+    install(SCRIPTSDIR / 'launch-kitty.sh', BINDIR / 'launch-kitty')
     install(SCRIPTSDIR / 'launch-menu.sh', BINDIR / 'launch-menu')
     install(SCRIPTSDIR / 'leave.sh', BINDIR / 'leave')
     install(SCRIPTSDIR / 'sway-scratchterm.py', BINDIR / 'sway-scratchterm')
