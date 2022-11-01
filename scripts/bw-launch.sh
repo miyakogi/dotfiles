@@ -188,6 +188,14 @@ while [[ "$1" = "--"* ]]; do
       shift
       shift
       ;;
+    --bind)
+      # Bind directory
+      cmd+=(
+        --bind "$2" "$2"
+      )
+      shift
+      shift
+      ;;
     --env)
       # Set env var
       cmd+=(
