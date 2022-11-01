@@ -74,8 +74,9 @@ _sleep() {
   resumecmd+=' && sleep 1'
   resumecmd+=' && systemctl --user restart swayidle.service'
   systemctl --user stop swayidle.service
+  sleep 2
   lock-screen
-  swayidle -w timeout 1 'swaymsg "output * power off"' resume "$resumecmd"
+  swayidle -w timeout 2 'swaymsg "output * power off"' resume "$resumecmd"
 }
 
 _suspend() {
