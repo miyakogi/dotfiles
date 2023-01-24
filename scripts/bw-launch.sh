@@ -108,8 +108,9 @@ declare -a options
 while [[ "$1" = "--"* ]]; do
   case "$1" in
     --wayland)
+      _socket="$(find /run/user/"$(id -u)"/wayland-* | head -n 1)"
       cmd+=(
-        --ro-bind "/run/user/$(id -u)/wayland-1" "/run/user/$(id -u)/wayland-1"
+        --ro-bind "$_socket" "$_socket"
       )
       shift
       ;;
@@ -207,7 +208,7 @@ while [[ "$1" = "--"* ]]; do
       ;;
     --chromium)
       # Add chromium options
-      if [[ "${*}" = *--wayland* ]] || [[ "${cmd[*]}" = *wayland-1* ]]; then
+      if [[ "${*}" = *--wayland* ]] || [[ "${cmd[*]}" = *wayland-* ]]; then
         mapfile -t options < <(chromium-options wayland)
       else
         mapfile -t options < <(chromium-options)
