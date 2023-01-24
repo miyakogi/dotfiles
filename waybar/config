@@ -1,0 +1,165 @@
+// vim: ft=jsonc
+[{
+  "layer": "top",
+  "output": ["DP-1"],
+  "name": "4K",
+  "spacing": 16,
+  "modules-left": ["wlr/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/waybar-mpris", "tray"],
+  "wlr/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      // "01": "一",
+      // "02": "二",
+      // "03": "三",
+      // "04": "四",
+      // "05": "五",
+      // "06": "六",
+      // "07": "七",
+      // "08": "八",
+      // "09": "九",
+      // "10": "十",
+      // "name:①": "① ",
+      // "name:②": "② ",
+      // "name:③": "③ ",
+      // "name:④": "④ ",
+      // "name:⑤": "⑤ ",
+      // "name:⑥": "⑥ ",
+      // "name:⑦": "⑦ ",
+      // "name:⑧": "⑧ ",
+      // "name:⑨": "⑨ ",
+      // "name:⑩": "⑩ ",
+    },
+  },
+  "clock": {
+    "interval": 1,
+    "format": " {:%a %d %b %Y   %H:%M:%S}",
+  },
+  "custom/swayidle": {
+    "return-type": "json",
+    "exec": "$HOME/bin/sway-idle-watch",  // need full path in systemd service
+    "exec-if": "sleep 0.1",  // wait 0.1s to run watch script after click
+    "interval": 10,  // don't know why, but necessary
+    "on-click": "$HOME/bin/sway-idle-toggle",  // need full path in systemd service
+    "format": "{}",
+  },
+  "custom/ff-volume": {
+    "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
+    "exec-if": "sleep 0.1",  // wait 0.1s to run watch script after click
+    "interval": 1,  // don't know why, but necessary
+    "on-click": "$HOME/bin/ff-volume-toggle",  // need full path in systemd service
+    "format": "{}",
+    "tooltip": false,
+  },
+  "custom/waybar-mpris": {
+    "return-type": "json",
+    "exec": "/usr/bin/python $HOME/bin/waybar-mpris-command.py",
+    "on-click": "waybar-mpris --send toggle",
+    "on-right-click": "waybar-mpris --send player-next",
+    "on-scroll-up": "waybar-mpris --send prev",
+    "on-scroll-down": "waybar-mpris --send next",
+    "tooltip": true,
+    "max-length": 60,
+    "restart-interval": 1,  // restart if command exited
+  },
+  "tray": {
+    "icon-size": 32,
+  },
+}, {
+  "layer": "top",
+  "output": ["DP-2"],
+  "name": "FHD",
+  "spacing": 8,
+  "modules-left": ["wlr/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/mic", "cpu", "custom/temperature-cpu", "memory", "custom/gpu", "custom/temperature-gpu", "custom/update", "tray"],
+  "wlr/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      // "11": "一",
+      // "12": "二",
+      // "13": "三",
+      // "14": "四",
+      // "15": "五",
+      // "16": "六",
+      // "17": "七",
+      // "18": "八",
+      // "19": "九",
+      // "20": "十",
+      "11": "1",
+      "12": "2",
+      "13": "3",
+      "14": "4",
+      "15": "5",
+      "16": "6",
+      "17": "7",
+      "18": "8",
+      "19": "9",
+      "20": "10",
+    },
+  },
+  "clock": {
+    "interval": 1,
+    "format": " {:%a %d %b %Y   %H:%M:%S}",
+  },
+  "custom/mic": {
+    "return-type": "json",
+    "exec": "$HOME/bin/mic-mute-watch",
+    "exec-if": "sleep 0.1",
+    "interval": 3,
+    "on-click": "$HOME/bin/mic-mute-toggle",
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "<span font='unifont' color='#88c0d0'>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}{icon16}{icon17}{icon18}{icon19}</span>  {usage}%",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+  },
+  "custom/temperature-cpu": {
+    "return-type": "json",
+    "exec": "$HOME/bin/temperature cpu class",
+    "interval": 1,
+    "format": "{}",
+  },
+  "memory": {
+    "interval": 1,
+    "format": " {}%",
+  },
+  "custom/gpu": {
+    "exec": "/usr/bin/cat /sys/class/drm/card0/device/gpu_busy_percent",
+    "exec-if": "true",
+    "interval": 1,
+    "format": "  {}%",
+  },
+  "custom/temperature-gpu": {
+    "return-type": "json",
+    "exec": "$HOME/bin/temperature gpu class",
+    "interval": 1,
+    "format": "{}",
+  },
+  "custom/update": {
+    "return-type": "json",
+    "exec": "num=$( paru -Qu | grep -v '[ignored]' | wc -l ); if [ $num -gt 0 ]; then echo \"{\\\"text\\\":\\\" $num\\\", \\\"class\\\":\\\"info\\\"}\"; else echo \"{\\\"text\\\":\\\"\\\", \\\"class\\\":\\\"idle\\\"}\"; fi",
+    // "exec": "num=2; if [ $num -gt 0 ]; then echo \"{\\\"text\\\":\\\" $num\\\", \\\"class\\\":\\\"info\\\"}\"; else echo \"{\\\"text\\\":\\\"\\\", \\\"class\\\":\\\"idle\\\"}\"; fi",
+    "interval": 1800,
+    "format": "{}",
+  },
+  // "custom/temperature": {
+  //   "return-type": "json",
+  //   "exec": "$HOME/bin/temperature",
+  //   "interval": 1,
+  //   "format": " {}°C",
+  // },
+  // "temperature": {
+  //   "interval": 1,
+  //   "thermal-zone": 2,  // CPU
+  //   "critical-threshold": 70,
+  //   "format": " {temperatureC}°C",
+  //   "format-critical": "<span color='#bf616a'><b> {temperatureC}°C</b></span>",
+  // },
+  "tray": {
+    "icon-size": 16,
+  },
+}]

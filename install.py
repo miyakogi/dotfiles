@@ -250,6 +250,16 @@ def install_desktop() -> None:
     install(BASEDIR / 'sway' / 'config', CONFIG_HOME / 'sway' / 'config')
     install(BASEDIR / 'sway' / 'config.d', CONFIG_HOME / 'sway' / 'config.d')
 
+    # swaybar (i3status-rust)
+    install(BASEDIR / 'i3status-rust', CONFIG_HOME / 'i3status-rust')
+
+    # hyprland
+    install(BASEDIR / 'hypr' / 'hyprland.conf', CONFIG_HOME / 'hypr' / 'hyprland.conf')
+    install(BASEDIR / 'hypr' / 'hyprpaper.conf', CONFIG_HOME / 'hypr' / 'hyprpaper.conf')
+
+    # waybar (waybar-hypr)
+    install(BASEDIR / 'waybar', CONFIG_HOME / 'waybar')
+
     # alacritty terminal
     install(BASEDIR / 'alacritty', CONFIG_HOME / 'alacritty')
 
@@ -279,6 +289,7 @@ def install_desktop() -> None:
     install_service('user-graphical-session.target')
     install_service('wlr-graphical-session.target')
     install_service('sway-graphical-session.target')
+    install_service('hypr-graphical-session.target')
 
     # WM/DE independent
     install_service('fcitx5.service')

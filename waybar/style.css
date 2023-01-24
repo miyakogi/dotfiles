@@ -1,0 +1,96 @@
+* {
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  font-family: "Symbols Nerd Font", "PlemolJP", "Recursive Mn Lnr St", "Source Han Sans JP";
+  min-height: 0;
+  color: #d8dee9;
+  background-color: #2e3440;
+}
+
+window#waybar.4K {
+  font-size:  24pt;
+}
+
+window#waybar.FHD {
+  font-size: 13.5pt;
+  font-weight: 500;
+}
+
+#workspaces button {
+  border: 1px solid #88c0d0;
+}
+
+window#waybar.FHD #workspaces button {
+  padding: 1px 4px;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  color: #2e3440;
+  background-color: #88c0d0;
+}
+
+#custom-swayidle.Idle {
+  color: #666666;
+}
+
+#custom-swayidle.Info {
+  color: #bf616a;
+}
+
+#custom-waybar-mpris.playing {
+  color: #b48ead;
+}
+
+#custom-mic.Idle {
+  color: #666666;
+}
+
+#custom-mic.Info {
+  color: #bf616a;
+}
+
+#custom-temperature-cpu.Warning,
+#custom-temperature-gpu.Warning {
+  color: #bf616a;
+}
+
+#custom-temperature-cpu.Critical,
+#custom-temperature-gpu.Critical {
+  color: #2e3440;
+  background-color: #bf616a;
+}
+
+#custom-update.info {
+  color: #2e3440;
+  background-color: #b48ead;
+  padding-left: 6px;
+  padding-right: 8px;
+  margin-right: 6px;
+}
+
+/* --- Separator --- */
+/* 4K monitor */
+#custom-swayidle, #custom-ff-volume, #custom-waybar-mpris {
+  padding-right: 12px;
+  border-right: 1px solid #88c0d0;
+}
+
+window#waybar.4K #tray {
+  padding-right: 16px;
+  padding-left: 4px;
+}
+
+/* FHD monitor */
+#custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu {
+  padding-right: 6px;
+  border-right: 1px solid #88c0d0;
+}
+
+window#waybar.FHD #tray {
+  padding-right: 8px;
+  padding-left: 2px;
+}
