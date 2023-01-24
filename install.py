@@ -225,6 +225,7 @@ def install_desktop() -> None:
 
     # Scripts for desktop system
     SCRIPTSDIR = BASEDIR / 'scripts'
+    install(SCRIPTSDIR / 'is-4k.sh', BINDIR / 'is-4k')
     install(SCRIPTSDIR / 'launch-terminal.sh', BINDIR / 'launch-terminal')
     install(SCRIPTSDIR / 'launch-alacritty.sh', BINDIR / 'launch-alacritty')
     install(SCRIPTSDIR / 'launch-foot.sh', BINDIR / 'launch-foot')

@@ -25,7 +25,7 @@ list_terminals() {
 prompt="Launch Terminal:"
 
 # Check display
-if [[ $(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name') == '"DP-1"' ]]; then
+if [ "$(is-4k)" = true ]; then
   hidpi=true
 else
   hidpi=false
