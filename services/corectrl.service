@@ -1,0 +1,10 @@
+[Unit]
+Description=CoreCtrl
+BindsTo=wlr-graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/corectrl --minimize-systray
+
+[Install]
+WantedBy=user-graphical-session.target
