@@ -1,3 +1,4 @@
+#!/usr/bin/sh
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -20,11 +21,11 @@
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-export PATH=$PATH:/sbin
-export PATH=$HOME/bin:$PATH
+export PATH="$PATH:/sbin"
+export PATH="$HOME/bin:$PATH"
 
-if [[ -f "$HOME/.profile.local" ]]; then
-  source "$HOME/.profile.local"
+if [ -f "$HOME/.profile.local" ]; then
+  . "$HOME/.profile.local"
 fi
 
 # vim: sw=2 et ft=sh
