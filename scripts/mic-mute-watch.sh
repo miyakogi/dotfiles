@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 
+case "$XDG_CURRENT_DESKTOP" in
+  sway)
+    state="state"
+    ;;
+  Hyprland)
+    state="class"
+    ;;
+  *)
+    exit 1
+    ;;
+esac
+
 if pulsemixer --list-sources | grep 'Name: USB PnP Audio Device Mono' | grep 'Mute: 0' &>/dev/null; then
-  echo '{"state": "Info", "text": ""}'
+  echo -n "{\"$state\": \"Info\", \"text\": \"\"}"
 else
-  echo '{"state": "Idle", "text": ""}'
+  echo -n "{\"$state\": \"Idle\", \"text\": \"\"}"
 fi
