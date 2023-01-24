@@ -203,6 +203,19 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- cursor navigation plugin
+  use {
+    'ggandor/leap.nvim',
+    requires = {
+      { 'tpope/vim-repeat' },
+    },
+    config = function()
+      require('leap').add_default_mappings()
+      vim.keymap.set({'n', 'x', 'o'},  'f', '<Plug>(leap-forward-to)')
+      vim.keymap.set({'n', 'x', 'o'},  'F', '<Plug>(leap-backward-to)')
+    end
+  }
+
   -- note taking
   use {
     'mickael-menu/zk-nvim',
