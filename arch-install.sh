@@ -27,7 +27,7 @@ case "$_install_type" in
     ;;
   full)
     install_type="full"
-    echo "\e[1;32m=== Start full installation ===\e[m"
+    echo -e "\e[1;32m=== Start full installation ===\e[m"
     echo "Press some key to continue, or press <C-c> to cancel"
     read -r _
     ;;
