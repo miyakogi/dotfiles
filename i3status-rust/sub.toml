@@ -4,6 +4,7 @@ name = "native"
 [icons]
 name = "material-nf"
 [icons.overrides]
+memory = ""
 time = ""
 weather_thunder = ""
 
@@ -23,38 +24,37 @@ format = '<span color="#66cccc" font_family="unifont">{barchart}</span> {utiliza
 interval = 1
 
 [[block]]
+# CPU temperature
+block = "custom"
+command = "temperature cpu state"
+interval = 1
+json = true
+[block.theme_overrides]
+warning_fg = "#bf616a"  # red
+critical_fg = "#000000"
+critical_bg = "#bf616a"  # red
+
+[[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{mem_used_percents}"
+icons_format = " "
+format_mem = " {mem_used_percents}"
 format_swap = "{swap_used_percents}"
 interval = 1
 
 [[block]]
+# GPU
 block = "custom"
 command = '''printf '{"icon": "gpu", "text":"%2d%%"}' $(cat /sys/class/drm/card0/device/gpu_busy_percent | tr -d "[:alpha:].'\-")'''
 interval = 1
 json = true
 
 [[block]]
-block = "temperature"
-collapsed = false
-info = 64
-inputs = [
-  # CPU temperatures
-  "Package id 0",
-  "Core 0",
-  "Core 1",
-  "Core 2",
-  "Core 3",
-  "Core 4",
-  "Core 5",
-
-  # GPU temperatures
-  "edge",
-  #"junction",
-  "mem",
-]
-format = "{max}C"
+# GPU temperature
+block = "custom"
+command = "temperature gpu state"
+interval = 1
+json = true
 [block.theme_overrides]
 warning_fg = "#bf616a"  # red
 critical_fg = "#000000"
