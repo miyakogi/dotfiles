@@ -47,7 +47,7 @@ flags=(
 features="VaapiVideoEncoder,VaapiVideoDecoder"
 # Enable Canvas out-of-process rasterization
 features="$features,CanvasOopRasterization"
-# Enabel Direct Rendering Display Compositor
+# Enable Direct Rendering Display Compositor
 features="$features,EnableDrDc"
 # RawDraw issues are maybe fixed at least on v99
 # -> still broken on YouTube overlay
@@ -86,7 +86,7 @@ else
   flags+=(
     # Native gpu memory buffers are disabled on Xorg/Xwayland by default
     # -> this breaks flatpak version (v103)
-    #--enable-native-gpu-memory-buffers
+    --enable-native-gpu-memory-buffers
   )
 
   if [[ $session == "wayland" ]]; then
