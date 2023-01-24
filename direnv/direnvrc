@@ -1,8 +1,9 @@
 #!/usr/bin/bash
 
 log_info() {
-  local color_normal=$(tput sgr0)
-  local color_warning=$(tput setaf 2)  # green
+  local color_normal color_warning
+  color_normal=$(tput sgr0)
+  color_warning=$(tput setaf 2)  # green
   if [[ -n $DIRENV_LOG_FORMAT ]]; then
     local msg=$*
     printf "${color_warning}${DIRENV_LOG_FORMAT}${color_normal}\n" "$msg" >&2
@@ -10,8 +11,9 @@ log_info() {
 }
 
 log_warning() {
-  local color_normal=$(tput sgr0)
-  local color_warning=$(tput setaf 3)  # yellow
+  local color_normal color_warning
+  color_normal=$(tput sgr0)
+  color_warning=$(tput setaf 3)  # yellow
   if [[ -n $DIRENV_LOG_FORMAT ]]; then
     local msg=$*
     printf "${color_warning}${DIRENV_LOG_FORMAT}${color_normal}\n" "$msg" >&2
@@ -21,33 +23,33 @@ log_warning() {
 # --- Poetry Support ---
 layout_poetry() {
   if ! has poetry; then
-    log_error '`poetry` command not found. Install `poetry` first.'
+    log_error "\`poetry\` command not found. Install \`poetry\` first."
     exit 2
   fi
 
   if [[ ! -f pyproject.toml ]]; then
-    log_error 'No pyproject.toml found. Use `poetry new` or `poetry init` to create one first.'
+    log_error "No pyproject.toml found. Use \`poetry new\` or \`poetry init\` to create one first."
     exit 2
   fi
 
   local VENV
   VENV=$(poetry env info --path)
   if [[ -z $VENV || ! -d $VENV/bin ]]; then
-    log_error 'No poetry virtual environment found!'
-    log_warning 'Automatically create virtual environment in `.venv`.'
+    log_error "No poetry virtual environment found!"
+    log_warning "Automatically create virtual environment in \`.venv\`."
 
     # Create venv by python's venv inside the project dir and use project name for the prompt
-    python -m venv --prompt $(poetry version | cut -d' ' -f1) .venv
+    python -m venv --prompt "$(poetry version | cut -d' ' -f1)" .venv
 
     # Check if new venv is created
     VENV=$(poetry env info --path)
     if [[ -z $VENV || ! -d $VENV/bin ]]; then
-      log_error 'Failed to create new virtual environment for poetry.'
+      log_error "Failed to create new virtual environment for poetry."
       exit 2
     fi
 
     log_info "Successfully created new virtual environment in ${VENV}."
-    log_info 'Manually install packages defined in pyproject.toml by `poetry install`.'
+    log_info "Manually install packages defined in pyproject.toml by \`poetry install\`."
   fi
 
   export VIRTUAL_ENV=$VENV
