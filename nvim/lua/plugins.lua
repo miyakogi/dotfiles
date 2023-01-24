@@ -2,7 +2,9 @@
 
 return require('packer').startup(function(use)
   -- manage packer.nvim itself
-  use 'wbthomason/packer.nvim'
+  use {
+    'wbthomason/packer.nvim',
+  }
 
   -- tree-sitter support
   use {
@@ -646,10 +648,11 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-web-devicons',
         opt = true,
       }, {
-        -- set colorscheme before status line setup
+        -- install colorscheme before status line setup
         -- lualine uses global colorscheme by default
         'miyakogi/nord.nvim',
         -- '~/Projects/nord.nvim',  -- for development
+        -- 'gbprod/nord.nvim',
       },
     },
     config = function()
@@ -657,6 +660,7 @@ return require('packer').startup(function(use)
         options = {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
+          theme = 'nord',
         },
       })
     end,
