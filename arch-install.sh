@@ -183,6 +183,7 @@ packages+=(
   ttf-sarasa-gothic  # iosevka + source han sans font for CJK
   ttf-unifont
   ttf-nerd-fonts-symbols
+  ttf-plemoljp
 )
 
 paru -S "${packages[@]}"

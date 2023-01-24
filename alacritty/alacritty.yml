@@ -114,7 +114,8 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Recursive Mono Linear Static
+    # family: Recursive Mono Linear Static
+    family: PlemolJP
 
     # The `style` can be specified to pick a specific face.
     style: Medium
@@ -153,7 +154,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 12
+  size: 12.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
