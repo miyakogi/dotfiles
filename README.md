@@ -40,7 +40,7 @@ Disable display managers (e.g. SDDM or GDM) if enabled.
 Enable systemd services for graphical session.
 
 ```sh
-systemctl --user enable --now autotiling.service dunst-notification.service fcitx5.service gammastep.service sway-idle.service
+systemctl --user enable --now autotiling.service dunst-notification.service fcitx5.service gammastep.service swayidle.service
 ```
 
 Then logout/login or reboot.

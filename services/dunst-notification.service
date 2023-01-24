@@ -2,7 +2,7 @@
 Description=Dunst notification daemon
 Documentation=man:dunst(1)
 After=dbus.service
-BindsTo=user-graphical-session.target
+BindsTo=wlr-graphical-session.target
 
 [Service]
 Type=dbus
@@ -10,4 +10,4 @@ BusName=org.freedesktop.Notifications
 ExecStart=/usr/bin/dunst
 
 [Install]
-WantedBy=user-graphical-session.target
+WantedBy=wlr-graphical-session.target

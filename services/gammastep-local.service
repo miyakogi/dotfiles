@@ -1,6 +1,6 @@
 [Unit]
 Description=Display Hue Shifter
-BindsTo=sway-graphical-session.target
+BindsTo=wlr-graphical-session.target
 
 [Service]
 Type=simple
@@ -9,4 +9,4 @@ Restart=on-failure
 RestartSec=3
 
 [Install]
-WantedBy=sway-graphical-session.target
+WantedBy=wlr-graphical-session.target

@@ -277,18 +277,20 @@ def install_desktop() -> None:
 
     # Install targets
     install_service('user-graphical-session.target')
+    install_service('wlr-graphical-session.target')
     install_service('sway-graphical-session.target')
 
     # WM/DE independent
     install_service('fcitx5.service')
     install_service('input-remapper-autoload.service')
 
-    # for Sway
-    install_service('autotiling.service')
-    install_service('gammastep.service')
+    # wlroots services
+    install_service('gammastep-local.service')
     install_service('swayidle.service')
     install_service('dunst-notification.service')
 
+    # for Sway
+    install_service('autotiling.service')
 
 def install_other_home() -> None:
     """
