@@ -212,7 +212,7 @@ vim.keymap.set('i', '<C-k>', '<C-g>u<C-\\><C-o>D')
 vim.keymap.set('c', '<C-k>', '<C-g>u<C-\\><C-o>D')
 
 -- Copy/Paset/Cut from/to clipboard
-vim.keymap.set('i', '<C-v>', '<C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>')
+vim.keymap.set('i', '<C-v>', '<C-o>:set paste<CR><C-r>+<C-o>:set nopaste<CR>', { silent = true })
 vim.keymap.set('i', '<A-v>', '<C-v>')
 vim.keymap.set('i', '<C-z>', '<C-v>')
 vim.keymap.set('c', '<C-v>', '<C-r>+')
