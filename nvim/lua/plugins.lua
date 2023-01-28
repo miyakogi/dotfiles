@@ -720,7 +720,7 @@ return require('packer').startup(function(use)
       vim.g.nord_borders = true
     end,
     config = function()
-      vim.api.nvim_command('colorscheme nord')
+      vim.cmd.colorscheme('nord')
     end
   }
 
