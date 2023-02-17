@@ -357,7 +357,7 @@ return require('packer').startup(function(use)
       -- lua
       if vim.fn.executable('lua-language-server') > 0 then
         lsp_autocmd({ '*.lua' })
-        require('lspconfig')['sumneko_lua'].setup({
+        require('lspconfig')['lua_ls'].setup({
           on_attach = on_attach,
           flags = lsp_flags,
           settings = {
