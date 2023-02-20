@@ -24,6 +24,13 @@ if type -q nvim
   abbr --add --global vi "nvim --noplugin"
 end
 
+# editor
+if type -q helix
+  abbr --add --global e helix
+else if type -q "$EDITOR"
+  abbr --add --global e $EDITOR
+end
+
 # ls -> lsd
 if type -q lsd; and test -n "$DISPLAY"
   abbr --add --global ls "lsd"
