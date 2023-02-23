@@ -405,6 +405,20 @@ return require('packer').startup(function(use)
           }
         })
       end
+
+      -- zk
+      if vim.fn.executable('zk') > 0 then
+        require('lspconfig/config').zk = {
+          default_config = {
+            cmd = {'zk', 'lsp'},
+            filetypes = {'markdown'},
+            root_dir = function()
+              return vim.loop.cwd()
+            end,
+            settings = {},
+          }
+        }
+      end
     end,
   }
 
