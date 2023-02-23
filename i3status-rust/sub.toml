@@ -66,8 +66,8 @@ format = "   $timestamp.datetime(f:'%a %d %b %Y')   $timestamp.datetime(f:
 block = "pacman"
 interval = 3600
 aur_command = "paru -Qua"
-format = "$both"
-format_singular = "$both"
+format = " 󰇚 $both "
+format_singular = " 󰇚 $both "
 format_up_to_date = ""
 [block.theme_overrides]
 info_fg = "#000000"
