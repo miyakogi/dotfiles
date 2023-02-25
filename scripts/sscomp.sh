@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# https://chienomi.org/articles/linux/202302-misskey-photo-compress.html 
+# https://chienomi.org/articles/linux/202302-misskey-photo-compress.html
 
 cmd=(
   pngquant
