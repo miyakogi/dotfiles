@@ -156,6 +156,7 @@ packages+=(
   grim
   slurp
   swappy
+  pngquant  # used for image compression (sscomp command)
   jq  # used in some scripts for sway
   autotiling
   python-i3ipc  # used in some script for sway
