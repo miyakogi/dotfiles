@@ -675,11 +675,7 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-web-devicons',
         opt = true,
       }, {
-        -- install colorscheme before status line setup
-        -- lualine uses global colorscheme by default
-        'miyakogi/nord.nvim',
-        -- '~/Projects/nord.nvim',  -- for development
-        -- 'gbprod/nord.nvim',
+        'EdenEast/nightfox.nvim',
       },
     },
     config = function()
@@ -687,7 +683,6 @@ return require('packer').startup(function(use)
         options = {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
-          theme = 'nord',
         },
       })
     end,
@@ -723,19 +718,20 @@ return require('packer').startup(function(use)
 
   -- colorscheme
   use {
-    'miyakogi/nord.nvim',
-    -- '~/Projects/nord.nvim',  -- for development
-    branch = 'main',
-    setup = function()
-      vim.g.nord_disable_background = true
-      vim.g.nord_italic_comments = true
-      vim.g.nord_italic = false
-      vim.g.nord_spell_highlight = false
-      vim.g.nord_borders = true
-    end,
+    'EdenEast/nightfox.nvim',
     config = function()
-      vim.cmd.colorscheme('nord')
-    end
+      require('nightfox').setup({
+        options = {
+          styles = {
+            comments = "italic",
+          },
+          modules = {
+            illuminate = false,
+          },
+        },
+      })
+      vim.cmd.colorscheme('nordfox')
+    end,
   }
 
   -- indent highlight
