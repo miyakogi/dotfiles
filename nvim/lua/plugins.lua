@@ -408,10 +408,10 @@ return require('packer').startup(function(use)
 
       -- zk
       if vim.fn.executable('zk') > 0 then
-        require('lspconfig/config').zk = {
+        require('lspconfig').zk = {
           default_config = {
             cmd = {'zk', 'lsp'},
-            filetypes = {'markdown'},
+            filetypes = { 'markdown' },
             root_dir = function()
               return vim.loop.cwd()
             end,
@@ -652,8 +652,14 @@ return require('packer').startup(function(use)
     event = 'InsertEnter',
     config = function()
       require'nvim-autopairs'.setup({
+        map_cr = true,
         map_c_h = true,
       })
+
+      -- disable autopair for `[[]]`
+      local Rule = require('nvim-autopairs.rule')
+      local npairs = require('nvim-autopairs')
+      npairs.add_rule(Rule('[[', '', 'markdown'))
     end,
   }
 
