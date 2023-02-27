@@ -178,10 +178,16 @@ vim.keymap.set('x', 'gj', 'j', { silent = true })
 vim.keymap.set('x', 'gk', 'k', { silent = true })
 
 -- Move to start/end of lines
-vim.keymap.set('n', 'H', '^')
-vim.keymap.set('n', 'L', '$')
-vim.keymap.set('x', 'H', '^')
-vim.keymap.set('x', 'L', '$')
+vim.keymap.set({'n', 'x'}, 'H', '^')
+vim.keymap.set({'n', 'x'}, 'S', '0')
+vim.keymap.set({'n', 'x'}, 'L', '$')
+
+vim.keymap.set({'n', 'x'}, 'gh', '^')  -- from helix-editor (modified)
+vim.keymap.set({'n', 'x'}, 'gs', '0')  -- from helix-editor (modified)
+vim.keymap.set({'n', 'x'}, 'gl', '$')  -- from helix-editor
+
+-- Go to file end
+vim.keymap.set({'n', 'x'}, 'ge', 'G') -- from helix-editor
 
 -- ======== Insert/Command Cursor Move ========
 vim.keymap.set('i', '<C-a>', '<C-o>_')
@@ -205,7 +211,6 @@ vim.keymap.set('n', '<C-k>', 'gT')
 vim.keymap.set('n', 'ZZ', '<Nop>')  -- danger
 vim.keymap.set('n', 'ZQ', '<Nop>')  -- danger
 vim.keymap.set('n', '<F1>', '<Nop>')  -- show help
-vim.keymap.set('n', 'S', '<Nop>')  -- `S` == `cc`
 
 -- Cut right of cursor
 vim.keymap.set('i', '<C-k>', '<C-g>u<C-\\><C-o>D')
@@ -221,6 +226,10 @@ vim.keymap.set('c', '<C-z>', '<C-v>')
 vim.keymap.set('x', '<C-c>', '"+y')
 vim.keymap.set('x', '<C-x>', '"+d')
 vim.keymap.set('x', '<C-v>', '"+p')
+
+vim .keymap.set('x', '<Space>y', '"+y')  -- from helix-editor
+vim .keymap.set('x', '<Space>p', '"+p')  -- from helix-editor
+vim .keymap.set('x', '<Space>P', '"+P')  -- from helix-editor
 
 -- Use C-q to do what C-v used to do
 vim.keymap.set('n', '<C-q>', '<C-v>')

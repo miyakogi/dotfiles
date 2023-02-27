@@ -154,6 +154,7 @@ return require('packer').startup(function(use)
       vim.keymap.set('n', '<Leader>ff', function() require('telescope.builtin').find_files() end)
       vim.keymap.set('n', '<Leader>fg', function() require('telescope.builtin').git_files() end)
       vim.keymap.set('n', '<Leader>fm', function() require('telescope.builtin').oldfiles() end)
+      vim.keymap.set('n', '<Space>f', function() require('telescope.builtin').find_files() end)  -- from helix-editor
     end
   }
 
