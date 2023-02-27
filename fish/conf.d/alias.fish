@@ -25,9 +25,7 @@ if type -q nvim
 end
 
 # editor
-if type -q helix
-  abbr --add --global e helix
-else if type -q "$EDITOR"
+if type -q "$EDITOR"
   abbr --add --global e $EDITOR
 end
 
