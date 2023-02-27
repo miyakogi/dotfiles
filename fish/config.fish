@@ -8,6 +8,9 @@ set -x LS_COLORS 'di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30
 if type -q helix
   set -x EDITOR helix
   set -x GIT_EDITOR helix
+else if type -q nvim
+  set -x EDITOR nvim 
+  set -x GIT_EDITOR nvim
 end
 
 # set fzf search command
