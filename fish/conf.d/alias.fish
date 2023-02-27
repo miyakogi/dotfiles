@@ -29,6 +29,10 @@ if type -q "$EDITOR"
   abbr --add --global e $EDITOR
 end
 
+if type -q helix
+  abbr --add --global h helix
+end
+
 # ls -> lsd
 if type -q lsd; and test -n "$DISPLAY"
   abbr --add --global ls "lsd"
