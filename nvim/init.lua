@@ -228,8 +228,8 @@ vim.keymap.set('x', '<C-x>', '"+d')
 vim.keymap.set('x', '<C-v>', '"+p')
 
 vim .keymap.set('x', '<Space>y', '"+y')  -- from helix-editor
-vim .keymap.set('x', '<Space>p', '"+p')  -- from helix-editor
-vim .keymap.set('x', '<Space>P', '"+P')  -- from helix-editor
+vim .keymap.set('n', '<Space>p', '"+p')  -- from helix-editor
+vim .keymap.set('n', '<Space>P', '"+P')  -- from helix-editor
 
 -- Use C-q to do what C-v used to do
 vim.keymap.set('n', '<C-q>', '<C-v>')
