@@ -727,6 +727,12 @@ return require('packer').startup(function(use)
   use {
     'EdenEast/nightfox.nvim',
     config = function()
+      local groups = {
+        all = {
+          NvimTreeWinSeparator = { fg = 'palette.bg0', bg = 'palette.bg0', },
+        },
+      }
+
       require('nightfox').setup({
         options = {
           styles = {
@@ -736,7 +742,9 @@ return require('packer').startup(function(use)
             illuminate = false,
           },
         },
+        groups = groups,
       })
+
       vim.cmd.colorscheme('nordfox')
     end,
   }
