@@ -6,7 +6,7 @@ function f
     return 1
   end
 
-  set -l target (fzf) || return 0
+  set -l target (fzf -q "$argv") || return 0
   if test -f "$target"
     "$EDITOR" "$target"
   else if test -d "$target"
