@@ -2,13 +2,6 @@
 -- Startup
 -- =========================================================
 
--- Start measurement
-vim.cmd([[
-  if has('vim_starting') && has('reltime')
-    let g:startuptime = reltime()
-  endif
-]])
-
 -- Create default auto group
 vim.api.nvim_create_augroup('init', {})
 
@@ -262,16 +255,5 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy-config')  -- all package settings with lazy.nvim
 require('autolcd')  -- automatically change local working directory for buffers
 require('quick-closer')  -- quickly close tiny buffers by pressing `q` in normal mode
-
--- =========================================================
--- Post Process
--- =========================================================
-
--- end startup time profiling
-vim.cmd([[
-  if has('vim_starting') && has('reltime')
-    autocmd VimEnter * echomsg 'startuptime: ' . reltimestr(reltime(g:startuptime))
-  endif
-]])
 
 -- vim: set sw=2 et
