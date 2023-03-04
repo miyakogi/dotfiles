@@ -1,19 +1,13 @@
--- Package Configuration File
+-- ####### Lazy.nvim ######
 
-return require('packer').startup(function(use)
-  -- manage packer.nvim itself
-  use {
-    'wbthomason/packer.nvim',
-  }
-
-  -- tree-sitter support
-  use {
+local plugins = {
+  {
     'nvim-treesitter/nvim-treesitter',
-    requires = {
+    dependencies = {
       { 'mrjones2014/nvim-ts-rainbow' },
     },
-    run = ':TSUpdate',
-    config = function()
+    build = ':TSUpdate',
+    config = function ()
       require('nvim-treesitter.configs').setup({
         -- A list of parser names, or 'all'
         ensure_installed = {
@@ -22,7 +16,6 @@ return require('packer').startup(function(use)
           'cpp',
           'dart',
           'dockerfile',
-          'fish',
           'gitignore',
           'help',
           'html',
@@ -39,7 +32,6 @@ return require('packer').startup(function(use)
           'rust',
           'toml',
           'typescript',
-          'vim',
           'vue',
           'yaml',
         },
@@ -47,29 +39,20 @@ return require('packer').startup(function(use)
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,
 
-        -- Automatically install missing parsers when entering buffer
+        -- Automatically install missing parsers whne entering buffer
         auto_install = true,
 
         -- List of parsers to ignore installing (for "all")
-        ignore_install = { },
+        ignore_install = {},
 
         highlight = {
           -- `false` will disable the whole extension
           enable = true,
 
-          -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-          -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-          -- the name of the parser)
-          -- list of language that will be disabled
-          disable = { },
+          disable = {},
 
-          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-          -- Using this option may slow down your editor, and you may see some duplicate highlights.
-          -- Instead of true it can also be a list of languages
           additional_vim_regex_highlighting = {
-            -- need for zk-nvim
-            'markdown',
+            'markdown',  -- required for zk-nvim
           },
         },
 
@@ -77,48 +60,38 @@ return require('packer').startup(function(use)
         rainbow = {
           enable = true,
           extended_mode = true,
-          max_file_lines = nil,
+          mx_file_lines = nil,
         },
       })
     end,
-  }
+  },
 
-  use {
+  {
     'nvim-treesitter/playground',
-    requires = {
+    dependencies = {
       { 'nvim-treesitter/nvim-treesitter' },
     },
-    opt = true,
+    lazy = true,
     cmd = {
       'TSHighlightCapturesUnderCursor',
     },
-    config = function()
-      require('nvim-treesitter.configs').setup({
-        playground = {
-          enable = true,
-        },
-      })
-    end,
-  }
+  },
 
-  -- file management
-
-  -- telescope.nvim - find, filter, preview, and pick files
-  -- replacement of denite.nvim
-  use {
+  -- ### File Management ###
+  {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    requires = {
+    dependencies = {
       { 'nvim-lua/plenary.nvim' },
-      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
-    run = ':checkhealth telescope',
-    opt = true,
+    build = ':checkhealth telescope',
+    lazy = true,
     keys = {
-      { 'n', '<Leader>ff' },
-      { 'n', '<Leader>fg' },
-      { 'n', '<Leader>fm' },
-      { 'n', '<Space>g' },
+      { '<Leader>ff', function() require('telescope.builtin').find_files() end, },
+      { '<Leader>fg', function() require('telescope.builtin').git_files() end, },
+      { '<Leader>fm', function() require('telescope.builtin').oldfiles() end, },
+      { '<Space>f', function() require('telescope.builtin').find_files() end, },
     },
     config = function()
       local telescope = require('telescope')
@@ -158,24 +131,28 @@ return require('packer').startup(function(use)
 
       -- load fzf extension
       telescope.load_extension('fzf')
+    end,
+  },
 
-      -- set key mappings
-      vim.keymap.set('n', '<Leader>ff', function() require('telescope.builtin').find_files() end)
-      vim.keymap.set('n', '<Leader>fg', function() require('telescope.builtin').git_files() end)
-      vim.keymap.set('n', '<Leader>fm', function() require('telescope.builtin').oldfiles() end)
-      vim.keymap.set('n', '<Space>f', function() require('telescope.builtin').find_files() end)  -- from helix-editor
-    end
-  }
-
-  -- filer
-  use {
+  {
     'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',  -- optional, for file icons
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons' },  -- optional, for file icons
     },
     tag = 'nightly',  -- optional, updated every week. (see issue #1193)
-    opt = true,
-    keys = { { 'n', '<Space>e' } },
+    lazy  = true,
+    keys = {
+      {
+        '<Space>e',
+        function()
+          if vim.fn.bufname('%'):find('^NvimTree_') then
+            vim.api.nvim_command('NvimTreeClose')
+          else
+            vim.api.nvim_command('NvimTreeFocus')
+          end
+        end,
+      },
+    },
     config = function()
       -- set options
       require('nvim-tree').setup({
@@ -191,59 +168,62 @@ return require('packer').startup(function(use)
           dotfiles = true,  -- hide dotfiles by default - toggle by <S-H>
         },
       })
-
-      -- keymap
-      local tree_toggle = function()
-        if vim.fn.bufname('%'):find('^NvimTree_') then
-          vim.api.nvim_command('NvimTreeClose')
-        else
-          vim.api.nvim_command('NvimTreeFocus')
-        end
-      end
-      vim.keymap.set('n', '<Space>e', tree_toggle)
     end
-  }
+  },
 
   -- external terminal based file-manager integration
-  use {
+  {
     'is0n/fm-nvim',
-    opt = true,
-    keys = { 'n', '<Space>g' },
+    lazy = true,
+    keys = {
+      { '<Space>g', '<cmd>Gitui<cr>' },
+    },
+    cmd = {
+      'Lf',
+      'Joshuto',
+      'Ranger',
+    },
     config = function()
       require('fm-nvim').setup({})
-      if vim.fn.executable('gitui') then
-        vim.keymap.set('n', '<Space>g', ':Gitui<CR>')
-      end
     end,
-  }
+  },
 
-  -- cursor navigation plugin
-  use {
+  {
     'ggandor/leap.nvim',
-    opt = true,
-    keys = {
-      { 'n', 'f' },
-      { 'x', 'f' },
-      { 'o', 'f' },
-      { 'n', 'F' },
-      { 'x', 'F' },
-      { 'o', 'F' },
-    },
-    requires = {
+    dependencies = {
       { 'tpope/vim-repeat' },
+    },
+    lazy = true,
+    keys = {
+      { 'f', '<Plug>(leap-forward-to)', mode = {'n', 'x', 'o'}, },
+      { 'F', '<Plug>(leap-backward-to)', mode = {'n', 'x', 'o'}, },
     },
     config = function()
       require('leap').add_default_mappings()
-      vim.keymap.set({'n', 'x', 'o'},  'f', '<Plug>(leap-forward-to)')
-      vim.keymap.set({'n', 'x', 'o'},  'F', '<Plug>(leap-backward-to)')
-    end
-  }
+    end,
+  },
 
   -- note taking
-  use {
+  {
     'mickael-menu/zk-nvim',
-    requires = {
+    dependencies = {
       { 'nvim-telescope/telescope.nvim' },
+    },
+    lazy = true,
+    keys = {
+      -- create a new note with title
+      { '<Leader>zn', '<Cmd>ZkNew { title = vim.fn.input("title: ") }<CR>' },
+      -- open note
+      { '<Leader>zo', '<Cmd>ZkNotes { sort = { "modified" } }<CR>' },
+      -- open note by tag
+      { '<Leader>zt', '<Cmd>ZkTags<CR>' },
+      -- search note by search query
+      { '<Leader>zf', '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>' },
+      -- search selected word
+      { '<Leader>zf', ':ZkMatch<CR>', mode = 'x' }
+    },
+    cmd = {
+      'ZkNew',
     },
     config = function()
       require('zk').setup({
@@ -259,24 +239,11 @@ return require('packer').startup(function(use)
           },
         },
       })
-
-      -- key mapping
-      local opts = { noremap = true, silent = false, }
-      -- create a new note with title
-      vim.keymap.set('n', '<Leader>zn', '<Cmd>ZkNew { title = vim.fn.input("title: ") }<CR>', opts)
-      -- open note
-      vim.keymap.set('n', '<Leader>zo', '<Cmd>ZkNotes { sort = { "modified" } }<CR>', opts)
-      -- open note by tag
-      vim.keymap.set('n', '<Leader>zt', '<Cmd>ZkTags<CR>', opts)
-      -- search note by search query
-      vim.keymap.set('n', '<Leader>zf', '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>', opts)
-      -- search selected word
-      vim.keymap.set('v', '<Leader>zf', ':ZkMatch<CR>', opts)
     end,
-  }
+  },
 
   -- git integration
-  use {
+  {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup({
@@ -319,10 +286,10 @@ return require('packer').startup(function(use)
         {}
       )
     end,
-  }
+  },
 
   -- lsp
-  use {
+  {
     'neovim/nvim-lspconfig',
     config = function()
       -- Start LSP Client When Opening Supported Files
@@ -443,14 +410,14 @@ return require('packer').startup(function(use)
         }
       end
     end,
-  }
+  },
 
   -- show icon on lsp types
-  use {
+  {
     'onsails/lspkind.nvim',
-    opt = true,
+    lazy = true,
     event = 'InsertEnter',
-    requires = {
+    dependencies = {
       { 'hrsh7th/nvim-cmp' },
     },
     config = function()
@@ -470,22 +437,22 @@ return require('packer').startup(function(use)
         }
       }
     end,
-  }
+  },
 
   -- completion
-  use {
+  {
     'hrsh7th/nvim-cmp',
-    requires = {
-        { 'neovim/nvim-lspconfig' },
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/cmp-buffer' },
-        { 'hrsh7th/cmp-path' },
-        { 'hrsh7th/cmp-cmdline' },
-        { 'f3fora/cmp-spell' },
-        { 'saadparwaiz1/cmp_luasnip' },
-        { 'L3MON4D3/LuaSnip' },
+    dependencies = {
+      { 'neovim/nvim-lspconfig' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-cmdline' },
+      { 'f3fora/cmp-spell' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'L3MON4D3/LuaSnip' },
     },
-    opt = true,
+    lazy = true,
     event = 'InsertEnter',
     setup = function()
       vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -519,15 +486,15 @@ return require('packer').startup(function(use)
         }),
       })
     end,
-  }
+  },
 
   -- snippet
-  use {
+  {
     'L3MON4D3/LuaSnip',
-    requires = {
+    dependencies = {
       { 'honza/vim-snippets' },
     },
-    opt = true,
+    lazy = true,
     config = function()
       require("luasnip.loaders.from_snipmate").lazy_load()
       -- failed to set <C-Space> for expand/jump
@@ -536,14 +503,14 @@ return require('packer').startup(function(use)
         imap <silent><expr> <C-j> '<Plug>luasnip-expand-or-jump'
       ]])
     end,
-  }
+  },
 
   -- smartchr
-  use {
+  {
     'kana/vim-smartchr',
-    opt = true,
+    lazy = true,
     event = 'InsertEnter',
-    setup = function()  -- Define autocmd at setup, as `config` is called after entering insert-mode
+    init = function()  -- Define autocmd at setup, as `config` is called after entering insert-mode
       -- filetype specific keymappings
       vim.api.nvim_create_augroup('smartchr', {})
 
@@ -598,84 +565,78 @@ return require('packer').startup(function(use)
         inoremap <expr> , smartchr#loop(', ', ',')
       ]])
     end,
-  }
+  },
 
   -- textobj
   -- wiw (support `snake_case`, `CamelCase`, `CAPITAL_CASE`, and so on...)
-  use {
+  {
     'rhysd/vim-textobj-wiw',
-    requires = {
+    dependencies = {
       { 'kana/vim-textobj-user' },
     },
-    setup = function()
+    init = function()
       vim.g.textobj_wiw_no_default_key_mappings = 1
     end,
     config = function()
       vim.keymap.set({'x', 'o'}, 'au', '<Plug>(textobj-wiw-a)', { noremap = false })
       vim.keymap.set({'x', 'o'}, 'iu', '<Plug>(textobj-wiw-i)', { noremap = false })
     end,
-  }
+  },
 
   -- parameter (support function parameters)
-  use {
+  {
     'sgur/vim-textobj-parameter',
-    requires = {
+    dependencies = {
       { 'kana/vim-textobj-user' },
     },
-  }
+  },
 
   -- spellchecker
-  use {
+  {
     'lewis6991/spellsitter.nvim',
-    requires = {
+    dependencies = {
       { 'nvim-treesitter/nvim-treesitter' },
     },
     config = function()
       require('spellsitter').setup({})
     end,
-  }
+  },
 
   -- highlight current word
-  -- replacement of 'itchyny/vim-cursorword'
-  use {
+  {
     'RRethy/vim-illuminate',
     config = function()
       require('illuminate').configure({
         delay = 30,  -- sway's key repeat rate = 36/s -> 27.8ms
       })
     end,
-  }
+  },
+
 
   -- notification
-  use({
+  {
     'folke/noice.nvim',
-    requires = {
+    dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       'MunifTanjim/nui.nvim',
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      -- 'rcarriga/nvim-notify',
     },
     config = function()
       require('noice').setup({})
     end,
-  })
+  },
 
   -- surround (parenthesis/quote/tab/etc...) control
-  -- replacement of 'tpope/vim-surround'
-  use {
+  {
     'kylechui/nvim-surround',
     config = function()
       require('nvim-surround').setup()
     end,
-  }
+  },
 
   -- auto surrounding/pairing
-  -- replacement of 'Raimondi/delimitMate'
-  use {
+  {
     'windwp/nvim-autopairs',
-    opt = true,
+    lazy = true,
     event = 'InsertEnter',
     config = function()
       require'nvim-autopairs'.setup({
@@ -688,25 +649,23 @@ return require('packer').startup(function(use)
       local npairs = require('nvim-autopairs')
       npairs.add_rule(Rule('[[', '', 'markdown'))
     end,
-  }
+  },
 
   -- comment plugin
-  -- replacement of 'tomtom/tcomment_vim'
-  use {
+  {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup({})
     end,
-  }
+  },
 
   -- status line
-  -- replacement of 'itchyny/lightline.vim'
-  use {
+  {
     'nvim-lualine/lualine.nvim',
-    requires = {
+    dependencies = {
       {
-        'kyazdani42/nvim-web-devicons',
-        opt = true,
+        'nvim-tree/nvim-web-devicons',
+        lazy = true,
       }, {
         'EdenEast/nightfox.nvim',
       },
@@ -719,15 +678,15 @@ return require('packer').startup(function(use)
         },
       })
     end,
-  }
+  },
 
   -- markdown preview
-  use {
+  {
     'toppair/peek.nvim',
-    run = 'deno task --quiet build:fast',
-    opt = true,
+    build = 'deno task --quiet build:fast',
+    lazy = true,
     cmd = 'PeekOpen',
-    filetypes = { 'markdown' },
+    -- filetype = 'markdown',
     config = function ()
       require('peek').setup({
         auto_load = true,
@@ -749,10 +708,10 @@ return require('packer').startup(function(use)
       end, {})
       vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
     end
-  }
+  },
 
-  -- colorscheme
-  use {
+  -- ### ColorScheme ###
+  {
     'EdenEast/nightfox.nvim',
     config = function()
       local groups = {
@@ -764,7 +723,7 @@ return require('packer').startup(function(use)
       require('nightfox').setup({
         options = {
           styles = {
-            comments = "italic",
+            comments = 'italic',
           },
           modules = {
             illuminate = false,
@@ -774,13 +733,16 @@ return require('packer').startup(function(use)
       })
 
       vim.cmd.colorscheme('nordfox')
-    end,
-  }
+    end
+  },
+
 
   -- indent highlight
-  -- replacement of indentLine
-  use {
+  {
     'lukas-reineke/indent-blankline.nvim',
+    dependencies = {
+      { 'EdenEast/nightfox.nvim' },
+    },
     config = function()
       require('indent_blankline').setup({
         char = '▏',
@@ -789,12 +751,12 @@ return require('packer').startup(function(use)
         show_current_context_start = false,
       })
     end,
-  }
+  },
 
   -- abbreviation
-  use {
+  {
     'tpope/vim-abolish',
-    opt = true,
+    lazy = true,
     event = 'InsertEnter',
     config = function()
       vim.cmd([[
@@ -806,27 +768,22 @@ return require('packer').startup(function(use)
         :Abolish tokne{,s} token{}
       ]])
     end
-  }
+  },
 
   -- open the last-edited place
-  use {
+  {
     'ethanholz/nvim-lastplace',
     config = function()
       require('nvim-lastplace').setup({})
     end,
-  }
-
-  use {
-    'nvim-lua/plenary.nvim',
-  }
+  },
 
   -- input method (fcitx/fcitx5) control
-  use {
+  {
     'h-hg/fcitx.nvim',
-    opt = true,
+    lazy = true,
     event = 'InsertEnter',
-  }
+  },
+}
 
-end)
-
--- vim: set sw=2 et
+require('lazy').setup(plugins)
