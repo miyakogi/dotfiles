@@ -241,7 +241,7 @@ vim.keymap.set('n', '<Esc><Esc>', ':<C-u>nohl<CR><C-l>')
 vim.keymap.set('n', '<C-l>', ':<C-u>nohl<CR><C-l>')
 
 -- =========================================================
--- Post Process
+-- Plugin
 -- =========================================================
 
 -- load plugin config
@@ -249,6 +249,9 @@ require('plugins')  -- all package settings with packer.nvim
 require('autolcd')  -- automatically change local working directory for buffers
 require('quick-closer')  -- quickly close tiny buffers by pressing `q` in normal mode
 
+-- =========================================================
+-- Post Process
+-- =========================================================
 -- end startup time profiling
 vim.cmd([[
   if has('vim_starting') && has('reltime')

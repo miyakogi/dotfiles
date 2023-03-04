@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
           'bash',
           'c',
           'cpp',
-          -- 'dart',
+          'dart',
           'dockerfile',
           'fish',
           'gitignore',
@@ -34,10 +34,12 @@ return require('packer').startup(function(use)
           'markdown',
           'markdown_inline',
           'python',
+          'regex',
           'rst',
           'rust',
           'toml',
           'typescript',
+          'vim',
           'vue',
           'yaml',
         },
@@ -111,6 +113,13 @@ return require('packer').startup(function(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
     run = ':checkhealth telescope',
+    opt = true,
+    keys = {
+      { 'n', '<Leader>ff' },
+      { 'n', '<Leader>fg' },
+      { 'n', '<Leader>fm' },
+      { 'n', '<Space>g' },
+    },
     config = function()
       local telescope = require('telescope')
       local actions = require('telescope.actions')
@@ -165,6 +174,8 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons',  -- optional, for file icons
     },
     tag = 'nightly',  -- optional, updated every week. (see issue #1193)
+    opt = true,
+    keys = { { 'n', '<Space>e' } },
     config = function()
       -- set options
       require('nvim-tree').setup({
@@ -196,6 +207,8 @@ return require('packer').startup(function(use)
   -- external terminal based file-manager integration
   use {
     'is0n/fm-nvim',
+    opt = true,
+    keys = { 'n', '<Space>g' },
     config = function()
       require('fm-nvim').setup({})
       if vim.fn.executable('gitui') then
@@ -207,6 +220,15 @@ return require('packer').startup(function(use)
   -- cursor navigation plugin
   use {
     'ggandor/leap.nvim',
+    opt = true,
+    keys = {
+      { 'n', 'f' },
+      { 'x', 'f' },
+      { 'o', 'f' },
+      { 'n', 'F' },
+      { 'x', 'F' },
+      { 'o', 'F' },
+    },
     requires = {
       { 'tpope/vim-repeat' },
     },
@@ -461,38 +483,41 @@ return require('packer').startup(function(use)
         { 'hrsh7th/cmp-cmdline' },
         { 'f3fora/cmp-spell' },
         { 'saadparwaiz1/cmp_luasnip' },
-      },
-      setup = function()
-        vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-      end,
-      config = function()
-        -- setup nvim-cmp
-        local cmp = require('cmp')
-        cmp.setup({
-          -- snippet
-          snippet = {
-            expand = function(args)
-              require('luasnip').lsp_expand(args.body)
-            end
-          },
+        { 'L3MON4D3/LuaSnip' },
+    },
+    opt = true,
+    event = 'InsertEnter',
+    setup = function()
+      vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+    end,
+    config = function()
+      -- setup nvim-cmp
+      local cmp = require('cmp')
+      cmp.setup({
+        -- snippet
+        snippet = {
+          expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+          end
+        },
 
-          -- mapping
-          mapping = cmp.mapping.preset.insert({
-            ['<C-p>'] = cmp.mapping.select_prev_item(),
-            ['<C-n>'] = cmp.mapping.select_next_item(),
-            ['<C-Space>'] = cmp.mapping.complete(),
-          }),
+        -- mapping
+        mapping = cmp.mapping.preset.insert({
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          ['<C-n>'] = cmp.mapping.select_next_item(),
+          ['<C-Space>'] = cmp.mapping.complete(),
+        }),
 
-          -- sources
-          sources = cmp.config.sources({
-            { name = 'nvim_lsp' },
-            { name = 'luasnip' },
-            { name = 'path' },
-          }, {
-            { name = 'buffer' },
-            { name = 'spell' },
-          }),
-        })
+        -- sources
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+          { name = 'path' },
+        }, {
+          { name = 'buffer' },
+          { name = 'spell' },
+        }),
+      })
     end,
   }
 
@@ -502,7 +527,7 @@ return require('packer').startup(function(use)
     requires = {
       { 'honza/vim-snippets' },
     },
-    opt = false,  -- lazy loading breaks nvim-cmp's snippet sources
+    opt = true,
     config = function()
       require("luasnip.loaders.from_snipmate").lazy_load()
       -- failed to set <C-Space> for expand/jump
@@ -590,6 +615,7 @@ return require('packer').startup(function(use)
       vim.keymap.set({'x', 'o'}, 'iu', '<Plug>(textobj-wiw-i)', { noremap = false })
     end,
   }
+
   -- parameter (support function parameters)
   use {
     'sgur/vim-textobj-parameter',
@@ -699,7 +725,9 @@ return require('packer').startup(function(use)
   use {
     'toppair/peek.nvim',
     run = 'deno task --quiet build:fast',
-    -- filetype = 'markdown',
+    opt = true,
+    cmd = 'PeekOpen',
+    filetypes = { 'markdown' },
     config = function ()
       require('peek').setup({
         auto_load = true,
@@ -786,6 +814,10 @@ return require('packer').startup(function(use)
     config = function()
       require('nvim-lastplace').setup({})
     end,
+  }
+
+  use {
+    'nvim-lua/plenary.nvim',
   }
 
   -- input method (fcitx/fcitx5) control
