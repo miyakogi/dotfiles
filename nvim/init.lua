@@ -2,13 +2,6 @@
 -- Startup
 -- =========================================================
 
--- Start measurement
-vim.cmd([[
-  if has('vim_starting') && has('reltime')
-    let g:startuptime = reltime()
-  endif
-]])
-
 -- Create default auto group
 vim.api.nvim_create_augroup('init', {})
 
@@ -241,19 +234,26 @@ vim.keymap.set('n', '<Esc><Esc>', ':<C-u>nohl<CR><C-l>')
 vim.keymap.set('n', '<C-l>', ':<C-u>nohl<CR><C-l>')
 
 -- =========================================================
--- Post Process
+-- Plugin
 -- =========================================================
 
+-- bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
 -- load plugin config
-require('plugins')  -- all package settings with packer.nvim
+require('lazy-config')  -- all package settings with lazy.nvim
 require('autolcd')  -- automatically change local working directory for buffers
 require('quick-closer')  -- quickly close tiny buffers by pressing `q` in normal mode
-
--- end startup time profiling
-vim.cmd([[
-  if has('vim_starting') && has('reltime')
-    autocmd VimEnter * echomsg 'startuptime: ' . reltimestr(reltime(g:startuptime))
-  endif
-]])
 
 -- vim: set sw=2 et
