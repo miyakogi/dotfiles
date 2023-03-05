@@ -98,7 +98,7 @@ else
       #--use-gl=desktop
       # -> fixed by mesa's MR !15381 (not merged into main yet)
       # -> on flatpak version, can't use system mesa, so this MR is not included
-      --use-gl=egl
+      #--use-gl=egl
 
       # Windowing by GTK4
       --gtk-version=4
