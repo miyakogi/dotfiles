@@ -42,7 +42,7 @@ window#waybar.FHD #workspaces button {
 }
 
 #custom-waybar-mpris.playing {
-  color: #b48ead;
+  color: #93ccdc;  /* cyan */
 }
 
 #custom-mic.Idle {
@@ -74,7 +74,7 @@ window#waybar.FHD #workspaces button {
 
 /* --- Separator --- */
 /* 4K monitor */
-#custom-swayidle, #custom-ff-volume, #custom-waybar-mpris {
+#custom-swayidle, #custom-ff-volume, #custom-waybar-mpris, window#waybar.4K #clock {
   padding-right: 12px;
   border-right: 1px solid #88c0d0;
 }
@@ -85,7 +85,7 @@ window#waybar.4K #tray {
 }
 
 /* FHD monitor */
-#custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu {
+#custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu, window#waybar.FHD #clock {
   padding-right: 6px;
   border-right: 1px solid #88c0d0;
 }

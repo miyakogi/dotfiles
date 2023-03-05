@@ -5,8 +5,7 @@
   "name": "4K",
   "spacing": 16,
   "modules-left": ["wlr/workspaces"],
-  "modules-center": ["clock"],
-  "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/waybar-mpris", "tray"],
+  "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/waybar-mpris", "clock", "tray"],
   "wlr/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -73,8 +72,7 @@
   "name": "FHD",
   "spacing": 8,
   "modules-left": ["wlr/workspaces"],
-  "modules-center": ["clock"],
-  "modules-right": ["custom/mic", "cpu", "custom/temperature-cpu", "memory", "custom/gpu", "custom/temperature-gpu", "custom/update", "tray"],
+  "modules-right": ["custom/mic", "cpu", "custom/temperature-cpu", "memory", "custom/gpu", "custom/temperature-gpu", "clock", "custom/update", "tray"],
   "wlr/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
