@@ -4,7 +4,7 @@
 
 options=()
 if [ "$(is-4k)" = true ]; then
-  options+=(--override=font="Recursive Mn Lnr St:size=22.5" --override=pad=12x12)
+  options+=(--override=font="PlemolJP:size=24" --override=pad=12x12)
 fi
 
 if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
