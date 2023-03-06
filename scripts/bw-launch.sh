@@ -69,10 +69,8 @@ cmd=(
   --ro-bind /usr/bin /usr/bin
   --ro-bind /usr/share/applications /usr/share/applications
   --ro-bind /usr/share/gtk-3.0 /usr/share/gtk-3.0
-  --ro-bind /run/host/usr/share/fontconfig /usr/share/fontconfig  # use fonts config in host
   --ro-bind /usr/share/icu /usr/share/icu
   --ro-bind /usr/share/drirc.d /usr/share/drirc.d
-  --ro-bind /run/host/usr/share/fonts /usr/share/fonts  # use fonts in host
   --ro-bind /usr/share/glib-2.0 /usr/share/glib-2.0
   --ro-bind /usr/share/glvnd /usr/share/glvnd
   --ro-bind /usr/share/icons /usr/share/icons
@@ -81,7 +79,6 @@ cmd=(
   --ro-bind /usr/share/X11/xkb /usr/share/X11/xkb
   --ro-bind /usr/share/icons /usr/share/icons
   --ro-bind /usr/share/mime /usr/share/mime
-  --ro-bind /run/host/etc/fonts /etc/fonts  # use fonts config in host
   --ro-bind /etc/resolv.conf /etc/resolv.conf
   --ro-bind /usr/share/ca-certificates /usr/share/ca-certificates
   --ro-bind /etc/ssl /etc/ssl
@@ -101,6 +98,22 @@ cmd=(
   --new-session
   --tmpfs /tmp
 )
+
+if [ ! -e /run/host ]; then
+  # font settings
+  cmd+=(
+    --ro-bind /usr/share/fontconfig /usr/share/fontconfig  # use fonts config in host
+    --ro-bind /usr/share/fonts /usr/share/fonts  # use fonts in host
+    --ro-bind /etc/fonts /etc/fonts  # use fonts config in host
+  )
+else
+  # use host's font config in distrobox environment
+  cmd+=(
+    --ro-bind /run/host/usr/share/fontconfig /usr/share/fontconfig  # use fonts config in host
+    --ro-bind /run/host/usr/share/fonts /usr/share/fonts  # use fonts in host
+    --ro-bind /run/host/etc/fonts /etc/fonts  # use fonts config in host
+  )
+fi
 
 declare local_home
 declare -a options
