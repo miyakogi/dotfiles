@@ -8,7 +8,7 @@ function menu() {
     "Suspend"
     "Hibernate"
     "Exit"
-    "Restart"
+    "Reboot"
     "Shutdown"
   )
   for item in "${items[@]}"; do
@@ -137,7 +137,7 @@ case $RET in
     _hibernate;;
   Exit)
     _exit;;
-  Restart)
+  Reboot)
     _reboot;;
   Shutdown)
     _shutdown;;
