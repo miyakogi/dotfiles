@@ -179,14 +179,6 @@ def install_base() -> None:
     ###############################
     # Install plugins from github #
     ###############################
-
-    # nvim
-    mkdir(DATA_HOME / 'nvim' / 'site' / 'pack' / 'packer' / 'start')
-    git_clone(
-        'https://github.com/wbthomason/packer.nvim',
-        DATA_HOME / 'nvim' / 'site' / 'pack' / 'packer' / 'start' / 'packer.nvim',
-    )
-
     # tmux
     git_clone(
         'https://github.com/tmux-plugins/tpm',
