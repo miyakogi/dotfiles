@@ -225,6 +225,7 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / 'launch-menu.sh', BINDIR / 'launch-menu')
     install(SCRIPTSDIR / 'leave.sh', BINDIR / 'leave')
     install(SCRIPTSDIR / 'sway-scratchterm.py', BINDIR / 'sway-scratchterm')
+    install(SCRIPTSDIR / 'hypr-scratchterm.sh', BINDIR / 'hypr-scratchterm')
     install(SCRIPTSDIR / 'scratchterm-tmux.sh', BINDIR / 'scratchterm-tmux')
     install(SCRIPTSDIR / 'lock-screen.sh', BINDIR / 'lock-screen')
     install(SCRIPTSDIR / 'chromium-options.sh', BINDIR / 'chromium-options')
