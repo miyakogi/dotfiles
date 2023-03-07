@@ -20,3 +20,7 @@ if [ "$(playerctl -p firefox status)" = "Playing" ]; then
 fi
 
 echo -n "  "
+
+sleep 0.1s
+
+exec bash "$0"

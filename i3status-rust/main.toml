@@ -19,7 +19,7 @@ info_fg = "#bf616a"  # red
 [[block]]
 block = "custom"
 command = "ff-volume-watch"
-interval = 0.5
+#interval = 0.5  # restarting in script
 [[block.click]]
 button = "left"
 cmd = "ff-volume-toggle"
