@@ -7,7 +7,8 @@ window#waybar {
   font-family: "Symbols Nerd Font", "JetBrainsMono Nerd Font", "Source Han Sans JP";
   min-height: 42px;
   color: #d8dee9;
-  background-color: #2e3440;
+  /* background-color: #2e3440; */
+  background-color: rgba(46, 52, 64, 0.9);
 }
 
 window#waybar.4K {
