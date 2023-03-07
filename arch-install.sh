@@ -180,6 +180,8 @@ packages+=(
   adobe-source-han-sans-jp-fonts
   adobe-source-han-serif-jp-fonts
   adobe-source-han-mono-jp-fonts
+  ttf-genjyuu-gothic  # default jp font
+  ttf-hackgen  # monospace jp font
   ttf-jetbrains-mono-nerd
   ttf-unifont
   ttf-nerd-fonts-symbols
