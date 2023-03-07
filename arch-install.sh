@@ -138,6 +138,7 @@ fi
 packages+=(
   ## Terminals
   alacritty
+  wezterm
   kitty
   foot
   tmux

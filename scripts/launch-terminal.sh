@@ -7,6 +7,7 @@ terminals=(
   foot
   alacritty
   kitty
+  wezterm
 )
 
 if type st &>/dev/null; then
@@ -102,6 +103,9 @@ case $_terminal in
     ;;
   kitty)
     launch-kitty &
+    ;;
+  wezterm)
+    launch-wezterm &
     ;;
   *)
     $_terminal &

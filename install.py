@@ -220,6 +220,7 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / 'is-4k.sh', BINDIR / 'is-4k')
     install(SCRIPTSDIR / 'launch-terminal.sh', BINDIR / 'launch-terminal')
     install(SCRIPTSDIR / 'launch-alacritty.sh', BINDIR / 'launch-alacritty')
+    install(SCRIPTSDIR / 'launch-wezterm.sh', BINDIR / 'launch-wezterm')
     install(SCRIPTSDIR / 'launch-foot.sh', BINDIR / 'launch-foot')
     install(SCRIPTSDIR / 'launch-kitty.sh', BINDIR / 'launch-kitty')
     install(SCRIPTSDIR / 'launch-menu.sh', BINDIR / 'launch-menu')
@@ -258,6 +259,9 @@ def install_desktop() -> None:
 
     # alacritty terminal
     install(BASEDIR / 'alacritty', CONFIG_HOME / 'alacritty')
+
+    # wezterm terminal emulator
+    install(BASEDIR / 'wezterm', CONFIG_HOME / 'wezterm')
 
     # kitty terminal
     install(BASEDIR / 'kitty', CONFIG_HOME / 'kitty')
