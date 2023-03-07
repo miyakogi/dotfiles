@@ -16,11 +16,11 @@ termcmd="foot"
 
 # set output specific options
 if [ "$(is-4k)" = true ]; then
-  _font="Recursive Mn Lnr St"  # Recursive Mono Linear Static (Regular)
+  _font="JetBrainsMono Nerd Font"
   _fsize=28
   winsize="1600x1600"
 else
-  _font="Recursive Mn Lnr St Med"  # Recursive Mono Linear Static (Medium)
+  _font="JetBrainsMono Nerd Font"
   _fsize=16
   winsize="800x800"
 fi

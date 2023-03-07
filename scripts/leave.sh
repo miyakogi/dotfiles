@@ -18,9 +18,9 @@ function menu() {
 
 # Setup bemenu parameters
 if [ "$(is-4k)" = true ]; then
-  font="Fira Code 30"
+  font="JetBrainsMono Nerd Font 26"
 else
-  font="Fira Code 16.5"
+  font="JetBrainsMono Nerd Font 16"
 fi
 
 # Define colors

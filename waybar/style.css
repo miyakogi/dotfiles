@@ -4,18 +4,18 @@
 }
 
 window#waybar {
-  font-family: "Symbols Nerd Font", "PlemolJP", "Recursive Mn Lnr St", "Source Han Sans JP";
-  min-height: 0;
+  font-family: "Symbols Nerd Font", "JetBrainsMono Nerd Font", "Source Han Sans JP";
+  min-height: 42px;
   color: #d8dee9;
   background-color: #2e3440;
 }
 
 window#waybar.4K {
-  font-size:  24pt;
+  font-size:  20pt;
 }
 
 window#waybar.FHD {
-  font-size: 13.5pt;
+  font-size: 12pt;
   font-weight: 500;
 }
 
