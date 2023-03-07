@@ -179,12 +179,9 @@ packages+=(
   adobe-source-han-sans-jp-fonts
   adobe-source-han-serif-jp-fonts
   adobe-source-han-mono-jp-fonts
-  ttc-iosevka
-  ttf-recursive
-  ttf-sarasa-gothic  # iosevka + source han sans font for CJK
+  ttf-jetbrains-mono-nerd
   ttf-unifont
   ttf-nerd-fonts-symbols
-  ttf-plemoljp
 )
 
 paru -S "${packages[@]}"

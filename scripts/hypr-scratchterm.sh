@@ -19,7 +19,7 @@ start_term() {
   
   if is-4k; then
     cmd+=(
-      --override=font="PlemolJP:size=24"
+      --override=font="JetBrainsMono Nerd Font:size=21"
     )
   fi
   "${cmd[@]}" &

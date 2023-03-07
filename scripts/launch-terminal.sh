@@ -33,9 +33,9 @@ fi
 
 # Set dispaly specific options
 if [ $hidpi = true ]; then
-  font="Fira Code 30"
+  font="JetBrainsMono Nerd Font 26"
 else
-  font="Fira Code 16.5"
+  font="JetBrainsMono Nerd Font 16"
 fi
 
 # Define colors
@@ -89,9 +89,9 @@ _terminal=$( list_terminals | "${cmd[@]}" | tr -d '[:space:]' )
 case $_terminal in
   st)
     if [ $hidpi = true ]; then
-      st -f "Sarasa Term Nerd Font:medium:size=22.5:antialias=true" -e fish &
+      st -f "JetBrainsMono Nerd Font:medium:size=21:antialias=true" -e fish &
     else
-      st -e fish &
+      st -f "JetBrainsMono Nerd Font:medium:size=12:antialias=true" -e fish &
     fi
     ;;
   alacritty)
