@@ -55,7 +55,7 @@
   },
   "custom/waybar-mpris": {
     "return-type": "json",
-    "exec": "/usr/bin/python $HOME/bin/waybar-mpris-command.py",
+    "exec": "$HOME/bin/waybar-mpris-command",
     "on-click": "waybar-mpris --send toggle",
     "on-right-click": "waybar-mpris --send player-next",
     "on-scroll-up": "waybar-mpris --send prev",
