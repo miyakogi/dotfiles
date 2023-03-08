@@ -61,7 +61,7 @@
     "on-scroll-up": "waybar-mpris --send prev",
     "on-scroll-down": "waybar-mpris --send next",
     "tooltip": true,
-    "max-length": 60,
+    // "max-length": 60,
     "restart-interval": 1,  // restart if command exited
   },
   "tray": {
