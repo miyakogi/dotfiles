@@ -170,6 +170,12 @@ packages+=(
   gammastep
   kvantaum  # qt theme setting
 
+  # wayland (hyprland) session
+  hyprland
+  hyprpaper
+  waybar-hyprland-git
+  waybar-mpris-git
+
   # input method
   fcitx5
   fcitx5-configtool
