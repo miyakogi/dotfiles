@@ -35,11 +35,17 @@ flags=(
 
   # Need to enable HW accelerated video playback (at least currently working on Xorg)
   #--disable-features="UseChromeOSDirectVideoDecoder"
+  --disable-features="TabGroupsSave"  # see: https://note.com/chappy_gbf/n/n77d1439b303f
 
   # Initialize and enable Vulkan support
   # With only this flag, Vulkan compositing and rasterization are not selected/used
   # To really enable Vulkan, add `Vulkan` in --enable-features list
   --use-vulkan
+
+  # see: https://note.com/chappy_gbf/n/n77d1439b303f
+  --enable-quic
+  --enable-experimetal-web-platform-features
+  --enbale-parallel-downloading
 )
 
 # --- Define Default Features ---
