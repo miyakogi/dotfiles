@@ -4,11 +4,9 @@ local font = 'JetBrainsMono Nerd Font'
 local font_size = 12
 
 return {
-  -- font = wezterm.font('PlemolJP', { weight = 'Medium' }),
-  -- font = wezterm.font('Fira Code', { weight = 'Regular' }),
   font = wezterm.font(font),
-  -- font = wezterm.font('Sarasa Mono Slab J'),
   font_size = font_size,
+
   window_background_opacity = 1.0,
   color_scheme = 'nord',
 
@@ -23,6 +21,9 @@ return {
   },
 
   colors = {
+    cursor_fg = '#2e3440',
+    cursor_bg = '#bbc3d4',
+
     tab_bar = {
       background = '#232831',
       active_tab = {
