@@ -717,6 +717,10 @@ colors:
   primary:
     background: '0x2e3440'
     foreground: '0xcdcecf'
+  cursor:
+    text: '#2e3440'
+    cursor: '#bbc3d4'
+
   # Normal colors
   normal:
     black:   '0x3b4252'
@@ -727,6 +731,7 @@ colors:
     magenta: '0xb48ead'
     cyan:    '0x88c0d0'
     white:   '0xe5e9f0'
+
   # Bright colors
   bright:
     black:   '0x465780'
