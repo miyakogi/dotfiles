@@ -238,6 +238,7 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / 'sway-idle-toggle.sh', BINDIR / 'sway-idle-toggle')
     install(SCRIPTSDIR / 'sway-addws.py', BINDIR / 'sway-addws')
     install(SCRIPTSDIR / 'waybar-mpris-command.py', BINDIR / 'waybar-mpris-command')
+    install(SCRIPTSDIR / 'waybar-update.sh', BINDIR / 'waybar-update')
     install(SCRIPTSDIR / 'vimpack.py', BINDIR / 'vimpack')
     install(SCRIPTSDIR / 'bw-launch.sh', BINDIR / 'bw-launch')
     install(SCRIPTSDIR / 'temperature.sh', BINDIR / 'temperature')

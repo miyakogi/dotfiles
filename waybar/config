@@ -140,8 +140,7 @@
   },
   "custom/update": {
     "return-type": "json",
-    "exec": "num=$( paru -Qu | grep -v '[ignored]' | wc -l ); if [ $num -gt 0 ]; then echo \"{\\\"text\\\":\\\" $num\\\", \\\"class\\\":\\\"info\\\"}\"; else echo \"{\\\"text\\\":\\\"\\\", \\\"class\\\":\\\"idle\\\"}\"; fi",
-    // "exec": "num=2; if [ $num -gt 0 ]; then echo \"{\\\"text\\\":\\\" $num\\\", \\\"class\\\":\\\"info\\\"}\"; else echo \"{\\\"text\\\":\\\"\\\", \\\"class\\\":\\\"idle\\\"}\"; fi",
+    "exec": "$HOME/bin/waybar-update",
     "interval": 1800,
     "format": "{}",
   },
