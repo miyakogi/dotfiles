@@ -45,10 +45,8 @@
     "format": "{}",
   },
   "custom/ff-volume": {
+    "return-type": "json",
     "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
-    // now loop in script file
-    // "exec-if": "sleep 0.1",  // wait 0.1s to run watch script after click
-    // "interval": 1,  // don't know why, but necessary
     "on-click": "$HOME/bin/ff-volume-toggle",  // need full path in systemd service
     "format": "{}",
     "tooltip": false,
