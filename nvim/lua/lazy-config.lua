@@ -477,7 +477,7 @@ local plugins = {
         mapping = cmp.mapping.preset.insert({
           ['<C-p>'] = cmp.mapping.select_prev_item(),
           ['<C-n>'] = cmp.mapping.select_next_item(),
-          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-x>'] = cmp.mapping.complete(),
         }),
 
         -- sources
@@ -505,7 +505,7 @@ local plugins = {
       -- failed to set <C-Space> for expand/jump
       vim.cmd([[
         imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-        imap <silent><expr> <C-j> '<Plug>luasnip-expand-or-jump'
+        imap <silent><expr> <C-Space> '<Plug>luasnip-expand-or-jump'
       ]])
     end,
   },
