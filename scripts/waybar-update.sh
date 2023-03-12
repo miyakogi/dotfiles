@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-num=$( paru -Qu | grep -c -v '\[ignored\]' )
+num=$(($(pacman -Qu | wc -l)+$(paru -Qua | grep -c -v '\[ignored\]')))
 
 if [ "$num" -gt 0 ]; then
   echo "{\"text\": \" $num\", \"class\": \"info\"}"
