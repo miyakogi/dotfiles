@@ -36,7 +36,7 @@ critical_bg = "#bf616a"  # red
 
 [[block]]
 block = "memory"
-format = "   $mem_total_used_percents.eng(w:2)"
+format = "   $mem_used_percents.eng(w:2)"
 interval = 1
 
 [[block]]
