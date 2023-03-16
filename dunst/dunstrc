@@ -45,7 +45,7 @@
 
     ### Progress bar ###
 
-    # Turn on the progess bar. It appears when a progress hint is passed with
+    # Turn on the progress bar. It appears when a progress hint is passed with
     # for example dunstify -h int:value:12
     progress_bar = true
 
@@ -242,7 +242,7 @@
     ### Wayland ###
     # These settings are Wayland-specific. They have no effect when using X11
 
-    # Uncomment this if you want to let notications appear under fullscreen
+    # Uncomment this if you want to let notifications appear under fullscreen
     # applications (default: overlay)
     layer = top
 
