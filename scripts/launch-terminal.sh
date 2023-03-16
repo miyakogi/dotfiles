@@ -32,7 +32,7 @@ else
   hidpi=false
 fi
 
-# Set dispaly specific options
+# Set display specific options
 if [ $hidpi = true ]; then
   font="JetBrainsMono Nerd Font 26"
 else

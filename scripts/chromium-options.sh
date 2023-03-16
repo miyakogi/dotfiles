@@ -44,8 +44,8 @@ flags=(
 
   # see: https://note.com/chappy_gbf/n/n77d1439b303f
   --enable-quic
-  --enable-experimetal-web-platform-features
-  --enbale-parallel-downloading
+  --enable-experimental-web-platform-features
+  --enable-parallel-downloading
 )
 
 # --- Define Default Features ---
