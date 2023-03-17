@@ -1,12 +1,15 @@
 #!/usr/bin/bash
 
-# Pacman DB path
+# Create DB directory if not exist
 dbpath="/tmp/checkup-db-waybar"
-local_dbpath="$dbpath/local"
+if [ ! -e "$dbpath" ]; then
+  mkdir -p "$dbpath" &>/dev/null
+fi
 
 # Create DB link if not exist
+local_dbpath="$dbpath/local"
 if [ ! -e "$local_dbpath" ]; then
-  ln -s /var/lib/pacman "$local_dbpath" &>/dev/null
+  ln -s /var/lib/pacman/local "$local_dbpath" &>/dev/null
 fi
 
 # Update database
