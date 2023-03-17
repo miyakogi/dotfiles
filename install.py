@@ -124,8 +124,6 @@ def make_empty_directories() -> None:
     """
     These dirs don't contain config files but need to exist.
     """
-    mkdir(HOME / '.vim' / 'backup')
-    mkdir(HOME / '.vim' / 'doc')
     mkdir(HOME / '.tmux' / 'plugins')
     if is_orig_home():
         mkdir(PICTURES_DIR / 'screenshots' / 'grim')
@@ -239,7 +237,6 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / 'sway-addws.py', BINDIR / 'sway-addws')
     install(SCRIPTSDIR / 'waybar-mpris-command.py', BINDIR / 'waybar-mpris-command')
     install(SCRIPTSDIR / 'waybar-update.sh', BINDIR / 'waybar-update')
-    install(SCRIPTSDIR / 'vimpack.py', BINDIR / 'vimpack')
     install(SCRIPTSDIR / 'bw-launch.sh', BINDIR / 'bw-launch')
     install(SCRIPTSDIR / 'temperature.sh', BINDIR / 'temperature')
     install(SCRIPTSDIR / 'sscomp.sh', BINDIR / 'sscomp')

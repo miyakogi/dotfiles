@@ -18,7 +18,7 @@ abbr --add --global gstatus "git status -s -b"
 # python unittest
 abbr --add --global pyunit "python -m unittest discover"
 
-# vim/nvim
+# nvim
 if type -q nvim
   abbr --add --global vim nvim
   abbr --add --global vi "nvim --noplugin"
