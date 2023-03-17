@@ -8,7 +8,7 @@ y=$5
 
 mimetype="$(file -Lb --mime-type "$file")"
 
-# Image preview requires `convert` command and must be run on kitty termianl
+# Image preview requires `convert` command and must be run on kitty terminal
 if [[ $TERM = *kitty* ]] && type convert &>/dev/null; then
   case "$mimetype" in
     image/*)

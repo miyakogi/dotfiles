@@ -6,7 +6,7 @@ Xft.hinting: true
 Xft.autohint: false
 Xft.hintstyle: hintslight
 
-! Termianl settings -----------------------------------------------
+! Terminal settings -----------------------------------------------
 XTerm.termName: xterm-256color
 UXterm.termName: xterm-256color
 
