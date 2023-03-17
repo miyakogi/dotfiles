@@ -93,9 +93,9 @@ vim.opt.mousemodel = 'popup'
 vim.opt.scrolloff = 5  -- min lines of up/bottom of cursor
 vim.opt.sidescrolloff = 5  -- min cols of left/right of cursor
 vim.opt.wrap = true  -- wrap long line (only on display)
-vim.opt.number = false  -- disble number sign col
+vim.opt.number = false  -- disable number sign col
 vim.opt.showcmd = true  -- show show some command in the end of cmd win
-vim.opt.report = 2  -- threashold for reporting number of lines changed
+vim.opt.report = 2  -- threshold for reporting number of lines changed
 vim.opt.ruler = false
 
 -- Spell check
@@ -108,7 +108,7 @@ vim.opt.list = true  -- display invisible chars
 vim.opt.listchars = {tab = '| ', trail = '_'}
 vim.opt.fillchars:append({vert = '┃'})
 vim.opt.linebreak = false
-vim.opt.shiftround = true -- round indent to multile of 'shiftwidth'
+vim.opt.shiftround = true -- round indent to multiple of 'shiftwidth'
 vim.opt.showbreak = '↪ '
 vim.opt.breakindent = true
 vim.opt.ambiwidth = 'single'

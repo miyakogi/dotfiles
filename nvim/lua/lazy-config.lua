@@ -39,7 +39,7 @@ local plugins = {
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,
 
-        -- Automatically install missing parsers whne entering buffer
+        -- Automatically install missing parsers when entering buffer
         auto_install = true,
 
         -- List of parsers to ignore installing (for "all")
@@ -99,7 +99,7 @@ local plugins = {
 
       telescope.setup({
         defaults = {
-          path_dispaly = { truncate = 4 },
+          path_display = { truncate = 4 },
           mappings = {
             i = {
               ['<esc>'] = actions.close,  -- <Esc> close popup

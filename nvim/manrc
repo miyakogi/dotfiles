@@ -36,7 +36,7 @@ noremap L $
 xnoremap <C-c> "+y
 
 " === Misc ===
-" Disable unnecesarry plugins
+" Disable unnecessary plugins
 set laststatus=0
 let g:loaded_lightline = 1
 let g:loaded_denite = 1
