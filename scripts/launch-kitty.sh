@@ -7,8 +7,4 @@ else
   options+=(--single-instance --instance-group 'FHD')
 fi
 
-if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
-  options+=(--override=background_opacity=0.90)
-fi
-
 kitty "${options[@]}"
