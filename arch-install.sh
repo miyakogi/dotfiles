@@ -66,11 +66,11 @@ install_aur_package() {
 # Install packages by makepkg
 # Use `-bin` package here to ignore make dependencies and build time
 if ! type paru &>/dev/null; then
-  echo "paru AUR helper is not installed - automatically isntall it"
+  echo "paru AUR helper is not installed - automatically install it"
   install_aur_package "paru-bin"
 fi
 if ! type lf &>/dev/null; then
-  echo "lf file manager is not installed - automatically isntall it"
+  echo "lf file manager is not installed - automatically install it"
   install_aur_package "lf-bin"  # required for paru's PKGBUILD review
 fi
 

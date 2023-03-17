@@ -23,7 +23,7 @@ This installs all required packages.
 **Other Distributions (including Arch-Derivatives) are not supported**.
 If you still want to try, check packages in `arch-install.sh` script and install them manually.
 
-Then make config files for supported applicatiosn, run:
+Then make config files for supported applications, run:
 
 ```sh
 ./install.py
