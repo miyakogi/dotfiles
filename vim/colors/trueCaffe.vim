@@ -38,7 +38,7 @@ call colors#set_palette(s:palette)
 let s:back = has('gui_running') ? 'back' : 'NONE'
 call colors#hl('Normal', 'front', s:back)
 
-" Informations (StatusLine & TabLine) {{{
+" Information (StatusLine & TabLine) {{{
 call colors#hl('StatusLine',   'front', 'base01', 'none')  " status line, bold/reverse by default
 call colors#hl('StatusLineNC', 'base0', 'base02', 'none')  " status line for no-current windows
 call colors#hl('TabLineSel',  '', 'base02', 'none')  " active tab, bolded by default

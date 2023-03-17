@@ -182,7 +182,7 @@ endif
 set ambiwidth=single
 
 " ======== Window setting ========
-set cmdheight=1 " Hight of the cmdline
+set cmdheight=1 " Height of the cmdline
 set splitbelow " Create new window below the current window.
 set splitright " Create new window below the current window.
 set noequalalways " When on, all windows are automatically made the same size after split/close
@@ -218,7 +218,7 @@ set nocindent
 set autoindent
 set smartindent
 
-" Restrict number of columns to highlight, to impove speed
+" Restrict number of columns to highlight, to improve speed
 set synmaxcol=360
 set lazyredraw
 "}}}

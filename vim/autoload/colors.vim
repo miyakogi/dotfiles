@@ -1,4 +1,4 @@
-let s:initilized = 0
+let s:initialized = 0
 function! colors#initialize() abort
   let s:spcolor_names = ['NONE', 'bg', 'background', 'fg', 'foreground']
   let s:base_palette = {
@@ -38,11 +38,11 @@ function! colors#initialize() abort
   let s:fg = s:truecolor ? 'guifg=' : 'ctermfg='
   let s:bg = s:truecolor ? 'guibg=' : 'ctermbg='
   let s:attr = has('gui_running') ? 'gui=' : 'cterm='
-  let s:initilized = 1
+  let s:initialized = 1
 endfunction
 
 function! colors#set_palette(palette) abort
-  if !s:initilized | call colors#initialize() | endif
+  if !s:initialized | call colors#initialize() | endif
   call extend(s:user_palette, a:palette)
 endfunction
 

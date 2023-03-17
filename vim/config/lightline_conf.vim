@@ -228,4 +228,4 @@ endfunction
 
 " }}}
 
-let g:lightline.colorscheme = 'darcula'
+let g:lightline.colorscheme = 'dracula'

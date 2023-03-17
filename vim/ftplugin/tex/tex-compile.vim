@@ -67,7 +67,7 @@ function! TeXCompile.initialize()
   let self.basedir = expand('%:p:h')
   let self.basename = expand('%:p:t:r')
 
-  " Define latex compile commmands
+  " Define latex compile commands
   let cmd = executable('platex') ? 'platex' : executable('latex') ? 'latex' : 'tex'
   let self.latex_cmd = s:define("g:latexcmd", cmd)
   let self.latex_opt = s:define('g:latexopt', '-src -shell-escape -synctex=1 -kanji=utf8')
@@ -221,7 +221,7 @@ function! TeXCompile.log()
   execute '6wincmd _'
   execute 'nnoremap <buffer> q <C-w>c'
   call search("Warning")
-  " TODO: At first Search Error, and then serach Warning. If error exists, do not jump to warning.
+  " TODO: At first Search Error, and then search Warning. If error exists, do not jump to warning.
   " TODO: Use syntax highlighting for Error/Warning lines.
   " TODO: Add mapping to jump to next/prev. error or warning. ([e, ]e, [w, ]w)
   " TODO: Use quickfix/location list.
@@ -243,7 +243,7 @@ function! TeXCompile.dviView()
     let self.runStr = self.dvi_open . ' %:p:r.dvi\\#src:' . line(".") . '%:p' . ' &'
     execute "lcd " . self.basedir
     exec "silent! !" . self.runStr
-    "   Inverse Serach Option in Okular: gvim -remote-silent +%l %f   "
+    "   Inverse Search Option in Okular: gvim -remote-silent +%l %f   "
   endif
   echo self.runStr
 endfunction
