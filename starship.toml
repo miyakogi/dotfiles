@@ -85,7 +85,7 @@ $time\
 [time]
 time_format = " %T  %a %d %b %Y"
 disabled = false
-style = "bold white dimmed"
+style = "bold blue"
 format = "[$time]($style)"
 
 [character]
