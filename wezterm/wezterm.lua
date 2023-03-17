@@ -7,7 +7,7 @@ return {
   font = wezterm.font(font),
   font_size = font_size,
 
-  window_background_opacity = 1.0,
+  window_background_opacity = 0.95,
   color_scheme = 'nord',
 
   -- Tab bar
