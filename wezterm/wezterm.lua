@@ -23,6 +23,8 @@ return {
   colors = {
     cursor_fg = '#2e3440',
     cursor_bg = '#bbc3d4',
+    selection_fg = '#2e3440',
+    selection_bg = '#bbc3d4',
 
     tab_bar = {
       background = '#232831',
