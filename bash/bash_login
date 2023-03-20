@@ -85,8 +85,7 @@ if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SE
           export XDG_SESSION_DESKTOP=sway
           systemctl --user set-environment XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 
-          # Vulkan Renderer does not support proton (FFXIV benchmark)
-          #export WLR_RENDERER=vulkan
+          export WLR_RENDERER=vulkan
           #export WLR_DRM_NO_ATOMIC=1  # prevent flickering
           export WLR_DRM_NO_MODIFIERS=1  # prevent flickering
 
