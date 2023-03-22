@@ -39,7 +39,7 @@ cmd+=(
   --match-generic-name
   --tiebreak "index"
   --exact
-  --accent-color "green"
+  --accent-color "cyan"
   --color "16,bg+:-1,fg+:4,prompt:4,border:4,pointer:4"
   --reverse
   --margin "1,2"
