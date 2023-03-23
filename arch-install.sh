@@ -136,7 +136,7 @@ fi
 
 # Add packages to be installed for full/base system
 packages+=(
-  ## Terminals
+  # Terminals
   alacritty
   wezterm
   kitty
@@ -146,35 +146,39 @@ packages+=(
   # Command Line Tools
   python-poetry  # python virtualenv/package manager
   zk  # note taking tool
-  tig  # simple terminal git ui
 
-  # wayland (sway) session
-  sway
-  swaybg
-  swaylock
-  swayidle
+  # wayland
   dunst
   grim
   slurp
   swappy
   pngquant  # used for image compression (sscomp command)
-  jq  # used in some scripts for sway
-  autotiling
-  python-i3ipc  # used in some script for sway
-  i3status-rust  # status block generator for sway-bar
-  pulsemixer  # used by volume check/fix scripts on i3status-rust
-  playerctl  # for audio control by keyboard on sway
+  jq  # used in some scripts for sway/hyprland
   xorg-xwayland
   bemenu
   bemenu-wayland
   gammastep
   kvantaum  # qt theme setting
 
-  # wayland (hyprland) session
+  # sway
+  sway
+  swaybg
+  swaylock
+  swayidle
+  autotiling
+  python-i3ipc  # used in some script for sway
+  i3status-rust  # status block generator for sway-bar
+
+  # hyprland
   hyprland
   hyprpaper
   waybar-hyprland-git
   waybar-mpris-git
+
+  # multimedia
+  pulsemixer  # used by volume check/fix scripts on i3status-rust
+  playerctl  # for audio control by keyboard on sway
+  ffmpegthumbnailer  # for video thumbnail preview on file manager
 
   # input method
   fcitx5
@@ -183,9 +187,7 @@ packages+=(
   fcitx5-mozc-ut
 
   # font/theme
-  adobe-source-han-sans-jp-fonts
   adobe-source-han-serif-jp-fonts
-  adobe-source-han-mono-jp-fonts
   ttf-genjyuu-gothic  # default jp font
   ttf-hackgen  # monospace jp font
   ttf-jetbrains-mono-nerd
