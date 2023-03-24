@@ -100,7 +100,6 @@ packages=(
 
   # Neovim
   neovim
-  python-pynvim  # neovim support package
   nodejs  # required for nvim-treesitter...
 
   # Command-line
