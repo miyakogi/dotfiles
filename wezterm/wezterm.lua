@@ -23,6 +23,8 @@ return {
   font = font,
   font_size = font_size,
 
+  detect_password_input = false,  -- disable password icon
+
   window_background_opacity = 0.95,
   color_scheme = 'nordfox',
 
