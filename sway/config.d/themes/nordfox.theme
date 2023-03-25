@@ -1,0 +1,19 @@
+# vim: ft=conf
+
+# Colors (nordfox)
+set $foreground  #d8dee9
+set $background  #2e3440
+set $transparent #00000000
+set $black       #3b4252
+set $red         #bf616a
+set $green       #a3be8c
+set $yellow      #ebcb8b
+set $blue        #81a1c1
+set $magenta     #b48ead
+set $cyan        #88c0d0
+set $white       #e5e9f0
+
+# semi-transparent colors
+set $green2      #a3be8cbb
+set $magenta2    #b48eadbb
+set $cyan2       #88c0d0bb
