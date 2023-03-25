@@ -672,7 +672,7 @@ local plugins = {
         'nvim-tree/nvim-web-devicons',
         lazy = true,
       }, {
-        'EdenEast/nightfox.nvim',
+        'folke/tokyonight.nvim',
       },
     },
     config = function()
@@ -680,6 +680,7 @@ local plugins = {
         options = {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
+          theme = 'tokyonight',
         },
       })
     end,
@@ -738,8 +739,21 @@ local plugins = {
         groups = groups,
       })
 
-      vim.cmd.colorscheme('nordfox')
+      -- vim.cmd.colorscheme('nordfox')
     end
+  },
+
+  {
+    'folke/tokyonight.nvim',
+    config = function()
+      require('tokyonight').setup({
+        transparent = true,
+        styles = {
+          keywords = { italic = false },
+        },
+      })
+      vim.cmd.colorscheme('tokyonight-night')
+    end,
   },
 
 
