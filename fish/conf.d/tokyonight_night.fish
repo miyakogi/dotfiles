@@ -1,17 +1,14 @@
-# Nightfox Color Palette
-# Style: nordfox
-# Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nordfox/nightfox_fish.fish
-
-set -l foreground cdcecf
-set -l selection 3e4a5b
-set -l comment 60728a
-set -l red bf616a
-set -l orange c9826b
-set -l yellow ebcb8b
-set -l green a3be8c
-set -l purple b48ead
-set -l cyan 88c0d0
-set -l pink bf88bc
+# TokyoNight Color Palette
+set -l foreground c0caf5
+set -l selection 33467c
+set -l comment 565f89
+set -l red f7768e
+set -l orange ff9e64
+set -l yellow e0af68
+set -l green 9ece6a
+set -l purple 9d7cd8
+set -l cyan 7dcfff
+set -l pink bb9af7
 
 # Syntax Highlighting Colors
 set -g fish_color_normal $foreground
@@ -34,4 +31,4 @@ set -g fish_pager_color_progress $comment
 set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
-
+set -g fish_pager_color_selected_background --background=$selection
