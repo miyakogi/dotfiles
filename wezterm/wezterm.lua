@@ -27,7 +27,22 @@ return {
   detect_password_input = false,  -- disable password icon
 
   window_background_opacity = 0.95,
-  color_scheme = 'nordfox',
+  -- color_scheme = 'nordfox',
+  -- color_scheme = 'Tinacious Design (Dark)',
+  -- color_scheme = 'Tomorrow Night',
+  -- color_scheme = 'Neon (terminal.sexy)',
+  -- color_scheme = 'Neon Night (Gogh)',
+  -- color_scheme = 'nightfox',
+  -- color_scheme = 'Nucolors (terminal.sexy)',
+  -- color_scheme = 'zenbones_dark',
+  -- color_scheme = 'Dracula',
+  -- color_scheme = 'duskfox',
+  -- color_scheme = 'Snazzy',
+  -- color_scheme = 'Sonokai (Gogh)',
+  -- color_scheme = 'SpaceGray',
+  -- color_scheme = 'Vag (Gogh)',
+  -- color_scheme = 'Violet Dark',
+  color_scheme = 'tokyonight_night',
 
   -- Tab bar
   use_fancy_tab_bar = false,
