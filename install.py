@@ -297,7 +297,6 @@ def install_desktop() -> None:
     install_service('corectrl.service')
 
     # wlroots services
-    install_service('gammastep-local.service')
     install_service('swayidle.service')
     install_service('dunst-notification.service')
 

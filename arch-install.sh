@@ -156,7 +156,6 @@ packages+=(
   xorg-xwayland
   bemenu
   bemenu-wayland
-  gammastep
   kvantaum  # qt theme setting
 
   # sway
