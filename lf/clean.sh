@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-kitty +icat --clear --silent --transfer-mode file
+kitty +kitten icat --clear --transfer-mode=memory --stdin no </dev/null >/dev/tty

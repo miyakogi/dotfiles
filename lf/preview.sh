@@ -6,13 +6,18 @@ h=$3
 x=$4
 y=$5
 
+showimage() {
+  # show image
+  kitty +kitten icat --place="${w}x${h}@${x}x${y}" --transfer-mode=memory --stdin no "${1}" </dev/null >/dev/tty
+}
+
 mimetype="$(file -Lb --mime-type "$file")"
 
 # Image preview requires `convert` command and must be run on kitty terminal
 if [[ $TERM = *kitty* ]] && type convert &>/dev/null; then
   case "$mimetype" in
     image/*)
-      kitty +icat --silent --transfer-mode file --place "${w}x${h}@${x}x${y}" "$file"
+      showimage "$file"
       exit 1
       ;;
     video/*)
@@ -24,7 +29,7 @@ if [[ $TERM = *kitty* ]] && type convert &>/dev/null; then
       if [ ! -f "$image_cache" ]; then
         ffmpegthumbnailer -s0 -i "$file" -o "$image_cache"
       fi
-      kitty +icat --silent --transfer-mode file --place "${w}x${h}@${x}x${y}" "$image_cache"
+      showimage "$image_cache"
       exit 1
       ;;
   esac
