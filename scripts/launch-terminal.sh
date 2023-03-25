@@ -43,21 +43,21 @@ fi
 # these colors may not be used - disable shellcheck warning
 
 # shellcheck disable=SC2034
-white="#d8dee9"
+white="#c0caf5"
 # shellcheck disable=SC2034
-black="#2e3440"
+black="#1a1b26"
 # shellcheck disable=SC2034
-red="#bf616a"
+red="#f7768e"
 # shellcheck disable=SC2034
-green="#a3be8c"
+green="#9ece6a"
 # shellcheck disable=SC2034
-yellow="#ebcb8b"
+yellow="#e0af68"
 # shellcheck disable=SC2034
-blue="#81a1c1"
+blue="#7aa2f7"
 # shellcheck disable=SC2034
-magenta="#b48ead"
+magenta="#bb9af7"
 # shellcheck disable=SC2034
-cyan="#88c0d0"
+cyan="#7dcfff"
 
 # set bemenu command options
 basecolor="$cyan"
@@ -65,15 +65,15 @@ bemenu_cmd=(
   bemenu
   --prompt "$prompt"  # prompt
   --fn "$font"  # font
-  --tb "$basecolor"   # title background color
+  --tb "$basecolor"  # title background color
   --tf "$black"  # title foreground color
   --fb "$black"  # filter background color
   --ff "$white"  # filter foreground color
   --nb "$black"  # normal background color
   --nf "$white"  # normal foreground color
-  --hb "$basecolor"   # selected background color
+  --hb "$basecolor"  # selected background color
   --hf "$black"  # selected foreground color
-  --sb "$basecolor"   # selected background color
+  --sb "$basecolor"  # selected background color
   --sf "$black"  # selected foreground color
 )
 
