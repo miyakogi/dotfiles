@@ -173,7 +173,7 @@ draw_bold_text_with_bright_colors: true
 
 # Colors
 import:
-  - ~/dotfiles/alacritty/nordfox.yml
+  - ~/.config/alacritty/tokyonight_night.yml
 
 # Visual Bell
 #
