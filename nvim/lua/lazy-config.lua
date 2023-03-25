@@ -751,6 +751,23 @@ local plugins = {
         styles = {
           keywords = { italic = false },
         },
+        on_highlights = function(hl, _)
+          hl.IlluminatedWord = {
+            underline = true,
+          }
+          hl.IlluminatedCurWord = {
+            underline = true,
+          }
+          hl.IlluminatedWordText = {
+            underline = true,
+          }
+          hl.IlluminatedWordRead = {
+            underline = true,
+          }
+          hl.IlluminatedWordWrite = {
+            underline = true,
+          }
+        end,
       })
       vim.cmd.colorscheme('tokyonight-night')
     end,
