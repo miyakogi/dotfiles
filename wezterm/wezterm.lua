@@ -34,42 +34,6 @@ return {
   window_frame = {
     font = font,
     font_size = font_size,
-
-    inactive_titlebar_bg = '#232831',
-    active_titlebar_bg = '#232831',
-  },
-
-  colors = {
-    cursor_fg = '#2e3440',
-    cursor_bg = '#bbc3d4',
-    selection_fg = '#2e3440',
-    selection_bg = '#bbc3d4',
-
-    tab_bar = {
-      background = '#232831',
-      active_tab = {
-        bg_color = '#39404f',
-        fg_color = '#c7cdd9',
-      },
-      inactive_tab = {
-        bg_color = '#2e3440',
-        fg_color = '#abb1bb',
-      },
-      inactive_tab_hover = {
-        bg_color = '#444c5e',
-        fg_color = '#cdcecf',
-        italic = false,
-      },
-      new_tab = {
-        bg_color = '#2e3440',
-        fg_color = '#7e8188',
-      },
-      new_tab_hover = {
-        bg_color = '#444c5e',
-        fg_color = '#cdcecf',
-        italic = false,
-      },
-    },
   },
 
   hide_tab_bar_if_only_one_tab = true,
