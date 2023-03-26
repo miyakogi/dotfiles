@@ -161,11 +161,11 @@ packages+=(
   # sway
   sway
   swaybg
-  swaylock
   swayidle
   autotiling
   python-i3ipc  # used in some script for sway
   i3status-rust  # status block generator for sway-bar
+  waylock
 
   # hyprland
   hyprland

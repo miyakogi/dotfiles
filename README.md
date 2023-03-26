@@ -43,16 +43,11 @@ Enable systemd services for graphical session.
 systemctl --user enable --now autotiling.service dunst-notification.service fcitx5.service swayidle.service
 ```
 
-Then logout/login or reboot.
-
 ### Set Wallpaper and Lock Screen Image
 
 Use wallpaper for each WM as below:
 
 - sway: `$XDG_CONFIG_HOME/sway/bg{,_4k}.png`
-
-Use lock images for each WM as below:
-
-- sway: `$XDG_CONFIG_HOME/sway/lock{,_4k}.{png,jpg}`
+- hyprland: `$XDG_CONFIG_HOME/hypr/bg{,_4k}.png`
 
 Monitor settings are hard-coded for my environment (DP-1 for 4K 144Hz main monitor and DP-2 for FHD 144Hz sub monitor).
