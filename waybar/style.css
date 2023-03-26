@@ -6,7 +6,7 @@
 window#waybar {
   font-family: "Symbols Nerd Font", "JetBrainsMono Nerd Font", "Gen Jyuu Gothic";
   min-height: 42px;
-  color: #c6c8d1;  /* foreground */
+  color: #a9b1d6;  /* foreground */
   /* background-color: #161821; */
   background-color: rgba(22, 24, 33, 0.9);
 }

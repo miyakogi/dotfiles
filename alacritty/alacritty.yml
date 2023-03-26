@@ -173,7 +173,7 @@ draw_bold_text_with_bright_colors: false
 
 # Colors
 import:
-  - ~/.config/alacritty/iceberg-dark.yml
+  - ~/.config/alacritty/iceberg-tokyo.yml
 
 # Visual Bell
 #

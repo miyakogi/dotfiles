@@ -1,5 +1,5 @@
 # Iceberg Dark Color Palette
-set -l foreground c6c8d1
+set -l foreground c0caf5
 set -l selection 161821
 set -l comment 6b7089
 set -l red e27878

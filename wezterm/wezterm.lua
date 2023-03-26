@@ -14,6 +14,15 @@ local gpu = {
   vendor = 4098,
 }
 
+-- Modify color scheme
+-- use tokyonight's foreground color for iceberg-dark
+local scheme = wezterm.get_builtin_color_schemes()['iceberg-dark']
+scheme.foreground = '#a9b1d6'
+scheme.cursor_bg = '#a9b1d6'
+scheme.selection_bg = '#a9b1d6'
+scheme.ansi[8] = '#a9b1d6'
+scheme.brights[8] = '#c0caf5'
+
 return {
   enable_wayland = false,  -- webgpu is broken on wayland, see: https://github.com/wez/wezterm/issues/2770
   max_fps = 120,  -- ignored on wayland, but default is 60fps for X11
@@ -27,7 +36,10 @@ return {
   detect_password_input = false,  -- disable password icon
 
   window_background_opacity = 0.95,
-  color_scheme = 'iceberg-dark',
+  color_schemes = {
+    ['iceberg-tokyo'] = scheme,
+  },
+  color_scheme = 'iceberg-tokyo',
 
   -- Tab bar
   use_fancy_tab_bar = false,
