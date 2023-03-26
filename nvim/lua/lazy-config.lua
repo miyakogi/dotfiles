@@ -672,7 +672,7 @@ local plugins = {
         'nvim-tree/nvim-web-devicons',
         lazy = true,
       }, {
-        'folke/tokyonight.nvim',
+        'https://codeberg.org/oahlen/iceberg.nvim',
       },
     },
     config = function()
@@ -680,7 +680,7 @@ local plugins = {
         options = {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
-          theme = 'tokyonight',
+          theme = 'iceberg',
         },
       })
     end,
@@ -769,7 +769,14 @@ local plugins = {
           }
         end,
       })
-      vim.cmd.colorscheme('tokyonight-night')
+      -- vim.cmd.colorscheme('tokyonight-night')
+    end,
+  },
+
+  {
+    'https://codeberg.org/oahlen/iceberg.nvim',
+    config = function()
+      vim.cmd.colorscheme('iceberg')
     end,
   },
 

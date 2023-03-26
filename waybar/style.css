@@ -6,9 +6,9 @@
 window#waybar {
   font-family: "Symbols Nerd Font", "JetBrainsMono Nerd Font", "Gen Jyuu Gothic";
   min-height: 42px;
-  color: #c0caf5;  /* foreground */
-  /* background-color: #1a1b26; */
-  background-color: rgba(26, 27, 38, 0.9);
+  color: #c6c8d1;  /* foreground */
+  /* background-color: #161821; */
+  background-color: rgba(22, 24, 33, 0.9);
 }
 
 window#waybar.4K {
@@ -21,8 +21,8 @@ window#waybar.FHD {
 }
 
 #workspaces button {
-  color: #7dcfff;  /* cyan */
-  border: 1px solid #7dcfff;  /* cyan */
+  color: #89b8c2;  /* cyan */
+  border: 1px solid #89b8c2;  /* cyan */
 }
 
 window#waybar.FHD #workspaces button {
@@ -31,8 +31,8 @@ window#waybar.FHD #workspaces button {
 
 #workspaces button.focused,
 #workspaces button.active {
-  color: #1a1b26;  /* background */
-  background-color: #7dcfff;  /* cyan */
+  color: #161821;  /* background */
+  background-color: #89b8c2;  /* cyan */
 }
 
 #custom-swayidle.Idle {
@@ -40,11 +40,11 @@ window#waybar.FHD #workspaces button {
 }
 
 #custom-swayidle.Info {
-  color: #f7768e;  /* red */
+  color: #e27878;  /* red */
 }
 
 #custom-waybar-mpris.playing {
-  color: #7dcfff;  /* cyan */
+  color: #89b8c2;  /* cyan */
 }
 
 #custom-mic.Idle {
@@ -52,23 +52,23 @@ window#waybar.FHD #workspaces button {
 }
 
 #custom-mic.Info {
-  color: #f7768e;  /* red */
+  color: #e27878;  /* red */
 }
 
 #custom-temperature-cpu.Warning,
 #custom-temperature-gpu.Warning {
-  color: #f7768e;  /* red */
+  color: #e27878;  /* red */
 }
 
 #custom-temperature-cpu.Critical,
 #custom-temperature-gpu.Critical {
-  color: #1a1b26;  /* background */
-  background-color: #f7768e;  /* red */
+  color: #161821;  /* background */
+  background-color: #e27878;  /* red */
 }
 
 #custom-update.info {
-  color: #1a1b26;  /* background */
-  background-color: #bb9af7;  /* magenta */
+  color: #161821;  /* background */
+  background-color: #a093c7;  /* magenta */
   padding-left: 6px;
   padding-right: 8px;
   margin-right: 6px;
@@ -78,7 +78,7 @@ window#waybar.FHD #workspaces button {
 /* 4K monitor */
 #custom-swayidle, #custom-ff-volume, #custom-waybar-mpris, window#waybar.4K #clock {
   padding-right: 12px;
-  border-right: 1px solid #7dcfff;  /* cyan */
+  border-right: 1px solid #89b8c2;  /* cyan */
 }
 
 window#waybar.4K #tray {
@@ -89,7 +89,7 @@ window#waybar.4K #tray {
 /* FHD monitor */
 #custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu, window#waybar.FHD #clock {
   padding-right: 6px;
-  border-right: 1px solid #7dcfff;  /* cyan */
+  border-right: 1px solid #89b8c2;  /* cyan */
 }
 
 window#waybar.FHD #tray {

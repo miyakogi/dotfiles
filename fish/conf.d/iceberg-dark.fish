@@ -1,14 +1,14 @@
-# TokyoNight Color Palette
-set -l foreground c0caf5
-set -l selection 33467c
-set -l comment 565f89
-set -l red f7768e
-set -l orange ff9e64
-set -l yellow e0af68
-set -l green 9ece6a
-set -l purple 9d7cd8
-set -l cyan 7dcfff
-set -l pink bb9af7
+# Iceberg Dark Color Palette
+set -l foreground c6c8d1
+set -l selection 161821
+set -l comment 6b7089
+set -l red e27878
+set -l orange e9b189
+set -l yellow e2a478
+set -l green b4be82
+set -l purple a093c7
+set -l cyan 89b8c2
+set -l pink ada0d3
 
 # Syntax Highlighting Colors
 set -g fish_color_normal $foreground
