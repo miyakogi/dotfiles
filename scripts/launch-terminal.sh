@@ -43,7 +43,7 @@ fi
 # these colors may not be used - disable shellcheck warning
 
 # shellcheck disable=SC2034
-white="#c6c8d1"
+white="#a9b1d6"
 # shellcheck disable=SC2034
 black="#161821"
 # shellcheck disable=SC2034
@@ -63,18 +63,23 @@ cyan="#89b8c2"
 basecolor="$cyan"
 bemenu_cmd=(
   bemenu
-  --prompt "$prompt"  # prompt
+  --prompt "Leave:"  # prompt
+  --ignorecase
   --fn "$font"  # font
-  --tb "$basecolor"  # title background color
+  --tb "$basecolor"   # title background color
   --tf "$black"  # title foreground color
   --fb "$black"  # filter background color
   --ff "$white"  # filter foreground color
   --nb "$black"  # normal background color
   --nf "$white"  # normal foreground color
-  --hb "$basecolor"  # selected background color
+  --hb "$basecolor"   # selected background color
   --hf "$black"  # selected foreground color
-  --sb "$basecolor"  # selected background color
+  --fbb "$black"  # feedback background color
+  --fbf "$white"  # feedback foreground color
+  --sb "$basecolor"   # selected background color
   --sf "$black"  # selected foreground color
+  --ab "$black"   # alternating background color
+  --af "$white"  # alternating foreground color
 )
 
 cmd=("${bemenu_cmd[@]}")

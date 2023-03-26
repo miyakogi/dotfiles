@@ -27,7 +27,7 @@ fi
 # these colors may not be used - disable shellcheck warnings
 
 # shellcheck disable=SC2034
-white="#c6c8d1"
+white="#a9b1d6"
 # shellcheck disable=SC2034
 black="#161821"
 # shellcheck disable=SC2034
@@ -57,8 +57,12 @@ cmd=(
   --nf "$white"  # normal foreground color
   --hb "$basecolor"   # selected background color
   --hf "$black"  # selected foreground color
+  --fbb "$black"  # feedback background color
+  --fbf "$white"  # feedback foreground color
   --sb "$basecolor"   # selected background color
   --sf "$black"  # selected foreground color
+  --ab "$black"   # alternating background color
+  --af "$white"  # alternating foreground color
 )
 
 RET=$(menu | "${cmd[@]}" | tr -d '[:space:]')
