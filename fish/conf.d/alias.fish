@@ -42,7 +42,7 @@ else
 end
 
 # ssh
-if test $TERM = "alacritty"; or test $TERM = "kitty"; or test $TERM = "foot"
+if test $TERM = "alacritty"; or test $TERM = "foot"; or string match -q "*kitty" $TERM
   abbr --add --global ssh "env TERM=xterm-256color ssh"
 end
 
