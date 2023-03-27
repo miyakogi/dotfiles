@@ -14,6 +14,17 @@ local gpu = {
   vendor = 4098,
 }
 
+-- copy hyperlink (url) instead of opening by browser when clicked
+wezterm.on('open-uri', function(window, pane, uri)
+  window:perform_action(
+    wezterm.action.SpawnCommandInNewWindow {
+      args = { 'wl-copy', uri },
+    },
+    pane
+  )
+  return false
+end)
+
 -- Modify color scheme
 -- use tokyonight's foreground color for iceberg-dark
 local scheme = wezterm.get_builtin_color_schemes()['iceberg-dark']
