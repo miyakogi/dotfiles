@@ -53,10 +53,16 @@ return {
   -- Key binding
   keys = {
     {
-      -- disable window closing by Ctrl+Shift+w
+      -- disable closing current tab by Ctrl+Shift+w
       key = 'w',
       mods = 'CTRL|SHIFT',
       action = wezterm.action.DisableDefaultAssignment,
     },
+    {
+      -- close current tab by Ctrl+Shift+q
+      key = 'q',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.CloseCurrentTab{ confirm = true },
+    }
   },
 }
