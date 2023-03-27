@@ -1,8 +1,5 @@
-# ignore remote plugins
-pack/remote/ever
-pack/remote/opt
-_.vim
-tags*
+# ignore backup files
+*.bak
 
 # ignore local fish config file
 fish/local.fish
