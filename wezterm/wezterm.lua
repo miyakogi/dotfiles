@@ -49,4 +49,14 @@ return {
   },
 
   hide_tab_bar_if_only_one_tab = true,
+
+  -- Key binding
+  keys = {
+    {
+      -- disable window closing by Ctrl+Shift+w
+      key = 'w',
+      mods = 'CTRL|SHIFT',
+      action = wezterm.action.DisableDefaultAssignment,
+    },
+  },
 }
