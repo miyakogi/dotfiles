@@ -71,7 +71,7 @@ if [[ $1 == "wayland" ]]; then
     --enable-features="$features"
 
     # Native gpu memory buffers are enabled on wayland by default,
-    # bu this flag enables some more gpu memory access
+    # but this flag enables some more gpu memory access
     --enable-native-gpu-memory-buffers
 
     # Enable native Wayland support
