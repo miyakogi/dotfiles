@@ -18,6 +18,9 @@ if type sccache &>/dev/null; then
   export RUSTC_WRAPPER
 fi
 
+# Add sbin
+export PATH="$PATH:/sbin"
+
 # Add user specific bin dir
 export PATH="$HOME/bin:$PATH"
 

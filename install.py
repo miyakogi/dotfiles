@@ -208,11 +208,6 @@ def install_desktop() -> None:
     # Install for Desktop System #
     ##############################
 
-    # Xinit/Xresources
-    install(BASEDIR / 'xinitrc', HOME / '.xinitrc')
-    install(BASEDIR / 'Xresources', HOME / '.Xresources')
-    install(BASEDIR / 'Xresources', HOME / '.Xdefaults')  # for wayland
-
     # Scripts for desktop system
     SCRIPTSDIR = BASEDIR / 'scripts'
     install(SCRIPTSDIR / 'is-4k.sh', BINDIR / 'is-4k')
