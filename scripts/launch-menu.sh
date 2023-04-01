@@ -14,13 +14,14 @@ declare -a cmd=()
 # use foot
 termcmd="foot"
 
+# set font
+_font="IBM Plex Mono Text"
+
 # set output specific options
 if [ "$(is-4k)" = true ]; then
-  _font="JetBrainsMono Nerd Font"
-  _fsize=28
-  winsize="1600x1600"
+  _fsize=30
+  winsize="1600x1680"
 else
-  _font="JetBrainsMono Nerd Font"
   _fsize=16
   winsize="800x800"
 fi
