@@ -9,107 +9,91 @@
 
 # Start Graphical Session or SHELL
 if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SESSION_TYPE" == tty ) ]]; then
-  echo -e -n "Select Window Manager or Shell [hyprland, sway, bash, fish] [default: sway]:\n>>> "
-  read -r wm
+  echo -e -n "\
+Select Window Manager or Shell:
+> 1) Sway [default]
+  2) Hyprland
+  3) bash
+  4) fish
+  5) exit
+  *) any executable
+>>> "
+  read -r choice
 
   # set default wm as sway
-  if test -z "$wm"; then
-    wm="sway"
+  if test -z "$choice"; then
+    choice=1
   fi
 
   # exec shell or exit
-  case $wm in
-    shell)
-      exec $SHELL
+  case $choice in
+    1)
+      wm="sway"
       ;;
-    sh)
-      exec sh
+    2)
+      wm="Hyprland"
       ;;
-    bash)
+    3)
       exec bash
       ;;
-    fish)
+    4)
       exec fish
       ;;
-    exit)
+    5)
       exit 0
       ;;
+    *)
+      wm="$choice"
+      ;;
   esac
+
+  if [[ "$wm" =~ [Hh]yp* ]]; then
+    wm="Hyprland"
+  fi
+
+  # set gtk theme
+  export GTK_THEME=Adwaita:dark
+
+  # set qt theme
+  export QT_STYLE_OVERRIDE=kvantum
+  export QT_QPA_PLATFORMTHEME=kvantum
+
+  # set input method
+  export XMODIFIERS=@im=fcitx
+  export GTK_IM_MODULE=fcitx
+  export QT_IM_MODULE=fcitx
+  export GLFW_IM_MODULE=fcitx
 
   # Start wayland session
-  case "$wm" in
-    hyp* | sway | weston)
-      # set xdg env var
-      export XDG_SESSION_TYPE=wayland
+  if [[ "$wm" =~ (Hyprland|sway|weston) ]]; then
+    # set xdg env var
+    export XDG_SESSION_TYPE=wayland
 
-      # set gtk theme
-      export GTK_THEME=Adwaita:dark
+    # set qt backend
+    export QT_QPA_PLATFORM=wayland
 
-      # set qt backend and theme
-      export QT_QPA_PLATFORM=wayland
-      export QT_STYLE_OVERRIDE=kvantum
-      export QT_QPA_PLATFORMTHEME=kvantum
+    # set firefox use wayland default
+    export MOZ_ENABLE_WAYLAND=1
 
-      # set input method
-      export XMODIFIERS=@im=fcitx
-      export GTK_IM_MODULE=fcitx
-      export QT_IM_MODULE=fcitx
-      export QT_IM_MODULE=fcitx
-      export GLFW_IM_MODULE=fcitx
+    # set xdg env vars
+    export XDG_CURRENT_DESKTOP="$wm"
+    export XDG_SESSION_DESKTOP="$wm"
+    systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
 
-      # set firefox use wayland default
-      export MOZ_ENABLE_WAYLAND=1
+    # wlroots setting
+    #export WLR_RENDERER=vulkan  # break proton and gamescope
+    #export WLR_DRM_NO_ATOMIC=1  # prevent flickering?
+    export WLR_DRM_NO_MODIFIERS=1  # prevent flickering
 
-      # start graphical session
-      case "$wm" in
-        hyp*)
-          # set env vars for hyprland
-          export XDG_CURRENT_DESKTOP=Hyprland
-          export XDG_SESSION_DESKTOP=Hyprland
-          systemctl --user set-environment XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_DESKTOP=Hyprland
+    # set cursor
+    export XCURSOR_THEME=default
+    export XCURSOR_SIZE=48
 
-          #export WLR_RENDERER=vulkan
-          #export WLR_DRM_NO_ATOMIC=1  # prevent flickering
-          export WLR_DRM_NO_MODIFIERS=1  # prevent flickering
-
-          # set cursor
-          export XCURSOR_THEME=default
-          export XCURSOR_SIZE=48
-
-          # start session
-          exec Hyprland
-          ;;
-        sway)
-          # set env vars for sway
-          export XDG_CURRENT_DESKTOP=sway
-          export XDG_SESSION_DESKTOP=sway
-          systemctl --user set-environment XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
-
-          #export WLR_RENDERER=vulkan  # breaks some proton games graphic update and gamescope
-          #export WLR_DRM_NO_ATOMIC=1  # prevent flickering
-          export WLR_DRM_NO_MODIFIERS=1  # prevent flickering
-
-          # start session
-          exec sway
-          ;;
-        weston)
-          # set env vars for weston
-          export XDG_CURRENT_DESKTOP=weston
-          systemctl --user set-environment XDG_CURRENT_DESKTOP=weston
-
-          # start session
-          exec weston
-          ;;
-      esac
-      exit 0
-      ;;
-
-    *)  # Invalid value
-      # start X session
-      echo "Unsupported Shell/WM/DE selected, exit"
-      exit 1
-      ;;
-  esac
+    # start session
+    exec "$wm"
+  else  # maybe directly selected executable
+    exec "$wm"
+  fi
 fi
 
 # load bashrc
