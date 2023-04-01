@@ -6,4 +6,10 @@ function fish_user_key_bindings
   bind \cj myjump
   bind \cr search-history
   bind \cf nextd-or-forward-word
+
+  # === keyd fixup ===
+  # Caps+w -> Control+Backspace
+  bind \cH backward-kill-word  # delete prev word by Control+Backspace
+  # Caps+f -> C-f
+  bind \e\[C nextd-or-forward-word
 end
