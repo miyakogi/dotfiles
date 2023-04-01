@@ -185,10 +185,11 @@ packages+=(
   fcitx5-mozc-ut
 
   # font/theme
-  adobe-source-han-serif-jp-fonts
-  ttf-genjyuu-gothic  # default jp font
-  ttf-hackgen  # monospace jp font
-  ttf-jetbrains-mono-nerd
+  ttf-genjyuu-gothic  # jp san-serif font
+  morisawa-biz-ud-micho-fonts  # default jp serif font
+  ttf-ibm-plex  # monospace font + jp proportional gothic font
+  ttf-jetbrains-mono-nerd  # monospace font with ligatures support
+  ttf-plemoljp  # monospace font including jp glyphs
   ttf-unifont
   ttf-nerd-fonts-symbols
 )

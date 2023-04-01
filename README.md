@@ -51,3 +51,11 @@ Use wallpaper for each WM as below:
 - hyprland: `$XDG_CONFIG_HOME/hypr/bg{,_4k}.png`
 
 Monitor settings are hard-coded for my environment (DP-1 for 4K 144Hz main monitor and DP-2 for FHD 144Hz sub monitor).
+
+### Font Setting
+
+Add `~/.config/fontconfig/fonts.conf` if not exist, and add the below line in the `<fontconfig>` section:
+
+```
+<include ignore_missing="yes">conf.d</include>
+```

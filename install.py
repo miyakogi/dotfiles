@@ -194,9 +194,6 @@ def install_desktop() -> None:
     # Install for TTY Login #
     #########################
 
-    # Shell defaults
-    install(BASEDIR / 'profile', HOME / '.profile')
-
     # bash files
     BASHDIR = BASEDIR / 'bash'
     install(BASHDIR / 'bash_profile', HOME / '.bash_profile')
@@ -208,7 +205,7 @@ def install_desktop() -> None:
     # Install for Desktop System #
     ##############################
 
-    # Scripts for desktop system
+    ### Scripts for desktop system
     SCRIPTSDIR = BASEDIR / 'scripts'
     install(SCRIPTSDIR / 'is-4k.sh', BINDIR / 'is-4k')
     install(SCRIPTSDIR / 'launch-terminal.sh', BINDIR / 'launch-terminal')
@@ -269,6 +266,18 @@ def install_desktop() -> None:
 
     # swappy
     install(BASEDIR / 'swappy', CONFIG_HOME / 'swappy')
+
+    ### Font
+    install(BASEDIR / 'fontconfig' / 'conf.d' / '10-default-fonts.conf',
+            CONFIG_HOME / 'fontconfig' / 'conf.d' / '10-default-fonts.conf')
+    install(BASEDIR / 'fontconfig' / 'conf.d' / '20-no-embedded.conf',
+            CONFIG_HOME / 'fontconfig' / 'conf.d' / '20-no-embedded.conf')
+    install(BASEDIR / 'fontconfig' / 'conf.d' / '30-ibm-plex-mono.conf',
+            CONFIG_HOME / 'fontconfig' / 'conf.d' / '30-ibm-plex-mono.conf')
+    install(BASEDIR / 'fontconfig' / 'conf.d' / '30-jetbrainsmono.conf',
+            CONFIG_HOME / 'fontconfig' / 'conf.d' / '30-jetbrainsmono.conf')
+    install(BASEDIR / 'fontconfig' / 'conf.d' / '90-nerd-font-symbols-jp.conf',
+            CONFIG_HOME / 'fontconfig' / 'conf.d' / '90-nerd-font-symbols-jp.conf')
 
     ####################
     # Systemd Services #
