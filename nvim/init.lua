@@ -227,6 +227,9 @@ vim .keymap.set('n', '<Space>P', '"+P')  -- from helix-editor
 -- Use C-q to do what C-v used to do
 vim.keymap.set('n', '<C-q>', '<C-v>')
 
+-- ======== Keyd Fixup ========
+vim.keymap.set('i', '<C-backspace>', '<C-w>')
+
 -- ======== Command Mapping ========
 
 -- Clear highlighting search word
