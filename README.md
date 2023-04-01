@@ -59,3 +59,29 @@ Add `~/.config/fontconfig/fonts.conf` if not exist, and add the below line in th
 ```
 <include ignore_missing="yes">conf.d</include>
 ```
+
+### Keyboard setting
+
+This repository includes [keyd](https://github.com/rvaiya/keyd) setting file for better key setting.
+To use this, you need to manually setup configuration.
+
+WARNING: This setting change system-wide keyboard configuration, be careful.
+WARNING: Before using this setup, read and understand [keyd document](https://github.com/rvaiya/keyd/blob/master/docs/keyd.scdoc).
+
+1. Install `keyd`: `paru -S keyd`
+2. Create Symlink to `/etc/keyd/default.conf`:
+
+```
+sudo mkdir -p /etc/keyd
+
+cd /path/to/cloned/dotfiles
+
+# bash
+sudo ln -s -v "$(realpath keyd/deafult.conf)" /etc/keyd/default.conf 
+
+# fish
+sudo ln -s -v (realpath keyd/deafult.conf) /etc/keyd/default.conf 
+
+sudo systemctl enable --now keyd.service
+sudo keyd reload  # optional
+```
