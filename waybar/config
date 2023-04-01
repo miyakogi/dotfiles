@@ -5,6 +5,7 @@
   "name": "4K",
   "spacing": 16,
   "modules-left": ["wlr/workspaces"],
+  "modules-center": ["custom/compositor-name"],
   "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/waybar-mpris", "clock", "tray"],
   "wlr/workspaces": {
     "on-click": "activate",
@@ -31,6 +32,9 @@
       // "name:⑨": "⑨ ",
       // "name:⑩": "⑩ ",
     },
+  },
+  "custom/compositor-name": {
+    "exec": "echo $XDG_CURRENT_DESKTOP",
   },
   "clock": {
     "interval": 1,

@@ -35,6 +35,10 @@ window#waybar.FHD #workspaces button {
   background-color: #89b8c2;  /* cyan */
 }
 
+#custom-compositor-name {
+  font-weight: bold;
+}
+
 #custom-swayidle.Idle {
   color: #666666;
 }
