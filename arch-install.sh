@@ -74,7 +74,7 @@ if ! type lf &>/dev/null; then
   install_aur_package "lf-bin"  # required for paru's PKGBUILD review
 fi
 
-# List minimal packages for distrobox environment with this dotfiles
+# List minimal packages
 packages=(
   ## Shell
   bash
@@ -113,85 +113,77 @@ packages=(
   zoxide  # smart cd
 )
 
-# Install minimal setup for non-graphical environment (e.g. ssh server or simple container)
-if [ "$install_type" = "min" ]; then
-  paru -S "${packages[@]}"
-  exit
+# Add packages both for distrobox and full desktop environment
+if [ "$install_type" != "min" ]; then
+  packages+=(
+    ## Graphical Session (Wayland)
+    wl-clipboard
+    fcitx5-gtk
+  )
 fi
 
-# Add packages for distrobox environment
-packages+=(
-  ## Graphical Session (Wayland)
-  wl-clipboard
-  fcitx5-gtk
-)
+# Add packages for full desktop environment
+if [ "$install_type" = "full" ]; then
+  packages+=(
+    # Terminals
+    alacritty
+    wezterm
+    kitty
+    foot
+    tmux
 
-# Install for distrobox container
-if [ "$install_type" = "distrobox" ]; then
-  paru -S "${packages[@]}"
-  exit
+    # Command Line Tools
+    python-poetry  # python virtualenv/package manager
+    zk  # note taking tool
+
+    # wayland
+    dunst
+    grim
+    slurp
+    swappy
+    pngquant  # used for image compression (sscomp command)
+    jq  # used in some scripts for sway/hyprland
+    xorg-xwayland
+    bemenu
+    bemenu-wayland
+    kvantaum  # qt theme setting
+
+    # sway
+    sway
+    swaybg
+    swayidle
+    autotiling
+    python-i3ipc  # used in some script for sway
+    i3status-rust  # status block generator for sway-bar
+    waylock
+
+    # hyprland
+    hyprland
+    hyprpaper
+    waybar-hyprland-git
+    waybar-mpris-git
+
+    # multimedia
+    pulsemixer  # used by volume check/fix scripts on i3status-rust
+    playerctl  # for audio control by keyboard on sway
+    ffmpegthumbnailer  # for video thumbnail preview on file manager
+
+    # input method
+    fcitx5
+    fcitx5-configtool
+    mozc-ut
+    fcitx5-mozc-ut
+
+    # font/theme
+    ttf-genjyuu-gothic  # jp san-serif font
+    morisawa-biz-ud-micho-fonts  # default jp serif font
+    ttf-ibm-plex  # monospace font + jp proportional gothic font
+    ttf-jetbrains-mono-nerd  # monospace font with ligatures support
+    ttf-plemoljp  # monospace font including jp glyphs
+    ttf-unifont
+    ttf-nerd-fonts-symbols
+  )
 fi
 
-
-# Add packages to be installed for full/base system
-packages+=(
-  # Terminals
-  alacritty
-  wezterm
-  kitty
-  foot
-  tmux
-
-  # Command Line Tools
-  python-poetry  # python virtualenv/package manager
-  zk  # note taking tool
-
-  # wayland
-  dunst
-  grim
-  slurp
-  swappy
-  pngquant  # used for image compression (sscomp command)
-  jq  # used in some scripts for sway/hyprland
-  xorg-xwayland
-  bemenu
-  bemenu-wayland
-  kvantaum  # qt theme setting
-
-  # sway
-  sway
-  swaybg
-  swayidle
-  autotiling
-  python-i3ipc  # used in some script for sway
-  i3status-rust  # status block generator for sway-bar
-  waylock
-
-  # hyprland
-  hyprland
-  hyprpaper
-  waybar-hyprland-git
-  waybar-mpris-git
-
-  # multimedia
-  pulsemixer  # used by volume check/fix scripts on i3status-rust
-  playerctl  # for audio control by keyboard on sway
-  ffmpegthumbnailer  # for video thumbnail preview on file manager
-
-  # input method
-  fcitx5
-  fcitx5-configtool
-  mozc-ut
-  fcitx5-mozc-ut
-
-  # font/theme
-  ttf-genjyuu-gothic  # jp san-serif font
-  morisawa-biz-ud-micho-fonts  # default jp serif font
-  ttf-ibm-plex  # monospace font + jp proportional gothic font
-  ttf-jetbrains-mono-nerd  # monospace font with ligatures support
-  ttf-plemoljp  # monospace font including jp glyphs
-  ttf-unifont
-  ttf-nerd-fonts-symbols
-)
-
-paru -S "${packages[@]}"
+# `--needed` flag prevents re-installing
+paru -S --needed "${packages[@]}"
