@@ -3,40 +3,31 @@
 ##################
 # list terminals
 #
-terminals=(
-  foot
-  alacritty
-  kitty
-  wezterm
-)
-
-if type st &>/dev/null; then
-  terminals+=(st)
-fi
-
 list_terminals() {
+  terminals=(
+    foot
+    alacritty
+    kitty
+    wezterm
+    st
+  )
   for t in "${terminals[@]}"; do
-    echo " $t "
+    if type "$t" &>/dev/null; then
+      echo " $t "
+    fi
   done
 }
 
 #####################
 # bemenu/dmenu setup
 #
-prompt="Launch Terminal:"
-
-# Check display
-if [ "$(is-4k)" = true ]; then
-  hidpi=true
-else
-  hidpi=false
-fi
-
 # Set display specific options
-if [ $hidpi = true ]; then
+if [ "$(is-4k)" = true ]; then
   font="JetBrainsMono Nerd Font 26"
+  st_font="JetBrainsMono Nerd Font:medium:size=21:antialias=true"
 else
   font="JetBrainsMono Nerd Font 16"
+  st_font="JetBrainsMono Nerd Font:medium:size=12:antialias=true"
 fi
 
 # Define colors
@@ -63,7 +54,7 @@ cyan="#89b8c2"
 basecolor="$cyan"
 bemenu_cmd=(
   bemenu
-  --prompt "Leave:"  # prompt
+  --prompt "Terminal:"  # prompt
   --ignorecase
   --fn "$font"  # font
   --tb "$basecolor"   # title background color
@@ -93,24 +84,20 @@ _terminal=$( list_terminals | "${cmd[@]}" | tr -d '[:space:]' )
 
 # modify some terminal command and launch
 case $_terminal in
-  st)
-    if [ $hidpi = true ]; then
-      st -f "JetBrainsMono Nerd Font:medium:size=21:antialias=true" -e fish &
-    else
-      st -f "JetBrainsMono Nerd Font:medium:size=12:antialias=true" -e fish &
-    fi
+  foot)
+    launch-foot &
     ;;
   alacritty)
     launch-alacritty &
-    ;;
-  foot)
-    launch-foot &
     ;;
   kitty)
     launch-kitty &
     ;;
   wezterm)
     launch-wezterm &
+    ;;
+  st)
+    st -f "$st_font" -e fish &
     ;;
   *)
     $_terminal &
