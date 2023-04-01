@@ -10,6 +10,7 @@ $shlvl\
 $singularity\
 $kubernetes\
 $directory\
+$sudo\
 $vcsh\
 $git_branch\
 $git_commit\
@@ -68,7 +69,6 @@ $azure\
 $env_var\
 $crystal\
 $custom\
-$sudo\
 $cmd_duration\
 $line_break\
 $jobs\
@@ -118,14 +118,30 @@ disabled = true
 truncation_length = 5
 truncate_to_repo = false
 truncation_symbol = ".../"
+read_only = "󰻌"
 style = "bold blue"
+
+[sudo]
+format = "[$symbol ]($style)"
+symbol = "󰕥"
+style = "bold yellow"
+disabled = false
 
 [git_branch]
 style = "fg:purple"
 format = "[$symbol$branch ]($style)"
 
 [git_status]
-untracked = ""
+conflicted = ""
+ahead = ""
+behind = ""
+diverged = "󰹹"
+untracked = ""
+stashed = ""
+modified = ""
+staged = "󰐕"
+renamed = ""
+deleted = ""
 style = "fg:purple bold"
 
 [haskell]
@@ -148,11 +164,11 @@ detect_extensions = []
 
 [rust]
 format = "[$symbol($version )]($style)"
-symbol = " "
+symbol = "󱘗 "
 
 [status]
 disabled = false
-symbol = ""
+symbol = "󱇏 "
 
 [custom.giturl]
 description = "Display symbol for remote Git server"
@@ -181,4 +197,4 @@ shell = [ "bash", "--noprofile", "--norc" ]
 command = """echo "$HOSTNAME" | sed -E 's/^([^.]+).*/\\1/'"""
 when = "test -f /run/.containerenv"
 style = "bg:cyan fg:black bold"
-format = '[ [](bg:cyan cyan dimmed) $output ]($style) '
+format = '[ [](bg:cyan black) $output ]($style) '
