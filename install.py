@@ -288,7 +288,6 @@ def install_desktop() -> None:
 
     # WM/DE independent
     install_service('fcitx5.service')
-    install_service('input-remapper-autoload.service')
     install_service('corectrl.service')
 
     # wlroots services
