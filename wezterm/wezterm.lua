@@ -3,7 +3,7 @@ local wezterm = require('wezterm')
 local font = wezterm.font({
   family = 'JetBrainsMono Nerd Font',
 })
-local font_size = 12
+local font_size = 12.0
 
 local gpu = {
   name = 'AMD Radeon RX 6800 XT (RADV NAVI21)',
