@@ -13,7 +13,7 @@ case "$XDG_CURRENT_DESKTOP" in
     ;;
 esac
 
-if [[ "$("${cmd[@]}" | jq '.[] | select(.focused) | .name' | tr -d '"' )" = "DP-1" ]]; then
+if [ "$("${cmd[@]}" | jq '.[] | select(.focused) | .name' | tr -d '"' )" = "DP-1" ]; then
   echo true
 else
   echo false

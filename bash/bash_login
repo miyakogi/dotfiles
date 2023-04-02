@@ -5,7 +5,7 @@
 # ===============================================
 
 # load machine local file
-[ -f "$HOME/.bash_login.local" ] && source "$HOME/.bash_login.local"
+test -f "$HOME/.bash_login.local" && source "$HOME/.bash_login.local"
 
 # Start Graphical Session or SHELL
 if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SESSION_TYPE" == tty ) ]]; then
@@ -97,6 +97,6 @@ Select Window Manager or Shell:
 fi
 
 # load bashrc
-[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
+test -f "$HOME/.bashrc" && source "$HOME/.bashrc"
 
 # vim: sw=2 et

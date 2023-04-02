@@ -221,7 +221,7 @@ while [[ "$1" = "--"* ]]; do
       ;;
     --chromium)
       # Add chromium options
-      if [[ "${*}" = *--wayland* ]] || [[ "${cmd[*]}" = *wayland-* ]]; then
+      if [[ "${*}" = *--wayland* || "${cmd[*]}" = *wayland-* ]]; then
         mapfile -t options < <(chromium-options wayland)
       else
         mapfile -t options < <(chromium-options)

@@ -16,7 +16,7 @@
 #   Exec=/usr/bin/google-chrome-stable $(/path/to/chromium-options.sh wayland) --some-other-option
 #
 
-if [[ -n "$WAYLAND_DISPLAY" || "$XDG_SESSION_TYPE" == "wayland" ]]; then
+if [ -n "$WAYLAND_DISPLAY" ] || [ "$XDG_SESSION_TYPE" == "wayland" ]; then
   session="wayland"
 else
   session="$(loginctl show-session "$(loginctl show-user "$(whoami)" -p Display --value)" -p Type --value)"
@@ -60,7 +60,7 @@ features="$features,EnableDrDc"
 #features="$features,RawDraw"
 
 # --- Set Platform Specific Features/Flags ---
-if [[ $1 == "wayland" ]]; then
+if [ "$1" = "wayland" ]; then
   # Enable pipewire support for WebRTC screen sharing
   features="$features,WebRTCPipeWireCapturer"
   # Vulkan does not support WebGL, WebGL2, and some compositing HW accelerations now (v98/v99)
@@ -95,7 +95,7 @@ else
     --enable-native-gpu-memory-buffers
   )
 
-  if [[ $session == "wayland" ]]; then
+  if [ "$session" == "wayland" ]; then
     # --- Xwayland --- #
     flags+=(
       --enable-features="$features"
