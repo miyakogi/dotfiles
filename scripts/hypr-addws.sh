@@ -13,8 +13,6 @@ current_workspaces="$(hyprctl -j workspaces | jq '.[] | .id')"
 for i in $workspaces; do
   exist=false
   for ws_id in $current_workspaces; do
-    # id=$(echo "$ws_id" | tr -d '[:space:]' | tr -d '"')
-    # if [[ "$i" == "$id" ]]; then
     if [ "$i" -eq "$ws_id" ]; then
       exist=true
       break
