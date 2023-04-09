@@ -31,6 +31,7 @@ local plugins = {
           'rust',
           'toml',
           'typescript',
+          'vim',
           'vimdoc',
           'vue',
           'yaml',
