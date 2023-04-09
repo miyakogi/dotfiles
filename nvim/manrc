@@ -28,6 +28,10 @@ nnoremap <silent> gk k
 xnoremap <silent> gj j
 xnoremap <silent> gk k
 
+" Swap colon/semicolon
+nnoremap <silent> ; :
+nnoremap <silent> : ;
+
 " Move to start/end of lines
 noremap H ^
 noremap L $
