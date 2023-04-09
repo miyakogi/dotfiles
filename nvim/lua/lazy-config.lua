@@ -597,17 +597,6 @@ local plugins = {
     },
   },
 
-  -- spellchecker
-  {
-    'lewis6991/spellsitter.nvim',
-    dependencies = {
-      { 'nvim-treesitter/nvim-treesitter' },
-    },
-    config = function()
-      require('spellsitter').setup({})
-    end,
-  },
-
   -- highlight current word
   {
     'RRethy/vim-illuminate',
