@@ -144,6 +144,9 @@ def install_base() -> None:
     install(BASEDIR / 'git' / 'gitignore', HOME / '.gitignore_global')
     install(BASEDIR / 'git' / 'gitconfig', HOME / '.gitconfig')
 
+    # paru
+    install(BASEDIR / 'paru', CONFIG_HOME / 'paru')
+
     # gitui - terminal ui for git
     install(BASEDIR / 'gitui', CONFIG_HOME / 'gitui')
 
