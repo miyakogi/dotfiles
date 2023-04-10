@@ -30,7 +30,7 @@ if type -q "$EDITOR"
 end
 
 # ls -> lsd
-if type -q lsd; and test -n "$DISPLAY"; test -z "$XDG_VTNR"
+if type -q lsd; and test -n "$DISPLAY"; or test -z "$XDG_VTNR"
   abbr --add --global ls "lsd"
   abbr --add --global lsa "lsd --all"
   abbr --add --global lsl "lsd --long"
