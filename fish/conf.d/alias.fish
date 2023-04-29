@@ -3,6 +3,9 @@
 # vim-style exit
 abbr --add --global :q "exit"
 
+# mv -i (ask on overwrite)
+abbr --add --global mv "mv -i"
+
 # mkdir -p
 abbr --add --global mkdir "mkdir -p"
 
