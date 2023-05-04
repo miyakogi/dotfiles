@@ -57,7 +57,7 @@ features="$features,CanvasOopRasterization"
 features="$features,EnableDrDc"
 # RawDraw issues are maybe fixed at least on v99
 # -> still broken on YouTube overlay
-#features="$features,RawDraw"
+features="$features,RawDraw"
 
 # --- Set Platform Specific Features/Flags ---
 if [ "$1" = "wayland" ]; then
