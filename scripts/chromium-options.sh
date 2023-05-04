@@ -79,7 +79,7 @@ if [ "$1" = "wayland" ]; then
     --ozone-platform=wayland
 
     # EGL seems to be the best option for now (v98)
-    --use-gl=egl
+    #--use-gl=egl
 
     # Necessary to enable fcitx5 (v98+)
     # see: https://www.reddit.com/r/swaywm/comments/rwqo1d/yesterdays_chrome_97_stable_release_has_gtk4_im/
