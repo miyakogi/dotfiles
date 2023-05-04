@@ -37,6 +37,7 @@ window#waybar.FHD #workspaces button {
 
 #custom-compositor-name {
   font-weight: bold;
+  margin: 0 12;
 }
 
 #custom-swayidle.Idle {
