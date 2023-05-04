@@ -71,7 +71,7 @@ if ! type paru &>/dev/null; then
 fi
 if ! type lf &>/dev/null; then
   echo "lf file manager is not installed - automatically install it"
-  install_aur_package "lf-bin"  # required for paru's PKGBUILD review
+  sudo pacman -S lf
 fi
 
 # List minimal packages
