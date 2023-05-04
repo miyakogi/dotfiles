@@ -71,7 +71,12 @@ return {
       -- close current tab by Ctrl+Shift+q
       key = 'q',
       mods = 'CTRL|SHIFT',
-      action = wezterm.action.CloseCurrentTab{ confirm = true },
+      action = wezterm.action.CloseCurrentTab({ confirm = true }),
+    },
+    {
+      key = 'Backspace',
+      mods = 'CTRL',
+      action = wezterm.action.SendKey({ key = 'w', mods = 'CTRL' })
     }
   },
 }
