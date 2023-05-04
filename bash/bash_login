@@ -80,6 +80,10 @@ Select Window Manager or Shell:
     export XDG_SESSION_DESKTOP="$wm"
     systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
 
+    # mesa driver setting (for OpenGL)
+    export MESA_LOADER_DRIVER_OVERRIDE=radeonsi
+    export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json 
+
     # wlroots setting
     #export WLR_RENDERER=vulkan  # break proton and gamescope
     #export WLR_DRM_NO_ATOMIC=1  # prevent flickering?
