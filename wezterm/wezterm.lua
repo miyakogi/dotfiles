@@ -35,8 +35,6 @@ scheme.ansi[8] = '#a9b1d6'
 scheme.brights[8] = '#c0caf5'
 
 return {
-  enable_wayland = false,  -- webgpu is broken on wayland, see: https://github.com/wez/wezterm/issues/2770
-  max_fps = 120,  -- ignored on wayland, but default is 60fps for X11
   webgpu_power_preference = 'HighPerformance',
   webgpu_preferred_adapter = gpu,
   front_end = 'WebGpu',
