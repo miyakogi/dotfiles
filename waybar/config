@@ -38,7 +38,7 @@
   },
   "clock": {
     "interval": 1,
-    "format": " {:%a %d %b %Y   %H:%M:%S}",
+    "format": " {:%a %d %b %Y  󰅐 %H:%M:%S}",
   },
   "custom/swayidle": {
     "return-type": "json",
@@ -104,7 +104,7 @@
   },
   "clock": {
     "interval": 1,
-    "format": " {:%a %d %b %Y   %H:%M:%S}",
+    "format": " {:%a %d %b %Y  󰅐 %H:%M:%S}",
   },
   "custom/mic": {
     "return-type": "json",
@@ -132,7 +132,7 @@
     "exec": "/usr/bin/cat /sys/class/drm/card0/device/gpu_busy_percent",
     "exec-if": "true",
     "interval": 1,
-    "format": "  {}%",
+    "format": "󰍹  {}%",
   },
   "custom/temperature-gpu": {
     "return-type": "json",
@@ -146,19 +146,6 @@
     "interval": 1800,
     "format": "{}",
   },
-  // "custom/temperature": {
-  //   "return-type": "json",
-  //   "exec": "$HOME/bin/temperature",
-  //   "interval": 1,
-  //   "format": " {}°C",
-  // },
-  // "temperature": {
-  //   "interval": 1,
-  //   "thermal-zone": 2,  // CPU
-  //   "critical-threshold": 70,
-  //   "format": " {temperatureC}°C",
-  //   "format-critical": "<span color='#bf616a'><b> {temperatureC}°C</b></span>",
-  // },
   "tray": {
     "icon-size": 16,
   },
