@@ -4,7 +4,7 @@ tmp_file="/tmp/ff-volume-fix-paused"
 
 # check if disabled
 if [ -e "$tmp_file" ]; then
-  echo '{"text": "  罹"}'  # nf-mdi-sync_alert
+  echo '{"text": "  "}'  # nf-mdi-sync_alert
 else
   # check if Firefox is playing
   if playerctl -l 2>&1 | grep -q firefox && [ "$(playerctl -p firefox status)" = "Playing" ]; then
@@ -16,7 +16,7 @@ else
       done
     fi
   fi
-  echo '{"text": "  "}'
+  echo '{"text": "  "}'
 fi
 
 sleep 0.1s
