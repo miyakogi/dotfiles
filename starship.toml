@@ -83,7 +83,7 @@ $time\
 """
 
 [time]
-time_format = " %T  %a %d %b %Y"
+time_format = "󰅐 %T  %a %d %b %Y"
 disabled = false
 style = "bold blue"
 format = "[$time]($style)"
@@ -112,7 +112,7 @@ style = "bold yellow"
 disabled = true
 
 [container]
-disabled = true
+disabled = false
 
 [directory]
 truncation_length = 5
@@ -152,14 +152,14 @@ disabled = true
 
 [nodejs]
 format = "[$symbol($version )]($style)"
-symbol = " "
+symbol = " "
 
 [package]
 disabled = true
 
 [python]
 format = '[${symbol}(${version} )(\(${virtualenv}\) )]($style)'
-symbol = " "
+symbol = " "
 detect_extensions = []
 
 [rust]
@@ -182,7 +182,7 @@ elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
 elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
     GIT_REMOTE_SYMBOL=" "
 elif [[ "$GIT_REMOTE" =~ "git" ]]; then
-    GIT_REMOTE_SYMBOL=" "
+    GIT_REMOTE_SYMBOL=" "
 else
     GIT_REMOTE_SYMBOL=" "
 fi
@@ -197,4 +197,5 @@ shell = [ "bash", "--noprofile", "--norc" ]
 command = """echo "$HOSTNAME" | sed -E 's/^([^.]+).*/\\1/'"""
 when = "test -f /run/.containerenv"
 style = "bg:cyan fg:black bold"
-format = '[ [](bg:cyan black) $output ]($style) '
+symbol = "󰰘"
+format = '[ [$symbol](bg:cyan black) $output ]($style) '
