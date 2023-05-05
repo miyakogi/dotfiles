@@ -42,4 +42,4 @@ info_fg = "#8fbcbb"  # cyan
 [[block]]
 block = "time"
 interval = 0.25
-format = "   $timestamp.datetime(f:'%a %d %b %Y')   $timestamp.datetime(f:'%H:%M:%S') "
+format = "   $timestamp.datetime(f:'%a %d %b %Y') 󰅐  $timestamp.datetime(f:'%H:%M:%S') "
