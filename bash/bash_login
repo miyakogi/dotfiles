@@ -27,16 +27,16 @@ Select Window Manager or Shell:
 
   # exec shell or exit
   case $choice in
-    1)
+    1|sway)
       wm="sway"
       ;;
-    2)
+    2|hyp*)
       wm="Hyprland"
       ;;
-    3)
+    3|bash|sh)
       exec bash
       ;;
-    4)
+    4|fish)
       exec fish
       ;;
     5)
