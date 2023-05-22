@@ -75,6 +75,9 @@ Select Window Manager or Shell:
     # set firefox use wayland default
     export MOZ_ENABLE_WAYLAND=1
 
+    # set pipewire vaapi driver
+    export GST_VAAPI_ALL_DRIVERS=1
+
     # set xdg env vars
     export XDG_CURRENT_DESKTOP="$wm"
     export XDG_SESSION_DESKTOP="$wm"
