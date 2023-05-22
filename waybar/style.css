@@ -37,7 +37,10 @@ window#waybar.FHD #workspaces button {
 
 #custom-compositor-name {
   font-weight: bold;
-  margin: 0 12;
+  color: #000000;  /* black */
+  background-color: #84a0c6;  /* blue */
+  padding: 0 16px;
+  margin: 0 12px;
 }
 
 #custom-swayidle.Idle {
