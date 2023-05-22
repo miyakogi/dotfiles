@@ -125,7 +125,7 @@ style = "bold blue"
 format = "[$symbol ]($style)"
 symbol = "󰕥"
 style = "bold yellow"
-disabled = false
+disabled = true
 
 [git_branch]
 style = "fg:purple"
