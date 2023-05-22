@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-  font-family: "Symbols Nerd Font", "JetBrainsMono Nerd Font", "Gen Jyuu Gothic";
+  font-family: monospace;
   min-height: 42px;
   color: #a9b1d6;  /* foreground */
   /* background-color: #161821; */
@@ -16,7 +16,7 @@ window#waybar.4K {
 }
 
 window#waybar.FHD {
-  font-size: 12pt;
+  font-size: 11pt;
   font-weight: 500;
 }
 
