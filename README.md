@@ -2,6 +2,8 @@
 
 My dotfiles for Arch Linux.
 
+- Main repository: https://codeberg.org/miyakogi/dotfiles
+
 Display manager is not supported.
 Use TTY login at tty-1 (default) and select Shell/DE/WM.
 
