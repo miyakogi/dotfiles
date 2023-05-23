@@ -500,6 +500,7 @@ local plugins = {
     dependencies = {
       { 'honza/vim-snippets' },
     },
+    build = "make install_jsregexp",
     lazy = true,
     config = function()
       require("luasnip.loaders.from_snipmate").lazy_load()
