@@ -498,7 +498,7 @@ local plugins = {
   {
     'L3MON4D3/LuaSnip',
     dependencies = {
-      { 'honza/vim-snippets' },
+      { 'miyakogi/vim-snippets' },
     },
     build = "make install_jsregexp",
     lazy = true,
