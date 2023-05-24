@@ -105,6 +105,7 @@ packages=(
   # Command-line
   starship  # prompt manager
   direnv  # directory based env setting
+  exa  # ls alternative
   lsd  # ls alternative
   bat  # cat alternative
   fzf  # fuzzy searcher

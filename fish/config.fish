@@ -17,7 +17,7 @@ set -x HIST_DIRS_MAX 1000
 function __chpwd --on-variable PWD; chpwd; end
 
 # auto ls on cd
-function __auto_ls --on-variable PWD; auto_ls; end
+function __auto_ls --on-variable PWD; ls; end
 
 # direnv
 if type -q direnv
