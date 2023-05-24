@@ -172,8 +172,7 @@ if [ "$install_type" = "full" ]; then
     # input method
     fcitx5
     fcitx5-configtool
-    mozc-ut
-    fcitx5-mozc-ut
+    fcitx5-mozc-ext-neologd
 
     # font/theme
     ttf-genjyuu-gothic  # jp san-serif font
