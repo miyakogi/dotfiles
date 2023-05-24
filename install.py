@@ -175,6 +175,9 @@ def install_base() -> None:
     # lf - terminal file manager
     install(BASEDIR / 'lf', CONFIG_HOME / 'lf')
 
+    # lsd
+    install(BASEDIR / 'lsd', CONFIG_HOME / 'lsd')
+
     # starship shell prompt
     install(BASEDIR / 'starship.toml', CONFIG_HOME / 'starship.toml')
 

@@ -1,0 +1,9 @@
+# see https://github.com/Peltoche/lsd#config-file-content
+
+sorting:
+  # what to sort by
+  # Possible values: extension, name, time, size, version
+  # `version` sorts items such as a1, a2, ..., a10, a11, equivalent to --versionsort option
+  column: version
+  # display directories first
+  dir-grouping: first
