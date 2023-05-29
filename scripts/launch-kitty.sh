@@ -6,4 +6,4 @@ if [ "$(is-4k)" = true ]; then
 fi
 
 # Fixing driver improve startup time
-kitty "${options[@]}"
+kitty "${options[@]}" "$@"

@@ -7,4 +7,4 @@ if [ "$(is-4k)" = true ]; then
   options+=(--override=font="IBM Plex Mono Text:size=21.0" --override=pad=12x12)
 fi
 
-foot "${options[@]}"
+foot "${options[@]}" "$@"
