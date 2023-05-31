@@ -8,7 +8,7 @@ if [ -e "$tmp_file" ]; then
 else
   # check if Firefox is playing
   if playerctl -l 2>&1 | grep -q firefox && [ "$(playerctl -p firefox status)" = "Playing" ]; then
-    modified_ff_sinks=$(pulsemixer --list-sinks | grep 'Name: Firefox' | grep -v '100%')
+    modified_ff_sinks=$(pulsemixer --list-sinks | grep -e 'Name: Firefox' -e 'Name: Cachy Browser' | grep -v '100%')
     if [ -n "$modified_ff_sinks" ]; then
       echo "$modified_ff_sinks" | while read -r line; do
         ff_sink_id=$(echo "$line" | sed -r 's/^.*ID: ([a-zA-Z0-9\-]+).*$/\1/')
