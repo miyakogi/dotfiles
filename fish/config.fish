@@ -28,7 +28,7 @@ end
 set -x ZK_NOTEBOOK_DIR $HOME/notes/main
 
 # prompt
-if type -q starship; and test -n "$DISPLAY"; or test -z "$XDG_VTNR"
+if type -q starship; and begin; test -n "$DISPLAY"; or test -z "$XDG_VTNR"; end
   starship init fish | source
 else
   set -g fish_prompt_pwd_dir_length 0
