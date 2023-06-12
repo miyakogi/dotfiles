@@ -79,10 +79,10 @@ sudo mkdir -p /etc/keyd
 cd /path/to/cloned/dotfiles
 
 # bash
-sudo ln -s -v "$(realpath keyd/deafult.conf)" /etc/keyd/default.conf 
+sudo ln -s -v "$(realpath keyd/default.conf)" /etc/keyd/default.conf 
 
 # fish
-sudo ln -s -v (realpath keyd/deafult.conf) /etc/keyd/default.conf 
+sudo ln -s -v (realpath keyd/default.conf) /etc/keyd/default.conf 
 
 sudo systemctl enable --now keyd.service
 sudo keyd reload  # optional
