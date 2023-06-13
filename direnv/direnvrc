@@ -20,7 +20,39 @@ log_warning() {
   fi
 }
 
-# --- Poetry Support ---
+# --- Python Virtual Environment ---
+layout_pyvenv() {
+  local bin_path activation_script
+  bin_path=".venv/bin"
+  activation_script="$bin_path/activate"
+  if [[ ! -f "$activation_script" ]]; then
+    log_info "Create new python virtual environment."
+
+    python -m venv --prompt "$(basename "$(realpath .)")" .venv
+
+    if [[ ! -f "$activation_script" ]]; then
+      log_error "Failed to create new python virtual environment."
+      exit 2
+    fi
+
+    log_info "Update virtual environment."
+    "$bin_path/python" -m pip install -U pip
+  fi
+
+  source "$activation_script"
+}
+
+# PDM
+layout_pdm() {
+  if ! type pdm &>/dev/null; then
+    log_error "PDM is not installed."
+    exit 2
+  fi
+
+  eval "$(pdm venv activate)"
+}
+
+# Poetry
 layout_poetry() {
   if ! has poetry; then
     log_error "\`poetry\` command not found. Install \`poetry\` first."
@@ -34,7 +66,7 @@ layout_poetry() {
 
   local VENV
   VENV=$(poetry env info --path)
-  if [[ -z $VENV || ! -d $VENV/bin ]]; then
+  if [[ -z "$VENV" || ! -d "$VENV/bin" ]]; then
     log_error "No poetry virtual environment found!"
     log_warning "Automatically create virtual environment in \`.venv\`."
 
@@ -43,7 +75,7 @@ layout_poetry() {
 
     # Check if new venv is created
     VENV=$(poetry env info --path)
-    if [[ -z $VENV || ! -d $VENV/bin ]]; then
+    if [[ -z "$VENV" || ! -d "$VENV/bin" ]]; then
       log_error "Failed to create new virtual environment for poetry."
       exit 2
     fi
@@ -52,9 +84,11 @@ layout_poetry() {
     log_info "Manually install packages defined in pyproject.toml by \`poetry install\`."
   fi
 
-  export VIRTUAL_ENV=$VENV
+  export VIRTUAL_ENV="$VENV"
   export POETRY_ACTIVE=1
   PATH_add "$VENV/bin"
 
   log_status "enabled poetry environment."
 }
+
+# vim: ft=bash
