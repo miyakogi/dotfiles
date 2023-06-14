@@ -2,7 +2,7 @@ local wezterm = require('wezterm')
 
 local font = wezterm.font({
   family = 'JetBrainsMono Nerd Font',
-  weight = 'Regular',
+  weight = 'Light',
 })
 
 local config = require('./wezterm')
