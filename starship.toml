@@ -147,6 +147,10 @@ style = "fg:purple bold"
 [haskell]
 disabled = true
 
+[jobs]
+# default symbol is not rendered on wezterm
+symbol = " "
+
 [lua]
 disabled = true
 
