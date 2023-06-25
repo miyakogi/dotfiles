@@ -16,10 +16,10 @@ start_term() {
     --override="colors.alpha=0.85"
     --override="pad=2x2"
   )
-  
-  if is-4k; then
+
+  if [ "$(is-4k)" = false ]; then
     cmd+=(
-      --override=font="JetBrainsMono Nerd Font:size=21"
+      --override=font="IBM Plex Mono:size=12.0"
     )
   fi
   "${cmd[@]}" &
