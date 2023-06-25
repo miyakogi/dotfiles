@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 options=()
-if [ ! "$(is-4k)" = true ]; then
+if [ "$(is-4k)" = false ]; then
   options+=(
     --config-file "$HOME/.config/wezterm/wezterm_fhd.lua"
   )
