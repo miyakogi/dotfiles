@@ -17,7 +17,7 @@ TERM_CMD = [
     '--override=colors.alpha=0.85',
 ]
 
-override_font='--override=font=JetBrainsMono Nerd Font:size='
+override_font='--override=font=IBM Plex Mono:size='
 
 TERM_CMD1 = TERM_CMD + ['--app-id', TERM_CLASS1, override_font + '21']
 TERM_CMD2 = TERM_CMD + ['--app-id', TERM_CLASS2, override_font + '12']
