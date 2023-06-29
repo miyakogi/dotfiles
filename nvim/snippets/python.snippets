@@ -7,25 +7,25 @@ snippet cl
 snippet cli "Class with __init__"
   class ${1:ClassName}(${2:object}):
       """${3:docstring}"""
-      def __init__(self${4:, arg}):
+      def __init__(self${4}) -> None:
           ${0:pass}
 
 
 # Function
 snippet de "def func_nama(arg) -> Type:"
-  def ${1:function}(${2:arg}) -> ${3:None}:
+  def ${1:function}(${2}) -> ${3:None}:
       ${0:pass}
 
 snippet ad "async def func_name(arg) -> Type:"
-  async def ${1:function}(${2:arg}) -> ${3:None}:
+  async def ${1:function}(${2}) -> ${3:None}:
       ${0:pass}
 
 
 # Method
 snippet me "def method_name(self) -> Type:"
-  def ${1:method}(self${2:, arg}) -> ${3:None}:
+  def ${1:method}(self${2}) -> ${3:None}:
       ${0:pass}
 
 snippet am "async def method_name(self) -> Type:"
-  async def ${1:method}(self${2:, arg}) -> ${3:None}:
+  async def ${1:method}(self${2}) -> ${3:None}:
       ${0:pass}
