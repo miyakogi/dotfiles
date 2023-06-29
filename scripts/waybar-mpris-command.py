@@ -4,14 +4,17 @@ import asyncio
 import re
 import sys
 
-RE_AMP = re.compile(r'\&(?!amp;)')
+RE_AMP = re.compile(r"\&(?!amp;)")
 
 COMMAND = [
-    'waybar-mpris',
-    '--autofocus',
-    '--order', 'SYMBOL:TITLE:ARTIST',
-    '--pause', '',
-    '--play', '',
+    "waybar-mpris",
+    "--autofocus",
+    "--order",
+    "SYMBOL:TITLE:ARTIST",
+    "--pause",
+    "",
+    "--play",
+    "",
 ]
 
 
@@ -29,14 +32,14 @@ async def main():
     while proc.returncode is None:
         try:
             line = (await proc.stdout.readline()).decode()
-            sys.stdout.buffer.write(RE_AMP.sub(r'&amp;', line).encode())
+            sys.stdout.buffer.write(RE_AMP.sub(r"&amp;", line).encode())
             sys.stdout.buffer.flush()
         except KeyboardInterrupt:
             proc.terminate()
             break
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:

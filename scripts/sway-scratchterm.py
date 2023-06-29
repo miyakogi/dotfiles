@@ -7,20 +7,20 @@ from typing import Optional
 from i3ipc import Connection, Con
 
 i3 = Connection()
-TERM_CLASS = 'scratchterm'
-TERM_CLASS1 = TERM_CLASS + '-dp1'
-TERM_CLASS2 = TERM_CLASS + '-dp2'
+TERM_CLASS = "scratchterm"
+TERM_CLASS1 = TERM_CLASS + "-dp1"
+TERM_CLASS2 = TERM_CLASS + "-dp2"
 
 # --- Define Command for Dropdown Terminal
 TERM_CMD = [
-    'foot',
-    '--override=colors.alpha=0.85',
+    "foot",
+    "--override=colors.alpha=0.85",
 ]
 
-override_font='--override=font=IBM Plex Mono:size='
+override_font = "--override=font=IBM Plex Mono:size="
 
-TERM_CMD1 = TERM_CMD + ['--app-id', TERM_CLASS1, override_font + '21']
-TERM_CMD2 = TERM_CMD + ['--app-id', TERM_CLASS2, override_font + '12']
+TERM_CMD1 = TERM_CMD + ["--app-id", TERM_CLASS1, override_font + "21"]
+TERM_CMD2 = TERM_CMD + ["--app-id", TERM_CLASS2, override_font + "12"]
 
 
 def get_window() -> Optional[Con]:
@@ -34,14 +34,14 @@ def get_window() -> Optional[Con]:
 
 def is_hidpi() -> bool:
     for output in i3.get_outputs():
-        if getattr(output, 'name') == 'DP-1':
-            return bool(getattr(output, 'focused'))
+        if getattr(output, "name") == "DP-1":
+            return bool(getattr(output, "focused"))
     return False
 
 
 def fit_monitor(window: Con):
-    new_size = 'width 3200 height 1800' if is_hidpi() else 'width 1600 height 900'
-    window.command(f'resize set {new_size}')
+    new_size = "width 3200 height 1800" if is_hidpi() else "width 1600 height 900"
+    window.command(f"resize set {new_size}")
 
 
 def main() -> None:
@@ -65,17 +65,17 @@ def main() -> None:
 
         # add terminal to scratchpad
         fit_monitor(window)
-        window.command('scratchpad show')
+        window.command("scratchpad show")
 
-    elif getattr(window, 'focused'):
+    elif getattr(window, "focused"):
         # hide scratchpad
         fit_monitor(window)
-        window.command('scratchpad show')
+        window.command("scratchpad show")
 
     else:
-        window.command('focus')
+        window.command("focus")
         fit_monitor(window)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
