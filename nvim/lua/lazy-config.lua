@@ -466,11 +466,13 @@ local plugins = {
     config = function()
       -- setup nvim-cmp
       local cmp = require('cmp')
+      local luasnip = require('luasnip')
+
       cmp.setup({
         -- snippet
         snippet = {
           expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
           end
         },
 
@@ -479,6 +481,14 @@ local plugins = {
           ['<C-p>'] = cmp.mapping.select_prev_item(),
           ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-x>'] = cmp.mapping.complete(),
+          ["<C-Space>"] = cmp.mapping(function(fallback)
+            if luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }
+          ),
         }),
 
         -- sources
@@ -523,11 +533,6 @@ local plugins = {
     lazy = true,
     config = function()
       require("luasnip.loaders.from_snipmate").lazy_load()
-      -- failed to set <C-Space> for expand/jump
-      vim.cmd([[
-        imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-        imap <silent><expr> <C-Space> '<Plug>luasnip-expand-or-jump'
-      ]])
     end,
   },
 
