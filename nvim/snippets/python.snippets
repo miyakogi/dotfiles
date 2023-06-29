@@ -22,6 +22,10 @@ snippet ad "async def func_name(arg) -> Type:"
 
 
 # Method
+snippet init "def __init__(self[, args]) -> None:"
+  def __init__(self${2}) -> None:
+      ${0:pass}
+
 snippet me "def method_name(self) -> Type:"
   def ${1:method}(self${2}) -> ${3:None}:
       ${0:pass}
