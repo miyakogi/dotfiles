@@ -11,17 +11,12 @@ is_exist() {
 start_term() {
   local cmd
   cmd=(
-    foot
+    launch-foot
     --app-id="scratchterm"
     --override="colors.alpha=0.85"
     --override="pad=2x2"
   )
 
-  if [ "$(is-4k)" = false ]; then
-    cmd+=(
-      --override=font="IBM Plex Mono:size=12.0"
-    )
-  fi
   "${cmd[@]}" &
 }
 
