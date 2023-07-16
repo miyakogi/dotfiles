@@ -361,10 +361,13 @@ def main() -> None:
     # Install Starts #
     ##################
     install_base()
-    if is_orig_home():
-        install_desktop()
+    if os.getenv("XDG_VTNR"):
+        if is_orig_home():
+            install_desktop()
+        else:
+            install_other_home()
     else:
-        install_other_home()
+        logger.info("SSH connection")
 
     # Complete Installation
     logger.info("Install Completed")
