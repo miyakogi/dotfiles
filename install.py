@@ -140,6 +140,17 @@ def install_base() -> None:
 
     logger.info("Install Base Config")
 
+    #########################
+    # Install for TTY Login #
+    #########################
+
+    # bash files
+    BASHDIR = BASEDIR / "bash"
+    install(BASHDIR / "bash_profile", HOME / ".bash_profile")
+    install(BASHDIR / "bash_login", HOME / ".bash_login")
+    install(BASHDIR / "bashrc", HOME / ".bashrc")
+
+
     # fish shell
     install(BASEDIR / "fish", CONFIG_HOME / "fish")
 
@@ -199,16 +210,6 @@ def install_desktop() -> None:
     Install config for tty-login by bash and desktop files.
     """
     logger.info("Install Desktop Config")
-
-    #########################
-    # Install for TTY Login #
-    #########################
-
-    # bash files
-    BASHDIR = BASEDIR / "bash"
-    install(BASHDIR / "bash_profile", HOME / ".bash_profile")
-    install(BASHDIR / "bash_login", HOME / ".bash_login")
-    install(BASHDIR / "bashrc", HOME / ".bashrc")
 
     ##############################
     # Install for Desktop System #
