@@ -25,6 +25,8 @@ export PATH="$HOME/bin:$PATH"
 if type nvim &>/dev/null; then
   export EDITOR=nvim
   export MANPAGER="nvim +Man! -u ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/manrc"
+elif type vim &>/dev/null; then
+  export EDITOR=vim
 fi
 
 # Set less variables
