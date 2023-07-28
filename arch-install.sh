@@ -175,6 +175,7 @@ if [ "$install_type" = "full" ]; then
     fcitx5-mozc-ext-neologd
 
     # font/theme
+    ttf-roboto
     ttf-genjyuu-gothic  # jp san-serif font
     morisawa-biz-ud-micho-fonts  # default jp serif font
     ttf-jetbrains-mono-nerd  # monospace font with ligatures support
