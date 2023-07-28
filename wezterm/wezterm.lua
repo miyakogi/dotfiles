@@ -1,4 +1,6 @@
 local wezterm = require('wezterm')
+local search_mode_keys = wezterm.gui.default_key_tables().search_mode
+local act = wezterm.action
 
 local font = wezterm.font({
   family = 'JetBrainsMono Nerd Font',
@@ -25,6 +27,19 @@ wezterm.on('open-uri', function(window, pane, uri)
   )
   return false
 end)
+
+-- Search mode keybinding
+-- delete patterns by <C-w> and <Caps-w>
+table.insert(search_mode_keys, {
+  key = 'w',
+  mods = 'CTRL',
+  action = act.CopyMode('ClearPattern'),
+})
+table.insert(search_mode_keys, {
+  key = 'Backspace',
+  mods = 'CTRL',
+  action = act.CopyMode('ClearPattern'),
+})
 
 -- Modify color scheme
 -- use tokyonight's foreground color for iceberg-dark
@@ -96,18 +111,22 @@ return {
       -- disable closing current tab by Ctrl+Shift+w
       key = 'w',
       mods = 'CTRL|SHIFT',
-      action = wezterm.action.DisableDefaultAssignment,
+      action = act.DisableDefaultAssignment,
     },
     {
       -- close current tab by Ctrl+Shift+q
       key = 'q',
       mods = 'CTRL|SHIFT',
-      action = wezterm.action.CloseCurrentTab({ confirm = true }),
+      action = act.CloseCurrentTab({ confirm = true }),
     },
     {
       key = 'Backspace',
       mods = 'CTRL',
-      action = wezterm.action.SendKey({ key = 'w', mods = 'CTRL' })
+      action = act.SendKey({ key = 'w', mods = 'CTRL' })
     }
+  },
+
+  key_tables = {
+    search_mode = search_mode_keys,
   },
 }
