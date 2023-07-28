@@ -170,8 +170,8 @@ while [[ "$1" = "--"* ]]; do
         --ro-bind "/home/$USER/.local/share/icons" "$local_home/.local/share/icons"
 
         # enable rw-access to `Downloads` dir and ro-access to `Pictures`
-        --bind "/home/$USER/Downloads" "$local_home/Downloads"
-        --ro-bind "/home/$USER/Pictures" "$local_home/Pictures"
+        --bind "/home/$USER/Downloads" "/home/$USER/Downloads"
+        --ro-bind "/home/$USER/Pictures" "/home/$USER/Pictures"
 
         # set local_home as HOME
         --setenv HOME "$local_home"
