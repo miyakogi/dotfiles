@@ -350,6 +350,14 @@ local plugins = {
         })
       end
 
+      -- elixir
+      if vim.fn.executable('elixir-ls') > 0 then
+        lsp_autocmd({ '*.ex', '*.exs' })
+        require('lspconfig').elixirls.setup({
+          cmd = {'elixir-ls'}
+        })
+      end
+
       -- lua
       if vim.fn.executable('lua-language-server') > 0 then
         lsp_autocmd({ '*.lua' })
@@ -509,6 +517,9 @@ local plugins = {
     'mfussenegger/nvim-lint',
     config = function()
       require('lint').linters_by_ft = {
+        elixir = {
+          'credo',
+        },
         python = {
           'ruff',
           'codespell',
@@ -534,6 +545,12 @@ local plugins = {
     config = function()
       require("luasnip.loaders.from_snipmate").lazy_load()
     end,
+  },
+
+  -- elixir
+  {
+    'elixir-editors/vim-elixir',
+    ft = 'elixir',
   },
 
   -- smartchr
