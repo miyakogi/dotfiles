@@ -4,7 +4,7 @@ tmp_file="/tmp/ff-volume-fix-paused"
 
 # check if disabled
 if [ -e "$tmp_file" ]; then
-  echo '{"text": "  "}'  # nf-mdi-sync_alert
+  echo -e '{"text": " \u2005 \u2005"}'  # nf-cod-sync_ignored + 1/4 rem unicode space (U+2005)
 else
   # check if Firefox is playing
   if playerctl -l 2>&1 | grep -q firefox && [ "$(playerctl -p firefox status)" = "Playing" ]; then
@@ -16,7 +16,7 @@ else
       done
     fi
   fi
-  echo '{"text": "  "}'
+  echo -e '{"text": " \u2005 \u2005"}'  # nf-cod-sync + 1/4 rem unicode space (U+2005)
 fi
 
 sleep 0.1s
