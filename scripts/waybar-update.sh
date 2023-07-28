@@ -17,7 +17,7 @@ fakeroot -- pacman -Sy --dbpath /tmp/checkup-db-waybar --logfile /dev/null &>/de
 
 # Count updates
 # pacman
-num_pacman=$(fakeroot -- pacman -Qu --dbpath /tmp/checkup-db-waybar | wc -l)
+num_pacman=$(fakeroot -- pacman -Qu --dbpath /tmp/checkup-db-waybar | grep -c -v '\[ignored\]')
 # AUR
 num_aur=$(paru -Qua | grep -c -v '\[ignored\]')
 # Both
