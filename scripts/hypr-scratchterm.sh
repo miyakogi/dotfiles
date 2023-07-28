@@ -1,7 +1,13 @@
 #!/bin/env bash
 
+if [ "$(is-4k)" = true ]; then
+  class=scratchterm-4k
+else
+  class=scratchterm-fhd
+fi
+
 get_term_address() {
-  hyprctl clients -j | jq '.[] | select(.class == "scratchterm") | .address' || true
+  hyprctl clients -j | jq '.[] | select(.class == "'"$class"'") | .address' || true
 }
 
 is_exist() {
@@ -12,7 +18,7 @@ start_term() {
   local cmd
   cmd=(
     launch-foot
-    --app-id="scratchterm"
+    --app-id="$class"
     --override="colors.alpha=0.85"
     --override="pad=2x2"
   )
@@ -33,4 +39,4 @@ if ! is_exist; then
   fi
 fi
 
-hyprctl dispatch togglespecialworkspace scratchterm
+hyprctl dispatch togglespecialworkspace "$class"
