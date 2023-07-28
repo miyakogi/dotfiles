@@ -177,9 +177,7 @@ if [ "$install_type" = "full" ]; then
     # font/theme
     ttf-genjyuu-gothic  # jp san-serif font
     morisawa-biz-ud-micho-fonts  # default jp serif font
-    ttf-ibm-plex  # monospace font + jp proportional gothic font
     ttf-jetbrains-mono-nerd  # monospace font with ligatures support
-    ttf-plemoljp  # monospace font including jp glyphs
     ttf-unifont
     ttf-nerd-fonts-symbols
   )
