@@ -7,6 +7,9 @@
 # XDG Data bin PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# Go
+export GOPATH="$HOME/.go"
+
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 if type rustc &>/dev/null; then
