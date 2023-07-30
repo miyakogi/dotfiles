@@ -4,7 +4,6 @@
 }
 
 window#waybar {
-  font-family: monospace;
   min-height: 42px;
   color: #a9b1d6;  /* foreground */
   /* background-color: #161821; */
@@ -12,12 +11,13 @@ window#waybar {
 }
 
 window#waybar.4K {
+  font-family: JetBrainsMono NF Light;
   font-size:  20pt;
 }
 
 window#waybar.FHD {
+  font-family: JetBrainsMono NF Medium;
   font-size: 11pt;
-  font-weight: 500;
 }
 
 #workspaces button {
