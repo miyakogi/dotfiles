@@ -25,6 +25,11 @@ window#waybar.FHD {
   border: 1px solid #89b8c2;  /* cyan */
 }
 
+window#waybar.4K #workspaces button {
+  padding: 1px 6px;
+  margin: 0;
+}
+
 window#waybar.FHD #workspaces button {
   padding: 1px 4px;
 }
