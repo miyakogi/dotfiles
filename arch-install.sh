@@ -161,7 +161,7 @@ if [ "$install_type" = "full" ]; then
     # hyprland
     hyprland
     hyprpaper
-    waybar-hyprland-git
+    waybar-git
     waybar-mpris-git
 
     # multimedia

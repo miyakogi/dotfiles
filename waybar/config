@@ -4,10 +4,10 @@
   "output": ["DP-1"],
   "name": "4K",
   "spacing": 16,
-  "modules-left": ["wlr/workspaces"],
+  "modules-left": ["hyprland/workspaces", "sway/workspaces"],
   "modules-center": ["custom/compositor-name"],
   "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/waybar-mpris", "clock", "tray"],
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
@@ -22,6 +22,10 @@
       "9": "九",
       "10": "十",
     },
+  },
+  "sway/workspaces": {
+    "on-click": "activate",
+    "format": "{name}",
   },
   "custom/compositor-name": {
     "exec": "echo $XDG_CURRENT_DESKTOP",
@@ -64,9 +68,9 @@
   "output": ["DP-2"],
   "name": "FHD",
   "spacing": 8,
-  "modules-left": ["wlr/workspaces"],
+  "modules-left": ["hyprland/workspaces", "sway/workspaces"],
   "modules-right": ["custom/mic", "cpu", "custom/temperature-cpu", "memory", "custom/gpu", "custom/temperature-gpu", "clock", "custom/update", "tray"],
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
@@ -81,6 +85,10 @@
       "19": "九",
       "20": "十",
     },
+  },
+  "sway/workspaces": {
+    "on-click": "activate",
+    "format": "{name}",
   },
   "clock": {
     "interval": 1,
