@@ -13,7 +13,7 @@ case "$XDG_CURRENT_DESKTOP" in
 esac
 
 if pulsemixer --list-sources | grep 'Name: USB PnP Audio Device Mono' | grep 'Mute: 0' &>/dev/null; then
-  echo -n "{\"$state\": \"Info\", \"text\": \"\"}"
+  echo -n -e "{\"$state\": \"Info\", \"text\": \"\u2005\"}"
 else
-  echo -n "{\"$state\": \"Idle\", \"text\": \"\"}"
+  echo -n -e "{\"$state\": \"Idle\", \"text\": \"\u2005\"}"
 fi
