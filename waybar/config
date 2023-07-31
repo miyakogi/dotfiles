@@ -4,7 +4,7 @@
   "output": ["DP-1"],
   "name": "4K",
   "spacing": 16,
-  "modules-left": ["hyprland/workspaces", "sway/workspaces"],
+  "modules-left": ["sway/workspaces", "hyprland/workspaces"],
   "modules-center": ["custom/compositor-name"],
   "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/waybar-mpris", "clock", "tray"],
   "hyprland/workspaces": {
@@ -68,7 +68,7 @@
   "output": ["DP-2"],
   "name": "FHD",
   "spacing": 8,
-  "modules-left": ["hyprland/workspaces", "sway/workspaces"],
+  "modules-left": ["sway/workspaces", "hyprland/workspaces"],
   "modules-right": ["custom/mic", "cpu", "custom/temperature-cpu", "memory", "custom/gpu", "custom/temperature-gpu", "clock", "custom/update", "tray"],
   "hyprland/workspaces": {
     "on-click": "activate",
