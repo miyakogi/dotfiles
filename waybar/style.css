@@ -10,12 +10,12 @@ window#waybar {
   background-color: rgba(22, 24, 33, 0.9);
 }
 
-window#waybar.4K {
+window.4K#waybar {
   font-family: JetBrainsMono NF Light;
   font-size:  20pt;
 }
 
-window#waybar.FHD {
+window.FHD#waybar {
   font-family: JetBrainsMono NF Medium;
   font-size: 11pt;
 }
@@ -25,12 +25,12 @@ window#waybar.FHD {
   border: 1px solid #89b8c2;  /* cyan */
 }
 
-window#waybar.4K #workspaces button {
+window.4K#waybar #workspaces button {
   padding: 1px 6px;
   margin: 0;
 }
 
-window#waybar.FHD #workspaces button {
+window.FHD#waybar #workspaces button {
   padding: 1px 4px;
 }
 
@@ -89,18 +89,18 @@ window#waybar.FHD #workspaces button {
 
 /* --- Separator --- */
 /* 4K monitor */
-#custom-swayidle, #custom-ff-volume, #custom-waybar-mpris, window#waybar.4K #clock {
+#custom-swayidle, #custom-ff-volume, #custom-waybar-mpris, window.4K#waybar #clock {
   padding-right: 12px;
   border-right: 1px solid #89b8c2;  /* cyan */
 }
 
-window#waybar.4K #tray {
+window.4K#waybar #tray {
   padding-right: 16px;
   padding-left: 4px;
 }
 
 /* FHD monitor */
-#custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu, window#waybar.FHD #clock {
+#custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu, window.FHD#waybar #clock {
   padding-right: 6px;
   border-right: 1px solid #89b8c2;  /* cyan */
 }
@@ -110,7 +110,7 @@ window#waybar.4K #tray {
   border-right: 1px solid #116677;
 }
 
-window#waybar.FHD #tray {
+window.FHD#waybar #tray {
   padding-right: 8px;
   padding-left: 2px;
 }
