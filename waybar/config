@@ -1,6 +1,6 @@
 // vim: ft=jsonc
 [{
-  "layer": "top",
+  "layer": "bottom",
   "output": ["DP-1"],
   "name": "4K",
   "spacing": 16,
@@ -64,7 +64,7 @@
     "icon-size": 32,
   },
 }, {
-  "layer": "top",
+  "layer": "bottom",
   "output": ["DP-2"],
   "name": "FHD",
   "spacing": 8,
