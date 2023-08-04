@@ -350,8 +350,6 @@ def install_other_home() -> None:
     # Config files for packages installed by arch-install.sh
     install(HOST_CONFIG_HOME / "Kvantum", CONFIG_HOME / "Kvantum")
     install(HOST_CONFIG_HOME / "bat", CONFIG_HOME / "bat")
-    install(HOST_CONFIG_HOME / "lsd", CONFIG_HOME / "lsd")
-    install(HOST_CONFIG_HOME / "paru", CONFIG_HOME / "paru")
 
 
 def main() -> None:
