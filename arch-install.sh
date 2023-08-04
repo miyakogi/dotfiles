@@ -51,7 +51,7 @@ install_aur_package() {
   # Check `git` command
   if ! type git &>/dev/null; then
     echo "Installing Git"
-    sudo pacman -S git
+    sudo pacman -S --noconfirm git
   fi
 
   # Install AUR package by makepkg
@@ -59,9 +59,14 @@ install_aur_package() {
   tmpdir="/tmp/${target}-$(uuidgen)"
   git clone "https://aur.archlinux.org/${target}.git" "${tmpdir}" && \
     cd "${tmpdir}" && \
-    makepkg -si
+    makepkg -si --noconfirm
   cd "$origdir" || exit 1
 }
+
+# Check `base-devel` installation
+if ! pacman -Q | grep base-devel; then
+  sudo pacman -S --noconfirm base-devel
+fi
 
 # Install packages by makepkg
 # Use `-bin` package here to ignore make dependencies and build time
@@ -71,7 +76,7 @@ if ! type paru &>/dev/null; then
 fi
 if ! type lf &>/dev/null; then
   echo "lf file manager is not installed - automatically install it"
-  sudo pacman -S lf
+  sudo pacman -S --noconfirm lf
 fi
 
 # List minimal packages
@@ -185,4 +190,4 @@ if [ "$install_type" = "full" ]; then
 fi
 
 # `--needed` flag prevents re-installing
-paru -S --needed "${packages[@]}"
+paru -S --needed --noconfirm "${packages[@]}"
