@@ -37,6 +37,7 @@ cmd+=(
   sklauncher
   --terminal-command "$termcmd"
   # --match-generic-name
+  --exact
   --tiebreak "index"
   --no-sort
   --accent-color "cyan"
