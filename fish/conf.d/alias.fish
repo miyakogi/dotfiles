@@ -10,7 +10,7 @@ abbr --add --global mv "mv -i"
 abbr --add --global mkdir "mkdir -p"
 
 # tmux
-if test $TERM = "alacritty"; or test $TERM = "foot"
+if string match -q -r "(alacritty|foot)" $TERM
   abbr --add --global tmux "env TERM=xterm-256color tmux"
 end
 
@@ -41,7 +41,7 @@ abbr --add --global lsal "ls --all -l -h"
 alias tree="ls --tree 2>/dev/null || command tree"
 
 # ssh
-if test $TERM = "alacritty"; or test $TERM = "foot"; or string match -q "*kitty" $TERM
+if string match -q -r "(alacritty|foot|.*kitty)" $TERM
   abbr --add --global ssh "env TERM=xterm-256color ssh"
 end
 
