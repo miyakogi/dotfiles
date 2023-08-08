@@ -10,7 +10,9 @@ abbr --add --global mv "mv -i"
 abbr --add --global mkdir "mkdir -p"
 
 # tmux
-abbr --add --global tmux "env TERM=xterm-256color tmux -2"
+if test $TERM = "alacritty"; or test $TERM = "foot"
+  abbr --add --global tmux "env TERM=xterm-256color tmux"
+end
 
 # ln -v
 abbr --add --global ln "ln -v -s"
