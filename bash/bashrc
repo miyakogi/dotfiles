@@ -1,18 +1,21 @@
 #!/usr/bin/bash
 
-### Start fish if login shell on tty
-if type fish &>/dev/null && shopt -q login_shell; then
-  if [ -z "$ZELLIJ" ] && [ -n "$SSH_TTY" ] && type zellij &>/dev/null; then
-    export SHELL=/usr/bin/fish
-    if zellij ls &>/dev/null; then
-      exec zellij a
-    else
-      exec zellij -s n100
-    fi
-  else
-    exec fish
-  fi
-fi
+# ### Start fish if login shell on tty
+# if type fish &>/dev/null && shopt -q login_shell; then
+#   exec fish
+#   if [ -z "$ZELLIJ" ] && [ -n "$SSH_TTY" ] && type zellij &>/dev/null; then
+#     export SHELL=/usr/bin/fish
+#     if zellij ls &>/dev/null; then
+#       exec zellij a
+#     else
+#       exec zellij -s session_name
+#     fi
+#   else
+#     exec fish
+#   fi
+# fi
+#
+# ===> Moved to local config
 
 
 ### Load local settings
