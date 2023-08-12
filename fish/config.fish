@@ -24,6 +24,10 @@ if type -q direnv
   direnv hook fish | source
 end
 
+if [ -n "$ZELLIJ" ] || [ -n "$TMUX" ]
+  bind \cd delete-char
+end
+
 # zk note taking directory
 set -x ZK_NOTEBOOK_DIR $HOME/notes/main
 
