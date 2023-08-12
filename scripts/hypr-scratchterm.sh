@@ -23,7 +23,19 @@ start_term() {
     --override="pad=2x2"
   )
 
-  "${cmd[@]}" &
+  declare -a zcmd
+  if type zellij &>/dev/null; then
+    zcmd=(zellij)
+    if zellij ls | grep -E "^$class\$"; then
+      # use existing session
+      zcmd+=(a "$class")
+    else
+      # create new session
+      zcmd+=(-s "$class")
+    fi
+  fi
+
+  "${cmd[@]}" "${zcmd[@]}" &
 }
 
 if ! is_exist; then
