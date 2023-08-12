@@ -198,7 +198,7 @@ font:
 
 # Colors
 import:
-  - ~/.config/alacritty/iceberg-tokyo.yml
+  - ~/.config/alacritty/molokai.yml
 
 # Bell
 #
