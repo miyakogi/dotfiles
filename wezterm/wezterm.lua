@@ -52,7 +52,7 @@ return {
   detect_password_input = false,  -- disable password icon
 
   window_background_opacity = 0.95,
-  color_scheme = 'Molokai',
+  color_scheme = 'Smyck',
 
   -- Tab bar
   use_fancy_tab_bar = true,
