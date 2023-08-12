@@ -254,9 +254,6 @@ def install_desktop() -> None:
 
     # hyprland
     install(BASEDIR / "hypr" / "hyprland.conf", CONFIG_HOME / "hypr" / "hyprland.conf")
-    install(
-        BASEDIR / "hypr" / "hyprpaper.conf", CONFIG_HOME / "hypr" / "hyprpaper.conf"
-    )
 
     # waybar (waybar-hypr)
     install(BASEDIR / "waybar", CONFIG_HOME / "waybar")
