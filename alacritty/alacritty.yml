@@ -198,7 +198,7 @@ font:
 
 # Colors
 import:
-  - ~/.config/alacritty/molokai.yml
+  - ~/.config/alacritty/smyck.yml
 
 # Bell
 #
