@@ -704,10 +704,7 @@ local plugins = {
         'nvim-tree/nvim-web-devicons',
         lazy = true,
       }, {
-        'UtkarshVerma/molokai.nvim',
-        config = function()
-          vim.cmd.colorscheme('molokai-modern')
-        end,
+        'miyakogi/nvim-smyck',
       },
     },
     config = function()
@@ -715,7 +712,7 @@ local plugins = {
         options = {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
-          theme = 'molokai',
+          theme = 'nvim-smyck',
         },
       })
     end,
@@ -773,6 +770,20 @@ local plugins = {
         end,
       })
     end,
+  },
+
+  {
+    'miyakogi/nvim-smyck',
+    init = function()
+      vim.g.nord_underline_option = 'undercurl'
+      vim.g.nord_italic = false
+      vim.g.nord_italic_comments = true
+    end,
+    config = function()
+      -- The table used in this example contains the default settings.
+      -- Modify or remove these to your liking:
+      vim.cmd.colorscheme('nvim-smyck')
+    end
   },
 
   -- indent highlight
