@@ -704,7 +704,10 @@ local plugins = {
         'nvim-tree/nvim-web-devicons',
         lazy = true,
       }, {
-        'https://codeberg.org/miyakogi/iceberg-tokyo.nvim',
+        'UtkarshVerma/molokai.nvim',
+        config = function()
+          vim.cmd.colorscheme('molokai-modern')
+        end,
       },
     },
     config = function()
@@ -712,7 +715,7 @@ local plugins = {
         options = {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
-          theme = 'iceberg-tokyo',
+          theme = 'molokai',
         },
       })
     end,
@@ -771,14 +774,6 @@ local plugins = {
       })
     end,
   },
-
-  {
-    'https://codeberg.org/miyakogi/iceberg-tokyo.nvim',
-    config = function()
-      vim.cmd.colorscheme('iceberg-tokyo')
-    end,
-  },
-
 
   -- indent highlight
   {

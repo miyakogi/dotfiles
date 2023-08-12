@@ -180,6 +180,7 @@ def install_base() -> None:
     install(NVIM_BASE / "manrc", NVIM_HOME / "manrc")
     install(NVIM_BASE / "lua", NVIM_HOME / "lua")
     install(NVIM_BASE / "after", NVIM_HOME / "after")
+    install(NVIM_BASE / "colors", NVIM_HOME / "colors")
     install(NVIM_BASE / "ftplugin", NVIM_HOME / "ftplugin")
     install(NVIM_BASE / "snippets", NVIM_HOME / "snippets")
 
