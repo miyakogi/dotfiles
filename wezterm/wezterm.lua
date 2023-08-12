@@ -41,15 +41,6 @@ table.insert(search_mode_keys, {
   action = act.CopyMode('ClearPattern'),
 })
 
--- Modify color scheme
--- use tokyonight's foreground color for iceberg-dark
-local scheme = wezterm.get_builtin_color_schemes()['iceberg-dark']
-scheme.foreground = '#a9b1d6'
-scheme.cursor_bg = '#a9b1d6'
-scheme.selection_bg = '#a9b1d6'
-scheme.ansi[8] = '#a9b1d6'
-scheme.brights[8] = '#c0caf5'
-
 return {
   webgpu_power_preference = 'HighPerformance',
   webgpu_preferred_adapter = gpu,
@@ -61,10 +52,7 @@ return {
   detect_password_input = false,  -- disable password icon
 
   window_background_opacity = 0.95,
-  color_schemes = {
-    ['iceberg-tokyo'] = scheme,
-  },
-  color_scheme = 'iceberg-tokyo',
+  color_scheme = 'Molokai',
 
   -- Tab bar
   use_fancy_tab_bar = true,

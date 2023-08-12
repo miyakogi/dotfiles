@@ -5,9 +5,10 @@
 
 window#waybar {
   min-height: 42px;
-  color: #a9b1d6;  /* foreground */
+  color: #bbbbbb;  /* foreground */
   /* background-color: #161821; */
-  background-color: rgba(22, 24, 33, 0.9);
+  /* background-color: rgba(22, 24, 33, 0.9); */
+  background-color: #121212;
 }
 
 window.4K#waybar {
@@ -21,8 +22,8 @@ window.FHD#waybar {
 }
 
 #workspaces button {
-  color: #89b8c2;  /* cyan */
-  border: 1px solid #89b8c2;  /* cyan */
+  color: #43a8d0;  /* cyan */
+  border: 1px solid #43a8d0;  /* cyan */
 }
 
 window.4K#waybar #workspaces button {
@@ -36,14 +37,14 @@ window.FHD#waybar #workspaces button {
 
 #workspaces button.focused,
 #workspaces button.active {
-  color: #161821;  /* background */
-  background-color: #89b8c2;  /* cyan */
+  color: #121212;  /* background */
+  background-color: #43a8d0;  /* cyan */
 }
 
 #custom-compositor-name {
   font-weight: bold;
   color: #000000;  /* black */
-  background-color: #84a0c6;  /* blue */
+  background-color: #51ceff;  /* bright cyan */
   padding: 0 16px;
   margin: 0 12px;
 }
@@ -53,11 +54,11 @@ window.FHD#waybar #workspaces button {
 }
 
 #custom-swayidle.Info {
-  color: #e27878;  /* red */
+  color: #fa2573;  /* red */
 }
 
 #custom-waybar-mpris.playing {
-  color: #89b8c2;  /* cyan */
+  color: #43a8d0;  /* cyan */
 }
 
 #custom-mic.Idle {
@@ -65,23 +66,23 @@ window.FHD#waybar #workspaces button {
 }
 
 #custom-mic.Info {
-  color: #e27878;  /* red */
+  color: #fa2573;  /* red */
 }
 
 #custom-temperature-cpu.Warning,
 #custom-temperature-gpu.Warning {
-  color: #e27878;  /* red */
+  color: #fa2573;  /* red */
 }
 
 #custom-temperature-cpu.Critical,
 #custom-temperature-gpu.Critical {
-  color: #161821;  /* background */
-  background-color: #e27878;  /* red */
+  color: #121212;  /* background */
+  background-color: #fa2573;  /* red */
 }
 
 #custom-update.info {
-  color: #161821;  /* background */
-  background-color: #a093c7;  /* magenta */
+  color: #121212;  /* background */
+  background-color: #8700ff;  /* magenta */
   padding-left: 6px;
   padding-right: 8px;
   margin-right: 6px;
@@ -91,7 +92,7 @@ window.FHD#waybar #workspaces button {
 /* 4K monitor */
 #custom-swayidle, #custom-ff-volume, #custom-waybar-mpris, window.4K#waybar #clock {
   padding-right: 12px;
-  border-right: 1px solid #89b8c2;  /* cyan */
+  border-right: 1px solid #43a8d0;  /* cyan */
 }
 
 window.4K#waybar #tray {
@@ -102,12 +103,12 @@ window.4K#waybar #tray {
 /* FHD monitor */
 #custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu, window.FHD#waybar #clock {
   padding-right: 6px;
-  border-right: 1px solid #89b8c2;  /* cyan */
+  border-right: 1px solid #43a8d0;  /* cyan */
 }
 
 #cpu, #custom-gpu {
   padding-right: 6px;
-  border-right: 1px solid #116677;
+  border-right: 1px solid #116077;
 }
 
 window.FHD#waybar #tray {
