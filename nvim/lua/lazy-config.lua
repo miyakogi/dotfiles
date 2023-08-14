@@ -706,7 +706,7 @@ local plugins = {
         'nvim-tree/nvim-web-devicons',
         lazy = true,
       }, {
-        'miyakogi/nvim-smyck',
+        'rebelot/kanagawa.nvim',
       },
     },
     config = function()
@@ -714,7 +714,7 @@ local plugins = {
         options = {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
-          theme = 'nvim-smyck',
+          theme = 'kanagawa',
         },
       })
     end,
@@ -722,69 +722,38 @@ local plugins = {
 
   -- ### ColorScheme ###
   {
-    'EdenEast/nightfox.nvim',
-    config = function()
-      local groups = {
-        all = {
-          NvimTreeWinSeparator = { fg = 'palette.bg0', bg = 'palette.bg0', },
-        },
-      }
-
-      require('nightfox').setup({
-        options = {
-          transparent = true,
-          styles = {
-            comments = 'italic',
-          },
-          modules = {
-            illuminate = false,
-          },
-        },
-        groups = groups,
-      })
-    end
-  },
-
-  {
-    'folke/tokyonight.nvim',
-    config = function()
-      require('tokyonight').setup({
-        transparent = true,
-        styles = {
-          keywords = { italic = false },
-        },
-        on_highlights = function(hl, _)
-          hl.IlluminatedWord = {
-            underline = true,
-          }
-          hl.IlluminatedCurWord = {
-            underline = true,
-          }
-          hl.IlluminatedWordText = {
-            underline = true,
-          }
-          hl.IlluminatedWordRead = {
-            underline = true,
-          }
-          hl.IlluminatedWordWrite = {
-            underline = true,
-          }
-        end,
-      })
-    end,
-  },
-
-  {
-    'miyakogi/nvim-smyck',
-    init = function()
-      vim.g.nord_underline_option = 'undercurl'
-      vim.g.nord_italic = false
-      vim.g.nord_italic_comments = true
-    end,
+    'rebelot/kanagawa.nvim',
     config = function()
       -- The table used in this example contains the default settings.
       -- Modify or remove these to your liking:
-      vim.cmd.colorscheme('nvim-smyck')
+      require('kanagawa').setup({
+        compile = true,             -- enable compiling the colorscheme
+        undercurl = true,            -- enable undercurls
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = false },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = true,         -- do not set background color
+        dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+        colors = {                   -- add/modify theme and palette colors
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+        },
+        overrides = function(colors) -- add/modify highlights
+          return {
+            SignColumn = { bg = "none" },
+          }
+        end,
+        theme = "dragon",              -- Load "wave" theme when 'background' option is not set
+        background = {               -- map the value of 'background' option to a theme
+            dark = "dragon",           -- try "dragon" !
+            light = "dragon"
+        },
+      })
+
+      vim.cmd.colorscheme('kanagawa-dragon')
     end
   },
 

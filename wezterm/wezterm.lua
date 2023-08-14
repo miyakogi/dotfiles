@@ -28,6 +28,13 @@ wezterm.on('open-uri', function(window, pane, uri)
   return false
 end)
 
+-- Set color
+local color_scheme = wezterm.get_builtin_color_schemes()['Kanagawa (Gogh)']
+color_scheme.background = '#1b1b1b'
+local color_schemes = {
+  ['Kanagawa (Gogh)'] = color_scheme,
+}
+
 -- Search mode keybinding
 -- delete patterns by <C-w> and <Caps-w>
 table.insert(search_mode_keys, {
@@ -52,7 +59,8 @@ return {
   detect_password_input = false,  -- disable password icon
 
   window_background_opacity = 0.8,
-  color_scheme = 'Smyck',
+  color_schemes = color_schemes,
+  color_scheme = 'Kanagawa (Gogh)',
 
   -- Tab bar
   use_fancy_tab_bar = true,

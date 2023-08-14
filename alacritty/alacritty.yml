@@ -198,7 +198,7 @@ font:
 
 # Colors
 import:
-  - ~/.config/alacritty/smyck.yml
+  - ~/.config/alacritty/kanagawa.yml
 
 # Bell
 #
