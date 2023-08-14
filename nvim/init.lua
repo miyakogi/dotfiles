@@ -86,7 +86,6 @@ vim.opt.errorbells = false
 
 -- Mouse
 vim.opt.mouse = 'a'
-vim.opt.mousehide = true
 vim.opt.mousemodel = 'popup'
 
 -- Display setting
