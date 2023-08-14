@@ -58,6 +58,8 @@ return {
   font = font,
   font_size = font_size,
 
+  bold_brightens_ansi_colors = 'No',
+
   detect_password_input = false,  -- disable password icon
 
   window_background_opacity = 0.8,
