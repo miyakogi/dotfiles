@@ -51,7 +51,7 @@ return {
 
   detect_password_input = false,  -- disable password icon
 
-  window_background_opacity = 0.95,
+  window_background_opacity = 0.8,
   color_scheme = 'Smyck',
 
   -- Tab bar
