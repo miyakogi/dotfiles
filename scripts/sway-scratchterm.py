@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import shutil
 import subprocess
 import time
 from typing import Optional
@@ -8,24 +9,49 @@ from i3ipc import Connection, Con
 
 i3 = Connection()
 TERM_CLASS = "scratchterm"
-TERM_CLASS1 = TERM_CLASS + "-dp1"
-TERM_CLASS2 = TERM_CLASS + "-dp2"
-
-# --- Define Command for Dropdown Terminal
-TERM_CMD = [
-    "foot",
-    "--override=colors.alpha=0.85",
-]
-
-override_font = "--override=font=JetBrainsMono Nerd Font"
-
-TERM_CMD1 = TERM_CMD + ["--app-id", TERM_CLASS1, override_font + ":size=21"]
-TERM_CMD2 = TERM_CMD + ["--app-id", TERM_CLASS2, override_font + ":size=12"]
 
 
-def get_window() -> Optional[Con]:
+def get_class(hidpi: bool) -> str:
+    if hidpi:
+        return TERM_CLASS + "-dp1"
+    else:
+        return TERM_CLASS + "-dp2"
+
+
+def build_cmd(hidpi: bool) -> list[str]:
+    """Define command for dropdown terminal."""
+    cls = get_class(hidpi)
+
+    cmd = [
+        "launch-foot",
+    ]
+
+    foot_options = [
+        "--app-id",
+        cls,
+        "--override=colors.alpha=0.8",
+    ]
+
+    if hidpi:
+        foot_options.append("--override=initial-window-size-pixels=3200x1800")
+    else:
+        foot_options.append("--override=initial-window-size-pixels=1600x900")
+
+    zellij_cmd = []
+    if shutil.which("zellij"):
+        zellij_cmd.append("zellij")
+        proc = subprocess.run(f"zellij ls | grep -E '{cls}$'", shell=True)
+        if proc.returncode == 0:
+            zellij_cmd.append("a")
+        else:
+            zellij_cmd.append("-s")
+        zellij_cmd.append(cls)
+
+    return cmd + foot_options + zellij_cmd
+
+
+def get_window(target_id: str) -> Optional[Con]:
     root = i3.get_tree()
-    target_id = TERM_CLASS1 if is_hidpi() else TERM_CLASS2
     for win in root:
         if target_id in (win.window_class, win.window_instance, win.app_id):
             return win
@@ -39,23 +65,20 @@ def is_hidpi() -> bool:
     return False
 
 
-def fit_monitor(window: Con):
-    new_size = "width 3200 height 1800" if is_hidpi() else "width 1600 height 900"
-    window.command(f"resize set {new_size}")
-
-
 def main() -> None:
-    window = get_window()
+    hidpi = is_hidpi()
+    cls = get_class(hidpi)
+    window = get_window(cls)
 
     if window is None:
         # start dropdown terminal
-        cmd = TERM_CMD1 if is_hidpi() else TERM_CMD2
+        cmd = build_cmd(hidpi)
         subprocess.Popen(cmd)
 
         # wait until terminal window appears (timeout: 1sec)
         for _ in range(100):
             time.sleep(0.01)
-            window = get_window()
+            window = get_window(cls)
             if window is not None:
                 break
 
@@ -64,17 +87,14 @@ def main() -> None:
             return
 
         # add terminal to scratchpad
-        fit_monitor(window)
         window.command("scratchpad show")
 
     elif getattr(window, "focused"):
         # hide scratchpad
-        fit_monitor(window)
         window.command("scratchpad show")
 
     else:
         window.command("focus")
-        fit_monitor(window)
 
 
 if __name__ == "__main__":
