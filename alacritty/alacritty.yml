@@ -198,7 +198,7 @@ font:
 
 # Colors
 import:
-  - ~/.config/alacritty/kanagawa.yml
+  - ~/.config/alacritty/kanagawa-sy.yml
 
 # Bell
 #
