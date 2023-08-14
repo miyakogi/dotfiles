@@ -4,9 +4,17 @@
   "output": ["DP-1"],
   "name": "4K",
   "spacing": 16,
-  "modules-left": ["sway/workspaces", "hyprland/workspaces"],
+  "modules-left": ["sway/workspaces", "sway/mode", "hyprland/workspaces"],
   "modules-center": ["custom/compositor-name"],
   "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/waybar-mpris", "clock", "tray"],
+  "sway/workspaces": {
+    "on-click": "activate",
+    "format": "{name}",
+  },
+  "sway/mode": {
+    "format": "󰰞 {}",
+    "max-length": 20
+  },
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -22,10 +30,6 @@
       "9": "九",
       "10": "十",
     },
-  },
-  "sway/workspaces": {
-    "on-click": "activate",
-    "format": "{name}",
   },
   "custom/compositor-name": {
     "exec": "echo $XDG_CURRENT_DESKTOP",
