@@ -19,7 +19,7 @@ start_term() {
   cmd=(
     launch-foot
     --app-id="$class"
-    --override="colors.alpha=0.85"
+    --override="colors.alpha=0.8"
     --override="pad=2x2"
   )
 
