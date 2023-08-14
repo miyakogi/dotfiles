@@ -31,8 +31,10 @@ end)
 -- Set color
 local color_scheme = wezterm.get_builtin_color_schemes()['Kanagawa (Gogh)']
 color_scheme.background = '#1b1b1b'
+color_scheme.ansi = { "#090618", "#c34043", "#76946a", "#c4a500", "#7e9cd8", "#957fb8", "#6a9589", "#c8c093" }
+color_scheme.brights = { "#727169", "#e82424", "#98bb6c", "#fee14d", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba" }
 local color_schemes = {
-  ['Kanagawa (Gogh)'] = color_scheme,
+  ['Kanagawa Smyck Yellow'] = color_scheme,
 }
 
 -- Search mode keybinding
@@ -60,7 +62,7 @@ return {
 
   window_background_opacity = 0.8,
   color_schemes = color_schemes,
-  color_scheme = 'Kanagawa (Gogh)',
+  color_scheme = 'Kanagawa Smyck Yellow',
 
   -- Tab bar
   use_fancy_tab_bar = true,
