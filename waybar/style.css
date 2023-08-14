@@ -5,7 +5,7 @@
 
 window#waybar {
   min-height: 42px;
-  color: #f7f7f7;  /* foreground */
+  color: #dcd7ba;  /* foreground */
   /* background-color: #161821; */
   /* background-color: rgba(22, 24, 33, 0.9); */
   background-color: #1b1b1b;
@@ -22,8 +22,8 @@ window.FHD#waybar {
 }
 
 #workspaces button {
-  color: #c4a500;  /* yellow */
-  border: 1px solid #c4a500;  /* yellow */
+  color: #c0a36e;  /* yellow */
+  border: 1px solid #c0a36e;  /* yellow */
 }
 
 window.4K#waybar #workspaces button {
@@ -38,18 +38,18 @@ window.FHD#waybar #workspaces button {
 #workspaces button.focused,
 #workspaces button.active {
   color: #1b1b1b;  /* background */
-  background-color: #c4a500;  /* yellow */
+  background-color: #c0a36e;  /* yellow */
 }
 
 #mode {
-  background-color: #b84131;  /* red */
+  background-color: #c34043;  /* red */
   padding: 0 16px;
 }
 
 #custom-compositor-name {
   font-weight: bold;
   color: #000000;  /* black */
-  background-color: #c4a500;  /* yellow - should be bright */
+  background-color: #c0a36e;  /* yellow - should be bright? */
   padding: 0 16px;
   margin: 0 12px;
 }
@@ -59,11 +59,11 @@ window.FHD#waybar #workspaces button {
 }
 
 #custom-swayidle.Info {
-  color: #b84131;  /* red */
+  color: #c34043;  /* red */
 }
 
 #custom-waybar-mpris.playing {
-  color: #c4a500;  /* yellow */
+  color: #c0a36e;  /* yellow */
 }
 
 #custom-mic.Idle {
@@ -71,23 +71,23 @@ window.FHD#waybar #workspaces button {
 }
 
 #custom-mic.Info {
-  color: #b84131;  /* red */
+  color: #c34043;  /* red */
 }
 
 #custom-temperature-cpu.Warning,
 #custom-temperature-gpu.Warning {
-  color: #b84131;  /* red */
+  color: #c34043;  /* red */
 }
 
 #custom-temperature-cpu.Critical,
 #custom-temperature-gpu.Critical {
   color: #1b1b1b;  /* background */
-  background-color: #b84131;  /* red */
+  background-color: #c34043;  /* red */
 }
 
 #custom-update.info {
   color: #1b1b1b;  /* background */
-  background-color: #ba8acc;  /* magenta */
+  background-color: #957fb8;  /* magenta */
   padding-left: 6px;
   padding-right: 8px;
   margin-right: 6px;
@@ -97,7 +97,7 @@ window.FHD#waybar #workspaces button {
 /* 4K monitor */
 #custom-swayidle, #custom-ff-volume, #custom-waybar-mpris, window.4K#waybar #clock {
   padding-right: 12px;
-  border-right: 1px solid #c4a500;  /* yellow */
+  border-right: 1px solid #c0a36e;  /* yellow */
 }
 
 window.4K#waybar #tray {
@@ -108,7 +108,7 @@ window.4K#waybar #tray {
 /* FHD monitor */
 #custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu, window.FHD#waybar #clock {
   padding-right: 6px;
-  border-right: 1px solid #c4a500;  /* yellow */
+  border-right: 1px solid #c0a36e;  /* yellow */
 }
 
 #cpu, #custom-gpu {
