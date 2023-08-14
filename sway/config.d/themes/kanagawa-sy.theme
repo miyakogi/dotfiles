@@ -1,0 +1,20 @@
+# vim: ft=conf
+
+# Colors (tokyonight - night)
+set $foreground  #dcd7ba
+set $background  #1b1b1b
+set $transparent #00000000
+set $black       #090618
+set $red         #c34043
+set $green       #76946a
+set $yellow      #e6c384
+set $blue        #7e9cd8
+set $magenta     #957fb8
+set $cyan        #6a9589
+set $white       #c8c093
+
+# semi-transparent colors
+set $green2      #76946abb
+set $yellow2     #c0a36ebb
+set $magenta2    #957fb8bb
+set $cyan2       #6a9589bb
