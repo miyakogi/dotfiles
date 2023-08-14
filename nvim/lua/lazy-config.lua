@@ -18,7 +18,7 @@ local plugins = {
           'dockerfile',
           'gitignore',
           'html',
-          'javascript',
+          -- 'javascript',
           'json',
           'jsonc',
           'lua',
@@ -44,7 +44,9 @@ local plugins = {
         auto_install = true,
 
         -- List of parsers to ignore installing (for "all")
-        ignore_install = {},
+        ignore_install = {
+          'javascript',
+        },
 
         highlight = {
           -- `false` will disable the whole extension
