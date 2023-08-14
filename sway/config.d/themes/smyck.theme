@@ -15,6 +15,6 @@ set $white       #f7f7f7
 
 # semi-transparent colors
 set $green2      #7da900bb
+set $yellow2     #c4a500bb
 set $magenta2    #ba8accbb
 set $cyan2       #207383bb
-

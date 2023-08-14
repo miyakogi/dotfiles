@@ -43,7 +43,7 @@ magenta="#ba8acc"
 # shellcheck disable=SC2034
 cyan="#207383"
 
-basecolor="$red"
+basecolor="$yellow"
 cmd=(
   bemenu
   --prompt "Leave:"  # prompt

@@ -18,8 +18,8 @@ cmd=(
   --effect-blur 24x4
   # --effect-greyscale
   --effect-vignette 0.3:0.7
-  --ring-color c74ded
-  --key-hl-color 7cb7ff
+  --ring-color c4a500
+  --key-hl-color fee14d
   --line-color 00000000
   --inside-color 00000000
   --separator-color 00000000

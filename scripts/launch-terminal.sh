@@ -51,7 +51,7 @@ magenta="#ba8acc"
 cyan="#207383"
 
 # set bemenu command options
-basecolor="$cyan"
+basecolor="$yellow"
 bemenu_cmd=(
   bemenu
   --prompt "Terminal:"  # prompt

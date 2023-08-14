@@ -40,8 +40,8 @@ cmd+=(
   --exact
   --tiebreak "index"
   --no-sort
-  --accent-color "cyan"
-  --color "16,bg+:-1,fg+:4,prompt:4,border:4,pointer:4"
+  --accent-color "yellow"
+  --color "16,bg+:-1,fg+:3,prompt:3,border:3,pointer:3"  # yellow-ish
   --reverse
   --margin "1,2"
   --prompt " "
