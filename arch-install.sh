@@ -107,7 +107,11 @@ packages=(
   neovim
   nodejs  # required for nvim-treesitter...
 
-  # Command-line
+  # Termianl multiplexer
+  tmux
+  zellij
+
+  # Command-line tools
   starship  # prompt manager
   direnv  # directory based env setting
   exa  # ls alternative
@@ -136,7 +140,6 @@ if [ "$install_type" = "full" ]; then
     wezterm
     kitty
     foot
-    tmux
 
     # Command Line Tools
     python-poetry  # python virtualenv/package manager

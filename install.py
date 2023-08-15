@@ -173,6 +173,9 @@ def install_base() -> None:
     # tmux
     install(BASEDIR / "tmux" / "tmux.conf", HOME / ".tmux.conf")
 
+    # zellij
+    install(BASEDIR / "zellij", CONFIG_HOME / "zellij")
+
     # neovim
     NVIM_BASE = BASEDIR / "nvim"
     NVIM_HOME = CONFIG_HOME / "nvim"
