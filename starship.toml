@@ -114,7 +114,8 @@ format = "[${ram}( | ${swap})]($style) "
 style = "bold yellow"
 
 [cmd_duration]
-disabled = true
+format = "[ $duration](fg:white bold)"
+disabled = false
 
 [container]
 disabled = true
