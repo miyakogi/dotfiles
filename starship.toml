@@ -12,12 +12,12 @@ $kubernetes\
 $directory\
 $sudo\
 $vcsh\
+${custom.giturl}\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-${custom.giturl}\
 $hg_branch\
 $docker_context\
 $package\
@@ -123,6 +123,7 @@ disabled = true
 truncation_length = 5
 truncate_to_repo = false
 truncation_symbol = ".../"
+repo_root_style = "bold purple"
 read_only = "󰻌"
 style = "bold yellow"
 
@@ -132,22 +133,44 @@ symbol = "󰕥"
 style = "bold yellow"
 disabled = true
 
+[custom.giturl]
+description = "Display symbol for remote Git server"
+shell = ["bash", "--noprofile", "--norc"]
+command = """
+GIT_REMOTE=$(command git ls-remote --get-url 2>/dev/null)
+if [[ "$GIT_REMOTE" =~ "github" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "git" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+else
+    GIT_REMOTE_SYMBOL=" "
+fi
+echo "$GIT_REMOTE_SYMBOL"
+"""
+when = 'git rev-parse --is-inside-work-tree 2>/dev/null'
+format = "[$output](purple) "
+
 [git_branch]
 style = "fg:purple"
 format = "[$symbol$branch ]($style)"
 
 [git_status]
-conflicted = ""
-ahead = ""
-behind = ""
-diverged = "󰹹"
-untracked = ""
-stashed = ""
-modified = ""
-staged = "󰐕"
-renamed = ""
-deleted = ""
+conflicted = " $count|"
+ahead = "$count "
+behind = "$count "
+diverged = "󰹹$count "
+untracked = "$count "
+stashed = "$count "
+modified = "$count "
+staged = "󰐕$count "
+renamed = "$count "
+deleted = "$count "
 style = "fg:purple bold"
+format = "[$all_status$ahead_bihind ]($style)"
 
 [haskell]
 disabled = true
@@ -178,27 +201,6 @@ symbol = "󱘗 "
 [status]
 disabled = false
 symbol = "󱇏 "
-
-[custom.giturl]
-description = "Display symbol for remote Git server"
-shell = ["bash", "--noprofile", "--norc"]
-command = """
-GIT_REMOTE=$(command git ls-remote --get-url 2>/dev/null)
-if [[ "$GIT_REMOTE" =~ "github" ]]; then
-    GIT_REMOTE_SYMBOL=" "
-elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
-    GIT_REMOTE_SYMBOL=" "
-elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
-    GIT_REMOTE_SYMBOL=" "
-elif [[ "$GIT_REMOTE" =~ "git" ]]; then
-    GIT_REMOTE_SYMBOL=" "
-else
-    GIT_REMOTE_SYMBOL=" "
-fi
-echo "$GIT_REMOTE_SYMBOL"
-"""
-when = 'git rev-parse --is-inside-work-tree 2>/dev/null'
-format = "$output "
 
 [custom.podman]
 description = "Show podman hostname in container"
