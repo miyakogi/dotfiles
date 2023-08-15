@@ -88,6 +88,11 @@ disabled = false
 style = "bold blue"
 format = "[$time]($style)"
 
+[hostname]
+ssh_symbol = "󰬏 "
+style = "bold cyan"
+format = "[$ssh_symbol$hostname]($style) "
+
 [character]
 success_symbol = "[](yellow)"
 error_symbol = "[](red)"
