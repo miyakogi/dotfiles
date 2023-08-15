@@ -171,7 +171,7 @@ staged = "󰐕$count "
 renamed = "$count "
 deleted = "$count "
 style = "fg:purple bold"
-format = "[$all_status$ahead_bihind ]($style)"
+format = "[$all_status$ahead_behind ]($style)"
 
 [haskell]
 disabled = true
