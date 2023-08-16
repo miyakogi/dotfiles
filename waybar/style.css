@@ -8,7 +8,7 @@ window#waybar {
   color: #dcd7ba;  /* foreground */
   /* background-color: #161821; */
   /* background-color: rgba(22, 24, 33, 0.9); */
-  background-color: #1b1b1b;
+  background-color: #000000;
 }
 
 window.4K#waybar {
