@@ -9,6 +9,7 @@ list_terminals() {
     alacritty
     kitty
     wezterm
+    zellij
     st
   )
   for t in "${terminals[@]}"; do
@@ -98,6 +99,9 @@ case $_terminal in
     ;;
   st)
     st -f "$st_font" -e fish &
+    ;;
+  zellij)
+    launch-kitty bash -c "sleep 0 && zellij" &
     ;;
   *)
     $_terminal &
