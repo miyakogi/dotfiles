@@ -107,7 +107,7 @@ packages=(
   neovim
   nodejs  # required for nvim-treesitter...
 
-  # Termianl multiplexer
+  # Terminal multiplexer
   tmux
   zellij
 
@@ -184,7 +184,7 @@ if [ "$install_type" = "full" ]; then
 
     # font/theme
     ttf-roboto
-    ttf-genjyuu-gothic  # jp san-serif font
+    ttf-genjyuu-gothic  # jp sans-serif font
     morisawa-biz-ud-micho-fonts  # default jp serif font
     ttf-jetbrains-mono-nerd  # monospace font with ligatures support
     ttf-unifont
