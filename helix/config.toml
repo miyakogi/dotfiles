@@ -1,4 +1,4 @@
-theme = "kanagawa-mod"
+theme = "kanagawa-transparent"
 
 [editor]
 gutters = ["diagnostics", "diff"]
