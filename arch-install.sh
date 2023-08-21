@@ -107,6 +107,9 @@ packages=(
   neovim
   nodejs  # required for nvim-treesitter...
 
+  # Helix Editor
+  helix
+
   # Terminal multiplexer
   tmux
   zellij

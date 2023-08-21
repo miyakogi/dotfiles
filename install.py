@@ -176,6 +176,9 @@ def install_base() -> None:
     # zellij
     install(BASEDIR / "zellij", CONFIG_HOME / "zellij")
 
+    # zellij
+    install(BASEDIR / "helix", CONFIG_HOME / "helix")
+
     # neovim
     NVIM_BASE = BASEDIR / "nvim"
     NVIM_HOME = CONFIG_HOME / "nvim"

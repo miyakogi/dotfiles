@@ -34,6 +34,10 @@ if type -q "$EDITOR"
   abbr --add --global e $EDITOR
 end
 
+if type -q helix
+  abbr --add --global h helix
+end
+
 # ls -> lsd
 abbr --add --global lsa "ls --all"
 abbr --add --global lsl "ls -l -h"

@@ -31,6 +31,11 @@ end
 # zk note taking directory
 set -x ZK_NOTEBOOK_DIR $HOME/notes/main
 
+# helix editor
+if type -q helix
+  alias hx helix
+end
+
 # prompt
 if type -q starship; and begin; test -n "$DISPLAY"; or test -z "$XDG_VTNR"; end
   starship init fish | source

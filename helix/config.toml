@@ -1,0 +1,68 @@
+theme = "kanagawa-mod"
+
+[editor]
+gutters = ["diagnostics", "diff"]
+auto-format = false
+true-color = true
+color-modes = true
+
+[editor.soft-wrap]
+enable = true
+wrap-indicator = "↪ "
+
+[editor.statusline]
+left = ["mode", "file-name"]
+right = ["diagnostics", "file-encoding", "file-type", "separator", "position", "position-percentage", "separator"]
+separator = "|"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "VISUAL"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.search]
+wrap-around = false
+
+[editor.indent-guides]
+render = true
+rainbow = "dim"
+
+[editor.whitespace]
+render = { tab = "all" }
+characters = { tabpad = "·" }  # Tabs will look like "→···" (depending on tab width)
+
+[keys.normal]
+# "@" = "switch_to_lowercase"
+# "`" = "switch_to_uppercase"   
+"X" = "copy_selection_on_prev_line"
+# "H" = "goto_first_nonwhitespace"
+# "L" = "goto_line_end"
+
+[keys.normal.g]
+# "h" = "goto_first_nonwhitespace"
+"c" = "toggle_comments"
+"u" = "switch_to_lowercase"
+"U" = "switch_to_uppercase"
+
+# Unimpaired
+"]".e = "goto_next_diag"
+"[".e = "goto_prev_diag"
+"]".c = "goto_next_change"
+"[".c = "goto_prev_change"
+
+[keys.insert]
+"C-f" = "move_char_right"
+"C-b" = "move_char_left"
+"C-e" = ["goto_line_end", "move_char_right"]
+"C-a" = "goto_first_nonwhitespace"
+"C-t" = "indent"
+"C-d" = "unindent"
+"C-v" = ":clipboard-paste-before"
+
+[keys.select.g]
+"c" = "toggle_comments"
+"u" = "switch_to_lowercase"
+"U" = "switch_to_uppercase"

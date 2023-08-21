@@ -1,0 +1,4 @@
+inherits = "nightfox"
+
+comment = { fg = "comment", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "comment", modifiers = ["bold"] }

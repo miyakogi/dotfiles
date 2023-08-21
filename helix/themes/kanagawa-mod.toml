@@ -1,0 +1,8 @@
+inherits = "kanagawa"
+
+"ui.background" = { fg = "fujiWhite", bg = "dragonBlack" }
+string = "dragonGreen"
+
+[palette]
+dragonBlack = "#1b1b1b"
+dragonGreen = "#8A9A7B"
