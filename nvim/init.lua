@@ -151,8 +151,8 @@ vim.opt.termguicolors = true
 
 -- ======== Normal/Visual Cursor Move ========
 -- Swap colon/semicolon
-vim.keymap.set('n', ';', ':')
-vim.keymap.set('n', ':', ';')
+-- vim.keymap.set('n', ';', ':')
+-- vim.keymap.set('n', ':', ';')
 
 -- Wrap start/end of lines by cursor keys
 vim.api.nvim_set_option('whichwrap', 'b,s,<,>,[,]')
