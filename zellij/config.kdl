@@ -351,3 +351,5 @@ themes {
 // The folder in which Zellij will look for themes
 //
 // theme_dir "/path/to/my/theme_dir"
+
+// vim: sw=4
