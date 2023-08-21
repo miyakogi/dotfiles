@@ -12,8 +12,8 @@ wrap-indicator = "↪ "
 
 [editor.statusline]
 left = ["mode", "file-name"]
-right = ["diagnostics", "file-encoding", "file-type", "separator", "position", "position-percentage", "separator"]
-separator = "|"
+right = ["separator", "diagnostics", "file-encoding", "file-type", "separator", "position", "position-percentage"]
+separator = ""
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "VISUAL"
