@@ -35,14 +35,10 @@ render = { tab = "all" }
 characters = { tabpad = "·" }  # Tabs will look like "→···" (depending on tab width)
 
 [keys.normal]
-# "@" = "switch_to_lowercase"
-# "`" = "switch_to_uppercase"   
-"X" = "copy_selection_on_prev_line"
-# "H" = "goto_first_nonwhitespace"
-# "L" = "goto_line_end"
+"[" = { "c" = "goto_prev_change" }
+"]" = { "c" = "goto_next_change" }
 
 [keys.normal.g]
-# "h" = "goto_first_nonwhitespace"
 "c" = "toggle_comments"
 "u" = "switch_to_lowercase"
 "U" = "switch_to_uppercase"
