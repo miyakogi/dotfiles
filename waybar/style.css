@@ -95,7 +95,7 @@ window.FHD#waybar #workspaces button {
 
 /* --- Separator --- */
 /* 4K monitor */
-#custom-swayidle, #custom-ff-volume, #custom-waybar-mpris, window.4K#waybar #clock {
+#custom-swayidle, #custom-ff-volume, #custom-waybar-mpris, window.4K#waybar #custom-clock {
   padding-right: 12px;
   border-right: 1px solid #c4a500;  /* yellow */
 }
@@ -106,7 +106,7 @@ window.4K#waybar #tray {
 }
 
 /* FHD monitor */
-#custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu, window.FHD#waybar #clock {
+#custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu, window.FHD#waybar #custom-clock {
   padding-right: 6px;
   border-right: 1px solid #c4a500;  /* yellow */
 }
