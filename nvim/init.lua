@@ -177,12 +177,15 @@ vim.keymap.set({'n', 'x'}, 'H', '^')
 vim.keymap.set({'n', 'x'}, 'S', '0')
 vim.keymap.set({'n', 'x'}, 'L', '$')
 
-vim.keymap.set({'n', 'x'}, 'gh', '^')  -- from helix-editor (modified)
-vim.keymap.set({'n', 'x'}, 'gs', '0')  -- from helix-editor (modified)
+vim.keymap.set({'n', 'x'}, 'gs', '^')  -- from helix-editor
+vim.keymap.set({'n', 'x'}, 'gh', '0')  -- from helix-editor
 vim.keymap.set({'n', 'x'}, 'gl', '$')  -- from helix-editor
 
 -- Go to file end
 vim.keymap.set({'n', 'x'}, 'ge', 'G') -- from helix-editor
+
+-- Redo
+vim.keymap.set('n', 'U', '<C-r>')  -- from helix-editor
 
 -- ======== Insert/Command Cursor Move ========
 vim.keymap.set('i', '<C-a>', '<C-o>_')
