@@ -9,7 +9,7 @@ function fish_user_key_bindings
 
   # === keyd fixup ===
   # Caps+w -> Control+Backspace
-  bind \cH backward-kill-word  # delete prev word by Control+Backspace
+  #bind \cH backward-kill-word  # delete prev word by Control+Backspace
   # Caps+f -> C-f
   bind \e\[C nextd-or-forward-word
 end
