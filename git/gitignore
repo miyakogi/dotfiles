@@ -65,3 +65,6 @@ docs/_build/
 .env
 # direnv
 .envrc
+
+###### Temporary ######
+*.bak
