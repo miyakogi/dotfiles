@@ -35,8 +35,9 @@ render = { tab = "all" }
 characters = { tabpad = "·" }  # Tabs will look like "→···" (depending on tab width)
 
 [keys.normal]
-"[" = { "c" = "goto_prev_change" }
-"]" = { "c" = "goto_next_change" }
+"[" = { "c" = "goto_prev_change", "e" = "goto_prev_diag" }
+"]" = { "c" = "goto_next_change", "e" = "goto_next_diag" }
+"C-c" = "yank_joined_to_clipboard"
 
 [keys.normal.g]
 "c" = "toggle_comments"
@@ -57,6 +58,9 @@ characters = { tabpad = "·" }  # Tabs will look like "→···" (depending on 
 "C-t" = "indent"
 "C-d" = "unindent"
 "C-v" = ":clipboard-paste-before"
+
+[keys.select]
+C-c = "yank_joined_to_clipboard"
 
 [keys.select.g]
 "c" = "toggle_comments"
