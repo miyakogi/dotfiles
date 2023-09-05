@@ -1,0 +1,39 @@
+[[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstruct"]
+shebangs = ["python"]
+roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
+comment-token = "#"
+language-servers = [ "pyright" ]
+# TODO: pyls needs utf-8 offsets
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "ini"
+file-types = [
+  "desktop",
+  "conf",
+  
+  # from default setting
+  "ini",
+  # Systemd unit files
+  "service",
+  "automount",
+  "device",
+  "mount",
+  "path",
+  "service",
+  "slice",
+  "socket",
+  "swap",
+  "target",
+  "timer",
+  # Podman quadlets
+  "container",
+  "volume",
+  "kube",
+  "network"
+]
+indent = { tab-width = 4, unit = "    " }
