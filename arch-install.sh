@@ -165,7 +165,6 @@ if [ "$install_type" = "full" ]; then
     swayidle
     autotiling
     python-i3ipc  # used in some script for sway
-    i3status-rust  # status block generator for sway-bar
     swaylock-effects  # fancy version of swaylock
 
     # hyprland
