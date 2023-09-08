@@ -5,10 +5,10 @@ case "$1" in
     temp=$(sensors -u | grep -P 'temp\d+_input' | cut -d' ' -f 4 | sort | tail -n 1 | sed -E 's/\..*$//g')
     ;;
   cpu)
-    temp=$(sensors -j | jq '.["coretemp-isa-0000"] | .["Package id 0"] | .["temp1_input"]')
+    temp=$(sensors -j | jq '.["coretemp-isa-0000"] | .["Package id 0"] | .["temp1_input"] | floor')
     ;;
   gpu)
-    temp=$(sensors -j | jq '.["amdgpu-pci-0300"] | [ .edge.temp1_input, .junction.temp2_input, .mem.temp3_input ] | max')
+    temp=$(sensors -j | jq '.["amdgpu-pci-0300"] | [ .edge.temp1_input, .junction.temp2_input, .mem.temp3_input ] | max | floor')
     ;;
   *)
     temp=0
