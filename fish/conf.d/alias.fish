@@ -42,7 +42,6 @@ end
 abbr --add --global lsa "ls --all"
 abbr --add --global lsl "ls -l -h"
 abbr --add --global lsal "ls --all -l -h"
-alias tree="ls --tree 2>/dev/null || command tree"
 
 # ssh
 if string match -q -r "(alacritty|foot|.*kitty)" $TERM
