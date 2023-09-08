@@ -1,4 +1,6 @@
 local wezterm = require('wezterm')
+local colors = require('themes/rose-pine').colors()
+
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
 
@@ -28,15 +30,6 @@ wezterm.on('open-uri', function(window, pane, uri)
   return false
 end)
 
--- Set color
-local color_scheme = wezterm.get_builtin_color_schemes()['Kanagawa (Gogh)']
-color_scheme.background = '#1b1b1b'
-color_scheme.ansi = { "#090618", "#c34043", "#76946a", "#c4a500", "#7e9cd8", "#957fb8", "#6a9589", "#c8c093" }
-color_scheme.brights = { "#727169", "#e82424", "#98bb6c", "#fee14d", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba" }
-local color_schemes = {
-  ['Kanagawa Smyck Yellow'] = color_scheme,
-}
-
 -- Search mode keybinding
 -- delete patterns by <C-w> and <Caps-w>
 table.insert(search_mode_keys, {
@@ -63,8 +56,6 @@ return {
   detect_password_input = false,  -- disable password icon
 
   window_background_opacity = 0.8,
-  color_schemes = color_schemes,
-  color_scheme = 'Kanagawa Smyck Yellow',
 
   -- Tab bar
   use_fancy_tab_bar = true,
@@ -78,30 +69,31 @@ return {
   },
 
   -- Tab colors
-  colors = {
-    tab_bar = {
-      active_tab = {
-        bg_color = '#161821',  -- bg
-        fg_color = '#a9b1d6',  -- fg
-      },
-      inactive_tab = {
-        bg_color = '#1e2132',  -- black (normal)
-        fg_color = '#6b7089',  -- black (bright)
-      },
-      inactive_tab_hover = {
-        bg_color = '#1e2132',  -- block (normal)
-        fg_color = '#84a0c6',  -- blue (normal)
-      },
-      new_tab = {
-        bg_color = '#6b7089',  -- black (bright)
-        fg_color = '#161821',  -- bg
-      },
-      new_tab_hover = {
-        bg_color = '#84a0c6',  -- blue (normal)
-        fg_color = '#161821',  -- bg
-      },
-    },
-  },
+  -- colors = {
+  --   tab_bar = {
+  --     active_tab = {
+  --       bg_color = '#161821',  -- bg
+  --       fg_color = '#a9b1d6',  -- fg
+  --     },
+  --     inactive_tab = {
+  --       bg_color = '#1e2132',  -- black (normal)
+  --       fg_color = '#6b7089',  -- black (bright)
+  --     },
+  --     inactive_tab_hover = {
+  --       bg_color = '#1e2132',  -- block (normal)
+  --       fg_color = '#84a0c6',  -- blue (normal)
+  --     },
+  --     new_tab = {
+  --       bg_color = '#6b7089',  -- black (bright)
+  --       fg_color = '#161821',  -- bg
+  --     },
+  --     new_tab_hover = {
+  --       bg_color = '#84a0c6',  -- blue (normal)
+  --       fg_color = '#161821',  -- bg
+  --     },
+  --   },
+  -- },
+  colors = colors,
 
   hide_tab_bar_if_only_one_tab = true,
 

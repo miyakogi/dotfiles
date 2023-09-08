@@ -94,9 +94,9 @@ style = "bold cyan"
 format = "[$ssh_symbol$hostname]($style) "
 
 [character]
-success_symbol = "[](yellow)"
+success_symbol = "[](green)"
 error_symbol = "[](red)"
-vicmd_symbol = "[](yellow)"
+vicmd_symbol = "[](green)"
 
 [shell]
 disabled = false
@@ -126,7 +126,7 @@ truncate_to_repo = false
 truncation_symbol = ".../"
 repo_root_style = "bold purple"
 read_only = "󰻌"
-style = "bold yellow"
+style = "bold blue"
 
 [sudo]
 format = "[$symbol ]($style)"

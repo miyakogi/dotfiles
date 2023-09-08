@@ -1,3 +1,29 @@
+/*
+* Variant: Rosé Pine
+* Maintainer: DankChoir
+*/
+
+@define-color background      #191724;
+@define-color surface         #1f1d2e;
+@define-color overlay         #26233a;
+
+@define-color muted           #6e6a86;
+@define-color subtle          #908caa;
+@define-color foreground      #e0def4;
+
+@define-color black           #26233a;
+@define-color red             #eb6f92;
+@define-color green           #31748f;
+@define-color yellow          #f6c177;
+@define-color blue            #9ccfd8;
+@define-color magenta         #c4a7e7;
+@define-color cyan            #ebbcba;
+@define-color white           #e0def4;
+
+@define-color highlightLow    #21202e;
+@define-color highlightMed    #403d52;
+@define-color highlightHigh   #524f67;
+
 * {
   border: none;
   border-radius: 0;
@@ -5,10 +31,10 @@
 
 window#waybar {
   min-height: 42px;
-  color: #dcd7ba;  /* foreground */
+  color: @foreground;  /* foreground */
   /* background-color: #161821; */
   /* background-color: rgba(22, 24, 33, 0.9); */
-  background-color: #000000;
+  background-color: @background;  /* background */
 }
 
 window.4K#waybar {
@@ -22,8 +48,8 @@ window.FHD#waybar {
 }
 
 #workspaces button {
-  color: #c4a500;  /* yellow */
-  border: 1px solid #c4a500;  /* yellow */
+  color: @magenta;  /* yellow */
+  border: 1px solid @magenta;  /* yellow */
 }
 
 window.4K#waybar #workspaces button {
@@ -37,19 +63,19 @@ window.FHD#waybar #workspaces button {
 
 #workspaces button.focused,
 #workspaces button.active {
-  color: #1b1b1b;  /* background */
-  background-color: #c4a500;  /* yellow */
+  color: @background;
+  background-color: @magenta;
 }
 
 #mode {
-  background-color: #c34043;  /* red */
+  background-color: @red;
   padding: 0 16px;
 }
 
 #custom-compositor-name {
   font-weight: bold;
-  color: #000000;  /* black */
-  background-color: #c4a500;  /* yellow - should be bright? */
+  color: @background;
+  background-color: @magenta;
   padding: 0 16px;
   margin: 0 12px;
 }
@@ -59,35 +85,35 @@ window.FHD#waybar #workspaces button {
 }
 
 #custom-swayidle.Info {
-  color: #c34043;  /* red */
+  color: @red;
 }
 
 #custom-waybar-mpris.playing {
-  color: #c4a500;  /* yellow */
+  color: @magenta;
 }
 
 #custom-mic.Idle {
-  color: #666666;
+  color: @muted;
 }
 
 #custom-mic.Info {
-  color: #c34043;  /* red */
+  color: @red;
 }
 
 #custom-temperature-cpu.Warning,
 #custom-temperature-gpu.Warning {
-  color: #c34043;  /* red */
+  color: @red;
 }
 
 #custom-temperature-cpu.Critical,
 #custom-temperature-gpu.Critical {
-  color: #1b1b1b;  /* background */
-  background-color: #c34043;  /* red */
+  color: @background;
+  background-color: @red;
 }
 
 #custom-update.info {
-  color: #1b1b1b;  /* background */
-  background-color: #957fb8;  /* magenta */
+  color: @background;
+  background-color: @magenta;
   padding-left: 6px;
   padding-right: 8px;
   margin-right: 6px;
@@ -97,7 +123,7 @@ window.FHD#waybar #workspaces button {
 /* 4K monitor */
 #custom-swayidle, #custom-ff-volume, #custom-waybar-mpris, window.4K#waybar #custom-clock {
   padding-right: 12px;
-  border-right: 1px solid #c4a500;  /* yellow */
+  border-right: 1px solid @magenta;
 }
 
 window.4K#waybar #tray {
@@ -108,12 +134,13 @@ window.4K#waybar #tray {
 /* FHD monitor */
 #custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu, window.FHD#waybar #custom-clock {
   padding-right: 6px;
-  border-right: 1px solid #c4a500;  /* yellow */
+  border-right: 1px solid @magenta;
 }
 
 #cpu, #custom-gpu {
   padding-right: 6px;
-  border-right: 1px solid #806600;
+  border-right: 1px solid @subtle;
+  border-right: 1px solid @highlightHigh;
 }
 
 window.FHD#waybar #tray {
