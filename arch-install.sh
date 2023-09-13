@@ -160,7 +160,7 @@ if [ "$install_type" = "full" ]; then
     kvantaum  # qt theme setting
 
     # sway
-    swayfx  # fancy version of sway
+    sway  # fancy version of sway
     swaybg
     swayidle
     autotiling
