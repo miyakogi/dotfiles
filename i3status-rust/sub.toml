@@ -20,7 +20,7 @@ info_fg = "#bf616a"  # red
 
 [[block]]
 block = "cpu"
-format = '<span color="#66cccc" font_family="unifont">$barchart</span> $utilization'
+format = '<span color="#66cccc">$barchart</span> $utilization'
 interval = 1
 
 [[block]]

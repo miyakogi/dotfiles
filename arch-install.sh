@@ -188,7 +188,6 @@ if [ "$install_type" = "full" ]; then
     ttf-genjyuu-gothic  # jp sans-serif font
     morisawa-biz-ud-micho-fonts  # default jp serif font
     ttf-jetbrains-mono-nerd  # monospace font with ligatures support
-    ttf-unifont
     ttf-nerd-fonts-symbols
   )
 fi
