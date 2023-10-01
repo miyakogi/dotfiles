@@ -738,15 +738,13 @@ local plugins = {
   -- indent highlight
   {
     'lukas-reineke/indent-blankline.nvim',
-    dependencies = {
-      { 'EdenEast/nightfox.nvim' },
-    },
+    main = 'ibl',
     config = function()
-      require('indent_blankline').setup({
-        char = '▏',
-        char_blankline = '',
-        show_current_context = true,
-        show_current_context_start = false,
+      require('ibl').setup({
+        indent = {
+          char = '▏',
+          char_blankline = '',
+        },
       })
     end,
   },
