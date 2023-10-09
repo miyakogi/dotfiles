@@ -77,6 +77,7 @@ if [ "$1" = "wayland" ]; then
     # Enable native Wayland support
     --ozone-platform-hint=wayland
     --ozone-platform=wayland
+    --enable-wayland-ime
 
     # EGL seems to be the best option for now (v98)
     #--use-gl=egl
