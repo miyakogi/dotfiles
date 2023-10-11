@@ -31,25 +31,25 @@
 
 window#waybar {
   min-height: 42px;
-  color: @foreground;  /* foreground */
+  color: @foreground;
   /* background-color: #161821; */
   /* background-color: rgba(22, 24, 33, 0.9); */
-  background-color: @background;  /* background */
+  background-color: @background;
 }
 
 window.4K#waybar {
-  font-family: JetBrainsMono NF Light;
-  font-size:  20pt;
+  font-family: IBM Plex Mono;
+  font-size:  21.5pt;
 }
 
 window.FHD#waybar {
-  font-family: JetBrainsMono NF Medium;
+  font-family: IBM Plex Mono Text;
   font-size: 11pt;
 }
 
 #workspaces button {
-  color: @magenta;  /* yellow */
-  border: 1px solid @magenta;  /* yellow */
+  color: @magenta;
+  border: 1px solid @magenta;
 }
 
 window.4K#waybar #workspaces button {
