@@ -37,11 +37,6 @@ table.insert(search_mode_keys, {
   mods = 'CTRL',
   action = act.CopyMode('ClearPattern'),
 })
-table.insert(search_mode_keys, {
-  key = 'Backspace',
-  mods = 'CTRL',
-  action = act.CopyMode('ClearPattern'),
-})
 
 return {
   webgpu_power_preference = 'HighPerformance',
@@ -67,32 +62,6 @@ return {
     active_titlebar_bg = '#1e2132',  -- black (normal)
     inactive_titlebar_bg = '#1e2132',  -- black (normal)
   },
-
-  -- Tab colors
-  -- colors = {
-  --   tab_bar = {
-  --     active_tab = {
-  --       bg_color = '#161821',  -- bg
-  --       fg_color = '#a9b1d6',  -- fg
-  --     },
-  --     inactive_tab = {
-  --       bg_color = '#1e2132',  -- black (normal)
-  --       fg_color = '#6b7089',  -- black (bright)
-  --     },
-  --     inactive_tab_hover = {
-  --       bg_color = '#1e2132',  -- block (normal)
-  --       fg_color = '#84a0c6',  -- blue (normal)
-  --     },
-  --     new_tab = {
-  --       bg_color = '#6b7089',  -- black (bright)
-  --       fg_color = '#161821',  -- bg
-  --     },
-  --     new_tab_hover = {
-  --       bg_color = '#84a0c6',  -- blue (normal)
-  --       fg_color = '#161821',  -- bg
-  --     },
-  --   },
-  -- },
   colors = colors,
 
   hide_tab_bar_if_only_one_tab = true,
@@ -111,11 +80,6 @@ return {
       mods = 'CTRL|SHIFT',
       action = act.CloseCurrentTab({ confirm = true }),
     },
-    {
-      key = 'Backspace',
-      mods = 'CTRL',
-      action = act.SendKey({ key = 'w', mods = 'CTRL' })
-    }
   },
 
   key_tables = {
