@@ -281,6 +281,9 @@ def install_desktop() -> None:
     # keyd key-remapping
     install(BASEDIR / "keyd" / "app.conf", CONFIG_HOME / "keyd" / "app.conf")
 
+    # fuzzel application launcher
+    install(BASEDIR / "fuzzel", CONFIG_HOME / "fuzzel")
+
     # dunst
     install(BASEDIR / "dunst", CONFIG_HOME / "dunst")
 

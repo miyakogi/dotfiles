@@ -183,13 +183,17 @@ if [ "$install_type" = "full" ]; then
     fcitx5-configtool
     fcitx5-mozc-ext-neologd
 
-    # font/theme
+    # font
     ttf-roboto
     ttf-genjyuu-gothic  # jp sans-serif font
     morisawa-biz-ud-micho-fonts  # default jp serif font
     ttf-jetbrains-mono-nerd  # monospace font with ligatures support
     ttf-ibm-plex  # monospace font for UI
+    otf-codenewroman-nerd  # monospace font for fuzzel
     ttf-nerd-fonts-symbols
+
+    # icon
+    beautyline
   )
 fi
 
