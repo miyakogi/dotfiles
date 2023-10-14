@@ -19,15 +19,6 @@ function __chpwd --on-variable PWD; chpwd; end
 # auto ls on cd
 function __auto_ls --on-variable PWD; ls; end
 
-# direnv
-if type -q direnv
-  direnv hook fish | source
-end
-
-if [ -n "$ZELLIJ" ] || [ -n "$TMUX" ]
-  bind \cd delete-char
-end
-
 # zk note taking directory
 set -x ZK_NOTEBOOK_DIR $HOME/notes/main
 
@@ -39,6 +30,11 @@ else
   function fish_prompt
     printf '[%s] (fish)\n$ ' (prompt_pwd)
   end
+end
+
+# direnv
+if type -q direnv
+  direnv hook fish | source
 end
 
 # autin command history
