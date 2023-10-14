@@ -93,11 +93,6 @@ ssh_symbol = "󰬏 "
 style = "bold cyan"
 format = "[$ssh_symbol$hostname]($style) "
 
-[character]
-success_symbol = "[](green)"
-error_symbol = "[](red)"
-vicmd_symbol = "[](green)"
-
 [shell]
 disabled = false
 format = '$indicator'
