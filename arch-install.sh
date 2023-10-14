@@ -122,6 +122,7 @@ packages=(
   fzf  # fuzzy searcher
   fd  # find alternative written by rust
   ripgrep  # better grep
+  atuin  # command history
   zoxide  # smart cd
 )
 

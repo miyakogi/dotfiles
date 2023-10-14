@@ -41,6 +41,11 @@ else
   end
 end
 
+# autin command history
+if type -q atuin
+  atuin init fish | source
+end
+
 # zoxide smarter `cd`
 if type -q zoxide
   set -x _ZO_FZF_OPTS "--bind=ctrl-z:ignore --exit-0 --height=40% --info=inline --no-sort --reverse --select-1 --exact"
