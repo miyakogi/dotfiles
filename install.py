@@ -278,6 +278,9 @@ def install_desktop() -> None:
     # foot terminal emulator for wayland
     install(BASEDIR / "foot", CONFIG_HOME / "foot")
 
+    # keyd key-remapping
+    install(BASEDIR / "keyd" / "app.conf", CONFIG_HOME / "keyd" / "app.conf")
+
     # dunst
     install(BASEDIR / "dunst", CONFIG_HOME / "dunst")
 
