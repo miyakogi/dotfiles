@@ -11,11 +11,6 @@ if type -q fzf
   set _search_cmd "fzf --tac --no-sort --reverse --exact --tiebreak index --ansi --prompt 'fzf> ' --margin 2% --query (commandline -b)"
 end
 
-# save dirhist on pwd changed
-set -x HIST_DIRS_FILE $HOME/.histdir
-set -x HIST_DIRS_MAX 1000
-function __chpwd --on-variable PWD; chpwd; end
-
 # auto ls on cd
 function __auto_ls --on-variable PWD; ls; end
 
