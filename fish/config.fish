@@ -34,7 +34,7 @@ end
 
 # autin command history
 if type -q atuin
-  atuin init fish | source
+  atuin init fish --disable-up-arrow | source
 end
 
 # zoxide smarter `cd`
