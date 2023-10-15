@@ -3,76 +3,35 @@
 format = """
 $username\
 $hostname\
-$container\
-${custom.podman}\
-$localip\
 $shlvl\
-$singularity\
-$kubernetes\
 $directory\
 $sudo\
-$vcsh\
 ${custom.giturl}\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$hg_branch\
 $docker_context\
-$package\
 $c\
-$cmake\
-$cobol\
-$daml\
 $dart\
-$deno\
-$dotnet\
 $elixir\
-$elm\
 $erlang\
 $golang\
-$haskell\
-$helm\
-$java\
-$julia\
-$kotlin\
-$lua\
-$nim\
 $nodejs\
-$ocaml\
-$perl\
-$php\
-$pulumi\
-$purescript\
+$deno\
+$bun\
 $python\
-$raku\
-$rlang\
-$red\
 $ruby\
 $rust\
-$scala\
-$swift\
-$terraform\
-$vlang\
-$vagrant\
 $zig\
 $buf\
 $nix_shell\
-$conda\
-$spack\
 $memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
 $env_var\
-$crystal\
-$custom\
 $cmd_duration\
 $line_break\
 $jobs\
-$battery\
 $shell\
 $status\
 $character\
@@ -114,9 +73,6 @@ style = "bold yellow"
 [cmd_duration]
 format = "[ $duration](fg:white bold)"
 disabled = false
-
-[container]
-disabled = true
 
 [directory]
 truncation_length = 5
@@ -171,22 +127,13 @@ deleted = "$count "
 style = "fg:purple bold"
 format = "[$all_status$ahead_behind ]($style)"
 
-[haskell]
-disabled = true
-
 [jobs]
 # default symbol is not rendered on wezterm
 symbol = " "
 
-[lua]
-disabled = true
-
 [nodejs]
 format = "[$symbol($version )]($style)"
 symbol = " "
-
-[package]
-disabled = true
 
 [python]
 format = '[${symbol}(${version} )(\(${virtualenv}\) )]($style)'
@@ -200,12 +147,3 @@ symbol = "󱘗 "
 [status]
 disabled = false
 symbol = "󱇏 "
-
-[custom.podman]
-description = "Show podman hostname in container"
-shell = [ "bash", "--noprofile", "--norc" ]
-command = """echo "$HOSTNAME" | sed -E 's/^([^.]+).*/\\1/'"""
-when = "test -d /run/host"
-style = "bg:cyan fg:black bold"
-symbol = "󰰘"
-format = '[ [$symbol](bg:cyan black) $output ]($style) '
