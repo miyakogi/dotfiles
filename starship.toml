@@ -102,6 +102,9 @@ fish_indicator = ''
 powershell_indicator = '[PowerShell](yellow) '
 elvish_indicator = '[Elvish](cyan) '
 
+[nix_shell]
+symbol = '󱄅 '
+
 [memory_usage]
 disabled = false
 threshold = 70
