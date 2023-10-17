@@ -284,8 +284,8 @@ def install_desktop() -> None:
     # fuzzel application launcher
     install(BASEDIR / "fuzzel", CONFIG_HOME / "fuzzel")
 
-    # dunst
-    install(BASEDIR / "dunst", CONFIG_HOME / "dunst")
+    # fnott notification daemon
+    install(BASEDIR / "fnott", CONFIG_HOME / "fnott")
 
     # swappy
     install(BASEDIR / "swappy", CONFIG_HOME / "swappy")
@@ -334,7 +334,7 @@ def install_desktop() -> None:
 
     # wlroots services
     install_service("swayidle.service")
-    install_service("dunst-notification.service")
+    install_service("fnott.service")
 
     # for Sway
     install_service("autotiling.service")

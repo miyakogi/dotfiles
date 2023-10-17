@@ -42,7 +42,7 @@ Disable display managers (e.g. SDDM or GDM) if enabled.
 Enable systemd services for graphical session.
 
 ```sh
-systemctl --user enable --now autotiling.service dunst-notification.service fcitx5.service swayidle.service
+systemctl --user enable --now autotiling.service fnott.service fcitx5.service swayidle.service
 ```
 
 ### Set Wallpaper and Lock Screen Image

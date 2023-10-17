@@ -149,7 +149,7 @@ if [ "$install_type" = "full" ]; then
     zk  # note taking tool
 
     # wayland
-    dunst
+    fnott
     grim
     slurp
     swappy
