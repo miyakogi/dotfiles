@@ -3,6 +3,7 @@
 format = """
 $username\
 $hostname\
+${custom.distrobox}\
 $shlvl\
 $directory\
 $sudo\
@@ -147,3 +148,12 @@ symbol = "󱘗 "
 [status]
 disabled = false
 symbol = "󱇏 "
+
+[custom.distrobox]
+description = "Show hostname in distrobox container"
+shell = [ "bash", "--noprofile", "--norc" ]
+command = """echo "$HOSTNAME" | sed -E 's/^([^.]+).*/\\1/'"""
+when = "test -d /run/host"
+style = "bg:cyan fg:black bold"
+symbol = "󰰘"
+format = '[ [$symbol](bg:cyan black) $output ]($style) '
