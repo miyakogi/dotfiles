@@ -101,7 +101,7 @@ case $_terminal in
     st -f "$st_font" -e fish &
     ;;
   zellij)
-    launch-kitty bash -c "sleep 0 && zellij" &
+    launch-foot bash -c "sleep 0 && zellij" &
     ;;
   *)
     $_terminal &
