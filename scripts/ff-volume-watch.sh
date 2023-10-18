@@ -19,6 +19,6 @@ else
   echo -e '{"text": " \u2005 \u2005"}'  # nf-cod-sync + 1/4 rem unicode space (U+2005)
 fi
 
-sleep 0.1s
+# sleep 0.1s
 
-exec bash "$0"
+# exec bash "$0"

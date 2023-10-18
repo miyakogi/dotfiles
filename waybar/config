@@ -42,15 +42,17 @@
   "custom/swayidle": {
     "return-type": "json",
     "exec": "$HOME/bin/sway-idle-watch",  // need full path in systemd service
-    "exec-if": "sleep 0.1",  // wait 0.1s to run watch script after click
-    "interval": 10,  // don't know why, but necessary
     "on-click": "$HOME/bin/sway-idle-toggle",  // need full path in systemd service
+    "interval": "once",  // don't know why, but necessary
+    "signal": 8,  // -SIGRTMIN+8
     "format": "{}",
   },
   "custom/ff-volume": {
     "return-type": "json",
     "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
     "on-click": "$HOME/bin/ff-volume-toggle",  // need full path in systemd service
+    "interval": "once",  // need anyway
+    "signal": 8,  // -SIGRTMIN+8
     "format": "{}",
     "tooltip": false,
   },
@@ -103,9 +105,9 @@
   "custom/mic": {
     "return-type": "json",
     "exec": "$HOME/bin/mic-mute-watch",
-    "exec-if": "sleep 0.1",
-    "interval": 3,
     "on-click": "$HOME/bin/mic-mute-toggle",
+    "interval": "once",  // need anyway
+    "signal": 8,  // -SIGRTMIN+8
   },
   "cpu": {
     "interval": 1,

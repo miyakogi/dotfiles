@@ -7,3 +7,5 @@ if [ -e "$tmp_file" ]; then
 else
   touch "$tmp_file"
 fi
+
+pkill -SIGRTMIN+8 waybar
