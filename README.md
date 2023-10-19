@@ -110,8 +110,7 @@ Install `poetry` and `pdm`:
 Install `python-lsp-server` with `mypy` and `ruff` support by `python-pipx`:
 
 ```
-  paru -S python-pipx
   pipx install python-lsp-server
   pipx inject python-lsp-server pylsp-mypy
-  pipx inject python-lsp-server python-lsp-ruff
+  pipx inject --include-deps --include-apps python-lsp-server python-lsp-ruff
 ```
