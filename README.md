@@ -62,7 +62,7 @@ Add `~/.config/fontconfig/fonts.conf` if not exist, and add the below line in th
 <include ignore_missing="yes">conf.d</include>
 ```
 
-### Keyboard setting
+### Keyboard Setting
 
 This repository includes [keyd](https://github.com/rvaiya/keyd) setting file for better key setting.
 To use this, you need to manually setup configuration.
@@ -86,4 +86,32 @@ sudo ln -s -v (realpath keyd/default.conf) /etc/keyd/default.conf
 
 sudo systemctl enable --now keyd.service
 sudo keyd reload  # optional
+```
+
+### Python Environment
+
+Install `python-pipx`:
+
+```
+  paru -S python-pipx
+```
+
+#### Package and Project Managers
+
+Install `poetry` and `pdm`:
+
+```
+  pipx install poetry
+  pipx install pdm
+```
+
+#### LSP Server for Helix
+
+Install `python-lsp-server` with `mypy` and `ruff` support by `python-pipx`:
+
+```
+  paru -S python-pipx
+  pipx install python-lsp-server
+  pipx inject python-lsp-server pylsp-mypy
+  pipx inject python-lsp-server python-lsp-ruff
 ```
