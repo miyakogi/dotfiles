@@ -391,9 +391,9 @@ local plugins = {
       end
 
       -- python
-      if vim.fn.executable('pyright-langserver') > 0 then
+      if vim.fn.executable('pylsp') > 0 then
         lsp_autocmd({ '*.py' })
-        require('lspconfig')['pyright'].setup({
+        require('lspconfig')['pylsp'].setup({
           on_attach = on_attach,
           flags = lsp_flags,
         })
