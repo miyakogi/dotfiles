@@ -730,6 +730,10 @@ local plugins = {
         variant = 'main',
         dark_variant = 'main',
         disable_background = true,
+        disable_italics = true,
+        highlight_groups = {
+          Comment = { fg = 'muted', italic = true },
+        },
       })
       vim.cmd.colorscheme('rose-pine')
     end,
