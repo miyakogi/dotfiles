@@ -743,7 +743,6 @@ local plugins = {
       require('ibl').setup({
         indent = {
           char = '▏',
-          char_blankline = '',
         },
       })
     end,
