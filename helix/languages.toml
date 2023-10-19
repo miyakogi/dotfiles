@@ -19,7 +19,6 @@ file-types = [
   # from default setting
   "ini",
   # Systemd unit files
-  "service",
   "automount",
   "device",
   "mount",
