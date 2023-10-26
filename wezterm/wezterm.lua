@@ -5,7 +5,7 @@ local act = wezterm.action
 
 local font = wezterm.font({
   family = 'JetBrainsMono Nerd Font',
-  weight = 'ExtraLight',
+  weight = 'Light',
 })
 local font_size = 19.5
 
