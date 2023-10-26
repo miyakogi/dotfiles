@@ -6,9 +6,16 @@ file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstr
 shebangs = ["python"]
 roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
 comment-token = "#"
-language-servers = [ "pylsp" ]
-# TODO: pyls needs utf-8 offsets
+# install `pyright` and `ruff-lsp`
+language-servers = ["pyright", "ruff"]
 indent = { tab-width = 4, unit = "    " }
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.ruff]
+command = "ruff-lsp"
 
 [[language]]
 name = "ini"
