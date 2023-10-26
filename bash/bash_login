@@ -84,7 +84,9 @@ Select Window Manager or Shell:
     systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
 
     # wlroots setting
-    #export WLR_RENDERER=vulkan  # break proton and gamescope
+    if [ "$wm" = Hyprland ]; then
+      export WLR_RENDERER=vulkan  # break proton and gamescope
+    fi
     #export WLR_DRM_NO_ATOMIC=1  # prevent flickering?
     export WLR_DRM_NO_MODIFIERS=1  # prevent flickering
 
