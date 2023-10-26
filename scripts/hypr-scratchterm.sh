@@ -20,7 +20,6 @@ start_term() {
     launch-foot
     --app-id="$class"
     --override="colors.alpha=0.8"
-    --override="pad=2x2"
   )
 
   declare -a zcmd
@@ -28,14 +27,16 @@ start_term() {
     zcmd=(zellij)
     if zellij ls | grep -E "^$class\$"; then
       # use existing session
-      zcmd+=(a "$class")
+      zcmd+=(attach "$class")
     else
       # create new session
-      zcmd+=(-s "$class")
+      zcmd+=(--session "$class")
     fi
+  else
+    zcmd=(fish)  
   fi
 
-  "${cmd[@]}" "${zcmd[@]}" &
+  exec "${cmd[@]}" bash -c "sleep 0.01 && ${zcmd[*]}"
 }
 
 if ! is_exist; then
