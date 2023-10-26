@@ -195,6 +195,9 @@ if [ "$install_type" = "full" ]; then
 
     # icon
     beautyline
+
+    # cursor
+    catppuccin-cursors-macchiato
   )
 fi
 
