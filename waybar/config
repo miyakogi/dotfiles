@@ -44,7 +44,7 @@
     "exec": "$HOME/bin/sway-idle-watch",  // need full path in systemd service
     "on-click": "$HOME/bin/sway-idle-toggle",  // need full path in systemd service
     "interval": "once",  // don't know why, but necessary
-    "signal": 8,  // -SIGRTMIN+8
+    "signal": 6,  // -SIGRTMIN+6
     "format": "{}",
   },
   "custom/ff-volume": {

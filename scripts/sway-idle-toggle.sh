@@ -6,4 +6,4 @@ else
   systemctl --user start swayidle.service
 fi
 
-pkill -SIGRTMIN+8 waybar
+pkill -SIGRTMIN+6 waybar
