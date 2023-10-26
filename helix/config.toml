@@ -31,6 +31,7 @@ wrap-around = false
 [editor.indent-guides]
 render = true
 rainbow = "dim"
+character = "▏"
 
 [editor.whitespace]
 render = { tab = "all" }
