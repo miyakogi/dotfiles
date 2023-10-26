@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
+sleep 0.1s
+
 tmp_file="/tmp/ff-volume-fix-paused"
+
 
 # check if disabled
 if [ -e "$tmp_file" ]; then
@@ -19,6 +22,4 @@ else
   echo -e '{"text": " \u2005 \u2005"}'  # nf-cod-sync + 1/4 rem unicode space (U+2005)
 fi
 
-# sleep 0.1s
-
-# exec bash "$0"
+exec /usr/bin/bash "$0"
