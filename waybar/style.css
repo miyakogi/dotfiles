@@ -8,8 +8,10 @@
 @define-color background @base;
 
 @define-color highlight  @mauve;
+@define-color sep        alpha(@highlight, 0.7);
 @define-color muted      @overlay0;
 @define-color subtle     @overlay1;
+@define-color dim        shade(alpha(@highlight, 0.4), 1.3);
 
 * {
   border: none;
@@ -17,41 +19,80 @@
 }
 
 window#waybar {
-  min-height: 42px;
+  min-height: 0;
   color: @foreground;
-  /* background-color: #161821; */
-  /* background-color: rgba(22, 24, 33, 0.9); */
-  background-color: @background;
+  background-color: alpha(@background, 0.0);
+  border-radius: 0;
+  font-family: "CodeNewRoman Nerd Font";
 }
 
 window.4K#waybar {
-  font-family: IBM Plex Mono;
-  font-size:  21.5pt;
+  font-size:  20.0pt;
 }
 
 window.FHD#waybar {
-  font-family: IBM Plex Mono Text;
-  font-size: 11pt;
+  font-size: 11.0pt;
+}
+
+window#waybar.4K .modules-left,
+window#waybar.4K .modules-center,
+window#waybar.4K .modules-right {
+  background-color: alpha(@background, 0.5);
+  border-radius: 64;
+  margin: 12px 24px 12px 24px;
+  box-shadow: 0px 0px 8px 4px alpha(@highlight, 0.8);
+}
+
+window#waybar.FHD .modules-left,
+window#waybar.FHD .modules-right {
+  background-color: alpha(@background, 0.5);
+  border-radius: 64;
+  margin: 6px 6px 6px 6px;
+  box-shadow: 0px 0px 4px 2px alpha(@highlight, 0.8);
+}
+
+window#waybar.4K #workspaces,
+window#waybar.4K #custom-waybar-mpris {
+  margin: 0 20px;
+}
+
+#custom-swayidle {
+  margin-left: 20px;
+}
+
+window.4K#waybar #tray {
+  padding-right: 24px;
+}
+
+window#waybar.FHD #workspaces {
+  margin: 0 10px;
+}
+
+window.FHD#waybar #custom-mic {
+  padding-left: 10px;
+}
+
+window.FHD#waybar #tray {
+  padding-right: 12px;
 }
 
 #workspaces button {
-  color: @magenta;
-  border: 1px solid @magenta;
+  color: @dim;
 }
 
-window.4K#waybar #workspaces button {
-  padding: 1px 6px;
-  margin: 0;
+window#waybar.4K #workspaces button {
+  font-weight: 700;
+  padding: 6px;
 }
 
-window.FHD#waybar #workspaces button {
-  padding: 1px 4px;
+window#waybar.FHD #workspaces button {
+  font-weight: 700;
+  padding: 3px;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  color: @background;
-  background-color: @magenta;
+  color: @highlight;
 }
 
 #mode {
@@ -62,13 +103,13 @@ window.FHD#waybar #workspaces button {
 #custom-compositor-name {
   font-weight: bold;
   color: @background;
-  background-color: @magenta;
+  background-color: @highlight;
   padding: 0 16px;
   margin: 0 12px;
 }
 
 #custom-swayidle.Idle {
-  color: #666666;
+  color: @muted;
 }
 
 #custom-swayidle.Info {
@@ -76,7 +117,7 @@ window.FHD#waybar #workspaces button {
 }
 
 #custom-waybar-mpris.playing {
-  color: @magenta;
+  color: alpha(@highlight, 0.8);
 }
 
 #custom-mic.Idle {
@@ -100,37 +141,26 @@ window.FHD#waybar #workspaces button {
 
 #custom-update.info {
   color: @background;
-  background-color: @magenta;
+  background-color: @highlight;
   padding-left: 6px;
   padding-right: 8px;
-  margin-right: 6px;
+  margin-left: 0;
 }
 
 /* --- Separator --- */
 /* 4K monitor */
-#custom-swayidle, #custom-ff-volume, #custom-waybar-mpris, window.4K#waybar #custom-clock {
+#custom-swayidle, #custom-ff-volume, window.4K#waybar #custom-clock {
   padding-right: 12px;
-  border-right: 1px solid @magenta;
-}
-
-window.4K#waybar #tray {
-  padding-right: 16px;
-  padding-left: 4px;
+  border-right: 1px solid @sep;
 }
 
 /* FHD monitor */
 #custom-mic, #custom-temperature-cpu, #memory, #custom-temperature-gpu, window.FHD#waybar #custom-clock {
   padding-right: 6px;
-  border-right: 1px solid @magenta;
+  border-right: 1px solid @sep;
 }
 
 #cpu, #custom-gpu {
   padding-right: 6px;
   border-right: 1px solid @subtle;
-  border-right: 1px solid @highlightHigh;
-}
-
-window.FHD#waybar #tray {
-  padding-right: 8px;
-  padding-left: 2px;
 }
