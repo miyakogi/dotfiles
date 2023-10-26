@@ -1,5 +1,4 @@
 local wezterm = require('wezterm')
-local colors = require('themes/rose-pine').colors()
 
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
@@ -50,7 +49,7 @@ return {
 
   detect_password_input = false,  -- disable password icon
 
-  window_background_opacity = 0.8,
+  window_background_opacity = 0.9,
 
   -- Tab bar
   use_fancy_tab_bar = true,
@@ -62,7 +61,7 @@ return {
     active_titlebar_bg = '#1e2132',  -- black (normal)
     inactive_titlebar_bg = '#1e2132',  -- black (normal)
   },
-  colors = colors,
+  color_scheme = 'Catppuccin Macchiato',
 
   hide_tab_bar_if_only_one_tab = true,
 
