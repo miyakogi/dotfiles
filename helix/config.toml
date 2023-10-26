@@ -1,4 +1,4 @@
-theme = "rose-pine-transparent"
+theme = "catppuccin_macchiato_transparent"
 
 [editor]
 gutters = ["diagnostics", "diff"]

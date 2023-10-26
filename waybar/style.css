@@ -3,26 +3,13 @@
 * Maintainer: DankChoir
 */
 
-@define-color background      #191724;
-@define-color surface         #1f1d2e;
-@define-color overlay         #26233a;
+@import "catppuccin-macchiato.css";
+@define-color foreground @subtext0;
+@define-color background @base;
 
-@define-color muted           #6e6a86;
-@define-color subtle          #908caa;
-@define-color foreground      #e0def4;
-
-@define-color black           #26233a;
-@define-color red             #eb6f92;
-@define-color green           #31748f;
-@define-color yellow          #f6c177;
-@define-color blue            #9ccfd8;
-@define-color magenta         #c4a7e7;
-@define-color cyan            #ebbcba;
-@define-color white           #e0def4;
-
-@define-color highlightLow    #21202e;
-@define-color highlightMed    #403d52;
-@define-color highlightHigh   #524f67;
+@define-color highlight  @mauve;
+@define-color muted      @overlay0;
+@define-color subtle     @overlay1;
 
 * {
   border: none;
