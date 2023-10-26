@@ -1,19 +1,19 @@
 // vim: ft=jsonc
 [{
-  "layer": "bottom",
+  "layer": "top",
   "output": ["DP-1"],
   "name": "4K",
   "spacing": 16,
   "modules-left": ["sway/workspaces", "sway/mode", "hyprland/workspaces"],
-  "modules-center": ["custom/compositor-name"],
-  "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/waybar-mpris", "custom/clock", "tray"],
+  "modules-center": ["custom/waybar-mpris"],
+  "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/clock", "tray"],
   "sway/workspaces": {
     "on-click": "activate",
     "format": "{name}",
   },
   "sway/mode": {
     "format": "󰰞 {}",
-    "max-length": 20
+    "max-length": 20,
   },
   "hyprland/workspaces": {
     "on-click": "activate",
