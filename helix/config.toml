@@ -5,6 +5,8 @@ gutters = ["diagnostics", "diff"]
 auto-format = false
 true-color = true
 color-modes = true
+idle-timeout = 50
+completion-trigger-len = 0
 
 [editor.soft-wrap]
 enable = true
