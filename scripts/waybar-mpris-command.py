@@ -37,6 +37,9 @@ async def main():
         except KeyboardInterrupt:
             proc.terminate()
             break
+        except Exception:
+            await asyncio.sleep(1)
+            continue
 
 
 if __name__ == "__main__":

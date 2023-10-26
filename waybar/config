@@ -57,14 +57,15 @@
   },
   "custom/waybar-mpris": {
     "return-type": "json",
-    "exec": "$HOME/bin/waybar-mpris-command",
+    "exec": "waybar-mpris-command",
     "on-click": "waybar-mpris --send toggle",
     "on-right-click": "waybar-mpris --send player-next",
     "on-scroll-up": "waybar-mpris --send prev",
     "on-scroll-down": "waybar-mpris --send next",
     "tooltip": true,
+    "format": "  󰫔   {}",  // icon is surrounded by two-1/4 spaces
     // "max-length": 60,
-    "restart-interval": 1,  // restart if command exited
+    "restart-interval": 3,  // restart if command exited
   },
   "tray": {
     "icon-size": 32,
