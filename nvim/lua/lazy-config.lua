@@ -706,8 +706,8 @@ local plugins = {
         'nvim-tree/nvim-web-devicons',
         lazy = true,
       }, {
-        'rose-pine/neovim',
-        name = 'rose-pine',
+        'catppuccin/nvim',
+        name = 'catppuccin',
       },
     },
     config = function()
@@ -715,7 +715,7 @@ local plugins = {
         options = {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
-          theme = 'rose-pine',
+          theme = 'catppuccin',
         },
       })
     end,
@@ -723,19 +723,40 @@ local plugins = {
 
   -- ### ColorScheme ###
   {
-    'rose-pine/neovim',
-    name = 'rose-pine',
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
     config = function()
-      require('rose-pine').setup({
-        variant = 'main',
-        dark_variant = 'main',
-        disable_background = true,
-        disable_italics = true,
-        highlight_groups = {
-          Comment = { fg = 'muted', italic = true },
+      require('catppuccin').setup({
+        flavour = 'macchiato',
+        background = {
+          light = 'latte',
+          dark = 'macchiato',
+        },
+        transparent_background = true,
+        no_italic = true,
+        styles = {
+          comments = { "italic" },
+        },
+        integrations = {
+          gitsigns = true,
+          nvimtree = true,
+          treesitter = true,
+          indent_blankline = {
+            enabled = true,
+          },
+          leap = true,
+          noice = true,
+          native_lsp = {
+            enabled = true,
+          },
+          ts_rainbow = true,
+          telescope = {
+            enabled = true,
+          },
         },
       })
-      vim.cmd.colorscheme('rose-pine')
+      vim.cmd.colorscheme('catppuccin')
     end,
   },
 
