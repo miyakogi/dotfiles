@@ -13,8 +13,8 @@ interval = 1
 button = "left"
 cmd = "sway-idle-toggle"
 [block.theme_overrides]
-idle_fg = "#aeb3bb"  # comment color
-info_fg = "#bf616a"  # red
+idle_fg = "#6e738d"  # comment color
+info_fg = "#ed8796"  # red
 
 [[block]]
 block = "custom"
@@ -37,7 +37,7 @@ cmd = "playerctl previous"
 button = "down"
 cmd = "playerctl next"
 [block.theme_overrides]
-info_fg = "#8fbcbb"  # cyan
+info_fg = "#c6a0f6"  # cyan
 
 [[block]]
 block = "time"
