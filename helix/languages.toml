@@ -1,3 +1,8 @@
+[language-server]
+pyright = { command = "pyright-langserver", args = ["--stdio"] }
+ruff = { command = "ruff-lsp" }
+typos = { command = "typos-lsp" }  # cargo install --git https://github.com/tekumara/typos-vscode
+
 [[language]]
 name = "python"
 scope = "source.python"
@@ -7,15 +12,8 @@ shebangs = ["python"]
 roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
 comment-token = "#"
 # install `pyright` and `ruff-lsp`
-language-servers = ["pyright", "ruff"]
+language-servers = ["pyright", "ruff", "typos"]
 indent = { tab-width = 4, unit = "    " }
-
-[language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
-
-[language-server.ruff]
-command = "ruff-lsp"
 
 [[language]]
 name = "ini"
