@@ -5,7 +5,7 @@
   "name": "4K",
   "spacing": 16,
   "modules-left": ["sway/workspaces", "sway/mode", "hyprland/workspaces"],
-  "modules-center": ["custom/waybar-mpris"],
+  "modules-center": ["mpris"],
   "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/clock", "tray"],
   "sway/workspaces": {
     "on-click": "activate",
@@ -55,17 +55,22 @@
     "format": "{}",
     "tooltip": false,
   },
-  "custom/waybar-mpris": {
-    "return-type": "json",
-    "exec": "waybar-mpris-command",
-    "on-click": "waybar-mpris --send toggle",
-    "on-right-click": "waybar-mpris --send player-next",
-    "on-scroll-up": "waybar-mpris --send prev",
-    "on-scroll-down": "waybar-mpris --send next",
-    "tooltip": true,
-    "format": "  󰫔   {}",  // icon is surrounded by two-1/4 spaces
-    // "max-length": 60,
-    "restart-interval": 3,  // restart if command exited
+  "mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{player_icon} {title} - {artist}",
+    "format-stopped": "{palyer_icon}",
+    "player-icons": {
+      "default": "󰫔",
+      "spotify": "󰓇",
+      "spotify_player": "󰓇",
+      "firefox": "",
+      "chromium": "󰊯",
+    },
+    // "ignored-players": [
+    //   // "firefox",
+    //   // "chromium",
+    // ],
+    "interval": 1,
   },
   "tray": {
     "icon-size": 32,

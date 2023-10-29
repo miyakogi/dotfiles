@@ -46,9 +46,12 @@ window#waybar.FHD .modules-right {
   box-shadow: 0px 0px 4px 2px alpha(@highlight, 0.8);
 }
 
-window#waybar.4K #workspaces,
-window#waybar.4K #custom-waybar-mpris {
+window#waybar.4K #workspaces {
   margin: 0 20px;
+}
+
+#mpris {
+  margin: 0 40px;
 }
 
 #custom-swayidle {
@@ -111,8 +114,12 @@ window#waybar.FHD #workspaces button {
   color: @red;
 }
 
-#custom-waybar-mpris.playing {
+#mpris.playing {
   color: alpha(@highlight, 0.8);
+}
+
+#mpris.stopped {
+  padding: 0 20px;
 }
 
 #custom-mic.Idle {
