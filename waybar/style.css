@@ -32,16 +32,18 @@ window.FHD#waybar {
 window#waybar.4K .modules-left,
 window#waybar.4K .modules-center,
 window#waybar.4K .modules-right {
-  background-color: alpha(@background, 0.5);
   border-radius: 64;
+  background-color: alpha(@background, 0.7);
+  border: 2px solid @highlight;
   margin: 12px 24px 12px 24px;
   box-shadow: 0px 0px 8px 4px alpha(@highlight, 0.8);
 }
 
 window#waybar.FHD .modules-left,
 window#waybar.FHD .modules-right {
-  background-color: alpha(@background, 0.5);
   border-radius: 64;
+  background-color: alpha(@background, 0.7);
+  border: 2px solid @highlight;
   margin: 6px 6px 6px 6px;
   box-shadow: 0px 0px 4px 2px alpha(@highlight, 0.8);
 }
