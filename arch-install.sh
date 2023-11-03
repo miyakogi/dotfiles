@@ -118,6 +118,7 @@ packages=(
   starship  # prompt manager
   direnv  # directory based env setting
   lsd  # ls alternative
+  eza  # ls alternative
   bat  # cat alternative
   fzf  # fuzzy searcher
   fd  # find alternative written by rust
