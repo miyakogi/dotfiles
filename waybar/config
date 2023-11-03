@@ -56,20 +56,17 @@
     "tooltip": false,
   },
   "mpris": {
-    "format": "{player_icon} {title} - {artist}",
-    "format-paused": "{player_icon} {title} - {artist}",
+    "format": "{player_icon} <b>{title}</b> — {artist} | {position}/{length}",
+    "format-paused": "{player_icon} <b>{title}</b> — {artist} | {position}",
     "format-stopped": "{palyer_icon}",
+    "tooltip": false,
     "player-icons": {
-      "default": "󰫔",
-      "spotify": "󰓇",
-      "spotify_player": "󰓇",
-      "firefox": "",
-      "chromium": "󰊯",
+      "default": "󰫔 ",
+      "spotify": "󰓇 ",
+      "spotify_player": "󰓇 ",
+      "firefox": " ",
+      "chromium": "󰊯 ",
     },
-    // "ignored-players": [
-    //   // "firefox",
-    //   // "chromium",
-    // ],
     "interval": 1,
   },
   "tray": {
