@@ -57,7 +57,7 @@
   },
   "mpris": {
     "format": "{player_icon} <b>{title}</b> — {artist} | {position}/{length}",
-    "format-paused": "{player_icon} <b>{title}</b> — {artist} | {position}",
+    "format-paused": "{player_icon} <b>{title}</b> — {artist} | {position}/{length}",
     "format-stopped": "{palyer_icon}",
     "tooltip": false,
     "player-icons": {
