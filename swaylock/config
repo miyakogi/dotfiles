@@ -1,0 +1,31 @@
+bs-hl-color=ed8796
+clock
+datestr=%b. %-d, %Y
+effect-blur=24x4
+effect-vignette=0.3:0.7
+fade-in=0.200000
+font=GoMono Nerd Font
+grace=2
+indicator
+indicator-radius=320
+indicator-thickness=16
+inside-clear-color=b7bdf899
+inside-color=00000000
+inside-ver-color=9ad7e399
+inside-wrong-color=f5a97f66
+key-hl-color=8aadf4
+line-clear-color=00000000
+line-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+ring-clear-color=b7bdf8
+ring-color=c5a0f6
+ring-ver-color=9ad7e3
+ring-wrong-color=f6a97f
+screenshots
+separator-color=00000000
+text-clear-color=24273a
+text-color=f5bde6
+text-ver-color=24273a
+text-wrong-color=24273a
+
