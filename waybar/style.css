@@ -39,6 +39,10 @@ window#waybar.4K .modules-right {
   box-shadow: 0px 0px 8px 4px alpha(@highlight, 0.8);
 }
 
+window#waybar.4K .modules-center {
+  min-width: 64px;
+}
+
 window#waybar.FHD .modules-left,
 window#waybar.FHD .modules-right {
   background-color: alpha(@background, 0.7);
