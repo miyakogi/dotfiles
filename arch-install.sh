@@ -198,7 +198,7 @@ if [ "$install_type" = "full" ]; then
     beautyline
 
     # cursor
-    catppuccin-cursors-macchiato
+    nordzy-cursors
   )
 fi
 
