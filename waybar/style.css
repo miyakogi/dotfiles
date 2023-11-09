@@ -18,7 +18,7 @@ window#waybar {
   color: @foreground;
   background-color: alpha(@background, 0.0);
   border-radius: 0;
-  font-family: "CodeNewRoman Nerd Font";
+  font-family: "IntoneMono Nerd Font";
 }
 
 window.4K#waybar {
@@ -26,7 +26,7 @@ window.4K#waybar {
 }
 
 window.FHD#waybar {
-  font-size: 11.0pt;
+  font-size: 10.5pt;
 }
 
 window#waybar.4K .modules-left,
