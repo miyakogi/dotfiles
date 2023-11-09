@@ -4,8 +4,8 @@ local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
 
 local font = wezterm.font({
-  family = 'JetBrainsMono Nerd Font',
-  weight = 'Light',
+  family = 'IntoneMono Nerd Font',
+  weight = 400,
 })
 local font_size = 19.5
 
