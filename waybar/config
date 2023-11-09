@@ -127,7 +127,7 @@
     "format": " {}%",
   },
   "custom/gpu": {
-    "exec": "/usr/bin/cat /sys/class/drm/card0/device/gpu_busy_percent",
+    "exec": "/usr/bin/env cat /sys/class/drm/card0/device/gpu_busy_percent",
     "exec-if": "true",
     "interval": 1,
     "format": "󰍹  {}%",

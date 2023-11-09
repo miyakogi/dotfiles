@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 if [ "$(is-4k)" = true ]; then
   class=scratchterm-4k
