@@ -5,9 +5,9 @@
 options=()
 if [ "$(is-4k)" = false ]; then
   options+=(
-    --override=font="JetBrainsMono Nerd Font:size=12.0"
-    --override=font-bold="JetBrainsMono NF SemiBold:size=12.0"
-    --override=pad=8x8
+    --override=font="IntoneMono Nerd Font:size=12.0"
+    --override=font-bold="IntoneMono Nerd Font:weight=800:size=12.0"
+    --override=pad="6x0 center"
   )
 fi
 
