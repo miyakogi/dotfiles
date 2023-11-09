@@ -192,6 +192,7 @@ if [ "$install_type" = "full" ]; then
     ttf-jetbrains-mono-nerd  # monospace font with ligatures support
     ttf-ibm-plex  # monospace font for UI
     otf-codenewroman-nerd  # monospace font for fuzzel
+    ttf-go-nerd
     ttf-nerd-fonts-symbols
 
     # icon
