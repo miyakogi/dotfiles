@@ -252,4 +252,7 @@ themes {
 //
 // theme_dir "/path/to/my/theme_dir"
 
+// Disable session resurrection
+session_serialization false
+
 // vim: sw=4
