@@ -5,7 +5,7 @@ ipc_socket = false
 draw_bold_text_with_bright_colors = false
 
 [font]
-size = 19.5
+size = 12.0
 
 [font.bold]
 family = "JetBrainsMono NF SemiBold"
@@ -47,5 +47,5 @@ opacity = 0.9
 startup_mode = "Maximized"
 
 [window.padding]
-x = 12
-y = 12
+x = 6
+y = 6

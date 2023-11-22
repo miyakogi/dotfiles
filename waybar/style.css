@@ -22,7 +22,7 @@ window#waybar {
 }
 
 window.4K#waybar {
-  font-size:  20.0pt;
+  font-size:  12.0pt;
 }
 
 window.FHD#waybar {
@@ -35,8 +35,8 @@ window#waybar.4K .modules-right {
   background-color: alpha(@background, 0.7);
   border: 2px solid @highlight;
     border-radius: 10;
-  margin: 12px 24px 12px 24px;
-  box-shadow: 0px 0px 8px 4px alpha(@highlight, 0.8);
+  margin: 6px 8px 6px 8px;
+  box-shadow: 0px 0px 4px 2px alpha(@highlight, 0.8);
 }
 
 window#waybar.4K .modules-center {

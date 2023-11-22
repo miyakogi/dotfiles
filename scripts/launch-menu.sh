@@ -15,14 +15,13 @@ declare -a cmd=()
 termcmd="foot"
 
 # set output specific options
+winsize="800x800"
 if [ "$(is-4k)" = true ]; then
   _font="JetBrainsMono NF Light"
-  _fsize=30
-  winsize="1600x1680"
+  _fsize=16
 else
   _font="JetBrainsMono NF Medium"
   _fsize=16
-  winsize="800x800"
 fi
 
 cmd+=(

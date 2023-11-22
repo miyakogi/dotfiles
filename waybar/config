@@ -70,7 +70,7 @@
     "interval": 1,
   },
   "tray": {
-    "icon-size": 32,
+    "icon-size": 16,
   },
 }, {
   "layer": "bottom",
