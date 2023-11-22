@@ -23,7 +23,7 @@ list_terminals() {
 # bemenu/dmenu setup
 #
 # Set display specific options
-if [ "$(is-4k)" = true ]; then
+if is-4k; then
   font="JetBrainsMono NF 26"
   st_font="JetBrainsMono Nerd Font:medium:size=21:antialias=true"
 else

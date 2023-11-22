@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$(is-4k)" = true ]; then
+if is-4k; then
   # workspaces='Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ '
   workspaces=$(seq 1 10)
 else

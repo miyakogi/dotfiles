@@ -3,7 +3,7 @@
 # Luanch foot terminal with different font size according to output name
 
 options=()
-if [ "$(is-4k)" = false ]; then
+if ! is-4k; then
   options+=(
     --override=font="IntoneMono Nerd Font:size=12.0"
     --override=font-bold="IntoneMono Nerd Font:weight=800:size=12.0"

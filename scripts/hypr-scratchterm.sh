@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$(is-4k)" = true ]; then
+if is-4k; then
   class=scratchterm-4k
 else
   class=scratchterm-fhd

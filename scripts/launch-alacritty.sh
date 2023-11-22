@@ -3,7 +3,7 @@
 # Luanch alacritty terminal with different font size according to output name
 
 options=()
-if [ "$(is-4k)" = false ]; then
+if ! is-4k; then
   options+=(
     --option=font.normal.style=Text
     --option=font.size=12.0

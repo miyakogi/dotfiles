@@ -17,7 +17,7 @@ function menu() {
 }
 
 # Setup bemenu parameters
-if [ "$(is-4k)" = true ]; then
+if is-4k; then
   font="JetBrainsMono NF 26"
 else
   font="JetBrainsMono NF 16"

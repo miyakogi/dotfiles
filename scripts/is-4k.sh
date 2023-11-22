@@ -8,13 +8,12 @@ case "$XDG_CURRENT_DESKTOP" in
     cmd=(hyprctl -j monitors)
     ;;
   *)
-    echo false
-    exit
+    exit 1
     ;;
 esac
 
 if [ "$("${cmd[@]}" | jq '.[] | select(.focused) | .name' | tr -d '"' )" = "DP-1" ]; then
-  echo true
+  true
 else
-  echo false
+  false
 fi

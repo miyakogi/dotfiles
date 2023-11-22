@@ -16,7 +16,7 @@ termcmd="foot"
 
 # set output specific options
 winsize="800x800"
-if [ "$(is-4k)" = true ]; then
+if is-4k; then
   _font="JetBrainsMono NF Light"
   _fsize=16
 else
