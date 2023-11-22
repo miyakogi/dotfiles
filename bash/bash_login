@@ -92,7 +92,7 @@ Select Window Manager or Shell:
 
     # set cursor
     export XCURSOR_THEME='"Nordzy-cursors"'
-    export XCURSOR_SIZE=42
+    export XCURSOR_SIZE=24
     export GTK_USE_PORTAL=1
 
     # start session
