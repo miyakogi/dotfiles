@@ -24,10 +24,10 @@ list_terminals() {
 #
 # Set display specific options
 if [ "$(is-4k)" = true ]; then
-  font="JetBrainsMono Nerd Font 26"
+  font="JetBrainsMono NF 26"
   st_font="JetBrainsMono Nerd Font:medium:size=21:antialias=true"
 else
-  font="JetBrainsMono Nerd Font 16"
+  font="JetBrainsMono NF 16"
   st_font="JetBrainsMono Nerd Font:medium:size=12:antialias=true"
 fi
 
