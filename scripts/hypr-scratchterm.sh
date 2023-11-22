@@ -36,7 +36,8 @@ start_term() {
     zcmd=(fish)  
   fi
 
-  exec "${cmd[@]}" bash -c "sleep 0.01 && ${zcmd[*]}"
+  exec "${cmd[@]}" bash -c "sleep 0.01 && zellij attach $class || zellij --session $class || fish "
+  # exec "${cmd[@]}" bash -c "sleep 0.01 && ${zcmd[*]}"
 }
 
 if ! is_exist; then
