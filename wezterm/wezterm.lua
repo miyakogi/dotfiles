@@ -8,6 +8,27 @@ local font = wezterm.font({
   weight = 400,
   harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1' },
 })
+local font_rules = {
+  {
+    intensity = 'Normal',
+    italic = true,
+    font = wezterm.font({
+      family = 'MonaspiceRn NF',
+      style = 'Normal',
+      harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1' },
+    })
+  },
+  {
+    intensity = 'Bold',
+    italic = true,
+    font = wezterm.font({
+      family = 'MonaspiceRn NF',
+      weight = 'Bold',
+      style = 'Normal',
+      harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1' },
+    })
+  },
+}
 local font_size = 12.0
 
 local gpu = {
@@ -44,6 +65,7 @@ return {
   front_end = 'WebGpu',
 
   font = font,
+  font_rules = font_rules,
   font_size = font_size,
 
   bold_brightens_ansi_colors = 'No',
