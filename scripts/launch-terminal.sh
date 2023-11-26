@@ -24,11 +24,9 @@ list_terminals() {
 #
 # Set display specific options
 if is-4k; then
-  font="JetBrainsMono NF 26"
-  st_font="JetBrainsMono Nerd Font:medium:size=21:antialias=true"
+  font="MonaspiceAr NF 20"
 else
-  font="JetBrainsMono NF 16"
-  st_font="JetBrainsMono Nerd Font:medium:size=12:antialias=true"
+  font="MonaspiceAr NF 16"
 fi
 
 # Define colors

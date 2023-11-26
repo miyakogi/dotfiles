@@ -18,9 +18,9 @@ function menu() {
 
 # Setup bemenu parameters
 if is-4k; then
-  font="JetBrainsMono NF 26"
+  font="MonaspiceAr NF 20"
 else
-  font="JetBrainsMono NF 16"
+  font="MonaspiceAr NF 16"
 fi
 
 # Define colors
