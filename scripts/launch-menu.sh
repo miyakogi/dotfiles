@@ -17,10 +17,10 @@ termcmd="foot"
 # set output specific options
 winsize="800x800"
 if is-4k; then
-  _font="JetBrainsMono NF Light"
-  _fsize=16
+  _font="MonaspiceNe NF"
+  _fsize=20
 else
-  _font="JetBrainsMono NF Medium"
+  _font="MonaspiceNe NF Medium"
   _fsize=16
 fi
 
