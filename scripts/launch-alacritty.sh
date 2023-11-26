@@ -5,10 +5,9 @@
 options=()
 if ! is-4k; then
   options+=(
-    --option=font.normal.style=Text
-    --option=font.size=12.0
-    --option=window.padding.x=8
-    --option=window.padding.y=8
+    --option=font.size=10.5
+    --option=window.padding.x=4
+    --option=window.padding.y=4
   )
 fi
 
