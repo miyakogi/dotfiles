@@ -7,12 +7,19 @@ draw_bold_text_with_bright_colors = false
 [font]
 size = 12.0
 
-[font.bold]
-family = "JetBrainsMono NF SemiBold"
-
 [font.normal]
-family = "JetBrainsMono NF Light"
+family = "MonaspiceNe NF"
 style = "Normal"
+
+[font.bold]
+family = "MonaspiceNe NF"
+
+[font.italic]
+family = "MonaspiceRn NF"
+style = "Normal"
+
+[font.bold_italic]
+family = "MonaspiceRn NF"
 
 [[hints.enabled]]
 action = "Copy"
