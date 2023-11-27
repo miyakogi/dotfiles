@@ -49,10 +49,6 @@ window#waybar.4K #workspaces {
   margin: 0 12px;
 }
 
-#custom-swayidle {
-  margin-left: 20px;
-}
-
 window#waybar.FHD #workspaces {
   margin: 0 6px;
 }
@@ -111,6 +107,10 @@ window#waybar.FHD #workspaces {
   padding: 0 20px;
 }
 
+#custom-swayidle {
+  margin-left: 20px;
+}
+
 #custom-swayidle.Idle {
   color: @muted;
 }
@@ -119,6 +119,9 @@ window#waybar.FHD #workspaces {
   color: @red;
 }
 
+#custom-mic {
+  margin: 0rem 0.1rem;
+  padding: 0px 0.3rem;
 }
 
 #custom-mic.Idle {
