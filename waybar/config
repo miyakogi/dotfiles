@@ -6,7 +6,7 @@
   "spacing": 16,
   "modules-left": ["sway/workspaces", "sway/mode", "hyprland/workspaces"],
   "modules-center": ["mpris"],
-  "modules-right": ["custom/swayidle", "custom/ff-volume", "custom/clock", "tray"],
+  "modules-right": ["custom/swayidle", "custom/mic", "custom/ff-volume", "custom/clock", "tray"],
   "sway/workspaces": {
     "on-click": "activate",
     "format": "{name}",
@@ -47,6 +47,13 @@
     "signal": 6,  // -SIGRTMIN+6
     "format": "{}",
   },
+  "custom/mic": {
+    "return-type": "json",
+    "exec": "$HOME/bin/mic-mute-watch",
+    "on-click": "$HOME/bin/mic-mute-toggle",
+    "interval": "once",  // need anyway
+    "signal": 8,  // -SIGRTMIN+8
+  },
   "custom/ff-volume": {
     "return-type": "json",
     "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
@@ -78,7 +85,7 @@
   "name": "FHD",
   "spacing": 8,
   "modules-left": ["sway/workspaces", "hyprland/workspaces"],
-  "modules-right": ["custom/mic", "cpu", "custom/temperature-cpu", "memory", "custom/gpu", "custom/temperature-gpu", "custom/clock", "custom/update", "tray"],
+  "modules-right": ["cpu", "custom/temperature-cpu", "memory", "custom/gpu", "custom/temperature-gpu", "custom/clock", "custom/update", "tray"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -103,13 +110,6 @@
     "exec": "echo -e \" \u2005$(date '+%a %d %b %Y')  󰅐 $(date '+%H:%M:%S')\"",
     "interval": 1,
     "format": "{}",
-  },
-  "custom/mic": {
-    "return-type": "json",
-    "exec": "$HOME/bin/mic-mute-watch",
-    "on-click": "$HOME/bin/mic-mute-toggle",
-    "interval": "once",  // need anyway
-    "signal": 8,  // -SIGRTMIN+8
   },
   "cpu": {
     "interval": 1,
