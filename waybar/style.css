@@ -31,25 +31,18 @@ window.FHD#waybar {
 
 window#waybar.4K .modules-left,
 window#waybar.4K .modules-center,
-window#waybar.4K .modules-right {
+window#waybar.4K .modules-right,
+window#waybar.FHD .modules-left,
+window#waybar.FHD .modules-right {
   background-color: alpha(@background, 0.7);
   border: 2px solid @highlight;
-    border-radius: 10;
+  border-radius: 0.7rem;
   margin: 6px 8px 6px 8px;
   box-shadow: 0px 0px 4px 2px alpha(@highlight, 0.8);
 }
 
 window#waybar.4K .modules-center {
   min-width: 64px;
-}
-
-window#waybar.FHD .modules-left,
-window#waybar.FHD .modules-right {
-  background-color: alpha(@background, 0.7);
-  border: 2px solid @highlight;
-  border-radius: 5;
-  margin: 6px 6px 6px 6px;
-  box-shadow: 0px 0px 4px 2px alpha(@highlight, 0.8);
 }
 
 window#waybar.4K #workspaces {
@@ -72,19 +65,29 @@ window#waybar.FHD #workspaces {
   color: @dim;
 }
 
-window#waybar.4K #workspaces button {
+#workspaces button {
   font-weight: 700;
-  padding: 6px;
 }
 
-window#waybar.FHD #workspaces button {
-  font-weight: 700;
-  padding: 3px;
-}
-
-#workspaces button.focused,
-#workspaces button.active {
+#workspaces button.persistent,
+#workspaces button.visible {
   color: @highlight;
+  padding: 0rem 0.3rem;
+  transition-duration: 0.3s;
+}
+
+#workspaces button.empty {
+  color: @muted;
+  padding: 0rem 0.3rem;
+  transition-duration: 0.3s;
+}
+
+#workspaces button.active {
+  color: @base;
+  background-color: @highlight;
+  padding: 0rem 0.3rem;
+  border-radius: 1rem;
+  transition-duration: 0.3s;
 }
 
 #mode {

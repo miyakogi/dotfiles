@@ -30,6 +30,9 @@
       "9": "九",
       "10": "十",
     },
+    "persistent-workspaces": {
+      "DP-1": 10,
+    },
   },
   "custom/compositor-name": {
     "exec": "echo $XDG_CURRENT_DESKTOP",
@@ -100,6 +103,9 @@
       "18": "八",
       "19": "九",
       "20": "十",
+    },
+    "persistent-workspaces": {
+      "DP-2": 10,
     },
   },
   "sway/workspaces": {
