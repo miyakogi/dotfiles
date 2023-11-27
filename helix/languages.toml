@@ -42,3 +42,7 @@ file-types = [
   "network"
 ]
 indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "html"
+auto-format = false
