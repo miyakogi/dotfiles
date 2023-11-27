@@ -2,6 +2,7 @@
 pyright = { command = "pyright-langserver", args = ["--stdio"] }
 ruff = { command = "ruff-lsp" }
 typos = { command = "typos-lsp" }  # cargo install --git https://github.com/tekumara/typos-vscode
+rust-analyzer.config = { check.command = "clippy" }
 
 [[language]]
 name = "python"
