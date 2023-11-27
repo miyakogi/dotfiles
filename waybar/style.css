@@ -127,6 +127,14 @@ window#waybar.FHD #workspaces {
   color: @red;
 }
 
+#custom-ff-volume.Idle {
+  color: @muted;
+}
+
+#custom-ff-volume.Info {
+  color: @maroon;
+}
+
 #custom-temperature-cpu.Warning,
 #custom-temperature-gpu.Warning {
   color: @red;
