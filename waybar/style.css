@@ -49,10 +49,6 @@ window#waybar.4K #workspaces {
   margin: 0 12px;
 }
 
-#mpris {
-  margin: 0 24px;
-}
-
 #custom-swayidle {
   margin-left: 20px;
 }
@@ -103,6 +99,18 @@ window#waybar.FHD #workspaces {
   margin: 0 12px;
 }
 
+#custom-media {
+  margin: 0 24px;
+}
+
+#custom-media.Playing {
+  color: alpha(@highlight, 0.8);
+}
+
+#custom-media.Stopped {
+  padding: 0 20px;
+}
+
 #custom-swayidle.Idle {
   color: @muted;
 }
@@ -111,12 +119,6 @@ window#waybar.FHD #workspaces {
   color: @red;
 }
 
-#mpris.playing {
-  color: alpha(@highlight, 0.8);
-}
-
-#mpris.stopped {
-  padding: 0 20px;
 }
 
 #custom-mic.Idle {

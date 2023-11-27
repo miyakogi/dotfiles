@@ -5,7 +5,7 @@
   "name": "4K",
   "spacing": 16,
   "modules-left": ["sway/workspaces", "sway/mode", "hyprland/workspaces"],
-  "modules-center": ["mpris"],
+  "modules-center": ["custom/media"],
   "modules-right": ["custom/swayidle", "custom/mic", "custom/ff-volume", "custom/clock", "tray"],
   "sway/workspaces": {
     "on-click": "activate",
@@ -65,18 +65,17 @@
     "format": "{}",
     "tooltip": false,
   },
-  "mpris": {
-    "format": "{player_icon} <b>{title}</b> — {artist} | {position}/{length}",
-    "format-paused": "{player_icon} <b>{title}</b> — {artist} | {position}/{length}",
-    "format-stopped": "{palyer_icon}",
-    "tooltip": false,
-    "player-icons": {
-      "default": "󰫔 ",
-      "spotify": "󰓇 ",
-      "spotify_player": "󰓇 ",
-      "firefox": " ",
-      "chromium": "󰊯 ",
-    },
+  "custom/media": {
+    "format": "{}",
+    "return-type": "json",
+    "max-length": 120,
+    "on-click": "waybar-mediaplayer toggle",
+    "on-click-middle": "waybar-mediaplayer previous-player",
+    "on-click-right": "waybar-mediaplayer next-player",
+    "on-scroll-up": "waybar-mediaplayer previous",
+    "on-scroll-down": "waybar-mediaplayer next",
+    "exec": "waybar-mediaplayer",
+    "exec-if": "true",
     "interval": 1,
   },
   "tray": {
