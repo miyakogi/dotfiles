@@ -84,7 +84,7 @@ return {
     active_titlebar_bg = '#1e2132',  -- black (normal)
     inactive_titlebar_bg = '#1e2132',  -- black (normal)
   },
-  color_scheme = 'Catppuccin Macchiato',
+  color_scheme = 'Catppuccin Mocha',
 
   hide_tab_bar_if_only_one_tab = true,
 
