@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 if is-4k; then
-  class=scratchterm-4k
+  class=scratchterm-dp1
 else
-  class=scratchterm-fhd
+  class=scratchterm-dp2
 fi
 
 get_term_address() {
