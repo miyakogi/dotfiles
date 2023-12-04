@@ -4,16 +4,12 @@
   "output": ["DP-1"],
   "name": "4K",
   "spacing": 16,
-  "modules-left": ["sway/workspaces", "sway/mode", "hyprland/workspaces"],
+  "modules-left": ["custom/os", "hyprland/workspaces"],
   "modules-center": ["custom/media"],
   "modules-right": ["custom/swayidle", "custom/mic", "custom/ff-volume", "custom/clock", "tray"],
-  "sway/workspaces": {
-    "on-click": "activate",
-    "format": "{name}",
-  },
-  "sway/mode": {
-    "format": "󰰞 {}",
-    "max-length": 20,
+  "custom/os": {
+    "exec": "echo 󰣇",
+    "format": "{}",
   },
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -33,9 +29,6 @@
     "persistent-workspaces": {
       "DP-1": 10,
     },
-  },
-  "custom/compositor-name": {
-    "exec": "echo $XDG_CURRENT_DESKTOP",
   },
   "custom/clock": {
     "exec": "echo -e \" \u2005$(date '+%a %d %b %Y')  󰅐 $(date '+%H:%M:%S')\"",
@@ -88,7 +81,8 @@
   "name": "FHD",
   "spacing": 8,
   "modules-left": ["sway/workspaces", "hyprland/workspaces"],
-  "modules-right": ["cpu", "custom/temperature-cpu", "memory", "custom/gpu", "custom/temperature-gpu", "custom/clock", "custom/update", "tray"],
+  "modules-center": ["cpu", "memory", "custom/gpu", "custom/temperature"],
+  "modules-right": ["custom/update", "custom/clock", "tray"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -119,28 +113,23 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "<span color='#c6a0f6' font='Unifont'>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}{icon16}{icon17}{icon18}{icon19}</span> {usage}%",
+    "format": "<span font='Unifont'>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}{icon16}{icon17}{icon18}{icon19}</span> {usage:2}%",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-  },
-  "custom/temperature-cpu": {
-    "return-type": "json",
-    "exec": "$HOME/bin/temperature cpu class",
-    "interval": 1,
-    "format": "{}",
   },
   "memory": {
     "interval": 1,
-    "format": " {}%",
+    "format": " {used:2.1f}G/{total:2.1f}G ({percentage:2}%)",
   },
   "custom/gpu": {
-    "exec": "/usr/bin/env cat /sys/class/drm/card0/device/gpu_busy_percent",
+    // "exec": "/usr/bin/env cat /sys/class/drm/card0/device/gpu_busy_percent",
+    "exec": "printf \"<span font='Symbols Nerd Font Mono'>󰍹</span> %4dMHz (%2d%%)\" $(cat /sys/class/drm/card0/device/pp_dpm_sclk | rg '\\*' | head -n 1 | sd '.*?\\s+(\\d+)Mhz\\s+.*' '$1') $(cat /sys/class/drm/card0/device/gpu_busy_percent)",
     "exec-if": "true",
     "interval": 1,
-    "format": "󰍹  {}%",
+    "format": "{}",
   },
-  "custom/temperature-gpu": {
+  "custom/temperature": {
     "return-type": "json",
-    "exec": "$HOME/bin/temperature gpu class",
+    "exec": "$HOME/bin/temperature all",
     "interval": 1,
     "format": "{}",
   },

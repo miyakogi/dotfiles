@@ -1,106 +1,115 @@
-@import "catppuccin-macchiato.css";
+@import "catppuccin-mocha.css";
+
 @define-color foreground @subtext0;
 @define-color background @base;
 
-@define-color highlight  @mauve;
-@define-color sep        alpha(@highlight, 0.7);
-@define-color muted      @overlay0;
-@define-color subtle     @overlay1;
-@define-color dim        shade(alpha(@highlight, 0.4), 1.3);
-
-* {
-  border: none;
-  border-radius: 0;
-}
+@define-color highlight @mauve;
+@define-color highlight-alt @pink;
+@define-color sep alpha(@highlight-alt, 0.7);
+@define-color muted @overlay0;
+@define-color subtle @overlay1;
+@define-color dim shade(alpha(@highlight, 0.4), 1.3);
 
 window#waybar {
-  min-height: 0;
+  background-color: transparent;
+}
+
+window#waybar > box {
+  border: none;
+  border-radius: 0;
+  margin: -1;
+  padding: 0;
+
+  min-height: 1px;
   color: @foreground;
-  background-color: alpha(@background, 0.0);
+  background-color: alpha(@background, 0.8);
   border-radius: 0;
   font-family: "MonaspiceNe Nerd Font", "03SmartFontUI";
 }
 
-window.4K#waybar {
-  font-size:  12.0pt;
+window#waybar.4K > box {
+  font-size: 12.0pt;
 }
 
-window.FHD#waybar {
+window#waybar.FHD > box {
   font-size: 10.5pt;
 }
 
-window#waybar.4K .modules-left,
-window#waybar.4K .modules-center,
-window#waybar.4K .modules-right,
-window#waybar.FHD .modules-left,
-window#waybar.FHD .modules-right {
-  background-color: alpha(@background, 0.7);
-  border: 2px solid @highlight;
-  border-radius: 0.7rem;
-  margin: 6px 8px 6px 8px;
-  box-shadow: 0px 0px 4px 2px alpha(@highlight, 0.8);
+.modules-left,
+.modules-center,
+.modules-right {
+  border-radius: 0rem;
+  margin: 0px 16px;
 }
 
-window#waybar.4K .modules-center {
+.modules-center {
   min-width: 64px;
 }
 
-window#waybar.4K #workspaces {
-  margin: 0 12px;
-}
-
-window#waybar.FHD #workspaces {
-  margin: 0 6px;
-}
-
-#workspaces button {
-  color: @dim;
+#custom-os {
+  color: #1793d1;
+  font-size: 20px;
+  padding: 0 0.5rem;
 }
 
 #workspaces button {
-  font-weight: 700;
-}
-
-#workspaces button.persistent,
-#workspaces button.visible {
-  color: @highlight;
+  color: transparent;
+  background-color: @surface0;
+  border-radius: 1rem;
   padding: 0rem 0.3rem;
+  margin: 0.0rem 0.3rem;
+  transition-property: padding;
+  transition-duration: 0.3s;
+}
+
+#workspaces button.persistent {
+  background-color: @lavender;
+  transition-property: padding;
   transition-duration: 0.3s;
 }
 
 #workspaces button.empty {
-  color: @muted;
-  padding: 0rem 0.3rem;
+  background-color: @surface2;
+  transition-property: padding;
+  transition-duration: 0.3s;
+}
+
+#workspaces button.visible {
+  background-color: @lavender;
+  padding: 0rem 1.25rem;
+  transition-property: padding;
   transition-duration: 0.3s;
 }
 
 #workspaces button.active {
-  color: @base;
-  background-color: @highlight;
-  padding: 0rem 0.3rem;
-  border-radius: 1rem;
+  background-color: @sky;
+  padding: 0rem 1.25rem;
+  transition-property: padding;
   transition-duration: 0.3s;
 }
 
-#mode {
-  background-color: @red;
-  padding: 0 16px;
-}
-
-#custom-compositor-name {
-  font-weight: bold;
-  color: @background;
-  background-color: @highlight;
-  padding: 0 16px;
-  margin: 0 12px;
-}
-
 #custom-media {
-  margin: 0 24px;
+  font-size: 12pt;
+  min-height: 0px;
+  padding: 0 1rem;
+  margin: -1;
+}
+
+#custom-media.default {
+  padding: 0 1rem;
+  margin: -1;
 }
 
 #custom-media.Playing {
-  color: alpha(@highlight, 0.8);
+  color: @text;
+  padding: 0 1rem;
+  box-shadow: inset 0px -6px @mauve;
+}
+
+#custom-media.Paused {
+  color: @subtext0;
+  padding: 0 1rem;
+  box-shadow: inset 0px -6px @subtext0;
 }
 
 #custom-media.Stopped {
@@ -108,83 +117,131 @@ window#waybar.FHD #workspaces {
 }
 
 #custom-swayidle {
-  margin-left: 20px;
-}
+  color: @crust;
+  border-radius: 1rem;
+  margin: 0.0rem 0.1rem;
+  padding: 0 1rem;
+} 
 
 #custom-swayidle.Idle {
-  color: @muted;
+  background-color: @muted;
+  transition-duration: 0.3s;
 }
 
 #custom-swayidle.Info {
-  color: @red;
+  background-color: @red;
+  padding: 0 1.5rem;
+  transition-duration: 0.3s;
 }
 
 #custom-mic {
-  margin: 0rem 0.1rem;
-  padding: 0px 0.3rem;
-}
+  color: @crust;
+  border-radius: 1rem;
+  margin: 0.0rem 0.1rem;
+  padding: 0;
+} 
 
 #custom-mic.Idle {
-  color: @muted;
+  background-color: @muted;
+  padding: 0 1.2rem;
+  transition-duration: 0.3s;
 }
 
 #custom-mic.Info {
-  color: @red;
+  background-color: @red;
+  padding: 0 1.8rem;
+  transition-duration: 0.3s;
 }
 
+#custom-ff-volume {
+  color: @crust;
+  border-radius: 1rem;
+  margin: 0.0rem 0.1rem;
+  padding: 0;
+} 
+
 #custom-ff-volume.Idle {
-  color: @muted;
+  background-color: @muted;
+  transition-duration: 0.3s;
+  padding: 0 1.0rem;
 }
 
 #custom-ff-volume.Info {
-  color: @maroon;
-}
-
-#custom-temperature-cpu.Warning,
-#custom-temperature-gpu.Warning {
-  color: @red;
-}
-
-#custom-temperature-cpu.Critical,
-#custom-temperature-gpu.Critical {
-  color: @background;
-  background-color: @red;
-}
-
-#custom-update.info {
-  color: @background;
-  background-color: @highlight;
-  padding-left: 6px;
-  padding-right: 8px;
-  margin-left: 0;
-}
-
-window.4K#waybar #tray {
-  padding-right: 24px;
-}
-
-window.FHD#waybar #tray {
-  padding-right: 12px;
-}
-
-/* --- Separator --- */
-/* 4K monitor */
-#custom-swayidle, #custom-mic, #custom-ff-volume, window.4K#waybar #custom-clock {
-  padding-right: 12px;
-  border-right: 1px solid @sep;
-}
-
-/* FHD monitor */
-#custom-temperature-cpu, #memory, #custom-temperature-gpu, window.FHD#waybar #custom-clock {
-  padding-right: 6px;
-  border-right: 1px solid @sep;
-}
-
-#cpu, #custom-gpu {
-  padding-right: 6px;
-  border-right: 1px solid @subtle;
+  background-color: @maroon;
+  transition-duration: 0.3s;
+  padding: 0 1.5rem;
 }
 
 #cpu {
-  padding-left: 1rem;
+  color: @sapphire;
+  border-radius: 0rem;
+  border-bottom: solid 3px @sapphire;
+  margin: 0.0rem 0.1rem;
+  background-color: @background;
+  padding: 0 1.4rem;
+}
+
+#memory {
+  color: @pink;
+  border-radius: 0rem;
+  border-bottom: solid 3px @pink;
+  margin: 0.0rem 0.1rem;
+  background-color: @background;
+  padding: 0 1.4rem;
+}
+
+#custom-gpu {
+  color: @yellow;
+  border-radius: 0rem;
+  border-bottom: solid 3px @yellow;
+  margin: 0.0rem 0.1rem;
+  background-color: @background;
+  padding: 0 1.4rem;
+}
+
+#custom-temperature {
+  color: @green;
+  border-radius: 0rem;
+  border-bottom: solid 3px @green;
+  margin: 0.0rem 0.1rem;
+  background-color: @background;
+  padding: 0 1.4rem;
+}
+
+#custom-temperature.Warning {
+  color: @red;
+  border-bottom: solid 3px @red;
+  font-weight: bold;
+}
+
+#custom-temperature.Critical {
+  color: @crust;
+  background-color: @red;
+  border-bottom: solid 3px @red;
+  font-weight: bold;
+}
+
+#custom-update.info {
+  color: @red;
+  border-bottom: solid 3px @red;
+  margin: 0.0rem 0.1rem;
+  padding: 0 1.4rem;
+}
+
+#custom-clock {
+  background-color: @background;
+  color: @text;
+  border-radius: 0rem;
+  border-bottom: solid 3px @teal;
+  margin: 0.0rem 0.1rem;
+  padding: 0 1.4rem;
+}
+
+#tray {
+  background-color: @background;
+  color: #ffffff;
+  border-radius: 0rem;
+  border-bottom: solid 3px @text;
+  margin: 0.0rem 0.1rem;
+  padding: 0 1.4rem;
 }
