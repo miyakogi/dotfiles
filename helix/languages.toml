@@ -1,23 +1,21 @@
 [language-server]
-pyright = { command = "pyright-langserver", args = ["--stdio"] }
+pyright = { command = "pyright-langserver", args = [ "--stdio" ] }
 ruff = { command = "ruff-lsp" }
 typos = { command = "typos-lsp" }  # cargo install --git https://github.com/tekumara/typos-vscode
 rust-analyzer.config = { check.command = "clippy" }
 
 [[language]]
 name = "rust"
-language-servers = ["rust-analyzer", "typos"]
+language-servers = [ "rust-analyzer", "typos" ]
 
 [[language]]
 name = "python"
 scope = "source.python"
 injection-regex = "python"
-file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstruct"]
-shebangs = ["python"]
-roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
+roots = [ "pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json" ]
 comment-token = "#"
 # install `pyright` and `ruff-lsp`
-language-servers = ["pyright", "ruff", "typos"]
+language-servers = [ "pyright", "ruff", "typos" ]
 indent = { tab-width = 4, unit = "    " }
 
 [[language]]
@@ -43,10 +41,10 @@ file-types = [
   "container",
   "volume",
   "kube",
-  "network"
+  "network",
 ]
 indent = { tab-width = 4, unit = "    " }
-language-servers = ["typos"]
+language-servers = [ "typos" ]
 
 [[language]]
 name = "html"
@@ -58,4 +56,4 @@ auto-format = false
 
 [[language]]
 name = "git-commit"
-language-servers = ["typos"]
+language-servers = [ "typos" ]
