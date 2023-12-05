@@ -191,6 +191,7 @@ if [ "$install_type" = "full" ]; then
     morisawa-biz-ud-micho-fonts  # default jp serif font
     otf-monaspace-nerd  # monospace font
     ttf-nerd-fonts-symbols
+    ttf-unifont
 
     # icon
     beautyline

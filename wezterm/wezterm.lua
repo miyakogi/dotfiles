@@ -3,10 +3,14 @@ local wezterm = require('wezterm')
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
 
-local font = wezterm.font({
-  family = 'MonaspiceNe NF',
-  weight = 400,
-  harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1' },
+local font = wezterm.font_with_fallback({
+  {
+    family = 'MonaspiceNe NF',
+    weight = 400,
+    harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1' },
+  },
+  'Gen Jyuu Gothic L Monospace',
+  'Unifont',
 })
 local font_rules = {
   {
