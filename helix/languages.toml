@@ -51,3 +51,7 @@ auto-format = false
 [[language]]
 name = "css"
 auto-format = false
+
+[[language]]
+name = "git-commit"
+language-servers = ["typos"]
