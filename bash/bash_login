@@ -11,8 +11,8 @@ test -f "$HOME/.bash_login.local" && source "$HOME/.bash_login.local"
 if [[ -z "$DISPLAY" && "$XDG_VTNR" -eq 1 && ( -z "$XDG_SESSION_TYPE" || "$XDG_SESSION_TYPE" == tty ) ]]; then
   echo -e -n "\
 Select Window Manager or Shell:
-> 1) Sway [default]
-  2) Hyprland
+> 1) Hyprland [default]
+  2) Sway
   3) bash
   4) fish
   5) exit
@@ -27,11 +27,11 @@ Select Window Manager or Shell:
 
   # exec shell or exit
   case $choice in
-    1|sway)
-      wm="sway"
-      ;;
-    2|hyp*)
+    1|[Hh]yp*)
       wm="Hyprland"
+      ;;
+    2|sway)
+      wm="sway"
       ;;
     3|bash|sh)
       exec bash
