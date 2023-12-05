@@ -5,6 +5,10 @@ typos = { command = "typos-lsp" }  # cargo install --git https://github.com/teku
 rust-analyzer.config = { check.command = "clippy" }
 
 [[language]]
+name = "rust"
+language-servers = ["rust-analyzer", "typos"]
+
+[[language]]
 name = "python"
 scope = "source.python"
 injection-regex = "python"
