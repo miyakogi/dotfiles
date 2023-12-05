@@ -42,6 +42,7 @@ file-types = [
   "network"
 ]
 indent = { tab-width = 4, unit = "    " }
+language-servers = ["typos"]
 
 [[language]]
 name = "html"
