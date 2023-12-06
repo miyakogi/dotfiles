@@ -14,7 +14,7 @@ window#waybar {
   background-color: transparent;
 }
 
-window#waybar > box {
+window#waybar {
   border: none;
   border-radius: 0;
   margin: -1;
@@ -27,11 +27,11 @@ window#waybar > box {
   font-family: "MonaspiceNe Nerd Font", "03SmartFontUI";
 }
 
-window#waybar.4K > box {
+window#waybar.4K {
   font-size: 12.0pt;
 }
 
-window#waybar.FHD > box {
+window#waybar.FHD {
   font-size: 10.5pt;
 }
 
@@ -58,38 +58,33 @@ window#waybar.FHD > box {
   border-radius: 1rem;
   padding: 0rem 0.3rem;
   margin: 0.0rem 0.3rem;
-  transition-property: padding;
   transition-duration: 0.3s;
 }
 
 #workspaces button.persistent {
   background-color: @lavender;
-  transition-property: padding;
   transition-duration: 0.3s;
 }
 
 #workspaces button.empty {
   background-color: @surface2;
-  transition-property: padding;
   transition-duration: 0.3s;
 }
 
 #workspaces button.visible {
   background-color: @lavender;
   padding: 0rem 1.25rem;
-  transition-property: padding;
   transition-duration: 0.3s;
 }
 
 #workspaces button.active {
   background-color: @sky;
   padding: 0rem 1.25rem;
-  transition-property: padding;
   transition-duration: 0.3s;
 }
 
 #custom-media {
-  font-size: 12pt;
+  font-family: "Hurmit Nerd Font", "03SmartFontUI";
   min-height: 0px;
   padding: 0 1rem;
   margin: -1;
