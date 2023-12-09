@@ -81,8 +81,8 @@
   "name": "FHD",
   "spacing": 8,
   "modules-left": ["sway/workspaces", "hyprland/workspaces"],
-  "modules-center": ["cpu", "memory", "custom/gpu", "custom/temperature"],
-  "modules-right": ["custom/update", "custom/clock", "tray"],
+  "modules-center": [],
+  "modules-right": ["cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "custom/update", "tray"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "",
