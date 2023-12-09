@@ -6,7 +6,7 @@ case "$1" in
     #temp=$(sensors -u | grep -P 'temp\d+_input' | cut -d' ' -f 4 | sort | tail -n 1 | sed -E 's/\..*$//g')
     ctemp=$(echo "$sensors_json" | jq '.["coretemp-isa-0000"] | .["Package id 0"] | .["temp1_input"] | floor')
     #gtemp=$(echo "$sensors_json" | jq '.["amdgpu-pci-0300"] | [ .edge.temp1_input, .junction.temp2_input, .mem.temp3_input ] | max | floor')
-    gtemp=$(($(cat /sys/class/drm/card0/device/hwmon/hwmon*/temp1_input) / 1000))
+    gtemp=$(($(cat /sys/class/drm/card*/device/hwmon/hwmon*/temp1_input) / 1000))
     ;;
   cpu)
     temp=$(sensors -j | jq '.["coretemp-isa-0000"] | .["Package id 0"] | .["temp1_input"] | floor')
