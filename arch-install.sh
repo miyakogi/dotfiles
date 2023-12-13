@@ -197,7 +197,7 @@ if [ "$install_type" = "full" ]; then
     beautyline
 
     # cursor
-    nordzy-cursors
+    sweet-cursor-theme-git
   )
 fi
 

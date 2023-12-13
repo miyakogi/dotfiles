@@ -91,7 +91,7 @@ Select Window Manager or Shell:
     export WLR_DRM_NO_MODIFIERS=1  # prevent flickering
 
     # set cursor
-    export XCURSOR_THEME='"Nordzy-cursors"'
+    export XCURSOR_THEME='Sweet-cursors'
     export XCURSOR_SIZE=26
     export GTK_USE_PORTAL=1
 
