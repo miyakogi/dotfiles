@@ -6,9 +6,9 @@
   "spacing": 16,
   "modules-left": ["custom/os", "hyprland/workspaces"],
   "modules-center": ["custom/media"],
-  "modules-right": ["custom/swayidle", "custom/mic", "custom/ff-volume", "custom/clock", "tray"],
+  "modules-right": ["custom/swayidle", "custom/mic", "custom/ff-volume", "clock", "tray"],
   "custom/os": {
-    "exec": "echo 󰣇",
+    "exec": "echo \"<span font_size='16.5pt'>󰣇 </span><span font='MonaspiceKr Nerd Font' font_size='13.5pt'>Arch Linux</span>\"",
     "format": "{}",
   },
   "hyprland/workspaces": {
