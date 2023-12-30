@@ -5,12 +5,10 @@
 #
 list_terminals() {
   terminals=(
-    foot
-    alacritty
-    kitty
     wezterm
-    zellij
-    st
+    alacritty
+    foot
+    kitty
   )
   for t in "${terminals[@]}"; do
     if type "$t" &>/dev/null; then
@@ -94,12 +92,6 @@ case $_terminal in
     ;;
   wezterm)
     launch-wezterm &
-    ;;
-  st)
-    st -f "$st_font" -e fish &
-    ;;
-  zellij)
-    launch-foot bash -c "sleep 0 && zellij" &
     ;;
   *)
     $_terminal &
