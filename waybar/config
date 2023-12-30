@@ -30,10 +30,32 @@
       "DP-1": 10,
     },
   },
-  "custom/clock": {
-    "exec": "echo -e \" \u2005$(date '+%a %d %b %Y')  󰅐 $(date '+%H:%M:%S')\"",
+  // "custom/clock": {
+  //   "exec": "echo -e \" \u2005$(date '+%a %d %b %Y')  󰅐 $(date '+%H:%M:%S')\"",
+  //   "interval": 1,
+  //   "format": "{}",
+  // },
+  "clock": {
+    "format": "  {:%a %d %b %Y 󰅐 %H:%M:%S}",
     "interval": 1,
-    "format": "{}",
+    "tooltip-format": "<span size='10.5pt' font='MonaspiceNe Nerd Font Mono'>{calendar}</span>",
+    "actions": {
+      "on-click": "mode",
+    },
+    "calendar": {
+      "format": {
+        "days": "<span color='#cdd6f4'>{}</span>",
+        "months": "<span color='#94e2d5'><b>{}</b></span>",
+        "today": "<span color='#cba6f7'><b>{}</b></span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "weeks": "<span color='#74c7ec'><b>{}</b></span>",
+      },
+      "mode": "year",
+      "mode-mon-col": 3,
+      "on-click-": "mode",
+      "on-scroll": 1,
+      "weeks-pos": "",
+    },
   },
   "custom/swayidle": {
     "return-type": "json",
