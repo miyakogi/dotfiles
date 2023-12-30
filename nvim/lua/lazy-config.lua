@@ -524,7 +524,7 @@ local plugins = {
         },
         python = {
           'ruff',
-          'codespell',
+          'typos',
         },
       }
 
@@ -728,10 +728,10 @@ local plugins = {
     priority = 1000,
     config = function()
       require('catppuccin').setup({
-        flavour = 'macchiato',
+        flavour = 'mocha',
         background = {
           light = 'latte',
-          dark = 'macchiato',
+          dark = 'mocha',
         },
         transparent_background = true,
         no_italic = true,
