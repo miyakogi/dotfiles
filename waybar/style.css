@@ -16,14 +16,14 @@ window#waybar {
 
 window#waybar {
   border: none;
-  border-radius: 0;
-  margin: -1;
-  padding: 0;
+  border-radius: 0rem;
+  margin: 0px;
+  padding: 0rem;
 
   min-height: 1px;
   color: @foreground;
   background-color: alpha(@background, 0.8);
-  border-radius: 0;
+  border-radius: 0rem;
   font-family: "MonaspiceNe Nerd Font", "03SmartFontUI";
 }
 
@@ -48,16 +48,21 @@ window#waybar.FHD {
 
 #custom-os {
   color: #1793d1;
-  font-size: 20px;
-  padding: 0 0.5rem;
+  padding: 0rem 0.5rem;
 }
 
-#workspaces button {
-  color: transparent;
+#workspaces {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  transition-duration: 3s;
+}
+
+#workspaces button, button {
   background-color: @surface0;
   border-radius: 1rem;
-  padding: 0rem 0.3rem;
-  margin: 0.0rem 0.3rem;
+  padding: 0rem 0.42rem;
+  margin: 0rem 0.3rem;
   transition-duration: 0.3s;
 }
 
@@ -86,36 +91,36 @@ window#waybar.FHD {
 #custom-media {
   font-family: "Hurmit Nerd Font", "03SmartFontUI";
   min-height: 0px;
-  padding: 0 1rem;
-  margin: -1;
+  padding: 0rem 1rem;
+  margin: 0px;
 }
 
 #custom-media.default {
-  padding: 0 1rem;
-  margin: -1;
+  padding: 0rem 1rem;
+  margin: 0px;
 }
 
 #custom-media.Playing {
   color: @text;
-  padding: 0 1rem;
+  padding: 0rem 1rem;
   box-shadow: inset 0px -6px @mauve;
 }
 
 #custom-media.Paused {
   color: @subtext0;
-  padding: 0 1rem;
+  padding: 0rem 1rem;
   box-shadow: inset 0px -6px @subtext0;
 }
 
 #custom-media.Stopped {
-  padding: 0 20px;
+  padding: 0px 20px;
 }
 
 #custom-swayidle {
   color: @crust;
   border-radius: 1rem;
-  margin: 0.0rem 0.1rem;
-  padding: 0 1rem;
+  margin: 0rem 0.1rem;
+  padding: 0rem 1rem;
 } 
 
 #custom-swayidle.Idle {
@@ -125,82 +130,82 @@ window#waybar.FHD {
 
 #custom-swayidle.Info {
   background-color: @red;
-  padding: 0 1.5rem;
+  padding: 0rem 1.5rem;
   transition-duration: 0.3s;
 }
 
 #custom-mic {
   color: @crust;
   border-radius: 1rem;
-  margin: 0.0rem 0.1rem;
-  padding: 0;
+  margin: 0rem 0.1rem;
+  padding: 0px;
 } 
 
 #custom-mic.Idle {
   background-color: @muted;
-  padding: 0 1.2rem;
+  padding: 0rem 1.2rem;
   transition-duration: 0.3s;
 }
 
 #custom-mic.Info {
   background-color: @red;
-  padding: 0 1.8rem;
+  padding: 0rem 1.8rem;
   transition-duration: 0.3s;
 }
 
 #custom-ff-volume {
   color: @crust;
   border-radius: 1rem;
-  margin: 0.0rem 0.1rem;
-  padding: 0;
+  margin: 0rem 0.1rem;
+  padding: 0px;
 } 
 
 #custom-ff-volume.Idle {
   background-color: @muted;
   transition-duration: 0.3s;
-  padding: 0 1.0rem;
+  padding: 0rem 1.0rem;
 }
 
 #custom-ff-volume.Info {
   background-color: @maroon;
   transition-duration: 0.3s;
-  padding: 0 1.5rem;
+  padding: 0rem 1.5rem;
 }
 
 #cpu {
   color: @sapphire;
   border-radius: 0rem;
   border-bottom: solid 3px @sapphire;
-  margin: 0.0rem 0.1rem;
+  margin: 0rem 0.1rem;
   background-color: @background;
-  padding: 0 1.4rem;
+  padding: 0rem 1.4rem;
 }
 
 #memory {
   color: @pink;
   border-radius: 0rem;
   border-bottom: solid 3px @pink;
-  margin: 0.0rem 0.1rem;
+  margin: 0rem 0.1rem;
   background-color: @background;
-  padding: 0 1.4rem;
+  padding: 0rem 1.4rem;
 }
 
 #custom-gpu {
   color: @yellow;
   border-radius: 0rem;
   border-bottom: solid 3px @yellow;
-  margin: 0.0rem 0.1rem;
+  margin: 0rem 0.1rem;
   background-color: @background;
-  padding: 0 1.4rem;
+  padding: 0rem 1.4rem;
 }
 
 #custom-temperature {
   color: @green;
   border-radius: 0rem;
   border-bottom: solid 3px @green;
-  margin: 0.0rem 0.1rem;
+  margin: 0rem 0.1rem;
   background-color: @background;
-  padding: 0 1.4rem;
+  padding: 0rem 1.4rem;
 }
 
 #custom-temperature.Warning {
@@ -219,17 +224,21 @@ window#waybar.FHD {
 #custom-update.info {
   color: @red;
   border-bottom: solid 3px @red;
-  margin: 0.0rem 0.1rem;
-  padding: 0 1.4rem;
+  margin: 0rem 0.1rem;
+  padding: 0rem 1.4rem;
 }
 
-#custom-clock {
+#custom-clock, #clock {
   background-color: @background;
   color: @text;
   border-radius: 0rem;
   border-bottom: solid 3px @teal;
-  margin: 0.0rem 0.1rem;
-  padding: 0 1.4rem;
+  margin: 0rem 0.1rem;
+  padding: 0rem 1.4rem;
+}
+
+tooltip {
+  background-color: @background;
 }
 
 #tray {
@@ -237,6 +246,6 @@ window#waybar.FHD {
   color: #ffffff;
   border-radius: 0rem;
   border-bottom: solid 3px @text;
-  margin: 0.0rem 0.1rem;
-  padding: 0 1.4rem;
+  margin: 0rem 0.1rem;
+  padding: 0rem 1.4rem;
 }

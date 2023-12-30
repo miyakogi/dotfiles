@@ -80,7 +80,7 @@
   "output": ["DP-2"],
   "name": "FHD",
   "spacing": 8,
-  "modules-left": ["sway/workspaces", "hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
   "modules-right": ["cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "custom/update", "tray"],
   "hyprland/workspaces": {
@@ -101,10 +101,6 @@
     "persistent-workspaces": {
       "DP-2": 10,
     },
-  },
-  "sway/workspaces": {
-    "on-click": "activate",
-    "format": "{name}",
   },
   "custom/clock": {
     "exec": "echo -e \" \u2005$(date '+%a %d %b %Y')  󰅐 $(date '+%H:%M:%S')\"",
