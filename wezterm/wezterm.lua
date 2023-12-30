@@ -111,4 +111,14 @@ return {
   key_tables = {
     search_mode = search_mode_keys,
   },
+
+  -- close confirmation
+  skip_close_confirmation_for_processes_named = {
+    'bash',
+    'sh',
+    'zsh',
+    'fish',
+    'tmux',
+    'zellij',
+  },
 }
