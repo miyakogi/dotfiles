@@ -74,6 +74,8 @@ return {
 
   bold_brightens_ansi_colors = 'No',
 
+  scrollback_lines = 10000,
+
   detect_password_input = false,  -- disable password icon
 
   window_background_opacity = 0.9,
