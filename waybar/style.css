@@ -32,7 +32,7 @@ window#waybar.4K {
 }
 
 window#waybar.FHD {
-  font-size: 10.5pt;
+  font-size: 10pt;
 }
 
 .modules-left,
@@ -248,4 +248,71 @@ tooltip {
   border-bottom: solid 3px @text;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
+}
+
+/*=========*
+ *
+ * Side Bar
+ *
+ *=========*/
+
+#waybar.SideBar {
+  font-size: 15pt;
+}
+
+#waybar.SideBar .modules-left,
+#waybar.SideBar .modules-center,
+#waybar.SideBar .modules-right {
+  border-radius: 0rem;
+  margin: 0px 0px;
+}
+
+#waybar.SideBar .modules-center {
+  min-width: 0;
+}
+
+#taskbar {
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
+#taskbar button {
+  background-color: @base;
+  padding: 10px 0px;
+  border-left: solid 6px @surface1;
+  border-radius: 0% 25% 25% 0% / 0% 50% 50% 0%;
+}
+
+#taskbar button.active {
+  background-color: @surface0;
+  border-left: solid 6px @sky;
+}
+
+#waybar.SideBar #cpu {
+  border-bottom: none;
+  border-left: solid 6px @sapphire;
+}
+
+#waybar.SideBar #memory {
+  border-bottom: none;
+  border-left: solid 6px @pink;
+}
+
+#waybar.SideBar #custom-gpu {
+  border-bottom: none;
+  border-left: solid 6px @yellow;
+}
+
+#waybar.SideBar #temperature {
+  background-color: @background;
+  color: @green;
+  border-bottom: none;
+  border-left: solid 6px @green;
+  margin: 0rem 0.1rem;
+}
+
+#waybar.SideBar #tray {
+  border-bottom: none;
+  border-left: solid 6px @text;
 }
