@@ -36,6 +36,12 @@ end
 
 if type -q helix
   abbr --add --global h helix
+else if type -q hx
+  abbr --add --global h hx
+end
+
+if type -q kak
+  abbr --add --global k kak
 end
 
 # ls -> lsd
