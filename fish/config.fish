@@ -1,5 +1,117 @@
 #!/usr/bin/env fish
 
+status --is-login; and begin
+  ### Profile
+
+  # XDG Data bin
+  fish_add_path --global "$HOME/.local/bin"
+
+  # Golang
+  export GOPATH="$HOME/.go"
+
+  # Rust
+  fish_add_path --global "$HOME/.cargo/bin"
+  if type -q rustc
+    export RUST_SRC_PATH="(rustc --print sysroot)/lib/rustlib/src/rust/src"
+  end
+  if type -q sccache
+    export RUSTC_WRAPPER=(which sccache)
+  end
+
+  # User Bin
+  fish_add_path --global "$HOME/bin"
+  fish_add_path --global --move "$HOME/bin"
+
+  # set default programs as nvim
+  if type -q nvim
+    export EDITOR=nvim
+    export MANPAGER="nvim +Man! -u $HOME/.config/nvim/manrc"
+  else if type -q vim
+    export EDITOR=vim
+  end
+
+  # Set less
+  export LESS="-iFRS"
+  export SYSTEMD_LESS="iFRSM"
+
+  ### Login
+  if test -z "$DISPLAY"; and test "$XDG_VTNR" -eq 1; and begin test -z "$XDG_SESSION_TYPE"; or test "$XDG_SESSION_TYPE" = tty; end
+    echo -e -n "\
+Select Window Manager or Shell:
+> 1) Hyprland [default]
+  2) Sway
+  3) bash
+  4) fish
+  5) exit
+  *) any executable"
+    read -P '>>> ' choice
+
+    # set default wm as the first candidate
+    if test -z "$choice"
+      set choice 1
+    end
+
+    switch "$choice"
+      case 1 "[Hh]pr*"
+        set wm "Hyprland"
+      case 2 sway
+        set wm "sway"
+      case 3 bash sh
+        exec bash
+      case 4 fish
+        exec fish
+      case 5
+        exit 0
+      case '*'
+        set wm "$choice"
+    end
+
+    if string match -r '[Hh]yp.*' "$wm"
+      set wm "Hyprland"
+    end
+
+    # GTK
+    export GTK_THEME=Adwaita:dark
+
+    # QT
+    export QT_STYLE_OVERRIDE=kvantum
+    export QT_QPZ_PLATFORMTHEME=kvantum
+
+    # input methods
+    export XMODIFIERS=@im=fcitx
+    export GTK_IM_MODULE=fcitx
+    export QT_IM_MODULE=fcitx
+    export GLFW_IM_MODULE=fcitx
+
+    # Start wayland session
+    if string match -r '(Hyprland|sway|wexton)'
+      export XDG_SESSION_TYPE=wayland
+      export QT_QPA_PLATFORM=wayland
+      export MOZ_ENABLE_WAYLAND=1
+      export GST_VAAPI_ALL_DRIVERS=1
+
+      export XDG_CURRENT_DESKTOP="$wm"
+      export XDG_SESSION_DESKTOP="$wm"
+      systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
+
+      # wlroots
+      if test "$wm" = "Hyprland"
+        export WLR_RENDERER=vulkan
+      end
+      export WLR_DRM_NO_MODIFIERS=1
+      export XCURSOR_THEME='Sweet-cursors'
+      export XCURSOR_SIZE=26
+      export GTK_USE_PORTAL=1
+
+      exec "$wm"
+    else
+      exec "$wm"
+    end
+  end
+end
+
+status --is-interactive; and begin
+
 # ls color setting
 set -x LSCOLORS Exfxcxdxbxegedabagacad
 set -x LS_COLORS 'di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
@@ -48,4 +160,6 @@ end
 # load machine local setting (~/.config/fish/local.fish)
 if test -f ~/.config/fish/local.fish
   source ~/.config/fish/local.fish
+end
+
 end
