@@ -5,10 +5,10 @@
 #
 list_terminals() {
   terminals=(
-    wezterm
-    alacritty
     foot
+    alacritty
     kitty
+    wezterm
   )
   for t in "${terminals[@]}"; do
     if type "$t" &>/dev/null; then
