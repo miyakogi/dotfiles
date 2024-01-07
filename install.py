@@ -196,6 +196,9 @@ def install_base() -> None:
     # lf - terminal file manager
     install(BASEDIR / "lf", CONFIG_HOME / "lf")
 
+    # bat
+    install(BASEDIR / "bat", CONFIG_HOME / "bat")
+
     # lsd
     install(BASEDIR / "lsd", CONFIG_HOME / "lsd")
 
