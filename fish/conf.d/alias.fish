@@ -44,6 +44,11 @@ if type -q kak
   abbr --add --global k kak
 end
 
+# file manager
+if type -q yazi
+  abbr --add --global y yazi
+end
+
 # ls -> lsd
 abbr --add --global lsa "ls --all"
 abbr --add --global lsl "ls -l -h"
