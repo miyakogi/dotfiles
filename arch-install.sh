@@ -39,7 +39,7 @@ case "$_install_type" in
 esac
 
 
-# Install paru and lf
+# Install paru and yazi
 install_aur_package() {
   # Check argument
   if [ -z "$1" ]; then
@@ -74,9 +74,9 @@ if ! type paru &>/dev/null; then
   echo "paru AUR helper is not installed - automatically install it"
   install_aur_package "paru-bin"
 fi
-if ! type lf &>/dev/null; then
-  echo "lf file manager is not installed - automatically install it"
-  sudo pacman -S --noconfirm lf
+if ! type yazi &>/dev/null; then
+  echo "yazi file manager is not installed - automatically install it"
+  sudo pacman -S --noconfirm yazi
 fi
 
 # List minimal packages
