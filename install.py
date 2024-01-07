@@ -193,8 +193,8 @@ def install_base() -> None:
     # direnv
     install(BASEDIR / "direnv", CONFIG_HOME / "direnv")
 
-    # lf - terminal file manager
-    install(BASEDIR / "lf", CONFIG_HOME / "lf")
+    # yazi - terminal file manager
+    install(BASEDIR / "yazi", CONFIG_HOME / "yazi")
 
     # bat
     install(BASEDIR / "bat", CONFIG_HOME / "bat")

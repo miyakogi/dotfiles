@@ -1,0 +1,2 @@
+[manager]
+syntect_theme = "~/.config/bat/themes/catppuccin-mocha.tmTheme"
