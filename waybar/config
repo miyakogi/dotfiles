@@ -169,7 +169,7 @@
   "output": ["DP-1"],
   "name": "SideBar",
   "spaceing": "8px",
-  "width": 48,
+  "width": 120,  // CPU 100% width
   "spacing": 0,
 
   "modules-left": ["wlr/taskbar"],
