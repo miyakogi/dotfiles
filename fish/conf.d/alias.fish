@@ -40,10 +40,6 @@ else if type -q hx
   abbr --add --global h hx
 end
 
-if type -q kak
-  abbr --add --global k kak
-end
-
 # file manager
 if type -q yazi
   abbr --add --global y yazi
