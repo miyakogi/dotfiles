@@ -4,7 +4,7 @@ BindsTo=wlr-graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/swayidle -w timeout 600 %h/bin/lock-screen timeout 900 "systemctl syspend"
+ExecStart=/usr/bin/swayidle -w timeout 600 %h/bin/lock-screen timeout 900 "sustemctl suspend"
 Restart=on-failure
 
 [Install]
