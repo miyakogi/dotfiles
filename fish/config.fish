@@ -54,7 +54,7 @@ Select Window Manager or Shell:
     switch "$choice"
       case 1 "[Hh]pr*"
         set wm "Hyprland"
-      case 2 sway
+      case 2 "[Ss]way"
         set wm "sway"
       case 3 bash sh
         exec bash
@@ -84,7 +84,7 @@ Select Window Manager or Shell:
     export GLFW_IM_MODULE=fcitx
 
     # Start wayland session
-    if string match -r '(Hyprland|sway|wexton)'
+    if string match -r '(Hyprland|sway|weston)' "$wm"
       export XDG_SESSION_TYPE=wayland
       export QT_QPA_PLATFORM=wayland
       export MOZ_ENABLE_WAYLAND=1
