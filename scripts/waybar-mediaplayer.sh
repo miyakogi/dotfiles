@@ -49,7 +49,7 @@ previous_player() {
 
 get_data() {
   player=$(get_current_player)
-  song="$(playerctl -p "$player" metadata --format '{{markup_escape(title)}} - {{artist}}')"
+  song="$(playerctl -p "$player" metadata --format '{{markup_escape(title)}} - {{markup_escape(artist)}}')"
   if [ "$song" = ' - ' ]; then
     song="$(playerctl -p "$player" metadata --format '{{markup_escape(xesam:url)}}')"
     if [[ "$song" == "file://"* ]]; then
