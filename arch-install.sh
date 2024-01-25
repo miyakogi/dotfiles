@@ -175,6 +175,10 @@ if [ "$install_type" = "full" ]; then
     waybar-git
     waybar-mpris-git
 
+    # kye/mouse
+    keyd-git
+    ydotool-git
+
     # multimedia
     pulsemixer  # used by volume check/fix scripts on i3status-rust
     playerctl  # for audio control by keyboard on sway
