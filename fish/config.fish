@@ -84,7 +84,7 @@ Select Window Manager or Shell:
     export GLFW_IM_MODULE=fcitx
 
     # Start wayland session
-    if string match -r '(Hyprland|sway|weston)' "$wm"
+    if string match -r -q '(Hyprland|sway|weston)' "$wm"
       export XDG_SESSION_TYPE=wayland
       export QT_QPA_PLATFORM=wayland
       export MOZ_ENABLE_WAYLAND=1
