@@ -13,8 +13,8 @@ interval = 1
 button = "left"
 cmd = "sway-idle-toggle"
 [block.theme_overrides]
-idle_fg = "#6e738d"  # comment color
-info_fg = "#ed8796"  # red
+idle_fg = "#6c7086"  # comment color
+info_fg = "#eba0ac"  # maroon
 
 [[block]]
 block = "custom"
@@ -25,11 +25,14 @@ persistent = true
 [[block.click]]
 button = "left"
 cmd = "ff-volume-toggle"
+[block.theme_overrides]
+idle_fg = "#6c7086"  # comment color
+info_fg = "#eba0ac"  # maroon
 
 [[block]]
 block = "music"
-player = ["spotify", "audacious"]
-format = '   {$combo.str(max_w:120, rot_interval:0.5) $prev $play $next |}'
+player = ["spotify", "mpd"]
+format = '   {$combo.str(max_w:120, rot_interval:0.5)   $prev $play $next |}'
 [[block.click]]
 button = "up"
 cmd = "playerctl previous"
@@ -37,9 +40,9 @@ cmd = "playerctl previous"
 button = "down"
 cmd = "playerctl next"
 [block.theme_overrides]
-info_fg = "#c6a0f6"  # cyan
+info_fg = "#cba6f7"  # mauve
 
 [[block]]
 block = "time"
 interval = 0.25
-format = "   $timestamp.datetime(f:'%a %d %b %Y') 󰅐  $timestamp.datetime(f:'%H:%M:%S') "
+format = "   $timestamp.datetime(f:'%a %d %b %Y') 󰅐 $timestamp.datetime(f:'%H:%M:%S') "
