@@ -806,7 +806,7 @@ local plugins = {
   },
 }
 
-if vim.fn.executable('deno') then
+if vim.fn.executable('deno') > 0 then
   -- markdown preview
   plugins[#plugins+1] = {
     'toppair/peek.nvim',
