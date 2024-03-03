@@ -194,6 +194,7 @@ if [ "$install_type" = "full" ]; then
     ttf-genjyuu-gothic  # jp sans-serif font
     morisawa-biz-ud-micho-fonts  # default jp serif font
     otf-monaspace-nerd  # monospace font
+    otf-hermit-nerd  #_monospace font for waybar
     ttf-nerd-fonts-symbols
     ttf-unifont
 
