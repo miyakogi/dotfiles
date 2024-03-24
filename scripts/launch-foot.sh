@@ -19,10 +19,10 @@ else
 fi
 
 options+=(
-  --override=font="MonaspiceNe Nerd Font:size=$fontsize"
-  --override=font-italic="MonaspiceRn Nerd Font:size=$fontsize"
-  --override=font-bold="MonaspiceNe Nerd Font:weight=800:size=$fontsize"
-  --override=font-bold-italic="MonaspiceRn Nerd Font:weight=800:size=$fontsize"
+  --override=font="Moralerspace Neon NF:size=$fontsize"
+  --override=font-italic="Moralerspace Radon NF:size=$fontsize"
+  --override=font-bold="Moralerspace Neon NF:weight=800:size=$fontsize"
+  --override=font-bold-italic="Moralerspace Radon NF:weight=800:size=$fontsize"
 )
 
 foot "${options[@]}" "$@"
