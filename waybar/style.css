@@ -22,7 +22,7 @@ window#waybar {
 
   min-height: 1px;
   color: @foreground;
-  background-color: alpha(@background, 0.8);
+  background-color: @background;
   border-radius: 0rem;
   font-family: "MonaspiceNe Nerd Font", "03SmartFontUI";
 }
