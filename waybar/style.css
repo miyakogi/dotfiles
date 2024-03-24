@@ -24,7 +24,7 @@ window#waybar {
   color: @foreground;
   background-color: @background;
   border-radius: 0rem;
-  font-family: "MonaspiceNe Nerd Font", "03SmartFontUI";
+  font-family: "Moralerspace Neon NF";
 }
 
 window#waybar.4K {
@@ -89,7 +89,6 @@ window#waybar.FHD {
 }
 
 #custom-media {
-  font-family: "Hurmit Nerd Font", "03SmartFontUI";
   min-height: 0px;
   padding: 0rem 1rem;
   margin: 0px;
