@@ -53,6 +53,12 @@ characters = { tabpad = "·" }  # Tabs will look like "→···" (depending on 
 "]".c = "goto_next_change"
 "[".c = "goto_prev_change"
 
+[keys.normal.minus]
+"minus" = "goto_file_start"
+"e" = "goto_file_end"
+"t" = "goto_first_nonwhitespace"
+"h" = "goto_line_end"
+
 [keys.insert]
 "C-f" = "move_char_right"
 "C-b" = "move_char_left"
