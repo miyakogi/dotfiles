@@ -5,7 +5,7 @@ local act = wezterm.action
 
 local font = wezterm.font_with_fallback({
   {
-    family = 'MonaspiceNe NF',
+    family = 'Moralerspace Neon NF',
     weight = 400,
     harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1' },
   },
@@ -17,7 +17,7 @@ local font_rules = {
     intensity = 'Normal',
     italic = true,
     font = wezterm.font({
-      family = 'MonaspiceRn NF',
+      family = 'Moralerspace Radon NF',
       style = 'Normal',
       harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1' },
     })
@@ -26,7 +26,7 @@ local font_rules = {
     intensity = 'Bold',
     italic = true,
     font = wezterm.font({
-      family = 'MonaspiceRn NF',
+      family = 'Moralerspace Radon NF',
       weight = 'Bold',
       style = 'Normal',
       harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1' },
