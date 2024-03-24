@@ -152,7 +152,7 @@ status --is-interactive; and begin
   # zoxide smarter `cd`
   if type -q zoxide
     set -x _ZO_FZF_OPTS "--bind=ctrl-z:ignore --exit-0 --height=40% --info=inline --no-sort --reverse --select-1 --exact"
-    zoxide init fish | source
+    zoxide init fish --cmd j | source
   end
 
   # load machine local setting (~/.config/fish/local.fish)
