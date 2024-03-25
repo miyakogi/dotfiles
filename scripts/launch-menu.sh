@@ -16,11 +16,10 @@ termcmd="foot"
 
 # set output specific options
 winsize="800x800"
+_font="Moralerspace Neon NF"
 if is-4k; then
-  _font="MonaspiceNe NF"
   _fsize=20
 else
-  _font="MonaspiceNe NF Medium"
   _fsize=16
 fi
 
