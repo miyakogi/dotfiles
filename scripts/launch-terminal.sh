@@ -22,9 +22,9 @@ list_terminals() {
 #
 # Set display specific options
 if is-4k; then
-  font="MonaspiceAr NF 20"
+  font="Moralerspace Argon NF 20"
 else
-  font="MonaspiceAr NF 16"
+  font="Moralerspace Argon NF 16"
 fi
 
 # Define colors
