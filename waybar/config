@@ -9,7 +9,7 @@
   "modules-center": ["custom/media"],
   "modules-right": ["custom/swayidle", "custom/mic", "custom/ff-volume", "clock", "tray"],
   "custom/os": {
-    "exec": "echo \"<span font_size='16.5pt'>󰣇 </span><span font='MonaspiceKr Nerd Font' font_size='13.5pt'>Arch Linux</span>\"",
+    "exec": "echo \"<span font_size='16.5pt'>󰣇 </span><span font='Moralerspace Krypton NF' font_size='13.5pt'>Arch Linux</span>\"",
     "format": "{}",
   },
   "hyprland/workspaces": {
@@ -39,7 +39,7 @@
   "clock": {
     "format": "  {:%a %d %b %Y 󰅐 %H:%M:%S}",
     "interval": 1,
-    "tooltip-format": "<span size='10.5pt' font='MonaspiceNe Nerd Font Mono'>{calendar}</span>",
+    "tooltip-format": "<span size='10.5pt' font='Lilex Nerd Font Mono'>{calendar}</span>",
     "actions": {
       "on-click": "mode",
     },
