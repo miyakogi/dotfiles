@@ -4,7 +4,7 @@ datestr=%b. %-d, %Y
 effect-blur=24x4
 effect-vignette=0.3:0.7
 fade-in=0.200000
-font=MonaspiceXe Nerd Font
+font=Moralerspace Xenon NF
 grace=2
 indicator
 indicator-radius=320
