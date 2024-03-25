@@ -68,6 +68,7 @@ characters = { tabpad = "·" }  # Tabs will look like "→···" (depending on 
 "C-d" = "unindent"
 "C-v" = ":clipboard-paste-before"
 "C-[" = "normal_mode"
+"C-backspace" = "delete_word_backward"
 
 [keys.select]
 C-c = "yank_joined_to_clipboard"
