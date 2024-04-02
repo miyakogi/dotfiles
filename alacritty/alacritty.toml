@@ -8,18 +8,18 @@ draw_bold_text_with_bright_colors = false
 size = 12.0
 
 [font.normal]
-family = "CommitMono Nerd Font"
+family = "Lilex Nerd Font"
 style = "Normal"
 
 [font.bold]
-family = "CommitMono Nerd Font"
+family = "Lilex Nerd Font"
 
 [font.italic]
-family = "CommitMono Nerd Font"
+family = "Lilex Nerd Font"
 style = "Normal"
 
 [font.bold_italic]
-family = "CommitMono Nerd Font"
+family = "Lilex Nerd Font"
 
 [[hints.enabled]]
 action = "Copy"
