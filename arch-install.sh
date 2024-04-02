@@ -193,7 +193,6 @@ if [ "$install_type" = "full" ]; then
     ttf-roboto
     ttf-genjyuu-gothic  # jp sans-serif font
     morisawa-biz-ud-micho-fonts  # default jp serif font
-    otf-commit-mono-nerd  # monospace font
     ttf-lilex-nerd  # monospace font
     ttf-moralerspece  # monospace font
     ttf-nerd-fonts-symbols
