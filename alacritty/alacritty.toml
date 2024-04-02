@@ -50,7 +50,7 @@ program = "/usr/bin/fish"
 
 [window]
 dynamic_padding = true
-opacity = 0.9
+opacity = 0.95
 startup_mode = "Maximized"
 
 [window.padding]
