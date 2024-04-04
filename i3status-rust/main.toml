@@ -34,6 +34,9 @@ block = "music"
 player = ["spotify", "mpd"]
 format = '   {$combo.str(max_w:120, rot_interval:0.5)   $prev $play $next |}'
 [[block.click]]
+button = "left"
+cmd = "playerctl play-pause"
+[[block.click]]
 button = "up"
 cmd = "playerctl previous"
 [[block.click]]
