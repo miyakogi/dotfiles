@@ -75,7 +75,7 @@ Select Window Manager or Shell:
 
     # QT
     export QT_STYLE_OVERRIDE=kvantum
-    export QT_QPZ_PLATFORMTHEME=kvantum
+    export QT_QPA_PLATFORMTHEME=kvantum
 
     # input methods
     export XMODIFIERS=@im=fcitx
