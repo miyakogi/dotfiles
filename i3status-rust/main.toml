@@ -47,5 +47,5 @@ info_fg = "#cba6f7"  # mauve
 
 [[block]]
 block = "time"
-interval = 0.25
+interval = 1
 format = "   $timestamp.datetime(f:'%a %d %b %Y') 󰅐 $timestamp.datetime(f:'%H:%M:%S') "
