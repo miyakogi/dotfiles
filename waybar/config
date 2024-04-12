@@ -141,7 +141,7 @@
   },
   "custom/gpu": {
     // "exec": "/usr/bin/env cat /sys/class/drm/card0/device/gpu_busy_percent",
-    "exec": "printf \"<span font='Symbols Nerd Font Mono'>󰍹</span> %4dMHz (%2d%%)\" $(cat /sys/class/drm/card0/device/pp_dpm_sclk | rg '\\*' | head -n 1 | sd '.*?\\s+(\\d+)Mhz\\s+.*' '$1') $(cat /sys/class/drm/card0/device/gpu_busy_percent)",
+    "exec": "printf \"<span font='Symbols Nerd Font'>󰍹</span> %4dMHz (%2d%%)\" $(cat /sys/class/drm/card0/device/pp_dpm_sclk | rg '\\*' | head -n 1 | sd '.*?\\s+(\\d+)Mhz\\s+.*' '$1') $(cat /sys/class/drm/card0/device/gpu_busy_percent)",
     "exec-if": "true",
     "interval": 1,
     "format": "{}",

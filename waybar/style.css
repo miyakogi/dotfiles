@@ -117,6 +117,7 @@ window#waybar.FHD {
 
 #custom-swayidle {
   color: @crust;
+  font-family: "Symbols Nerd Font";
   border-radius: 1rem;
   margin: 0rem 0.1rem;
   padding: 0rem 1rem;
@@ -135,6 +136,7 @@ window#waybar.FHD {
 
 #custom-mic {
   color: @crust;
+  font-family: "Symbols Nerd Font";
   border-radius: 1rem;
   margin: 0rem 0.1rem;
   padding: 0px;
@@ -154,6 +156,7 @@ window#waybar.FHD {
 
 #custom-ff-volume {
   color: @crust;
+  font-family: "Symbols Nerd Font";
   border-radius: 1rem;
   margin: 0rem 0.1rem;
   padding: 0px;
