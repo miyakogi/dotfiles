@@ -178,11 +178,15 @@ vim.keymap.set({'n', 'x'}, 'S', '0')
 vim.keymap.set({'n', 'x'}, 'L', '$')
 
 vim.keymap.set({'n', 'x'}, 'gs', '^')  -- from helix-editor
-vim.keymap.set({'n', 'x'}, 'gh', '0')  -- from helix-editor
-vim.keymap.set({'n', 'x'}, 'gl', '$')  -- from helix-editor
+vim.keymap.set({'n', 'x'}, 'gt', '0')  -- from helix-editor
+vim.keymap.set({'n', 'x'}, 'gh', '$')  -- from helix-editor
+vim.keymap.set({'n', 'x'}, '-t', '^')  -- from helix-editor
+vim.keymap.set({'n', 'x'}, '-h', '$')  -- from helix-editor
 
 -- Go to file end
 vim.keymap.set({'n', 'x'}, 'ge', 'G') -- from helix-editor
+vim.keymap.set({'n', 'x'}, '-e', 'G') -- from helix-editor
+vim.keymap.set({'n', 'x'}, '--', 'gg') -- from helix-editor
 
 -- Redo
 vim.keymap.set('n', 'U', '<C-r>')  -- from helix-editor
