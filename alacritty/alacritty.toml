@@ -9,17 +9,6 @@ size = 12.0
 
 [font.normal]
 family = "Lilex Nerd Font"
-style = "Normal"
-
-[font.bold]
-family = "Lilex Nerd Font"
-
-[font.italic]
-family = "Lilex Nerd Font"
-style = "Normal"
-
-[font.bold_italic]
-family = "Lilex Nerd Font"
 
 [[hints.enabled]]
 action = "Copy"
