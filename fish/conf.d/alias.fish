@@ -3,6 +3,9 @@
 # vim-style exit
 abbr --add --global :q "exit"
 
+# short ls
+abbr --add --global l "ls"
+
 # mv -i (ask on overwrite)
 abbr --add --global mv "mv -i"
 
