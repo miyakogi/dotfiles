@@ -47,6 +47,7 @@ window#waybar.FHD {
 .modules-right {
   border-radius: 0rem;
   margin: 0px 16px;
+  padding-bottom: 1px;
 }
 
 .modules-center {
@@ -220,14 +221,14 @@ window#waybar.FHD #workspaces button.active {
 
 #custom-temperature.Warning {
   color: @red;
-  border-bottom: solid 3px @red;
+  border-bottom: solid 1px @red;
   font-weight: bold;
 }
 
 #custom-temperature.Critical {
   color: @crust;
   background-color: @red;
-  border-bottom: solid 3px @red;
+  border-bottom: solid 1px @red;
   font-weight: bold;
 }
 
