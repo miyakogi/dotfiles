@@ -10,6 +10,13 @@
 @define-color subtle @overlay1;
 @define-color dim shade(alpha(@highlight, 0.4), 1.3);
 
+@define-color arch #1793d3;
+
+* {
+  min-height: 0;
+  transition-duration: 0.3s;
+}
+
 window#waybar {
   background-color: transparent;
 }
@@ -28,11 +35,11 @@ window#waybar {
 }
 
 window#waybar.4K {
-  font-size: 12.0pt;
+  font-size: 11.0pt;
 }
 
 window#waybar.FHD {
-  font-size: 9pt;
+  font-size: 9.0pt;
 }
 
 .modules-left,
@@ -47,45 +54,52 @@ window#waybar.FHD {
 }
 
 #custom-os {
-  color: #1793d1;
+  color: @arch;
   padding: 0rem 0.5rem;
+  border-bottom: solid 1px @arch;
 }
 
 #workspaces {
   background-color: transparent;
   padding: 0;
   margin: 0;
-  transition-duration: 3s;
 }
 
 #workspaces button, button {
   background-color: @surface0;
   border-radius: 1rem;
-  padding: 0rem 0.42rem;
+  padding: 0rem 0.15rem;
   margin: 0rem 0.3rem;
-  transition-duration: 0.3s;
 }
 
 #workspaces button.persistent {
   background-color: @lavender;
-  transition-duration: 0.3s;
 }
 
 #workspaces button.empty {
   background-color: @surface2;
-  transition-duration: 0.3s;
 }
 
 #workspaces button.visible {
   background-color: @lavender;
-  padding: 0rem 1.25rem;
-  transition-duration: 0.3s;
+  padding: 0rem 1.00rem;
 }
 
 #workspaces button.active {
   background-color: @sky;
-  padding: 0rem 1.25rem;
-  transition-duration: 0.3s;
+  padding: 0rem 1.00rem;
+}
+
+window#waybar.FHD #workspaces button, button {
+  padding: 0rem 0.0rem;
+}
+
+window#waybar.FHD #workspaces button.visible {
+  padding: 0rem 0.65rem;
+}
+
+window#waybar.FHD #workspaces button.active {
+  padding: 0rem 0.75rem;
 }
 
 #custom-media {
@@ -102,13 +116,13 @@ window#waybar.FHD {
 #custom-media.Playing {
   color: @text;
   padding: 0rem 1rem;
-  box-shadow: inset 0px -6px @mauve;
+  box-shadow: inset 0px -4px @mauve;
 }
 
 #custom-media.Paused {
   color: @subtext0;
   padding: 0rem 1rem;
-  box-shadow: inset 0px -6px @subtext0;
+  box-shadow: inset 0px -4px @subtext0;
 }
 
 #custom-media.Stopped {
@@ -125,13 +139,11 @@ window#waybar.FHD {
 
 #custom-swayidle.Idle {
   background-color: @muted;
-  transition-duration: 0.3s;
 }
 
 #custom-swayidle.Info {
   background-color: @red;
   padding: 0rem 1.5rem;
-  transition-duration: 0.3s;
 }
 
 #custom-mic {
@@ -145,13 +157,11 @@ window#waybar.FHD {
 #custom-mic.Idle {
   background-color: @muted;
   padding: 0rem 1.2rem;
-  transition-duration: 0.3s;
 }
 
 #custom-mic.Info {
   background-color: @red;
   padding: 0rem 1.8rem;
-  transition-duration: 0.3s;
 }
 
 #custom-ff-volume {
@@ -164,20 +174,18 @@ window#waybar.FHD {
 
 #custom-ff-volume.Idle {
   background-color: @muted;
-  transition-duration: 0.3s;
   padding: 0rem 1.0rem;
 }
 
 #custom-ff-volume.Info {
   background-color: @maroon;
-  transition-duration: 0.3s;
   padding: 0rem 1.5rem;
 }
 
 #cpu {
   color: @sapphire;
   border-radius: 0rem;
-  border-bottom: solid 3px @sapphire;
+  border-bottom: solid 1px @sapphire;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -186,7 +194,7 @@ window#waybar.FHD {
 #memory {
   color: @pink;
   border-radius: 0rem;
-  border-bottom: solid 3px @pink;
+  border-bottom: solid 1px @pink;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -195,7 +203,7 @@ window#waybar.FHD {
 #custom-gpu {
   color: @yellow;
   border-radius: 0rem;
-  border-bottom: solid 3px @yellow;
+  border-bottom: solid 1px @yellow;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -204,7 +212,7 @@ window#waybar.FHD {
 #custom-temperature {
   color: @green;
   border-radius: 0rem;
-  border-bottom: solid 3px @green;
+  border-bottom: solid 1px @green;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -234,7 +242,7 @@ window#waybar.FHD {
   background-color: @background;
   color: @text;
   border-radius: 0rem;
-  border-bottom: solid 3px @teal;
+  border-bottom: solid 1px @teal;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
 }
@@ -247,74 +255,7 @@ tooltip {
   background-color: @background;
   color: #ffffff;
   border-radius: 0rem;
-  border-bottom: solid 3px @text;
+  border-bottom: solid 1px @text;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
-}
-
-/*=========*
- *
- * Side Bar
- *
- *=========*/
-
-#waybar.SideBar {
-  font-size: 15pt;
-}
-
-#waybar.SideBar .modules-left,
-#waybar.SideBar .modules-center,
-#waybar.SideBar .modules-right {
-  border-radius: 0rem;
-  margin: 0px 0px;
-}
-
-#waybar.SideBar .modules-center {
-  min-width: 0;
-}
-
-#taskbar {
-  margin-top: 10px;
-  margin-left: 0px;
-  margin-right: 10px;
-}
-
-#taskbar button {
-  background-color: @base;
-  padding: 10px 0px;
-  border-left: solid 6px @surface1;
-  border-radius: 0% 25% 25% 0% / 0% 50% 50% 0%;
-}
-
-#taskbar button.active {
-  background-color: @surface0;
-  border-left: solid 6px @sky;
-}
-
-#waybar.SideBar #cpu {
-  border-bottom: none;
-  border-left: solid 6px @sapphire;
-}
-
-#waybar.SideBar #memory {
-  border-bottom: none;
-  border-left: solid 6px @pink;
-}
-
-#waybar.SideBar #custom-gpu {
-  border-bottom: none;
-  border-left: solid 6px @yellow;
-}
-
-#waybar.SideBar #temperature {
-  background-color: @background;
-  color: @green;
-  border-bottom: none;
-  border-left: solid 6px @green;
-  margin: 0rem 0.1rem;
-}
-
-#waybar.SideBar #tray {
-  border-bottom: none;
-  border-left: solid 6px @text;
 }
