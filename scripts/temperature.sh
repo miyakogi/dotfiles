@@ -20,10 +20,10 @@ case "$1" in
 esac
 
 if [ "$1" = all ]; then
-  if [ "$ctemp" -lt 60 ] && [ "$gtemp" -lt 65 ]; then
+  if [ "$ctemp" -lt 65 ] && [ "$gtemp" -lt 65 ]; then
     class="Idle"
     icon=""  # low
-  elif [ "$ctemp" -lt 75 ] && [ "$gtemp" -lt 80 ]; then
+  elif [ "$ctemp" -lt 80 ] && [ "$gtemp" -lt 80 ]; then
     class="Warning"
     icon=""  # default
   else
