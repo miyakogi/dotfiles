@@ -42,6 +42,5 @@ else
     class="Critical"
     icon=""  # high
   fi
+  echo -n "{ \"text\": \"${icon}  ${temp}°C\", \"$1\": \"$class\" }"
 fi
-
-echo -n "{ \"text\": \"${icon}  ${temp}°C\", \"$1\": \"$class\" }"
