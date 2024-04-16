@@ -6,6 +6,10 @@ abbr --add --global :q "exit"
 # short ls
 abbr --add --global l "ls"
 
+
+# short cd
+abbr --add --global c "cd"
+
 # mv -i (ask on overwrite)
 abbr --add --global mv "mv -i"
 
