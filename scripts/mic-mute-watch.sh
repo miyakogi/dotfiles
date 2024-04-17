@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+space="\u2006"
 case "$XDG_SESSION_DESKTOP" in
   sway)
     class="state";;
@@ -10,7 +11,7 @@ case "$XDG_SESSION_DESKTOP" in
 esac
 
 if pulsemixer --list-sources | grep 'Name: USB PnP Audio Device Mono' | grep 'Mute: 0' &>/dev/null; then
-  echo -n -e "{\"$class\": \"Info\", \"text\": \"\u2005\"}"
+  echo -n -e "{\"$class\": \"Info\", \"text\": \"${space}\"}"
 else
-  echo -n -e "{\"$class\": \"Idle\", \"text\": \"\u2005\"}"
+  echo -n -e "{\"$class\": \"Idle\", \"text\": \"${space}\"}"
 fi
