@@ -99,7 +99,7 @@ window#waybar.FHD #workspaces button.visible {
 }
 
 window#waybar.FHD #workspaces button.active {
-  padding: 0rem 0.75rem;
+  padding: 0rem 0.65rem;
 }
 
 #custom-media {
