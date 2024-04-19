@@ -46,7 +46,7 @@ window#waybar.FHD {
 .modules-center,
 .modules-right {
   border-radius: 0rem;
-  margin: 1px 16px;
+  margin: 0px 16px 1px;
 }
 
 .modules-center {
