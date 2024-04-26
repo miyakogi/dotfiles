@@ -45,3 +45,6 @@ startup_mode = "Maximized"
 [window.padding]
 x = 6
 y = 6
+
+[scrolling]
+history = 10000
