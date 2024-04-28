@@ -165,7 +165,7 @@ def install_base() -> None:
     install(BASEDIR / "gitui", CONFIG_HOME / "gitui")
 
     # rust/cargo
-    install(BASEDIR / "cargo" / "config", HOME / ".cargo" / "config")
+    install(BASEDIR / "cargo" / "config.toml", HOME / ".cargo" / "config.toml")
 
     # pip (pip's --no-binary option for some packages on linux)
     install(BASEDIR / "pip", CONFIG_HOME / "pip")
