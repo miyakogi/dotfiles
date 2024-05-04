@@ -66,10 +66,6 @@ Select Window Manager or Shell:
         set wm "$choice"
     end
 
-    if string match -r '[Hh]yp.*' "$wm"
-      set wm "Hyprland"
-    end
-
     # GTK
     export GTK_THEME=Adwaita:dark
 
