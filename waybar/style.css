@@ -1,7 +1,7 @@
 @import "catppuccin-mocha.css";
 
 @define-color foreground @subtext0;
-@define-color background @base;
+@define-color background @mantle;
 
 @define-color highlight @mauve;
 @define-color highlight-alt @pink;
