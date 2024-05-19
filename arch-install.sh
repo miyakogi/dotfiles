@@ -171,8 +171,7 @@ if [ "$install_type" = "full" ]; then
 
     # hyprland
     hyprland
-    hyprpaper
-    waybar-git
+    waybar
     waybar-mpris-git
 
     # kye/mouse
