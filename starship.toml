@@ -87,7 +87,7 @@ style = "bold blue"
 format = "[$symbol ]($style)"
 symbol = "󰕥"
 style = "bold yellow"
-disabled = false
+disabled = true
 
 [custom.giturl]
 description = "Display symbol for remote Git server"
