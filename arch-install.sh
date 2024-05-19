@@ -177,7 +177,6 @@ if [ "$install_type" = "full" ]; then
 
     # kye/mouse
     keyd-git
-    ydotool-git
 
     # multimedia
     pulsemixer  # used by volume check/fix scripts on i3status-rust
