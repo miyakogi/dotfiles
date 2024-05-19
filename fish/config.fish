@@ -91,7 +91,6 @@ Select Window Manager or Shell:
       systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
 
       # wlroots
-      export WLR_RENDERER=vulkan
       export WLR_DRM_NO_MODIFIERS=1
       export XCURSOR_THEME='Sweet-cursors'
       export XCURSOR_SIZE=26
