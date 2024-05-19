@@ -1,7 +1,7 @@
 bs-hl-color=ed8796
 clock
 datestr=%b. %-d, %Y
-effect-blur=24x4
+effect-blur=48x8
 effect-vignette=0.3:0.7
 fade-in=0.200000
 font=Moralerspace Xenon NF
