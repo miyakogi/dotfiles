@@ -82,9 +82,10 @@
     "spacing": 8,
   },
 }, {
-  "layer": "bottom",
-  "output": ["DP-2"],
+  "layer": "top",
+  "output": ["HDMI-A-1"],
   "name": "FHD",
+  "position": "bottom",
   "spacing": 4,
   "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
@@ -93,7 +94,7 @@
     "on-click": "activate",
     "format": "",
     "persistent-workspaces": {
-      "DP-2": 10,
+      "HDMI-A-1": 10,
     },
   },
   "custom/clock": {
