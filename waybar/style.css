@@ -174,12 +174,12 @@ window#waybar.FHD #workspaces button.active {
 
 #custom-ff-volume.Idle {
   background-color: @muted;
-  padding: 0rem 1.0rem;
+  padding: 0rem 1.2rem;
 }
 
 #custom-ff-volume.Info {
   background-color: @maroon;
-  padding: 0rem 1.5rem;
+  padding: 0rem 2.0rem;
 }
 
 #cpu {
