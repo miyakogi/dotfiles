@@ -25,4 +25,4 @@ options+=(
   --override=font-bold-italic="Moralerspace Radon NF:weight=800:size=$fontsize"
 )
 
-foot "${options[@]}" "$@"
+footclient "${options[@]}" "$@"
