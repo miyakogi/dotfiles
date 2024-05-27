@@ -93,7 +93,7 @@ vim.opt.scrolloff = 5  -- min lines of up/bottom of cursor
 vim.opt.sidescrolloff = 5  -- min cols of left/right of cursor
 vim.opt.wrap = true  -- wrap long line (only on display)
 vim.opt.number = false  -- disable number sign col
-vim.opt.showcmd = true  -- show show some command in the end of cmd win
+vim.opt.showcmd = true  -- show some command in the end of cmd win
 vim.opt.report = 2  -- threshold for reporting number of lines changed
 vim.opt.ruler = false
 
