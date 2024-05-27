@@ -43,8 +43,8 @@ flags=(
   --use-vulkan
 
   # see: https://note.com/chappy_gbf/n/n77d1439b303f
-  --enable-quic
-  --enable-experimental-web-platform-features
+  #--enable-quic
+  #--enable-experimental-web-platform-features
   --enable-parallel-downloading
 )
 
@@ -59,6 +59,8 @@ features="$features,EnableDrDc"
 # -> still broken on YouTube overlay
 #features="$features,RawDraw"
 
+d_features="UseChromeOSDirectVideoDecode"
+
 # --- Set Platform Specific Features/Flags ---
 if [ "$1" = "wayland" ]; then
   # Enable pipewire support for WebRTC screen sharing
@@ -69,6 +71,7 @@ if [ "$1" = "wayland" ]; then
 
   flags+=(
     --enable-features="$features"
+    --disable-features="$d_features"
 
     # Native gpu memory buffers are enabled on wayland by default,
     # but this flag enables some more gpu memory access
