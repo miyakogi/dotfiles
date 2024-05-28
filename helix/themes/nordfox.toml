@@ -164,7 +164,7 @@ bg4 = "#5a657d"  # Conceal, border fg
 fg0 = "#c7cdd9"  # Lighter fg
 fg1 = "#cdcecf"  # Default fg
 fg2 = "#abb1bb"  # Darker fg (status line)
-fg3 = "#7e8188"  # Darker fg (line numbers, fold colums)
+fg3 = "#7e8188"  # Darker fg (line numbers, fold columns)
 
 sel0 = "#3e4a5b"  # Popup bg, visual selection bg
 sel1 = "#4f6074"  # Popup sel bg, search bg
