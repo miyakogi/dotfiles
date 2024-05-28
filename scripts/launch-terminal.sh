@@ -8,6 +8,7 @@ list_terminals() {
     foot
     alacritty
     kitty
+    havoc
     wezterm
   )
   for t in "${terminals[@]}"; do
