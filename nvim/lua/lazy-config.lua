@@ -608,7 +608,7 @@ local plugins = {
       )
     end,
     config = function()
-      -- gloabally set `,`
+      -- globally set `,`
       --vim.keymap.set('i', ',', function() vim.fn['smartchr#loop'](', ', ',') end, { expr = true, noremap = true })
       -- `vim.keymap.set` does not work...
       vim.cmd([[
