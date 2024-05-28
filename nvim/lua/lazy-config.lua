@@ -331,6 +331,14 @@ local plugins = {
         document_text_change = 150,
       }
 
+      -- spell check
+      if vim.fn.executable('typos-lsp') > 0 then
+        require('lspconfig').typos_lsp.setup({
+          on_attach = on_attach,
+          flags = lsp_flags,
+        })
+      end
+
       -- bash
       -- requires `shellcheck` command to enable diagnostic
       if vim.fn.executable('bash-language-server') > 0 then
@@ -524,7 +532,6 @@ local plugins = {
         },
         python = {
           'ruff',
-          'typos',
         },
       }
 
