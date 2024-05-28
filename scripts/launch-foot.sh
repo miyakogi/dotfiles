@@ -7,9 +7,6 @@ options=()
 if ! is-4k; then
   # FHD monitor
   fontsize="10.5"
-  options+=(
-    --override=pad="6x0 center"
-  )
 elif [ "$XDG_CURRENT_DESKTOP" = "sway" ]; then
   # no scaling 4K monitor
   fontsize="12.0"
