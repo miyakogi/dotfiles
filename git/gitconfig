@@ -1,6 +1,5 @@
 [core]
   quotepath = false
-  editor = helix
   excludesfile = ~/.gitignore_global
   preloadindex = true
   fscashe = true
