@@ -8,7 +8,7 @@ draw_bold_text_with_bright_colors = false
 size = 12.0
 
 [font.normal]
-family = "Lilex Nerd Font"
+family = "Moralerspace Neon NF"
 
 [[hints.enabled]]
 action = "Copy"
