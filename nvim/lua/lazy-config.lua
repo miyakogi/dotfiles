@@ -726,17 +726,15 @@ local plugins = {
 
   -- ### ColorScheme ###
   {
-    'rose-pine/neovim',
-    name = 'rose-pine',
+    'https://codeberg.org/miyaco/iceberg-tokyo.nvim',
     config = function()
-      require('rose-pine').setup({
-        styles = {
-          bold = true,
-          italic = true,
-          transparency = true,
-        },
-      })
-      vim.cmd.colorscheme('rose-pine')
+      vim.cmd.colorscheme('iceberg-tokyo')
+      vim.cmd([[
+        highlight Normal ctermbg=NONE guibg=NONE
+        highlight LineNr ctermbg=NONE guibg=NONE
+        highlight SignColumn ctermbg=NONE guibg=NONE
+        highlight NonText ctermbg=NONE guibg=NONE
+      ]])
     end,
   },
 
