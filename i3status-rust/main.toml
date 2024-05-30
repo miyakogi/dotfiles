@@ -13,8 +13,8 @@ interval = 1
 button = "left"
 cmd = "sway-idle-toggle"
 [block.theme_overrides]
-idle_fg = "#6c7086"  # comment color
-info_fg = "#eba0ac"  # maroon
+idle_fg = "#6e6a86"  # comment color
+info_fg = "#ebbcba"  # rose
 
 [[block]]
 block = "custom"
@@ -26,8 +26,8 @@ persistent = true
 button = "left"
 cmd = "ff-volume-toggle"
 [block.theme_overrides]
-idle_fg = "#6c7086"  # comment color
-info_fg = "#eba0ac"  # maroon
+idle_fg = "#6e6a86"  # comment color
+info_fg = "#ebbcba"  # rose
 
 [[block]]
 block = "music"
@@ -43,7 +43,7 @@ cmd = "playerctl previous"
 button = "down"
 cmd = "playerctl next"
 [block.theme_overrides]
-info_fg = "#cba6f7"  # mauve
+info_fg = "#c4a7e7"  # iris
 
 [[block]]
 block = "time"
