@@ -749,6 +749,9 @@ local plugins = {
         indent = {
           char = '▏',
         },
+        scope = {
+          enabled = false,
+        },
       })
     end,
   },
