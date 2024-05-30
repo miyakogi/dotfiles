@@ -712,9 +712,6 @@ local plugins = {
       {
         'nvim-tree/nvim-web-devicons',
         lazy = true,
-      }, {
-        'catppuccin/nvim',
-        name = 'catppuccin',
       },
     },
     config = function()
@@ -722,7 +719,6 @@ local plugins = {
         options = {
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
-          theme = 'catppuccin',
         },
       })
     end,
@@ -730,40 +726,17 @@ local plugins = {
 
   -- ### ColorScheme ###
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000,
+    'rose-pine/neovim',
+    name = 'rose-pine',
     config = function()
-      require('catppuccin').setup({
-        flavour = 'mocha',
-        background = {
-          light = 'latte',
-          dark = 'mocha',
-        },
-        transparent_background = true,
-        no_italic = true,
+      require('rose-pine').setup({
         styles = {
-          comments = { "italic" },
-        },
-        integrations = {
-          gitsigns = true,
-          nvimtree = true,
-          treesitter = true,
-          indent_blankline = {
-            enabled = true,
-          },
-          leap = true,
-          noice = true,
-          native_lsp = {
-            enabled = true,
-          },
-          ts_rainbow = true,
-          telescope = {
-            enabled = true,
-          },
+          bold = true,
+          italic = true,
+          transparency = true,
         },
       })
-      vim.cmd.colorscheme('catppuccin')
+      vim.cmd.colorscheme('rose-pine')
     end,
   },
 
