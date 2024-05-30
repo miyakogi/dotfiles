@@ -1,13 +1,11 @@
-@import "catppuccin-mocha.css";
+@import "rose-pine.css";
 
-@define-color foreground @subtext0;
-@define-color background @mantle;
+@define-color foreground @text;
+@define-color background @base;
 
-@define-color highlight @mauve;
-@define-color highlight-alt @pink;
+@define-color highlight @rose;
+@define-color highlight-alt @iris;
 @define-color sep alpha(@highlight-alt, 0.7);
-@define-color muted @overlay0;
-@define-color subtle @overlay1;
 @define-color dim shade(alpha(@highlight, 0.4), 1.3);
 
 @define-color arch #1793d3;
@@ -66,27 +64,27 @@ window#waybar.FHD {
 }
 
 #workspaces button, button {
-  background-color: @surface0;
+  background-color: @highlightMed;
   border-radius: 1rem;
   padding: 0rem 0.15rem;
   margin: 0rem 0.3rem;
 }
 
 #workspaces button.persistent {
-  background-color: @lavender;
+  background-color: @subtle;
 }
 
 #workspaces button.empty {
-  background-color: @surface2;
+  background-color: @highlightMed;
 }
 
 #workspaces button.visible {
-  background-color: @lavender;
+  background-color: @subtle;
   padding: 0rem 1.00rem;
 }
 
 #workspaces button.active {
-  background-color: @sky;
+  background-color: @foam;
   padding: 0rem 1.00rem;
 }
 
@@ -114,15 +112,15 @@ window#waybar.FHD #workspaces button.active {
 }
 
 #custom-media.Playing {
-  color: @text;
+  color: @iris;
   padding: 0rem 1rem;
-  box-shadow: inset 0px -4px @mauve;
+  box-shadow: inset 0px -4px @iris;
 }
 
 #custom-media.Paused {
-  color: @subtext0;
+  color: @subtle;
   padding: 0rem 1rem;
-  box-shadow: inset 0px -4px @subtext0;
+  box-shadow: inset 0px -4px @subtle;
 }
 
 #custom-media.Stopped {
@@ -130,7 +128,7 @@ window#waybar.FHD #workspaces button.active {
 }
 
 #custom-swayidle {
-  color: @crust;
+  color: @background;
   font-family: "Symbols Nerd Font";
   border-radius: 1rem;
   margin: 0rem 0.1rem;
@@ -138,16 +136,16 @@ window#waybar.FHD #workspaces button.active {
 } 
 
 #custom-swayidle.Idle {
-  background-color: @muted;
+  background-color: @highlightHigh;
 }
 
 #custom-swayidle.Info {
-  background-color: @red;
+  background-color: @love;
   padding: 0rem 1.5rem;
 }
 
 #custom-mic {
-  color: @crust;
+  color: @background;
   font-family: "Symbols Nerd Font";
   border-radius: 1rem;
   margin: 0rem 0.1rem;
@@ -155,17 +153,17 @@ window#waybar.FHD #workspaces button.active {
 } 
 
 #custom-mic.Idle {
-  background-color: @muted;
+  background-color: @highlightHigh;
   padding: 0rem 1.2rem;
 }
 
 #custom-mic.Info {
-  background-color: @red;
+  background-color: @love;
   padding: 0rem 1.8rem;
 }
 
 #custom-ff-volume {
-  color: @crust;
+  color: @background;
   font-family: "Symbols Nerd Font";
   border-radius: 1rem;
   margin: 0rem 0.1rem;
@@ -173,76 +171,76 @@ window#waybar.FHD #workspaces button.active {
 } 
 
 #custom-ff-volume.Idle {
-  background-color: @muted;
+  background-color: @highlightHigh;
   padding: 0rem 1.2rem;
 }
 
 #custom-ff-volume.Info {
-  background-color: @maroon;
+  background-color: @rose;
   padding: 0rem 2.0rem;
 }
 
 #cpu {
-  color: @sapphire;
+  color: @foam;
   border-radius: 0rem;
-  border-bottom: solid 1px @sapphire;
+  border-bottom: solid 1px @foam;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
 }
 
 #memory {
-  color: @pink;
+  color: @rose;
   border-radius: 0rem;
-  border-bottom: solid 1px @pink;
+  border-bottom: solid 1px @rose;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
 }
 
 #custom-gpu {
-  color: @yellow;
+  color: @gold;
   border-radius: 0rem;
-  border-bottom: solid 1px @yellow;
+  border-bottom: solid 1px @gold;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
 }
 
 #custom-temperature {
-  color: @green;
+  color: @pine;
   border-radius: 0rem;
-  border-bottom: solid 1px @green;
+  border-bottom: solid 1px @pine;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
 }
 
 #custom-temperature.Warning {
-  color: @red;
-  border-bottom: solid 1px @red;
+  color: @love;
+  border-bottom: solid 1px @love;
   font-weight: bold;
 }
 
 #custom-temperature.Critical {
-  color: @crust;
-  background-color: @red;
-  border-bottom: solid 1px @red;
+  color: @background;
+  background-color: @love;
+  border-bottom: solid 1px @love;
   font-weight: bold;
 }
 
 #custom-update.info {
-  color: @red;
-  border-bottom: solid 3px @red;
+  color: @iris;
+  border-bottom: solid 3px @iris;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
 }
 
 #custom-clock, #clock {
   background-color: @background;
-  color: @text;
+  color: @subtle;
   border-radius: 0rem;
-  border-bottom: solid 1px @teal;
+  border-bottom: solid 1px @foam;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
 }

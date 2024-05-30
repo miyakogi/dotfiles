@@ -186,7 +186,6 @@ def install_base() -> None:
     install(NVIM_BASE / "manrc", NVIM_HOME / "manrc")
     install(NVIM_BASE / "lua", NVIM_HOME / "lua")
     install(NVIM_BASE / "after", NVIM_HOME / "after")
-    install(NVIM_BASE / "colors", NVIM_HOME / "colors")
     install(NVIM_BASE / "ftplugin", NVIM_HOME / "ftplugin")
     install(NVIM_BASE / "snippets", NVIM_HOME / "snippets")
 
@@ -267,6 +266,7 @@ def install_desktop() -> None:
     install(BASEDIR / "hypr" / "hyprland.conf", CONFIG_HOME / "hypr" / "hyprland.conf")
     install(BASEDIR / "hypr" / "catppuccin-macchiato.conf", CONFIG_HOME / "hypr" / "catppuccin-macchiato.conf")
     install(BASEDIR / "hypr" / "catppuccin-mocha.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha.conf")
+    install(BASEDIR / "hypr" / "rose-pine.conf", CONFIG_HOME / "hypr" / "rose-pine.conf")
     install(BASEDIR / "hypr" / "hyprpaper.conf", CONFIG_HOME / "hypr" / "hyprpaper.conf")
 
     # swaylock
