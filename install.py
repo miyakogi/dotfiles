@@ -267,6 +267,7 @@ def install_desktop() -> None:
     install(BASEDIR / "hypr" / "catppuccin-macchiato.conf", CONFIG_HOME / "hypr" / "catppuccin-macchiato.conf")
     install(BASEDIR / "hypr" / "catppuccin-mocha.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha.conf")
     install(BASEDIR / "hypr" / "rose-pine.conf", CONFIG_HOME / "hypr" / "rose-pine.conf")
+    install(BASEDIR / "hypr" / "iceberg-tokyo.conf", CONFIG_HOME / "hypr" / "iceberg-tokyo.conf")
     install(BASEDIR / "hypr" / "hyprpaper.conf", CONFIG_HOME / "hypr" / "hyprpaper.conf")
 
     # swaylock
