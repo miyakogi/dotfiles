@@ -347,7 +347,6 @@ def install_desktop() -> None:
     # wlroots services
     install_service("swayidle.service")
     install_service("fnott.service")
-    install_service("ydotoold.service")
 
     # for Sway
     install_service("autotiling.service")
