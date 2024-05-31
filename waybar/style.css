@@ -1,12 +1,7 @@
-@import "rose-pine.css";
+@import "iceberg-tokyo.css";
 
 @define-color foreground @text;
 @define-color background @base;
-
-@define-color highlight @rose;
-@define-color highlight-alt @iris;
-@define-color sep alpha(@highlight-alt, 0.7);
-@define-color dim shade(alpha(@highlight, 0.4), 1.3);
 
 @define-color arch #1793d3;
 
@@ -64,7 +59,7 @@ window#waybar.FHD {
 }
 
 #workspaces button, button {
-  background-color: @highlightMed;
+  background-color: @muted;
   border-radius: 1rem;
   padding: 0rem 0.15rem;
   margin: 0rem 0.3rem;
@@ -75,7 +70,7 @@ window#waybar.FHD {
 }
 
 #workspaces button.empty {
-  background-color: @highlightMed;
+  background-color: @muted;
 }
 
 #workspaces button.visible {
@@ -84,7 +79,7 @@ window#waybar.FHD {
 }
 
 #workspaces button.active {
-  background-color: @foam;
+  background-color: @cyan;
   padding: 0rem 1.00rem;
 }
 
@@ -112,9 +107,9 @@ window#waybar.FHD #workspaces button.active {
 }
 
 #custom-media.Playing {
-  color: @iris;
+  color: @magenta;
   padding: 0rem 1rem;
-  box-shadow: inset 0px -4px @iris;
+  box-shadow: inset 0px -4px @magenta;
 }
 
 #custom-media.Paused {
@@ -136,11 +131,11 @@ window#waybar.FHD #workspaces button.active {
 } 
 
 #custom-swayidle.Idle {
-  background-color: @highlightHigh;
+  background-color: @muted;
 }
 
 #custom-swayidle.Info {
-  background-color: @love;
+  background-color: @red;
   padding: 0rem 1.5rem;
 }
 
@@ -153,12 +148,12 @@ window#waybar.FHD #workspaces button.active {
 } 
 
 #custom-mic.Idle {
-  background-color: @highlightHigh;
+  background-color: @muted;
   padding: 0rem 1.2rem;
 }
 
 #custom-mic.Info {
-  background-color: @love;
+  background-color: @red;
   padding: 0rem 1.8rem;
 }
 
@@ -171,17 +166,17 @@ window#waybar.FHD #workspaces button.active {
 } 
 
 #custom-ff-volume.Idle {
-  background-color: @highlightHigh;
+  background-color: @muted;
   padding: 0rem 1.2rem;
 }
 
 #custom-ff-volume.Info {
-  background-color: @rose;
+  background-color: @red;
   padding: 0rem 2.0rem;
 }
 
 #cpu {
-  color: @foam;
+  color: @cyan;
   border-radius: 0rem;
   border-bottom: solid 1px @foam;
   margin: 0rem 0.1rem;
@@ -190,7 +185,7 @@ window#waybar.FHD #workspaces button.active {
 }
 
 #memory {
-  color: @rose;
+  color: @green;
   border-radius: 0rem;
   border-bottom: solid 1px @rose;
   margin: 0rem 0.1rem;
@@ -199,7 +194,7 @@ window#waybar.FHD #workspaces button.active {
 }
 
 #custom-gpu {
-  color: @gold;
+  color: @yellow;
   border-radius: 0rem;
   border-bottom: solid 1px @gold;
   margin: 0rem 0.1rem;
@@ -208,7 +203,7 @@ window#waybar.FHD #workspaces button.active {
 }
 
 #custom-temperature {
-  color: @pine;
+  color: @blue;
   border-radius: 0rem;
   border-bottom: solid 1px @pine;
   margin: 0rem 0.1rem;
@@ -217,30 +212,30 @@ window#waybar.FHD #workspaces button.active {
 }
 
 #custom-temperature.Warning {
-  color: @love;
-  border-bottom: solid 1px @love;
+  color: @red;
+  border-bottom: solid 1px @red;
   font-weight: bold;
 }
 
 #custom-temperature.Critical {
   color: @background;
-  background-color: @love;
-  border-bottom: solid 1px @love;
+  background-color: @red;
+  border-bottom: solid 1px @red;
   font-weight: bold;
 }
 
 #custom-update.info {
-  color: @iris;
-  border-bottom: solid 3px @iris;
+  color: @magenta;
+  border-bottom: solid 3px @magenta;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
 }
 
 #custom-clock, #clock {
   background-color: @background;
-  color: @subtle;
+  color: @foreground;
   border-radius: 0rem;
-  border-bottom: solid 1px @foam;
+  border-bottom: solid 1px @green;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
 }
@@ -253,7 +248,7 @@ tooltip {
   background-color: @background;
   color: #ffffff;
   border-radius: 0rem;
-  border-bottom: solid 1px @text;
+  border-bottom: solid 1px @foreground;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
 }
