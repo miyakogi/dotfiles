@@ -13,6 +13,8 @@ set $magenta     #a093c7
 set $cyan        #89b8c2
 set $white       #c0caf5
 
+set $muted       #444b71
+set $comment     #6b7089
 set $subtle      #818596
 
 # semi-transparent colors
