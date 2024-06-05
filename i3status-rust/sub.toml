@@ -15,12 +15,12 @@ interval = 0.5
 button = "left"
 cmd = "mic-mute-toggle"
 [block.theme_overrides]
-idle_fg = "#818596"  # comment color
+idle_fg = "#6b7089"  # comment
 info_fg = "#e27878"  # red
 
 [[block]]
 block = "cpu"
-format = '<span color="#89b8c2">$barchart</span> $utilization'
+format = '<span color="#84a0c6">$barchart</span> $utilization'  # blue
 interval = 1
 
 [[block]]
