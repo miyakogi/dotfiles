@@ -1,8 +1,8 @@
 (
     selected_tab: None,
-    command_fg: Some(Black),
+    command_fg: Some("Black"),
     selection_bg: None,
-    selection_fg: Some(Black),
+    selection_fg: Some("Black"),
     cmdbar_bg: None,
     cmdbar_extra_lines_bg: None,
     disabled_fg: None,
