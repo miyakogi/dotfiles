@@ -178,7 +178,7 @@ window#waybar.FHD #workspaces button.active {
 #cpu {
   color: @cyan;
   border-radius: 0rem;
-  border-bottom: solid 1px @foam;
+  border-bottom: solid 2px @cyan;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -187,7 +187,7 @@ window#waybar.FHD #workspaces button.active {
 #memory {
   color: @green;
   border-radius: 0rem;
-  border-bottom: solid 1px @rose;
+  border-bottom: solid 2px @green;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -196,7 +196,7 @@ window#waybar.FHD #workspaces button.active {
 #custom-gpu {
   color: @yellow;
   border-radius: 0rem;
-  border-bottom: solid 1px @gold;
+  border-bottom: solid 2px @yellow;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -205,7 +205,7 @@ window#waybar.FHD #workspaces button.active {
 #custom-temperature {
   color: @blue;
   border-radius: 0rem;
-  border-bottom: solid 1px @pine;
+  border-bottom: solid 2px @blue;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -213,14 +213,14 @@ window#waybar.FHD #workspaces button.active {
 
 #custom-temperature.Warning {
   color: @red;
-  border-bottom: solid 1px @red;
+  border-bottom: solid 2px @red;
   font-weight: bold;
 }
 
 #custom-temperature.Critical {
   color: @background;
   background-color: @red;
-  border-bottom: solid 1px @red;
+  border-bottom: solid 2px @red;
   font-weight: bold;
 }
 
@@ -235,7 +235,7 @@ window#waybar.FHD #workspaces button.active {
   background-color: @background;
   color: @foreground;
   border-radius: 0rem;
-  border-bottom: solid 1px @green;
+  border-bottom: solid 2px @subtle;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
 }
