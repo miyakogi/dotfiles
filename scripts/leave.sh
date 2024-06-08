@@ -27,21 +27,21 @@ fi
 # these colors may not be used - disable shellcheck warnings
 
 # shellcheck disable=SC2034
-white="#cdd6f4"
+white="#a9b1d6"
 # shellcheck disable=SC2034
-black="#1e1e2e"
+black="#161821"
 # shellcheck disable=SC2034
-red="#f38ba8"
+red="#e27878"
 # shellcheck disable=SC2034
-green="#a6e3a1"
+green="#b4be82"
 # shellcheck disable=SC2034
-yellow="#f9e2af"
+yellow="#e2a478"
 # shellcheck disable=SC2034
-blue="#89b4fa"
+blue="#84a0c6"
 # shellcheck disable=SC2034
-magenta="#f5c2e7"
+magenta="#a093c7"
 # shellcheck disable=SC2034
-cyan="#89dceb"
+cyan="#89b8c2"
 
 # set bemenu command options
 basecolor="$red"
