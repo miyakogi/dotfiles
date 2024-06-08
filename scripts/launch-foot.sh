@@ -8,11 +8,8 @@ font="Cascadia Code NF"
 if ! is-4k; then
   # FHD monitor
   fontsize="10.5"
-elif [ "$XDG_CURRENT_DESKTOP" = "sway" ]; then
-  # no scaling 4K monitor
-  fontsize="12.0"
 else
-  # scaled 4K monitor (Hyprland)
+  # scaled 4K monitor
   fontsize="12.0"
 fi
 
