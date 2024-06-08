@@ -16,5 +16,6 @@
 @define-color whete           #c0caf5;
 
 @define-color muted           #444b71;
+@define-color comment         #6b7089;
 @define-color subtle          #818596;
 @define-color text            @foreground;
