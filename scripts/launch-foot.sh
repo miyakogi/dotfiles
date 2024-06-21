@@ -7,10 +7,10 @@ font="Cascadia Code NF"
 
 if ! is-4k; then
   # FHD monitor
-  fontsize="10.5"
+  fontsize="12.0"
 else
   # scaled 4K monitor
-  fontsize="12.0"
+  fontsize="13.5"
 fi
 
 if [ -z "$font" ]; then

@@ -7,7 +7,7 @@ fade-in=0.200000
 font=Moralerspace Xenon NF
 grace=2
 indicator
-indicator-radius=320
+indicator-radius=420
 indicator-thickness=16
 inside-clear-color=84a0c699
 inside-color=00000000
