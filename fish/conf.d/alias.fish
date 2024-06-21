@@ -34,7 +34,6 @@ abbr --add --global pyunit "python -m unittest discover"
 if type -q nvim
   abbr --add --global vim nvim
   abbr --add --global vi "nvim --noplugin"
-  abbr --add --global n nvim
 end
 
 # editor
