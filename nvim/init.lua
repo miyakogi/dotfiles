@@ -175,10 +175,6 @@ vim.keymap.set({'n', 'x'}, 'g<Down>', '<Down>', { silent = true })
 vim.keymap.set({'n', 'x'}, 'g<Up>', '<Up>', { silent = true })
 
 -- Move to start/end of lines
-vim.keymap.set({'n', 'x'}, 'H', '^')
-vim.keymap.set({'n', 'x'}, 'S', '0')
-vim.keymap.set({'n', 'x'}, 'L', '$')
-
 vim.keymap.set({'n', 'x'}, 'gs', '^')  -- from helix-editor
 vim.keymap.set({'n', 'x'}, 'gt', '0')  -- from helix-editor
 vim.keymap.set({'n', 'x'}, 'gh', '$')  -- from helix-editor
