@@ -173,6 +173,10 @@ vim.keymap.set('n', 'gj', 'j', { silent = true })
 vim.keymap.set('n', 'gk', 'k', { silent = true })
 vim.keymap.set('x', 'gj', 'j', { silent = true })
 vim.keymap.set('x', 'gk', 'k', { silent = true })
+vim.keymap.set({'n', 'x'}, '<Down>', 'g<Down>', { silent = true })
+vim.keymap.set({'n', 'x'}, '<Up>', 'g<Up>', { silent = true })
+vim.keymap.set({'n', 'x'}, 'g<Down>', '<Down>', { silent = true })
+vim.keymap.set({'n', 'x'}, 'g<Up>', '<Up>', { silent = true })
 
 -- Move to start/end of lines
 vim.keymap.set({'n', 'x'}, 'H', '^')
