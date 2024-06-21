@@ -149,6 +149,8 @@ vim.opt.termguicolors = true
 -- Key Mapping
 -- =========================================================
 
+vim.g.mapleader = ","
+
 -- ======== Normal/Visual Cursor Move ========
 -- Swap colon/semicolon
 -- vim.keymap.set('n', ';', ':')
