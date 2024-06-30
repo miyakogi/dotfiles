@@ -194,6 +194,7 @@ if [ "$install_type" = "full" ]; then
     ttf-lilex-nerd  # monospace font
     ttf-moralerspece  # monospace font
     otf-cascadia-code  # monospace font
+    ttf-0xproto-nerd  # monospace font
     ttf-iosevka-nerd  # monospace font (narrow)
     ttf-nerd-fonts-symbols
     ttf-unifont
