@@ -3,7 +3,10 @@
 # Luanch foot terminal with different font size according to output name
 
 options=()
-font="Cascadia Code NF"
+# font="GoMono Nerd Font"
+font="0xProto Nerd Font"
+# font="Cascadia Code NF SemiLight"
+# font_bold="Cascadia Code NF SemiBold"
 
 if ! is-4k; then
   # FHD monitor
