@@ -1,4 +1,5 @@
 local wezterm = require('wezterm')
+local theme = require('lua/rose-pine').main
 
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
@@ -82,15 +83,8 @@ return {
 
   -- Tab bar
   use_fancy_tab_bar = true,
-  window_frame = {
-    font = font,
-    font_size = 18.0,
-
-    -- Tab colors
-    active_titlebar_bg = '#1e2132',  -- black (normal)
-    inactive_titlebar_bg = '#1e2132',  -- black (normal)
-  },
-  color_scheme = 'Catppuccin Mocha',
+  window_frame = theme.window_frame(),
+  colors = theme.colors(),
 
   hide_tab_bar_if_only_one_tab = true,
 
