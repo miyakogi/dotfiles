@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/iceberg-tokyo.toml"]
+import = ["~/.config/alacritty/rose-pine.toml"]
 ipc_socket = false
 
 [colors]
