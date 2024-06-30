@@ -192,8 +192,8 @@ if [ "$install_type" = "full" ]; then
     ttf-genjyuu-gothic  # jp sans-serif font
     morisawa-biz-ud-micho-fonts  # default jp serif font
     ttf-lilex-nerd  # monospace font
-    ttf-moralerspece  # monospace font
     otf-cascadia-code  # monospace font
+    ttf-moralerspece  # monospace font + jp support
     ttf-0xproto-nerd  # monospace font
     ttf-iosevka-nerd  # monospace font (narrow)
     ttf-nerd-fonts-symbols
