@@ -22,7 +22,7 @@
   "clock": {
     "format": "  {:%a %d %b %Y 󰅐 %H:%M:%S}",
     "interval": 1,
-    "tooltip-format": "<span size='10.5pt' font='Iosevka Nerd Font Mono'>{calendar}</span>",
+    "tooltip-format": "<span size='12pt' font='Iosevka Nerd Font Mono'>{calendar}</span>",
     "actions": {
       "on-click": "mode",
     },
