@@ -61,7 +61,7 @@ window#waybar.FHD {
 #workspaces button, button {
   background-color: @muted;
   border-radius: 1rem;
-  padding: 0rem 0.15rem;
+  padding: 0rem 0.4rem;
   margin: 0rem 0.3rem;
 }
 
@@ -84,7 +84,7 @@ window#waybar.FHD {
 }
 
 window#waybar.FHD #workspaces button, button {
-  padding: 0rem 0.0rem;
+  padding: 0rem 0.2rem;
 }
 
 window#waybar.FHD #workspaces button.visible {
@@ -178,7 +178,7 @@ window#waybar.FHD #workspaces button.active {
 #cpu {
   color: @cyan;
   border-radius: 0rem;
-  border-bottom: solid 2px @cyan;
+  border-bottom: solid 4px @cyan;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -187,7 +187,7 @@ window#waybar.FHD #workspaces button.active {
 #memory {
   color: @green;
   border-radius: 0rem;
-  border-bottom: solid 2px @green;
+  border-bottom: solid 4px @green;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -196,7 +196,7 @@ window#waybar.FHD #workspaces button.active {
 #custom-gpu {
   color: @yellow;
   border-radius: 0rem;
-  border-bottom: solid 2px @yellow;
+  border-bottom: solid 4px @yellow;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -205,7 +205,7 @@ window#waybar.FHD #workspaces button.active {
 #custom-temperature {
   color: @blue;
   border-radius: 0rem;
-  border-bottom: solid 2px @blue;
+  border-bottom: solid 4px @blue;
   margin: 0rem 0.1rem;
   background-color: @background;
   padding: 0rem 1.4rem;
@@ -213,20 +213,20 @@ window#waybar.FHD #workspaces button.active {
 
 #custom-temperature.Warning {
   color: @red;
-  border-bottom: solid 2px @red;
+  border-bottom: solid 4px @red;
   font-weight: bold;
 }
 
 #custom-temperature.Critical {
   color: @background;
   background-color: @red;
-  border-bottom: solid 2px @red;
+  border-bottom: solid 4px @red;
   font-weight: bold;
 }
 
 #custom-update.info {
   color: @magenta;
-  border-bottom: solid 3px @magenta;
+  border-bottom: solid 6px @magenta;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
 }
@@ -235,7 +235,7 @@ window#waybar.FHD #workspaces button.active {
   background-color: @background;
   color: @foreground;
   border-radius: 0rem;
-  border-bottom: solid 2px @subtle;
+  border-bottom: solid 4px @subtle;
   margin: 0rem 0.1rem;
   padding: 0rem 1.4rem;
 }
