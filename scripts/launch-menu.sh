@@ -15,12 +15,13 @@ declare -a cmd=()
 termcmd="foot"
 
 # set output specific options
-winsize="800x800"
 _font="Moralerspace Neon NF"
 if is-4k; then
-  _fsize=20
+  winsize="1200x1200"
+  _fsize=26
 else
-  _fsize=16
+  winsize="960x960"
+  _fsize=22
 fi
 
 cmd+=(
