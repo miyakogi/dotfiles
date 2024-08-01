@@ -174,23 +174,6 @@ local plugins = {
     end
   },
 
-  -- external terminal based file-manager integration
-  {
-    'is0n/fm-nvim',
-    lazy = true,
-    keys = {
-      { '<Space>g', '<cmd>Gitui<cr>' },
-    },
-    cmd = {
-      'Lf',
-      'Joshuto',
-      'Ranger',
-    },
-    config = function()
-      require('fm-nvim').setup({})
-    end,
-  },
-
   {
     'ggandor/leap.nvim',
     dependencies = {
