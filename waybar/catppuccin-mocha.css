@@ -35,3 +35,11 @@
 @define-color pink      #f5c2e7;
 @define-color flamingo  #f2cdcd;
 @define-color rosewater #f5e0dc;
+
+@define-color magenta   @pink;
+@define-color cyan      @teal;
+@define-color white     @subtext2;
+@define-color black     @surface1;
+
+@define-color muted     @surface1;
+@define-color subtle    @overlay2;

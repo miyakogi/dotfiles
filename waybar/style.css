@@ -1,7 +1,7 @@
-@import "iceberg-tokyo.css";
+@import "catppuccin-mocha.css";
 
 @define-color foreground @text;
-@define-color background @base;
+@define-color background #191724;  /* rose-pine */
 
 @define-color arch #1793d3;
 
