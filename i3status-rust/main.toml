@@ -43,7 +43,7 @@ cmd = "playerctl previous"
 button = "down"
 cmd = "playerctl next"
 [block.theme_overrides]
-info_fg = "#89b8c2"  # cyan
+info_fg = "#9ccfd8"  # blue
 
 [[block]]
 block = "time"
