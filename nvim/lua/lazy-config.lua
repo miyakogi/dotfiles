@@ -741,6 +741,9 @@ local plugins = {
           Comment = { fg = 'subtle', italic = true, },
           htmlItalic = { italic = true, },
           NotifyBackground = { bg = '#000000' },
+          LspReferenceRead = { bg = 'None', underline = true },
+          LspReferenceText = { bg = 'None', underline = true },
+          LspReferenceWrite = { bg = 'None', underline = true },
         },
       })
       vim.cmd.colorscheme('rose-pine')
