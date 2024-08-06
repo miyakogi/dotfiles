@@ -622,12 +622,23 @@ local plugins = {
   -- notification
   {
     'folke/noice.nvim',
+    tag = 'v4.4.7',  -- latest cause cursor flickering
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       'MunifTanjim/nui.nvim',
+      "rcarriga/nvim-notify",
+      "hrsh7th/nvim-cmp",
     },
     config = function()
-      require('noice').setup({})
+      require('noice').setup({
+        lsp = {
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+      })
     end,
   },
 
@@ -699,6 +710,7 @@ local plugins = {
         highlight_groups = {
           Comment = { fg = 'subtle', italic = true, },
           htmlItalic = { italic = true, },
+          NotifyBackground = { bg = '#000000' },
         },
       })
       vim.cmd.colorscheme('rose-pine')
