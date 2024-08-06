@@ -643,6 +643,35 @@ local plugins = {
     end,
   },
 
+  {
+    "folke/which-key.nvim",
+    tag = "stable",
+    event = "VeryLazy",
+    opts = {
+    },
+    config = function()
+      require("which-key").setup({
+        preset = "helix",
+        delay = 10,
+        triggers = {
+          { "<auto>", mode = "nixsotc" },
+          { "s", mode = { "n", "v" } },  -- for mini.surround
+        },
+        plugins = {
+          presets = {
+            operators = true,
+            motions = true,
+            text_objects = true,
+            window = true,
+            nav = true,
+            z = true,
+            g = true,
+          },
+        },
+      })
+    end,
+  },
+
   -- surround (parenthesis/quote/tab/etc...) control
   {
     "echasnovski/mini.surround",
