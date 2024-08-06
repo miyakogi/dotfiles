@@ -645,9 +645,9 @@ local plugins = {
 
   -- surround (parenthesis/quote/tab/etc...) control
   {
-    'kylechui/nvim-surround',
+    "echasnovski/mini.surround",
     config = function()
-      require('nvim-surround').setup()
+      require("mini.surround").setup({})
     end,
   },
 
