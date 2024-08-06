@@ -479,6 +479,7 @@ local plugins = {
       -- your options
       })
       vim.api.nvim_set_keymap('v', '<leader>r', '<Plug>SnipRun', {silent = true})
+      vim.api.nvim_set_keymap('n', '<leader>c', '<Plug>SnipClose', {silent = true})
     end,
   },
 
