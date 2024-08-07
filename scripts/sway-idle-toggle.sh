@@ -6,11 +6,6 @@ else
   systemctl --user start swayidle.service
 fi
 
-case "$XDG_CURRENT_DESKTOP" in
-  [Hh]yprland)
-    pkill -SIGRTMIN+6 waybar;;
-  sway)
-    ;;
-  *)
-    ;;
-esac
+if pgrep -x waybar &>/dev/null; then
+  pkill -SIGRTMIN+6 waybar
+fi
