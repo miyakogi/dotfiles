@@ -125,6 +125,7 @@ packages=(
   ripgrep  # better grep
   atuin  # command history
   zoxide  # smart cd
+  zk  # note taking tool
 )
 
 # Add packages both for distrobox and full desktop environment
@@ -144,10 +145,6 @@ if [ "$install_type" = "full" ]; then
     wezterm
     kitty
     foot
-
-    # Command Line Tools
-    python-poetry  # python virtualenv/package manager
-    zk  # note taking tool
 
     # wayland
     dunst
@@ -173,9 +170,6 @@ if [ "$install_type" = "full" ]; then
     hyprland
     waybar
 
-    # kye/mouse
-    keyd-git
-
     # multimedia
     pulsemixer  # used by volume check/fix scripts on i3status-rust
     playerctl  # for audio control by keyboard on sway
@@ -184,7 +178,7 @@ if [ "$install_type" = "full" ]; then
     # input method
     fcitx5
     fcitx5-configtool
-    fcitx5-mozc-ext-neologd
+    fcitx5-mozc
 
     # font
     ttf-roboto
