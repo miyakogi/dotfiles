@@ -294,11 +294,8 @@ def install_desktop() -> None:
     # fuzzel application launcher
     install(BASEDIR / "fuzzel", CONFIG_HOME / "fuzzel")
 
-    # fnott notification daemon
+    # dunst notification daemon
     install(BASEDIR / "dunst", CONFIG_HOME / "dunst")
-
-    # fnott notification daemon
-    install(BASEDIR / "fnott", CONFIG_HOME / "fnott")
 
     # swappy
     install(BASEDIR / "swappy", CONFIG_HOME / "swappy")
