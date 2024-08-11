@@ -99,7 +99,7 @@ Select Window Manager or Shell:
 
       # wlroots
       export WLR_DRM_NO_MODIFIERS=1
-      export XCURSOR_THEME='Sweet-cursors'
+      export XCURSOR_THEME='Vimix cursors'
       export XCURSOR_SIZE=26
       export GTK_USE_PORTAL=1
 

@@ -194,7 +194,7 @@ if [ "$install_type" = "full" ]; then
     beautyline
 
     # cursor
-    sweet-cursor-theme-git
+    vimix-cursors
   )
 fi
 
