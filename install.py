@@ -248,7 +248,6 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "sway-addws.py", BINDIR / "sway-addws")
     install(SCRIPTSDIR / "hypr-addws.sh", BINDIR / "hypr-addws")
     install(SCRIPTSDIR / "waybar-mediaplayer.sh", BINDIR / "waybar-mediaplayer")
-    install(SCRIPTSDIR / "waybar-mpris-command.py", BINDIR / "waybar-mpris-command")
     install(SCRIPTSDIR / "waybar-update.sh", BINDIR / "waybar-update")
     install(SCRIPTSDIR / "bw-launch.sh", BINDIR / "bw-launch")
     install(SCRIPTSDIR / "temperature.sh", BINDIR / "temperature")
