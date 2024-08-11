@@ -87,7 +87,7 @@ Select Window Manager or Shell:
     export GLFW_IM_MODULE=fcitx
 
     # Start wayland session
-    if string match -r -q '(Hyprland|sway|weston)' "$wm"
+    if string match -r -q '(Hyprland|sway|river|niri|weston)' "$wm"
       export XDG_SESSION_TYPE=wayland
       export QT_QPA_PLATFORM=wayland
       export MOZ_ENABLE_WAYLAND=1
@@ -103,7 +103,11 @@ Select Window Manager or Shell:
       export XCURSOR_SIZE=26
       export GTK_USE_PORTAL=1
 
-      exec "$wm"
+      if [ "$wm" = "niri" ]
+        exec niri-session
+      else
+        exec "$wm"
+      end
     else
       exec "$wm"
     end
