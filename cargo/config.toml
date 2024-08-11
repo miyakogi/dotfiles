@@ -55,7 +55,7 @@ ar = "/usr/x86_64-w64-mingw32/bin/ar"
 # target = "triple"         # build for the target triple
 # target-dir = "target"     # path of where to place all generated artifacts
 # rustflags = ["..", ".."]  # custom flags to pass to all compiler invocations
-rustc-wrapper = "sccache"
+# rustc-wrapper = "sccache"
 
 [term]
 # verbose = false        # whether cargo provides verbose output
