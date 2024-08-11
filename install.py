@@ -261,16 +261,15 @@ def install_desktop() -> None:
     # swaybar (i3status-rust)
     install(BASEDIR / "i3status-rust", CONFIG_HOME / "i3status-rust")
 
+    # hyprlock
+    install(BASEDIR / "hypr" / "hyprlock.conf", CONFIG_HOME / "hypr" / "hyprlock.conf")
+
     # hyprland
     install(BASEDIR / "hypr" / "hyprland.conf", CONFIG_HOME / "hypr" / "hyprland.conf")
     install(BASEDIR / "hypr" / "catppuccin-macchiato.conf", CONFIG_HOME / "hypr" / "catppuccin-macchiato.conf")
     install(BASEDIR / "hypr" / "catppuccin-mocha.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha.conf")
     install(BASEDIR / "hypr" / "rose-pine.conf", CONFIG_HOME / "hypr" / "rose-pine.conf")
     install(BASEDIR / "hypr" / "iceberg-tokyo.conf", CONFIG_HOME / "hypr" / "iceberg-tokyo.conf")
-    install(BASEDIR / "hypr" / "hyprpaper.conf", CONFIG_HOME / "hypr" / "hyprpaper.conf")
-
-    # swaylock
-    install(BASEDIR / "swaylock" / "config", CONFIG_HOME / "swaylock" / "config")
 
     # waybar (waybar-hypr)
     install(BASEDIR / "waybar", CONFIG_HOME / "waybar")

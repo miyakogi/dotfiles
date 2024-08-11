@@ -162,12 +162,12 @@ if [ "$install_type" = "full" ]; then
     kvantaum  # qt theme setting
 
     # sway
-    sway  # fancy version of sway
+    sway
     swaybg
     swayidle
+    hyprlock
     autotiling
     python-i3ipc  # used in some script for sway
-    swaylock-effects  # fancy version of swaylock
 
     # hyprland
     hyprland
