@@ -84,14 +84,14 @@ cmd=(
   --ro-bind /etc/ssl /etc/ssl
   --ro-bind /etc/ca-certificates /etc/ca-certificates
   --ro-bind /etc/localtime /etc/localtime
-  --dir "/run/user/$(id -u)"
+  --dir "$XDG_RUNTIME_DIR"
   --dev /dev
   --dev-bind /dev/dri /dev/dri
   --ro-bind /sys/dev/char /sys/dev/char
   --ro-bind /sys/devices/pci0000:00 /sys/devices/pci0000:00
   --proc /proc
   --setenv PATH /usr/bin
-  --hostname RESTRICTED
+  # --hostname RESTRICTED  $ hostname override cause slow startup of firefox
   --unshare-all
   --share-net
   --die-with-parent
