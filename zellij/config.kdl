@@ -24,7 +24,9 @@ keybinds {
         unbind "Ctrl q"
         bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Alt p" { NewPane; }
-        bind "Alt T" "Alt N" { NewTab; }
+        bind "Alt T" "Alt N" { NewTab {
+            cwd "$HOME"
+        }; }
         bind "Alt t" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt h" "Alt Right" { MoveFocusOrTab "Right"; }
         bind "Alt n" "Alt Down" { MoveFocus "Down"; }
