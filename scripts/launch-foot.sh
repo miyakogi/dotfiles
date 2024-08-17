@@ -34,4 +34,4 @@ else
   fi
 fi
 
-footclient "${options[@]}" "$@"
+foot "${options[@]}" "$@"
