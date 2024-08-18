@@ -157,6 +157,7 @@ if [ "$install_type" = "full" ]; then
     bemenu
     bemenu-wayland
     kvantaum  # qt theme setting
+    qt6ct  # qt theme setting (choose kvantum)
 
     # sway
     sway
