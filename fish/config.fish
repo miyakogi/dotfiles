@@ -77,7 +77,7 @@ Select Window Manager or Shell:
     export GTK_THEME=Adwaita:dark
 
     # QT
-    export QT_STYLE_OVERRIDE=qt6ct
+    # export QT_STYLE_OVERRIDE=qt6ct
     export QT_QPA_PLATFORMTHEME=qt6ct
 
     # input methods
