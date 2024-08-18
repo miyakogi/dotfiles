@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-if test $__fish_initialized -lt 3800  # for old fish
-  function fish_user_key_bindings
+function fish_user_key_bindings
+  if test $__fish_initialized -lt 3800  # for old fish
     bind \cw backward-kill-word
     bind \b backward-kill-word  # Ctrl+Backspace for old fish
     bind \cy 'commandline "cd ../" ; commandline -f execute'
@@ -12,9 +12,7 @@ if test $__fish_initialized -lt 3800  # for old fish
     if [ -n "$ZELLIJ" ] || [ -n "$TMUX" ]
       bind \cd delete-char
     end
-  end
-else  # for new, rusty fish
-  function fish_user_key_bindings
+  else  # for new, rusty fish
     bind ctrl-w backward-kill-word
     bind ctrl-backspace backward-kill-word
     bind ctrl-y 'commandline "cd ../" ; commandline -f execute'
