@@ -1,14 +1,29 @@
 #!/usr/bin/env fish
 
-function fish_user_key_bindings
-  bind \cw backward-kill-word
-  bind \b backward-kill-word  # Ctrl+Backspace
-  bind \cy 'commandline "cd ../" ; commandline -f execute'
-  bind \cj myjump
-  bind \cf nextd-or-forward-word
+if test $__fish_initialized -lt 3800  # for old fish
+  function fish_user_key_bindings
+    bind \cw backward-kill-word
+    bind \b backward-kill-word  # Ctrl+Backspace for old fish
+    bind \cy 'commandline "cd ../" ; commandline -f execute'
+    bind \cj myjump
+    bind \cf nextd-or-forward-word
 
-  # disable C-d to close shell on terminal multiplexer
-  if [ -n "$ZELLIJ" ] || [ -n "$TMUX" ]
-    bind \cd delete-char
+    # disable C-d to close shell on terminal multiplexer
+    if [ -n "$ZELLIJ" ] || [ -n "$TMUX" ]
+      bind \cd delete-char
+    end
+  end
+else  # for new, rusty fish
+  function fish_user_key_bindings
+    bind ctrl-w backward-kill-word
+    bind ctrl-backspace backward-kill-word
+    bind ctrl-y 'commandline "cd ../" ; commandline -f execute'
+    bind ctrl-j myjump
+    bind ctrl-f nextd-or-forward-word
+
+    # disable C-d to close shell on terminal multiplexer
+    if [ -n "$ZELLIJ" ] || [ -n "$TMUX" ]
+      bind ctrl-d delete-char
+    end
   end
 end
