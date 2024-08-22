@@ -42,6 +42,8 @@ right_format = """
 $time\
 """
 
+follow_symlinks = false
+
 [time]
 time_format = "󰅐 %T  %a %d %b %Y"
 disabled = false
