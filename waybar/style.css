@@ -7,7 +7,7 @@
 
 * {
   min-height: 0;
-  transition-duration: 0.3s;
+  transition: all 0.3s;
 }
 
 window#waybar {
@@ -58,11 +58,12 @@ window#waybar.FHD {
   margin: 0;
 }
 
-#workspaces button, button {
+#workspaces button {
   background-color: @muted;
   border-radius: 1rem;
-  padding: 0rem 0.4rem;
+  padding: 0rem 0.43rem;
   margin: 0rem 0.3rem;
+  animation: ws_normal 20s ease-in-out 1;
 }
 
 #workspaces button.persistent {
@@ -81,6 +82,7 @@ window#waybar.FHD {
 #workspaces button.active {
   background-color: @cyan;
   padding: 0rem 1.00rem;
+  animation: ws_active 20s ease-in-out 1;
 }
 
 window#waybar.FHD #workspaces button, button {
