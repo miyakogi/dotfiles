@@ -159,6 +159,9 @@ if [ "$install_type" = "full" ]; then
     kvantaum  # qt theme setting
     qt6ct  # qt theme setting (choose kvantum)
 
+    # keyring
+    gnome-keyring
+
     # sway
     sway
     swaybg
