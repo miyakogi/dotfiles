@@ -87,7 +87,7 @@ window#waybar.FHD {
 }
 
 window#waybar.FHD #workspaces button, button {
-  padding: 0rem 0.2rem;
+  padding: 0rem 0.28rem;
 }
 
 window#waybar.FHD #workspaces button.visible {
