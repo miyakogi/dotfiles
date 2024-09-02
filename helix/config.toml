@@ -1,4 +1,4 @@
-theme = "rose-pine-transparent"
+theme = "tokyonight-oled"
 
 [editor]
 gutters = ["diagnostics", "diff"]

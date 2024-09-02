@@ -268,8 +268,12 @@ def install_desktop() -> None:
     install(BASEDIR / "hypr" / "hyprland.conf", CONFIG_HOME / "hypr" / "hyprland.conf")
     install(BASEDIR / "hypr" / "catppuccin-macchiato.conf", CONFIG_HOME / "hypr" / "catppuccin-macchiato.conf")
     install(BASEDIR / "hypr" / "catppuccin-mocha.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha.conf")
+    install(BASEDIR / "hypr" / "catppuccin-mocha-oled.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha-oled.conf")
     install(BASEDIR / "hypr" / "rose-pine.conf", CONFIG_HOME / "hypr" / "rose-pine.conf")
+    install(BASEDIR / "hypr" / "rose-pine-oled.conf", CONFIG_HOME / "hypr" / "rose-pine-oled.conf")
     install(BASEDIR / "hypr" / "iceberg-tokyo.conf", CONFIG_HOME / "hypr" / "iceberg-tokyo.conf")
+    install(BASEDIR / "hypr" / "tokyonight.conf", CONFIG_HOME / "hypr" / "tokyonight.conf")
+    install(BASEDIR / "hypr" / "tokyonight-oled.conf", CONFIG_HOME / "hypr" / "tokyonight-oled.conf")
 
     # waybar (waybar-hypr)
     install(BASEDIR / "waybar", CONFIG_HOME / "waybar")

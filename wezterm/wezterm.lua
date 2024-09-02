@@ -1,5 +1,6 @@
 local wezterm = require('wezterm')
-local theme = require('lua/rose-pine').main
+local scheme = wezterm.get_builtin_color_schemes()['tokyonight_night']
+scheme.background = 'black'
 
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
@@ -79,12 +80,14 @@ return {
 
   detect_password_input = false,  -- disable password icon
 
-  window_background_opacity = 0.95,
+  window_background_opacity = 1.0,
 
   -- Tab bar
   use_fancy_tab_bar = true,
-  window_frame = theme.window_frame(),
-  colors = theme.colors(),
+  color_schemes = {
+    ['tokyonight_oled'] = scheme,
+  },
+  color_scheme = 'tokyonight_oled',
 
   hide_tab_bar_if_only_one_tab = true,
 

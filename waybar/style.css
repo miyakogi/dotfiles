@@ -1,7 +1,8 @@
-@import "catppuccin-mocha.css";
+@import "tokyonight-night-oled.css";
+/* @define-color muted @highlightMed; */
 
 @define-color foreground @text;
-@define-color background #191724;  /* rose-pine */
+@define-color background @base;
 
 @define-color arch #1793d3;
 

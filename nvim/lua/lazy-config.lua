@@ -640,6 +640,10 @@ local plugins = {
           },
         },
       })
+
+      require('notify').setup({
+        background_colour = '#000000',
+      })
     end,
   },
 
@@ -718,6 +722,7 @@ local plugins = {
     config = function()
       require('lualine').setup({
         options = {
+          theme = 'tokyonight',
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
         },
@@ -727,28 +732,48 @@ local plugins = {
 
   -- ### ColorScheme ###
   {
-    'rose-pine/neovim',
-    name = 'rose-pine',
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
     config = function()
-      require('rose-pine').setup({
-        variant = 'main',
-        dim_inactive_windows = false,
+      require('tokyonight').setup({
+        style = 'night',
         styles = {
-          italic = false,
-          transparency = true,
+          keywords = {},
+          functions = {},
         },
-        highlight_groups = {
-          Comment = { fg = 'subtle', italic = true, },
-          htmlItalic = { italic = true, },
-          NotifyBackground = { bg = '#000000' },
-          LspReferenceRead = { bg = 'None', underline = true },
-          LspReferenceText = { bg = 'None', underline = true },
-          LspReferenceWrite = { bg = 'None', underline = true },
-        },
+        on_colors = function(colors)
+          colors.bg = 'None'
+          colors.dark_bg = 'None'
+        end,
       })
-      vim.cmd.colorscheme('rose-pine')
+      vim.cmd.colorscheme('tokyonight')
     end,
   },
+
+  -- {
+  --   'rose-pine/neovim',
+  --   name = 'rose-pine',
+  --   config = function()
+  --     require('rose-pine').setup({
+  --       variant = 'main',
+  --       dim_inactive_windows = false,
+  --       styles = {
+  --         italic = false,
+  --         transparency = true,
+  --       },
+  --       highlight_groups = {
+  --         Comment = { fg = 'subtle', italic = true, },
+  --         htmlItalic = { italic = true, },
+  --         NotifyBackground = { bg = '#000000' },
+  --         LspReferenceRead = { bg = 'None', underline = true },
+  --         LspReferenceText = { bg = 'None', underline = true },
+  --         LspReferenceWrite = { bg = 'None', underline = true },
+  --       },
+  --     })
+  --     vim.cmd.colorscheme('rose-pine')
+  --   end,
+  -- },
 
   -- indent highlight
   {

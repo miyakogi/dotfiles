@@ -23,30 +23,30 @@ list_terminals() {
 #
 # Set display specific options
 if is-4k; then
-  font="Moralerspace Argon NF 20"
+  font="Moralerspace Neon NF 20"
 else
-  font="Moralerspace Argon NF 16"
+  font="Moralerspace Neon NF 16"
 fi
 
 # Define colors
 # these colors may not be used - disable shellcheck warning
 
 # shellcheck disable=SC2034
-white="#e0def4"
+white="#c0caf5"
 # shellcheck disable=SC2034
-black="#191724"
+black="#000000"
 # shellcheck disable=SC2034
-red="#eb6f92"
+red="#f7768e"
 # shellcheck disable=SC2034
-green="#31748f"
+green="#9ece6a"
 # shellcheck disable=SC2034
-yellow="#f6c177"
+yellow="#e0af68"
 # shellcheck disable=SC2034
-blue="#9ccfd8"
+blue="#7aa2f7"
 # shellcheck disable=SC2034
-magenta="#c4a7e7"
+magenta="#bb9af7"
 # shellcheck disable=SC2034
-cyan="#ebbcba"
+cyan="#7dcfff"
 
 # set bemenu command options
 basecolor="$blue"

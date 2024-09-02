@@ -21,9 +21,9 @@ set $overlay0  #6c7086
 set $surface2  #585b70
 set $surface1  #45475a
 set $surface0  #313244
-set $base      #1e1e2e
-set $mantle    #181825
-set $crust     #11111b
+set $base      #000000
+set $mantle    #000000
+set $crust     #000000
 
 set $magenta   $pink
 set $cyan      $teal
@@ -32,3 +32,7 @@ set $black     $surface1
 
 set $muted     $surface1
 set $subtle    $overlay2
+set $comment   $overlay0
+
+set $background $base
+set $foreground $text

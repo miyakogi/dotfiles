@@ -15,12 +15,12 @@ interval = 0.5
 button = "left"
 cmd = "mic-mute-toggle"
 [block.theme_overrides]
-idle_fg = "#6b7089"  # comment
-info_fg = "#e27878"  # red
+idle_fg = "#565f89"  # comment
+info_fg = "#f7768e"  # red
 
 [[block]]
 block = "cpu"
-format = '<span color="#9ccfd8">$barchart</span> $utilization'  # blue
+format = '<span color="#7dcfff">$barchart</span> $utilization'  # cyan
 interval = 1
 
 [[block]]
@@ -30,9 +30,9 @@ command = "temperature cpu state"
 interval = 1
 json = true
 [block.theme_overrides]
-warning_fg = "#e27878"  # red
+warning_fg = "#f7768e"  # red
 critical_fg = "#000000"
-critical_bg = "#e27878"  # red
+critical_bg = "#f7768e"  # red
 
 [[block]]
 block = "memory"
@@ -53,9 +53,9 @@ command = "temperature gpu state"
 interval = 1
 json = true
 [block.theme_overrides]
-warning_fg = "#e27878"  # red
+warning_fg = "#f7768e"  # red
 critical_fg = "#000000"
-critical_bg = "#e27878"  # red
+critical_bg = "#f7768e"  # red
 
 [[block]]
 block = "time"
@@ -71,7 +71,7 @@ format_singular = " 󰇚 $both "
 format_up_to_date = ""
 [block.theme_overrides]
 info_fg = "#000000"
-info_bg = "#a093c7"  # magenta
+info_bg = "#bb9af7"  # magenta
 
 [[block]]
 # block to show the number of systemd failures
@@ -83,4 +83,4 @@ command = '''echo $(($(systemctl --state=failed -q | wc -l)+$(systemdctl --user 
 hide_when_empty = true
 [block.theme_overrides]
 idle_fg = "#000000"
-idle_bg = "#e2a478"  # yellow
+idle_bg = "#e0af68"  # yellow
