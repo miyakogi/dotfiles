@@ -89,7 +89,7 @@ Select Window Manager or Shell:
     # Start wayland session
     if string match -r -q '(Hyprland|sway|river|niri|weston)' "$wm"
       export XDG_SESSION_TYPE=wayland
-      export QT_QPA_PLATFORM=wayland
+      export QT_QPA_PLATFORM="wayland;xcb"
       export MOZ_ENABLE_WAYLAND=1
       export GST_VAAPI_ALL_DRIVERS=1
 
