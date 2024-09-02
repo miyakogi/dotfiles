@@ -78,7 +78,7 @@
     "interval": 1,
   },
   "tray": {
-    "icon-size": 16,
+    "icon-size": 24,
     "spacing": 8,
   },
 }, {
