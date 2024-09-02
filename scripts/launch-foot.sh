@@ -10,10 +10,10 @@ font="0xProto Nerd Font"
 
 if ! is-4k; then
   # FHD monitor
-  fontsize="12.0"
+  fontsize="13.5"
 else
   # scaled 4K monitor
-  fontsize="13.5"
+  fontsize="15"
 fi
 
 if [ -z "$font" ]; then
