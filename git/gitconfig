@@ -8,7 +8,7 @@
 [include]
   path = ~/.gitconfig.local
 [init]
-  defaultBranch = "main"
+	defaultBranch = main
 [color]
   ui = auto
   diff = auto
