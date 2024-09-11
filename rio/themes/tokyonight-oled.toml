@@ -1,0 +1,31 @@
+[colors]
+
+# Normal colors
+foreground       = '#c0caf5'
+background       = '#000000'
+black            = '#15161e'
+blue             = '#7aa2f7'
+cursor           = '#bb9af7'
+cyan             = '#7dcfff'
+green            = '#9ece6a'
+magenta          = '#bb9af7'
+red              = '#f7768e'
+white            = '#a9b1d6'
+yellow           = '#e0af68'
+
+# UI colors
+tabs             = '#414868'
+tabs-active      = '#c0caf5'
+selection-foreground = '#000000'
+selection-background = '#c0caf5'
+
+# Light colors
+light-black      = '#414868'
+light-blue       = '#7aa2f7'
+light-cyan       = '#7dcfff'
+light-foreground = '#c0caf5'
+light-green      = '#9ece6a'
+light-magenta    = '#bb9af7'
+light-red        = '#f7768e'
+light-white      = '#c0caf5'
+light-yellow     = '#e0af68'

@@ -293,6 +293,9 @@ def install_desktop() -> None:
     # foot terminal emulator for wayland
     install(BASEDIR / "foot", CONFIG_HOME / "foot")
 
+    # rio terminal emulator
+    install(BASEDIR / "rio", CONFIG_HOME / "rio")
+
     # keyd key-remapping
     install(BASEDIR / "keyd" / "app.conf", CONFIG_HOME / "keyd" / "app.conf")
 

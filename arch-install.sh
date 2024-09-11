@@ -145,6 +145,7 @@ if [ "$install_type" = "full" ]; then
     wezterm
     kitty
     foot
+    rio
 
     # wayland
     dunst
