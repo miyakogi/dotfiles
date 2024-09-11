@@ -71,6 +71,8 @@ return {
   webgpu_preferred_adapter = gpu,
   front_end = 'WebGpu',
 
+  term = 'wezterm',
+
   font = font,
   font_rules = font_rules,
   font_size = font_size,
@@ -81,7 +83,7 @@ return {
 
   detect_password_input = false,  -- disable password icon
 
-  window_background_opacity = 1.0,
+  window_background_opacity = 0.80,
 
   -- Tab bar
   use_fancy_tab_bar = true,
