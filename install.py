@@ -202,7 +202,7 @@ def install_base() -> None:
     install(BASEDIR / "lsd", CONFIG_HOME / "lsd")
 
     # starship shell prompt
-    install(BASEDIR / "starship.toml", CONFIG_HOME / "starship.toml")
+    install(BASEDIR / "starship" / "starship.toml", CONFIG_HOME / "starship.toml")
 
     ###############################
     # Install plugins from github #
