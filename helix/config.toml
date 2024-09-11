@@ -10,7 +10,7 @@ completion-trigger-len = 0
 
 [editor.soft-wrap]
 enable = true
-wrap-indicator = "↪ "
+wrap-indicator = "󱞩 "
 
 [editor.statusline]
 left = ["mode", "file-name"]
