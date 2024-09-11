@@ -5,6 +5,7 @@
   "output": ["DP-1"],
   "name": "4K",
   "spacing": 16,
+  "height": 28,  // 1 + tray icon + 1
   "modules-left": ["custom/os", "hyprland/workspaces"],
   "modules-center": ["custom/media"],
   "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "tray"],
@@ -22,7 +23,7 @@
   "clock": {
     "format": "  {:%a %d %b %Y 󰅐 %H:%M:%S}",
     "interval": 1,
-    "tooltip-format": "<span size='12pt' font='Iosevka Nerd Font Mono'>{calendar}</span>",
+    "tooltip-format": "<span size='16pt' font='Iosevka Nerd Font Mono'>{calendar}</span>",
     "actions": {
       "on-click": "mode",
     },
@@ -78,7 +79,7 @@
     "interval": 1,
   },
   "tray": {
-    "icon-size": 24,
+    "icon-size": 26,
     "spacing": 8,
   },
 }, {
@@ -87,6 +88,7 @@
   "name": "FHD",
   "position": "bottom",
   "spacing": 4,
+  "height": 26,  // 1 + tray icon + 1
   "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
   "modules-right": ["cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "custom/update", "tray"],
@@ -130,7 +132,7 @@
     "format": "{}",
   },
   "tray": {
-    "icon-size": 12,
+    "icon-size": 24,
     "spacing": 6,
   },
 }
