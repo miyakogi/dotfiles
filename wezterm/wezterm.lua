@@ -1,6 +1,7 @@
 local wezterm = require('wezterm')
 local scheme = wezterm.get_builtin_color_schemes()['tokyonight_night']
 scheme.background = 'black'
+scheme.cursor_bg = 'yellow'
 
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action

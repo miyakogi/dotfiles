@@ -29,3 +29,6 @@ yellow = "0xe0af68"
 [colors.primary]
 background = "0x000000"
 foreground = "0xc0caf5"
+
+[colors.cursor]
+cursor = "0xf7768e"
