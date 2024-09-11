@@ -9,6 +9,7 @@ list_terminals() {
     alacritty
     kitty
     havoc
+    rio
     wezterm
   )
   for t in "${terminals[@]}"; do
