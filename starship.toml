@@ -13,6 +13,7 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
+$direnv\
 $docker_context\
 $c\
 $dart\
@@ -129,6 +130,10 @@ renamed = "$count "
 deleted = "$count "
 style = "fg:purple bold"
 format = "[$all_status$ahead_behind ]($style)"
+
+[direnv]
+symbol = "󰷌 "
+disabled = false
 
 [jobs]
 # default symbol is not rendered on wezterm
