@@ -243,8 +243,8 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "ff-volume-toggle.sh", BINDIR / "ff-volume-toggle")
     install(SCRIPTSDIR / "mic-mute-watch.sh", BINDIR / "mic-mute-watch")
     install(SCRIPTSDIR / "mic-mute-toggle.sh", BINDIR / "mic-mute-toggle")
-    install(SCRIPTSDIR / "sway-idle-watch.sh", BINDIR / "sway-idle-watch")
-    install(SCRIPTSDIR / "sway-idle-toggle.sh", BINDIR / "sway-idle-toggle")
+    install(SCRIPTSDIR / "idle-watch.sh", BINDIR / "idle-watch")
+    install(SCRIPTSDIR / "idle-toggle.sh", BINDIR / "idle-toggle")
     install(SCRIPTSDIR / "sway-addws.py", BINDIR / "sway-addws")
     install(SCRIPTSDIR / "hypr-addws.sh", BINDIR / "hypr-addws")
     install(SCRIPTSDIR / "waybar-mediaplayer.sh", BINDIR / "waybar-mediaplayer")
@@ -260,6 +260,9 @@ def install_desktop() -> None:
 
     # swaybar (i3status-rust)
     install(BASEDIR / "i3status-rust", CONFIG_HOME / "i3status-rust")
+
+    # hypridle
+    install(BASEDIR / "hypr" / "hypridle.conf", CONFIG_HOME / "hypr" / "hypridle.conf")
 
     # hyprlock
     install(BASEDIR / "hypr" / "hyprlock.conf", CONFIG_HOME / "hypr" / "hyprlock.conf")
@@ -345,11 +348,14 @@ def install_desktop() -> None:
     install_service("corectrl.service")
 
     # wlroots services
-    install_service("swayidle.service")
     install_service("fnott.service")
 
     # for Sway
+    install_service("swayidle.service")
     install_service("autotiling.service")
+
+    # for Hyprland
+    install_service("hypridle.service")
 
 
 def install_other_home() -> None:

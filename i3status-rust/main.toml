@@ -7,11 +7,11 @@ icons = "material-nf"
 [[block]]
 block = "custom"
 json = true
-command = "sway-idle-watch"
+command = "idle-watch"
 interval = 1
 [[block.click]]
 button = "left"
-cmd = "sway-idle-toggle"
+cmd = "idle-toggle"
 [block.theme_overrides]
 idle_fg = "#565f89"  # comment
 info_fg = "#f7768e"  # red

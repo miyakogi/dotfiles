@@ -151,7 +151,6 @@ if [ "$install_type" = "full" ]; then
     grim
     slurp
     swappy
-    pngquant  # used for image compression (sscomp command)
     jq  # used in some scripts for sway/hyprland
     xorg-xwayland
     bemenu
@@ -173,6 +172,7 @@ if [ "$install_type" = "full" ]; then
     # hyprland
     hyprland
     waybar
+    hypridle
 
     # multimedia
     pulsemixer  # used by volume check/fix scripts on i3status-rust

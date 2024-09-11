@@ -4,7 +4,6 @@
 function menu() {
   items=(
     "Lock"
-    "Sleep"
     "Suspend"
     "Hibernate"
     "Exit"
@@ -72,45 +71,14 @@ _lock() {
   lock-screen
 }
 
-_sleep() {
-  if [ "$XDG_CURRENT_DESKTOP" = sway ]; then
-    dpms_on='swaymsg "output * power on"'
-    dpms_off='swaymsg "output * power off"'
-  elif [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
-    dpms_on='hyprctl dispatch dpms on DP-1 && sleep 1 && hyprctl dispatch dpms on DP-2'
-    dpms_off='hyprctl dispatch dpms off DP-2 && sleep 1 && hyprctl dispatch dpms off DP-1'
-    # dpms_on='hyprctl dispatch dpms on && sleep 1 && hyprctl keyword monitor DP-2,1920x1080@144,3840x540,1'
-    # dpms_off='hyprctl keyword monitor DP-2,disable && sleep 1 && hyprctl dispatch dpms off'
-  fi
-
-  resumecmd="${dpms_on}"
-  resumecmd+=" && sleep 1"
-  resumecmd+=" && killall swayidle"
-  resumecmd+=" && sleep 3"
-  resumecmd+=" && systemctl --user restart swayidle.service"
-
-  if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
-    resumecmd+=" && if pgrep -x waybar; then; killall waybar; fi"
-    resumecmd+=" && if pgrep -x waybar-mpris; then; killall waybar-mpris; fi"
-    resumecmd+=" && sleep 1"
-    resumecmd+=" && waybar"
-  fi
-
-  # execute commands
-  systemctl --user stop swayidle.service
-  sleep 2
-  lock-screen
-  swayidle timeout 2 "${dpms_off}" resume "${resumecmd}"
-}
-
 _suspend() {
-  lock-screen
+  _lock
   sleep 3
   systemctl suspend
 }
 
 _hibernate() {
-  lock-screen
+  _lock
   sleep 3
   systemctl hibernate
 }
@@ -134,8 +102,6 @@ _shutdown() {
 case $RET in
   Lock)
     _lock;;
-  Sleep)
-    _sleep;;
   Suspend)
     _suspend;;
   Hibernate)

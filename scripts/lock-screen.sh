@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
-if ! type hyprlock &>/dev/null; then
-  echo "\`hyprlock\` should be installed to lock screen"
-  exit 1
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+  loginctl lock-session &
+else
+  pidof hypridle || hypridle &
 fi
-
-cmd=(
-  hyprlock
-)
-
-"${cmd[@]}" &

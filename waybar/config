@@ -7,7 +7,7 @@
   "spacing": 16,
   "modules-left": ["custom/os", "hyprland/workspaces"],
   "modules-center": ["custom/media"],
-  "modules-right": ["custom/swayidle", "custom/mic", "custom/ff-volume", "clock", "tray"],
+  "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "tray"],
   "custom/os": {
     "exec": "echo \"<span font='Moralerspace Krypton NF'>󰣇 Arch Linux</span>\"",
     "format": "{}",
@@ -41,10 +41,10 @@
       "weeks-pos": "",
     },
   },
-  "custom/swayidle": {
+  "custom/idle": {
     "return-type": "json",
-    "exec": "$HOME/bin/sway-idle-watch",  // need full path in systemd service
-    "on-click": "$HOME/bin/sway-idle-toggle",  // need full path in systemd service
+    "exec": "$HOME/bin/idle-watch",  // need full path in systemd service
+    "on-click": "$HOME/bin/idle-toggle",  // need full path in systemd service
     "interval": "once",  // don't know why, but necessary
     "signal": 6,  // -SIGRTMIN+6
     "format": "{}",

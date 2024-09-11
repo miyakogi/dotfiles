@@ -1,0 +1,11 @@
+[Unit]
+Description=Idle/Sleep Control
+BindsTo=hypr-graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=hypridle
+Restart=on-failure
+
+[Install]
+WantedBy=hypr-graphical-session.target

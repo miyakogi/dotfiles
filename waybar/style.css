@@ -125,7 +125,7 @@ window#waybar.FHD #workspaces button.active {
   padding: 0px 20px;
 }
 
-#custom-swayidle {
+#custom-idle {
   color: @background;
   font-family: "Symbols Nerd Font";
   border-radius: 1rem;
@@ -133,11 +133,11 @@ window#waybar.FHD #workspaces button.active {
   padding: 0rem 1rem;
 } 
 
-#custom-swayidle.Idle {
+#custom-idle.Idle {
   background-color: @muted;
 }
 
-#custom-swayidle.Info {
+#custom-idle.Info {
   background-color: @red;
   padding: 0rem 1.5rem;
 }

@@ -1,11 +1,11 @@
 [Unit]
 Description=Idle/Sleep Control
-BindsTo=wlr-graphical-session.target
+BindsTo=sway-graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/swayidle -w timeout 600 %h/bin/lock-screen timeout 900 "systemctl suspend-then-hibernate"
+ExecStart=/usr/bin/swayidle lock hyprlock timeout 600 "loginctl lock-session" timeout 900 "systemctl suspend-then-hibernate"
 Restart=on-failure
 
 [Install]
-WantedBy=wlr-graphical-session.target
+WantedBy=sway-graphical-session.target
