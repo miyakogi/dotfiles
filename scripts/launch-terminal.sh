@@ -74,6 +74,10 @@ bemenu_cmd=(
 
 cmd=("${bemenu_cmd[@]}")
 
+if ! is-4k; then
+  cmd+=(--bottom)
+fi
+
 #####################
 # Execute
 #

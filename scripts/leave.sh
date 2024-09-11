@@ -65,6 +65,10 @@ cmd=(
   --af "$white"  # alternating foreground color
 )
 
+if ! is-4k; then
+  cmd+=(--bottom)
+fi
+
 RET=$(menu | "${cmd[@]}" | tr -d '[:space:]')
 
 _lock() {
