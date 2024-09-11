@@ -108,7 +108,7 @@ vim.opt.listchars = {tab = '| ', trail = '_'}
 vim.opt.fillchars:append({vert = '┃'})
 vim.opt.linebreak = false
 vim.opt.shiftround = true -- round indent to multiple of 'shiftwidth'
-vim.opt.showbreak = '↪ '
+vim.opt.showbreak = '󱞩 '
 vim.opt.breakindent = true
 vim.opt.ambiwidth = 'single'
 
