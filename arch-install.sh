@@ -156,7 +156,7 @@ if [ "$install_type" = "full" ]; then
     xorg-xwayland
     bemenu
     bemenu-wayland
-    kvantaum  # qt theme setting
+    kvantum  # qt theme setting
     qt6ct  # qt theme setting (choose kvantum)
 
     # keyring
