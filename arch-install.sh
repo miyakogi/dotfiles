@@ -191,7 +191,7 @@ if [ "$install_type" = "full" ]; then
     morisawa-biz-ud-micho-fonts  # default jp serif font
     ttf-moralerspece  # monospace font + jp support
     ttf-0xproto-nerd  # monospace font
-    ttf-iosevka-nerd  # monospace font (narrow)
+    ttf-zed-mono-nerd  # monospace font (narrow)
     ttf-nerd-fonts-symbols
     ttf-unifont
 
