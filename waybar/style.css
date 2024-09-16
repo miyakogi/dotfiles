@@ -1,4 +1,4 @@
-@import "tokyonight-night-oled.css";
+@import "carbonfox-oled.css";
 /* @define-color muted @highlightMed; */
 
 @define-color foreground @text;
@@ -110,9 +110,9 @@ window#waybar.FHD #workspaces button.active {
 }
 
 #custom-media.Playing {
-  color: @magenta;
+  color: @yellow;
   padding: 0rem 1rem;
-  box-shadow: inset 0px -4px @magenta;
+  box-shadow: inset 0px -4px @yellow;
 }
 
 #custom-media.Paused {

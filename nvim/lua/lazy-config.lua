@@ -718,11 +718,14 @@ local plugins = {
         'nvim-tree/nvim-web-devicons',
         lazy = true,
       },
+      {
+        'EdenEast/nightfox.nvim',
+      }
     },
     config = function()
       require('lualine').setup({
         options = {
-          theme = 'tokyonight',
+          theme = 'carbonfox',
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
         },
@@ -732,24 +735,38 @@ local plugins = {
 
   -- ### ColorScheme ###
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
+    'EdenEast/nightfox.nvim',
     config = function()
-      require('tokyonight').setup({
-        style = 'night',
-        styles = {
-          keywords = {},
-          functions = {},
+      require('nightfox').setup({
+        options = {
+          transparent = true,
+          styles = {
+            comments = 'italic',
+          },
         },
-        on_colors = function(colors)
-          colors.bg = 'None'
-          colors.dark_bg = 'None'
-        end,
       })
-      vim.cmd.colorscheme('tokyonight')
+      vim.cmd('colorscheme carbonfox')
     end,
   },
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('tokyonight').setup({
+  --       style = 'night',
+  --       styles = {
+  --         keywords = {},
+  --         functions = {},
+  --       },
+  --       on_colors = function(colors)
+  --         colors.bg = 'None'
+  --         colors.dark_bg = 'None'
+  --       end,
+  --     })
+  --     vim.cmd.colorscheme('tokyonight')
+  --   end,
+  -- },
 
   -- {
   --   'rose-pine/neovim',

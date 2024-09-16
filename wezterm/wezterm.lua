@@ -1,7 +1,7 @@
 local wezterm = require('wezterm')
-local scheme = wezterm.get_builtin_color_schemes()['tokyonight_night']
+local scheme = wezterm.color.get_builtin_schemes()['carbonfox']
 scheme.background = 'black'
-scheme.cursor_bg = 'yellow'
+scheme.cursor_bg = '#08bdba'
 
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
@@ -88,9 +88,9 @@ return {
   -- Tab bar
   use_fancy_tab_bar = true,
   color_schemes = {
-    ['tokyonight_oled'] = scheme,
+    ['carbonfox-oled'] = scheme,
   },
-  color_scheme = 'tokyonight_oled',
+  color_scheme = 'carbonfox-oled',
 
   hide_tab_bar_if_only_one_tab = true,
 

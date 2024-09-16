@@ -269,6 +269,8 @@ def install_desktop() -> None:
 
     # hyprland
     install(BASEDIR / "hypr" / "hyprland.conf", CONFIG_HOME / "hypr" / "hyprland.conf")
+    install(BASEDIR / "hypr" / "carbonfox.conf", CONFIG_HOME / "hypr" / "carbonfox.conf")
+    install(BASEDIR / "hypr" / "carbonfox-oled.conf", CONFIG_HOME / "hypr" / "carbonfox-oled.conf")
     install(BASEDIR / "hypr" / "catppuccin-macchiato.conf", CONFIG_HOME / "hypr" / "catppuccin-macchiato.conf")
     install(BASEDIR / "hypr" / "catppuccin-mocha.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha.conf")
     install(BASEDIR / "hypr" / "catppuccin-mocha-oled.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha-oled.conf")

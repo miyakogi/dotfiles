@@ -15,7 +15,7 @@
 #
 # Example:
 # theme = "dracula"
-theme = "tokyonight-oled"
+theme = "carbonfox-oled"
 
 # Use fork
 #

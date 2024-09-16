@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/tokyonight_night_oled.toml"]
+import = ["~/.config/alacritty/carbonfox-oled.toml"]
 ipc_socket = false
 
 [colors]

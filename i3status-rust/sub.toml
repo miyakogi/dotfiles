@@ -15,12 +15,12 @@ interval = 0.5
 button = "left"
 cmd = "mic-mute-toggle"
 [block.theme_overrides]
-idle_fg = "#565f89"  # comment
-info_fg = "#f7768e"  # red
+idle_fg = "#6e6f70"  # comment
+info_fg = "#ee5396"  # red
 
 [[block]]
 block = "cpu"
-format = '<span color="#7dcfff">$barchart</span> $utilization'  # cyan
+format = '<span color="#33b1ff">$barchart</span> $utilization'  # cyan
 interval = 1
 
 [[block]]
@@ -30,9 +30,9 @@ command = "temperature cpu state"
 interval = 1
 json = true
 [block.theme_overrides]
-warning_fg = "#f7768e"  # red
+warning_fg = "#ee5396"  # red
 critical_fg = "#000000"
-critical_bg = "#f7768e"  # red
+critical_bg = "#ee5396"  # red
 
 [[block]]
 block = "memory"
@@ -53,9 +53,9 @@ command = "temperature gpu state"
 interval = 1
 json = true
 [block.theme_overrides]
-warning_fg = "#f7768e"  # red
+warning_fg = "#ee5396"  # red
 critical_fg = "#000000"
-critical_bg = "#f7768e"  # red
+critical_bg = "#ee5396"  # red
 
 [[block]]
 block = "time"
@@ -71,7 +71,7 @@ format_singular = " 󰇚 $both "
 format_up_to_date = ""
 [block.theme_overrides]
 info_fg = "#000000"
-info_bg = "#bb9af7"  # magenta
+info_bg = "#ee5396"  # magenta
 
 [[block]]
 # block to show the number of systemd failures

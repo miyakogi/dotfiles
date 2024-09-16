@@ -1,0 +1,21 @@
+/*
+* Variant: Rosé Pine
+* Maintainer: DankChoir
+*/
+
+@define-color base            #000000;
+@define-color foreground      #f2f4f8;
+
+
+@define-color red             #ee5396;
+@define-color yellow          #08bdba;
+@define-color green           #25be6a;
+@define-color cyan            #33b1ff;
+@define-color blue            #78a9ff;
+@define-color magenta         #be95ff;
+@define-color whete           #f2f4f8;
+
+@define-color muted           #535353;
+@define-color comment         #6e6f70;
+@define-color subtle          #bebebe;
+@define-color text            @foreground;
