@@ -10,7 +10,7 @@ font="0xProto Nerd Font"
 
 if ! is-4k; then
   # FHD monitor
-  fontsize="13.5"
+  fontsize="15"
 else
   # scaled 4K monitor
   fontsize="15"
