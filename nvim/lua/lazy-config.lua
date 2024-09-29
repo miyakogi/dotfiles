@@ -3,9 +3,6 @@
 local plugins = {
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      { 'mrjones2014/nvim-ts-rainbow' },
-    },
     build = ':TSUpdate',
     config = function ()
       require('nvim-treesitter.configs').setup({
@@ -57,13 +54,6 @@ local plugins = {
           additional_vim_regex_highlighting = {
             'markdown',  -- required for zk-nvim
           },
-        },
-
-        -- rainbow-parenthesis
-        rainbow = {
-          enable = true,
-          extended_mode = true,
-          mx_file_lines = nil,
         },
       })
     end,
@@ -682,6 +672,10 @@ local plugins = {
     config = function()
       require("mini.surround").setup({})
     end,
+  },
+
+  {
+    'HiPhish/rainbow-delimiters.nvim',
   },
 
   -- auto surrounding/pairing
