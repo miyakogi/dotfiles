@@ -349,7 +349,7 @@ local plugins = {
           flags = lsp_flags,
           settings = {
             -- server specific setting
-            ["rust-analyzer"] = {}
+            ['rust-analyzer'] = {}
           }
         })
       end
@@ -433,7 +433,7 @@ local plugins = {
           ['<C-p>'] = cmp.mapping.select_prev_item(),
           ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-x>'] = cmp.mapping.complete(),
-          ["<C-Space>"] = cmp.mapping(function(fallback)
+          ['<C-Space>'] = cmp.mapping(function(fallback)
             if luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
             else
@@ -457,15 +457,15 @@ local plugins = {
   },
 
   {
-    "michaelb/sniprun",
-    branch = "master",
+    'michaelb/sniprun',
+    branch = 'master',
 
-    build = "sh install.sh",
+    build = 'sh install.sh',
     -- do 'sh install.sh 1' if you want to force compile locally
     -- (instead of fetching a binary from the github release). Requires Rust >= 1.65
 
     config = function()
-      require("sniprun").setup({
+      require('sniprun').setup({
       -- your options
       })
       vim.api.nvim_set_keymap('v', '<leader>r', '<Plug>SnipRun', {silent = true})
@@ -500,10 +500,10 @@ local plugins = {
     dependencies = {
       { 'miyakogi/vim-snippets' },
     },
-    build = "make install_jsregexp",
+    build = 'make install_jsregexp',
     lazy = true,
     config = function()
-      require("luasnip.loaders.from_snipmate").lazy_load()
+      require('luasnip.loaders.from_snipmate').lazy_load()
     end,
   },
 
@@ -617,16 +617,16 @@ local plugins = {
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       'MunifTanjim/nui.nvim',
-      "rcarriga/nvim-notify",
-      "hrsh7th/nvim-cmp",
+      'rcarriga/nvim-notify',
+      'hrsh7th/nvim-cmp',
     },
     config = function()
       require('noice').setup({
         lsp = {
           override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
+            ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+            ['vim.lsp.util.stylize_markdown'] = true,
+            ['cmp.entry.get_documentation'] = true,
           },
         },
       })
@@ -638,18 +638,18 @@ local plugins = {
   },
 
   {
-    "folke/which-key.nvim",
-    tag = "stable",
-    event = "VeryLazy",
+    'folke/which-key.nvim',
+    tag = 'stable',
+    event = 'VeryLazy',
     opts = {
     },
     config = function()
-      require("which-key").setup({
-        preset = "helix",
+      require('which-key').setup({
+        preset = 'helix',
         delay = 10,
         triggers = {
-          { "<auto>", mode = "nixsotc" },
-          { "s", mode = { "n", "v" } },  -- for mini.surround
+          { '<auto>', mode = 'nixsotc' },
+          { 's', mode = { 'n', 'v' } },  -- for mini.surround
         },
         plugins = {
           presets = {
@@ -668,9 +668,9 @@ local plugins = {
 
   -- surround (parenthesis/quote/tab/etc...) control
   {
-    "echasnovski/mini.surround",
+    'echasnovski/mini.surround',
     config = function()
-      require("mini.surround").setup({})
+      require('mini.surround').setup({})
     end,
   },
 
