@@ -254,7 +254,6 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "waybar-update.sh", BINDIR / "waybar-update")
     install(SCRIPTSDIR / "bw-launch.sh", BINDIR / "bw-launch")
     install(SCRIPTSDIR / "temperature.sh", BINDIR / "temperature")
-    install(SCRIPTSDIR / "sscomp.sh", BINDIR / "sscomp")
 
     ### Desktop
     # sway
