@@ -156,6 +156,7 @@ if [ "$install_type" = "full" ]; then
     slurp
     swappy
     jq  # used in some scripts for sway/hyprland
+    anyrun  # application launcher
     xorg-xwayland
     bemenu
     bemenu-wayland
