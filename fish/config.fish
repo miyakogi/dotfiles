@@ -136,7 +136,7 @@ status --is-interactive; and begin
   function __auto_ls --on-variable PWD; ls; end
 
   # zk note taking directory
-  set -x ZK_NOTEBOOK_DIR $HOME/notes/main
+  set -x ZK_NOTEBOOK_DIR $HOME/Documents/notes/main
 
   # prompt
   if type -q starship; and begin; test -n "$DISPLAY"; or test -n "$WAYLAND_DISPLAY"; or test -z "$XDG_VTNR"; end
