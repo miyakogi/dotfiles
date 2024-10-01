@@ -159,8 +159,6 @@ if [ "$install_type" = "full" ]; then
     tofi  # menu
     anyrun  # application launcher
     xorg-xwayland
-    bemenu
-    bemenu-wayland
     kvantum  # qt theme setting
     qt6ct  # qt theme setting (choose kvantum)
 
