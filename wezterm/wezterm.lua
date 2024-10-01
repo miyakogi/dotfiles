@@ -36,7 +36,7 @@ local font_rules = {
     })
   },
 }
-local font_size = 15.0
+local font_size = 16.0
 
 local gpu = {
   name = 'AMD Radeon RX 6800 XT (RADV NAVI21)',
