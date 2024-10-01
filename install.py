@@ -301,8 +301,8 @@ def install_desktop() -> None:
     # anyrun application launcher
     install(BASEDIR / "anyrun", CONFIG_HOME / "anyrun")
 
-    # fuzzel application launcher
-    install(BASEDIR / "fuzzel", CONFIG_HOME / "fuzzel")
+    # tofi launcher
+    install(BASEDIR / "tofi", CONFIG_HOME / "tofi")
 
     # dunst notification daemon
     install(BASEDIR / "dunst", CONFIG_HOME / "dunst")

@@ -1,0 +1,11 @@
+# ini-style config file
+
+font = "Explex35 HSNF"
+font-size = 32
+background-color = "#000000"
+text-color = "#f2f4f8"
+border-color = "#ee5396"
+border-width = 10
+
+width = 1120
+height = 50%
