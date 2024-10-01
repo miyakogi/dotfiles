@@ -114,6 +114,9 @@ packages=(
   tmux
   zellij
 
+  # system information
+  macchina
+
   # Command-line tools
   starship  # prompt manager
   direnv  # directory based env setting
