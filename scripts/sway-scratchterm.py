@@ -23,7 +23,7 @@ def build_cmd(hidpi: bool) -> list[str]:
     cls = get_class(hidpi)
 
     cmd = [
-        "launch-foot",
+        "foot",
     ]
 
     foot_options = [

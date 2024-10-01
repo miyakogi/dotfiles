@@ -17,7 +17,7 @@ is_exist() {
 start_term() {
   local cmd
   cmd=(
-    launch-foot
+    foot
     --app-id="$class"
     --override="colors.alpha=0.8"
   )
