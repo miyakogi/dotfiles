@@ -170,6 +170,7 @@ if [ "$install_type" = "full" ]; then
     swaybg
     swayidle
     hyprlock
+    i3status-rust
     autotiling
     python-i3ipc  # used in some script for sway
 
