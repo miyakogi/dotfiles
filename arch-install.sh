@@ -191,7 +191,7 @@ if [ "$install_type" = "full" ]; then
 
     # font
     ttf-roboto
-    ttf-genjyuu-gothic  # jp sans-serif font
+    ttf-ibm-plex
     morisawa-biz-ud-micho-fonts  # default jp serif font
     ttf-moralerspece  # monospace font + jp support
     ttf-0xproto-nerd  # monospace font
