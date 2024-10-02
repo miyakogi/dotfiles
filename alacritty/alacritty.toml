@@ -11,7 +11,8 @@ size = 16.0
 # family = "0xProto Nerd Font"
 # family = "Cascadia Code NF"
 # family = "GoMono Nerd Font"
-family = "Moralerspace Neon NF"
+# family = "Moralerspace Neon NF"
+family = "Explex35 Console HSNF"
 
 [[hints.enabled]]
 action = "Copy"
