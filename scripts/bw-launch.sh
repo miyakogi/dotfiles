@@ -176,48 +176,41 @@ while [[ "$1" = "--"* ]]; do
         # set local_home as HOME
         --setenv HOME "$local_home"
       )
-      shift
-      shift
+      shift 2
       ;;
     --lib-bind)
       cmd+=(
         --ro-bind "$2" "$2"
       )
-      shift
-      shift
+      shift 2
       ;;
     --home-bind-local)
       # Bind to local home dir
       cmd+=(
         --bind "$local_home/$2" "$local_home/$2"
       )
-      shift
-      shift
+      shift 2
       ;;
     --home-bind-host)
       # Bind to host home dir
       cmd+=(
         --bind "/home/$USER/$2" "$local_home/$2"
       )
-      shift
-      shift
+      shift 2
       ;;
     --bind)
       # Bind directory
       cmd+=(
         --bind "$2" "$2"
       )
-      shift
-      shift
+      shift 2
       ;;
     --env)
       # Set env var
       cmd+=(
         --setenv "$2" "$3"
       )
-      shift
-      shift
-      shift
+      shift 3
       ;;
     --chromium)
       # Add chromium options
