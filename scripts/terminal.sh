@@ -6,6 +6,7 @@ Run default terminal.
 Available options:
   - alacritty
   - foot
+  - havoc
   - kitty
   - rio
   - wezterm
@@ -43,6 +44,9 @@ if [ "$1" = "--class" ]; then
     foot)
       cmd+=(--app-id "$2")
       ;;
+    havoc)
+      cmd+=(-i "$2")
+      ;;
     kitty)
       cmd+=(--app-id "$2")
       ;;
@@ -66,6 +70,10 @@ if [ "$1" = "-e" ]; then
       ;;
     foot)
       # optional
+      shift
+      ;;
+    havoc)
+      # should not exist
       shift
       ;;
     kitty)
