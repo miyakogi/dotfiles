@@ -113,7 +113,7 @@
 
     ### Text ###
 
-    font = Moralerspace Neon NF 16
+    font = Explex35 HSNF 16
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
