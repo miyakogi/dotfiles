@@ -25,7 +25,7 @@ window#waybar {
   color: @foreground;
   background-color: @background;
   border-radius: 0rem;
-  font-family: "Moralerspace Neon NF";
+  font-family: "Explex35 HSNF";
 }
 
 window#waybar.4K {
