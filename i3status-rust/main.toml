@@ -18,6 +18,18 @@ info_fg = "#ee5396"  # red
 
 [[block]]
 block = "custom"
+command = "mic-mute-watch"
+json = true
+interval = 0.5
+[[block.click]]
+button = "left"
+cmd = "mic-mute-toggle"
+[block.theme_overrides]
+idle_fg = "#6e6f70"  # comment
+info_fg = "#ee5396"  # red
+
+[[block]]
+block = "custom"
 json = true
 command = "ff-volume-watch"
 interval = "once"
