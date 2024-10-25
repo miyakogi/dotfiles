@@ -91,13 +91,36 @@
   "height": 26,  // 1 + tray icon + 1
   "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
-  "modules-right": ["cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "custom/update", "tray"],
+  "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "custom/update", "tray"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "",
     "persistent-workspaces": {
       "HDMI-A-1": 10,
     },
+  },
+  "custom/idle": {
+    "return-type": "json",
+    "exec": "$HOME/bin/idle-watch",  // need full path in systemd service
+    "on-click": "$HOME/bin/idle-toggle",  // need full path in systemd service
+    "interval": "once",  // don't know why, but necessary
+    "signal": 6,  // -SIGRTMIN+6
+    "format": "{}",
+  },
+  "custom/mic": {
+    "return-type": "json",
+    "exec": "$HOME/bin/mic-mute-watch",
+    "on-click": "$HOME/bin/mic-mute-toggle",
+    "interval": "once",  // need anyway
+    "signal": 8,  // -SIGRTMIN+8
+  },
+  "custom/ff-volume": {
+    "return-type": "json",
+    "exec": "$HOME/bin/ff-volume-watch",  // need full path in systemd service
+    "on-click": "$HOME/bin/ff-volume-toggle",  // need full path in systemd service
+    "interval": -1,  // need anyway
+    "format": "{}",
+    "tooltip": false,
   },
   "custom/clock": {
     "exec": "echo -e \" \u2005$(date '+%a %d %b %Y')  󰅐 $(date '+%H:%M:%S')\"",

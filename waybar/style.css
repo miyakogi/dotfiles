@@ -125,7 +125,7 @@ window#waybar.FHD #workspaces button.active {
   padding: 0px 20px;
 }
 
-#custom-idle {
+window#waybar.4K #custom-idle {
   color: @background;
   font-family: "Symbols Nerd Font";
   border-radius: 1rem;
@@ -133,16 +133,16 @@ window#waybar.FHD #workspaces button.active {
   padding: 0rem 1rem;
 } 
 
-#custom-idle.Idle {
+window#waybar.4K #custom-idle.Idle {
   background-color: @muted;
 }
 
-#custom-idle.Info {
+window#waybar.4K #custom-idle.Info {
   background-color: @red;
   padding: 0rem 1.5rem;
 }
 
-#custom-mic {
+window#waybar.4K #custom-mic {
   color: @background;
   font-family: "Symbols Nerd Font";
   border-radius: 1rem;
@@ -150,17 +150,17 @@ window#waybar.FHD #workspaces button.active {
   padding: 0px;
 } 
 
-#custom-mic.Idle {
+window#waybar.4K #custom-mic.Idle {
   background-color: @muted;
   padding: 0rem 1.2rem;
 }
 
-#custom-mic.Info {
+window#waybar.4K #custom-mic.Info {
   background-color: @red;
   padding: 0rem 1.8rem;
 }
 
-#custom-ff-volume {
+window#waybar.4K #custom-ff-volume {
   color: @background;
   font-family: "Symbols Nerd Font";
   border-radius: 1rem;
@@ -168,14 +168,65 @@ window#waybar.FHD #workspaces button.active {
   padding: 0px;
 } 
 
-#custom-ff-volume.Idle {
+window#waybar.4K #custom-ff-volume.Idle {
   background-color: @muted;
   padding: 0rem 1.2rem;
 }
 
-#custom-ff-volume.Info {
+window#waybar.4K #custom-ff-volume.Info {
   background-color: @red;
   padding: 0rem 2.0rem;
+}
+
+window#waybar.FHD #custom-idle {
+  color: @background;
+  font-family: "Symbols Nerd Font";
+  margin: 0rem 0.1rem;
+  padding: 0rem 6px;
+  border-bottom: solid 4px @muted;
+} 
+
+window#waybar.FHD #custom-idle.Idle {
+  color: @muted;
+}
+
+window#waybar.FHD #custom-idle.Info {
+  color: @red;
+  border-bottom-color: @red;
+}
+
+window#waybar.FHD #custom-mic {
+  color: @background;
+  font-family: "Symbols Nerd Font";
+  margin: 0rem 0.1rem;
+  padding: 0px 6px;
+  border-bottom: solid 4px @muted;
+} 
+
+window#waybar.FHD #custom-mic.Idle {
+  color: @muted;
+}
+
+window#waybar.FHD #custom-mic.Info {
+  color: @red;
+  border-bottom-color: @red;
+}
+
+window#waybar.FHD #custom-ff-volume {
+  color: @background;
+  font-family: "Symbols Nerd Font";
+  margin: 0rem 0.1rem;
+  padding: 0px 6px;
+  border-bottom: solid 4px @muted;
+} 
+
+window#waybar.FHD #custom-ff-volume.Idle {
+  color: @muted;
+}
+
+window#waybar.FHD #custom-ff-volume.Info {
+  color: @red;
+  border-bottom-color: @red;
 }
 
 #cpu {
