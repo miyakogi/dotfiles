@@ -45,8 +45,8 @@ status --is-login; and begin
   if test -z "$DISPLAY"; and test "$XDG_VTNR" -eq 1; and begin test -z "$XDG_SESSION_TYPE"; or test "$XDG_SESSION_TYPE" = tty; end
     echo -e -n "\
 Select Window Manager or Shell:
-  1) Hyprland
-> 2) Sway [default]
+> 1) Hyprland [default]
+  2) Sway
   3) bash
   4) fish
   5) exit
@@ -55,7 +55,7 @@ Select Window Manager or Shell:
 
     # set default wm candidate
     if test -z "$choice"
-      set choice 2
+      set choice 1
     end
 
     switch "$choice"
