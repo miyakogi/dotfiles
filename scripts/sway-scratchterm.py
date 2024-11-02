@@ -35,7 +35,7 @@ def build_cmd(hidpi: bool) -> list[str]:
     if hidpi:
         foot_options.append("--override=initial-window-size-pixels=3200x1800")
     else:
-        foot_options.append("--override=initial-window-size-pixels=1600x900")
+        foot_options.append("--override=initial-window-size-pixels=1920x1280")
 
     zellij_cmd = []
     if shutil.which("zellij"):
