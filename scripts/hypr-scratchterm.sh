@@ -17,9 +17,9 @@ is_exist() {
 start_term() {
   local cmd
   cmd=(
-    foot
-    --app-id="$class"
-    --override="colors.alpha=0.8"
+    wezterm
+    start
+    --class "$class"
   )
 
   declare -a zcmd
