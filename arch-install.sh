@@ -179,6 +179,12 @@ if [ "$install_type" = "full" ]; then
     waybar
     hypridle
 
+    # portal
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal-hyprland
+
     # multimedia
     pulsemixer  # used by volume check/fix scripts on i3status-rust
     playerctl  # for audio control by keyboard on sway
