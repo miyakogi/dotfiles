@@ -137,7 +137,7 @@
     "format": " {used:2.1f}G/{total:2.1f}G ({percentage:2}%)",
   },
   "custom/gpu": {
-    "exec": "printf \"󰍹 %4dMHz (%2d%%)\" $(cat /sys/class/drm/card0/device/pp_dpm_sclk | rg '\\*' | head -n 1 | sd '.*?\\s+(\\d+)Mhz\\s+.*' '$1') $(cat /sys/class/drm/card0/device/gpu_busy_percent)",
+    "exec": "printf \"󰍹 %4dMHz (%2d%%)\" $(cat /sys/class/drm/card*/device/pp_dpm_sclk | rg '\\*' | head -n 1 | sd '.*?\\s+(\\d+)Mhz\\s+.*' '$1') $(cat /sys/class/drm/card*/device/gpu_busy_percent)",
     "exec-if": "true",
     "interval": 1,
     "format": "{}",
