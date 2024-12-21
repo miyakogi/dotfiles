@@ -51,7 +51,7 @@ if [ "$1" = "--class" ]; then
       cmd+=(--app-id "$2")
       ;;
     rio)
-      # not implemented
+      cmd+=(--title "$2")
       ;;
     wezterm)
       cmd+=(--class "$2")
