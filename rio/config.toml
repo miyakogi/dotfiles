@@ -116,7 +116,7 @@ blinking = false
 # blur = false
 # decorations = "Enabled"
 [window]
-mode = "Windowed"
+mode = "Maximized"
 opacity = 0.80
 decorations = "Disabled"
 
