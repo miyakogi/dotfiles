@@ -111,7 +111,6 @@ packages=(
   helix
 
   # Terminal multiplexer
-  tmux
   zellij
 
   # system information

@@ -16,11 +16,6 @@ abbr --add --global mv "mv -i"
 # mkdir -p
 abbr --add --global mkdir "mkdir -p"
 
-# tmux
-if string match -q -r "(alacritty|foot)" $TERM
-  abbr --add --global tmux "env TERM=xterm-256color tmux"
-end
-
 # ln -v
 abbr --add --global ln "ln -v -s"
 

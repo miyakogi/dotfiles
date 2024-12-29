@@ -127,7 +127,6 @@ def make_empty_directories() -> None:
     """
     These dirs don't contain config files but need to exist.
     """
-    mkdir(HOME / ".tmux" / "plugins")
     if is_orig_home():
         mkdir(PICTURES_DIR / "screenshots" / "grim")
         mkdir(PICTURES_DIR / "screenshots" / "swappy")
@@ -170,9 +169,6 @@ def install_base() -> None:
     # pip (pip's --no-binary option for some packages on linux)
     install(BASEDIR / "pip", CONFIG_HOME / "pip")
 
-    # tmux
-    install(BASEDIR / "tmux" / "tmux.conf", HOME / ".tmux.conf")
-
     # zellij
     install(BASEDIR / "zellij", CONFIG_HOME / "zellij")
 
@@ -204,15 +200,6 @@ def install_base() -> None:
     # macchina
     install(BASEDIR / "macchina", CONFIG_HOME / "macchina")
 
-    ###############################
-    # Install plugins from github #
-    ###############################
-    # tmux
-    git_clone(
-        "https://github.com/tmux-plugins/tpm",
-        HOME / ".tmux" / "plugins" / "tpm",
-    )
-
 
 def install_desktop() -> None:
     """
@@ -231,7 +218,6 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "leave.sh", BINDIR / "leave")
     install(SCRIPTSDIR / "sway-scratchterm.py", BINDIR / "sway-scratchterm")
     install(SCRIPTSDIR / "hypr-scratchterm.sh", BINDIR / "hypr-scratchterm")
-    install(SCRIPTSDIR / "scratchterm-tmux.sh", BINDIR / "scratchterm-tmux")
     install(SCRIPTSDIR / "lock-screen.sh", BINDIR / "lock-screen")
     install(SCRIPTSDIR / "chromium-options.sh", BINDIR / "chromium-options")
     install(SCRIPTSDIR / "ff-volume-watch.sh", BINDIR / "ff-volume-watch")

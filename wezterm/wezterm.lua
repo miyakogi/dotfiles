@@ -119,7 +119,6 @@ return {
     'sh',
     'zsh',
     'fish',
-    'tmux',
     'zellij',
   },
 }
