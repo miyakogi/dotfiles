@@ -24,7 +24,10 @@ theme = "carbonfox-oled"
 # Linux/BSD: fork processes
 #
 # Example:
-use-fork = false
+use-fork = true
+
+padding-x = 4
+padding-y = [0, 4]
 
 [editor]
 program = "nvim"
@@ -241,6 +244,7 @@ features = ["ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss0
 
 [navigation]
 mode = "Plain"  # disable tab
+use-split = false
 
 # Shell
 #
