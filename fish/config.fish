@@ -104,7 +104,7 @@ Select Window Manager or Shell:
       export GTK_USE_PORTAL=1
 
       # aquamarine
-      # export AQ_NO_MODIFIERS=1
+      export AQ_NO_MODIFIERS=1
 
       if [ "$wm" = "niri" ]
         exec niri-session
