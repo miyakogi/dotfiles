@@ -296,6 +296,9 @@ def install_desktop() -> None:
     # rio terminal emulator
     install(BASEDIR / "rio", CONFIG_HOME / "rio")
 
+    # ghostty terminal emulator
+    install(BASEDIR / "ghostty", CONFIG_HOME / "ghostty")
+
     # keyd key-remapping
     install(BASEDIR / "keyd" / "app.conf", CONFIG_HOME / "keyd" / "app.conf")
 

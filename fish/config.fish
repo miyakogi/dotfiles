@@ -168,6 +168,9 @@ status --is-interactive; and begin
   if type -q macchina
     function fish_greeting
       if test -n "$DISPLAY"; or test -n "$WAYLAND_DISPLAY"
+        if test "$TERM" = "xterm-ghostty"
+          sleep 0.02
+        end
         macchina
       else
         macchina --theme Simple

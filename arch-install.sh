@@ -149,6 +149,7 @@ if [ "$install_type" = "full" ]; then
     kitty
     foot
     rio
+    ghostty
 
     # wayland
     dunst

@@ -44,6 +44,9 @@ if [ "$1" = "--class" ]; then
     foot)
       cmd+=(--app-id "$2")
       ;;
+    ghostty)
+      cmd+=("--title=$2")
+      ;;
     havoc)
       cmd+=(-i "$2")
       ;;

@@ -1,0 +1,21 @@
+font-family = "Explex35 Console HSNF"
+font-size = 16
+
+# theme = iceberg-dark
+# theme = nightfox
+# theme = PaleNightHC
+# theme = Peppermint
+# theme = Raycast_Dark
+# theme = Snazzy
+theme = carbonfox-oled
+background-opacity = 0.80
+
+shell-integration = fish
+shell-integration-features = no-cursor
+
+cursor-style = block
+cursor-style-blink = false
+
+window-decoration = false
+window-padding-x = 4
+window-padding-y = 4
