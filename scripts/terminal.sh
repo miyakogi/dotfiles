@@ -6,6 +6,7 @@ Run default terminal.
 Available options:
   - alacritty
   - foot
+  - ghostty
   - havoc
   - kitty
   - rio
