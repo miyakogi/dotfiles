@@ -1,5 +1,6 @@
 font-family = "Explex35 Console HSNF"
 font-size = 16
+font-feature = -dlig
 
 # theme = iceberg-dark
 # theme = nightfox
