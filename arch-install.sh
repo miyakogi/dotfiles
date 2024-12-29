@@ -120,7 +120,6 @@ packages=(
   # Command-line tools
   starship  # prompt manager
   direnv  # directory based env setting
-  lsd  # ls alternative
   eza  # ls alternative
   bat  # cat alternative
   fzf  # fuzzy searcher

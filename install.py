@@ -198,9 +198,6 @@ def install_base() -> None:
     # bat
     install(BASEDIR / "bat", CONFIG_HOME / "bat")
 
-    # lsd
-    install(BASEDIR / "lsd", CONFIG_HOME / "lsd")
-
     # starship shell prompt
     install(BASEDIR / "starship" / "starship.toml", CONFIG_HOME / "starship.toml")
 

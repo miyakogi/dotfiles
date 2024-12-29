@@ -47,7 +47,7 @@ else if type -q hx
   abbr --add --global h hx
 end
 
-# ls -> lsd
+# ls -> eza
 abbr --add --global lsa "ls --all"
 abbr --add --global lsl "ls -l -h"
 abbr --add --global lsal "ls --all -l -h"
