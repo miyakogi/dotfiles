@@ -14,7 +14,10 @@ function fish_user_key_bindings
     end
   else  # for new, rusty fish
     bind ctrl-w backward-kill-word
-    # bind ctrl-Backspace backward-kill-word (not working on fish-4.0b1)
+    if test "$TERM" = "xterm-ghostty"
+      bind ctrl-Backspace backward-kill-word  # (not working on fish-4.0b1)
+      bind \b backward-kill-word  # Ctrl+Backspace for old fish
+    end
     bind ctrl-y 'commandline "cd ../" ; commandline -f execute'
     bind ctrl-j myjump
     bind ctrl-f nextd-or-forward-word
