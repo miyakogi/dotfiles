@@ -10,7 +10,7 @@ case "$XDG_SESSION_DESKTOP" in
     class="class";;
 esac
 
-if pulsemixer --list-sources | grep 'Name: USB PnP Audio Device Mono' | grep 'Mute: 0' &>/dev/null; then
+if pulsemixer --list-sources | grep -e 'Name: USB PnP Audio Device Mono' -e 'Name: ArctisX PnP Microphone Mono' | grep 'Mute: 0' &>/dev/null; then
   echo -n -e "{\"$class\": \"Info\", \"text\": \"${space}\"}"
 else
   echo -n -e "{\"$class\": \"Idle\", \"text\": \"${space}\"}"
