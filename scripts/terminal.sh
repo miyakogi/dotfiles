@@ -55,7 +55,7 @@ if [ "$1" = "--class" ]; then
       cmd+=(--app-id "$2")
       ;;
     rio)
-      cmd+=(--title "$2")
+      cmd+=(--title-placeholder "$2")
       ;;
     wezterm)
       cmd+=(--class "$2")
