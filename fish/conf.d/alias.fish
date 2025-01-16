@@ -47,6 +47,13 @@ abbr --add --global lsa "ls --all"
 abbr --add --global lsl "ls -l -h"
 abbr --add --global lsal "ls --all -l -h"
 
+# top
+if type -q btop
+  abbr --add --global b btop
+else if type -q btm
+  abbr --add --global b btm
+end
+
 # ssh
 if string match -q -r "(alacritty|foot|.*kitty)" $TERM
   abbr --add --global ssh "env TERM=xterm-256color ssh"
