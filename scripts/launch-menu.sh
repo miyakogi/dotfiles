@@ -15,7 +15,7 @@ declare -a cmd=()
 termcmd="foot"
 
 # set output specific options
-_font="Explex35 Console HSNF"
+_font="monospace"
 if is-4k; then
   winsize="1200x1200"
   _fsize=26
