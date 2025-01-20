@@ -25,7 +25,7 @@ window#waybar {
   color: @foreground;
   background-color: @background;
   border-radius: 0rem;
-  font-family: "Explex35 HSNF";
+  font-family: "monospace";
 }
 
 window#waybar.4K {
