@@ -36,8 +36,8 @@
 
 box#main {
   border-radius: 16px;
-  background-color: alpha(@bg-color, 0.7);
-  border: 2px solid alpha(@red, 0.9);
+  background-color: alpha(@bg-color, 1.0);
+  border: 2px solid alpha(@red, 1.0);
 }
 
 entry#entry {
