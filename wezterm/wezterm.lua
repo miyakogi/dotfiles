@@ -7,7 +7,8 @@ local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
 
 local font = wezterm.font_with_fallback({
-  'Explex35 Console HSNF',
+  'BlexMono Nerd Font',
+  'IBM Plex Sans JP',
   'Unifont',
 })
 local font_rules = {
