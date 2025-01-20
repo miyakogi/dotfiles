@@ -613,7 +613,6 @@ local plugins = {
   -- notification
   {
     'folke/noice.nvim',
-    tag = 'v4.4.7',  -- latest cause cursor flickering
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       'MunifTanjim/nui.nvim',
