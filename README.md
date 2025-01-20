@@ -31,10 +31,6 @@ Then to make config files for supported applications, run:
 ./install.py
 ```
 
-### Install Fonts not in AUR
-
-Install [Explex](https://github.com/yuru7/Explex) font by [this PKGBUILD](https://github.com/miyakogi/PKGBUILDs/tree/main/ttf-explex-full).
-
 ## Setup
 
 ### Enable TTY Login
