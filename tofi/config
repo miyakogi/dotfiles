@@ -1,6 +1,6 @@
 # ini-style config file
 
-font = "Explex35 HSNF"
+font = "monospace"
 font-size = 32
 background-color = "#000000"
 text-color = "#f2f4f8"
