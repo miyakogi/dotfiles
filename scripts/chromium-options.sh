@@ -50,7 +50,7 @@ flags=(
 
 # --- Define Default Features ---
 # Enable VA-API acceleration for both video encoding/decoding
-features="VaapiVideoEncoder,VaapiVideoDecoder"
+features="VaapiVideoEncoder,VaapiVideoDecoder,AcceleratedVideoEncoder,VaapiVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxGL"
 # Enable Canvas out-of-process rasterization
 features="$features,CanvasOopRasterization"
 # Enable Direct Rendering Display Compositor
@@ -59,7 +59,8 @@ features="$features,EnableDrDc"
 # -> still broken on YouTube overlay
 #features="$features,RawDraw"
 
-d_features="UseChromeOSDirectVideoDecode"
+# Need to enable HW accelerated video playback
+d_features="UseChromeOSDirectVideoDecoder"
 
 # --- Set Platform Specific Features/Flags ---
 if [ "$1" = "wayland" ]; then
@@ -67,7 +68,16 @@ if [ "$1" = "wayland" ]; then
   features="$features,WebRTCPipeWireCapturer"
   # Vulkan does not support WebGL, WebGL2, and some compositing HW accelerations now (v98/v99)
   # -> --disablie-gpu-driver-bug-workarounds does not fix this
-  #features="$features,Vulkan"
+
+  if [ "$2" = "vulkan" ]; then
+    features="$features,Vulkan,VaapiIgnoreDriverChecks,VulkanFromANGLE,DefaultANGLEVulkan"
+    flags+=(
+      --use-gl=angle
+      --use-angle=vulkan
+    )
+  fi
+
+  d_features="$d_features,UseSkiaRenderer"
 
   flags+=(
     --enable-features="$features"
@@ -84,6 +94,7 @@ if [ "$1" = "wayland" ]; then
 
     # EGL seems to be the best option for now (v98)
     #--use-gl=egl
+    --disable-gpu-driver-bug-workaround
 
     # Necessary to enable fcitx5 (v98+)
     # see: https://www.reddit.com/r/swaywm/comments/rwqo1d/yesterdays_chrome_97_stable_release_has_gtk4_im/
@@ -118,14 +129,8 @@ else
     flags+=(
       --enable-features="$features"
 
-      # Need to enable HW accelerated video playback (at least currently working on Xorg)
-      --disable-features="UseChromeOSDirectVideoDecoder"
-
-      # EGL works properly on Xorg
-      --use-gl=egl
-
       # Fcitx5 does not work on GTK4
-      --gtk-version=3
+      --gtk-version=4
     )
   fi
 fi
