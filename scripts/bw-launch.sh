@@ -228,6 +228,12 @@ while [[ "$1" = "--"* ]]; do
     --vulkan)
       shift
       ;;
+    --dev-bind)
+      cmd+=(
+        --dev-bind "$2" "$3"
+      )
+      shift 3
+      ;;
     *)
       echo -e "\e[1;31m============ [ERROR] ============\e[m"
       echo -e "\e[1;33mUnknown Option: ${1}\e[m"
