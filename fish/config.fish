@@ -50,7 +50,8 @@ Select Window Manager or Shell:
   3) bash
   4) fish
   5) exit
-  *) any executable"
+  *) any executable
+"
     read -P '>>> ' choice
 
     # set default wm candidate
