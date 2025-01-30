@@ -30,13 +30,6 @@ status --is-login; and begin
     export EDITOR=vim
   end
 
-  # set default pager
-  if type -q moar
-    export PAGER="moar"
-    export GIT_PAGER="moar"
-    export MANPAGER="moar"
-  end
-
   # Set less
   export LESS="-iFRS"
   export SYSTEMD_LESS="iFRSM"
