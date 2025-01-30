@@ -1,4 +1,4 @@
-theme = "tokyonight-oled"
+theme = "carbonfox-oled"
 
 [editor]
 gutters = ["diagnostics", "diff"]
