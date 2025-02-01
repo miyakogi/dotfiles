@@ -149,7 +149,7 @@ decorations = "Disabled"
 [renderer]
 performance = "High"
 backend = "Vulkan"
-max-fps = 120
+# max-fps = 120
 
 # Keyboard
 #
