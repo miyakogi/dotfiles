@@ -7,31 +7,9 @@ local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
 
 local font = wezterm.font_with_fallback({
-  'BlexMono Nerd Font',
-  'IBM Plex Sans JP',
+  'monospace',
   'Unifont',
 })
-local font_rules = {
-  {
-    intensity = 'Normal',
-    italic = true,
-    font = wezterm.font({
-      family = 'Moralerspace Radon NF',
-      style = 'Normal',
-      harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1' },
-    })
-  },
-  {
-    intensity = 'Bold',
-    italic = true,
-    font = wezterm.font({
-      family = 'Moralerspace Radon NF',
-      weight = 'Bold',
-      style = 'Normal',
-      harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1' },
-    })
-  },
-}
 local font_size = 16.5
 
 local gpu = {
@@ -68,7 +46,6 @@ return {
   front_end = 'WebGpu',
 
   font = font,
-  font_rules = font_rules,
   font_size = font_size,
 
   bold_brightens_ansi_colors = 'No',
