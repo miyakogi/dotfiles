@@ -197,10 +197,9 @@ if [ "$install_type" = "full" ]; then
     # font
     ttf-roboto
     morisawa-biz-ud-mincho-fonts  # default jp serif font
+    ttf-lilex-nerd  # monospace font
     ttf-ibmplex-mono-nerd  # monospace font
     ttf-ibm-plex  # default jp sans-serif font
-    ttf-moralerspece  # monospace font + jp support
-    ttf-0xproto-nerd  # monospace font
     ttf-zed-mono-nerd  # monospace font (narrow)
     ttf-nerd-fonts-symbols
     ttf-unifont
