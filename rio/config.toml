@@ -26,6 +26,8 @@ theme = "carbonfox-oled"
 # Example:
 use-fork = true
 
+confirm-before-quit = false
+
 padding-x = 4
 padding-y = [0, 4]
 
