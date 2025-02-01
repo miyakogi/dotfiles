@@ -27,7 +27,11 @@ case "$XDG_CURRENT_DESKTOP" in
     ;;
 esac
 
-cmd=("$_term")
+if [ "$_term" = foot ] && [ -e "$XDG_RUNTIME_DIR/foot-$WAYLAND_DILPLAY.sock" ]; then
+  cmd=(footclient)
+else
+  cmd=("$_term")
+fi
 
 case "$_term" in
   wezterm)
