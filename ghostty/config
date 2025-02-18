@@ -15,6 +15,7 @@ shell-integration-features = no-cursor
 
 cursor-style = block
 cursor-style-blink = false
+cursor-opacity = 0.8
 
 window-decoration = false
 window-padding-x = 4
