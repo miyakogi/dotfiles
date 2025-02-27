@@ -74,7 +74,7 @@
       "type": "display",
       "key": "  󰍹 Display ",
       "format": "{1} x {2} @ {3}Hz",
-      "keyColor": "blue",
+      "keyColor": "cyan",
     },
     {
       "type": "memory",
