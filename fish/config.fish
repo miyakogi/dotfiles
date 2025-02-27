@@ -158,6 +158,14 @@ status --is-interactive; and begin
     zoxide init fish --cmd j | source
   end
 
+  function fish_greeting
+    if type -q fastfetch
+      if test "$TERM" != "foot"
+        fastfetch
+      end
+    end
+  end
+
   # load machine local setting (~/.config/fish/local.fish)
   if test -f ~/.config/fish/local.fish
     source ~/.config/fish/local.fish
