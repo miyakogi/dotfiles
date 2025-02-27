@@ -5,33 +5,34 @@
     "source": "cachyos"
   },
   "display": {
-    "separator": " : ",
+    "separator": " 󰄾 ",
   },
   "modules": [
+    "break",
     {
       "type": "custom",
-      "format": "┌─── System Information ─────────────────────────────────────┐",
+      "format": " ┌─── System Information ──────────────────────────────┐",
     },
     {
       "type": "title",
-      "key": "   Host",
+      "key": "   Host    ",
       "keyColor": "red",
     },
     {
       "type": "os",
-      "key": "  󰣇 OS",
+      "key": "  󰣇 OS      ",
       "format": "{2}",
       "keyColor": "green",
     },
     {
       "type": "kernel",
-      "key": "   Kernel",
+      "key": "   Kernel  ",
       "format": "{2}",
       "keyColor": "green",
     },
     {
       "type": "uptime",
-      "key": "  󱫐 Uptime",
+      "key": "  󱫐 Uptime  ",
       "keyColor": "green",
     },
     {
@@ -41,7 +42,7 @@
     },
     {
       "type": "wm",
-      "key": "  󱗃 WM",
+      "key": "  󱗃 WM      ",
       "format": "{2}",
       "keyColor": "yellow",
     },
@@ -53,41 +54,41 @@
     },
     {
       "type": "shell",
-      "key": "   Shell",
+      "key": "   Shell   ",
       "format": "{2}",
       "keyColor": "yellow",
     },
     {
       "type": "cpu",
-      "key": "   CPU",
-      "format": "{1} @ {7}",
+      "key": "   CPU     ",
+      "format": "{1}",
       "keyColor": "blue",
     },
     {
       "type": "gpu",
-      "key": "  󰊴 GPU",
+      "key": "  󰊴 GPU     ",
       "format": "{1} {2}",
       "keyColor": "blue",
     },
     {
       "type": "display",
-      "key": "  󰍹 Display",
+      "key": "  󰍹 Display ",
       "format": "{1} x {2} @ {3}Hz",
       "keyColor": "blue",
     },
     {
       "type": "memory",
-      "key": "   Memory",
+      "key": "   Memory  ",
       "keyColor": "magenta",
     },
     {
       "type": "swap",
-      "key": "  󰣁 Swap",
+      "key": "  󰣁 Swap    ",
       "keyColor": "magenta",
     },
     {
       "type": "disk",
-      "key": "   Disk",
+      "key": "   Disk    ",
       "keyColor": "white",
     },
     "break",
@@ -98,7 +99,7 @@
     },
     {
       "type": "custom",
-      "format": "└───────────────────────────────────────────────────────────┘",
+      "format": " └─────────────────────────────────────────────────────┘",
     },
   ]
 }
