@@ -158,20 +158,6 @@ status --is-interactive; and begin
     zoxide init fish --cmd j | source
   end
 
-  # show machine info
-  if type -q macchina
-    function fish_greeting
-      if test -n "$DISPLAY"; or test -n "$WAYLAND_DISPLAY"
-        if test "$TERM" = "xterm-ghostty"
-          sleep 0.02
-        end
-        macchina
-      else
-        macchina --theme Simple
-      end
-    end
-  end
-
   # load machine local setting (~/.config/fish/local.fish)
   if test -f ~/.config/fish/local.fish
     source ~/.config/fish/local.fish
