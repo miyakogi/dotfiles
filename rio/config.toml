@@ -283,6 +283,9 @@ use-split = false
 # program = "/opt/homebrew/bin/tmux"
 # args = ["new-session", "-c", "/var/www"]
 
+[shell]
+program = "fish"
+
 # Colors
 #
 # Colors definition will overwrite any property in theme
