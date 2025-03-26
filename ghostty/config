@@ -11,6 +11,8 @@ font-feature = -dlig
 theme = carbonfox-oled
 background-opacity = 0.80
 
+command = fish
+
 shell-integration = fish
 shell-integration-features = no-cursor
 
