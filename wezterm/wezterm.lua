@@ -8,6 +8,7 @@ local act = wezterm.action
 
 local font = wezterm.font_with_fallback({
   'monospace',
+  'IBM Plex Sans JP',
   'Unifont',
 })
 local font_size = 16.5
