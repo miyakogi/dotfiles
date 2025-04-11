@@ -51,6 +51,8 @@ return {
   font = font,
   font_size = font_size,
 
+  default_cursor_style = 'SteadyBar',
+
   bold_brightens_ansi_colors = 'No',
 
   scrollback_lines = 10000,
