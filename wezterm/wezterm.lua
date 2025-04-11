@@ -46,6 +46,8 @@ return {
   webgpu_preferred_adapter = gpu,
   front_end = 'WebGpu',
 
+  term = 'wezterm',
+
   font = font,
   font_size = font_size,
 
