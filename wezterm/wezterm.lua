@@ -62,7 +62,7 @@ return {
   window_background_opacity = 0.80,
 
   -- Tab bar
-  use_fancy_tab_bar = true,
+  use_fancy_tab_bar = false,
   color_schemes = {
     ['carbonfox-oled'] = scheme,
   },
