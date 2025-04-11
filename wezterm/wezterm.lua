@@ -57,7 +57,7 @@ return {
 
   scrollback_lines = 10000,
 
-  detect_password_input = false,  -- disable password icon
+  detect_password_input = true,  -- show password icon
 
   window_background_opacity = 0.80,
 
