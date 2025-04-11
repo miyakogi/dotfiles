@@ -41,7 +41,7 @@ args = []
 # Other available options are: '_' and '|'
 #
 [cursor]
-shape = 'block'
+shape = 'beam'
 
 # Blinking Cursor
 #
