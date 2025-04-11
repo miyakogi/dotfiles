@@ -34,6 +34,10 @@ else
 fi
 
 case "$_term" in
+  # kitty)
+  #   # single instance mode
+  #   cmd+=(--single-instance)
+  #   ;;
   wezterm)
     cmd+=(start --always-new-process)
     ;;
