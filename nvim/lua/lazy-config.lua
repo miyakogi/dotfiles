@@ -128,40 +128,19 @@ local plugins = {
   },
 
   {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = {
-      { 'nvim-tree/nvim-web-devicons' },  -- optional, for file icons
-    },
-    -- tag = 'nightly',  -- optional, updated every week. (see issue #1193)
-    lazy  = true,
+    'is0n/fm-nvim',
+    lazy = true,
     keys = {
       {
         '<Space>e',
         function()
-          if vim.fn.bufname('%'):find('^NvimTree_') then
-            vim.api.nvim_command('NvimTreeClose')
-          else
-            vim.api.nvim_command('NvimTreeFocus')
-          end
+          vim.api.nvim_command('Xplr')
         end,
       },
     },
-    config = function()
-      -- set options
-      require('nvim-tree').setup({
-        disable_netrw = true,
-        sort_by = 'case_sensitive',
-        git = {
-          ignore = false,  -- show gitignored files by default - toggle by <S-I>
-        },
-        view = {
-          signcolumn = 'yes',
-        },
-        filters = {
-          dotfiles = true,  -- hide dotfiles by default - toggle by <S-H>
-        },
-      })
-    end
+    config = function ()
+      require('fm-nvim').setup({})
+    end,
   },
 
   {
