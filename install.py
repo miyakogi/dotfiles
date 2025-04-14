@@ -194,8 +194,8 @@ def install_base() -> None:
     # starship shell prompt
     install(BASEDIR / "starship" / "starship.toml", CONFIG_HOME / "starship.toml")
 
-    # fastfetch
-    install(BASEDIR / "fastfetch", CONFIG_HOME / "fastfetch")
+    # macchina
+    install(BASEDIR / "macchina", CONFIG_HOME / "macchina")
 
 
 def install_desktop() -> None:

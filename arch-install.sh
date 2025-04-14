@@ -114,7 +114,7 @@ packages=(
   zellij
 
   # system information
-  fastfetch
+  macchina
 
   # Command-line tools
   starship  # prompt manager

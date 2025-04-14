@@ -158,8 +158,8 @@ status --is-interactive; and begin
     zoxide init fish --cmd j | source
   end
 
-  if type -q fastfetch
-    fastfetch
+  if type -q macchina
+    macchina
   end
 
   # load machine local setting (~/.config/fish/local.fish)
