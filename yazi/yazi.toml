@@ -1,5 +1,5 @@
 [manager]
-layout = [0, 4, 4]
+ratio = [0, 4, 4]
 sort_by = "natural"
 sort_sensitive = true
 sort_reverse = false
