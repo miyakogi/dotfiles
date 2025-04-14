@@ -20,6 +20,17 @@ vim.g.loaded_tarPlugin = 1
 vim.g.loaded_vimballPlugin = 1
 vim.g.loaded_zipPlugin = 1
 
+-- from: https://zenn.dev/kawarimidoll/articles/8172a4c29a6653
+vim.g.did_install_default_menus = 1
+vim.g.loaded_2html_plugin       = 1
+vim.g.loaded_man                = 1
+vim.g.loaded_matchit            = 1
+vim.g.loaded_matchparen         = 1
+vim.g.loaded_remote_plugins     = 1
+vim.g.loaded_shada_plugin       = 1
+vim.g.loaded_spellfile_plugin   = 1
+vim.g.loaded_tutor_mode_plugin  = 1
+vim.g.skip_loading_mswin        = 1
 
 -- =========================================================
 -- Set Global Options
