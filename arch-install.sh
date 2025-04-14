@@ -156,7 +156,6 @@ if [ "$install_type" = "full" ]; then
     swappy
     jq  # used in some scripts for sway/hyprland
     tofi  # menu
-    anyrun  # application launcher
     xorg-xwayland
     kvantum  # qt theme setting
     qt6ct  # qt theme setting (choose kvantum)
