@@ -42,6 +42,11 @@ else if type -q hx
   abbr --add --global h hx
 end
 
+# file explorer
+if type -q xplr
+  abbr --add --global x xplr
+end
+
 # ls -> eza
 abbr --add --global lsa "ls --all"
 abbr --add --global lsl "ls -l -h"
