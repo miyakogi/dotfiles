@@ -35,7 +35,7 @@ status --is-login; and begin
   export SYSTEMD_LESS="iFRSM"
 
   ### Login
-  if test -z "$DISPLAY"; and test "$XDG_VTNR" -eq 1; and begin test -z "$XDG_SESSION_TYPE"; or test "$XDG_SESSION_TYPE" = tty; end
+  if test -z "$DISPLAY"; and test "$XDG_VTNR" = 1; and begin test -z "$XDG_SESSION_TYPE"; or test "$XDG_SESSION_TYPE" = tty; end
     echo -e -n "\
 Select Window Manager or Shell:
 > 1) Hyprland [default]
