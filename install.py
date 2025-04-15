@@ -282,9 +282,6 @@ def install_desktop() -> None:
     # keyd key-remapping
     install(BASEDIR / "keyd" / "app.conf", CONFIG_HOME / "keyd" / "app.conf")
 
-    # anyrun application launcher
-    install(BASEDIR / "anyrun", CONFIG_HOME / "anyrun")
-
     # tofi launcher
     install(BASEDIR / "tofi", CONFIG_HOME / "tofi")
 
