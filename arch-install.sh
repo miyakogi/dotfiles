@@ -202,7 +202,6 @@ if [ "$install_type" = "full" ]; then
     ttf-ibm-plex  # default jp sans-serif font
     ttf-zed-mono-nerd  # monospace font (narrow)
     ttf-nerd-fonts-symbols
-    ttf-unifont
 
     # icon
     beautyline
