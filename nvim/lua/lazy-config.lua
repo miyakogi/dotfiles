@@ -742,18 +742,13 @@ local plugins = {
 
   -- indent highlight
   {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    config = function()
-      require('ibl').setup({
-        indent = {
-          char = '▏',
-        },
-        scope = {
-          enabled = false,
-        },
-      })
-    end,
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      indent = { enabled = true },
+    },
   },
 
   -- abbreviation
