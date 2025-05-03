@@ -144,6 +144,23 @@ local plugins = {
   },
 
   {
+    'mikavilpas/yazi.nvim',
+    event = "VeryLazy",
+    dependencies = {
+      "folke/snacks.nvim"
+    },
+    keys = {
+      {
+        '<Space>y',
+        '<cmd>Yazi<cr>',
+      },
+    },
+    opts = {
+      open_for_directories = true,
+    },
+  },
+
+  {
     'ggandor/leap.nvim',
     dependencies = {
       { 'tpope/vim-repeat' },
