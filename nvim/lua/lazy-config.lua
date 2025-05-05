@@ -72,63 +72,6 @@ local plugins = {
 
   -- ### File Management ###
   {
-    'nvim-telescope/telescope.nvim',
-    dependencies = {
-      { 'nvim-lua/plenary.nvim' },
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    },
-    build = ':checkhealth telescope',
-    lazy = true,
-    keys = {
-      { '<Leader>ff', function() require('telescope.builtin').find_files() end, },
-      { '<Leader>fg', function() require('telescope.builtin').git_files() end, },
-      { '<Leader>fm', function() require('telescope.builtin').oldfiles() end, },
-      { '<Space>f', function() require('telescope.builtin').find_files() end, },
-    },
-    config = function()
-      local telescope = require('telescope')
-      local actions = require('telescope.actions')
-
-      telescope.setup({
-        defaults = {
-          path_display = { truncate = 4 },
-          mappings = {
-            i = {
-              ['<esc>'] = actions.close,  -- <Esc> close popup
-              ['<C-u>'] = false,  -- <C-u> clear prompt
-            },
-          },
-          layout_strategy = 'flex',
-          layout_config = {
-            prompt_position = 'top',
-            flex = {
-              flip_columns = 120,
-              flip_lines = 40,
-            },
-          },
-          sorting_strategy = 'ascending',
-        },
-        pickers = {
-          find_files = {
-            -- theme = 'dropdown',
-          },
-        },
-        extensions = {
-          fzf = {
-            fuzzy = false,
-            override_generic_sorter = true,
-            override_file_sorter = true,
-            case_mode = 'smart_case',
-          },
-        },
-      })
-
-      -- load fzf extension
-      telescope.load_extension('fzf')
-    end,
-  },
-
-  {
     'is0n/fm-nvim',
     lazy = true,
     keys = {
@@ -816,6 +759,13 @@ local plugins = {
       },
       statuscolumn = { enabled = true },
     },
+    keys = {
+      -- picker
+      { '<Leader>ff', function() Snacks.picker.files() end, desc = 'Find files' },
+      { '<Leader>fg', function() Snacks.picker.git_files() end, desc = 'Find git files' },
+      { '<Leader>fm', function() Snacks.picker.recent() end, desc = 'Recent files' },
+      { '<Space>f', function() Snacks.picker.smart() end, desc = 'Smart find files' },
+    },
   },
 }
 
@@ -823,9 +773,6 @@ local plugins = {
 if vim.fn.executable('zk') > 0 then
   plugins[#plugins+1] = {
     'mickael-menu/zk-nvim',
-    dependencies = {
-      { 'nvim-telescope/telescope.nvim' },
-    },
     lazy = true,
     keys = {
       -- create a new note with title
@@ -844,7 +791,7 @@ if vim.fn.executable('zk') > 0 then
     },
     config = function()
       require('zk').setup({
-        picker = 'telescope',
+        picker = 'snacks_picker',
         lsp = {
           config = {
             cmd = { 'zk', 'lsp' },
