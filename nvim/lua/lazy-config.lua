@@ -73,7 +73,6 @@ local plugins = {
   -- ### File Management ###
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
@@ -101,11 +100,13 @@ local plugins = {
           },
           layout_strategy = 'flex',
           layout_config = {
+            prompt_position = 'top',
             flex = {
               flip_columns = 120,
               flip_lines = 40,
             },
           },
+          sorting_strategy = 'ascending',
         },
         pickers = {
           find_files = {
