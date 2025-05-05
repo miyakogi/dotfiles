@@ -783,6 +783,9 @@ local plugins = {
     lazy = false,
     ---@type snacks.Config
     opts = {
+      dashboard = { enabled = true },
+      -- explorer = { enabled = true },
+      image = { enabled = true },
       indent = {
         enabled = true,
         animate = {
@@ -792,6 +795,26 @@ local plugins = {
           },
         },
       },
+      picker = {
+        enabled = true,
+      },
+      quickfile = { enabled = true },
+      scroll = {
+        enabled = true,
+        animate = {
+          duration = {
+            steps = 25,
+            total = 100,
+          },
+        },
+        animate_repeat = {
+          duration = {
+            steps = 10,
+            total = 50,
+          },
+        },
+      },
+      statuscolumn = { enabled = true },
     },
   },
 }
