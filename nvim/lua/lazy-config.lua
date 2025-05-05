@@ -607,7 +607,6 @@ local plugins = {
     end,
   },
 
-
   -- notification
   {
     'folke/noice.nvim',
@@ -743,15 +742,7 @@ local plugins = {
   },
 
   -- indent highlight
-  {
-    'folke/snacks.nvim',
-    priority = 1000,
-    lazy = false,
-    ---@type snacks.Config
-    opts = {
-      indent = { enabled = true },
-    },
-  },
+  -- -> moved into snacks.nvim
 
   -- abbreviation
   {
@@ -783,6 +774,25 @@ local plugins = {
     'h-hg/fcitx.nvim',
     lazy = true,
     event = 'InsertEnter',
+  },
+
+  -- misc
+  {
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      indent = {
+        enabled = true,
+        animate = {
+          duration = {
+            steps = 25,
+            total = 70,
+          },
+        },
+      },
+    },
   },
 }
 
