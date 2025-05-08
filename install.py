@@ -230,6 +230,8 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "bw-launch.sh", BINDIR / "bw-launch")
     install(SCRIPTSDIR / "temperature.sh", BINDIR / "temperature")
     install(SCRIPTSDIR / "terminal.sh", BINDIR / "terminal")
+    install(SCRIPTSDIR / "launch-logseq.sh", BINDIR / "launch-logseq")
+    install(SCRIPTSDIR / "screenshot.sh", BINDIR / "screenshot")
 
     ### Desktop
     # sway
