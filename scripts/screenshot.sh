@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 grim_file="${XDG_PICTURES_DIR:-$HOME/Pictures}/screenshots/grim/grim-$(date +%Y%m%d-%H%M%S).jpg"
 notify_file="$(echo $grim_file | sed "s|$HOME|~|")"

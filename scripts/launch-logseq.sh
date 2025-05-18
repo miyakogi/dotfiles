@@ -1,3 +1,3 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 logseq "$(chromium-options wayland)"
