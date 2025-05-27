@@ -16,7 +16,7 @@ COMMENTOUT
 case "$XDG_CURRENT_DESKTOP" in
   Hyprland)
     # Hyprland default terminal
-    _term=foot
+    _term=kitty
     ;;
   sway)
     # Sway default terminal
