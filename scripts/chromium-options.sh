@@ -98,7 +98,7 @@ if [ "$1" = "wayland" ]; then
 
     # Necessary to enable fcitx5 (v98+)
     # see: https://www.reddit.com/r/swaywm/comments/rwqo1d/yesterdays_chrome_97_stable_release_has_gtk4_im/
-    # --gtk-version=4
+    --gtk-version=4
   )
 else
   # Vulkan breaks rendering on ShinyColors (v99)
@@ -122,7 +122,7 @@ else
       #--use-gl=egl
 
       # Windowing by GTK4
-      # --gtk-version=4
+      --gtk-version=4
     )
   else
     # --- Xorg --- #
