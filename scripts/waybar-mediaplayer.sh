@@ -13,6 +13,7 @@ get_current_player() {
   current=$(cat "$tmpfile")
   if [ -z "$current" ]; then
     current="$(playerctl -l | head -n 1)"
+    echo -n "$current" > "$tmpfile"
   fi
   echo -n "$current"
 }
