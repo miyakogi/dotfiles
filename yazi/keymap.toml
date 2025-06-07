@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 prepend_keymap = [
   { on = "<UP>", run = "arrow -1" },
   { on = "<DOWN>", run = "arrow 1" },
