@@ -1,4 +1,6 @@
-font-family = "monospace"
+# font-family = "monospace"
+font-family = "Lilex Nerd Font Mono Medium"
+font-family = "IBM Plex Sans JP Medm"
 font-size = 16.5
 font-feature = -dlig
 
@@ -18,7 +20,7 @@ shell-integration-features = no-cursor
 
 cursor-style = bar
 cursor-style-blink = false
-cursor-opacity = 0.8
+# cursor-opacity = 0.8
 
 window-decoration = false
 window-padding-x = 4
