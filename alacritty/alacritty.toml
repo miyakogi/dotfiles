@@ -49,3 +49,6 @@ y = 6
 
 [scrolling]
 history = 10000
+
+[cursor]
+style.shape = "Beam"
