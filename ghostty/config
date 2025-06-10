@@ -16,7 +16,7 @@ command = fish
 shell-integration = fish
 shell-integration-features = no-cursor
 
-cursor-style = block
+cursor-style = bar
 cursor-style-blink = false
 cursor-opacity = 0.8
 
