@@ -8,7 +8,8 @@ import subprocess
 import sys
 
 if not sys.platform.startswith("linux"):
-    raise Exception(f"This script only supports Linux\nUnsupported OS: {sys.platform}")
+    emsg = f"This script only supports Linux\nUnsupported OS: {sys.platform}"
+    raise Exception(emsg)
 
 HOME = Path.home()
 BASEDIR = Path(__file__).resolve().parent
@@ -41,22 +42,22 @@ class Formatter(logging.Formatter):
             for color in self._colors_int:
                 self.colors[color] = ""
 
-    def format(self, rec):
+    def format(self, record):
         fmt = "{color}[{level}:{name}]{normal} {msg}"
         config = {
-            "level": rec.levelname[0],
-            "name": rec.name,
-            "msg": rec.msg,
+            "level": record.levelname[0],
+            "name": record.name,
+            "msg": record.msg,
             "normal": self.colors["normal"],
         }
 
-        if rec.levelno >= logging.ERROR:
+        if record.levelno >= logging.ERROR:
             config["color"] = self.colors["red"]
-        elif rec.levelno >= logging.WARNING:
+        elif record.levelno >= logging.WARNING:
             config["color"] = self.colors["yellow"]
-        elif rec.levelno >= logging.INFO:
+        elif record.levelno >= logging.INFO:
             config["color"] = self.colors["green"]
-        elif rec.levelno >= logging.DEBUG:
+        elif record.levelno >= logging.DEBUG:
             config["color"] = self.colors["blue"]
         else:
             config["color"] = ""
@@ -81,7 +82,7 @@ def mkdir(p: Path) -> None:
     elif p.is_dir():
         logger.debug(f"[skipped] directory {p} already exists")
     else:
-        logger.warn(f"path {p} exists but not directory")
+        logger.warning(f"path {p} exists but not directory")
 
 
 def install(src: Path, dest: Path) -> None:
@@ -149,7 +150,6 @@ def install_base() -> None:
     install(BASHDIR / "bash_login", HOME / ".bash_login")
     install(BASHDIR / "bashrc", HOME / ".bashrc")
 
-
     # fish shell
     install(BASEDIR / "fish", CONFIG_HOME / "fish")
 
@@ -192,7 +192,8 @@ def install_base() -> None:
     install(BASEDIR / "bat", CONFIG_HOME / "bat")
 
     # starship shell prompt
-    install(BASEDIR / "starship" / "starship.toml", CONFIG_HOME / "starship.toml")
+    install(BASEDIR / "starship" / "starship.toml",
+            CONFIG_HOME / "starship.toml")
 
     # macchina
     install(BASEDIR / "macchina", CONFIG_HOME / "macchina")
@@ -208,7 +209,7 @@ def install_desktop() -> None:
     # Install for Desktop System #
     ##############################
 
-    ### Scripts for desktop system
+    # Scripts for desktop system
     SCRIPTSDIR = BASEDIR / "scripts"
     install(SCRIPTSDIR / "is-4k.sh", BINDIR / "is-4k")
     install(SCRIPTSDIR / "launch-menu.sh", BINDIR / "launch-menu")
@@ -225,7 +226,8 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "idle-toggle.sh", BINDIR / "idle-toggle")
     install(SCRIPTSDIR / "sway-addws.py", BINDIR / "sway-addws")
     install(SCRIPTSDIR / "hypr-addws.sh", BINDIR / "hypr-addws")
-    install(SCRIPTSDIR / "waybar-mediaplayer.sh", BINDIR / "waybar-mediaplayer")
+    install(SCRIPTSDIR / "waybar-mediaplayer.sh",
+            BINDIR / "waybar-mediaplayer")
     install(SCRIPTSDIR / "waybar-update.sh", BINDIR / "waybar-update")
     install(SCRIPTSDIR / "bw-launch.sh", BINDIR / "bw-launch")
     install(SCRIPTSDIR / "temperature.sh", BINDIR / "temperature")
@@ -233,7 +235,7 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "launch-logseq.sh", BINDIR / "launch-logseq")
     install(SCRIPTSDIR / "screenshot.sh", BINDIR / "screenshot")
 
-    ### Desktop
+    # Desktop
     # sway
     install(BASEDIR / "sway" / "config", CONFIG_HOME / "sway" / "config")
     install(BASEDIR / "sway" / "config.d", CONFIG_HOME / "sway" / "config.d")
@@ -242,23 +244,36 @@ def install_desktop() -> None:
     install(BASEDIR / "i3status-rust", CONFIG_HOME / "i3status-rust")
 
     # hypridle
-    install(BASEDIR / "hypr" / "hypridle.conf", CONFIG_HOME / "hypr" / "hypridle.conf")
+    install(BASEDIR / "hypr" / "hypridle.conf",
+            CONFIG_HOME / "hypr" / "hypridle.conf")
 
     # hyprlock
-    install(BASEDIR / "hypr" / "hyprlock.conf", CONFIG_HOME / "hypr" / "hyprlock.conf")
+    install(BASEDIR / "hypr" / "hyprlock.conf",
+            CONFIG_HOME / "hypr" / "hyprlock.conf")
 
     # hyprland
-    install(BASEDIR / "hypr" / "hyprland.conf", CONFIG_HOME / "hypr" / "hyprland.conf")
-    install(BASEDIR / "hypr" / "carbonfox.conf", CONFIG_HOME / "hypr" / "carbonfox.conf")
-    install(BASEDIR / "hypr" / "carbonfox-oled.conf", CONFIG_HOME / "hypr" / "carbonfox-oled.conf")
-    install(BASEDIR / "hypr" / "catppuccin-macchiato.conf", CONFIG_HOME / "hypr" / "catppuccin-macchiato.conf")
-    install(BASEDIR / "hypr" / "catppuccin-mocha.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha.conf")
-    install(BASEDIR / "hypr" / "catppuccin-mocha-oled.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha-oled.conf")
-    install(BASEDIR / "hypr" / "rose-pine.conf", CONFIG_HOME / "hypr" / "rose-pine.conf")
-    install(BASEDIR / "hypr" / "rose-pine-oled.conf", CONFIG_HOME / "hypr" / "rose-pine-oled.conf")
-    install(BASEDIR / "hypr" / "iceberg-tokyo.conf", CONFIG_HOME / "hypr" / "iceberg-tokyo.conf")
-    install(BASEDIR / "hypr" / "tokyonight.conf", CONFIG_HOME / "hypr" / "tokyonight.conf")
-    install(BASEDIR / "hypr" / "tokyonight-oled.conf", CONFIG_HOME / "hypr" / "tokyonight-oled.conf")
+    install(BASEDIR / "hypr" / "hyprland.conf",
+            CONFIG_HOME / "hypr" / "hyprland.conf")
+    install(BASEDIR / "hypr" / "carbonfox.conf",
+            CONFIG_HOME / "hypr" / "carbonfox.conf")
+    install(BASEDIR / "hypr" / "carbonfox-oled.conf",
+            CONFIG_HOME / "hypr" / "carbonfox-oled.conf")
+    install(BASEDIR / "hypr" / "catppuccin-macchiato.conf",
+            CONFIG_HOME / "hypr" / "catppuccin-macchiato.conf")
+    install(BASEDIR / "hypr" / "catppuccin-mocha.conf",
+            CONFIG_HOME / "hypr" / "catppuccin-mocha.conf")
+    install(BASEDIR / "hypr" / "catppuccin-mocha-oled.conf",
+            CONFIG_HOME / "hypr" / "catppuccin-mocha-oled.conf")
+    install(BASEDIR / "hypr" / "rose-pine.conf",
+            CONFIG_HOME / "hypr" / "rose-pine.conf")
+    install(BASEDIR / "hypr" / "rose-pine-oled.conf",
+            CONFIG_HOME / "hypr" / "rose-pine-oled.conf")
+    install(BASEDIR / "hypr" / "iceberg-tokyo.conf",
+            CONFIG_HOME / "hypr" / "iceberg-tokyo.conf")
+    install(BASEDIR / "hypr" / "tokyonight.conf",
+            CONFIG_HOME / "hypr" / "tokyonight.conf")
+    install(BASEDIR / "hypr" / "tokyonight-oled.conf",
+            CONFIG_HOME / "hypr" / "tokyonight-oled.conf")
 
     # waybar (waybar-hypr)
     install(BASEDIR / "waybar", CONFIG_HOME / "waybar")
@@ -293,7 +308,7 @@ def install_desktop() -> None:
     # swappy
     install(BASEDIR / "swappy", CONFIG_HOME / "swappy")
 
-    ### Font
+    # Font
     install(
         BASEDIR / "fontconfig" / "conf.d" / "10-default-fonts.conf",
         CONFIG_HOME / "fontconfig" / "conf.d" / "10-default-fonts.conf",
@@ -358,7 +373,8 @@ def install_other_home() -> None:
 
     # Some shareable xdg-directories
     HOST_CONFIG_HOME = HOST_HOME / ".config"
-    install(HOST_CONFIG_HOME / "nvim" / "spell", CONFIG_HOME / "nvim" / "spell")
+    install(HOST_CONFIG_HOME / "nvim" / "spell",
+            CONFIG_HOME / "nvim" / "spell")
     install(HOST_CONFIG_HOME / "ccache", CONFIG_HOME / "ccache")
     install(HOST_CONFIG_HOME / "fontconfig", CONFIG_HOME / "fontconfig")
 
