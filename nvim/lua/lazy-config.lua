@@ -254,9 +254,9 @@ local plugins = {
       end
 
       -- python
-      if vim.fn.executable('pylsp') > 0 then
-        vim.lsp.enable('pylsp')
-        vim.lsp.config('pylsp', {
+      if vim.fn.executable('pyright') > 0 then
+        vim.lsp.enable('pyright')
+        vim.lsp.config('pyright', {
           on_attach = on_attach,
           flags = lsp_flags,
         })
