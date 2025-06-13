@@ -164,16 +164,6 @@ local plugins = {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      -- Start LSP Client When Opening Supported Files
-      vim.api.nvim_create_augroup('lsp', {})
-      local function lsp_autocmd(pattern)
-        vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew' }, {
-          group = 'lsp',
-          callback = function() vim.api.nvim_command('LspStart') end,
-          pattern = pattern,
-        })
-      end
-
       local opts = { noremap = true, silent = true }
       vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
       vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
@@ -197,7 +187,8 @@ local plugins = {
 
       -- spell check
       if vim.fn.executable('typos-lsp') > 0 then
-        require('lspconfig').typos_lsp.setup({
+        vim.lsp.enable('typos_lsp')
+        vim.lsp.config('typos_lsp', {
           on_attach = on_attach,
           flags = lsp_flags,
         })
@@ -206,8 +197,8 @@ local plugins = {
       -- bash
       -- requires `shellcheck` command to enable diagnostic
       if vim.fn.executable('bash-language-server') > 0 then
-        lsp_autocmd({ '*.bash', '*.sh' })
-        require('lspconfig')['bashls'].setup({
+        vim.lsp.enable('bashls')
+        vim.lsp.config('bashls', {
           on_attach = on_attach,
           flags = lsp_flags,
           filetypes = { 'sh', 'bash' },
@@ -217,8 +208,8 @@ local plugins = {
       -- c/cpp
       -- requires `clangd` included in `clang` package
       if vim.fn.executable('clangd') > 0 then
-        lsp_autocmd({ '*.c', '*.h', '*.cpp', '*.hpp' })
-        require('lspconfig')['clangd'].setup({
+        vim.lsp.enable('clangd')
+        vim.lsp.config('clangd', {
           on_attach = on_attach,
           flags = lsp_flags,
         })
@@ -226,16 +217,16 @@ local plugins = {
 
       -- elixir
       if vim.fn.executable('elixir-ls') > 0 then
-        lsp_autocmd({ '*.ex', '*.exs' })
-        require('lspconfig').elixirls.setup({
+        vim.lsp.enable('elixirls')
+        vim.lsp.config('elixirls', {
           cmd = {'elixir-ls'}
         })
       end
 
       -- lua
       if vim.fn.executable('lua-language-server') > 0 then
-        lsp_autocmd({ '*.lua' })
-        require('lspconfig')['lua_ls'].setup({
+        vim.lsp.enable('lua_ls')
+        vim.lsp.config('lua_ls', {
           on_attach = on_attach,
           flags = lsp_flags,
           settings = {
@@ -264,8 +255,8 @@ local plugins = {
 
       -- python
       if vim.fn.executable('pylsp') > 0 then
-        lsp_autocmd({ '*.py' })
-        require('lspconfig')['pylsp'].setup({
+        vim.lsp.enable('pylsp')
+        vim.lsp.config('pylsp', {
           on_attach = on_attach,
           flags = lsp_flags,
         })
@@ -273,8 +264,8 @@ local plugins = {
 
       -- rust
       if vim.fn.executable('rust-analyzer') > 0 then
-        lsp_autocmd({ '*.rs' })
-        require('lspconfig')['rust_analyzer'].setup({
+        vim.lsp.enable('rust_analyzer')
+        vim.lsp.config('rust_analyzer', {
           on_attach = on_attach,
           flags = lsp_flags,
           settings = {
@@ -286,16 +277,10 @@ local plugins = {
 
       -- zk
       if vim.fn.executable('zk') > 0 then
-        require('lspconfig').zk = {
-          default_config = {
-            cmd = {'zk', 'lsp'},
-            filetypes = { 'markdown' },
-            root_dir = function()
-              return vim.loop.cwd()
-            end,
-            settings = {},
-          }
-        }
+        vim.lsp.enable('zk')
+        vim.lsp.config('zk', {
+          filetypes = { 'markdown' },
+        })
       end
     end,
   },
