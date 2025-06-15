@@ -17,9 +17,9 @@ background-opacity = 0.80
 command = fish
 
 shell-integration = fish
-shell-integration-features = no-cursor
+shell-integration-features = cursor,sudo,no-title
 
-cursor-style = bar
+cursor-style = block
 cursor-style-blink = false
 # cursor-opacity = 0.8
 
