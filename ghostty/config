@@ -1,6 +1,7 @@
 # font-family = "monospace"
-font-family = "Lilex Nerd Font Mono Medium"
+font-family = "Lilex Nerd Font Mono"
 font-family = "IBM Plex Sans JP Medm"
+font-style = Medium
 font-size = 16.5
 font-feature = -dlig
 
