@@ -750,15 +750,15 @@ if vim.fn.executable('zk') > 0 then
     lazy = true,
     keys = {
       -- create a new note with title
-      { '<Leader>jn', '<Cmd>ZkNew { title = vim.fn.input("title: ") }<CR>' },
+      { '<Leader>zn', '<Cmd>ZkNew { title = vim.fn.input("title: ") }<CR>' },
       -- open note
-      { '<Leader>jo', '<Cmd>ZkNotes { sort = { "modified" } }<CR>' },
+      { '<Leader>zo', '<Cmd>ZkNotes { sort = { "modified" } }<CR>' },
       -- open note by tag
-      { '<Leader>jt', '<Cmd>ZkTags<CR>' },
+      { '<Leader>zt', '<Cmd>ZkTags<CR>' },
       -- search note by search query
-      { '<Leader>jf', '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>' },
+      { '<Leader>zf', '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>' },
       -- search selected word
-      { '<Leader>jf', ':ZkMatch<CR>', mode = 'x' }
+      { '<Leader>zf', ':ZkMatch<CR>', mode = 'x' }
     },
     cmd = {
       'ZkNew',
