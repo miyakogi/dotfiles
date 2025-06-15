@@ -49,9 +49,9 @@ abbr --add --global lsal "ls --all -l -h"
 
 # top
 if type -q btop
-  abbr --add --global b btop
+  abbr --add --global t btop
 else if type -q btm
-  abbr --add --global b btm
+  abbr --add --global t btm
 end
 
 # ssh
