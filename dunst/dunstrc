@@ -91,7 +91,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#89B4FA"
+    frame_color = "#8dc5fe"
 
     # Define a color for the separator.
     # possible values are:
@@ -297,18 +297,18 @@
 # https://github.com/folke/tokyonight.nvim/blob/main/extras/dunst/tokyonight_night.dunstrc
 [urgency_low]
     background = "#000000"
-    foreground = "#c0caf5"
-    frame_color = "#c0caf5"
+    foreground = "#eeeeee"
+    frame_color = "#8dc5fe"
 
 [urgency_normal]
     background = "#000000"
-    foreground = "#c0caf5"
-    frame_color = "#c0caf5"
+    foreground = "#ffffff"
+    frame_color = "#6de0d3"
 
 [urgency_critical]
     background = "#000000"
-    foreground = "#db4b4b"
-    frame_color = "#db4b4b"
+    foreground = "#e54561"
+    frame_color = "#e54561"
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
