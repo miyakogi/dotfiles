@@ -11,7 +11,7 @@ font-feature = -dlig
 # theme = Peppermint
 # theme = Raycast_Dark
 # theme = Snazzy
-theme = carbonfox-oled
+theme = hologta
 background-opacity = 0.80
 
 command = fish
