@@ -177,6 +177,7 @@ if [ "$install_type" = "full" ]; then
     hyprland
     waybar
     hypridle
+    hyprpaper
 
     # portal
     xdg-desktop-portal

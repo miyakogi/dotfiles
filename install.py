@@ -251,6 +251,10 @@ def install_desktop() -> None:
     install(BASEDIR / "hypr" / "hyprlock.conf",
             CONFIG_HOME / "hypr" / "hyprlock.conf")
 
+    # hyprpaper
+    install(BASEDIR / "hypr" / "hyprpaper.conf",
+            CONFIG_HOME / "hypr" / "hyprpaper.conf")
+
     # hyprland
     install(BASEDIR / "hypr" / "hyprland.conf",
             CONFIG_HOME / "hypr" / "hyprland.conf")
