@@ -1,4 +1,4 @@
-@import "carbonfox-oled.css";
+@import "hologta.css";
 /* @define-color muted @highlightMed; */
 
 @define-color foreground @text;
@@ -110,9 +110,9 @@ window#waybar.FHD #workspaces button.active {
 }
 
 #custom-media.Playing {
-  color: @yellow;
+  color: @cyan;
   padding: 0rem 1rem;
-  box-shadow: inset 0px -4px @yellow;
+  box-shadow: inset 0px -4px @cyan;
 }
 
 #custom-media.Paused {

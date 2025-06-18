@@ -1,0 +1,20 @@
+/*
+* Variant: Holo GTA
+*/
+
+@define-color base            #000000;
+@define-color foreground      #ffffff;
+
+
+@define-color red             #e54561;
+@define-color green           #6de0d3;
+@define-color yellow          #ffe787;
+@define-color blue            #5a75de;
+@define-color magenta         #e9548e;
+@define-color cyan            #8dc5fe;
+@define-color white           #ffffff;
+
+@define-color muted           #535353;
+@define-color comment         #6e6f70;
+@define-color subtle          #bebebe;
+@define-color text            @foreground;
