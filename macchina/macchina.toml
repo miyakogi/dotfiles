@@ -60,5 +60,4 @@ show = [
   # "GPU",
   "Resolution",
   "Memory",
-  "DiskSpace",
 ]
