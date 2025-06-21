@@ -148,7 +148,7 @@ decorations = "Disabled"
 # disable-renderer-when-unfocused = false
 [renderer]
 performance = "High"
-backend = "Vulkan"
+backend = "GL"
 # max-fps = 120
 
 # Keyboard
@@ -182,7 +182,7 @@ backend = "Vulkan"
 # Example:
 # [fonts]
 [fonts]
-size = 23
+size = 24
 family = "Lilex Nerd Font Mono"
 extras = [ { family = "IBM Plex Sans JP" }, { family = "Noto Emoji" } ]
 features = ["ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "calt", "liga"]
