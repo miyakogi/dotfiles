@@ -78,22 +78,6 @@ local plugins = {
 
   -- ### File Management ###
   {
-    'is0n/fm-nvim',
-    lazy = true,
-    keys = {
-      {
-        '<Space>e',
-        function()
-          vim.api.nvim_command('Xplr')
-        end,
-      },
-    },
-    config = function ()
-      require('fm-nvim').setup({})
-    end,
-  },
-
-  {
     'ggandor/leap.nvim',
     dependencies = {
       { 'tpope/vim-repeat' },
@@ -738,6 +722,7 @@ local plugins = {
       { '<Leader>ff', function() Snacks.picker.files() end, desc = 'Find files' },
       { '<Leader>fg', function() Snacks.picker.git_files() end, desc = 'Find git files' },
       { '<Leader>fm', function() Snacks.picker.recent() end, desc = 'Recent files' },
+      { '<Space>e', function() Snacks.picker.smart() end, desc = 'Smart find files' },
       { '<Space>f', function() Snacks.picker.smart() end, desc = 'Smart find files' },
     },
   },
