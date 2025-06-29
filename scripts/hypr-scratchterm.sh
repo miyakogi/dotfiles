@@ -17,9 +17,9 @@ is_exist() {
 start_term() {
   local cmd
   cmd=(
-    wezterm
-    start
+    terminal
     --class "$class"
+    -e bash -c
   )
 
   declare -a zcmd
@@ -33,11 +33,11 @@ start_term() {
       zcmd+=(--session "$class")
     fi
   else
-    zcmd=(fish)  
+    zcmd=(fish)
   fi
 
-  exec "${cmd[@]}" bash -c "sleep 0.01 && zellij attach $class || zellij --session $class || fish "
-  # exec "${cmd[@]}" bash -c "sleep 0.01 && ${zcmd[*]}"
+  # exec "${cmd[@]}" bash -c "sleep 0.01 && zellij attach $class || zellij --session $class || fish "
+  exec "${cmd[@]}" "sleep 0.01 && ${zcmd[*]}"
 }
 
 if ! is_exist; then
