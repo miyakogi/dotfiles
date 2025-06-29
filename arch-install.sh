@@ -125,7 +125,6 @@ packages=(
   fd  # find alternative written by rust
   ripgrep  # better grep
   atuin  # command history
-  xplr  # simple file manager
   zoxide  # smart cd
   zk  # note taking tool
 )
