@@ -138,7 +138,7 @@ window#waybar.4K #custom-idle.Idle {
 }
 
 window#waybar.4K #custom-idle.Info {
-  background-color: @red;
+  background-color: @magenta;
   padding: 0rem 1.5rem;
 }
 
@@ -156,7 +156,7 @@ window#waybar.4K #custom-mic.Idle {
 }
 
 window#waybar.4K #custom-mic.Info {
-  background-color: @red;
+  background-color: @magenta;
   padding: 0rem 1.8rem;
 }
 
@@ -174,7 +174,7 @@ window#waybar.4K #custom-ff-volume.Idle {
 }
 
 window#waybar.4K #custom-ff-volume.Info {
-  background-color: @red;
+  background-color: @magenta;
   padding: 0rem 2.0rem;
 }
 
@@ -191,8 +191,8 @@ window#waybar.FHD #custom-idle.Idle {
 }
 
 window#waybar.FHD #custom-idle.Info {
-  color: @red;
-  border-bottom-color: @red;
+  color: @magenta;
+  border-bottom-color: @magenta;
 }
 
 window#waybar.FHD #custom-mic {
@@ -208,8 +208,8 @@ window#waybar.FHD #custom-mic.Idle {
 }
 
 window#waybar.FHD #custom-mic.Info {
-  color: @red;
-  border-bottom-color: @red;
+  color: @magenta;
+  border-bottom-color: @magenta;
 }
 
 window#waybar.FHD #custom-ff-volume {
@@ -225,8 +225,8 @@ window#waybar.FHD #custom-ff-volume.Idle {
 }
 
 window#waybar.FHD #custom-ff-volume.Info {
-  color: @red;
-  border-bottom-color: @red;
+  color: @magenta;
+  border-bottom-color: @magenta;
 }
 
 #cpu {
