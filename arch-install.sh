@@ -177,6 +177,7 @@ if [ "$install_type" = "full" ]; then
     waybar
     hypridle
     hyprpaper
+    quickshell-git
 
     # portal
     xdg-desktop-portal

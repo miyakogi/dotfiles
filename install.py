@@ -340,6 +340,11 @@ def install_desktop() -> None:
         CONFIG_HOME / "fontconfig" / "conf.d" / "90-nerd-font-symbols-jp.conf",
     )
 
+    # quickshell
+    mkdir(BASEDIR / "quickshell")
+    git_clone("https://github.com/miyakogi/qs-dots", BASEDIR / "qs-dots")
+    install(BASEDIR / "qs-dots", CONFIG_HOME / "quickshell" / "qs-dots")
+
     ####################
     # Systemd Services #
     ####################

@@ -3,3 +3,6 @@
 
 # ignore local fish config file
 fish/local.fish
+
+# ignore quickshell config
+qs-dots/
