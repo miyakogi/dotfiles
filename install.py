@@ -341,7 +341,7 @@ def install_desktop() -> None:
     )
 
     # quickshell
-    mkdir(BASEDIR / "quickshell")
+    mkdir(CONFIG_HOME / "quickshell")
     git_clone("https://github.com/miyakogi/qs-dots", BASEDIR / "qs-dots")
     install(BASEDIR / "qs-dots", CONFIG_HOME / "quickshell" / "qs-dots")
 
