@@ -1,7 +1,27 @@
 local wezterm = require('wezterm')
 local scheme = wezterm.color.get_builtin_schemes()['carbonfox']
 scheme.background = 'black'
-scheme.cursor_bg = '#08bdba'
+scheme.cursor_bg = '#fed677'
+scheme.ansi = {
+  '#000000',  -- black
+  '#e54561',  -- red
+  '#6de0d3',  -- green
+  '#ffe787',  -- yellow
+  '#9dc5fe',  -- blue
+  '#e9548e',  -- magenta
+  '#5a75de',  -- cyan
+  '#ffffff',  -- white
+}
+scheme.brights = {
+  '#000000',  -- black
+  '#e54561',  -- red
+  '#6de0d3',  -- green
+  '#ffe787',  -- yellow
+  '#9dc5fe',  -- blue
+  '#e9548e',  -- magenta
+  '#5a75de',  -- cyan
+  '#ffffff',  -- white
+}
 
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
