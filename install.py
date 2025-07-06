@@ -306,7 +306,7 @@ def install_desktop() -> None:
     install(BASEDIR / "keyd" / "app.conf", CONFIG_HOME / "keyd" / "app.conf")
 
     # tofi launcher
-    install(BASEDIR / "tofi", CONFIG_HOME / "tofi")
+    install(BASEDIR / "anyrun", CONFIG_HOME / "anyrun")
 
     # dunst notification daemon
     install(BASEDIR / "dunst", CONFIG_HOME / "dunst")

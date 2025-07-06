@@ -1,0 +1,96 @@
+/* based on https://github.com/anyrun-org/anyrun/discussions/179 */
+
+/* GTK Vars */
+/* Theme: Carbonfox */
+@define-color bg-color #000000;
+@define-color fg-color #ffffff;
+
+@define-color red             #e54561;
+@define-color yellow          #ffe787;
+@define-color green           #6de0d3;
+@define-color cyan            #8dc5fe;
+@define-color blue            #5a75de;
+@define-color magenta         #e9548e;
+@define-color whete           #ffffff;
+
+@define-color muted           #535353;
+@define-color comment         #6e6f70;
+@define-color subtle          #bebebe;
+@define-color text            @foreground;
+
+@define-color primary-color @cyan;
+@define-color secondary-color @yellow;
+@define-color border-color @primary-color;
+@define-color selected-bg-color @primary-color;
+@define-color selected-fg-color @bg-color;
+
+* {
+  all: unset;
+  font-family: monospace;
+  font-size: 3rem;
+}
+
+#window {
+  background: transparent;
+}
+
+box#main {
+  border-radius: 16px;
+  background-color: alpha(@bg-color, 1.0);
+  border: 4px solid alpha(@magenta, 1.0);
+}
+
+entry#entry {
+  font-size: 2.5rem;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 24px;
+  min-height: 40px;
+  caret-color: @primary-color;
+}
+
+list#main {
+  background-color: transparent;
+}
+
+#plugin {
+  background-color: transparent;
+  padding-bottom: 4px;
+}
+
+#match {
+  font-size: 2.3rem;
+  padding: 2px 4px;
+}
+
+#match:selected,
+#match:hover {
+  background-color: @selected-bg-color;
+  color: @selected-fg-color;
+}
+
+#match:selected label#info,
+#match:hover label#info {
+  color: @selected-fg-color;
+}
+
+#match:selected label#match-desc,
+#match:hover label#match-desc {
+  color: alpha(@selected-fg-color, 0.9);
+}
+
+#match label#info {
+  color: transparent;
+  color: @fg-color;
+}
+
+label#match-desc {
+  font-size: 2rem;
+  color: @fg-color;
+}
+
+label#plugin {
+  font-size: 2rem;
+}

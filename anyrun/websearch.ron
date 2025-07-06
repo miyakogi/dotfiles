@@ -1,0 +1,11 @@
+Config(
+  prefix: "/",
+  engines: [
+    Custom(
+      name: "Brave",
+      url: "search.brave.com/search?q={}",
+    ),
+    DuckDuckGo,
+    Google,
+  ],
+)
