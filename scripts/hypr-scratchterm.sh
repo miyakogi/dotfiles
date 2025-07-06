@@ -7,7 +7,7 @@ else
 fi
 
 get_term_address() {
-  hyprctl clients -j | jq '.[] | select(.class == "'"$class"'") | .address' || true
+  hyprctl clients -j | jq '.[] | select(.class | test("'"$class"'")) | .address' || true
 }
 
 is_exist() {

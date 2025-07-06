@@ -54,7 +54,7 @@ if [ "$1" = "--class" ]; then
       cmd+=(--app-id "$2")
       ;;
     ghostty)
-      cmd+=("--title=$2")
+      cmd+=("--class=com.ghostty.$2")
       ;;
     havoc)
       cmd+=(-i "$2")
