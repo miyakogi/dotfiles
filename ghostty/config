@@ -17,11 +17,13 @@ background-opacity = 0.80
 command = fish
 
 shell-integration = fish
-shell-integration-features = cursor,sudo,no-title
+shell-integration-features = no-cursor,sudo,no-title
 
 cursor-style = block
 cursor-style-blink = false
-# cursor-opacity = 0.8
+cursor-opacity = 0.8
+
+custom-shader = shaders/cursor_frozen.glsl
 
 window-decoration = false
 window-padding-x = 12
