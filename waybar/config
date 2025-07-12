@@ -5,7 +5,7 @@
   "output": ["DP-1"],
   "name": "4K",
   "spacing": 16,
-  "height": 28,  // 1 + tray icon + 1
+  "height": 32,  // 1 + tray icon + 1
   "modules-left": ["custom/os", "hyprland/workspaces"],
   "modules-center": ["custom/media"],
   "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "tray"],
@@ -88,7 +88,7 @@
   "name": "FHD",
   "position": "bottom",
   "spacing": 4,
-  "height": 26,  // 1 + tray icon + 1
+  "height": 30,  // 1 + tray icon + 1
   "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
   "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "custom/update", "tray"],

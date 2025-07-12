@@ -61,9 +61,9 @@ window#waybar.FHD {
 
 #workspaces button {
   background-color: @muted;
-  border-radius: 1rem;
-  padding: 0rem 0.43rem;
-  margin: 0rem 0.3rem;
+  border-radius: 2rem;
+  padding: 0rem 0.55rem;
+  margin: 0rem 0.35rem;
   animation: ws_normal 20s ease-in-out 1;
 }
 
@@ -87,15 +87,15 @@ window#waybar.FHD {
 }
 
 window#waybar.FHD #workspaces button, button {
-  padding: 0rem 0.28rem;
+  padding: 0rem 0.45rem;
 }
 
 window#waybar.FHD #workspaces button.visible {
-  padding: 0rem 0.65rem;
+  padding: 0rem 1.0rem;
 }
 
 window#waybar.FHD #workspaces button.active {
-  padding: 0rem 0.65rem;
+  padding: 0rem 1.0rem;
 }
 
 #custom-media {
