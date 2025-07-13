@@ -4,7 +4,7 @@ default-timeout=5000
 output=DP-1
 anchor=bottom-right
 
-font=monospace 24
+font=monospace 20
 
 background-color=#00000099
 text-color=#FFFFFFFF
