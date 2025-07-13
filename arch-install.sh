@@ -155,7 +155,7 @@ if [ "$install_type" = "full" ]; then
     app2unit
 
     # wayland
-    dunst
+    mako
     grim
     slurp
     swappy

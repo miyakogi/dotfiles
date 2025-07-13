@@ -317,8 +317,8 @@ def install_desktop() -> None:
     # tofi launcher
     install(BASEDIR / "tofi", CONFIG_HOME / "tofi")
 
-    # dunst notification daemon
-    install(BASEDIR / "dunst", CONFIG_HOME / "dunst")
+    # mako notification daemon
+    install(BASEDIR / "mako", CONFIG_HOME / "mako")
 
     # swappy
     install(BASEDIR / "swappy", CONFIG_HOME / "swappy")
