@@ -1,6 +1,8 @@
 [Unit]
 Description=Input Method Daemon
-BindsTo=user-graphical-session.target
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
 
 [Service]
 Type=simple
@@ -9,4 +11,4 @@ Restart=on-failure
 RestartSec=5
 
 [Install]
-WantedBy=user-graphical-session.target
+WantedBy=graphical-session.target

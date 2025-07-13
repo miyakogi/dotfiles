@@ -175,6 +175,9 @@ while [[ "$1" = "--"* ]]; do
 
         # set local_home as HOME
         --setenv HOME "$local_home"
+        --setenv XDG_CONFIG_HOME "$local_home"/.config
+        --setenv XDG_DATA_HOME "$local_home"/.local/share
+        --setenv XDG_CACHE_HOME "$local_home"/.cache
       )
       shift 2
       ;;

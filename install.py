@@ -232,10 +232,16 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "bw-launch.sh", BINDIR / "bw-launch")
     install(SCRIPTSDIR / "temperature.sh", BINDIR / "temperature")
     install(SCRIPTSDIR / "terminal.sh", BINDIR / "terminal")
+    install(SCRIPTSDIR / "anyrun-exec.sh", BINDIR / "anyrun-exec")
     install(SCRIPTSDIR / "launch-logseq.sh", BINDIR / "launch-logseq")
     install(SCRIPTSDIR / "screenshot.sh", BINDIR / "screenshot")
 
     # Desktop
+    # uwsm
+    install(BASEDIR / "uwsm" / "env", CONFIG_HOME / "uwsm" / "env")
+    install(BASEDIR / "uwsm" / "env-hyprland", CONFIG_HOME / "uwsm" / "env-hyprland")
+    install(BASEDIR / "uwsm" / "env-sway", CONFIG_HOME / "uwsm" / "env-sway")
+
     # sway
     install(BASEDIR / "sway" / "config", CONFIG_HOME / "sway" / "config")
     install(BASEDIR / "sway" / "config.d", CONFIG_HOME / "sway" / "config.d")

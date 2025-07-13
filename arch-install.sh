@@ -149,6 +149,11 @@ if [ "$install_type" = "full" ]; then
     rio
     ghostty
 
+    # session management
+    uwsm
+    libnewt
+    app2unit
+
     # wayland
     dunst
     grim

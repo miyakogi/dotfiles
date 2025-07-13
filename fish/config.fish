@@ -35,6 +35,10 @@ status --is-login; and begin
   export SYSTEMD_LESS="iFRSM"
 
   ### Login
+  if command -q uwsm && uwsm check may-start && uwsm select
+    exec uwsm start default
+  end
+
   if test -z "$DISPLAY"; and test "$XDG_VTNR" = 1; and begin test -z "$XDG_SESSION_TYPE"; or test "$XDG_SESSION_TYPE" = tty; end
     echo -e -n "\
 Select Window Manager or Shell:

@@ -1,0 +1,13 @@
+export GTK_THEME=Adwaita:dark
+export GTK_USE_PORTAL=1
+
+export QT_QPA_PLATFORMTHEME=qt6ct
+
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export GLFW_IM_MODULE=fcitx
+
+export GST_VAAPI_ALL_DRIVERS=1
+
+export APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'
