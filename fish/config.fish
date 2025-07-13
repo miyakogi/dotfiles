@@ -35,10 +35,6 @@ status --is-login; and begin
   export SYSTEMD_LESS="iFRSM"
 
   ### Login
-  if command -q uwsm && uwsm check may-start && uwsm select
-    exec uwsm start default
-  end
-
   if test -z "$DISPLAY"; and test "$XDG_VTNR" = 1; and begin test -z "$XDG_SESSION_TYPE"; or test "$XDG_SESSION_TYPE" = tty; end
     echo -e -n "\
 Select Window Manager or Shell:
@@ -71,46 +67,37 @@ Select Window Manager or Shell:
         set wm "$choice"
     end
 
-    # GTK
-    export GTK_THEME=Adwaita:dark
+    if ! command -q uwsm
+      export GTK_THEME=Adwaita:dark
+      export GTK_USE_PORTAL=1
 
-    # QT
-    # export QT_STYLE_OVERRIDE=qt6ct
-    export QT_QPA_PLATFORMTHEME=qt6ct
+      export QT_QPA_PLATFORMTHEME=qt6ct
 
-    # input methods
-    export XMODIFIERS=@im=fcitx
-    export GTK_IM_MODULE=fcitx
-    export QT_IM_MODULE=fcitx
-    export GLFW_IM_MODULE=fcitx
+      export XMODIFIERS=@im=fcitx
+      export GTK_IM_MODULE=fcitx
+      export QT_IM_MODULE=fcitx
+      export GLFW_IM_MODULE=fcitx
 
-    # Start wayland session
-    if string match -r -q '(Hyprland|sway|river|niri|weston)' "$wm"
-      export XDG_SESSION_TYPE=wayland
-      export QT_QPA_PLATFORM="wayland;xcb"
-      export MOZ_ENABLE_WAYLAND=1
       export GST_VAAPI_ALL_DRIVERS=1
 
-      export XDG_CURRENT_DESKTOP="$wm"
-      export XDG_SESSION_DESKTOP="$wm"
-      systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
+      # hyprland
+      export AQ_NO_MODIFIERS=0
 
-      # wlroots
+      # sway
       export WLR_DRM_NO_MODIFIERS=1
       export XCURSOR_THEME='Vimix cursors'
       export XCURSOR_SIZE=26
-      export GTK_USE_PORTAL=1
+    end
 
-      # aquamarine
-      export AQ_NO_MODIFIERS=1
-
+    # Start wayland session
+    if string match -r -q '(Hyprland|sway|river|niri|weston)' "$wm"
       if [ "$wm" = "niri" ]
-        exec niri-session
+        wm-start niri-session
       else
-        exec "$wm"
+        wm-start $wm
       end
     else
-      exec "$wm"
+      wm-start $wm
     end
   end
 end
