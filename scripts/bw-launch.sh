@@ -245,4 +245,4 @@ while [[ "$1" = "--"* ]]; do
   esac
 done
 
-"${cmd[@]}" "${@}" "${options[@]}"
+app2unit -- "${cmd[@]}" "${@}" "${options[@]}"
