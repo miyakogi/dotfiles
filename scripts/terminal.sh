@@ -104,4 +104,4 @@ if [ "$1" = "-e" ]; then
   esac
 fi
 
-exec "${cmd[@]}" "$@"
+exec app2unit "${cmd[@]}" "$@"

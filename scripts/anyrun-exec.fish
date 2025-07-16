@@ -13,4 +13,6 @@ else
 end
 
 kill anyrun
-$cmd -- $argv &>/dev/null & disown
+
+# need &>/dev/null to run discord
+exec $cmd -- $argv &>/dev/null
