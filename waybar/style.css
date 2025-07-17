@@ -51,6 +51,7 @@ window#waybar.FHD {
   color: @arch;
   padding: 0rem 0.5rem;
   border-bottom: solid 1px @arch;
+  font-weight: bold;
 }
 
 #workspaces {
