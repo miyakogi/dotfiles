@@ -132,7 +132,7 @@
   },
   "custom/update": {
     "return-type": "json",
-    // "exec": "$HOME/bin/waybar-update",
+    "exec": "$HOME/bin/waybar-update",
     "interval": 1800,
     "format": "{}",
   },
