@@ -216,7 +216,6 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "leave.sh", BINDIR / "leave")
     install(SCRIPTSDIR / "sway-scratchterm.py", BINDIR / "sway-scratchterm")
     install(SCRIPTSDIR / "hypr-scratchterm.sh", BINDIR / "hypr-scratchterm")
-    install(SCRIPTSDIR / "lock-screen.sh", BINDIR / "lock-screen")
     install(SCRIPTSDIR / "chromium-options.sh", BINDIR / "chromium-options")
     install(SCRIPTSDIR / "ff-volume-watch.sh", BINDIR / "ff-volume-watch")
     install(SCRIPTSDIR / "ff-volume-toggle.sh", BINDIR / "ff-volume-toggle")

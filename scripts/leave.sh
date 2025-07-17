@@ -18,7 +18,7 @@ function menu() {
 RET=$(menu | tofi --width=420 --height=420 --prompt-text="" | tr -d '[:space:]')
 
 _lock() {
-  lock-screen
+  loginctl lock-session
 }
 
 _suspend() {
