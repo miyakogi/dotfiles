@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/carbonfox-oled.toml"]
+import = ["~/.config/alacritty/carbonfox-vivid-oled.toml"]
 ipc_socket = false
 
 [colors]

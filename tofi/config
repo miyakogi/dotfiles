@@ -3,9 +3,9 @@
 font = "monospace"
 font-size = 32
 background-color = "#000000"
-text-color = "#ffffff"
-selection-color = "#e9548e"
-border-color = "#e9548e"
+text-color = "#f2f4f8"
+selection-color = "#ee5396"
+border-color = "#ee5396"
 border-width = 10
 
 width = 1120

@@ -268,6 +268,8 @@ def install_desktop() -> None:
             CONFIG_HOME / "hypr" / "carbonfox.conf")
     install(BASEDIR / "hypr" / "carbonfox-oled.conf",
             CONFIG_HOME / "hypr" / "carbonfox-oled.conf")
+    install(BASEDIR / "hypr" / "carbonfox-vivid-oled.conf",
+            CONFIG_HOME / "hypr" / "carbonfox-vivid-oled.conf")
     install(BASEDIR / "hypr" / "hologta.conf",
             CONFIG_HOME / "hypr" / "hologta.conf")
     install(BASEDIR / "hypr" / "catppuccin-macchiato.conf",

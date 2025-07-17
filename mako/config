@@ -19,10 +19,10 @@ padding=24
 max-icon-size=128
 
 [urgency=low]
-border-color=#5a75deff
+border-color=#78a9ffff
 
 [urgency=normal]
-border-color=#6de0d3ff
+border-color=#33b1ffff
 
 [urgency=critical]
-border-color=#e54561ff
+border-color=#ee5396ff

@@ -3,24 +3,24 @@ local scheme = wezterm.color.get_builtin_schemes()['carbonfox']
 scheme.background = 'black'
 scheme.cursor_bg = '#fed677'
 scheme.ansi = {
-  '#000000',  -- black
-  '#e54561',  -- red
-  '#6de0d3',  -- green
-  '#ffe787',  -- yellow
-  '#9dc5fe',  -- blue
-  '#e9548e',  -- magenta
-  '#5a75de',  -- cyan
-  '#ffffff',  -- white
+  '#282828',  -- black
+  '#ee5396',  -- red
+  '#08bdba',  -- green
+  '#fed576',  -- yellow
+  '#78a9ff',  -- blue
+  '#be95ff',  -- magenta
+  '#33b1ff',  -- cyan
+  '#dfdfe0',  -- white
 }
 scheme.brights = {
-  '#000000',  -- black
-  '#e54561',  -- red
-  '#6de0d3',  -- green
+  '#484848',  -- black
+  '#f16da6',  -- red
+  '#2dc7c4',  -- green
   '#ffe787',  -- yellow
-  '#9dc5fe',  -- blue
-  '#e9548e',  -- magenta
-  '#5a75de',  -- cyan
-  '#ffffff',  -- white
+  '#6690d9',  -- blue
+  '#a27fd9',  -- magenta
+  '#2b96d9',  -- cyan
+  '#e4e4e5',  -- white
 }
 
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
