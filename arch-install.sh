@@ -153,6 +153,7 @@ if [ "$install_type" = "full" ]; then
     uwsm
     libnewt
     app2unit
+    xdg-terminal-exec
 
     # wayland
     mako
