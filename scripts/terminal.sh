@@ -16,14 +16,14 @@ COMMENTOUT
 case "$XDG_CURRENT_DESKTOP" in
   Hyprland)
     # Hyprland default terminal
-    _term=kitty
+    _term="${TERMINAL:-kitty}"
     ;;
   sway)
     # Sway default terminal
-    _term=foot
+    _term="${TERMINAL:-foot}"
     ;;
   *)
-    _term=alacritty
+    _term="${TERMINAL:-alacritty}"
     ;;
 esac
 
@@ -100,8 +100,9 @@ if [ "$1" = "-e" ]; then
       shift
       ;;
     *)
+      # do nothing
       ;;
   esac
 fi
 
-exec app2unit "${cmd[@]}" "$@"
+exec app2unit -- "${cmd[@]}" "$@"

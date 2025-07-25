@@ -7,7 +7,11 @@ else
 fi
 
 get_term_address() {
-  hyprctl clients -j | jq '.[] | select(.class | test("'"$class"'")) | .address' || true
+  if [ "$TERMINAL" = "rio" ]; then
+    hyprctl clients -j | jq '.[] | select(.title | test("'"$class"'")) | .address' ||true
+  else
+    hyprctl clients -j | jq '.[] | select(.class | test("'"$class"'")) | .address' ||true
+  fi
 }
 
 is_exist() {

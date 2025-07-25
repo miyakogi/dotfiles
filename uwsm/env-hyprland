@@ -1,1 +1,2 @@
 export AQ_NO_MODIFIERS=1
+export TERMINAL=rio
