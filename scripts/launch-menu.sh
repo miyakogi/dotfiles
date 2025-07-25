@@ -29,7 +29,7 @@ cmd+=(
   --font "${_font}:size=${_fsize}"
   --window-size-pixels "$winsize"
   --app-id "sklauncher"
-  --override "colors.alpha=0.85"
+  --override "colors.alpha=0.70"
 )
 
 # set launcher command and options
