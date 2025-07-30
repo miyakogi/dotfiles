@@ -13,27 +13,46 @@ Available options:
   - wezterm
 COMMENTOUT
 
+# Load Environment Variables from SystemD
+eval "$(systemctl --user show-environment)"
+
+# Set fallback terminals
 case "$XDG_CURRENT_DESKTOP" in
   Hyprland)
     # Hyprland default terminal
-    _term="${TERMINAL:-kitty}"
+    _term_fallback=kitty
     ;;
   sway)
     # Sway default terminal
-    _term="${TERMINAL:-foot}"
+    _term_fallback=foot
     ;;
   *)
-    _term="${TERMINAL:-alacritty}"
+    _term_fallback=alacritty
     ;;
 esac
 
+# Set terminal from env var
+_term=${TERMINAL:-$_term_fallback}
+
+# disable ghostty if --class/-e is specified (currently not supported)
+if [ "$1" = "--class" ] || [ "$1" = "-e" ]; then
+  if [ "$_term" = "ghostty" ]; then
+    _term=$_term_fallback
+  fi
+fi
+
+# Use foot server if running
 if [ "$_term" = foot ] && [ -e "$XDG_RUNTIME_DIR/foot-$WAYLAND_DILPLAY.sock" ]; then
   cmd=(footclient)
 else
   cmd=("$_term")
 fi
 
+# Set initial command options if needed
 case "$_term" in
+  ghostty)
+    cmd+=(+new-window)
+    ;;
   # kitty)
   #   # single instance mode
   #   cmd+=(--single-instance)
@@ -45,6 +64,7 @@ case "$_term" in
     ;;
 esac
 
+# Set class/app-id
 if [ "$1" = "--class" ]; then
   case "$_term" in
     alacritty)
@@ -75,6 +95,7 @@ if [ "$1" = "--class" ]; then
   shift 2
 fi
 
+# Set command
 if [ "$1" = "-e" ]; then
   case "$_term" in
     alacritty)
@@ -83,6 +104,9 @@ if [ "$1" = "-e" ]; then
     foot)
       # optional
       shift
+      ;;
+    ghostty)
+      # must
       ;;
     havoc)
       # should not exist
@@ -104,5 +128,8 @@ if [ "$1" = "-e" ]; then
       ;;
   esac
 fi
+
+# Test
+# notify-send "Terminal Test" "${cmd[*]} $*"
 
 exec app2unit -- "${cmd[@]}" "$@"
