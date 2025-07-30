@@ -150,6 +150,7 @@ decorations = "Disabled"
 performance = "High"
 backend = "GL"
 # max-fps = 120
+# strategy = "Game"
 
 # Keyboard
 #
