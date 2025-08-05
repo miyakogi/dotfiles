@@ -346,6 +346,10 @@ def install_desktop() -> None:
         CONFIG_HOME / "fontconfig" / "conf.d" / "30-lilex.conf",
     )
     install(
+        BASEDIR / "fontconfig" / "conf.d" / "30-maplemono.conf",
+        CONFIG_HOME / "fontconfig" / "conf.d" / "30-maplemono.conf",
+    )
+    install(
         BASEDIR / "fontconfig" / "conf.d" / "90-nerd-font-symbols-jp.conf",
         CONFIG_HOME / "fontconfig" / "conf.d" / "90-nerd-font-symbols-jp.conf",
     )
