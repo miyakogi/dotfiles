@@ -27,7 +27,7 @@ local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
 
 local font = wezterm.font_with_fallback({
-  'monospace',
+  'Maple Mono NF Light',
   'IBM Plex Sans JP',
 })
 local font_size = 16.5
