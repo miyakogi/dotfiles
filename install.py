@@ -334,6 +334,10 @@ def install_desktop() -> None:
         CONFIG_HOME / "fontconfig" / "conf.d" / "20-no-embedded.conf",
     )
     install(
+        BASEDIR / "fontconfig" / "conf.d" / "30-google-sans-code.conf",
+        CONFIG_HOME / "fontconfig" / "conf.d" / "30-google-sans-code.conf",
+    )
+    install(
         BASEDIR / "fontconfig" / "conf.d" / "30-ibm-plex-mono.conf",
         CONFIG_HOME / "fontconfig" / "conf.d" / "30-ibm-plex-mono.conf",
     )

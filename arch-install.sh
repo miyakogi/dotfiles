@@ -205,6 +205,7 @@ if [ "$install_type" = "full" ]; then
     morisawa-biz-ud-mincho-fonts  # default jp serif font
     ttf-lilex-nerd  # monospace font
     ttf-ibmplex-mono-nerd  # monospace font
+    ttf-google-sans-code-vf  # monospace font
     moplemono-variable  # monospace font
     maplemono-nf-unhinted  # monospace font with nerd font
     ttf-ibm-plex  # default jp sans-serif font
