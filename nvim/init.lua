@@ -254,6 +254,18 @@ vim.keymap.set('i', '<C-backspace>', '<C-w>')
 vim.keymap.set('n', '<Esc><Esc>', ':<C-u>nohl<CR><C-l>')
 vim.keymap.set('n', '<C-l>', ':<C-u>nohl<CR><C-l>')
 
+-- ======== Autocmd =======
+-- Fix: back to original cursor shape on some terminal
+local term = vim.env.TERM
+if term == "foot" or term == "alacritty" then
+  vim.api.nvim_create_autocmd("VimLeave", {
+    callback = function ()
+      vim.opt.guicursor = ""
+      vim.fn.chansend(vim.v.stderr, "\x1b[ q")
+    end
+  })
+end
+
 -- =========================================================
 -- Plugin
 -- =========================================================
