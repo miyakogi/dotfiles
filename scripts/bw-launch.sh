@@ -56,6 +56,7 @@
 #   /usr/bin/chromium
 # ```
 
+local_home="/home/$USER"
 
 # Setup base command and flags
 cmd=(
