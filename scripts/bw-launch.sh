@@ -105,6 +105,7 @@ if [ ! -e /run/host ]; then
     --ro-bind /usr/share/fontconfig /usr/share/fontconfig  # use fonts config in host
     --ro-bind /usr/share/fonts /usr/share/fonts  # use fonts in host
     --ro-bind /etc/fonts /etc/fonts  # use fonts config in host
+    --ro-bind /var/cache/fontconfig /var/cache/fontconfig  # use fonts cache in host
   )
 else
   # use host's font config in distrobox environment
@@ -157,28 +158,6 @@ while [[ "$1" = "--"* ]]; do
     --home)
       # Set program specific home
       local_home="/home/$USER/.home/$2"
-      cmd+=(
-        # prepare xdg-dir
-        --dir "$local_home/.cache"
-        --dir "$local_home/.config"
-        --dir "$local_home/.local/share"
-
-        # use host config
-        --ro-bind "/home/$USER/.config/fontconfig" "$local_home/.config/fontconfig"
-        --ro-bind "/home/$USER/.config/gtk-3.0" "$local_home/.config/gtk-3.0"
-        --ro-bind "/home/$USER/.config/gtk-4.0" "$local_home/.config/gtk-4.0"
-        --ro-bind "/home/$USER/.local/share/icons" "$local_home/.local/share/icons"
-
-        # enable rw-access to `Downloads` dir and ro-access to `Pictures`
-        --bind "/home/$USER/Downloads" "/home/$USER/Downloads"
-        --ro-bind "/home/$USER/Pictures" "/home/$USER/Pictures"
-
-        # set local_home as HOME
-        --setenv HOME "$local_home"
-        --setenv XDG_CONFIG_HOME "$local_home"/.config
-        --setenv XDG_DATA_HOME "$local_home"/.local/share
-        --setenv XDG_CACHE_HOME "$local_home"/.cache
-      )
       shift 2
       ;;
     --lib-bind)
@@ -244,5 +223,33 @@ while [[ "$1" = "--"* ]]; do
       ;;
   esac
 done
+
+if [ -e "$local_home" ]; then
+  cmd+=(
+    # prepare xdg-dir
+    --dir "$local_home/.cache"
+    --dir "$local_home/.config"
+    --dir "$local_home/.local/share"
+
+    # use host config
+    --ro-bind "/home/$USER/.config/fontconfig/" "$local_home/.config/fontconfig/"
+    --ro-bind "/home/$USER/.config/fontconfig/conf.d/" "$local_home/.config/fontconfig/conf.d/"
+    --ro-bind "/home/$USER/.config/gtk-3.0/" "$local_home/.config/gtk-3.0/"
+    --ro-bind "/home/$USER/.config/gtk-4.0/" "$local_home/.config/gtk-4.0/"
+    --ro-bind "/home/$USER/.local/share/icons/" "$local_home/.local/share/icons/"
+    --ro-bind "/home/$USER/.local/share/fonts/" "$local_home/.local/share/fonts/"
+    --bind "/home/$USER/.cache/fontconfig/" "$local_home/.cache/fontconfig/"
+
+    # enable rw-access to `Downloads` dir and ro-access to `Pictures`
+    --bind "/home/$USER/Downloads" "/home/$USER/Downloads"
+    --ro-bind "/home/$USER/Pictures" "/home/$USER/Pictures"
+
+    # set local_home as HOME
+    --setenv HOME "$local_home"
+    --setenv XDG_CONFIG_HOME "$local_home"/.config
+    --setenv XDG_DATA_HOME "$local_home"/.local/share
+    --setenv XDG_CACHE_HOME "$local_home"/.cache
+  )
+fi
 
 exec app2unit -- "${cmd[@]}" "${@}" "${options[@]}"
