@@ -1,6 +1,13 @@
+# Ghostty Config File
+
 font-family = "Maple Mono"
 font-size = 16.5
 font-feature = -dlig
+
+font-variation = "wght=300"
+font-variation-bold = "wght=600"
+font-variation-italic = "wght=300"
+font-variation-bold-italic = "wght=600"
 
 # theme = iceberg-dark
 # theme = nightfox
@@ -27,3 +34,5 @@ window-padding-x = 12
 window-padding-y = 12
 
 quit-after-last-window-closed = false
+
+# vim: ft=ini
