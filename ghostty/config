@@ -2,12 +2,21 @@
 
 font-family = "Maple Mono"
 font-size = 16.5
-font-feature = -dlig
+# font-feature = -dlig  # disabled by default now
 
 font-variation = "wght=300"
 font-variation-bold = "wght=600"
 font-variation-italic = "wght=300"
 font-variation-bold-italic = "wght=600"
+
+# Alternate italic `k` on maple mono
+font-feature = +cv34
+# Alternate italic `l` on maple mono
+font-feature = +cv35
+# Alternate left and right arrow `>= / <=`on maple mono
+font-feature = +cv64
+# arbitrary tagging on maple mono
+font-feature = +ss03
 
 # theme = iceberg-dark
 # theme = nightfox
