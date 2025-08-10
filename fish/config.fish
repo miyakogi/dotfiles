@@ -150,6 +150,9 @@ status --is-interactive; and begin
   end
 
   if type -q macchina
+    if string match -q "*ghostty" $TERM
+      sleep 0.01
+    end
     macchina
   end
 
