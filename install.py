@@ -342,10 +342,6 @@ def install_desktop() -> None:
         CONFIG_HOME / "fontconfig" / "conf.d" / "30-ibm-plex-mono.conf",
     )
     install(
-        BASEDIR / "fontconfig" / "conf.d" / "30-jetbrainsmono.conf",
-        CONFIG_HOME / "fontconfig" / "conf.d" / "30-jetbrainsmono.conf",
-    )
-    install(
         BASEDIR / "fontconfig" / "conf.d" / "30-lilex.conf",
         CONFIG_HOME / "fontconfig" / "conf.d" / "30-lilex.conf",
     )
