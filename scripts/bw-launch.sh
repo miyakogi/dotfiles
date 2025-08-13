@@ -253,4 +253,4 @@ if [ -e "$local_home" ]; then
   )
 fi
 
-exec app2unit -- "${cmd[@]}" "${@}" "${options[@]}"
+exec "${cmd[@]}" "${@}" "${options[@]}"
