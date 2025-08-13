@@ -9,4 +9,6 @@ else
   notify-send -u critical "Command Not Found Error" "Logseq Not Found"
   exit 1
 fi
-exec app2unit -- "$cmd" "$(chromium-options wayland)"
+
+# exec app2unit -- "$cmd" "$(chromium-options wayland)"
+exec "$cmd" "$(chromium-options wayland)"

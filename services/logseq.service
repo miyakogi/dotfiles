@@ -1,0 +1,16 @@
+[Unit]
+Description=Logseq
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=%h/bin/launch-logseq
+ExecStop=/usr/bin/pkill -f 'Logseq'
+Restart=no
+TimeoutStopSec=10
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=graphical-session.target
+

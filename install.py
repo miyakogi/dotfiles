@@ -389,6 +389,9 @@ def install_desktop() -> None:
     # for Hyprland
     install_service("hypridle.service")
 
+    # Logseq
+    install_service("logseq.service")
+
 
 def install_other_home() -> None:
     """
