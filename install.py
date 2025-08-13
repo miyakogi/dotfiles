@@ -377,10 +377,6 @@ def install_desktop() -> None:
 
     # WM/DE independent
     install_service("fcitx5.service")
-    install_service("corectrl.service")
-
-    # wlroots services
-    install_service("fnott.service")
 
     # for Sway
     install_service("swayidle.service")
