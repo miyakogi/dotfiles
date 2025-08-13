@@ -151,7 +151,7 @@ if [ "$install_type" = "full" ]; then
 
     # session management
     uwsm
-    libnewt
+    libnewt  # need for `uwsm select`
     app2unit
     xdg-terminal-exec
 
