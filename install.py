@@ -363,7 +363,7 @@ def install_desktop() -> None:
     # Systemd Services #
     ####################
     SERVICE_DIR = BASEDIR / "services"
-    TARGET_DIR = CONFIG_HOME / "systemd" / "user"
+    TARGET_DIR = DATA_HOME / "systemd" / "user"
     mkdir(TARGET_DIR)
 
     def install_service(service: str) -> None:
