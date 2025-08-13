@@ -35,11 +35,6 @@ _hibernate() {
 
 _exit() {
   uwsm stop
-  if [ "$XDG_CURRENT_DESKTOP" = sway ]; then
-    swaymsg exit
-  elif [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
-    hyprctl dispatch exit ""
-  fi
 }
 
 _reboot() {
