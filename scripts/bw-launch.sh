@@ -151,6 +151,7 @@ while [[ "$1" = "--"* ]]; do
       ;;
     --dbus)
       cmd+=(
+        --bind /run/dbus/system_bus_socket /run/dbus/system_bus_socket
         --ro-bind "/run/user/$(id -u)/bus" "/run/user/$(id -u)/bus"
         --setenv DBUS_SESSION_BUS_ADDRESS "unix:path=/run/user/$(id -u)/bus"
       )
