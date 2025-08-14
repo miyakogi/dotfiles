@@ -15,7 +15,7 @@ function menu() {
   done
 }
 
-RET=$(menu | tofi --width=420 --height=420 --prompt-text="" | tr -d '[:space:]')
+RET=$(menu | tofi | tr -d '[:space:]')
 
 _lock() {
   loginctl lock-session
