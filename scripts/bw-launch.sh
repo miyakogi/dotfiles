@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 ### BubbleWrap command wrapper script for GUI applications in distrobox
 

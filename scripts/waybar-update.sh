@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Create DB directory if not exist
 dbpath="/tmp/checkup-db-waybar"
