@@ -132,4 +132,4 @@ fi
 # Test
 # notify-send "Terminal Test" "${cmd[*]} $*"
 
-exec app2unit -- "${cmd[@]}" "$@"
+exec "${cmd[@]}" "$@"
