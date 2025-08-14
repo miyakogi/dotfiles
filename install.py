@@ -234,6 +234,7 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "anyrun-exec.sh", BINDIR / "anyrun-exec")
     install(SCRIPTSDIR / "launch-logseq.sh", BINDIR / "launch-logseq")
     install(SCRIPTSDIR / "screenshot.sh", BINDIR / "screenshot")
+    install(SCRIPTSDIR / "tofi-web.sh", BINDIR / "tofi-web")
 
     # Desktop
     # uwsm
