@@ -2,7 +2,7 @@
 
 space="\u2006"
 case "$XDG_CURRENT_DESKTOP" in
-  sway)
+  sway*)
     class="state"
     service="swayidle.service"
     ;;

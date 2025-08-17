@@ -5,7 +5,7 @@ sleep 0.1s
 tmp_file="/tmp/ff-volume-fix-paused"
 space="\u2006"
 case "$XDG_CURRENT_DESKTOP" in
-  sway)
+  sway*)
     class="state";;
   [Hh]yprland)
     class="class";;

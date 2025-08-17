@@ -2,7 +2,7 @@
 
 space="\u2006"
 case "$XDG_SESSION_DESKTOP" in
-  sway)
+  sway*)
     class="state";;
   [Hh]yprland)
     class="class";;

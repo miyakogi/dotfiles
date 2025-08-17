@@ -1,11 +1,13 @@
 [Unit]
-Description=Idle/Sleep Control
-BindsTo=sway-graphical-session.target
+Name=Sway Idle
+Description=Idle/Sleep Control for Sway
+After=graphical-session.target
 
 [Service]
 Type=simple
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "sway:wlroots" ""
 ExecStart=/usr/bin/swayidle lock hyprlock timeout 600 "loginctl lock-session" timeout 900 "systemctl suspend-then-hibernate"
 Restart=on-failure
 
 [Install]
-WantedBy=sway-graphical-session.target
+WantedBy=graphical-session.target

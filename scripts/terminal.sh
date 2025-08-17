@@ -22,7 +22,7 @@ case "$XDG_CURRENT_DESKTOP" in
     # Hyprland default terminal
     _term_fallback=kitty
     ;;
-  sway)
+  sway*)
     # Sway default terminal
     _term_fallback=foot
     ;;

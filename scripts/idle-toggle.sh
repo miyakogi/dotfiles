@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 case "$XDG_CURRENT_DESKTOP" in
-  sway)
+  sway*)
     service="swayidle.service"
     ;;
   [Hh]yprland)

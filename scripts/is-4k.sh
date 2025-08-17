@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 case "$XDG_CURRENT_DESKTOP" in
-  sway)
+  sway*)
     cmd=(swaymsg -t get_outputs)
     ;;
   Hyprland)

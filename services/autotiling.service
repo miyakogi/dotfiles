@@ -1,11 +1,12 @@
 [Unit]
 Description=Automatic Tiling Direction Control
-BindsTo=sway-graphical-session.target
+After=graphical-session.target
 
 [Service]
 Type=simple
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "sway:wlroots" ""
 ExecStart=/usr/bin/autotiling
 Restart=on-failure
 
 [Install]
-WantedBy=sway-graphical-session.target
+WantedBy=graphical-session.target
