@@ -370,12 +370,6 @@ def install_desktop() -> None:
     def install_service(service: str) -> None:
         install(SERVICE_DIR / service, TARGET_DIR / service)
 
-    # Install targets
-    install_service("user-graphical-session.target")
-    install_service("wlr-graphical-session.target")
-    install_service("sway-graphical-session.target")
-    install_service("hypr-graphical-session.target")
-
     # WM/DE independent
     install_service("fcitx5.service")
 
