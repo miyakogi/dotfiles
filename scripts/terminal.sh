@@ -42,7 +42,7 @@ if [ "$1" = "--class" ] || [ "$1" = "-e" ]; then
 fi
 
 # Use foot server if running
-if [ "$_term" = foot ] && [ -e "$XDG_RUNTIME_DIR/foot-$WAYLAND_DILPLAY.sock" ]; then
+if [ "$_term" = foot ] && [[ -e "$XDG_RUNTIME_DIR/foot-$WAYLAND_DILPLAY.sock" || -e "$XDG_RUNTIME_DIR/foot.sock" ]]; then
   cmd=(footclient)
 else
   cmd=("$_term")
