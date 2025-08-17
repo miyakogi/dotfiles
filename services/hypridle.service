@@ -1,11 +1,12 @@
 [Unit]
-Description=Idle/Sleep Control
+Description=Idle/Sleep Control for Hyprland
 PartOf=graphical-session.target
 After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
 Type=simple
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""
 ExecStart=hypridle
 Restart=on-failure
 
