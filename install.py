@@ -385,6 +385,7 @@ def install_desktop() -> None:
 
     # for Hyprland
     install_service("hypridle.service")
+    install_service("waybar-hyprland.service")
 
     # Logseq
     install_service("logseq.service")
