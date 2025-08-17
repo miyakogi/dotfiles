@@ -88,11 +88,12 @@ interval = 1
 format = "   $timestamp.datetime(f:'%a %d %b %Y') 󰅐 $timestamp.datetime(f:'%H:%M:%S') "
 
 [[block]]
-block = "pacman"
+block = "packages"
 interval = 3600
-aur_command = "paru -Qua"
-format = " 󰇚 $both "
-format_singular = " 󰇚 $both "
+package_manager = ["aur"]
+aur_command = "paru -Qu"
+format = " 󰇚 $aur "
+format_singular = " 󰇚 $aur "
 format_up_to_date = ""
 [block.theme_overrides]
 info_fg = "#000000"
