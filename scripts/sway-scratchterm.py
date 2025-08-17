@@ -23,13 +23,14 @@ def build_cmd(hidpi: bool) -> list[str]:
     cls = get_class(hidpi)
 
     cmd = [
+        "app2unit",
         "foot",
     ]
 
     foot_options = [
         "--app-id",
         cls,
-        "--override=colors.alpha=0.8",
+        "--override=colors.alpha=0.7",
     ]
 
     if hidpi:
@@ -87,11 +88,11 @@ def main() -> None:
             return
 
         # add terminal to scratchpad
-        window.command("scratchpad show")
+        window.command(f"[con_mark={cls}] scratchpad show")
 
     elif getattr(window, "focused"):
         # hide scratchpad
-        window.command("scratchpad show")
+        window.command("move scratchpad")
 
     else:
         window.command("focus")
