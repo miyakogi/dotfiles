@@ -61,7 +61,7 @@ critical_bg = "#ee5396"  # red
 
 [[block]]
 block = "memory"
-format = "   $mem_used_percents.eng(w:2)"
+format = "   $mem_used.eng(prefix:Mi) / $mem_total.eng(prefix:Mi) ($mem_used_percents.eng(w:2))"
 interval = 1
 
 [[block]]
