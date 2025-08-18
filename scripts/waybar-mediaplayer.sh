@@ -6,13 +6,13 @@ if [ ! -e "$tmpfile" ]; then
 fi
 
 get_players() {
-  playerctl -l
+  playerctl -l 2>/dev/null
 }
 
 get_current_player() {
   current=$(cat "$tmpfile")
   if [ -z "$current" ]; then
-    current="$(playerctl -l | head -n 1)"
+    current="$(playerctl -l 2>/dev/null | head -n 1)"
     echo -n "$current" > "$tmpfile"
   fi
   echo -n "$current"
@@ -50,9 +50,9 @@ previous_player() {
 
 get_data() {
   player=$(get_current_player)
-  song="$(playerctl -p "$player" metadata --format '{{markup_escape(title)}} - {{markup_escape(artist)}}')"
+  song="$(playerctl -p "$player" metadata --format '{{markup_escape(title)}} - {{markup_escape(artist)}}' 2>/dev/null)"
   if [ "$song" = ' - ' ]; then
-    song="$(playerctl -p "$player" metadata --format '{{markup_escape(xesam:url)}}')"
+    song="$(playerctl -p "$player" metadata --format '{{markup_escape(xesam:url)}}' 2>/dev/null)"
     if [[ "$song" == "file://"* ]]; then
       song="$(basename "$song" | sd '^(.*)\..*$' "\$1")"
     fi
@@ -63,7 +63,7 @@ get_data() {
     return
   fi
 
-  duration="$(playerctl -p "$player" metadata --format '{{duration(position)}}/{{duration(mpris:length)}}')"
+  duration="$(playerctl -p "$player" metadata --format '{{duration(position)}}/{{duration(mpris:length)}}' 2>/dev/null)"
   echo -n "$song | $duration"
 }
 
@@ -93,7 +93,7 @@ get_icon() {
 }
 
 get_status() {
-  playerctl -p "$1" status
+  playerctl -p "$1" status 2>/dev/null
 }
 
 main() {
