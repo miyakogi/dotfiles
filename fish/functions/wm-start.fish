@@ -2,7 +2,7 @@
 
 function wm-start
   if command -q uwsm
-    exec uwsm start "$argv[1]"
+    exec uwsm start (string lower $argv[1])-uwsm.desktop
   else
     exec "$argv[1]"
   end
