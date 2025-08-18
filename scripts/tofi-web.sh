@@ -12,7 +12,7 @@
 # tofi-multi-search.sh
 
 # Allow free input with no predefined candidates
-query=$(printf ' : Brave\ng: Google\nb: Bing\n' | tofi --prompt-text "WebSearch: " --require-match false)
+query=$(printf ' : Brave\ng: Google\nb: Bing\n' | tofi --prompt-text "WebSearch: " --require-match false --output "$1")
 
 # Run only if the input is not empty
 if [ -n "$query" ]; then
