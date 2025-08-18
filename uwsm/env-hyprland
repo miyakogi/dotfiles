@@ -1,2 +1,4 @@
 export AQ_NO_MODIFIERS=1
 export TERMINAL=kitty
+
+export WALKER_LAUNCH_PREFIX="hyprctl dispatch exec app2unit -- "
