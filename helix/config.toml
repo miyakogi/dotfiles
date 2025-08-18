@@ -37,9 +37,9 @@ character = "▏"
 render = { tab = "all" }
 characters = { tabpad = "·" }  # Tabs will look like "→···" (depending on tab width)
 
-[editor.word-completion]  # not merged yet
-enable = true  # not merged yet
-trigger-length = 2  # not merged yet
+[editor.word-completion]
+enable = true
+trigger-length = 2
 
 [keys.normal]
 "[" = { "c" = "goto_prev_change", "e" = "goto_prev_diag" }
