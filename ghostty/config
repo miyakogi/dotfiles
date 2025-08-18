@@ -1,8 +1,7 @@
 # Ghostty Config File
 
-font-family = "Maple Mono"
+font-family = "Google Sans Code"
 font-size = 16.5
-# font-feature = -dlig  # disabled by default now
 
 font-variation = "wght=300"
 font-variation-bold = "wght=600"
