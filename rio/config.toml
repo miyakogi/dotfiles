@@ -184,7 +184,7 @@ backend = "GL"
 # [fonts]
 [fonts]
 size = 22.5
-family = "Maple Mono NF"
+family = "Google Sans Code"
 extras = [ { family = "IBM Plex Sans JP" }, { family = "Noto Emoji" } ]
 features = ["ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "calt", "liga"]
 use-drawable-chars = true
