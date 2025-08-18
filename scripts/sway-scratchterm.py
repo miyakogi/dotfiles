@@ -30,7 +30,7 @@ def build_cmd(hidpi: bool) -> list[str]:
     foot_options = [
         "--app-id",
         cls,
-        "--override=colors.alpha=0.7",
+        "--override=colors.alpha=0.85",
     ]
 
     if hidpi:
