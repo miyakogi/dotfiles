@@ -1,9 +1,0 @@
-Config(
-  desktop_actions: false,
-  max_entries: 5,
-  preprocess_exec_script: Some("anyrun-exec"),
-  terminal: Some(Terminal(
-    command: "terminal",
-    args: "-e {}",
-  )),
-)
