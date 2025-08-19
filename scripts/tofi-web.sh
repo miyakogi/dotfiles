@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
-# query=$(echo "" | tofi --prompt-text "WebSearch: " --require-match false)
-# if [ -n "$query" ]; then
-#   encoded=$(printf '%s' "$query" | jq -sRr @uri)
-#   echo "$encoded"
-#   app2unit -- xdg-open "https://search.brave.com/search?q=${encoded}"
-# fi
+tofi_cmd=(
+  tofi
+  --prompt-text "WebSearch: "
+  --require-match false
+  --output "$1"
+)
 
-
-#!/bin/bash
-# tofi-multi-search.sh
+if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
+  tofi_cmd+=(--background-color 000000AA)
+fi
 
 # Allow free input with no predefined candidates
-query=$(printf ' : Brave\ng: Google\nb: Bing\n' | tofi --prompt-text "WebSearch: " --require-match false --output "$1")
+query=$(printf ' : Brave\ng: Google\nb: Bing\n' | "${tofi_cmd[@]}")
 
 # Run only if the input is not empty
 if [ -n "$query" ]; then
