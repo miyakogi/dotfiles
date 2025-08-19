@@ -202,10 +202,13 @@ if [ "$install_type" = "full" ]; then
     fcitx5-mozc
 
     # font
-    morisawa-biz-ud-mincho-fonts  # default jp serif font
     ttf-google-sans-code-vf  # monospace font
     ttf-ibm-plex  # default jp sans-serif font
     ttf-nerd-fonts-symbols
+    noto-font  # non-latin character
+    noto-font-cjk  # cjk serif font and fallback
+    ttf-noto-emoji-monochrome  # emoji
+    ttf-unifont  # symbols
 
     # icon
     beautyline
