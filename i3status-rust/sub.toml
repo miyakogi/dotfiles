@@ -89,7 +89,7 @@ format = "   $timestamp.datetime(f:'%a %d %b %Y') 󰅐 $timestamp.datetime(f:
 
 [[block]]
 block = "packages"
-interval = 3600
+interval = 1800
 package_manager = ["aur"]
 aur_command = "paru -Qu"
 format = " 󰇚 $aur "
@@ -103,8 +103,6 @@ info_bg = "#be95ff"  # magenta
 # block to show the number of systemd failures
 block = "custom"
 interval = 60
-# json = true
-# command = '''printf '{"icon": "weather_thunder", "state": "Warning", "text": "%s"}' $(echo "$(($(systemctl --state=failed -q | wc -l)+$(systemctl --user --state=failed -q | wc -l)))" | tr -d 0)'''
 command = '''echo $(($(systemctl --state=failed -q | wc -l)+$(systemdctl --user --state=failed -q | wc -l))) | tr -d 0'''
 hide_when_empty = true
 [block.theme_overrides]
