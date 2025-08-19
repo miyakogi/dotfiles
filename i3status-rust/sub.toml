@@ -97,7 +97,7 @@ format_singular = " 󰇚 $aur "
 format_up_to_date = ""
 [block.theme_overrides]
 info_fg = "#000000"
-info_bg = "#ee5396"  # magenta
+info_bg = "#be95ff"  # magenta
 
 [[block]]
 # block to show the number of systemd failures
@@ -109,4 +109,4 @@ command = '''echo $(($(systemctl --state=failed -q | wc -l)+$(systemdctl --user 
 hide_when_empty = true
 [block.theme_overrides]
 idle_fg = "#000000"
-idle_bg = "#e0af68"  # yellow
+idle_bg = "#fed576"  # yellow
