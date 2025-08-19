@@ -6,10 +6,6 @@ abbr --add --global :q "exit"
 # short ls
 abbr --add --global l "ls"
 
-
-# short cd
-abbr --add --global c "cd"
-
 # mv -i (ask on overwrite)
 abbr --add --global mv "mv -i"
 
@@ -21,9 +17,6 @@ abbr --add --global ln "ln -v -s"
 
 # git
 abbr --add --global gstatus "git status -s -b"
-
-# python unittest
-abbr --add --global pyunit "python -m unittest discover"
 
 # nvim
 if type -q nvim
@@ -52,14 +45,4 @@ if type -q btop
   abbr --add --global t btop
 else if type -q btm
   abbr --add --global t btm
-end
-
-# ssh
-if string match -q -r "(alacritty|foot|.*kitty)" $TERM
-  abbr --add --global ssh "env TERM=xterm-256color ssh"
-end
-
-# difftastic
-if type -q difft
-  abbr --add --global difft "difft --color always --display side-by-side-show-both"
 end
