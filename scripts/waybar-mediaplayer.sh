@@ -54,7 +54,7 @@ get_data() {
   if [ "$song" = ' - ' ]; then
     song="$(playerctl -p "$player" metadata --format '{{markup_escape(xesam:url)}}' 2>/dev/null)"
     if [[ "$song" == "file://"* ]]; then
-      song="$(basename "$song" | sd '^(.*)\..*$' "\$1")"
+      song="$(basename "$song" | cut -d. -f1)"
     fi
   fi
 
