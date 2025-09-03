@@ -193,7 +193,9 @@ if [ "$install_type" = "full" ]; then
 
     # multimedia
     pulsemixer  # used by volume check/fix scripts on i3status-rust
-    playerctl  # for audio control by keyboard on sway
+    playerctl  # for audio control
+    mpc  # for remote mpd control fallback
+    mpdris2-rs  # mpd / playerctl bridge
     ffmpegthumbnailer  # for video thumbnail preview on file manager
 
     # input method

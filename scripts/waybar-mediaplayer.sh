@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+MPD_HOST="arch-n100"
+
 tmpfile="/tmp/playerctl-current-player"
 if [ ! -e "$tmpfile" ]; then
   touch "$tmpfile"
@@ -64,6 +66,10 @@ get_data() {
   fi
 
   duration="$(playerctl -p "$player" metadata --format '{{duration(position)}}/{{duration(mpris:length)}}' 2>/dev/null)"
+  # cannot get song length from qobuz via mpDris2, then fallback to mpc
+  if [[ "$duration" = *"/" ]]; then
+    duration="$(mpc --host $MPD_HOST status '%currenttime%/%totaltime%')"
+  fi
   echo -n "$song | $duration"
 }
 
