@@ -214,7 +214,7 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "is-4k.sh", BINDIR / "is-4k")
     install(SCRIPTSDIR / "launch-menu.sh", BINDIR / "launch-menu")
     install(SCRIPTSDIR / "leave.sh", BINDIR / "leave")
-    install(SCRIPTSDIR / "sway-scratchterm.py", BINDIR / "sway-scratchterm")
+    install(SCRIPTSDIR / "sway-scratchterm.sh", BINDIR / "sway-scratchterm")
     install(SCRIPTSDIR / "hypr-scratchterm.sh", BINDIR / "hypr-scratchterm")
     install(SCRIPTSDIR / "chromium-options.sh", BINDIR / "chromium-options")
     install(SCRIPTSDIR / "ff-volume-watch.sh", BINDIR / "ff-volume-watch")
