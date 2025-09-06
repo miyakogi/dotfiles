@@ -19,7 +19,6 @@ status --is-login; and begin
   end
 
   # User Bin
-  fish_add_path --global "$HOME/bin"
   fish_add_path --global --move "$HOME/bin"
 
   # set default programs as nvim
