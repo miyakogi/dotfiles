@@ -24,7 +24,7 @@ case "$XDG_CURRENT_DESKTOP" in
     ;;
   sway*)
     # Sway default terminal
-    _term_fallback=foot
+    _term_fallback=alacritty
     ;;
   *)
     _term_fallback=alacritty
@@ -40,13 +40,7 @@ if [ "$1" = "--class" ] || [ "$1" = "-e" ]; then
     _term=$_term_fallback
   fi
 fi
-
-# Use foot server if running
-if [ "$_term" = foot ] && [[ -e "$XDG_RUNTIME_DIR/foot-$WAYLAND_DILPLAY.sock" || -e "$XDG_RUNTIME_DIR/foot.sock" ]]; then
-  cmd=(footclient)
-else
-  cmd=("$_term")
-fi
+cmd=("$_term")
 
 # Set initial command options if needed
 case "$_term" in
