@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-if ! type foot &>/dev/null; then
-  notify-send -i system-error -u critical "ERROR" "Need \`foot\` to be installed for application launcher"
-fi
-
 if ! type sklauncher &>/dev/null; then
   notify-send -i system-error -u critical "ERROR" "Need \`sklauncher\` to be installed for application launcher"
 fi
@@ -11,8 +7,7 @@ fi
 declare -a cmd=()
 
 # set terminal command and options
-# use foot
-termcmd="foot"
+termcmd="$TERMINAL"
 
 # set output specific options
 _font="monospace"
@@ -25,15 +20,18 @@ else
 fi
 
 cmd+=(
-  foot
-  --font "${_font}:size=${_fsize}"
-  --window-size-pixels "$winsize"
-  --app-id "sklauncher"
-  --override "colors.alpha=0.70"
+  alacritty
+  --class "sklauncher"
+  --option "font.size=${_fsize}"
+  --option "window.opacity=1.0"
+  --option "window.startup_mode='Windowed'"
+  --option "window.dimensions.columns=60"
+  --option "window.dimensions.lines=30"
 )
 
 # set launcher command and options
 cmd+=(
+  -e
   sklauncher
   --terminal-command "$termcmd"
   # --match-generic-name
