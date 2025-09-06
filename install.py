@@ -223,7 +223,7 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "mic-mute-toggle.sh", BINDIR / "mic-mute-toggle")
     install(SCRIPTSDIR / "idle-watch.sh", BINDIR / "idle-watch")
     install(SCRIPTSDIR / "idle-toggle.sh", BINDIR / "idle-toggle")
-    install(SCRIPTSDIR / "sway-addws.py", BINDIR / "sway-addws")
+    install(SCRIPTSDIR / "sway-addws.sh", BINDIR / "sway-addws")
     install(SCRIPTSDIR / "hypr-addws.sh", BINDIR / "hypr-addws")
     install(SCRIPTSDIR / "waybar-mediaplayer.sh",
             BINDIR / "waybar-mediaplayer")

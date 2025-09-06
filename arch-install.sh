@@ -176,7 +176,6 @@ if [ "$install_type" = "full" ]; then
     hyprlock
     i3status-rust
     autotiling
-    python-i3ipc  # used in some script for sway
 
     # hyprland
     hyprland
