@@ -32,6 +32,7 @@ fi
 # check if window exists
 if ! swaymsg -t get_tree | jq -e ".. | objects | select(.app_id? == \"$CLASS\")" &>/dev/null; then
   # not exist -> open new window
+  notify-send -t 500 'Sway' 'Spawning new scratchpad terminal'
   "${cmd[@]}" & disown
   sleep 0.2
   swaymsg "[app_id=\"$CLASS\"] scratchpad show, resize set 2240 1480, move position center"
