@@ -2,14 +2,12 @@
 
 TERM_CLASS=scratchterm
 
-function is_hidpi() {
-  test "$(swaymsg -t get_outputs | jq '.[] | select(.focused) | .name' | tr -d '"')" = 'DP-1'
-}
-
-if is_hidpi; then
+if is-4k; then
   CLASS="$TERM_CLASS"-dp1
+  SIZE="2800 1600"
 else
   CLASS="$TERM_CLASS"-dp2
+  SIZE="1820 1280"
 fi
 
 cmd=(
@@ -35,7 +33,7 @@ if ! swaymsg -t get_tree | jq -e ".. | objects | select(.app_id? == \"$CLASS\")"
   notify-send -t 500 'Sway' 'Spawning new scratchpad terminal'
   "${cmd[@]}" & disown
   sleep 0.2
-  swaymsg "[app_id=\"$CLASS\"] scratchpad show, resize set 2240 1480, move position center"
+  swaymsg "[app_id=\"$CLASS\"] scratchpad show, resize set $SIZE, move position center"
 else
   swaymsg "[app_id=\"$CLASS\"] scratchpad show"
 fi
