@@ -67,7 +67,7 @@ interval = 1
 [[block]]
 # GPU
 block = "custom"
-command = '''printf '{"icon": "gpu", "text":"%2d%%"}' $(cat /sys/class/drm/card0/device/gpu_busy_percent | tr -d "[:alpha:].'\-")'''
+command = '''printf '{"icon": "gpu", "text": "%4dMHz (%2d%%)"}' $(cat /sys/class/drm/card*/device/pp_dpm_sclk | rg '\\*' | head -n1 | cut -d' ' -f2 | tr -d '[:alpha:]') $(cat /sys/class/drm/card*/device/gpu_busy_percent)'''
 interval = 1
 json = true
 
