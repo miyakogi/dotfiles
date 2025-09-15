@@ -47,7 +47,7 @@ shape = 'beam'
 #
 # Default is false
 #
-blinking = false
+blinking = true
 
 # Ignore theme selection foreground color
 #
