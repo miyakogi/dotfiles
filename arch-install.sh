@@ -206,6 +206,7 @@ if [ "$install_type" = "full" ]; then
     ttf-google-sans-code-vf  # monospace font
     ttf-ibm-plex  # default jp sans-serif font
     ttf-nerd-fonts-symbols
+    ttf-nerd-fonts-symbols-mono
     noto-font  # non-latin character
     noto-font-cjk  # cjk serif font and fallback
     ttf-noto-emoji-monochrome  # emoji
