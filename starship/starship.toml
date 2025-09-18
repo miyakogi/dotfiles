@@ -75,7 +75,7 @@ format = "[${ram}( | ${swap})]($style) "
 style = "bold yellow"
 
 [cmd_duration]
-format = "[ $duration](fg:white bold)"
+format = "[ \\($duration\\)](fg:white bold)"
 disabled = false
 
 [directory]
