@@ -6,7 +6,7 @@
   "name": "4K",
   "spacing": 16,
   "height": 32,  // 1 + tray icon + 1
-  "modules-left": ["custom/os", "hyprland/workspaces"],
+  "modules-left": ["custom/os", "hyprland/workspaces", "niri/workspaces"],
   "modules-center": ["custom/media"],
   "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "tray"],
   "custom/os": {
@@ -19,6 +19,9 @@
     "persistent-workspaces": {
       "DP-1": 10,
     },
+  },
+  "niri/workspaces": {
+    "format": "",
   },
   "clock": {
     "format": "  {:%a %d %b %Y 󰅐 %H:%M:%S}",
@@ -71,7 +74,7 @@
   "position": "bottom",
   "spacing": 4,
   "height": 30,  // 1 + tray icon + 1
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "niri/workspaces"],
   "modules-center": [],
   "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "cpu", "memory", "custom/gpu", "custom/temperature", "custom/clock", "custom/update", "tray"],
   "hyprland/workspaces": {
@@ -80,6 +83,9 @@
     "persistent-workspaces": {
       "HDMI-A-1": 10,
     },
+  },
+  "niri/workspaces": {
+    "format": "",
   },
   "custom/idle": {
     "return-type": "json",

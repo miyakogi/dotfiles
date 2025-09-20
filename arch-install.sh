@@ -176,6 +176,10 @@ if [ "$install_type" = "full" ]; then
     hyprpaper
     hyprlock
     quickshell-git
+    
+    # niri
+    niri
+    xwayland-satellite
 
     # portal
     xdg-desktop-portal

@@ -237,6 +237,7 @@ def install_desktop() -> None:
     # uwsm
     install(BASEDIR / "uwsm" / "env", CONFIG_HOME / "uwsm" / "env")
     install(BASEDIR / "uwsm" / "env-hyprland", CONFIG_HOME / "uwsm" / "env-hyprland")
+    install(BASEDIR / "uwsm" / "env-niri", CONFIG_HOME / "uwsm" / "env-niri")
 
     # hypridle
     install(BASEDIR / "hypr" / "hypridle.conf",
@@ -280,6 +281,10 @@ def install_desktop() -> None:
 
     # waybar (waybar-hypr)
     install(BASEDIR / "waybar", CONFIG_HOME / "waybar")
+
+    # niri
+    install(BASEDIR / "niri" / "config.kdl", CONFIG_HOME / "niri" / "config.kdl")
+    install(BASEDIR / "niri" / "hyprpaper.conf", CONFIG_HOME / "niri" / "hyprpaper.conf")
 
     # alacritty terminal
     install(BASEDIR / "alacritty", CONFIG_HOME / "alacritty")

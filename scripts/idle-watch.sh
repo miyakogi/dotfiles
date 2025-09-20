@@ -10,6 +10,10 @@ case "$XDG_CURRENT_DESKTOP" in
     class="class"
     service="hypridle.service"
     ;;
+  niri)
+    class="class"
+    service="hypridle.service"
+    ;;
   *)
     class="class"
     ;;

@@ -6,7 +6,7 @@ Requisite=graphical-session.target
 
 [Service]
 Type=simple
-ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland:niri" ""
 ExecStart=hypridle
 Restart=on-failure
 

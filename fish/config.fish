@@ -38,7 +38,7 @@ status --is-login; and begin
     echo -e -n "\
 Select Window Manager or Shell:
 > 1) Hyprland [default]
-  2) Sway
+  2) Niri
   3) bash
   4) fish
   5) exit
@@ -54,8 +54,8 @@ Select Window Manager or Shell:
     switch "$choice"
       case 1 "[Hh]pr*"
         set wm "Hyprland"
-      case 2 "[Ss]way"
-        set wm "sway"
+      case 2 "[Nn]iri"
+        set wm "niri"
       case 3 bash sh
         exec bash
       case 4 fish
@@ -90,11 +90,7 @@ Select Window Manager or Shell:
 
     # Start wayland session
     if string match -r -q '(Hyprland|sway|river|niri|weston)' "$wm"
-      if [ "$wm" = "niri" ]
-        wm-start niri-session
-      else
-        wm-start $wm
-      end
+      wm-start $wm
     else
       wm-start $wm
     end

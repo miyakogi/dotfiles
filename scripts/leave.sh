@@ -17,7 +17,7 @@ function menu() {
 
 tofi_cmd=(tofi)
 
-if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
+if [[ "$XDG_CURRENT_DESKTOP" =~ (Hyprland|niri) ]]; then
   tofi_cmd+=(--background-color=000000AA)
 fi
 
