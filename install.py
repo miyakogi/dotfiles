@@ -214,7 +214,6 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "is-4k.sh", BINDIR / "is-4k")
     install(SCRIPTSDIR / "launch-menu.sh", BINDIR / "launch-menu")
     install(SCRIPTSDIR / "leave.sh", BINDIR / "leave")
-    install(SCRIPTSDIR / "sway-scratchterm.sh", BINDIR / "sway-scratchterm")
     install(SCRIPTSDIR / "hypr-scratchterm.sh", BINDIR / "hypr-scratchterm")
     install(SCRIPTSDIR / "chromium-options.sh", BINDIR / "chromium-options")
     install(SCRIPTSDIR / "ff-volume-watch.sh", BINDIR / "ff-volume-watch")
@@ -223,7 +222,6 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "mic-mute-toggle.sh", BINDIR / "mic-mute-toggle")
     install(SCRIPTSDIR / "idle-watch.sh", BINDIR / "idle-watch")
     install(SCRIPTSDIR / "idle-toggle.sh", BINDIR / "idle-toggle")
-    install(SCRIPTSDIR / "sway-addws.sh", BINDIR / "sway-addws")
     install(SCRIPTSDIR / "hypr-addws.sh", BINDIR / "hypr-addws")
     install(SCRIPTSDIR / "waybar-mediaplayer.sh",
             BINDIR / "waybar-mediaplayer")
@@ -239,14 +237,6 @@ def install_desktop() -> None:
     # uwsm
     install(BASEDIR / "uwsm" / "env", CONFIG_HOME / "uwsm" / "env")
     install(BASEDIR / "uwsm" / "env-hyprland", CONFIG_HOME / "uwsm" / "env-hyprland")
-    install(BASEDIR / "uwsm" / "env-sway", CONFIG_HOME / "uwsm" / "env-sway")
-
-    # sway
-    install(BASEDIR / "sway" / "config", CONFIG_HOME / "sway" / "config")
-    install(BASEDIR / "sway" / "config.d", CONFIG_HOME / "sway" / "config.d")
-
-    # swaybar (i3status-rust)
-    install(BASEDIR / "i3status-rust", CONFIG_HOME / "i3status-rust")
 
     # hypridle
     install(BASEDIR / "hypr" / "hypridle.conf",
@@ -368,10 +358,6 @@ def install_desktop() -> None:
 
     # WM/DE independent
     install_service("fcitx5.service")
-
-    # for Sway
-    install_service("swayidle.service")
-    install_service("autotiling.service")
 
     # for Hyprland
     install_service("hypridle.service")

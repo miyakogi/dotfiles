@@ -1,6 +1,0 @@
-export WLR_DRM_NO_MODIFIERS=1
-export WLR_RENDERER=vulkan
-
-export TERMINAL=kitty
-
-export WALKER_LAUNCH_PREFIX="swaymsg exec setsid app2unit -- "

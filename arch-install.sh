@@ -169,25 +169,17 @@ if [ "$install_type" = "full" ]; then
     # keyring
     gnome-keyring
 
-    # sway
-    sway
-    swaybg
-    swayidle
-    hyprlock
-    i3status-rust
-    autotiling
-
     # hyprland
     hyprland
     waybar
     hypridle
     hyprpaper
+    hyprlock
     quickshell-git
 
     # portal
     xdg-desktop-portal
     xdg-desktop-portal-gtk
-    xdg-desktop-portal-wlr
     xdg-desktop-portal-hyprland
 
     # multimedia
