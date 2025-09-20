@@ -310,6 +310,10 @@ def install_desktop() -> None:
     # tofi launcher
     install(BASEDIR / "tofi", CONFIG_HOME / "tofi")
 
+    # walker launcher
+    install(BASEDIR / "walker", CONFIG_HOME / "walker")
+    install(BASEDIR / "elephant", CONFIG_HOME / "elephant")
+
     # mako notification daemon
     install(BASEDIR / "mako", CONFIG_HOME / "mako")
 

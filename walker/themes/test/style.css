@@ -1,0 +1,116 @@
+window {
+  font-family: 'monospace';
+  font-size: 48px;
+  background: #000000A0;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 32px;
+}
+
+.large-icons {
+  -gtk-icon-size: 64px;
+}
+
+.box-wrapper {
+  box-shadow:
+    0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  /*  NEEDS TO BE TRANSPARENT CUZ OF HYPRLAND BUG */
+  background: alpha(#000000, 0.99);
+  min-width: 1600px;
+}
+
+.preview-box {
+}
+
+.box {
+}
+
+.search-container {
+  background: #000000;
+}
+
+.input placeholder {
+  opacity: 0.5;
+}
+
+.input {
+  font-size: 42px;
+  border-radius: 0;
+  padding: 16px;
+  box-shadow: none;
+  outline: none;
+  padding-left: 24px;
+  background: #000000;
+}
+
+.input:focus,
+.input:active {
+  box-shadow: none;
+  outline: none;
+}
+
+.content-container {
+}
+
+.placeholder {
+}
+
+.scroll {
+}
+
+.list {
+  background: #000000;
+  min-width: 1600px;
+}
+
+child,
+child > * {
+  padding: 0;
+  margin: 0;
+}
+
+.item-box {
+  padding: 16px;
+  min-width: 1420px;
+}
+
+.item-text-box {
+  all: unset;
+}
+
+.item-text {
+}
+
+.item-subtext {
+  font-size: 24px;
+  opacity: 0.8;
+}
+
+.item-image {
+}
+
+.keybind-hints {
+  padding: 10px;
+  font-size: 32px;
+  color: @theme_fg_color;
+  opacity: 0.5;
+  background: lighter(@window_bg_color);
+}
+
+.preview {
+}
+
+.calc .item-text {
+}
+
+.calc .item-subtext {
+}
+
+.symbols .item-image {
+}
