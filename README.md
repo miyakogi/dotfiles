@@ -42,7 +42,7 @@ Disable display managers (e.g. SDDM or GDM) if enabled.
 Enable systemd services for graphical session.
 
 ```sh
-systemctl --user enable --now autotiling.service dunst.service fcitx5.service swayidle.service hypridle.service waybar.service
+systemctl --user enable --now mako.service fcitx5.service hypridle.service waybar-hyprland.service
 ```
 
 ### Set Wallpapers and Lock Screen Images
@@ -51,6 +51,7 @@ Use wallpaper for each WM as below:
 
 - sway: `$XDG_CONFIG_HOME/sway/bg{,_4k}.png`
 - hyprland: `$XDG_CONFIG_HOME/hypr/bg{,_4k}.png`
+- niri: `$XDG_CONFIG_HOME/niri/bg{,_4k}.png`
 
 Use lock screen images for each WM as below:
 
