@@ -232,7 +232,7 @@ overview {
 // which may be more convenient to use.
 // spawn-at-startup "alacritty" "-e" "fish"
 
-spawn-sh-at-startup "qs -c qs-dots"
+spawn-sh-at-startup "app2unit -s b -t service -- qs -c qs-dots"
 // spawn-at-startup "foot --server"
 spawn-sh-at-startup "app2unit -s b -t service -- elephant"
 spawn-sh-at-startup "app2unit -s b -t service -- walker --gapplication-service"
