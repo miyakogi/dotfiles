@@ -366,7 +366,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "app2unit" "--" "terminal"; }
     Mod+Space { spawn "app2unit" "walker" "-m" "websearch"; }
-    // Mod+A { spawn-sh "tofi-drun --drun-launch=false --anchor=center --background-color=000000AA | xargs --no-run-if-empty niri msg action spawn -- app2unit --"; }
+    // Mod+A { spawn-sh "tofi-drun --drun-launch=false --anchor=center | xargs --no-run-if-empty niri msg action spawn -- app2unit --"; }
     Mod+A { spawn "walker"; }
     Mod+I { spawn "launch-menu"; }  // sklauncher
 

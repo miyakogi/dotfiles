@@ -10,6 +10,6 @@ result-spacing = 25
 num-results = 8
 font = monospace
 font-size = 32
-background-color = #000000F0
+background-color = #000000AA
 selection-color = #ee5396
 selection-match-color = #fed576

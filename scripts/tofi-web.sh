@@ -7,10 +7,6 @@ tofi_cmd=(
   --output "$1"
 )
 
-if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
-  tofi_cmd+=(--background-color 000000AA)
-fi
-
 # Allow free input with no predefined candidates
 query=$(printf ' : Brave\ng: Google\nb: Bing\n' | "${tofi_cmd[@]}")
 
