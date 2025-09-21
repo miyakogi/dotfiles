@@ -149,7 +149,7 @@ decorations = "Disabled"
 # disable-renderer-when-unfocused = false
 [renderer]
 performance = "High"
-backend = "GL"
+backend = "Vulkan"
 # max-fps = 120
 # strategy = "Game"
 
@@ -184,10 +184,11 @@ backend = "GL"
 # Example:
 # [fonts]
 [fonts]
-size = 22.5
+size = 21
 family = "Google Sans Code"
-extras = [ { family = "IBM Plex Sans JP" }, { family = "Noto Emoji" } ]
-features = ["ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "calt", "liga"]
+extras = [ { family = "Symbols Nerd Font" }, { family = "IBM Plex Sans JP" }, { family = "Noto Emoji" } ]
+# features = ["ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "calt", "liga"]
+features = []
 use-drawable-chars = true
 #
 # [fonts.regular]
