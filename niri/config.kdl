@@ -362,14 +362,14 @@ binds {
 
     Mod+Y { close-window; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
-    Mod+T     { focus-column-left; }
-    Mod+N     { focus-window-down; }
-    Mod+S     { focus-window-up; }
-    Mod+H     { focus-column-right; }
+    Mod+Left  { focus-column-or-monitor-left; }
+    Mod+Down  { focus-window-or-monitor-down; }
+    Mod+Up    { focus-window-or-monitor-up; }
+    Mod+Right { focus-column-or-monitor-right; }
+    Mod+T     { focus-column-or-monitor-left; }
+    Mod+N     { focus-window-or-monitor-down; }
+    Mod+S     { focus-window-or-monitor-up; }
+    Mod+H     { focus-column-or-monitor-right; }
 
     Mod+Shift+Left  { move-column-left; }
     Mod+Shift+Down  { move-window-down; }
@@ -391,15 +391,6 @@ binds {
     Mod+End  { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
-
-    Mod+Ctrl+Left  { focus-monitor-left; }
-    Mod+Ctrl+Down  { focus-monitor-down; }
-    Mod+Ctrl+Up    { focus-monitor-up; }
-    Mod+Ctrl+Right { focus-monitor-right; }
-    Mod+Ctrl+T     { focus-monitor-left; }
-    Mod+Ctrl+N     { focus-monitor-down; }
-    Mod+Ctrl+S     { focus-monitor-up; }
-    Mod+Ctrl+H     { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
@@ -542,7 +533,7 @@ binds {
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Shift+Print { screenshot-window; }
 
     // Reload waybar
     Mod+Shift+R { spawn "systemctl" "--user" "reload" "waybar-hyprland.service"; }
