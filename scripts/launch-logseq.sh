@@ -10,7 +10,4 @@ else
   exit 1
 fi
 
-if [ "$XDG_CURRENT_DESKTOP" != niri ]; then
-  exec app2unit -- "$cmd" "$(chromium-options wayland)"
-  # exec "$cmd" "$(chromium-options wayland)"
-fi
+exec app2unit -- "$cmd" "$(chromium-options wayland)"

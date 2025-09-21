@@ -281,6 +281,10 @@ animations {
     // block-out-from "screencast"
 }
 
+workspace "logseq" {
+    open-on-output "DP-1"
+}
+
 workspace "main" {
     open-on-output "DP-1"
 }
@@ -293,6 +297,12 @@ workspace "sub" {
 window-rule {
     geometry-corner-radius 24
     clip-to-geometry true
+}
+
+window-rule {
+    match app-id="^logseq$"
+    open-on-workspace "logseq"
+    default-column-width { proportion 0.75; }
 }
 
 window-rule {
