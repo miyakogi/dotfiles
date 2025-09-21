@@ -85,7 +85,7 @@ input {
 }
 
 output "DP-1" {
-    mode "3840x2160@144"
+    mode "3840x2160@120"
     scale 1.0
     position x=0 y=0
     variable-refresh-rate
