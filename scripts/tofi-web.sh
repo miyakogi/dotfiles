@@ -17,13 +17,15 @@ if [ -n "$query" ]; then
 
   # Switch search engine based on prefix
   case "$query" in
-    g:*)
+    g\ *|g:*)
       engine="google"
-      keyword="${query#g:}"
+      keyword="${query#g\ }"
+      keyword="${keyword#g:}"
       ;;
-    b:*)
+    b\ *|b:*)
       engine="bing"
-      keyword="${query#b:}"
+      keyword="${query#b\ }"
+      keyword="${keyword#b:}"
       ;;
   esac
 
