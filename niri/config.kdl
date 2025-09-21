@@ -306,6 +306,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id="^sklauncher$"
+    match app-id="^pavucontrol-qt$"
+    open-floating true
+}
+
+window-rule {
     match app-id="^zen$"
     open-maximized true
     open-on-workspace "main"
@@ -362,6 +368,7 @@ binds {
     Mod+Space { spawn "app2unit" "walker" "-m" "websearch"; }
     // Mod+A { spawn-sh "tofi-drun --drun-launch=false --anchor=center --background-color=000000AA | xargs --no-run-if-empty niri msg action spawn -- app2unit --"; }
     Mod+A { spawn "walker"; }
+    Mod+I { spawn "launch-menu"; }  // sklauncher
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -519,6 +526,7 @@ binds {
     Mod+R { switch-preset-column-width; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F { toggle-window-floating; }
     Mod+C { center-column; }
 
     // Finer width adjustments.
