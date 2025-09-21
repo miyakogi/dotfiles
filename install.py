@@ -131,6 +131,7 @@ def make_empty_directories() -> None:
     if is_orig_home():
         mkdir(PICTURES_DIR / "screenshots" / "grim")
         mkdir(PICTURES_DIR / "screenshots" / "swappy")
+        mkdir(PICTURES_DIR / "screenshots" / "niri")
 
 
 def install_base() -> None:
