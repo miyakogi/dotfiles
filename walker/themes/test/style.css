@@ -97,7 +97,7 @@ child > * {
 
 .keybind-hints {
   padding: 10px;
-  font-size: 32px;
+  font-size: 24px;
   color: @theme_fg_color;
   opacity: 0.5;
   background: lighter(@window_bg_color);
