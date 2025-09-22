@@ -49,7 +49,7 @@ follow_symlinks = false
 time_format = "󰅐 %T  %a %d %b %Y"
 disabled = false
 style = "bold blue"
-format = "[$time]($style)   "
+format = "[$time]($style)"
 
 [hostname]
 ssh_symbol = "󰬏 "
