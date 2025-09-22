@@ -333,6 +333,7 @@ window-rule {
 
 window-rule {
     match app-id="^rio$"
+    match app-id="^com.mitchellh.ghostty$"
     draw-border-with-background false
 }
 
