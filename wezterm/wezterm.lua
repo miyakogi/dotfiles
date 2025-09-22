@@ -1,27 +1,4 @@
 local wezterm = require('wezterm')
-local scheme = wezterm.color.get_builtin_schemes()['carbonfox']
-scheme.background = 'black'
-scheme.cursor_bg = '#fed677'
-scheme.ansi = {
-  '#282828',  -- black
-  '#ee5396',  -- red
-  '#08bdba',  -- green
-  '#fed576',  -- yellow
-  '#78a9ff',  -- blue
-  '#be95ff',  -- magenta
-  '#33b1ff',  -- cyan
-  '#dfdfe0',  -- white
-}
-scheme.brights = {
-  '#484848',  -- black
-  '#f16da6',  -- red
-  '#2dc7c4',  -- green
-  '#ffe787',  -- yellow
-  '#6690d9',  -- blue
-  '#a27fd9',  -- magenta
-  '#2b96d9',  -- cyan
-  '#e4e4e5',  -- white
-}
 
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
@@ -78,14 +55,11 @@ return {
 
   detect_password_input = true,  -- show password icon
 
-  window_background_opacity = 0.80,
+  window_background_opacity = 0.95,
 
   -- Tab bar
   use_fancy_tab_bar = false,
-  color_schemes = {
-    ['carbonfox-oled'] = scheme,
-  },
-  color_scheme = 'carbonfox-oled',
+  color_scheme = 'Kanagawa Dragon (Gogh)',
 
   hide_tab_bar_if_only_one_tab = true,
 
