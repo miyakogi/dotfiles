@@ -1,0 +1,4 @@
+inherits = "kanagawa-dragon"
+
+"ui.background" = { fg = "dragonWhite" }
+"ui.gutter" = { fg = "sumiInk6" }

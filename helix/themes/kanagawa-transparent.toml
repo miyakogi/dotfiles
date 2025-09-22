@@ -1,8 +1,0 @@
-inherits = "kanagawa"
-
-"ui.background" = { fg = "fujiWhite" }
-string = "dragonGreen"
-
-[palette]
-dragonGreen = "#8A9A7B"
-dragonYellow = "#C4B28A"

@@ -1,4 +1,4 @@
-theme = "carbonfox-oled"
+theme = "kanagawa-dragon-mod"
 
 [editor]
 gutters = ["diagnostics", "diff"]
