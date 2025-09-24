@@ -90,7 +90,7 @@ output "DP-1" {
     position x=0 y=0
     variable-refresh-rate
     focus-at-startup
-    background-color "#000000"
+    background-color "#181616"
 }
 // spawn-sh-at-startup "swaybg -o DP-1 -i ~/.config/niri/bg_4k.png -m fill"
 
@@ -98,7 +98,7 @@ output "HDMI-A-1" {
     mode "2560x1600@60"
     scale 1.0
     position x=640 y=2160
-    background-color "#000000"
+    background-color "#181616"
 }
 // spawn-sh-at-startup "swaybg -o HDMI-A-1 -i ~/.config/niri/bg.png -m fit"
 
@@ -166,10 +166,10 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#be95ff"
+        active-color "#8ea4a2"
 
         // Color of the ring on inactive monitors.
-        inactive-color "#535353"
+        inactive-color "#524f67"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -193,7 +193,7 @@ layout {
         // off
 
         width 2
-        active-color "#9ccfd8"
+        active-color "#8ea4a2"
         inactive-color "#524f67"
 
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
@@ -206,8 +206,8 @@ layout {
         spread 3
         offset x=0 y=0
         draw-behind-window false
-        color "#FFFFFF70"
-        inactive-color "#FFFFFF20"
+        color "#c5c9c570"
+        inactive-color "#c5c9c520"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -225,7 +225,7 @@ layout {
 
 overview {
     zoom 0.80
-    backdrop-color "#000000"
+    backdrop-color "#181616"
 }
 
 // Add lines like this to spawn processes at startup.
