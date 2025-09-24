@@ -257,7 +257,7 @@ vim.keymap.set('n', '<C-l>', ':<C-u>nohl<CR><C-l>')
 -- ======== Autocmd =======
 -- Fix: back to original cursor shape on some terminal
 local term = vim.env.TERM
-if term == "foot" or term == "alacritty" then
+if term == "foot" or term == "alacritty" or term == "wezterm" then
   vim.api.nvim_create_autocmd("VimLeave", {
     callback = function ()
       vim.opt.guicursor = ""
