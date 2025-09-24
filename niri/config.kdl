@@ -103,7 +103,7 @@ output "HDMI-A-1" {
 // spawn-sh-at-startup "swaybg -o HDMI-A-1 -i ~/.config/niri/bg.png -m fit"
 
 // Wallpaper
-spawn-sh-at-startup "hyprpaper -c ~/.config/niri/hyprpaper.conf"
+spawn-sh-at-startup "app2unit -s b -t service -- hyprpaper -c ~/.config/niri/hyprpaper.conf"
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
