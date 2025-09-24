@@ -18,17 +18,18 @@ abbr --add --global ln "ln -v -s"
 # git
 abbr --add --global gstatus "git status -s -b"
 
+# editor
+if type -q "$EDITOR"
+  abbr --add --global e $EDITOR
+end
+
 # nvim
 if type -q nvim
   abbr --add --global vim nvim
   abbr --add --global vi "nvim --noplugin"
 end
 
-# editor
-if type -q "$EDITOR"
-  abbr --add --global e $EDITOR
-end
-
+# helix
 if type -q helix
   abbr --add --global h helix
 else if type -q hx
