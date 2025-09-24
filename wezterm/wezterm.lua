@@ -3,10 +3,54 @@ local wezterm = require('wezterm')
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
 
+local font_default = 'Google Sans Code'
+local font_jp = 'IBM Plex Sans JP'
+local weight_normal = 'Light'
+local weight_bold = 'Medium'
 local font = wezterm.font_with_fallback({
-  'Google Sans Code',
-  'IBM Plex Sans JP',
+  {
+    family =  font_default,
+    weight = weight_normal,
+  },
+  font_jp,
 })
+local font_rules = {
+  {
+    intensity = 'Normal',
+    italic = true,
+    font = wezterm.font_with_fallback({
+      {
+        family = font_default,
+        weight = weight_normal,
+        style = 'Italic',
+      },
+      font_jp,
+    })
+  },
+  {
+    intensity = 'Bold',
+    italic = false,
+    font = wezterm.font_with_fallback({
+      {
+        family = font_default,
+        weight = weight_bold,
+      },
+      font_jp,
+    })
+  },
+  {
+    intensity = 'Bold',
+    italic = true,
+    font = wezterm.font_with_fallback({
+      {
+        family = font_default,
+        weight = weight_bold,
+        style = 'Italic',
+      },
+      font_jp,
+    })
+  },
+}
 local font_size = 16.5
 
 local gpu = {
@@ -45,9 +89,15 @@ return {
   term = 'wezterm',
 
   font = font,
+  font_rules = font_rules,
   font_size = font_size,
 
   default_cursor_style = 'SteadyBar',
+  -- default_cursor_style = 'BlinkingBar',
+  cursor_blink_ease_in = 'Constant',
+  cursor_blink_ease_out = 'Constant',
+  cursor_blink_rate = 500,
+  cursor_thickness = 1,
 
   bold_brightens_ansi_colors = 'No',
 
