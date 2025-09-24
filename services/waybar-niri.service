@@ -6,8 +6,8 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "Hyprland" ""
-ExecStart=/usr/bin/waybar
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "niri" ""
+ExecStart=/usr/bin/waybar --style %h/.config/waybar/style-niri.css
 ExecReload=kill -SIGUSR2 $MAINPID
 Restart=on-failure
 
