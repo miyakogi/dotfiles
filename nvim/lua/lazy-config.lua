@@ -92,11 +92,6 @@ local plugins = {
     end,
   },
 
-  -- todo list support for markdown
-  {
-    'miyakogi/todolist.vim',
-  },
-
   -- git integration
   {
     'lewis6991/gitsigns.nvim',
