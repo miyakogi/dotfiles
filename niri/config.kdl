@@ -286,6 +286,10 @@ workspace "logseq" {
     open-on-output "DP-1"
 }
 
+workspace "music" {
+    open-on-output "HDMI-A-1"
+}
+
 workspace "main" {
     open-on-output "DP-1"
 }
@@ -301,7 +305,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^logseq$"
+    match app-id="^[Ll]ogseq$"
     open-on-workspace "logseq"
     default-column-width { proportion 0.75; }
 }
@@ -343,11 +347,11 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^Logseq$"
     match app-id="^[Ss]potify"
     match app-id="^[Qq]obuz"
     match app-id="^[Uu]pplay"
-    default-column-width { proportion 0.75; }
+    open-on-workspace "music"
+    open-maximized true
 }
 
 binds {
