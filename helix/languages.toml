@@ -1,8 +1,9 @@
 [language-server]
 pyright = { command = "pyright-langserver", args = [ "--stdio" ] }
 ruff = { command = "ruff-lsp" }
-typos = { command = "typos-lsp" }  # cargo install --git https://github.com/tekumara/typos-vscode
+typos = { command = "typos-lsp" }
 rust-analyzer.config = { check.command = "clippy" }
+fish-lsp = { command = "fish-lsp", args = ["start"], environment = { "fish_lsp_show_client_popups" = "false" } }
 
 [[language]]
 name = "rust"
@@ -53,6 +54,10 @@ auto-format = false
 [[language]]
 name = "css"
 auto-format = false
+
+[[language]]
+name = "fish"
+language-servers = [ "fish-lsp" ]
 
 [[language]]
 name = "git-commit"
