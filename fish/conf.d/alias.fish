@@ -46,3 +46,6 @@ if type -q btop
 else if type -q btm
   abbr --add --global t btm
 end
+if type -q btm
+  abbr --add --global b btm
+end
