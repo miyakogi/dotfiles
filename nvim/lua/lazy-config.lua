@@ -184,6 +184,18 @@ local plugins = {
         })
       end
 
+      -- fsh
+      -- requires `fish-lsp` command
+      if vim.fn.executable('fish-lsp') > 0 then
+        vim.lsp.enable('fish-lsp')
+        vim.lsp.config('fish-lsp', {
+          on_attach = on_attach,
+          flags = lsp_flags,
+          cmd = { 'fish-lsp', 'start' },
+          filetypes = { 'fish' },
+        })
+      end
+
       -- c/cpp
       -- requires `clangd` included in `clang` package
       if vim.fn.executable('clangd') > 0 then
