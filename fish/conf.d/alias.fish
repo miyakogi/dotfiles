@@ -19,13 +19,12 @@ abbr --add --global ln "ln -v -s"
 abbr --add --global gstatus "git status -s -b"
 
 # editor
-if type -q "$EDITOR"
-  abbr --add --global e $EDITOR
-end
+abbr --add --global e edit
 
 # nvim
 if type -q nvim
   abbr --add --global vim nvim
+  abbr --add --global n nvim
   abbr --add --global vi "nvim --noplugin"
 end
 
