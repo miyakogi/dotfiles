@@ -1,7 +1,12 @@
+@define-color background #181616;
+@define-color foreground #c5c9c5;
+@define-color blue #8ba4b0;
+
 window {
   font-family: 'monospace';
   font-size: 48px;
-  background: #000000A0;
+  background: #181616A0;
+  color: @foreground;
 }
 
 scrollbar {
@@ -21,8 +26,9 @@ scrollbar {
     0 19px 38px rgba(0, 0, 0, 0.3),
     0 15px 12px rgba(0, 0, 0, 0.22);
   /*  NEEDS TO BE TRANSPARENT CUZ OF HYPRLAND BUG */
-  background: alpha(#000000, 0.99);
+  background: alpha(@background, 0.99);
   min-width: 1600px;
+  color: @foreground;
 }
 
 .preview-box {
@@ -32,7 +38,8 @@ scrollbar {
 }
 
 .search-container {
-  background: #000000;
+  background: @background;
+  color: @foreground;
 }
 
 .input placeholder {
@@ -46,7 +53,8 @@ scrollbar {
   box-shadow: none;
   outline: none;
   padding-left: 24px;
-  background: #000000;
+  background: @background;
+  color: @foreground;
 }
 
 .input:focus,
@@ -65,7 +73,8 @@ scrollbar {
 }
 
 .list {
-  background: #000000;
+  background: @background;
+  color: @foreground;
   min-width: 1600px;
 }
 
@@ -73,6 +82,11 @@ child,
 child > * {
   padding: 0;
   margin: 0;
+}
+
+child:hover .item-box,
+child:selected .item-box {
+  background: alpha(@blue, 0.25);
 }
 
 .item-box {
@@ -98,9 +112,9 @@ child > * {
 .keybind-hints {
   padding: 10px;
   font-size: 24px;
-  color: @theme_fg_color;
+  color: darker(@foreground);
   opacity: 0.5;
-  background: lighter(@window_bg_color);
+  background: lighter(@background);
 }
 
 .preview {
