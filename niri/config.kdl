@@ -338,6 +338,7 @@ window-rule {
 window-rule {
     match app-id="^rio$"
     match app-id="^com.mitchellh.ghostty$"
+    match app-id="^com.ghostty"
     draw-border-with-background false
 }
 
@@ -347,9 +348,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^[Ss]potify"
-    match app-id="^[Qq]obuz"
-    match app-id="^[Uu]pplay"
+    match app-id="^Spotify$"
+    match app-id="spotify-player$"
     open-on-workspace "music"
     open-maximized true
 }
