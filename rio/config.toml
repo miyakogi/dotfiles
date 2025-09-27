@@ -321,7 +321,7 @@ program = "fish"
 [bindings]
 keys = [
   # Ctrl+Backspace -> Ctrl+W
-  # { key = 'back', with = 'control', bytes = [37, 23] },
+  { key = 'back', with = 'control', esc = "\u0017" },
 ]
 
 # Log level
