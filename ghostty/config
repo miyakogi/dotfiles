@@ -31,6 +31,8 @@ command = fish
 shell-integration = fish
 shell-integration-features = cursor,sudo,no-title
 
+window-inherit-working-directory = false
+working-directory = home
 cursor-style = block
 cursor-style-blink = false
 cursor-opacity = 0.9
