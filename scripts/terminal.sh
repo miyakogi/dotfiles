@@ -34,23 +34,16 @@ esac
 # Set terminal from env var
 _term=${TERMINAL:-$_term_fallback}
 
-# disable ghostty if --class/-e is specified (currently not supported)
-if [ "$1" = "--class" ] || [ "$1" = "-e" ]; then
-  if [ "$_term" = "ghostty" ]; then
-    _term=$_term_fallback
-  fi
-fi
 cmd=("$_term")
 
 # Set initial command options if needed
 case "$_term" in
   ghostty)
-    cmd+=(+new-window)
+    # disable +new-window if --class/-e is specified (currently not supported)
+    if [ "$1" != "--class" ] && [ "$1" != "-e" ]; then
+      cmd+=(+new-window)
+    fi
     ;;
-  # kitty)
-  #   # single instance mode
-  #   cmd+=(--single-instance)
-  #   ;;
   wezterm)
     cmd+=(start --always-new-process)
     ;;
