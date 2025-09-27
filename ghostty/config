@@ -1,6 +1,7 @@
 # Ghostty Config File
 
 font-family = "Google Sans Code"
+font-family = "IBM Plex Sans JP"
 font-size = 16.5
 
 font-variation = "wght=300"
