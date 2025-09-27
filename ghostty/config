@@ -24,8 +24,9 @@ font-feature = +ss03
 # theme = Peppermint
 # theme = Raycast_Dark
 # theme = Snazzy
-theme = carbonfox-vivid-oled
-background-opacity = 0.80
+# theme = carbonfox-vivid-oled
+theme = Kanagawa Dragon
+background-opacity = 0.95
 
 command = fish
 
@@ -34,11 +35,12 @@ shell-integration-features = cursor,sudo,no-title
 
 window-inherit-working-directory = false
 working-directory = home
+
 cursor-style = block
 cursor-style-blink = false
 cursor-opacity = 0.9
 
-custom-shader = shaders/cursor_frozen.glsl
+# custom-shader = shaders/cursor_frozen.glsl
 
 window-decoration = false
 window-padding-x = 12
