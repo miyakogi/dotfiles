@@ -10,4 +10,4 @@ else
   exit 1
 fi
 
-exec app2unit -- "$cmd" "$(chromium-options wayland)"
+"$cmd" "$(chromium-options wayland)"
