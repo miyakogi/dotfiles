@@ -302,6 +302,7 @@ workspace "sub" {
 window-rule {
     geometry-corner-radius 24
     clip-to-geometry true
+    draw-border-with-background false
 }
 
 window-rule {
@@ -339,13 +340,6 @@ window-rule {
     match app-id="^[Cc]hromium"
     match app-id="^discord"
     open-maximized true
-}
-
-window-rule {
-    match app-id="^rio$"
-    match app-id=r"^com\.mitchellh\.ghostty$"
-    match app-id=r"^com\.ghostty"
-    draw-border-with-background false
 }
 
 window-rule {
