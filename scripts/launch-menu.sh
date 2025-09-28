@@ -7,26 +7,11 @@ fi
 declare -a cmd=()
 
 # set terminal command and options
-termcmd="$TERMINAL"
-
-# set output specific options
-_font="monospace"
-if is-4k; then
-  winsize="1200x1200"
-  _fsize=26
-else
-  winsize="960x960"
-  _fsize=22
-fi
+termcmd="terminal"
 
 cmd+=(
-  alacritty
+  terminal
   --class "sklauncher"
-  --option "font.size=${_fsize}"
-  --option "window.opacity=1.0"
-  --option "window.startup_mode='Windowed'"
-  --option "window.dimensions.columns=60"
-  --option "window.dimensions.lines=30"
 )
 
 # set launcher command and options

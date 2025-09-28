@@ -311,7 +311,13 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^sklauncher$"
+    match app-id="sklauncher$"
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 920; }
+}
+
+window-rule {
     match app-id="^pavucontrol-qt$"
     open-floating true
 }
@@ -329,7 +335,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^Vivaldi.*"
+    match app-id="^Vivaldi"
     match app-id="^[Cc]hromium"
     match app-id="^discord"
     open-maximized true
@@ -337,8 +343,8 @@ window-rule {
 
 window-rule {
     match app-id="^rio$"
-    match app-id="^com.mitchellh.ghostty$"
-    match app-id="^com.ghostty"
+    match app-id=r"^com\.mitchellh\.ghostty$"
+    match app-id=r"^com\.ghostty"
     draw-border-with-background false
 }
 
