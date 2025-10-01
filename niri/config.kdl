@@ -348,7 +348,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^Spotify$"
+    match app-id="^[Ss]potify$"
     match app-id="spotify-player$"
     open-on-workspace "music"
     open-maximized true
