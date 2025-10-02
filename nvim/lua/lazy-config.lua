@@ -618,14 +618,10 @@ local plugins = {
         'nvim-tree/nvim-web-devicons',
         lazy = true,
       },
-      {
-        'EdenEast/nightfox.nvim',
-      }
     },
     config = function()
       require('lualine').setup({
         options = {
-          theme = 'carbonfox',
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
         },
@@ -635,17 +631,14 @@ local plugins = {
 
   -- ### ColorScheme ###
   {
-    'EdenEast/nightfox.nvim',
+    'scottmckendry/cyberdream.nvim',
     config = function()
-      require('nightfox').setup({
-        options = {
-          transparent = true,
-          styles = {
-            comments = 'italic',
-          },
-        },
+      require('cyberdream').setup({
+        transparent = true,
+        italic_comments = true,
+        cache = true,
       })
-      vim.cmd('colorscheme carbonfox')
+      vim.cmd('colorscheme cyberdream')
     end,
   },
 
@@ -660,7 +653,6 @@ local plugins = {
     config = function()
       vim.cmd([[
         :Abolish teh the
-        :Abolish qunatum quantum
         :Abolish fro for
         :Abolish sefl self
         :Abolish strign string
