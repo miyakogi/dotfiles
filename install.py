@@ -279,6 +279,8 @@ def install_desktop() -> None:
             CONFIG_HOME / "hypr" / "tokyonight.conf")
     install(BASEDIR / "hypr" / "tokyonight-oled.conf",
             CONFIG_HOME / "hypr" / "tokyonight-oled.conf")
+    install(BASEDIR / "hypr" / "erebus.conf",
+            CONFIG_HOME / "hypr" / "erebus.conf")
 
     # waybar (waybar-hypr)
     install(BASEDIR / "waybar", CONFIG_HOME / "waybar")
