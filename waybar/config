@@ -8,7 +8,7 @@
   "height": 32,  // 1 + tray icon + 1
   "modules-left": ["custom/os", "hyprland/workspaces", "niri/workspaces"],
   "modules-center": ["custom/media"],
-  "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "tray"],
+  "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "systemd-failed-units", "tray"],
   "custom/os": {
     "exec": "echo \"󰣇 Arch Linux\"",
     "format": "{}",
@@ -25,7 +25,13 @@
   },
   "clock": {
     "format": "  {:%a %d %b %Y 󰅐 %H:%M:%S}",
+    "tooltip": false,
     "interval": 1,
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": false,
+    "format": " {nr_failed}",
+    "format-ok": "󰸞",
   },
   "custom/idle": {
     "return-type": "json",

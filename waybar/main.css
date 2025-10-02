@@ -1,7 +1,6 @@
 /* @import "carbonfox-vivid-oled.css"; */
 /* @define-color muted @highlightMed; */
 
-@define-color foreground @text;
 @define-color background @base;
 
 @define-color arch #1793d3;
@@ -297,8 +296,20 @@ window#waybar.FHD #custom-ff-volume.Info {
   padding: 0rem 1.4rem;
 }
 
-tooltip {
-  background-color: @background;
+#systemd-failed-units {
+  color: @background;
+  font-family: "Symbols Nerd Font";
+  border-radius: 1rem;
+  padding: 0rem 1.4rem;
+}
+
+#systemd-failed-units.ok {
+  background-color: @green;
+}
+
+#systemd-failed-units.degraded {
+  background-color: @red;
+  font-weight: bold;
 }
 
 #tray {
