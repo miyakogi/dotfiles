@@ -48,9 +48,9 @@ window#waybar.FHD {
 }
 
 #custom-os {
-  color: @arch;
+  color: @blue;
   padding: 0rem 0.5rem;
-  border-bottom: solid 1px @arch;
+  border-bottom: solid 1px @blue;
   font-weight: bold;
 }
 
