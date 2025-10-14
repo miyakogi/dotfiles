@@ -643,14 +643,29 @@ local plugins = {
 
   -- ### ColorScheme ###
   {
-    'scottmckendry/cyberdream.nvim',
+    'rebelot/kanagawa.nvim',
     config = function()
-      require('cyberdream').setup({
+      require('kanagawa').setup({
+        compile = true,
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = false },
+        statementStyle = { bold = true },
+        typeStyle = {},
         transparent = true,
-        italic_comments = true,
-        cache = true,
+        dimInactive = false,
+        terminalColors = true,
+        colors = {
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = 'none',
+              }
+            }
+          }
+        }
       })
-      vim.cmd('colorscheme cyberdream')
+      vim.cmd([[colorscheme kanagawa-dragon]])
     end,
   },
 
