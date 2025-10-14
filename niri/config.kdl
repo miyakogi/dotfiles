@@ -315,22 +315,10 @@ workspace "music" {
 
 workspace "main" {
     open-on-output "DP-1"
-    layout {
-        gaps 0
-        struts {
-            top 6
-        }
-    }
 }
 
 workspace "sub" {
     open-on-output "HDMI-A-1"
-    layout {
-        gaps 0
-        struts {
-            bottom 4
-        }
-    }
 }
 
 // Rounded corner for all windows
@@ -360,34 +348,14 @@ window-rule {
 
 window-rule {
     match app-id="^zen$"
-    geometry-corner-radius 0
     open-maximized true
     open-on-workspace "main"
-    border {
-        off
-    }
-    focus-ring {
-        off
-    }
-    shadow {
-        off
-    }
 }
 
 window-rule {
     match app-id="^firefox-sub"
-    geometry-corner-radius 0
     open-maximized true
     open-on-workspace "sub"
-    border {
-        off
-    }
-    focus-ring {
-        off
-    }
-    shadow {
-        off
-    }
 }
 
 window-rule {
