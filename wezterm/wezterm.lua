@@ -105,11 +105,11 @@ return {
 
   detect_password_input = true,  -- show password icon
 
-  window_background_opacity = 0.95,
+  window_background_opacity = 0.90,
 
   -- Tab bar
   use_fancy_tab_bar = false,
-  color_scheme = 'Kanagawa Dragon (Gogh)',
+  color_scheme = 'Erebus (terminal.sexy)',
 
   hide_tab_bar_if_only_one_tab = true,
 
