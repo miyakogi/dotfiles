@@ -34,9 +34,7 @@ class Formatter(logging.Formatter):
             curses.setupterm()
             self.colors["normal"] = curses.tigetstr("sgr0").decode("utf-8")
             for color, val in self._colors_int.items():
-                self.colors[color] = curses.tparm(curses.tigetstr("setaf"), val).decode(
-                    "utf-8"
-                )
+                self.colors[color] = curses.tparm(curses.tigetstr("setaf"), val).decode("utf-8")
         except Exception:
             self.colors["normal"] = ""
             for color in self._colors_int:
@@ -224,8 +222,7 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "idle-watch.sh", BINDIR / "idle-watch")
     install(SCRIPTSDIR / "idle-toggle.sh", BINDIR / "idle-toggle")
     install(SCRIPTSDIR / "hypr-addws.sh", BINDIR / "hypr-addws")
-    install(SCRIPTSDIR / "waybar-mediaplayer.sh",
-            BINDIR / "waybar-mediaplayer")
+    install(SCRIPTSDIR / "waybar-mediaplayer.sh", BINDIR / "waybar-mediaplayer")
     install(SCRIPTSDIR / "waybar-update.sh", BINDIR / "waybar-update")
     install(SCRIPTSDIR / "bw-launch.sh", BINDIR / "bw-launch")
     install(SCRIPTSDIR / "temperature.sh", BINDIR / "temperature")
@@ -241,46 +238,29 @@ def install_desktop() -> None:
     install(BASEDIR / "uwsm" / "env-niri", CONFIG_HOME / "uwsm" / "env-niri")
 
     # hypridle
-    install(BASEDIR / "hypr" / "hypridle.conf",
-            CONFIG_HOME / "hypr" / "hypridle.conf")
+    install(BASEDIR / "hypr" / "hypridle.conf", CONFIG_HOME / "hypr" / "hypridle.conf")
 
     # hyprlock
-    install(BASEDIR / "hypr" / "hyprlock.conf",
-            CONFIG_HOME / "hypr" / "hyprlock.conf")
+    install(BASEDIR / "hypr" / "hyprlock.conf", CONFIG_HOME / "hypr" / "hyprlock.conf")
 
     # hyprpaper
-    install(BASEDIR / "hypr" / "hyprpaper.conf",
-            CONFIG_HOME / "hypr" / "hyprpaper.conf")
+    install(BASEDIR / "hypr" / "hyprpaper.conf", CONFIG_HOME / "hypr" / "hyprpaper.conf")
 
     # hyprland
-    install(BASEDIR / "hypr" / "hyprland.conf",
-            CONFIG_HOME / "hypr" / "hyprland.conf")
-    install(BASEDIR / "hypr" / "carbonfox.conf",
-            CONFIG_HOME / "hypr" / "carbonfox.conf")
-    install(BASEDIR / "hypr" / "carbonfox-oled.conf",
-            CONFIG_HOME / "hypr" / "carbonfox-oled.conf")
-    install(BASEDIR / "hypr" / "carbonfox-vivid-oled.conf",
-            CONFIG_HOME / "hypr" / "carbonfox-vivid-oled.conf")
-    install(BASEDIR / "hypr" / "hologta.conf",
-            CONFIG_HOME / "hypr" / "hologta.conf")
-    install(BASEDIR / "hypr" / "catppuccin-macchiato.conf",
-            CONFIG_HOME / "hypr" / "catppuccin-macchiato.conf")
-    install(BASEDIR / "hypr" / "catppuccin-mocha.conf",
-            CONFIG_HOME / "hypr" / "catppuccin-mocha.conf")
-    install(BASEDIR / "hypr" / "catppuccin-mocha-oled.conf",
-            CONFIG_HOME / "hypr" / "catppuccin-mocha-oled.conf")
-    install(BASEDIR / "hypr" / "rose-pine.conf",
-            CONFIG_HOME / "hypr" / "rose-pine.conf")
-    install(BASEDIR / "hypr" / "rose-pine-oled.conf",
-            CONFIG_HOME / "hypr" / "rose-pine-oled.conf")
-    install(BASEDIR / "hypr" / "iceberg-tokyo.conf",
-            CONFIG_HOME / "hypr" / "iceberg-tokyo.conf")
-    install(BASEDIR / "hypr" / "tokyonight.conf",
-            CONFIG_HOME / "hypr" / "tokyonight.conf")
-    install(BASEDIR / "hypr" / "tokyonight-oled.conf",
-            CONFIG_HOME / "hypr" / "tokyonight-oled.conf")
-    install(BASEDIR / "hypr" / "erebus.conf",
-            CONFIG_HOME / "hypr" / "erebus.conf")
+    install(BASEDIR / "hypr" / "hyprland.conf", CONFIG_HOME / "hypr" / "hyprland.conf")
+    install(BASEDIR / "hypr" / "carbonfox.conf", CONFIG_HOME / "hypr" / "carbonfox.conf")
+    install(BASEDIR / "hypr" / "carbonfox-oled.conf", CONFIG_HOME / "hypr" / "carbonfox-oled.conf")
+    install(BASEDIR / "hypr" / "carbonfox-vivid-oled.conf", CONFIG_HOME / "hypr" / "carbonfox-vivid-oled.conf")
+    install(BASEDIR / "hypr" / "hologta.conf", CONFIG_HOME / "hypr" / "hologta.conf")
+    install(BASEDIR / "hypr" / "catppuccin-macchiato.conf", CONFIG_HOME / "hypr" / "catppuccin-macchiato.conf")
+    install(BASEDIR / "hypr" / "catppuccin-mocha.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha.conf")
+    install(BASEDIR / "hypr" / "catppuccin-mocha-oled.conf", CONFIG_HOME / "hypr" / "catppuccin-mocha-oled.conf")
+    install(BASEDIR / "hypr" / "rose-pine.conf", CONFIG_HOME / "hypr" / "rose-pine.conf")
+    install(BASEDIR / "hypr" / "rose-pine-oled.conf", CONFIG_HOME / "hypr" / "rose-pine-oled.conf")
+    install(BASEDIR / "hypr" / "iceberg-tokyo.conf", CONFIG_HOME / "hypr" / "iceberg-tokyo.conf")
+    install(BASEDIR / "hypr" / "tokyonight.conf", CONFIG_HOME / "hypr" / "tokyonight.conf")
+    install(BASEDIR / "hypr" / "tokyonight-oled.conf", CONFIG_HOME / "hypr" / "tokyonight-oled.conf")
+    install(BASEDIR / "hypr" / "erebus.conf", CONFIG_HOME / "hypr" / "erebus.conf")
 
     # waybar (waybar-hypr)
     install(BASEDIR / "waybar", CONFIG_HOME / "waybar")
@@ -324,34 +304,13 @@ def install_desktop() -> None:
     install(BASEDIR / "swappy", CONFIG_HOME / "swappy")
 
     # Font
-    install(
-        BASEDIR / "fontconfig" / "conf.d" / "10-default-fonts.conf",
-        CONFIG_HOME / "fontconfig" / "conf.d" / "10-default-fonts.conf",
-    )
-    install(
-        BASEDIR / "fontconfig" / "conf.d" / "20-no-embedded.conf",
-        CONFIG_HOME / "fontconfig" / "conf.d" / "20-no-embedded.conf",
-    )
-    install(
-        BASEDIR / "fontconfig" / "conf.d" / "30-google-sans-code.conf",
-        CONFIG_HOME / "fontconfig" / "conf.d" / "30-google-sans-code.conf",
-    )
-    install(
-        BASEDIR / "fontconfig" / "conf.d" / "30-ibm-plex-mono.conf",
-        CONFIG_HOME / "fontconfig" / "conf.d" / "30-ibm-plex-mono.conf",
-    )
-    install(
-        BASEDIR / "fontconfig" / "conf.d" / "30-lilex.conf",
-        CONFIG_HOME / "fontconfig" / "conf.d" / "30-lilex.conf",
-    )
-    install(
-        BASEDIR / "fontconfig" / "conf.d" / "30-maplemono.conf",
-        CONFIG_HOME / "fontconfig" / "conf.d" / "30-maplemono.conf",
-    )
-    install(
-        BASEDIR / "fontconfig" / "conf.d" / "90-nerd-font-symbols-jp.conf",
-        CONFIG_HOME / "fontconfig" / "conf.d" / "90-nerd-font-symbols-jp.conf",
-    )
+    install(BASEDIR / "fontconfig" / "conf.d" / "10-default-fonts.conf", CONFIG_HOME / "fontconfig" / "conf.d" / "10-default-fonts.conf")
+    install(BASEDIR / "fontconfig" / "conf.d" / "20-no-embedded.conf", CONFIG_HOME / "fontconfig" / "conf.d" / "20-no-embedded.conf")
+    install(BASEDIR / "fontconfig" / "conf.d" / "30-google-sans-code.conf", CONFIG_HOME / "fontconfig" / "conf.d" / "30-google-sans-code.conf")
+    install(BASEDIR / "fontconfig" / "conf.d" / "30-ibm-plex-mono.conf", CONFIG_HOME / "fontconfig" / "conf.d" / "30-ibm-plex-mono.conf")
+    install(BASEDIR / "fontconfig" / "conf.d" / "30-lilex.conf", CONFIG_HOME / "fontconfig" / "conf.d" / "30-lilex.conf")
+    install(BASEDIR / "fontconfig" / "conf.d" / "30-maplemono.conf", CONFIG_HOME / "fontconfig" / "conf.d" / "30-maplemono.conf")
+    install(BASEDIR / "fontconfig" / "conf.d" / "90-nerd-font-symbols-jp.conf", CONFIG_HOME / "fontconfig" / "conf.d" / "90-nerd-font-symbols-jp.conf")
 
     # quickshell
     mkdir(CONFIG_HOME / "quickshell")
@@ -390,8 +349,7 @@ def install_other_home() -> None:
 
     # Some shareable xdg-directories
     HOST_CONFIG_HOME = HOST_HOME / ".config"
-    install(HOST_CONFIG_HOME / "nvim" / "spell",
-            CONFIG_HOME / "nvim" / "spell")
+    install(HOST_CONFIG_HOME / "nvim" / "spell", CONFIG_HOME / "nvim" / "spell")
     install(HOST_CONFIG_HOME / "ccache", CONFIG_HOME / "ccache")
     install(HOST_CONFIG_HOME / "fontconfig", CONFIG_HOME / "fontconfig")
 
