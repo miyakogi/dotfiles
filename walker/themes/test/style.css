@@ -1,11 +1,11 @@
-@define-color background #181616;
-@define-color foreground #c5c9c5;
-@define-color blue #8ba4b0;
+@define-color background #000000;
+@define-color foreground #ffffff;
+@define-color accent #b8b8b8;
 
 window {
   font-family: 'monospace';
   font-size: 48px;
-  background: #181616A0;
+  background: alpha(@background, 0.70);
   color: @foreground;
 }
 
@@ -86,7 +86,7 @@ child > * {
 
 child:hover .item-box,
 child:selected .item-box {
-  background: alpha(@blue, 0.25);
+  background: alpha(@accent, 0.3);
 }
 
 .item-box {
