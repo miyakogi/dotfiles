@@ -421,15 +421,15 @@ window-rule {
 
     border {
         // magenta
-        active-color "#a292a5"
+        active-color "#ff87d7"
     }
     focus-ring {
         // magenta
-        active-color "#a292a5"
+        active-color "#ff87d7"
     }
     shadow {
         // magenta
-        color "#a292a5"
+        color "#ff87d7"
     }
 }
 
