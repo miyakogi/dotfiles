@@ -105,7 +105,7 @@ return {
 
   detect_password_input = true,  -- show password icon
 
-  window_background_opacity = 0.90,
+  window_background_opacity = 0.85,
 
   -- Tab bar
   use_fancy_tab_bar = false,
