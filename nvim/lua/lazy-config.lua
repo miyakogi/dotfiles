@@ -144,8 +144,20 @@ local plugins = {
     'neovim/nvim-lspconfig',
     config = function()
       local opts = { noremap = true, silent = true }
-      vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
-      vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
+      local goto_error_prev = function()
+        vim.diagnostic.jump({
+          count = -1,
+          wrap = false,
+        })
+      end
+      local goto_error_next = function()
+        vim.diagnostic.jump({
+          count = 1,
+          wrap = false,
+        })
+      end
+      vim.keymap.set('n', '[e', goto_error_prev, opts)
+      vim.keymap.set('n', ']e', goto_error_next, opts)
 
       local on_attach = function(_, bufnr)
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
