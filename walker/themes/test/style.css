@@ -1,6 +1,6 @@
-@define-color background #000000;
-@define-color foreground #ffffff;
-@define-color accent #b8b8b8;
+@define-color background #181616;
+@define-color foreground #c5c9c5;
+@define-color accent #8ba4b0;
 
 window {
   font-family: 'monospace';
