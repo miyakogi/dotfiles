@@ -616,9 +616,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
+    Print { screenshot-screen; }
     Shift+Print { screenshot-window; }
+    Ctrl+Print { screenshot; }
 
     // Reload waybar
     Mod+Shift+R { spawn "systemctl" "--user" "reload" "waybar-niri.service"; }
