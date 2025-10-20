@@ -375,6 +375,12 @@ window-rule {
     match app-id="spotify-player$"
     open-on-workspace "music"
     open-maximized true
+    opacity 0.80
+}
+
+window-rule {
+    match app-id="^[Ss]potify$" is-focused=true
+    opacity 0.95
 }
 
 window-rule {
