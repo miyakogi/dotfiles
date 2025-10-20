@@ -1,4 +1,4 @@
-theme = "erebus"
+theme = "kanagawa-dragon-mod"
 
 [editor]
 gutters = ["diagnostics", "diff"]
