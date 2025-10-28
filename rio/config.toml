@@ -184,7 +184,7 @@ backend = "Vulkan"
 # Example:
 # [fonts]
 [fonts]
-size = 21
+size = 18
 family = "Google Sans Code"
 extras = [ { family = "Symbols Nerd Font" }, { family = "IBM Plex Sans JP" }, { family = "Unifont" }, { family = "Noto Emoji" } ]
 # features = ["ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "calt", "liga"]
@@ -196,10 +196,10 @@ use-drawable-chars = false
 # style = "normal"
 # weight = 400
 #
-# [fonts.bold]
+[fonts.bold]
 # family = "cascadiamono"
 # style = "normal"
-# weight = 800
+weight = 700
 #
 # [fonts.italic]
 # family = "cascadiamono"
