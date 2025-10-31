@@ -67,7 +67,7 @@ endfunction
 autocmd VimEnter * call s:plugin_setting()
 
 " set colorscheme
-autocmd VimEnter * colorscheme wildcharm
+autocmd VimEnter * colorscheme habamax
 autocmd VimEnter * highlight Search ctermbg=3 ctermfg=0
 autocmd VimEnter * highlight Normal ctermbg=none guibg=none
 autocmd VimEnter * highlight LineNr ctermbg=none guibg=none
