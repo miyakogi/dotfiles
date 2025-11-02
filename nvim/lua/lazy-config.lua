@@ -288,33 +288,6 @@ local plugins = {
     end,
   },
 
-  -- show icon on lsp types
-  {
-    'onsails/lspkind.nvim',
-    lazy = true,
-    event = 'InsertEnter',
-    dependencies = {
-      { 'hrsh7th/nvim-cmp' },
-    },
-    config = function()
-      local lspkind = require('lspkind')
-      require('cmp').setup {
-        formatting = {
-          format = lspkind.cmp_format({
-            mode = 'symbol_text', -- show symbol and text
-            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-
-            -- The function below will be called before any actual modifications from lspkind
-            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-            before = function (_, vim_item)
-              return vim_item
-            end
-          })
-        }
-      }
-    end,
-  },
-
   -- completion
   {
     'hrsh7th/nvim-cmp',
@@ -327,6 +300,7 @@ local plugins = {
       { 'f3fora/cmp-spell' },
       { 'saadparwaiz1/cmp_luasnip' },
       { 'L3MON4D3/LuaSnip' },
+      { 'onsails/lspkind.nvim'},
     },
     lazy = true,
     event = 'InsertEnter',
@@ -337,6 +311,7 @@ local plugins = {
       -- setup nvim-cmp
       local cmp = require('cmp')
       local luasnip = require('luasnip')
+      local lspkind = require('lspkind')
 
       cmp.setup({
         -- snippet
@@ -370,6 +345,20 @@ local plugins = {
           { name = 'buffer' },
           { name = 'spell' },
         }),
+
+        -- lsp icon and text
+        formatting = {
+          format = lspkind.cmp_format({
+            mode = 'symbol_text', -- show symbol and text
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+
+            -- The function below will be called before any actual modifications from lspkind
+            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+            before = function (_, vim_item)
+              return vim_item
+            end
+          })
+        },
       })
     end,
   },
