@@ -51,6 +51,7 @@ trigger-length = 2
 "c" = "toggle_comments"
 "u" = "switch_to_lowercase"
 "U" = "switch_to_uppercase"
+"q" = ":reflow"
 
 # Unimpaired
 "]".e = "goto_next_diag"
@@ -87,3 +88,4 @@ trigger-length = 2
 [keys.select.minus]
 "t" = "goto_first_nonwhitespace"
 "h" = "goto_line_end"
+"q" = ":reflow"
