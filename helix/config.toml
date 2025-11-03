@@ -77,9 +77,13 @@ trigger-length = 2
 "C-backspace" = "delete_word_backward"
 
 [keys.select]
-C-c = "yank_joined_to_clipboard"
+"C-c" = "yank_joined_to_clipboard"
 
 [keys.select.g]
 "c" = "toggle_comments"
 "u" = "switch_to_lowercase"
 "U" = "switch_to_uppercase"
+
+[keys.select.minus]
+"t" = "goto_first_nonwhitespace"
+"h" = "goto_line_end"
