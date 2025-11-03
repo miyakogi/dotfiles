@@ -3,6 +3,9 @@
 # vim-style exit
 abbr --add --global :q "exit"
 
+# short cd
+abbr --add --global c "cd"
+
 # short ls
 abbr --add --global l "ls"
 
