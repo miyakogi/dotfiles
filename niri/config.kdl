@@ -578,7 +578,7 @@ binds {
     Mod+E { focus-workspace "logseq"; }
 
     // Open dropdown terminal
-    F2 { spawn "app2unit" "terminal" "--class" "dropdown"; }
+    F2 { spawn "app2unit" "kitten" "quick_access_terminal" "--override" "lines=42"; }
 
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
