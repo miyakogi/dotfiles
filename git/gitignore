@@ -66,5 +66,8 @@ docs/_build/
 # direnv
 .envrc
 
+###### AI ######
+.aider*
+
 ###### Temporary ######
 *.bak
