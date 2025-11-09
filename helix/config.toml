@@ -59,13 +59,6 @@ trigger-length = 2
 "]".c = "goto_next_change"
 "[".c = "goto_prev_change"
 
-[keys.normal.minus]
-"minus" = "goto_file_start"
-"e" = "goto_file_end"
-"t" = "goto_first_nonwhitespace"
-"h" = "goto_line_end"
-"w" = "goto_word"
-
 [keys.insert]
 "C-f" = "move_char_right"
 "C-b" = "move_char_left"
@@ -84,8 +77,4 @@ trigger-length = 2
 "c" = "toggle_comments"
 "u" = "switch_to_lowercase"
 "U" = "switch_to_uppercase"
-
-[keys.select.minus]
-"t" = "goto_first_nonwhitespace"
-"h" = "goto_line_end"
 "q" = ":reflow"
