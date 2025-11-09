@@ -186,16 +186,12 @@ vim.keymap.set({'n', 'x'}, 'g<Down>', '<Down>', { silent = true })
 vim.keymap.set({'n', 'x'}, 'g<Up>', '<Up>', { silent = true })
 
 -- Move to start/end of lines
-vim.keymap.set({'n', 'x'}, 'gs', '^')  -- from helix-editor
-vim.keymap.set({'n', 'x'}, 'gt', '0')  -- from helix-editor
-vim.keymap.set({'n', 'x'}, 'gh', '$')  -- from helix-editor
-vim.keymap.set({'n', 'x'}, '-t', '^')  -- from helix-editor
-vim.keymap.set({'n', 'x'}, '-h', '$')  -- from helix-editor
+vim.keymap.set({'n', 'x'}, 'gh', '^', { silent = true })  -- from helix-editor
+vim.keymap.set({'n', 'x'}, 'gs', '0', { silent = true })  -- from helix-editor
+vim.keymap.set({'n', 'x'}, 'gl', '$', { silent = true })  -- from helix-editor
 
 -- Go to file end
-vim.keymap.set({'n', 'x'}, 'ge', 'G') -- from helix-editor
-vim.keymap.set({'n', 'x'}, '-e', 'G') -- from helix-editor
-vim.keymap.set({'n', 'x'}, '--', 'gg') -- from helix-editor
+vim.keymap.set({'n', 'x'}, 'ge', 'G', { silent = true }) -- from helix-editor
 
 -- Redo
 vim.keymap.set('n', 'U', '<C-r>')  -- from helix-editor
