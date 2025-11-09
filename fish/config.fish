@@ -141,7 +141,7 @@ status --is-interactive; and begin
   # zoxide smarter `cd`
   if type -q zoxide
     set -x _ZO_FZF_OPTS "--bind=ctrl-z:ignore --exit-0 --height=40% --info=inline --no-sort --reverse --select-1 --exact"
-    zoxide init fish --cmd j | source
+    zoxide init fish | source
   end
 
   if type -q macchina
