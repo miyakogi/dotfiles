@@ -15,9 +15,20 @@ function menu() {
   done
 }
 
-tofi_cmd=(tofi)
+case $XDG_CURRENT_DESKTOP in
+  niri)
+    dmenu_cmd=(fuzzel --dmenu)
+    ;;
+  Hyprland)
+    dmenu_cmd=(tofi)
+    ;;
+  *)
+    dmenu_cmd=(tofi)
+    ;;
+esac
+    
 
-RET=$(menu | "${tofi_cmd[@]}" | tr -d '[:space:]')
+RET=$(menu | "${dmenu_cmd[@]}" | tr -d '[:space:]')
 
 _lock() {
   loginctl lock-session
