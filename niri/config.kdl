@@ -425,6 +425,7 @@ binds {
     Mod+Return { spawn "app2unit" "--" "terminal"; }
     Mod+Space { spawn "app2unit" "tofi-web"; }
     // Mod+A { spawn-sh "tofi-drun --drun-launch=false --anchor=center | xargs --no-run-if-empty niri msg action spawn -- app2unit --"; }
+    Mod+D { spawn "fuzzel" "--launch-prefix" "app2unit --fuzzel-compat --"; }
     Mod+S { spawn "launch-menu"; }  // sklauncher
 
     // Example volume keys mappings for PipeWire & WirePlumber.

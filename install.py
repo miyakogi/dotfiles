@@ -294,6 +294,8 @@ def install_desktop() -> None:
     # tofi launcher
     install(BASEDIR / "tofi", CONFIG_HOME / "tofi")
 
+    # fuzzel launcher
+    install(BASEDIR / "fuzzel", CONFIG_HOME / "fuzzel")
 
     # mako notification daemon
     install(BASEDIR / "mako", CONFIG_HOME / "mako")
@@ -324,9 +326,6 @@ def install_desktop() -> None:
 
     def install_service(service: str) -> None:
         install(SERVICE_DIR / service, TARGET_DIR / service)
-
-    # WM/DE independent
-    install_service("fcitx5.service")
 
     # for Hyprland
     install_service("hypridle.service")

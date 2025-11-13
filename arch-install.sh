@@ -167,6 +167,7 @@ if [ "$install_type" = "full" ]; then
     qt6ct  # qt theme setting (choose kvantum)
 
     # launcher
+    fuzzel
 
     # keyring
     gnome-keyring
