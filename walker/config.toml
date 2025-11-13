@@ -1,6 +1,0 @@
-force_keyboard_focus = true
-theme = "test"
-
-[[providers.prefixes]]
-prefix = "?"
-provider = "websearch"

@@ -1,2 +1,0 @@
-# launch_prefix = "if [[ $XDG_CURRENT_DESKTOP == Hyprland ]]; then precmd=(hyprctl dispatch exec); elif [[ $XDG_CURRENT_DESKTOP =~ ^sway.* ]]; then precmd=(swaymsg exec); else precmd=(setsid); fi; ${precmd[@]} app2unit -- "
-launch_prefix = "setsid app2unit -- "

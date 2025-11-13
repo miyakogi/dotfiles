@@ -167,11 +167,6 @@ if [ "$install_type" = "full" ]; then
     qt6ct  # qt theme setting (choose kvantum)
 
     # launcher
-    elephant
-    elephant-desktopapplications
-    elephant-providerlist
-    elephant-websearch
-    walker
 
     # keyring
     gnome-keyring

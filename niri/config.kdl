@@ -251,8 +251,6 @@ overview {
 
 spawn-sh-at-startup "app2unit -s b -t service -- qs -c qs-dots"
 // spawn-at-startup "foot --server"
-spawn-sh-at-startup "app2unit -s b -t service -- elephant"
-spawn-sh-at-startup "app2unit -s b -t service -- walker --gapplication-service"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -425,10 +423,8 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "app2unit" "--" "terminal"; }
-    // Mod+Space { spawn "app2unit" "walker" "-m" "websearch"; }
     Mod+Space { spawn "app2unit" "tofi-web"; }
     // Mod+A { spawn-sh "tofi-drun --drun-launch=false --anchor=center | xargs --no-run-if-empty niri msg action spawn -- app2unit --"; }
-    Mod+D { spawn "walker"; }
     Mod+S { spawn "launch-menu"; }  // sklauncher
 
     // Example volume keys mappings for PipeWire & WirePlumber.
