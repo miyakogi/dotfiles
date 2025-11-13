@@ -168,6 +168,7 @@ if [ "$install_type" = "full" ]; then
 
     # launcher
     fuzzel
+    vicinae
 
     # keyring
     gnome-keyring
