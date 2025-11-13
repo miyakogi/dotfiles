@@ -2,7 +2,7 @@
 
 font-family = "Google Sans Code"
 font-family = "IBM Plex Sans JP"
-font-size = 16.5
+font-size = 15.0
 
 font-variation = "wght=300"
 font-variation-bold = "wght=600"
@@ -25,8 +25,8 @@ font-feature = +ss03
 # theme = Raycast_Dark
 # theme = Snazzy
 # theme = carbonfox-vivid-oled
-theme = Kanagawa Dragon
-background-opacity = 0.95
+theme = kanagawa-dragon
+background-opacity = 0.92
 
 command = fish
 
