@@ -304,13 +304,6 @@ workspace "logseq" {
 
 workspace "music" {
     open-on-output "HDMI-A-1"
-    layout {
-        struts {
-            bottom 4
-            left 256
-            right 256
-        }
-    }
 }
 
 workspace "main" {
