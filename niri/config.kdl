@@ -610,7 +610,7 @@ binds {
 
     Print { screenshot-screen; }
     Shift+Print { screenshot-window; }
-    Ctrl+Print { screenshot; }
+    Ctrl+Print { spawn "screenshot" "region"; }
 
     // Reload waybar
     Mod+Shift+R { spawn "systemctl" "--user" "reload" "waybar-niri.service"; }
