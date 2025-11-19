@@ -212,7 +212,7 @@ if [ "$install_type" = "full" ]; then
     ttf-unifont  # symbols
 
     # icon
-    beautyline
+    suru-plus-git
 
     # cursor
     vimix-cursors
