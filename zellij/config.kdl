@@ -144,15 +144,12 @@ keybinds clear-defaults=true {
         bind "Alt ]" { GoToNextTab; }
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Ctrl g" { SwitchToMode "locked"; }
-        bind "Alt h" { MoveFocusOrTab "right"; }
-        bind "Alt i" { MoveTab "left"; }
+        bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
         bind "Alt k" { MoveFocus "up"; }
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { MoveFocus "down"; }
         bind "Alt p" { NewPane; }
-        bind "Alt s" { MoveFocus "up"; }
-        bind "Alt t" { MoveFocusOrTab "left"; }
     }
     shared_except "locked" "session" {
         bind "Alt o" { SwitchToMode "session"; }
