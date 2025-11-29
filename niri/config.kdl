@@ -325,7 +325,7 @@ window-rule {
     match app-id="^[Ll]ogseq$"
     open-on-workspace "logseq"
     default-column-width { proportion 0.75; }
-    opacity 0.88
+    opacity 0.92
 }
 
 window-rule {
@@ -369,7 +369,7 @@ window-rule {
     match app-id="spotify-player$"
     open-on-workspace "music"
     open-maximized true
-    opacity 0.80
+    opacity 0.87
 }
 
 window-rule {
