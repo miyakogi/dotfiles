@@ -183,6 +183,7 @@ if [ "$install_type" = "full" ]; then
     
     # niri
     niri
+    swaybg
     xwayland-satellite
 
     # portal

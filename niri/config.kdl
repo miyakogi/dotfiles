@@ -242,6 +242,14 @@ layout {
 overview {
     zoom 0.80
     backdrop-color "#181616"
+
+    workspace-shadow {
+        // off
+        softness 40
+        spread 10
+        offset x=0 y=0
+        color "#ffffffaa"
+    }
 }
 
 // Add lines like this to spawn processes at startup.
@@ -400,6 +408,12 @@ window-rule {
         color "#a292a5"
     }
 }
+
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+spawn-sh-at-startup "app2unit -s b -t service -- swaybg -o '*' -m fill -i ~/.config/niri/overview.png"
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
