@@ -174,7 +174,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 1
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -182,10 +182,10 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#8ea4a2"
+        active-color "#900000"
 
         // Color of the ring on inactive monitors.
-        inactive-color "#524f67"
+        inactive-color "#666666"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -208,9 +208,9 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         // off
 
-        width 2
-        active-color "#8ea4a2"
-        inactive-color "#524f67"
+        width 1
+        active-color "#900000"
+        inactive-color "#666666"
 
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
@@ -222,8 +222,8 @@ layout {
         spread 3
         offset x=0 y=0
         draw-behind-window false
-        color "#c5c9c570"
-        inactive-color "#c5c9c520"
+        color "#90000090"
+        inactive-color "#66666690"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
