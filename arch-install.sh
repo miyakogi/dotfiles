@@ -168,7 +168,6 @@ if [ "$install_type" = "full" ]; then
 
     # launcher
     fuzzel
-    vicinae
 
     # keyring
     gnome-keyring
@@ -180,7 +179,7 @@ if [ "$install_type" = "full" ]; then
     hyprpaper
     hyprlock
     quickshell-git
-    
+
     # niri
     niri
     swaybg
