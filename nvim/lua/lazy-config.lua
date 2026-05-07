@@ -9,6 +9,7 @@ local plugins = {
 
   {
     'nvim-treesitter/nvim-treesitter',
+    brancyh = 'master',
     build = ':TSUpdate',
     config = function ()
       require('nvim-treesitter.configs').setup({
@@ -77,21 +78,6 @@ local plugins = {
   },
 
   -- ### File Management ###
-  {
-    'ggandor/leap.nvim',
-    dependencies = {
-      { 'tpope/vim-repeat' },
-    },
-    lazy = true,
-    keys = {
-      { 'f', '<Plug>(leap-forward-to)', mode = {'n', 'x', 'o'}, },
-      { 'F', '<Plug>(leap-backward-to)', mode = {'n', 'x', 'o'}, },
-    },
-    config = function()
-      require('leap').add_default_mappings()
-    end,
-  },
-
   -- git integration
   {
     'lewis6991/gitsigns.nvim',
@@ -508,10 +494,10 @@ local plugins = {
 
   -- highlight current word
   {
-    'RRethy/vim-illuminate',
+    'nvim-mini/mini.cursorword',
     config = function()
-      require('illuminate').configure({
-        delay = 30,  -- sway's key repeat rate = 36/s -> 27.8ms
+      require('mini.cursorword').setup({
+        delay = 30,
       })
     end,
   },
@@ -574,7 +560,7 @@ local plugins = {
 
   -- surround (parenthesis/quote/tab/etc...) control
   {
-    'echasnovski/mini.surround',
+    'nvim-mini/mini.surround',
     config = function()
       require('mini.surround').setup({})
     end,
