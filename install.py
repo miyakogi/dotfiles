@@ -153,7 +153,8 @@ def install_base() -> None:
     install(BASEDIR / "fish", CONFIG_HOME / "fish")
 
     # brush shell
-    install(BASEDIR / "brush", CONFIG_HOME / "brush")
+    install(BASEDIR / "brush" / "config.toml", CONFIG_HOME / "brush" / "config.toml")
+    install(BASEDIR / "brush" / "brushrc", HOME / ".brushrc")
 
     # git
     install(BASEDIR / "git" / "gitignore", HOME / ".gitignore_global")
