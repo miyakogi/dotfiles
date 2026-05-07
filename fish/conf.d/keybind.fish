@@ -20,7 +20,7 @@ function fish_user_key_bindings
     bind ctrl-f nextd-or-forward-word
 
     # disable C-d to close shell on terminal multiplexer
-    if [ -n "$ZELLIJ" ] || [ -n "$TMUX" ]
+    if [ -n "$ZELLIJ" ] || [ -n "$TMUX" ] || [ -n "$ZMX_SESSION" ]
       bind ctrl-d delete-char
     end
   end
