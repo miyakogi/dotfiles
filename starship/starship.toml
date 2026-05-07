@@ -3,6 +3,7 @@
 format = """
 $username\
 $hostname\
+${env_var.ZMX_SESSION}\
 ${custom.distrobox}\
 $shlvl\
 $directory\
@@ -55,6 +56,12 @@ format = "[$time]($style)"
 ssh_symbol = "󰬏 "
 style = "bold cyan"
 format = "[$ssh_symbol$hostname]($style) "
+
+[env_var.ZMX_SESSION]
+symbol = "󱇯 "
+format = "[$symbol$env_value]($style) "
+description = "zmx session name"
+style = "bold white"
 
 [shell]
 disabled = false
