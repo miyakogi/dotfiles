@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# alias / abbreviation
+alias -- :q=exit
+alias -- ln="ln -s -v"
+alias -- cp="cp -i"
+alias -- mv="mv -i"
+alias -- mkdir="mkdir -p"
+alias -- e="edit"
+alias -- n="nvim"
+alias -- h="hx"
+alias -- tl="tldr"
+alias -- gstatus="git status -s -b"
+
+# eza / ls
+alias -- ls='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso'
+alias -- la='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso -a'
+alias -- ll='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso -l'
+alias -- lla='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso -la'
+alias -- lt='eza --icons auto --git --group-directories-first --sort Filename --group --time-style long-iso --tree'
+
+# image
+case $TERM in
+  kitty|xterm-ghostty|xterm-rio)
+    alias -- img="kitten icat";;
+  wezterm)
+    alias -- img="wezterm imgcat";;
+esac
+
+# key-bind
+bind -x '"\C-y": cd ../'
+
+### Functions
+function edit() {
+  $EDITOR "$@"
+}
+
+# execute `ls` on `cd`
+_auto_ls() {
+  if [ "$PWD" != "$_LAST_PWD" ]; then
+    if [ -n "$_LAST_PWD" ]; then
+      ls
+    fi
+    _LAST_PWD="$PWD"
+  fi
+}
+PROMPT_COMMAND="_auto_ls${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+
+# startup
+if type macchina &>/dev/null; then
+  macchina
+fi

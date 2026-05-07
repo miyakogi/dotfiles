@@ -85,6 +85,7 @@ packages=(
   bash
   python
   fish
+  brush
   pkgfile  # faster fish command failure support
   man-db  # man command
 

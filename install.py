@@ -152,6 +152,9 @@ def install_base() -> None:
     # fish shell
     install(BASEDIR / "fish", CONFIG_HOME / "fish")
 
+    # brush shell
+    install(BASEDIR / "brush", CONFIG_HOME / "brush")
+
     # git
     install(BASEDIR / "git" / "gitignore", HOME / ".gitignore_global")
     install(BASEDIR / "git" / "gitconfig", HOME / ".gitconfig")
