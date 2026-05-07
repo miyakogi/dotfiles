@@ -20,10 +20,24 @@
 ### Load local settings
 test -f "${HOME}/.bashrc.local" && source "${HOME}/.bashrc.local"
 
+### atuin
+if type atuin &>/dev/null; then
+  eval "$(atuin init bash --disable-up-arrow)"
+fi
+
+### direnv
+if type direnv &>/dev/null; then
+  eval "$(direnv hook bash)"
+fi
+
+### zoxide
+if type zoxide &>/dev/null; then
+  eval "$(zoxide init bash)"
+fi
+
 ### Prompt
-# use startship only on graphical session
-if [ -n "$DISPLAY" ] && type starship &>/dev/null; then
-  eval "$(starship init bash)"
+if [[ $TERM != "dumb" ]] && type starship &>/dev/null; then
+  eval "$(starship init bash --print-full-init)"
 fi
 
 # vim: sw=2 et ft=bash
