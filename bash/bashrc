@@ -20,6 +20,11 @@
 ### Load local settings
 test -f "${HOME}/.bashrc.local" && source "${HOME}/.bashrc.local"
 
+### zmx completion
+if command -v zmx &> /dev/null; then
+  eval "$(zmx completions bash)"
+fi
+
 ### atuin
 if type atuin &>/dev/null; then
   eval "$(atuin init bash --disable-up-arrow)"
