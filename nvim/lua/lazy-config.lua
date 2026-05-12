@@ -7,22 +7,6 @@ local plugins = {
     lazy = true,
   },
 
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-  },
-
-  {
-    'nvim-treesitter/playground',
-    dependencies = {
-      { 'nvim-treesitter/nvim-treesitter' },
-    },
-    lazy = true,
-    cmd = {
-      'TSHighlightCapturesUnderCursor',
-    },
-  },
-
   -- ### File Management ###
   -- git integration
   {
