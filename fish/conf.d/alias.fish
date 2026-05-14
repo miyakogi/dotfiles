@@ -9,11 +9,12 @@ abbr --add --global c "cd"
 # short ls
 abbr --add --global l "ls"
 
-# mv -i (ask on overwrite)
-abbr --add --global mv "mv -i"
+# mv/cp -i (ask on overwrite)
+alias cp "cp -i"
+alias mv "mv -i"
 
 # mkdir -p
-abbr --add --global mkdir "mkdir -p"
+alias mkdir "mkdir -p"
 
 # ln -v
 abbr --add --global ln "ln -v -s"
