@@ -518,14 +518,6 @@ local plugins = {
     end,
   },
 
-  -- comment plugin
-  {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup({})
-    end,
-  },
-
   -- status line
   {
     'nvim-lualine/lualine.nvim',
