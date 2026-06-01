@@ -1,3 +1,0 @@
-export TERMINAL=kitty
-
-export WALKER_LAUNCH_PREFIX="niri msg action spawn app2unit -- "

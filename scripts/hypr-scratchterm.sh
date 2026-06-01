@@ -7,11 +7,7 @@ else
 fi
 
 get_term_address() {
-  if [ "$TERMINAL" = "rio" ]; then
-    hyprctl clients -j | jq '.[] | select(.title | test("'"$class"'")) | .address' ||true
-  else
-    hyprctl clients -j | jq '.[] | select(.class | test("'"$class"'")) | .address' ||true
-  fi
+  hyprctl clients -j | jq '.[] | select(.class | test("'"$class"'")) | .address' || true
 }
 
 is_exist() {
@@ -57,4 +53,4 @@ if ! is_exist; then
   fi
 fi
 
-hyprctl dispatch togglespecialworkspace "$class"
+hyprctl dispatch "hl.dsp.workspace.toggle_special(\"$class\")"

@@ -20,7 +20,7 @@ for i in $workspaces; do
   done
   if [ "$exist" = false ]; then
     # hyprctl dispatch workspace "name:$i"
-    hyprctl dispatch workspace "$i"
+    hyprctl dispatch "hl.dsp.focus({workspace=$i})"
     break
   fi
 done

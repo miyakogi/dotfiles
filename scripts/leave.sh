@@ -47,15 +47,27 @@ _hibernate() {
 }
 
 _exit() {
-  uwsm stop
+  if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
+    hyprshutdown
+  else
+    uwsm stop || niri msg action quit || hyprctl dispatch 'hl.dsp.exet()'
+  fi
 }
 
 _reboot() {
-  systemctl reboot
+  if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
+    hyprshutdown --top-level 'Restarting' --post-cmd 'systemctl reboot'
+  else
+    systemctl reboot
+  fi
 }
 
 _shutdown() {
-  systemctl poweroff -i
+  if [ "$XDG_CURRENT_DESKTOP" = Hyprland ]; then
+    hyprshutdown --top-level 'Shutting Down' --post-cmd 'systemctl poweroff -i'
+  else
+    systemctl poweroff -i
+  fi
 }
 
 case $RET in
