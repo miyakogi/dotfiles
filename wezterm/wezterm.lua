@@ -3,16 +3,25 @@ local wezterm = require('wezterm')
 local search_mode_keys = wezterm.gui.default_key_tables().search_mode
 local act = wezterm.action
 
-local font_default = 'Google Sans Code'
+local font_default = 'Lilex'
 local font_jp = 'IBM Plex Sans JP'
+local font_nerd = 'Symbols Nerd Font'
 local weight_normal = 'Light'
 local weight_bold = 'Medium'
+local harfbuzz_features = {
+  'cv08',  -- alt equality
+  'cv11',  -- connected bar / triangle
+  'cv15',  -- # with crossbars
+}
+
 local font = wezterm.font_with_fallback({
   {
     family =  font_default,
     weight = weight_normal,
+    harfbuzz_features = harfbuzz_features,
   },
   font_jp,
+  font_nerd,
 })
 local font_rules = {
   {
@@ -22,9 +31,11 @@ local font_rules = {
       {
         family = font_default,
         weight = weight_normal,
+        harfbuzz_features = harfbuzz_features,
         style = 'Italic',
       },
       font_jp,
+      font_nerd,
     })
   },
   {
@@ -34,8 +45,10 @@ local font_rules = {
       {
         family = font_default,
         weight = weight_bold,
+        harfbuzz_features = harfbuzz_features,
       },
       font_jp,
+      font_nerd,
     })
   },
   {
@@ -45,9 +58,11 @@ local font_rules = {
       {
         family = font_default,
         weight = weight_bold,
+        harfbuzz_features = harfbuzz_features,
         style = 'Italic',
       },
       font_jp,
+      font_nerd,
     })
   },
 }
@@ -109,7 +124,8 @@ return {
 
   -- Tab bar
   use_fancy_tab_bar = false,
-  color_scheme = 'Kanagawa Dragon (Gogh)',
+  color_scheme = 'Black Metal (base16)',
+  -- color_scheme = 'Kanagawa Dragon (Gogh)',
 
   hide_tab_bar_if_only_one_tab = true,
 
@@ -143,8 +159,12 @@ return {
   skip_close_confirmation_for_processes_named = {
     'bash',
     'sh',
+    'brush',
     'zsh',
     'fish',
+    'ssh',
     'zellij',
+    'zmx',
+    'spotify_player',
   },
 }
