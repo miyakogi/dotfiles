@@ -291,6 +291,9 @@ def install_desktop() -> None:
     # mako notification daemon
     install(BASEDIR / "mako", CONFIG_HOME / "mako")
 
+    # sway notification center
+    install(BASEDIR / "swaync", CONFIG_HOME / "swaync")
+
     # swappy
     install(BASEDIR / "swappy", CONFIG_HOME / "swappy")
 

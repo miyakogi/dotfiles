@@ -1,1 +1,2 @@
+export TERMINAL=wezterm
 export AQ_NO_MODIFIERS=1

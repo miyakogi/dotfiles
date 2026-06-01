@@ -166,6 +166,7 @@ if [ "$install_type" = "full" ]; then
     xorg-xwayland
     kvantum  # qt theme setting
     qt6ct  # qt theme setting (choose kvantum)
+    swaync
 
     # launcher
     fuzzel
@@ -205,6 +206,7 @@ if [ "$install_type" = "full" ]; then
 
     # font
     ttf-google-sans-code-vf  # monospace font
+    ttf-lilex  # monospace font
     ttf-ibm-plex  # default jp sans-serif font
     ttf-nerd-fonts-symbols
     noto-font  # non-latin character

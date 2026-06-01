@@ -7,7 +7,7 @@
   "height": 32,  // 1 + tray icon + 1
   "modules-left": ["custom/os", "hyprland/workspaces", "niri/workspaces"],
   "modules-center": ["custom/media"],
-  "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "systemd-failed-units", "tray"],
+  "modules-right": ["custom/idle", "custom/mic", "custom/ff-volume", "clock", "custom/swaync", "tray", "systemd-failed-units"],
   "custom/os": {
     "exec": "echo \"󰣇 Arch Linux\"",
     "format": "{}",
@@ -26,6 +26,26 @@
     "format": "  {:%a %d %b %Y 󰅐 %H:%M:%S}",
     "tooltip": false,
     "interval": 1,
+  },
+  "custom/swaync" : {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
   },
   "systemd-failed-units": {
     "hide-on-ok": false,
