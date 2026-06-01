@@ -231,7 +231,6 @@ def install_desktop() -> None:
     install(SCRIPTSDIR / "bw-launch.sh", BINDIR / "bw-launch")
     install(SCRIPTSDIR / "temperature.sh", BINDIR / "temperature")
     install(SCRIPTSDIR / "terminal.sh", BINDIR / "terminal")
-    install(SCRIPTSDIR / "launch-logseq.sh", BINDIR / "launch-logseq")
     install(SCRIPTSDIR / "screenshot.sh", BINDIR / "screenshot")
     install(SCRIPTSDIR / "tofi-web.sh", BINDIR / "tofi-web")
 
@@ -327,9 +326,6 @@ def install_desktop() -> None:
 
     # for Niri
     install_service("waybar-niri.service")
-
-    # Logseq
-    install_service("logseq.service")
 
 
 def install_other_home() -> None:

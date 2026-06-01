@@ -304,10 +304,6 @@ animations {
     // block-out-from "screencast"
 }
 
-workspace "logseq" {
-    open-on-output "DP-1"
-}
-
 workspace "music" {
     open-on-output "HDMI-A-1"
 }
@@ -325,13 +321,6 @@ window-rule {
     geometry-corner-radius 24
     clip-to-geometry true
     draw-border-with-background false
-}
-
-window-rule {
-    match app-id="^[Ll]ogseq$"
-    open-on-workspace "logseq"
-    default-column-width { proportion 0.75; }
-    opacity 0.92
 }
 
 window-rule {
@@ -576,9 +565,6 @@ binds {
 
     // Switches focus between the current and the previous workspace.
     Mod+Tab { focus-workspace-previous; }
-
-    // Switches to Logseq
-    Mod+E { focus-workspace "logseq"; }
 
     // Open dropdown terminal
     F2 { spawn "app2unit" "kitten" "quick_access_terminal" "--override" "lines=42"; }
