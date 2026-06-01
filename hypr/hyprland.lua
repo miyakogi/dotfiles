@@ -66,8 +66,7 @@ hl.config({
 -- https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
   -- polkit
-  -- hl.exec_cmd("hyprctl dispatch exec " .. os.getenv("HOME") .. "/.nix-profile/libexec/hyprpolkitagent")
-  hl.exec_cmd(run .. " -s b -t service -- " .. os.getenv("HOME") .. "/.nix-profile/libexec/hyprpolkitagent")
+  hl.exec_cmd(run .. " -s b -t service -- /lib/hyprpolkitagent/hyprpolkitagent")
 
   -- Status Bar
   hl.exec_cmd(run .. " -s b -a qs -t service -- qs -c qs-dots")
@@ -75,9 +74,6 @@ hl.on("hyprland.start", function()
 
   -- Wallpaper
   hl.exec_cmd(run .. " -s b -a hyprpaper -t service -- hyprpaper")
-
-  -- E-mail
-  hl.exec_cmd(run .. " -s b -t service -a tutanota -- flatpak run com.tutanota.Tutanota")
 
   -- Notification
   -- hl.exec_cmd(run .. " -s b -t service -- mako")

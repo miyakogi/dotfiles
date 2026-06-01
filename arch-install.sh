@@ -180,6 +180,8 @@ if [ "$install_type" = "full" ]; then
     hypridle
     hyprpaper
     hyprlock
+    hyprshutdown
+    hyprpolkitagent
     quickshell-git
 
     # niri
