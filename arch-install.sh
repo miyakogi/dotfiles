@@ -209,6 +209,7 @@ if [ "$install_type" = "full" ]; then
     # font
     ttf-google-sans-code-vf  # monospace font
     ttf-lilex  # monospace font
+    ttf-lilex-nerd  # monospace font for kitty terminal
     ttf-ibm-plex  # default jp sans-serif font
     ttf-nerd-fonts-symbols
     noto-font  # non-latin character
